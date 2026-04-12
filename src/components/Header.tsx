@@ -16,7 +16,7 @@ function NavUl() {
 			</li>
 			<li className="drop" aria-expanded="false">
 				<a className="droplink drop_toggle dswh" tabIndex={-1}>
-					MyWorks
+					Works
 					<CaretDownIcon className="dropIcon ml-1" />
 				</a>
 				<button

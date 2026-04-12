@@ -26,7 +26,7 @@ export function Footer({ className }: FooterProps) {
 						target="_blank"
 						rel="noopener noreferrer"
 					>
-						MyWorks
+						Works
 					</a>
 					<a
 						href="https://github.com/yuremono/BurnYourOwnStyle/tree/react"

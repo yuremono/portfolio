@@ -47,7 +47,7 @@ function Preview() {
 							AI Native
 						</span>
 						<br />
-						environment
+						Development
 					</h1>
 					<Panel className="StickScr IsFlow img30  text-sm BorderDraw IsDown [--MY:0px]">
 						<PanelItem className="items-center BorderDraw">
@@ -285,10 +285,8 @@ function Preview() {
 							</Toggle>
 							<Toggle className="">
 								<ToggleSummary>
-									<h3>
 										pencil.dev
 										を使ったデザイン再現、デザイン作成について
-									</h3>
 								</ToggleSummary>
 								<ToggleBody>
 									デザインからコード、コードからデザインは"注意事項"を充実させればかなり高精度で実現できました。
@@ -297,7 +295,7 @@ function Preview() {
 							</Toggle>
 							<Toggle className="">
 								<ToggleSummary>
-									<h3>vibe design について</h3>
+									vibe design について
 								</ToggleSummary>
 								<ToggleBody>
 									OpenAI,Claude

@@ -6,6 +6,7 @@ interface ImageProps {
 	image?: string
 	className?: string
 	style?: React.CSSProperties
+	alt?: string
 }
 
 interface ImageSvgProps {
@@ -18,10 +19,10 @@ interface ImageSvgProps {
 const svgCache: Record<string, string> = {}
 
 /** 通常画像用 */
-const Image = ({ image, style, className = "" }: ImageProps) => {
+const Image = ({ image, style, className = "", alt = "" }: ImageProps) => {
 	return (
 		<figure className={className} style={style}>
-			{image && <img src={image} alt="" loading="lazy" />}
+			{image && <img src={image} alt={alt} loading="lazy" />}
 		</figure>
 	)
 }

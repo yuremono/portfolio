@@ -5,7 +5,7 @@ import {
 	Moon,
 	Sun,
 } from "@phosphor-icons/react";
-import { Header } from "../components/Header";
+import Header from "../components/Header";
 import { useClientRuntime } from "../hooks/useClientRuntime";
 import { getAssetPath } from "../lib/assetPath";
 import { usePage } from "../hooks/usePage";
@@ -34,26 +34,31 @@ function Next() {
 
 	return (
 		<>
-			<Header />
+			<div ref={ref} className={`MINDMAP${dark ? " dark" : ""}`}>
+				<Header className="" />
 
-			<div
-				ref={ref}
-				className={`cmsShowcase${dark ? " dark" : ""}`}
-			>
 				<button
 					type="button"
-					className="ncThemeToggle"
+					className="ThemeToggle"
 					aria-label="Toggle dark mode"
 					onClick={toggleTheme}
 				>
 					{dark ? (
-						<Sun className="text-amber-400" weight="regular" aria-hidden />
+						<Sun
+							className="text-amber-400"
+							weight="regular"
+							aria-hidden
+						/>
 					) : (
-						<Moon className="text-zinc-700" weight="regular" aria-hidden />
+						<Moon
+							className="text-zinc-700"
+							weight="regular"
+							aria-hidden
+						/>
 					)}
 				</button>
 
-				<main className="ncMain min-h-screen ">
+				<main className=" min-h-screen ">
 					<section className="HtmlContent mindMap out text-center about fontJost font-thin">
 						<p
 							className="mmPin about_p txgr fw300 text-center"
@@ -71,7 +76,10 @@ function Next() {
 						<p className="mm1-2" style={{ fontSize: "4em" }}>
 							Generate
 						</p>
-						<p className="hidden lg:inline-block mm2-9" style={{ fontSize: "5em" }}>
+						<p
+							className="hidden lg:inline-block mm2-9"
+							style={{ fontSize: "5em" }}
+						>
 							Web
 						</p>
 						<p className="mm10-6" style={{ fontSize: "4em" }}>
@@ -84,7 +92,10 @@ function Next() {
 					</div>
 
 					<section className="HtmlContent mindMap out text-center knowledge fontJost font-thin mt-0">
-						<h2 className="mm1-3 txgr fw300 text-left" style={{ fontSize: "3em" }}>
+						<h2
+							className="mm1-3 txgr fw300 text-left"
+							style={{ fontSize: "3em" }}
+						>
 							Knowledge
 							<br />
 							and
@@ -93,12 +104,15 @@ function Next() {
 						</h2>
 						<span className="mmPin knowledge_tx text-left fontZen mmStatic">
 							このページはオリジナルCMSのトップページです。
-							<br/><br/>
+							<br />
+							<br />
 							アプリ開発、UX設計を経験するために作成しました。
 							<br />
 							公開サイトの editor で全コンテンツを編集しています。
 							<br />
-							<span className="text-xs leading-none">閲覧pass/view</span>
+							<span className="text-xs leading-none">
+								閲覧pass/view
+							</span>
 							<br />
 							主要技術： Next.js TypeScript Tailwind CSS supabase
 							<br />
@@ -108,23 +122,33 @@ function Next() {
 								target="_blank"
 								rel="noopener noreferrer"
 							>
-								<span style={{ fontSize: "1.25em" }}>/ </span>editor
+								<span style={{ fontSize: "1.25em" }}>/ </span>
+								editor
 							</a>
 						</span>
 
 						<p style={{ fontSize: "2em" }}>Cursor</p>
 						<p style={{ fontSize: "2em" }}>Claude Code</p>
-						<p className="hidden lg:inline-block" style={{ fontSize: "1em" }}>
+						<p
+							className="hidden lg:inline-block"
+							style={{ fontSize: "1em" }}
+						>
 							context/harness
 							<br />
 							engineering
 						</p>
 						<p style={{ fontSize: "1.5em" }}>TailwindCSS</p>
-						<p className="hidden lg:inline-block" style={{ fontSize: "1.5em" }}>
+						<p
+							className="hidden lg:inline-block"
+							style={{ fontSize: "1.5em" }}
+						>
 							canvasAPI
 						</p>
 						<p style={{ fontSize: "1.5em" }}>Codex</p>
-						<p className="hidden lg:inline-block" style={{ fontSize: "1.5em" }}>
+						<p
+							className="hidden lg:inline-block"
+							style={{ fontSize: "1.5em" }}
+						>
 							Pencil.dev
 						</p>
 						<p className="mmPin knowledge_bottom txbk">
@@ -153,12 +177,15 @@ function Next() {
 							<div className="budoux">
 								<h3>AI Native Development</h3>
 								<br />
-								個人のスタイルシステム（クラス、変数、スタイリングの癖）を元に、Claude Code・Cursor
+								個人のスタイルシステム（クラス、変数、スタイリングの癖）を元に、Claude
+								Code・Cursor
 								等エージェント向けドキュメントを充実させることで、Web
 								制作の全工程をAI前提で進める為のプロジェクト。
 								<br />
 								<details className="Toggle IsSmall mt-4">
-									<summary className="fontJost">Thinking...</summary>
+									<summary className="fontJost">
+										Thinking...
+									</summary>
 									<div>
 										- LLM
 										の学習データに基づくwebデザイン・コーディングは平均的で、振れ幅の大きい、標準ではないものであり、個人のマークアップ、スタイリングとかけ離れたものになる。
@@ -172,7 +199,10 @@ function Next() {
 									target="_blank"
 									rel="noopener noreferrer"
 								>
-									<span style={{ fontSize: "1.25em" }}>// </span>BYOS
+									<span style={{ fontSize: "1.25em" }}>
+										//{" "}
+									</span>
+									BYOS
 								</a>
 							</div>
 						</div>
@@ -180,14 +210,20 @@ function Next() {
 
 					<section className="Cards col2  items-center">
 						<div className="item">
-							<div className="relative w-full ADCMS" style={{ aspectRatio: "80/39", minHeight: "auto" }}>
+							<div
+								className="relative w-full ADCMS"
+								style={{
+									aspectRatio: "80/39",
+									minHeight: "auto",
+								}}
+							>
 								<video
 									className="absolute inset-0 h-full w-full object-cover"
 									src={getAssetPath(media.video1)}
 									muted
 									loop
-                                                                        playsInline
-                                                                        controls
+									playsInline
+									controls
 									aria-label="Card 1"
 								/>
 							</div>
@@ -195,7 +231,7 @@ function Next() {
 						</div>
 						<div className="item content-center">
 							<div className="budoux">
-								<h2 className="mindWobble fw100 text-center leading-[0.6em]" >
+								<h2 className="mindWobble fw100 text-center leading-[0.6em]">
 									<span style={{ fontSize: "0.625em" }}>
 										Agent Driven
 										<br />
@@ -204,12 +240,15 @@ function Next() {
 								</h2>
 								<br />
 								<br />
-								Codex app-server または Claude Code をNext.jsのNode
+								Codex app-server または Claude Code
+								をNext.jsのNode
 								runtime経由で中継し、ブラウザから自然言語でサイト編集を行うローカルCMS
 								<br />
 								<div>
 									<details className="Toggle IsSmall mt-4">
-										<summary className="fontJost">Detail...</summary>
+										<summary className="fontJost">
+											Detail...
+										</summary>
 										<div>
 											動機：AI時代にクライアントが求めるのは
 											<br />
@@ -232,7 +271,10 @@ function Next() {
 									target="_blank"
 									rel="noopener noreferrer"
 								>
-									<span style={{ fontSize: "1.25em" }}>// </span>ADCMS
+									<span style={{ fontSize: "1.25em" }}>
+										//{" "}
+									</span>
+									ADCMS
 								</a>
 							</div>
 						</div>
@@ -240,8 +282,10 @@ function Next() {
 
 					<section className="HtmlContent out text-center creative font-thin">
 						<div id="Demos" />
-						<h2 className="mindWobble fw100 " >
-							<span style={{ fontSize: "0.75em" }}>Creative Demos</span>
+						<h2 className="mindWobble fw100 ">
+							<span style={{ fontSize: "0.75em" }}>
+								Creative Demos
+							</span>
 						</h2>
 						<a
 							className="block"
@@ -250,8 +294,14 @@ function Next() {
 							rel="noopener noreferrer"
 						>
 							<div className="creative_bottom flex flex-wrap items-center justify-center gap-1">
-								<span>実務で制作したクリエイティブコンテンツの再現デモ集</span>
-								<ArrowSquareOut className=" shrink-0" aria-hidden weight="regular" />
+								<span>
+									実務で制作したクリエイティブコンテンツの再現デモ集
+								</span>
+								<ArrowSquareOut
+									className=" shrink-0"
+									aria-hidden
+									weight="regular"
+								/>
 							</div>
 						</a>
 					</section>
@@ -281,7 +331,9 @@ function Next() {
 									<br />
 									<div>
 										<details className="Toggle IsSmall mt-4">
-											<summary className="fontJost">Thinking...</summary>
+											<summary className="fontJost">
+												Thinking...
+											</summary>
 											<div>
 												大手3社(OpenAI,Google,Anthropic)の公式webアプリでなんでもできちゃうけど使い分けると管理が大変なことの解決策及びNano
 												Bananaが話題になりマルチプラットフォーム共有に価値があると考えたがCORSが厳しく一定期間で閲覧不可に...(画像を保存することの自動化が制限されているため手動保存が必要)
@@ -294,7 +346,10 @@ function Next() {
 										target="_blank"
 										rel="noopener noreferrer"
 									>
-										<span style={{ fontSize: "1.25em" }}>// </span>ChatKanban
+										<span style={{ fontSize: "1.25em" }}>
+											//{" "}
+										</span>
+										ChatKanban
 									</a>
 								</div>
 							</div>
@@ -326,7 +381,9 @@ function Next() {
 									<br />
 									<div className="ltr text-right">
 										<details className="Toggle IsSmall mt-4">
-											<summary className="fontJost">Thinking...</summary>
+											<summary className="fontJost">
+												Thinking...
+											</summary>
 											<div>
 												大手3社(OpenAI,Google,Anthropic)の公式webアプリでなんでもできちゃうけど使い分けると管理が大変なことの解決策及びNano
 												Bananaが話題になりマルチプラットフォーム共有に価値があると考えたがCORSが厳しく一定期間で閲覧不可に...(画像を保存することの自動化が制限されているため手動保存が必要)
@@ -339,7 +396,10 @@ function Next() {
 										target="_blank"
 										rel="noopener noreferrer"
 									>
-										<span style={{ fontSize: "1.25em" }}>// </span>ChatKanban
+										<span style={{ fontSize: "1.25em" }}>
+											//{" "}
+										</span>
+										ChatKanban
 									</a>
 								</div>
 							</div>
@@ -349,17 +409,21 @@ function Next() {
 					<section className="Cards col2  rtl hidden">
 						<div className="item content-center">
 							<div className="budoux text-center">
-								<h2 className="mindWobble fw100 text-left" >
-									<span style={{ fontSize: "0.75em" }}>CSS Talk</span>
+								<h2 className="mindWobble fw100 text-left">
+									<span style={{ fontSize: "0.75em" }}>
+										CSS Talk
+									</span>
 								</h2>
 								<br />
 								<br />
 								<div className="ltr text-left">
-									WindowsOS,MacOS,iphoneなど標準の音声入力で変換される正確ではないテキストを CSS
-									プロパティに変換する VS Code 拡張。
+									WindowsOS,MacOS,iphoneなど標準の音声入力で変換される正確ではないテキストを
+									CSS プロパティに変換する VS Code 拡張。
 									<br />
-									<br />- OpenAi APIキー必須、システムプロンプト編集
-									<br />- 登録モードで CSS クラスや変数を辞書登録
+									<br />- OpenAi
+									APIキー必須、システムプロンプト編集
+									<br />- 登録モードで CSS
+									クラスや変数を辞書登録
 									<br />
 									<br />
 									<a
@@ -368,13 +432,22 @@ function Next() {
 										target="_blank"
 										rel="noopener noreferrer"
 									>
-										<span style={{ fontSize: "1.25em" }}>// </span>CSS Talk
+										<span style={{ fontSize: "1.25em" }}>
+											//{" "}
+										</span>
+										CSS Talk
 									</a>
 								</div>
 							</div>
 						</div>
 						<div className="item text-center">
-							<div className="relative w-full" style={{ aspectRatio: "16/9", minHeight: "auto" }}>
+							<div
+								className="relative w-full"
+								style={{
+									aspectRatio: "16/9",
+									minHeight: "auto",
+								}}
+							>
 								<video
 									className="absolute inset-0 h-full w-full object-cover"
 									src={getAssetPath(media.video2)}
@@ -394,7 +467,7 @@ function Next() {
 					</div>
 
 					<div
-						className="DescList DescList dl_center out into Wrap bg-black text-white bg-no-repeat bg-contain bg-left-bottom"
+						className="DescList DescList dl_center out into Wrap bg-[--foreground] text-[--background] bg-no-repeat bg-contain bg-left-bottom"
 						style={{
 							backgroundImage: `url(${getAssetPath(media.descBg)})`,
 						}}
@@ -424,7 +497,10 @@ function Next() {
 					</div>
 
 					<div className="ImgText  grid-cols-1 items-center gap-8 md:grid-cols-2 ImgText hidden">
-						<div className="relative" style={{ aspectRatio: "329/432" }}>
+						<div
+							className="relative"
+							style={{ aspectRatio: "329/432" }}
+						>
 							<img
 								alt="Section Image"
 								loading="lazy"
@@ -440,9 +516,15 @@ function Next() {
 						</div>
 					</div>
 
-					<div className="hidden" style={{ "--gap": "40px" } as CSSProperties} />
+					<div
+						className="hidden"
+						style={{ "--gap": "40px" } as CSSProperties}
+					/>
 
-					<section className="Form Form hidden" style={{ "--base": "1200px" } as CSSProperties}>
+					<section
+						className="Form Form hidden"
+						style={{ "--base": "1200px" } as CSSProperties}
+					>
 						<div className="mb-8">
 							<h2>お問い合わせ</h2>
 							<p>以下のフォームよりおください。</p>
@@ -452,7 +534,10 @@ function Next() {
 							onSubmit={onContactSubmit}
 						>
 							<div className="mb-4">
-								<label htmlFor="nc-name" className="mb-2 block font-medium">
+								<label
+									htmlFor="nc-name"
+									className="mb-2 block font-medium"
+								>
 									お名前
 								</label>
 								<input
@@ -464,7 +549,10 @@ function Next() {
 								/>
 							</div>
 							<div className="mb-4">
-								<label htmlFor="nc-email" className="mb-2 block font-medium">
+								<label
+									htmlFor="nc-email"
+									className="mb-2 block font-medium"
+								>
 									メールアドレス
 								</label>
 								<input
@@ -476,7 +564,10 @@ function Next() {
 								/>
 							</div>
 							<div className="mb-4">
-								<label htmlFor="nc-message" className="mb-2 block font-medium">
+								<label
+									htmlFor="nc-message"
+									className="mb-2 block font-medium"
+								>
 									メッセージ
 								</label>
 								<textarea
@@ -489,7 +580,12 @@ function Next() {
 							</div>
 							<div className="mb-4">
 								<label className="flex items-center gap-2">
-									<input type="checkbox" className="mr-0" required name="privacy" />
+									<input
+										type="checkbox"
+										className="mr-0"
+										required
+										name="privacy"
+									/>
 									<span>プライバシーポリシーに同意する</span>
 								</label>
 							</div>
@@ -512,7 +608,11 @@ function Next() {
 							<div>
 								<h2>🤖 AIエージェント</h2>
 								<p>
-									このセクションは<strong>AIエージェントによって自動生成</strong>されました。
+									このセクションは
+									<strong>
+										AIエージェントによって自動生成
+									</strong>
+									されました。
 								</p>
 								<p>
 									CMSシステムのAI機能により、セクションの追加から内容の入力まで、全て自動化されています。

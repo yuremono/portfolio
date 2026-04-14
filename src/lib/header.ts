@@ -9,18 +9,19 @@ export function initHeader(root: Document | Element = document): RuntimeDisconne
 	const doc = root instanceof Document ? root : root.ownerDocument!;
 	const base = root;
 
-	const menu = base.querySelector<HTMLButtonElement>(".h_menu");
-	const navPc = base.querySelector<HTMLElement>(".h_nav");
-	const navLinks = base.querySelectorAll<HTMLAnchorElement>(".h_nav a");
-	const nSp = doc.querySelector<HTMLElement>("#navsp");
-	const nUl = doc.querySelector<HTMLElement>("#navsp ul");
+	const menu = base.querySelector<HTMLButtonElement>(".HeaderMenu");
+	const navPc = base.querySelector<HTMLElement>(".HeaderNav");
+	const navLinks = base.querySelectorAll<HTMLAnchorElement>(".HeaderNav a");
+	const nSp = doc.querySelector<HTMLElement>("#HeaderNavMobile");
+	const nUl = doc.querySelector<HTMLElement>("#HeaderNavMobile ul");
 	const toggleBtns = base.querySelectorAll<HTMLElement>(
-		".menu_toggle, .nav a:not(.nopointer,.drop_toggle)",
+		".MenuToggle, .HeaderNavMobile a:not(.nopointer,.drop_toggle)",
 	);
-	const contactLinks = base.querySelectorAll<HTMLAnchorElement>(".h_items a");
+	const contactLinks =
+		base.querySelectorAll<HTMLAnchorElement>(".HeaderItems a");
 	const dropToggles = base.querySelectorAll<HTMLElement>(".drop_toggle");
-	const header = doc.querySelector<HTMLElement>("#header");
-	const focusTrap = base.querySelector<HTMLElement>(".focus_trap");
+	const header = doc.querySelector<HTMLElement>("#Header");
+	const focusTrap = base.querySelector<HTMLElement>(".FocusTrap");
 
 	if (!menu || !navPc || !nSp || !nUl || !header) {
 		return { disconnect: () => {} };

@@ -2,7 +2,7 @@
  * クライアント側の DOM 初期化を一括実行（フレームワーク非依存）
  */
 
-import { initBorderDraw } from "./initBorderDraw";
+import { initBorderDraw } from "./effects/initBorderDraw";
 import { initBudoux } from "./budoux";
 import { initHeader } from "./header";
 import { initHeaderTrans } from "./headerTrans";
@@ -10,7 +10,7 @@ import { initIntersectionShow } from "./intersectionShow";
 import { initScrollX } from "./scrollX";
 import { initSpanWrap } from "./spanWrap";
 import { initVideo } from "./video";
-import { setupRgbShift } from "./rgbShift";
+import { setupRgbShift } from "./effects/rgbShift";
 
 export type RuntimeDisconnect = { disconnect: () => void };
 

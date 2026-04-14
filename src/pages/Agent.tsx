@@ -2,19 +2,22 @@ import { useEffect } from "react";
 
 import CanvasEffectLayer from "../features/donuts/CanvasEffectLayer";
 import EffectWarpDefs from "../features/donuts/EffectWarpDefs";
-import AgentHeader from "../features/donuts/AgentHeader";
+import Header from "../components/Header";
+import { useClientRuntime } from "../hooks/useClientRuntime";
+
 import RingScrollShowcase from "../features/donuts/RingScrollShowcase";
 
 import "../scss/Agent.scss";
 
 export default function Agent() {
+	useClientRuntime();
 	useEffect(() => {
 		const root = document.documentElement;
 		const { body } = document;
-		root.classList.add("agent-cms-active");
+		root.classList.add("Donuts");
 		body.classList.add("siteBody");
 		return () => {
-			root.classList.remove("agent-cms-active");
+			root.classList.remove("Donuts");
 			body.classList.remove("siteBody");
 		};
 	}, []);
@@ -23,7 +26,7 @@ export default function Agent() {
 		<>
 			<EffectWarpDefs />
 			<CanvasEffectLayer />
-			<AgentHeader />
+			<Header className="Triangle" />
 			<RingScrollShowcase />
 		</>
 	);

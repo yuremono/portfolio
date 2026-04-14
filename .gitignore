@@ -41,6 +41,8 @@ css/
 
 
 # Temporary files
+tasks/
+tmp/
 *.tmp
 *.bak
 

@@ -1,7 +1,6 @@
 // CustomClass components
 import { Panel, PanelItem } from "../components/Panel";
 import { Cards, CardsItem } from "../components/Cards";
-import { ImgText } from "../components/ImgText";
 import { Toggle, ToggleSummary, ToggleBody } from "../components/Toggle";
 import { Image } from "../components/Image";
 // import { RgbShift } from "../components/RgbShift";
@@ -9,7 +8,7 @@ import { PathDraw } from "../components/PathDraw";
 import { LottieScroll } from "../components/LottieScroll";
 
 // Common
-import { Header } from "../components/Header";
+import Header from "../components/Header";
 import { Footer } from "../components/Footer";
 import { useClientRuntime } from "../hooks/useClientRuntime";
 import { getAssetPath } from "../lib/assetPath";
@@ -19,7 +18,7 @@ function Examples() {
 
 	return (
 		<>
-			<Header />
+			<Header className="" />
 
 			<main className="mt-[--head]">
 				<section className="out Stick IsColumn mt-[--Nhead]">
@@ -62,15 +61,42 @@ function Examples() {
 				{/* PathDraw */}
 				<section className="">
 					<h2>PathDraw</h2>
-                                        <p>スクロール連動 SVG パス描画アニメーション。</p>
-                                        <svg viewBox="0 0 100 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" >
-<rect x="86.15" y="23.2" width="25.7" height="25.7" fill="var(--GR50)" />
-<rect x="39.95" y="-8.725" width="26.9" height="40.35" fill="var(--GR50)" />
-<rect x="-14.3" y="-4.9" width="30" height="20" fill="var(--GR50)" />
-<rect x="79.35" y="-1.4" width="20.9" height="20.9" fill="var(--GR50)" />
-</svg>
-					
-					
+					<p>スクロール連動 SVG パス描画アニメーション。</p>
+					<svg
+						viewBox="0 0 100 50"
+						preserveAspectRatio="none"
+						xmlns="http://www.w3.org/2000/svg"
+					>
+						<rect
+							x="86.15"
+							y="23.2"
+							width="25.7"
+							height="25.7"
+							fill="var(--GR50)"
+						/>
+						<rect
+							x="39.95"
+							y="-8.725"
+							width="26.9"
+							height="40.35"
+							fill="var(--GR50)"
+						/>
+						<rect
+							x="-14.3"
+							y="-4.9"
+							width="30"
+							height="20"
+							fill="var(--GR50)"
+						/>
+						<rect
+							x="79.35"
+							y="-1.4"
+							width="20.9"
+							height="20.9"
+							fill="var(--GR50)"
+						/>
+					</svg>
+
 					<PathDraw className="[--stw:1]">
 						<svg
 							viewBox="0 0 100 100"
@@ -175,13 +201,13 @@ function Examples() {
 					<h2>ImgText</h2>
 					<p>画像とテキスト横並び。</p>
 					<h3>ImgText img40 IsRev</h3>
-					<ImgText className="img40 IsRev">
+					<div className="ImgText img40 IsRev">
 						<Image image={getAssetPath("/images/picsum/012.jpg")} />
 						<div>
 							<h3>タイトル（反転）</h3>
 							<p>IsRev で画像をStickItemに配置</p>
 						</div>
-					</ImgText>
+					</div>
 				</section>
 
 				{/* Toggle */}

@@ -4,7 +4,7 @@ import { Cards, CardsItem } from "../components/Cards";
 import { Image } from "../components/Image";
 // import { RgbShift } from "../components/RgbShift";
 import { PathDraw } from "../components/PathDraw";
-import { Header } from "../components/Header";
+import Header from "../components/Header";
 import { Footer } from "../components/Footer";
 import { useClientRuntime } from "../hooks/useClientRuntime";
 import { getAssetPath } from "../lib/assetPath";
@@ -14,13 +14,17 @@ function Playground() {
 
 	return (
 		<>
-			<Header />
+			<Header className="" />
 
 			<main id="" className=" min-h-screen mt-[--head]">
 				{/* Hero */}
 				<section className="Hero out text-white">
 					<figure className="back">
-						<img src={getAssetPath("/images/picsum/001.jpg")} alt="" loading="lazy" />
+						<img
+							src={getAssetPath("/images/picsum/001.jpg")}
+							alt=""
+							loading="lazy"
+						/>
 					</figure>
 					<div className="item">
 						<h1 className="font-bold tracking-tight drop-shadow-lg">
@@ -74,7 +78,10 @@ function Playground() {
 					className="Wrap bg-[--MC] text-white"
 					style={{} as CSSProperties}
 				>
-					<div className="Stick items-start" style={{} as CSSProperties}>
+					<div
+						className="Stick items-start"
+						style={{} as CSSProperties}
+					>
 						{/* <RgbShift
 							src={getAssetPath("/images/p-1.svg")}
 							alt="ロゴ"
@@ -85,10 +92,16 @@ function Playground() {
 							style={{} as CSSProperties}
 						>
 							<PanelItem className="items-center">
-								<Image image={getAssetPath("/images/picsum/002.jpg")} />
+								<Image
+									image={getAssetPath(
+										"/images/picsum/002.jpg",
+									)}
+								/>
 								<div>
 									<h3 className="font-bold mb-2">
-										<span className="sub block">Step 01</span>
+										<span className="sub block">
+											Step 01
+										</span>
 										企画
 									</h3>
 									<p>
@@ -97,22 +110,32 @@ function Playground() {
 								</div>
 							</PanelItem>
 							<PanelItem className="IsRev items-center">
-								<Image image={getAssetPath("/images/picsum/003.jpg")} />
+								<Image
+									image={getAssetPath(
+										"/images/picsum/003.jpg",
+									)}
+								/>
 								<div>
 									<h3 className="font-bold mb-2">
-										<span className="sub block">Step 02</span>
+										<span className="sub block">
+											Step 02
+										</span>
 										制作
 									</h3>
-									<p>
-										デザインと開発を並行して進めます。
-									</p>
+									<p>デザインと開発を並行して進めます。</p>
 								</div>
 							</PanelItem>
 							<PanelItem className="items-center">
-								<Image image={getAssetPath("/images/picsum/004.jpg")} />
+								<Image
+									image={getAssetPath(
+										"/images/picsum/004.jpg",
+									)}
+								/>
 								<div>
 									<h3 className="font-bold mb-2">
-										<span className="sub block">Step 03</span>
+										<span className="sub block">
+											Step 03
+										</span>
 										納品
 									</h3>
 									<p>
@@ -126,7 +149,10 @@ function Playground() {
 
 				{/* Stick + PathDraw + Cards */}
 				<section className="" style={{} as CSSProperties}>
-					<div className="Stick IsRev items-start" style={{} as CSSProperties}>
+					<div
+						className="Stick IsRev items-start"
+						style={{} as CSSProperties}
+					>
 						<PathDraw className="StickItem sticky min-h-[100lvh] content-center">
 							<svg
 								viewBox="0 0 100 100"
@@ -160,16 +186,32 @@ function Playground() {
 							style={{} as CSSProperties}
 						>
 							<CardsItem>
-								<Image image={getAssetPath("/images/picsum/005.jpg")} />
+								<Image
+									image={getAssetPath(
+										"/images/picsum/005.jpg",
+									)}
+								/>
 							</CardsItem>
 							<CardsItem>
-								<Image image={getAssetPath("/images/picsum/006.jpg")} />
+								<Image
+									image={getAssetPath(
+										"/images/picsum/006.jpg",
+									)}
+								/>
 							</CardsItem>
 							<CardsItem>
-								<Image image={getAssetPath("/images/picsum/007.jpg")} />
+								<Image
+									image={getAssetPath(
+										"/images/picsum/007.jpg",
+									)}
+								/>
 							</CardsItem>
 							<CardsItem>
-								<Image image={getAssetPath("/images/picsum/008.jpg")} />
+								<Image
+									image={getAssetPath(
+										"/images/picsum/008.jpg",
+									)}
+								/>
 							</CardsItem>
 						</Cards>
 					</div>

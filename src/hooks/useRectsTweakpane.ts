@@ -11,13 +11,13 @@ import {
 	GRID_SHAPE_OPTIONS,
 	type GridRandomMode,
 	type GridShapeId,
-} from "../lib/randomGrid";
-import { ITEM_ASPECT_OPTIONS } from "../lib/rects";
+} from "../lib/generator/randomGrid";
+import { ITEM_ASPECT_OPTIONS } from "../lib/generator/rects";
 import type {
 	RectsGeneratorMode,
 	RectsOutputMode,
 	RectsTweakParams,
-} from "../lib/rectsTweakParams";
+} from "../lib/generator/rectsTweakParams";
 
 export type {
 	GridOnlyParams,
@@ -26,7 +26,7 @@ export type {
 	RectsOutputMode,
 	RectsTweakParams,
 	SvgMarkupVariant,
-} from "../lib/rectsTweakParams";
+} from "../lib/generator/rectsTweakParams";
 
 export function useRectsTweakpane(
 	containerRef: RefObject<HTMLDivElement | null>,

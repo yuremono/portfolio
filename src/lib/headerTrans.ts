@@ -1,5 +1,5 @@
 /**
- * ヘッダー変形: .mv 等の IO と #header.upInit のスクロール方向
+ * ヘッダー変形: .mv 等の IO と #Header.UpInit のスクロール方向
  * 元: js/function.js 220–269 行
  */
 
@@ -14,8 +14,8 @@ export function initHeaderTrans(
 	const doc = root instanceof Document ? root : root.ownerDocument!;
 	const base = root;
 
-	const headerIO = doc.querySelector("#header:not(.upInit)");
-	const headerScroll = doc.querySelector("#header.upInit");
+	const headerIO = doc.querySelector("#Header:not(.UpInit)");
+	const headerScroll = doc.querySelector("#Header.UpInit:not(.Triangle)");
 	const head = base.querySelectorAll(SELECTOR_HEAD);
 
 	const observerH = new IntersectionObserver(

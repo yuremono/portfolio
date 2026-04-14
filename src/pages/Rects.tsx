@@ -33,7 +33,7 @@ import {
 	rectToSvgPathD,
 	RECT_ITEM_ROUNDED_100_CLASS,
 	SVG_RANDOM_RECTS_WRAP_CLASS,
-} from "../lib/rectsPageMarkup";
+} from "../lib/generator/rectsPageMarkup";
 import {
 	gridShapePathD,
 	gridShapeUsesPath,
@@ -41,8 +41,8 @@ import {
 	gridViewBoxHeightForSquareCells,
 	type GridRandomMode,
 	type GridShapeId,
-} from "../lib/randomGrid";
-import type { Rect } from "../lib/rects";
+} from "../lib/generator/randomGrid";
+import type { Rect } from "../lib/generator/rects";
 import {
 	clampGridShapeRotationDeg,
 	clampWrapperHeightPct,
@@ -50,7 +50,7 @@ import {
 	normalizeTweakParamsInPlace,
 	saveTweakParams,
 	type RectsTweakParams,
-} from "../lib/rectsTweakParams";
+} from "../lib/generator/rectsTweakParams";
 
 /** Tweakpane の連続操作時に localStorage への同期書き込みをまとめる（メインスレッドの負荷軽減） */
 const PERSIST_DEBOUNCE_MS = 280;
@@ -496,19 +496,18 @@ function Rects() {
 	return (
 		<>
 			<header
-				id="header"
-				className="h pointer-events-none  [--innerBG:unset] [--head:120px] [--innerPX:0px] [--logoPX:--PX]"
+				id="Header"
+				className="Header pointer-events-none  [--innerBG:unset] [--head:120px] [--innerPX:0px] [--logoPX:--PX]"
 			>
-				<div className="h_inner items-start ">
-					<div className="h_logo Eng [--logoW:180px] dswh min-h-[--head] pointer-events-auto">
+				<div className="HeaderInner items-start ">
+					<div className="HeaderLogo Eng [--logoW:180px] dswh min-h-[--head] pointer-events-auto">
 						<Link to="/">Brand Name</Link>
 					</div>
-					<div className="h_items fix-tab pointer-events-auto">
+					<div className="HeaderItems fix-tab pointer-events-auto">
 						<div
 							ref={tweakpaneContainerRef}
 							className=" max-md:text-xs max-w-1/2 [&_.tp-dfwv]:max-w-full max-h-[100lvh] overflow-y-auto"
 						/>
-						
 					</div>
 				</div>
 			</header>
@@ -519,11 +518,11 @@ function Rects() {
 						: "Random Rects Generator"}
 					&nbsp;
 				</h1>
-					<span className="text-sm budoux">
-						{generatorMode === "grid"
-							? "SVG 専用です。セルは常に正方形（viewBox 高さは 100×行÷列）。スニペットはボタンで更新します。"
-							: "いいバランスの時にコピーしてそのまま使う為の物です。left/top は中心。幅は%、高さはアスペクト比。重なる場合は数回リトライ失敗で中止。"}
-					</span>
+				<span className="text-sm budoux">
+					{generatorMode === "grid"
+						? "SVG 専用です。セルは常に正方形（viewBox 高さは 100×行÷列）。スニペットはボタンで更新します。"
+						: "いいバランスの時にコピーしてそのまま使う為の物です。left/top は中心。幅は%、高さはアスペクト比。重なる場合は数回リトライ失敗で中止。"}
+				</span>
 
 				<div
 					className={
@@ -579,81 +578,83 @@ function Rects() {
 											))}
 										</g>
 									) : null}
-									{gridUsesPlusLines ? (
-										list.map((r, i) => {
-											const key = `${r.left}-${r.top}-${r.width}-${i}`;
-											const box = rectToGridBox(
-												r,
-												previewWrapperHeightPct,
-											);
-											const cx = box.cx;
-											const cy = box.cy;
-											const half = box.size * 0.42;
-											return [
-												<line
-													key={`${key}-v`}
-													stroke="var(--TC)"
-													strokeWidth={gridStrokeWidth}
-													strokeLinecap="round"
-													x1={cx}
-													y1={cy - half}
-													x2={cx}
-													y2={cy + half}
-													vectorEffect="non-scaling-stroke"
-												/>,
-												<line
-													key={`${key}-h`}
-													stroke="var(--TC)"
-													strokeWidth={gridStrokeWidth}
-													strokeLinecap="round"
-													x1={cx - half}
-													y1={cy}
-													x2={cx + half}
-													y2={cy}
-													vectorEffect="non-scaling-stroke"
-												/>,
-											];
-										})
-									) : (
-										list.map((r, i) => {
-											const key = `${r.left}-${r.top}-${r.width}-${i}`;
-											const box = rectToGridBox(
-												r,
-												previewWrapperHeightPct,
-											);
-											if (gridUsesPath) {
+									{gridUsesPlusLines
+										? list.map((r, i) => {
+												const key = `${r.left}-${r.top}-${r.width}-${i}`;
+												const box = rectToGridBox(
+													r,
+													previewWrapperHeightPct,
+												);
+												const cx = box.cx;
+												const cy = box.cy;
+												const half = box.size * 0.42;
+												return [
+													<line
+														key={`${key}-v`}
+														stroke="var(--TC)"
+														strokeWidth={
+															gridStrokeWidth
+														}
+														strokeLinecap="round"
+														x1={cx}
+														y1={cy - half}
+														x2={cx}
+														y2={cy + half}
+														vectorEffect="non-scaling-stroke"
+													/>,
+													<line
+														key={`${key}-h`}
+														stroke="var(--TC)"
+														strokeWidth={
+															gridStrokeWidth
+														}
+														strokeLinecap="round"
+														x1={cx - half}
+														y1={cy}
+														x2={cx + half}
+														y2={cy}
+														vectorEffect="non-scaling-stroke"
+													/>,
+												];
+											})
+										: list.map((r, i) => {
+												const key = `${r.left}-${r.top}-${r.width}-${i}`;
+												const box = rectToGridBox(
+													r,
+													previewWrapperHeightPct,
+												);
+												if (gridUsesPath) {
+													return (
+														<path
+															key={key}
+															d={gridShapePathD(
+																gridShapeId,
+																box,
+																gridItemRounded100Pct,
+															)}
+														/>
+													);
+												}
+												if (gridItemRounded100Pct) {
+													return (
+														<circle
+															key={key}
+															cx={box.cx}
+															cy={box.cy}
+															r={box.r}
+														/>
+													);
+												}
 												return (
-													<path
+													<rect
 														key={key}
-														d={gridShapePathD(
-															gridShapeId,
-															box,
-															gridItemRounded100Pct,
-														)}
+														x={box.x}
+														y={box.y}
+														width={box.size}
+														height={box.size}
 													/>
 												);
-											}
-											if (gridItemRounded100Pct) {
-												return (
-													<circle
-														key={key}
-														cx={box.cx}
-														cy={box.cy}
-														r={box.r}
-													/>
-												);
-											}
-											return (
-												<rect
-													key={key}
-													x={box.x}
-													y={box.y}
-													width={box.size}
-													height={box.size}
-												/>
-											);
-										})
-									)}
+											})}
 								</>
 							) : (
 								list.map((r, i) => {
@@ -785,8 +786,8 @@ function Rects() {
 							</div>
 						) : null}
 						{generatorMode === "grid" ? (
-                                                        <>
-                                                                <p className="text-sm text-neutral-600">
+							<>
+								<p className="text-sm text-neutral-600">
 									{gridUsesPlusLines
 										? "<!--grid タブは SVG 専用です。plus は縦横 2 本の line（stroke: --TC）です。-->"
 										: gridUsesPath
@@ -836,7 +837,6 @@ function Rects() {
 										</span>
 									) : null}
 								</div>
-								
 							</>
 						) : null}
 						{isSvgPathMarkup ? (

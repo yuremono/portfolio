@@ -38,7 +38,7 @@
 | [`.claude/skills/Build/SKILL.md`] | `/Build` でのコンポーネント・ページ組み立てワークフロー |
 | `src/components/` | UI（Cards, ImgText, Panel など CustomClass 対応） |
 | `src/pages/` | ページ |
-| `src/lib/` | ユーティリティ |
+| `src/lib/` | 共有ロジック（直下）。Rects／ランダムグリッド用は [`src/lib/generator/`](src/lib/generator/)。公開 API は [`src/lib/index.ts`](src/lib/index.ts) |
 | `src/hooks/` | カスタムフック |
 | `src/scss/` | スタイルエントリ・CustomClass 定義 |
 

@@ -4,14 +4,14 @@ import { CaretUpIcon, CaretDownIcon } from "@phosphor-icons/react";
 
 function HeaderNav() {
 	return (
-		<ul className="">
-			<li className="">
+		<ul className="HeaderUl">
+			<li>
 				<Link to="/next">HOME</Link>
 			</li>
-			<li className="">
+			<li>
 				<Link to="/">BYOS</Link>
 			</li>
-			<li className="">
+			<li>
 				<Link to="/agent">Donuts</Link>
 			</li>
 			<li>
@@ -99,7 +99,7 @@ function HeaderNav() {
 }
 function HeaderItems() {
 	return (
-		<div className="HeaderItems FixTab">
+		<div className="HeaderItems fix-tab">
 			<a
 				href="https://github.com/yuremono/creative-demos"
 				target="_blank"
@@ -130,25 +130,25 @@ export default function Header({ className }: HeaderProps) {
 	return (
 		<header
 			id="Header"
-			className={["Header  UpInit", className]
+			className={["Header  ", className]
 				.filter(Boolean)
 				.join(" ")}
 		>
 			<div className="HeaderInner ">
 				<div className="HeaderLogo ">
-                                <Link className="HeaderLogoText Eng" to="/">Brand Name</Link>
+                                <Link className="HeaderLogoText" to="/">Brand Name</Link>
 				</div>
 				<button
 					type="button"
-					className="HeaderMenu MenuToggle IsDots"
+					className="HeaderMenu MenuToggle burger"
 					aria-expanded="false"
 					aria-pressed="false"
 					aria-controls="nav"
 					aria-label="menu open"
 				>
-					<span className="span1" />
-					<span className="span2" />
-					<span className="span3" />
+					<span className="bar1" />
+					<span className="bar2" />
+					<span className="bar3" />
 				</button>
 				<HeaderItems />
 				<nav

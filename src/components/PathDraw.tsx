@@ -3,7 +3,7 @@ import {
 	computePathDrawStrokeStyleFromLayout,
 	getSvgPathLength,
 	readPathDrawLayoutState,
-} from "../lib/pathDrawMath";
+} from "../lib/effects/pathDrawMath";
 
 export interface PathDrawProps {
 	className?: string;

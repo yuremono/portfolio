@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { initBudoux } from "../lib/budoux";
-import { initMindMapRuntime } from "../lib/mindMapRuntime";
+import { initMindMapRuntime } from "../lib/effects/mindMapRuntime";
 
 const STORAGE_KEY = "theme-mode";
 

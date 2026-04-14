@@ -337,7 +337,7 @@ export default function RingScrollShowcase({
 		<main
 			ref={hostRef}
 			aria-labelledby="ring-showcase-title"
-			className="relative min-h-screen overflow-x-hidden text-white px-0"
+			className="relative min-h-screen overflow-x-hidden text-white px-0 [--MY:0px]"
 		>
 			<h1 id="ring-showcase-title" className="sr-only">
 				Agent Driven CMS Site Editor

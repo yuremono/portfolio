@@ -61,10 +61,10 @@ export type VideoRingOverlayHandle = {
 };
 
 const DEFAULT_MEDIA_ITEMS = [
-	{ src: getAssetPath("showcase/agent-cms/video/001.mp4"), kind: "video" as const },
-	{ src: getAssetPath("showcase/agent-cms/video/002.mp4"), kind: "video" as const },
-	{ src: getAssetPath("showcase/agent-cms/video/003.mp4"), kind: "video" as const },
-	{ src: getAssetPath("showcase/agent-cms/video/004.mp4"), kind: "video" as const },
+	{ src: getAssetPath("/video/001.mp4"), kind: "video" as const },
+	{ src: getAssetPath("/video/002.mp4"), kind: "video" as const },
+	{ src: getAssetPath("/video/003.mp4"), kind: "video" as const },
+	{ src: getAssetPath("/video/004.mp4"), kind: "video" as const },
 ] satisfies MediaItem[];
 
 const MIN_LOADING_MS = 1000;
@@ -543,8 +543,10 @@ const VideoRingOverlay = forwardRef<VideoRingOverlayHandle, VideoRingOverlayProp
 			<div
 				data-l="LoadingLayer"
 				aria-hidden="true"
-				className={`fixed inset-0 z-[120] bg-[var(--WH)] text-[var(--BK70)] transition-opacity duration-[1500ms] ease-out ${
-					openingPhase === "done" ? "pointer-events-none" : "pointer-events-auto"
+				className={`fixed inset-0 z-[1000] bg-[var(--WH)] text-[var(--BK70)] transition-opacity duration-[1500ms] ease-out ${
+					openingPhase === "done"
+						? "pointer-events-none"
+						: "pointer-events-auto"
 				}`}
 				style={{ opacity: loadingOverlayOpacity }}
 			>

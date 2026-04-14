@@ -1,4 +1,7 @@
-export { initBorderDraw, type InitBorderDrawOptions } from "./initBorderDraw";
+export {
+	initBorderDraw,
+	type InitBorderDrawOptions,
+} from "./effects/initBorderDraw";
 export { initBudoux } from "./budoux";
 export { initHeader } from "./header";
 export { initHeaderTrans } from "./headerTrans";

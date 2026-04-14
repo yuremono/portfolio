@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const navItems = [
+const headerNav = [
 	{ href: "https://cms0505.vercel.app/", label: "Works" },
-	{ href: "https://github.com/yuremono/BurnYourOwnStyle/tree/react", label: "BYOS" },
+	{
+		href: "https://github.com/yuremono/BurnYourOwnStyle/tree/react",
+		label: "BYOS",
+	},
 	{ href: "https://chat-kanban.vercel.app/", label: "ChatCanban" },
 ];
 
-const actionItems = [
+const headerItems = [
 	{
 		href: "https://github.com/yuremono/creative-demos",
 		label: "CreativeDemos",
@@ -20,7 +23,7 @@ const actionItems = [
 	},
 ];
 
-function BrandLockup() {
+function HeaderLogo() {
 	return (
 		<Link
 			to="/"
@@ -36,15 +39,18 @@ function BrandLockup() {
 
 function DesktopNav() {
 	return (
-		<nav className="HeaderNav hidden md:flex pointer-events-auto" aria-label="main navigation">
+		<nav
+			className="HeaderNav hidden md:flex pointer-events-auto"
+			aria-label="main navigation"
+		>
 			<ul className="HeaderUl flex flex-wrap items-center justify-center gap-1 p-2">
-				{navItems.map((item) => (
+				{headerNav.map((item) => (
 					<li key={item.href}>
 						<a
 							href={item.href}
 							target="_blank"
 							rel="noopener noreferrer"
-							className="inline-flex items-center px-3 py-2 text-sm font-medium text-[var(--TC)]  "
+							className="inline-flex items-center  py-2 text-sm font-medium text-[var(--TC)]  "
 						>
 							{item.label}
 						</a>
@@ -55,10 +61,10 @@ function DesktopNav() {
 	);
 }
 
-function HeaderActions() {
+function HeaderItems() {
 	return (
-		<div className="HeaderItems hidden md:grid  pointer-events-auto text-right p-2">
-			{actionItems.map((item) => (
+		<div className="HeaderItems hidden md:grid  pointer-events-auto text-right p-2 gap-0">
+			{headerItems.map((item) => (
 				<a
 					key={item.href}
 					href={item.href}
@@ -119,7 +125,9 @@ function MobileMenu() {
 
 			<div
 				className={`fixed inset-0 z-50 transition-opacity  ease-out ${
-					open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
+					open
+						? "pointer-events-auto opacity-100"
+						: "pointer-events-none opacity-0"
 				}`}
 				aria-hidden={!open}
 			>
@@ -134,7 +142,9 @@ function MobileMenu() {
 				<div
 					id="mobile-header-drawer"
 					className={`relative flex h-full w-full flex-col bg-[var(--WH)] transition-[opacity,transform]  ease-out ${
-						open ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0"
+						open
+							? "translate-y-0 opacity-100"
+							: "translate-y-2 opacity-0"
 					}`}
 				>
 					<nav
@@ -151,7 +161,7 @@ function MobileMenu() {
 									HOME
 								</Link>
 							</li>
-							{navItems.map((item) => (
+							{headerNav.map((item) => (
 								<li key={item.href} className="">
 									<a
 										href={item.href}
@@ -164,7 +174,7 @@ function MobileMenu() {
 									</a>
 								</li>
 							))}
-							{actionItems.map((item) => (
+							{headerItems.map((item) => (
 								<li key={item.href} className="">
 									<a
 										href={item.href}
@@ -188,10 +198,10 @@ function MobileMenu() {
 export default function AgentHeader() {
 	return (
 		<header className="Header fixed top-0 z-40 w-full h-full pointer-events-none">
-			<div className="flex flex-col items-end justify-between h-full">
-				<BrandLockup />
+			<div className="HeaderInner px-0  flex-col items-end justify-between h-full">
+				<HeaderLogo />
 				<DesktopNav />
-				<HeaderActions />
+				<HeaderItems />
 				<MobileMenu />
 			</div>
 		</header>

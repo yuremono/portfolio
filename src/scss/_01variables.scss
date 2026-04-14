@@ -55,7 +55,7 @@
         --accent: var(--AC);
         --background: var(--WH);
         --foreground: var(--TC);
-        --muted: var(--BC);
+        --muted: var(--GR);
         --border: var(--TC);
 
         // --destructive: var(--AC);
@@ -69,6 +69,13 @@
         // --error: var(--AC);
         // --info: var(--SC);//（ステータス系）
         // --neutral: var(--GR);//（グレー系）
+}
+.dark {
+	--background: #000;
+	--foreground: #fff;
+	--border: #fff;
+        --BK: #fff;
+        --WH: #000;
 }
 
 :root {// color opacity
@@ -156,11 +163,11 @@
         --gap: 2rem;
         --gapN: calc(var(--gap)*-1);
         --gapH: calc(var(--gap)/2);
-
+        
         @include menu {
-                --gap: 16px;
+                --gap: 1.5rem;
+                --PX: 1.5rem;
         }
-
         @include max-md {
                 --MY: 4rem;
         }
@@ -188,12 +195,13 @@
     
 }
 :root{//header props
+        --trans: 0.4s;
         --PTdis: block;
         --PTAF: var(--btnAF);
         // --PTFZ: 1.5em;
         --PTscale: 1.5;
         --PTC: var(--TC);
-        --PTBG: var(--WH);
+        --PTBG: var(--background);
         --PTRad: var(--btnRad);
         --PTW: calc(var(--btnH));
         --PTbottom: var(--gapH);
@@ -298,9 +306,9 @@
         //     --btnW:100%;
         // }
         --btnH:2.5rem;
-        @media (max-width : 640px){
-            --btnH:56px;
-        }
+        // @media (max-width : 640px){
+        //     --btnH:56px;
+        // }
         
         --btnPX:1.25em ;
         --btnPY: 0.25em;

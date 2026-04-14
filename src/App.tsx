@@ -5,12 +5,16 @@ import Test3 from "./pages/test3";
 import Playground from "./pages/Playground";
 import Examples from "./pages/Examples";
 import Rects from "./pages/Rects";
+import Agent from "./pages/Agent";
+import Next from "./pages/Next";
 
 function App() {
 	return (
 		<BrowserRouter basename={import.meta.env.BASE_URL}>
 			<Routes>
 				<Route path="/" element={<Preview />} />
+				<Route path="/next" element={<Next />} />
+				<Route path="/agent" element={<Agent />} />
 				<Route path="/test2" element={<Test2 />} />
 				<Route path="/test3" element={<Test3 />} />
 				<Route path="/playground" element={<Playground />} />

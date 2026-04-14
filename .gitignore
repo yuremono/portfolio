@@ -6,7 +6,7 @@ NOTE2.md
 voice-input-patterns.md
 .memsearch
 .cursor-memsearch
-ingore/
+private/
 js/
 scss/
 LOCAL.html
@@ -21,7 +21,6 @@ css/
 *.map
 
 # Public images (keep locally; clone may need a separate asset step)
-public/images/
 
 # Claude Code — machine-local settings
 .claude/settings.json

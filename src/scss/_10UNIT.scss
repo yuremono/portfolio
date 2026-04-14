@@ -366,9 +366,7 @@
                 }
         }
 
-        &.IsQa {
-
-                // --- モディファイア: IsQa (Q&Aスタイル) ---
+        &.IsQa {// --- モディファイア: IsQa (Q&Aスタイル) ---
                 summary,
                 >div {
                         padding-left: 4em;
@@ -398,6 +396,34 @@
                 >div:before {
                         content: "A";
                         background-color: var(--abfBG);
+                }
+        }
+        &.IsSmall {// --- モディファイア: IsQa (Q&Aスタイル) ---
+                summary{
+                        color: var(--gr);
+                        font-size: 1.2em;
+                        display: inline-block;
+                        padding-inline: 0em 1em;
+                        padding-block: unset;
+                        &:after {
+                                content: "+";
+                                font-family: var(--icon, inherit);
+                                color: #888;
+                                display: inline-block;
+                                transform-origin: 100% 50%;
+                                color: inherit;
+                                position: absolute;right: 0;
+                        }
+                }
+                &[open] summary:after {
+                        content: "-";
+                        scale: 2 1; 
+                        translate: -0.1em 0;
+                }
+                >div {
+                        padding: unset;
+                        position: relative;
+                        font-size: 0.875em;
                 }
         }
 }

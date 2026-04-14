@@ -26,6 +26,22 @@ function NavUl() {
 				/>
 				<ul aria-hidden="true" aria-label="close">
 					<li>
+						<Link
+							to="/next"
+							className="hover:text-[--AC] transition-colors "
+						>
+							Next CMS
+						</Link>
+					</li>
+					<li>
+						<Link
+							to="/agent"
+							className="hover:text-[--AC] transition-colors "
+						>
+							Agent CMS
+						</Link>
+					</li>
+					<li>
 						<a
 							href="https://cms0505.vercel.app/"
 							className="hover:text-[--AC] transition-colors "

@@ -34,9 +34,26 @@ h1,h2,h3,h4,h5{
         line-height: var(--HLH);
         font-family: var(--Eng)
 }
+.inline-size {
+        container-type: inline-size;
+}
+// Header
 .HeaderNavMobile .NavInner .dropbtn{
         display: none;
 }
+.NoLogo{
+        .HeaderLogo{
+                display: none;
+        }
+}
+.TopHidden.Header{
+        transition: var(--trans);
+        opacity: 0;pointer-events: none;
+        &.trans{
+                opacity: 1;pointer-events: auto;
+        }        
+}
+//Generator Page Controller
 div.tp-rotv{
         font-size: inherit;
         /* --tp-base-background-color: var(--GR); */
@@ -71,10 +88,6 @@ div.tp-rotv{
 	/* --tp-monitor-foreground-color: var(--AC); */
 	/* --tp-groove-foreground-color: var(--AC); */
         
-}
-
-.inline-size {
-        container-type: inline-size;
 }
 .tp-fldv-expanded .tp-lblv_l{
         text-align: right;
@@ -278,13 +291,6 @@ div.tp-lblv_v:has(.tp-radgridv){
         .dl_center dt {
                text-align: right;
        }
-       
-       
-       
-       
-       
-       
-       
         .DescList dl {
                display: grid;
                grid-template-columns: calc(var(--dtWidth, 20%)) 1fr;
@@ -330,28 +336,4 @@ div.tp-lblv_v:has(.tp-radgridv){
         .ltr {
                direction: ltr;
        }
-       
-//         .ThemeToggle {
-//                position: fixed;
-//                bottom: 0.5rem;
-//                right: 0.5rem;
-//                z-index: 9999;
-//                width: 40px;
-//                height: 40px;
-//                border-radius: 50%;
-//                display: flex;
-//                align-items: center;
-//                justify-content: center;
-//                cursor: pointer;
-//                border: none;
-//                color: var(--foreground);
-//                &:hover {
-//                       transform: scale(1.2);
-//               }
-//               svg {
-//                       width: 1.5rem;
-//                       height: 1.5rem;
-//               }
-//        }
-       
 }

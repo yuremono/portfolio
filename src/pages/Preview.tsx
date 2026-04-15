@@ -15,7 +15,7 @@ function Preview() {
 
 	return (
 		<>
-			<Header className="LinkShadow" />
+			<Header className="LinkShadow UpInit" />
 
 			<main id="" className=" min-h-screen  mt-[--head] pb-[--MY]">
 				{/*Stick Lottie*/}
@@ -38,7 +38,7 @@ function Preview() {
 					</p>
 				</section>
 				{/* Stick Title */}
-				<section className="Stick out mt-0 into pb-[--2MY] items-start img1-1 [--scr:50%] [--shift:0%]  bg-[--TC] text-[--WH]">
+				<section className="Stick IsRev out mt-0 into pb-[--2MY] items-start img1-1 [--scr:50%] [--shift:0%]  bg-[--TC] text-[--WH]">
 					<h1 className=" StickItem  md:min-h-[100lvh] content-center Eng font-medium  pt-6 md:pt-0">
 						<span className="sub block ">Not Vibe Design</span>
 						Class Based
@@ -49,17 +49,17 @@ function Preview() {
 						<br />
 						Development
 					</h1>
-					<Panel className="StickScr IsFlow img30  text-sm BorderDraw IsDown [--MY:0px]">
+					<Panel className="StickScr  img30  text-sm BorderDraw IsDown [--MY:0px]">
 						<PanelItem className="items-center BorderDraw">
 							{/* <Image image={getAssetPath("/images/picsum/010.jpg")} /> */}
 							<div>
-								<h2 className=" mb-8 mt-[15%] Eng [--h2FZ:2.5rem] font-medium">
+								<h2 className=" mb-8 mt-[15%] Eng [--h2FZ:2.5rem] font-medium text-center">
 									{/* <span className="sub block ">Instant</span> */}
 									Import and Update Examples
 								</h2>
 							</div>
 						</PanelItem>
-						<PanelItem className="IsRev items-center BorderDraw">
+						<PanelItem className=" items-center BorderDraw">
 							<Image
 								image={getAssetPath("/images/picsum/011.jpg")}
 							/>
@@ -76,7 +76,7 @@ function Preview() {
 								</p>
 							</div>
 						</PanelItem>
-						<PanelItem className="IsRev items-center BorderDraw">
+						<PanelItem className=" items-center BorderDraw">
 							<Image
 								image={getAssetPath("/images/picsum/012.jpg")}
 							/>
@@ -92,7 +92,7 @@ function Preview() {
 								</p>
 							</div>
 						</PanelItem>
-						<PanelItem className="IsRev items-center BorderDraw">
+						<PanelItem className=" items-center BorderDraw">
 							<Image
 								image={getAssetPath("/images/picsum/013.jpg")}
 							/>
@@ -116,7 +116,7 @@ function Preview() {
 
 				{/*Stick 、simulate Gsap RgbBeat*/}
 				<section className="">
-					<div className="Stick IsRev  items-start [--shift:20%]">
+					<div className="Stick   items-start [--shift:20%]">
 						<PathDraw className="StickItem sticky min-h-[100lvh] content-center ">
 							{/* <svg
 								className="scale-x-[-1]"
@@ -168,17 +168,17 @@ function Preview() {
 								</g>
 							</svg>
 						</PathDraw>
-						<Panel className="StickScr min-h-[100lvh] content-center  img40  img1-1 ">
+						<Panel className="StickScr min-h-[100lvh] content-center  img40  img1-1 bg-[--WH70] [--gap:0.5rem]">
 							<PanelItem className="items-center ">
 								<div>
 									<h2 className=" mb-4  ">
-										<span className="sub block text-right  text-3xl">
+										<span className="sub block text-right  text-3xl text-center">
 											play on "Bring Your Own Key"
 										</span>
 									</h2>
 								</div>
 							</PanelItem>
-							<PanelItem className=" items-center">
+							<PanelItem className="IsRev items-end py-0">
 								<Image
 									className=" RgbShift IsBeat [--delay:500ms]"
 									image={getAssetPath(
@@ -196,7 +196,7 @@ function Preview() {
 									</p>
 								</div>
 							</PanelItem>
-							<PanelItem className="items-center py-0">
+							<PanelItem className="items-end py-0">
 								{/* <Image
                                                                         className=" RgbShift IsBeatY "
 									image={getAssetPath(
@@ -210,7 +210,7 @@ function Preview() {
 									</p>
 								</div>
 							</PanelItem>
-							<PanelItem className=" items-center">
+							<PanelItem className="IsRev items-end py-0 [--MY:2em]">
 								<Image
 									className=" RgbShift IsBeatY  [--delay:1000ms]"
 									image={getAssetPath(
@@ -229,7 +229,7 @@ function Preview() {
 									</p>
 								</div>
 							</PanelItem>
-							<PanelItem className="items-center py-0">
+							<PanelItem className="items-end py-0">
 								{/* <Image
                                                                         className=" RgbShift IsBeatY "
 									image={getAssetPath(
@@ -252,11 +252,11 @@ function Preview() {
 				<section className="Stick out [--scr:100%] [--shift:100%] ">
 					<div className="StickItem Cards col2 xl:[--gap:50%] top-[--head]">
 						<Image
-							className="item PX max-md:[--PX:0px]"
+							className="item md:pl-[--PX]"
 							image={getAssetPath("/images/picsum/018.jpg")}
 						/>
 						<Image
-							className="item PX max-md:[--PX:0px]"
+							className="item md:pr-[--PX]"
 							image={getAssetPath("/images/picsum/019.jpg")}
 						/>
 					</div>
@@ -268,10 +268,10 @@ function Preview() {
 							</h2>
 							<Toggle className="">
 								<ToggleSummary>
-									details/summaryでtransitionを有効にしています
+									details/summaryタグの開閉コンテンツ用スタイルセット
 								</ToggleSummary>
 								<ToggleBody>
-									javascript不要ですが特殊なCSSを使うため、古いブラウザではゆっくり開きません
+                                                                        transitionを有効化するため`interpolate-size: allow-keywords`等を使用
 								</ToggleBody>
 							</Toggle>
 							<Toggle className="IsQa">
@@ -289,8 +289,9 @@ function Preview() {
 									を使ったデザイン再現、デザイン作成について
 								</ToggleSummary>
 								<ToggleBody>
-									デザインからコード、コードからデザインは"注意事項"を充実させればかなり高精度で実現できました。
-									「構造化データ」を作るという意味で本番用コンポーネントのプロトタイピングをすることと変わらないため、現在は実証を見送っています。
+									DesignToCode、CodeToDesignどちらも"注意事項"次第でほぼ意図通りに生成できる印象です。
+                                                                        「構造化データ」を作るという意味でプロトタイピングをすることと変わらないので本番用コンポーネントを作る方が早いと考えます。
+                                                                        現状はローカル専用ツールなので.penファイルからFigmaにコピペすることで共有できるはずです。
 								</ToggleBody>
 							</Toggle>
 							<Toggle className="">
@@ -302,7 +303,7 @@ function Preview() {
 									共にAI駆動開発におけるフロントエンド品質向上のベストプラクティスを発信しています。
 									"https://www.anthropic.com/engineering/harness-design-long-running-apps"
 									ではハーネス設計と時間をかけることにより一定水準を超えた創造を実現したと解釈しました。
-									参考サイトを無数に用意してもその中から人間の感覚を模倣して選択することは現時点では難しく、特定サイトをトレースした方が合理的だと考えます。（本プロジェクトの話ではなくそのようなgithubリポジトリも公開されています）
+									参考サイトを無数に用意してもその中から人間の感覚を模倣して選択することは現時点では難しく、特定サイトをトレースするライブラリを使用した方が合理的だと考えます。
 									本プロジェクトでは仕様に基づいたテキストと画像を用意することがボトルネックになるため、
 									vibe
 									designツールとどのように連携させるかが課題です。

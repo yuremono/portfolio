@@ -203,24 +203,7 @@ section>*,form>*:where(:not(.page-shop *)){
     }
     >*{max-width: 100%;}
 }
-.wrapper,.wrapper100,.wrapper100in{
-    position: relative;
-    >*{margin-inline: auto;max-width: 100%;}
-    >*+*{margin-top: var(--Wchild);}
-    >.box{margin: unset;}
-    +div{margin-top: var(--Schild);}
-    >.bg100{max-width: unset!important;}
-}
-.wrapper,.wrapper100,.wrapper100in{
-    background: repeat center/cover;
-    >*+*{margin-top: var(--Wchild);}
-}
-.wrapper,.wrapper100,.wrapper100in{
-    >*{
-        position: relative;
-    }
-}
-[class*=wrapper]+[class*=wrapper]{margin-top: unset;} 
+
 
 
 i,a:after{font-weight: 900;line-height: inherit;}

@@ -108,7 +108,7 @@
 
 
         --imgW: calc(50% - var(--gap)/2);
-        --wid: 1320px;
+        --wid: 1080px;
         --MY: 120px;
         --MY25: calc(var(--MY)/4);
         --MY5: calc(var(--MY)/2);
@@ -195,13 +195,14 @@
     
 }
 :root{//header props
+        --transH: 100px;
         --trans: 0.4s;
         --PTdis: block;
         --PTAF: var(--btnAF);
         // --PTFZ: 1.5em;
         --PTscale: 1.5;
-        --PTC: var(--TC);
-        --PTBG: var(--background);
+        --PTC: var(--inh);
+        --PTBG: var(--un);
         --PTRad: var(--btnRad);
         --PTW: calc(var(--btnH));
         --PTbottom: var(--gapH);

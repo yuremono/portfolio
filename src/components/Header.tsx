@@ -130,7 +130,7 @@ export default function Header({ className }: HeaderProps) {
 	return (
 		<header
 			id="Header"
-			className={["Header  UpInit", className]
+			className={["Header  ", className]
 				.filter(Boolean)
 				.join(" ")}
 		>

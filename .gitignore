@@ -8,7 +8,6 @@ voice-input-patterns.md
 .cursor-memsearch
 private/
 js/
-scss/
 LOCAL.html
 
 # Vite pre-bundle cache (regenerated locally)

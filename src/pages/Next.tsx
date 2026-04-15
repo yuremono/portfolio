@@ -35,7 +35,7 @@ function Next() {
 	return (
 		<>
 			<div ref={ref} className={`MINDMAP${dark ? " dark" : ""}`}>
-				<Header className="" />
+				<Header className="NoLogo TopHidden" />
 
 				<button
 					type="button"

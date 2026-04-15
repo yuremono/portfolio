@@ -7,7 +7,7 @@ const ATTR_ONCE = "data-io-once";
 const ATTR_TOGGLE = "data-io-toggle";
 
 const SELECTOR_ONCE =
-	"[class*=Js]:not([class*=JsCh],.JsBgFix),[class*=JsCh]>* ";
+	"[class*=Js]:not([class*=JsCh],.JsBgFix,.JsLetterToggle),[class*=JsCh]>* ";
 const SELECTOR_TOGGLE = ".f_main,.JsBgFix";
 
 const ROOT_MARGIN_ONCE = "0% 0% -15% 0px";

@@ -20,7 +20,8 @@
                 "Roboto", "Noto Sans CJK JP",
                 /* Android */
                 sans-serif;
-
+        --Ship: "Shippori Mincho","Noto Serif JP", serif;
+        --Jost: "Jost",var(--San), sans-serif;
         --FF: var(--San) ,sans-serif;
         --Eng: "Viaoda Libre",var(--San), sans-serif;
 }
@@ -31,22 +32,28 @@
         --cur: currentColor;
         --tr: transparent;
 
-        --MC: hsl(20, 56%, 51%);
-        --MC: #666;
-        --SC: #3b5bae;
-        --AC: #fffe35;
-        --BC: #fbf9ef;
-        --TC: #111;
-        --GR: #888;
-        --BK: #000;
-        --WH: #fff;
+        /*  ユーザーの指示がなければ編集禁止*/
+        color-scheme: light;
+        /* --- テーマ色（Canvas は readShowcasePalette で参照。ドーナツ4扇は --MC〜--BC）--- */
+        --TR: transparent; /* キャンバス背景・穴まわり：4扇以外の塗り */
+        --MC: oklch(0.49 0.14 265.73); /* 扇形1 */
+        --SC: oklch(0.97 0.2 109.29); /* 扇形2 */
+        --AC: oklch(0.7 0.15 20); /* 扇形3 */
+        --BC: oklch(0.96 0.025 110); /* 扇形4・ページ下地 */
+        --second: var(--SC);
+        --third: oklch(0.92 0.1 169.85);
+        --fourth: oklch(45% 0.3 264);
+        --TC: oklch(17% 0.00 271); /* 本文テキスト */
+        --GR: oklch(73% 0.00 271); /* スクロールバー等 */
+        --BK: oklch(0% 0 0);
+        --WH: oklch(100% 0 0);
 
         --tsbk: .25rem .25rem var(--BK);
 }
 
 :root {//color Tailwind culture & semantic color name  コメントはpencil variebles に同期しない
         --second: var(--SC);
-        --third: #9df9d9;
+        --third: lch(91% 35 168);
         // --fourth: var(--SC);
         // --fifth: var(--SC);
 
@@ -71,6 +78,7 @@
         // --neutral: var(--GR);//（グレー系）
 }
 .dark {
+        background: inherit;
 	--background: #000;
 	--foreground: #fff;
 	--border: #fff;
@@ -96,7 +104,7 @@
                 --SC#{$i}0: color-mix(in srgb, transparent, var(--SC) #{$i}0%);
                 --AC#{$i}0: color-mix(in srgb, transparent, var(--AC) #{$i}0%);
                 --BC#{$i}0: color-mix(in srgb, transparent, var(--BC) #{$i}0%);
-                --TX#{$i}0: color-mix(in srgb, transparent, var(--tx) #{$i}0%);
+                --TC#{$i}0: color-mix(in srgb, transparent, var(--TC) #{$i}0%);
                 --GR#{$i}0: color-mix(in srgb, transparent, var(--GR) #{$i}0%);
                 --WH#{$i}0: color-mix(in srgb, transparent, var(--WH) #{$i}0%);
                 --BK#{$i}0: color-mix(in srgb, transparent, var(--BK) #{$i}0%);
@@ -177,7 +185,7 @@
 :root{//ボーダー シャドウ デコレーション等
         --bds: solid;
         --bdw: 1px;
-        --bdc: var(--cur);  
+        --bdc: var(--TC);  
         --line:var(--bdw) var(--bds) var(--bdc); 
         --stw: 4px;
     
@@ -196,8 +204,12 @@
     
 }
 :root{//header props
+        interpolate-size: allow-keywords;
         --transH: 100px;
-        --trans: 0.4s;
+        --trans: 200ms ease-in-out;
+        --tw-duration: var(--trans);
+        --default-transition-timing-function: var(--trans);
+
         --PTdis: block;
         --PTAF: var(--btnAF);
         // --PTFZ: 1.5em;

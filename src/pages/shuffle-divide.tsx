@@ -1,7 +1,9 @@
 import { useEffect, useRef } from "react";
 import { useClientRuntime } from "../hooks/useClientRuntime";
+import { useHtmlRootClass } from "../hooks/useHtmlRootClass";
 
 import Header from "../components/Header";
+import { PageRoot } from "../components/PageRoot";
 
 import { initShuffleDivide } from "../features/shuffle-divide/initShuffleDivide";
 import { getAssetPath } from "../lib/assetPath";
@@ -21,7 +23,6 @@ const heroImages = [
 
 const tabPanels = [
 	{
-		id: "c90",
 		buttonLabel: "夕暮れの海",
 		buttonLead: "Sunset Sea",
 		image: "/images/picsum/003.jpg",
@@ -36,7 +37,6 @@ const tabPanels = [
 		),
 	},
 	{
-		id: "c91",
 		buttonLabel: "緑の畝",
 		buttonLead: "Green Rows",
 		image: "/images/picsum/007.jpg",
@@ -51,7 +51,6 @@ const tabPanels = [
 		),
 	},
 	{
-		id: "c92",
 		buttonLabel: "霧の山",
 		buttonLead: "Misty Ridge",
 		image: "/images/picsum/005.jpg",
@@ -60,7 +59,6 @@ const tabPanels = [
 		content: <span>Silent Mountain</span>,
 	},
 	{
-		id: "c93",
 		buttonLabel: "水中の光",
 		buttonLead: "Water Light",
 		image: "/images/picsum/006.jpg",
@@ -71,22 +69,26 @@ const tabPanels = [
 ];
 
 function ShuffleDivide() {
-        const rootRef = useRef<HTMLElement | null>(null);
-        useClientRuntime();
+	const pageRootRef = useRef<HTMLDivElement>(null);
+	useClientRuntime({ rootRef: pageRootRef });
+	useHtmlRootClass();
 
 	useEffect(() => {
-		const root = rootRef.current;
+		const root = pageRootRef.current;
 		if (!root) return undefined;
 
 		const runtime = initShuffleDivide(root);
 		return runtime.disconnect;
 	}, []);
 
-        return (
-                <>
-                <Header className="NoLogo TopHidden" />
+	return (
+		<PageRoot ref={pageRootRef}>
+			<Header className="NoLogo TopHidden" />
 
-		<main className="shuffle-divide [--h1FZ:clamp(32px,6.4vw,96px)]" ref={rootRef}  aria-label="Shuffle Divide  page">
+			<main
+				className="shuffle-divide [--h1FZ:clamp(32px,6.4vw,96px)]"
+				aria-label="Shuffle Divide  page"
+			>
                         <div className="clearfix H-grad halfRight my-[10vh]">
                                 <div>
                                         <p className="shuffle __lg __step">
@@ -141,7 +143,7 @@ function ShuffleDivide() {
                                                         <button
                                                                 className="tab"
                                                                 data-tab={index}
-                                                                key={panel.id}
+                                                                
                                                                 type="button"
                                                         >
                                                                 <i>{panel.buttonLead}</i>
@@ -161,9 +163,8 @@ function ShuffleDivide() {
                                         <div className="tabPanels">
                                                 {tabPanels.map((panel) => (
                                                         <div
-                                                                id={panel.id}
                                                                 className="clearfix GenerateBox tabPanel"
-                                                                key={panel.id}
+                                                                
                                                         >
                                                                 <img
                                                                         src={getAssetPath(panel.image)}
@@ -186,8 +187,8 @@ function ShuffleDivide() {
                                         </div>
                                 </div>
                         </div>
-                        </main>
-                        </>
+			</main>
+		</PageRoot>
 	);
 }
 

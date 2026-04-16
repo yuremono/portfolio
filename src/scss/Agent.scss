@@ -1,98 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;800&display=swap");
 
 html.Donuts {
-        //font
-        --Ser: "Shippori Mincho","Noto Serif JP", serif;
-                // "Noto Sans JP",
-                // "メイリオ", Meiryo,
-        --San:
-                -apple-system,
-                /* iOS/macOS */
-                BlinkMacSystemFont,
-                /* macOS Safari/Chrome */
-                "Hiragino Sans", "Hiragino Kaku Gothic ProN",
-                /* macOS日本語 */
-                "Yu Gothic Medium", "Yu Gothic", "Meiryo",
-                /* Windows */
-                "Roboto", "Noto Sans CJK JP",
-                /* Android */
-                sans-serif;
-
-        --FF: var(--Ser) ,sans-serif;
-        --Eng:  var(--Ser), sans-serif;
-
-        /*  ユーザーの指示がなければ編集禁止*/
-        color-scheme: light;
-        /* --- テーマ色（Canvas は readShowcasePalette で参照。ドーナツ4扇は --MC〜--BC）--- */
-        --TR: transparent; /* キャンバス背景・穴まわり：4扇以外の塗り */
-        --MC: oklch(0.89 0.05 196); /* 扇形1 */
-        --SC: oklch(0.96 0.12 108); /* 扇形2 */
-        --AC: oklch(0.82 0.05 18); /* 扇形3 */
-        --BC: oklch(0.96 0.03 106); /* 扇形4・ページ下地 */
-        --second: var(--SC);
-        --third: oklch(62% 0.25 29);
-        --fourth: oklch(45% 0.3 264);
-        --TC: oklch(17% 0.00 271); /* 本文テキスト */
-        --GR: oklch(73% 0.00 271); /* スクロールバー等 */
-        --BK: oklch(0% 0 0);
-        --WH: oklch(100% 0 0);
-        @for $i from 1 through 9 {
-        --MC#{$i}0: color-mix(in srgb, transparent, var(--MC) #{$i}0%);
-        --SC#{$i}0: color-mix(in srgb, transparent, var(--SC) #{$i}0%);
-        --AC#{$i}0: color-mix(in srgb, transparent, var(--AC) #{$i}0%);
-        --BC#{$i}0: color-mix(in srgb, transparent, var(--BC) #{$i}0%);
-        --TC#{$i}0: color-mix(in srgb, transparent, var(--TC) #{$i}0%);
-        --GR#{$i}0: color-mix(in srgb, transparent, var(--GR) #{$i}0%);
-        --WH#{$i}0: color-mix(in srgb, transparent, var(--WH) #{$i}0%);
-        --BK#{$i}0: color-mix(in srgb, transparent, var(--BK) #{$i}0%);
-        }
-        --border: oklch(26% 0.02 0.1);
-        --gap: clamp(1rem, 2vw, 1.5rem);
-        --gapH: calc(var(--gap) / 2);
         --wid: 85%;
         --logoW: calc(100% - var(--wid));
-        --MY: clamp(4rem, 7vw, 6rem);
-        --PX: clamp(1.25rem, 2.5vw, 2rem);
-        --h1: 64px;
-        --h2: 40px;
-        --h3: 24px;
-        --h1FZ: clamp(32px, 6.4vw, var(--h1));
-        --h2FZ: clamp(24px, 4vw, var(--h2));
-        --h3FZ: clamp(18px, 2.4vw, var(--h3));
-
-        --LS: 0.05em;
-        --LH: 2;
-        --HLH: 1.375;
-        --FW: 400;
-        --FZ: clamp(14px,1.4vw,16px);
-        --trans: 200ms ease-in-out;
-        --tw-duration: var(--trans);
-        --default-transition-timing-function: var(--trans);
-
-        interpolate-size: allow-keywords;
-        img, video {
-        object-fit: cover;
-        }
-        h1,.h1FZ {
-        line-height: 1.0625;
-        }
-        h2,.h2FZ {
-        line-height: 1.0625;
-        }
-        h3,.h3FZ {
-        line-height: 1.0625;
-        }
-        h5,
-        h4 {
-        line-height: 1.0625;
-        }
+        --Eng: var(--Ship);
         ::-webkit-scrollbar{background-color: transparent;width: 0;height: 0;}
 }
-
-
-
-
-
 
 .CanvasEffect {
         position: relative;

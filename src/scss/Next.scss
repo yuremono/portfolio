@@ -1,29 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Jost:wght@100..900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap");
 
-/* ライト用の色変数だけを :not(.dark) に閉じる。
-   無条件の .MINDMAP { --background: … } は index の .dark より後に読み込まれると
-   同特異度で上書きし、テーマ切り替えが見た目に反映されなくなる。 */
-.MINDMAP {
-	--wid: 1200px;
-	--PX: 20px;
-	--MY: 120px;
-	--gap: 40px;
-	--h1FZ: clamp(14px, 2.4vw, 18px);
-	--Eng: "Jost"," Zen Kaku Gothic New", "Noto Sans JP", sans-serif;
-	--Jost: "Jost", var(--FF);
-
-	--mmFZ: 2rem;
-
-	font-family: var(--FF);
-	background-color: var(--background);
-	color: var(--foreground);
-	scroll-behavior: smooth;
-	h3 {
-		font-size: 1.375em;
-		display: inline-block;
-		margin-bottom: 0.5em;
-	}
-}
 
 
 

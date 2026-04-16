@@ -1,8 +1,10 @@
 import { useEffect, useRef } from "react";
 import { initGlitch } from "../features/glitch/initGlitch";
 import { useClientRuntime } from "../hooks/useClientRuntime";
+import { useHtmlRootClass } from "../hooks/useHtmlRootClass";
 import { getAssetPath } from "../lib/assetPath";
 import Header from "../components/Header";
+import { PageRoot } from "../components/PageRoot";
 
 import "../scss/glitch.scss";
 
@@ -17,14 +19,15 @@ const images = {
 };
 
 function Glitch() {
-	const rootRef = useRef<HTMLDivElement>(null);
+	const pageRootRef = useRef<HTMLDivElement>(null);
 	const openingRef = useRef<HTMLElement>(null);
 	const detailsRef = useRef<HTMLElement>(null);
-	useClientRuntime();
+	useClientRuntime({ rootRef: pageRootRef });
+	useHtmlRootClass();
 
 	useEffect(() => {
-		if (!rootRef.current) return;
-		const runtime = initGlitch(rootRef.current);
+		if (!pageRootRef.current) return;
+		const runtime = initGlitch(pageRootRef.current);
 		return runtime.disconnect;
 	}, []);
 
@@ -39,9 +42,12 @@ function Glitch() {
 	};
 
 	return (
-                <div ref={rootRef} className="glitch bg-black text-white isolate">
-				<Header className="NoLogo TopHidden" />
-                        
+		<PageRoot
+			ref={pageRootRef}
+			className="glitch bg-black text-white isolate"
+		>
+			<Header className="NoLogo TopHidden" />
+
 			<main aria-label="Glitch page">
 				<section className="part_text bgLayer out">
 					<div className="bgItem __glitch p-split">
@@ -190,7 +196,7 @@ function Glitch() {
 					aria-label="Details"
 				>
 					<div className="min-h-screen">
-						<h2 className="m-0 mb-12 [font-family:var(--Eng)] text-[var(--h2FZ)] italic leading-[1.1] [text-shadow:0_1rem_4rem_var(--BK80)]">
+						<h2 className="m-0 mb-12 [font-family:Jost] text-[var(--h2FZ)] italic leading-[1.1] [text-shadow:0_1rem_4rem_var(--BK80)]">
 							Digital Platform Administration
 						</h2>
 						<button
@@ -203,7 +209,7 @@ function Glitch() {
 					</div>
 				</section>
 			</main>
-		</div>
+		</PageRoot>
 	);
 }
 

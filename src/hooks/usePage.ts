@@ -26,6 +26,14 @@ export function usePage() {
 		});
 	}, []);
 
+	/** テーマは Fragment 不可のためラッパーではなく html に付与（他ページへはアンマウントで解除） */
+	useEffect(() => {
+		document.documentElement.classList.toggle("dark", dark);
+		return () => {
+			document.documentElement.classList.remove("dark");
+		};
+	}, [dark]);
+
 	useEffect(() => {
 		const el = ref.current;
 		if (!el) return;

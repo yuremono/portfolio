@@ -1013,15 +1013,16 @@
                         stroke: var(--BK70);
                         stroke-width: 2em;
                 }
-                li,
-                a:not(.HeaderLogo){
+                li{
                         font-size: 1.25rem;
+                }
+                a:not(.HeaderLogo){ 
                         color: var(--WH);
                         -webkit-text-stroke: .125em var(--BK70);
                         paint-order:stroke;
-                        &:hover{
-                                color: var(--MC);
-                        }
+                }
+                a:not(.drop ul *):hover{
+                                color: var(--AC);
                 }
                 @apply h-full pointer-events-none;
                 .HeaderInner{
@@ -1095,7 +1096,7 @@
                 }
         }
         &.LinkShadow{
-                a{
+                a:not(.drop ul *){
                         filter: var(--dswh) var(--dswh);
                 }
         }
@@ -1237,7 +1238,7 @@
         }
 }
 .ThemeToggle {
-        display: none;
+        display: block;
         position: fixed;
         bottom: var(--PTbottom);
         left: unset;
@@ -1629,18 +1630,10 @@
 
                 >li {
                         height: 100%;
-                        // line-height: var(--navLH);
-
-                        &.__sub {
-                                display: none;
-                        }
-
                         position: relative;
-                        display: grid;
-                        place-items: center;
-
-
                         padding-inline: var(--liPY);
+                        padding-block: 0.5em;
+                        align-content: center;
                         &:has(span) {
                                 --liPY: calc(var(--headG)/2);
 
@@ -1673,78 +1666,74 @@
                         text-align: left;
                 }
 
-                li.drop {
-                        --size: 7.5px;
-                        will-change: transform;
 
-                        &::after {
-                                top: calc(100%);
-                                background-color: currentColor;
-                        }
-
-                        ul {
-                                transition: var(--trans);
-
-                                position: absolute;
-                                top: calc(100%);
-                                min-width: 12em;
-                                overflow: hidden;
-                                pointer-events: none;
-                                z-index: 1;
-                                scale: 0 1;
-                                opacity: 0;
-                                background-color: var(--dropBG);
-
-                                li {
-                                        position: relative;
-                                        height: 3em;
-                                }
-
-                                a {
-                                        width: 100%;
-                                        margin-inline: auto;
-                                        padding-inline: 1.5em;
-                                        white-space: nowrap;
-                                }
-
-                        }
-                        &:last-child ul {
-                                right: 0;
-                        }
-
-                        ul a {
-                                display: flex;
-                                justify-content: center;
-                                align-items: center;
-                                width: 100%;
-                                height: 100%;
-                                color: var(--dropC);
-                                padding-block: 0.25em;
-
-                                &:hover {
-                                        color: var(--MC);
-                                }
-                        }
-
-                        .dropbtn {
-                                display: none;
-                        }
-                }
         }
 
         .FocusTrap {
                 display: none;
         }
-
         li.drop {
+                --size: 7.5px;
+                will-change: transform;
+
+                &::after {
+                        top: calc(100%);
+                        background-color: currentColor;
+                }
+
+                ul {
+                        transition: var(--trans);
+                        position: absolute;
+                        top: calc(100%);
+                        right: 50%;
+                        transform: translateX(50%);
+                        
+                        min-width: 12em;
+                        overflow: hidden;
+                        pointer-events: none;
+                        z-index: 1;
+                        scale: 1 0;
+                        transform-origin: top;
+                        opacity: 0;
+                        background-color: var(--dropBG);
+                        padding: 0.5em 1em;
+
+
+                        // li {
+                        //         position: relative;
+                        // }
+
+                        a {
+                                width: 100%;
+                                display: flex;
+                                align-items: center;
+                                justify-content: space-between;
+                                white-space: nowrap;
+                                svg {
+                                        margin-left: auto;
+                                }
+                        }
+
+                }
+                &:last-of-type ul {
+                        right: 0;
+                        transform: unset;
+                }
+                ul a {
+                        width: 100%;
+                        height: 100%;
+                        color: var(--dropC);
+                }
+                .dropbtn {
+                        display: none;
+                }
                 &:hover ul {
-                        pointer-events: all;
+                        pointer-events: auto;
                         scale: 1 1;
                         opacity: 1;
                 }
-
                 ul:hover {
-                        pointer-events: all;
+                        pointer-events: auto;
                         scale: 1 1;
                 }
         }

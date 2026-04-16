@@ -1,4 +1,5 @@
 // CustomClass components
+import { useRef } from "react";
 import { Panel, PanelItem } from "../components/Panel";
 import { Cards, CardsItem } from "../components/Cards";
 import { Toggle, ToggleSummary, ToggleBody } from "../components/Toggle";
@@ -9,15 +10,19 @@ import { LottieScroll } from "../components/LottieScroll";
 
 // Common
 import Header from "../components/Header";
+import { PageRoot } from "../components/PageRoot";
 import { Footer } from "../components/Footer";
 import { useClientRuntime } from "../hooks/useClientRuntime";
+import { useHtmlRootClass } from "../hooks/useHtmlRootClass";
 import { getAssetPath } from "../lib/assetPath";
 
 function Examples() {
-	useClientRuntime();
+	const pageRootRef = useRef<HTMLDivElement>(null);
+	useClientRuntime({ rootRef: pageRootRef });
+	useHtmlRootClass();
 
 	return (
-		<>
+		<PageRoot ref={pageRootRef}>
 			<Header className="" />
 
 			<main className="mt-[--head]">
@@ -302,7 +307,7 @@ function Examples() {
 			</main>
 
 			<Footer />
-		</>
+		</PageRoot>
 	);
 }
 

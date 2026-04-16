@@ -16,7 +16,7 @@ button,a{
             opacity: .7;
         }
     }
-    &:is(.h_logo a,.f_logolink ,.itext,.sns_slide ul a){
+    &:is(.HeaderLogo a,.f_logolink ,.itext,.sns_slide ul a){
         &:hover{
             opacity: .7;
         }
@@ -280,7 +280,7 @@ button,a{
 
 
 
-    &:is(.txbk *),
+    &:is(.text-[--BK] *),
     &.__bk{
         color: var(--WH);
     }
@@ -533,10 +533,10 @@ p:has(>a){
 // }
 
 .f_link,.pan1 a
-,.h_nav a:not(.drop a,.nopointer,:has(>span))
+,.HeaderNav a:not(:has(>span))
 ,.banner a
 ,a.textlink:not([href*=tel],.__tel,span,.__grad)
-// ,.h_nav a:not(.drop a,.nopointer,:has(>span),:is(.logo *)) 
+// ,.HeaderNav a:not(.drop a,.nopointer,:has(>span),:is(.logo *)) 
 ,.nav a:not(.drop ul li a)
 ,.f_nav ul a
 // ,.f_nav-column a
@@ -544,7 +544,6 @@ p:has(>a){
 ,.rss-title
 // ,div.items > article a.name
 // ,.btn
-// ,.h_tel
 // ,.policy-trigger
     {// ホバー下線
     @extend %r-grow;
@@ -570,10 +569,8 @@ p:has(>a){
         // }
 }
 .f_btn
-,.h_nav .drop ul li
+// ,.HeaderNav .drop ul li
 // ,.drop ul li a
-// ,.h_btn 
-// ,.h_fix a 
 ,.btn:not([href*=tel],.__tel,span,.__grad)
 // ,.H-layer .veil
 // ,.btn

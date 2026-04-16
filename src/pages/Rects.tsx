@@ -9,9 +9,11 @@ import type { CSSProperties } from "react";
 import { Link } from "react-router-dom";
 import { ArrowClockwiseIcon, CopyIcon } from "@phosphor-icons/react";
 
+import { PageRoot } from "../components/PageRoot";
 import { Footer } from "../components/Footer";
 import { Toggle, ToggleSummary, ToggleBody } from "../components/Toggle";
 import { useClientRuntime } from "../hooks/useClientRuntime";
+import { useHtmlRootClass } from "../hooks/useHtmlRootClass";
 import {
 	type RectsGeneratorMode,
 	type RectsOutputMode,
@@ -172,6 +174,7 @@ function Rects() {
 	/** Tweakpane と共有（バインド先。change で枠の高さを React と同期） */
 	const tweakParamsRef = useRef<RectsTweakParams>(initialParams);
 	const tweakpaneContainerRef = useRef<HTMLDivElement>(null);
+	const pageRootRef = useRef<HTMLDivElement>(null);
 	const appliedGridLayoutRef = useRef({
 		rows: initialParams.grid.rows,
 		cols: initialParams.grid.cols,
@@ -492,9 +495,10 @@ function Rects() {
 	const gridUsesPlusLines =
 		generatorMode === "grid" && gridShapeUsesPlusLines(gridShapeId);
 
-	useClientRuntime();
+	useClientRuntime({ rootRef: pageRootRef });
+	useHtmlRootClass();
 	return (
-		<>
+		<PageRoot ref={pageRootRef}>
 			<header
 				id="Header"
 				className="Header pointer-events-none  [--innerBG:unset] [--head:120px] [--innerPX:0px] [--logoPX:--PX]"
@@ -865,7 +869,7 @@ function Rects() {
 				</Toggle>
 			</main>
 			<Footer />
-		</>
+		</PageRoot>
 	);
 }
 

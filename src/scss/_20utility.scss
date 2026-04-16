@@ -656,7 +656,7 @@ body>*{//margin top bottom negative
 // }
 body>*{//font - color,size
     .txwh, .txwh *{color: var(--WH);}
-    .txbk, .txbk *:not(a){color: var(--BK);}
+    .text-[--BK], .text-[--BK] *:not(a){color: var(--BK);}
     .txsc, .txsc *:not(a){color: var(--SC);} 
     .txbc, .txbc *:not(a){color: var(--BC);}
     .txac, .txac *:not(a){color: var(--AC);}

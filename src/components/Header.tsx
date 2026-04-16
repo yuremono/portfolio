@@ -1,6 +1,6 @@
 // import type { CSSProperties } from "react";
 import { Link } from "react-router-dom";
-import { CaretUpIcon, CaretDownIcon } from "@phosphor-icons/react";
+import { CaretUpIcon, CaretDownIcon ,ArrowSquareOutIcon} from "@phosphor-icons/react";
 
 function HeaderNav() {
 	return (
@@ -30,14 +30,26 @@ function HeaderNav() {
 				<ul aria-hidden="true" aria-label="close">
 					<li>
 						<a
+							href="https://github.com/yuremono/portfolio"
+							className=" "
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							Portfolio<ArrowSquareOutIcon size={16} />
+
+
+						</a>
+					</li>
+					<li>
+						<a
 							href="https://github.com/yuremono/BurnYourOwnStyle/tree/react"
 							className=" "
 							target="_blank"
 							rel="noopener noreferrer"
 						>
-							BurnYourOwnStyle
+							BurnYourOwnStyle<ArrowSquareOutIcon size={16} />
 						</a>
-                                        </li>
+					</li>
 					<li>
 						<a
 							href="https://github.com/yuremono/agent-driven-CMS"
@@ -45,9 +57,9 @@ function HeaderNav() {
 							target="_blank"
 							rel="noopener noreferrer"
 						>
-							AgentDrivenCMS
+							AgentDrivenCMS<ArrowSquareOutIcon size={16} />
 						</a>
-                                        </li>
+					</li>
 					<li>
 						<a
 							href="https://github.com/yuremono/agent-relay"
@@ -55,11 +67,18 @@ function HeaderNav() {
 							target="_blank"
 							rel="noopener noreferrer"
 						>
-							AgentRelay
+							AgentRelay<ArrowSquareOutIcon size={16} />
 						</a>
-                                        </li>
-                                        <li>
-						<Link to="/agent">Agent Driven CMS</Link>
+					</li>
+					<li>
+						<a
+							href="https://github.com/yuremono/creative-demos"
+							className=" "
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							CreativeDemos<ArrowSquareOutIcon size={16} />
+						</a>
 					</li>
 					<li>
 						<a
@@ -68,20 +87,57 @@ function HeaderNav() {
 							target="_blank"
 							rel="noopener noreferrer"
 						>
-							ChatCanban
+							ChatCanban<ArrowSquareOutIcon size={16} />
 						</a>
 					</li>
-					{/* <li>
+					<li>
+						<a
+							href="https://github.com/yuremono/portfolio"
+							className=" "
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							NextJsCMS<ArrowSquareOutIcon size={16} />
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li className="drop" aria-expanded="false">
+				<a className="droplink drop_toggle " tabIndex={-1}>
+					Pages
+					<CaretDownIcon className="dropIcon" />
+				</a>
+				<button
+					type="button"
+					className="dropbtn drop_toggle"
+					aria-label="サブメニューを開閉"
+				/>
+				<ul aria-hidden="true" aria-label="close">
+					<li>
+						<Link to="/">BurnYourOwnStyle</Link>
+					</li>
+					<li>
+						<Link to="/agent">Donuts</Link>
+					</li>
+					<li>
+						<Link to="/rects">RandomGenerator</Link>
+					</li>
+					<li>
+						<Link to="/shuffle-divide">ShuffleDivide</Link>
+					</li>
+					<li>
+						<Link to="/glitch">Glitch</Link>
+					</li>
+					<li>
 						<a
 							href="https://chat-kanban.vercel.app/"
 							className=" "
 							target="_blank"
 							rel="noopener noreferrer"
 						>
-							ChatCanban
+							ChatCanban<ArrowSquareOutIcon size={16} />
 						</a>
-					</li> */}
-					
+					</li>
 					<li>
 						<a
 							href="https://cms0505.vercel.app/"
@@ -89,7 +145,7 @@ function HeaderNav() {
 							target="_blank"
 							rel="noopener noreferrer"
 						>
-							Portofolio
+							NextJsCMS<ArrowSquareOutIcon size={16} />
 						</a>
 					</li>
 				</ul>
@@ -100,7 +156,7 @@ function HeaderNav() {
 function HeaderItems() {
 	return (
 		<div className="HeaderItems FixTab">
-			<a
+			{/* <a
 				href="https://github.com/yuremono/creative-demos"
 				target="_blank"
 				rel="noopener noreferrer"
@@ -113,7 +169,7 @@ function HeaderItems() {
 				rel="noopener noreferrer"
 			>
 				Generator
-			</a>
+			</a> */}
 		</div>
 	);
 }
@@ -130,13 +186,15 @@ export default function Header({ className }: HeaderProps) {
 	return (
 		<header
 			id="Header"
-			className={["Header  ", className]
-				.filter(Boolean)
-				.join(" ")}
+			className={["Header  ", className].filter(Boolean).join(" ")}
 		>
 			<div className="HeaderInner ">
 				<div className="HeaderLogo ">
-                                <Link className="HeaderLogoText Eng" to="/">Brand Name</Link>
+					<Link className="HeaderLogoText Eng" to="/">
+						yuremono
+						<br />
+						works
+					</Link>
 				</div>
 				<button
 					type="button"

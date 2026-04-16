@@ -1,4 +1,5 @@
 // import type { CSSProperties } from "react";
+import { useRef } from "react";
 import { Panel, PanelItem } from "../components/Panel";
 import { Toggle, ToggleSummary, ToggleBody } from "../components/Toggle";
 import { Image } from "../components/Image";
@@ -6,15 +7,19 @@ import { PathDraw } from "../components/PathDraw";
 import { LottieScroll } from "../components/LottieScroll";
 
 import Header from "../components/Header";
+import { PageRoot } from "../components/PageRoot";
 import { Footer } from "../components/Footer";
 import { useClientRuntime } from "../hooks/useClientRuntime";
+import { useHtmlRootClass } from "../hooks/useHtmlRootClass";
 import { getAssetPath } from "../lib/assetPath";
 
 function Preview() {
-	useClientRuntime();
+	const pageRootRef = useRef<HTMLDivElement>(null);
+	useClientRuntime({ rootRef: pageRootRef });
+	useHtmlRootClass();
 
 	return (
-		<>
+		<PageRoot ref={pageRootRef}>
 			<Header className="LinkShadow UpInit" />
 
 			<main id="" className=" min-h-screen  mt-[--head] pb-[--MY]">
@@ -323,7 +328,7 @@ function Preview() {
 			</main>
 
 			<Footer />
-		</>
+		</PageRoot>
 	);
 }
 

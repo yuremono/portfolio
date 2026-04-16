@@ -8,7 +8,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: mode === 'production' ? '/BurnYourOwnStyle/' : '/',
+  base: mode === 'production' ? '/portfolio/' : '/',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),

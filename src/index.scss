@@ -2,46 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+//tailwind reset overwrite
+svg {display: inline-block;}
+body{line-height: var(--LH);}
+h1 {font-size: var(--h1FZ);}
+h2 {font-size: var(--h2FZ);}
+h3 {font-size: var(--h3FZ);}
 
-svg {
-        display: inline-block;
-}
+h5,h4 {font-size: var(--h3FZ);}
 
-h1 {
-        font-size: var(--h1FZ);
-}
-
-h2 {
-        font-size: var(--h2FZ);
-}
-
-h3 {
-        font-size: var(--h3FZ);
-}
-
-h5,
-h4 {
-        font-size: var(--h3FZ);
-}
-
-h1,
-h2,
-h3,
-h4,
-h5 {
+h1,h2,h3,h4,h5 {
         line-height: var(--HLH);
         font-family: var(--Eng)
 }
 //tailwind recovery
-.inline-size {
-        container-type: inline-size;
-}
-.rtl {
-        direction: rtl;
-}
-.ltr {
-        direction: ltr;
-}
+.inline-size {container-type: inline-size;}
+.rtl {direction: rtl;}
+.ltr {direction: ltr;}
 
 // Header
 .HeaderNavMobile .NavInner .dropbtn {
@@ -187,6 +164,7 @@ div.tp-lblv_v:has(.tp-radgridv) {
 
         .mindWobble {
                 font-family: var(--Jost);
+                font-weight: 100;
                 position: relative;
                 z-index: 1;
                 font-size: calc(var(--mmFZ) * 5);
@@ -304,30 +282,6 @@ div.tp-lblv_v:has(.tp-radgridv) {
                 padding: 0.25em 1em 0.375em;
         }
 
-        .dl_center dt {
-                text-align: right;
-        }
-
-        .DescList dl {
-                display: grid;
-                grid-template-columns: calc(var(--dtWidth, 20%)) 1fr;
-                margin: 0;
-        }
-
-        .DescList dt {
-                font-weight: 600;
-                margin: 0;
-                padding-inline: calc(var(--gap) / 2);
-                padding-block: 1em;
-                align-self: start;
-        }
-
-        .DescList dd {
-                margin: 0;
-                padding-inline: calc(var(--gap) / 2);
-                padding-block: 1em;
-                align-self: start;
-        }
 
 
 

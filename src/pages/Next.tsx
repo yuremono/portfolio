@@ -8,17 +8,9 @@ import {
 import Header from "../components/Header";
 import { PageRoot } from "../components/PageRoot";
 import { useClientRuntime } from "../hooks/useClientRuntime";
-import { getAssetPath } from "../lib/assetPath";
 import { useHtmlRootClass } from "../hooks/useHtmlRootClass";
 import { usePage } from "../hooks/usePage";
 import "../scss/Next.scss";
-
-const media = {
-	video1: "video/demo.mp4",
-	video2: "showcase/next-cms/media/23ccc8ac-0759-41d8-ac7b-bb875f3e8aec.mp4",
-	descBg: "images/fff2.svg",
-	imgText: "showcase/next-cms/media/bc5949a7-0b53-42e4-9f16-87302f2bed59.jpg",
-};
 
 const EDITOR_URL = "https://cms0505.vercel.app/editor";
 
@@ -176,7 +168,7 @@ function Next() {
 						</div>
 					</div>
 					<div className="item content-center">
-						<div className="budoux">
+						<div className="budoux leading-[2]">
 							<h3>AI Native Development</h3>
 							<br />
 							個人のスタイルシステム（クラス、変数、スタイリングの癖）を元に、Claude
@@ -219,7 +211,7 @@ function Next() {
 						>
 							<video
 								className="absolute inset-0 h-full w-full object-cover border-[--BK10] border border-t-0"
-								src={getAssetPath(media.video1)}
+								src=""
 								muted
 								loop
 								playsInline
@@ -240,8 +232,7 @@ function Next() {
 							</h2>
 							<br />
 							<br />
-							Codex app-server または Claude Code をNext.jsのNode
-							runtime経由で中継し、ブラウザから自然言語でサイト編集を行うローカルCMS
+							Codex app-serverまたはClaude CodeをNext.jsの Node runtime経由で中継し、ブラウザから自然言語でサイト編集を行うローカルCMS
 							<br />
 							<div>
 								<details className="Toggle IsSmall mt-4">
@@ -446,7 +437,7 @@ function Next() {
 						>
 							<video
 								className="absolute inset-0 h-full w-full object-cover"
-								src={getAssetPath(media.video2)}
+								src="video/demo.mp4"
 								muted
 								loop
 								playsInline
@@ -463,13 +454,13 @@ function Next() {
 				</div>
 
 				<div
-					className="DescList DescList dl_center out into Wrap bg-[--foreground] text-[--background] bg-no-repeat bg-contain bg-left-bottom"
+					className="DescList  IsCenter  out into Wrap bg-[--foreground] text-[--background] bg-no-repeat bg-contain bg-left-bottom"
 					style={{
-						backgroundImage: `url(${getAssetPath(media.descBg)})`,
+						backgroundImage: `url(images/fff2.svg)`,
 					}}
 				>
 					<div>
-						<dl style={{ "--dtWidth": "50%" } as CSSProperties}>
+						<dl >
 							<dt>Name</dt>
 							<dd>Yano Seiji</dd>
 							<dt>Hobby</dt>
@@ -493,18 +484,7 @@ function Next() {
 				</div>
 
 				<div className="ImgText  grid-cols-1 items-center gap-8 md:grid-cols-2 ImgText hidden">
-					<div
-						className="relative"
-						style={{ aspectRatio: "329/432" }}
-					>
-						<img
-							alt="Section Image"
-							loading="lazy"
-							decoding="async"
-							className="rounded-lg object-cover absolute inset-0 h-full w-full"
-							src={getAssetPath(media.imgText)}
-						/>
-					</div>
+					{/* //画像コンポーネント有り */}
 					<div>
 						<div className="h-full">
 							<p>ここにテキストを入力します</p>
@@ -599,29 +579,7 @@ function Next() {
 					</form>
 				</section>
 
-				<section className="ImgText  grid-cols-1 items-center gap-8 md:grid-cols-2 ImgText AgentSection hidden">
-					<div>
-						<div>
-							<h2>🤖 AIエージェント</h2>
-							<p>
-								このセクションは
-								<strong>AIエージェントによって自動生成</strong>
-								されました。
-							</p>
-							<p>
-								CMSシステムのAI機能により、セクションの追加から内容の入力まで、全て自動化されています。
-							</p>
-							<div className="mt-4 rounded-lg bg-blue-50 p-4">
-								<p className="text-sm text-blue-800">
-									✨ <strong>特徴:</strong>
-									<br />• 自動コンテンツ生成
-									<br />• レスポンシブデザイン対応
-									<br />• 編集画面での後編集が可能
-								</p>
-							</div>
-						</div>
-					</div>
-				</section>
+				
 			</main>
 		</PageRoot>
 	);

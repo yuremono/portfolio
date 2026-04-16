@@ -543,7 +543,7 @@ const VideoRingOverlay = forwardRef<VideoRingOverlayHandle, VideoRingOverlayProp
 			<div
 				data-l="LoadingLayer"
 				aria-hidden="true"
-				className={`fixed inset-0 z-[1000] bg-[var(--WH)] text-[var(--BK70)] transition-opacity duration-[1500ms] ease-out ${
+				className={`Eng fixed inset-0 z-[1000] bg-[var(--WH)] text-[var(--BK70)] transition-opacity duration-[1500ms] ease-out ${
 					openingPhase === "done"
 						? "pointer-events-none"
 						: "pointer-events-auto"

@@ -16,7 +16,7 @@ export function Footer({ className }: FooterProps) {
 		>
 			<div className="text-center font-medium Eng ">
 				<p className="mb-0 font-bold   text-[length:var(--logoFZ)]">
-					Brand Name
+					yuremono works
 				</p>
 				<div className="space-x-4">
 					

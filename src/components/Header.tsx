@@ -6,10 +6,10 @@ function HeaderNav() {
 	return (
 		<ul className="">
 			<li className="">
-				<Link to="/next">HOME</Link>
+				<Link to="/">HOME</Link>
 			</li>
 			<li className="">
-				<Link to="/">BYOS</Link>
+				<Link to="/preview">BYOS</Link>
 			</li>
 			<li className="">
 				<Link to="/agent">Donuts</Link>
@@ -114,10 +114,10 @@ function HeaderNav() {
 				/>
 				<ul aria-hidden="true" aria-label="close">
 					<li>
-						<Link to="/">BurnYourOwnStyle</Link>
+						<Link to="/preview">BurnYourOwnStyle</Link>
 					</li>
 					<li>
-						<Link to="/agent">Donuts</Link>
+						<Link to="/agent">Donuts<small>(ADCMS)</small></Link>
 					</li>
 					<li>
 						<Link to="/rects">RandomGenerator</Link>
@@ -127,6 +127,9 @@ function HeaderNav() {
 					</li>
 					<li>
 						<Link to="/glitch">Glitch</Link>
+					</li>
+					<li>
+						<Link to="/examples">EX.forBuildSKILL</Link>
 					</li>
 					<li>
 						<a

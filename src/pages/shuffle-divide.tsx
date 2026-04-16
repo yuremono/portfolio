@@ -83,7 +83,7 @@ function ShuffleDivide() {
 
 	return (
 		<PageRoot ref={pageRootRef}>
-			<Header className="NoLogo TopHidden" />
+			<Header className=" " />
 
 			<main
 				className="shuffle-divide [--h1FZ:clamp(32px,6.4vw,96px)]"

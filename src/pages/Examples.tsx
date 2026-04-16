@@ -46,6 +46,87 @@ function Examples() {
 						<span>StickyStepは</span>
 						<span>FV向け調整</span>
 					</div>
+                                </section>
+                                
+				{/* DescList */}
+				<section className="Wrap into">
+					<h2>DescList</h2>
+
+					<div className="DescList ">
+						<dl>
+							<dt>Modifierなし</dt>
+							<dd>装飾なしの最小構成</dd>
+							<dt>min padding</dt>
+							<dd>パディングを最小にしたコンパクト表示</dd>
+						</dl>
+					</div>
+                                        
+					<div className="DescList IsSimple">
+						<dl>
+							<dt>IsSimple</dt>
+                                                        <dd>下線で区切るシンプルなDLリスト</dd>
+							<dt>border-bottom</dt>
+							<dd>dt/ddの下部にボーダーを表示</dd>
+						</dl>
+					</div>
+
+					<div className="DescList IsZebra">
+						<dl>
+							<dt>IsZebra</dt>
+							<dd>奇数行に背景色を付けるストライプ表示</dd>
+							<dt>nth-of-type</dt>
+							<dd>奇数行にBC背景色を適用</dd>
+						</dl>
+					</div>
+
+
+
+					<div className="DescList IsBorder">
+						<dl>
+							<dt>IsBorder</dt>
+							<dd>dl単位で下線を引くボーダー区切り</dd>
+							<dt>line-height</dt>
+							<dd>行間1.6で読みやすさを確保</dd>
+						</dl>
+					</div>
+
+					<div className="DescList IsHead">
+						<dl>
+							<dt>IsHead</dt>
+                                                        <dd>dlにMCカラーの下線を付与</dd>
+                                                        </dl>
+                                                        <dl>
+							<dt>dt background</dt>
+							<dd>下線装飾のためdt,dd一と組づつdlでwrap</dd>
+						</dl>
+					</div>
+
+					<div className="DescList IsColumn">
+						<dl>
+							<dt>IsColumn</dt>
+							<dd>dt/ddを縦に並べるレイアウト</dd>
+							<dt>flex-direction</dt>
+							<dd>columnでdt上・dd下の構成</dd>
+						</dl>
+					</div>
+
+					<div className="DescList IsTimeline">
+						<dl>
+							<dt>IsTimeline</dt>
+							<dd>縦線と丸マーカーで沿革風に表示</dd>
+							<dt>pseudo elements</dt>
+							<dd>MCカラーの線と円で接続を表現</dd>
+						</dl>
+					</div>
+
+					<div className="DescList IsCenter">
+						<dl>
+							<dt>IsCenter</dt>
+							<dd>dtを右寄せにして中央で区切る</dd>
+							<dt>text-align right</dt>
+							<dd>ラベルと値の境界を揃える</dd>
+						</dl>
+					</div>
 				</section>
 
 				{/* Hero */}

@@ -135,8 +135,8 @@ body{
 // .txstbc{-webkit-text-stroke: var(--stw) var(--BC);paint-order: stroke;}
 // @media (max-width : 640px){[class*=txst]{-webkit-text-stroke-width: 4px;}}
 // .H-txstwh :is(h1,h2,h3){-webkit-text-stroke: 4px var(--WH);paint-order: stroke;}
-// .H-txstbk :is(h1,h2,h3){-webkit-text-stroke: 4px var(--BK);paint-order: stroke;color: #fff;}
-// .H-txstmc :is(h1,h2,h3){-webkit-text-stroke: 4px var(--mc);paint-order: stroke;color: #fff;}
+// .H-txstbk :is(h1,h2,h3){-webkit-text-stroke: 4px var(--BK);paint-order: stroke;color: var(--WH);}
+// .H-txstmc :is(h1,h2,h3){-webkit-text-stroke: 4px var(--mc);paint-order: stroke;color: var(--WH);}
 // @media (max-width : 640px){[class*=H-txst] :is(h1,h2,h3){-webkit-text-stroke-width: 2px;}}
 
 .dswh{filter: var(--dswh);}

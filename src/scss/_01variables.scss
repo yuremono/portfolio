@@ -75,6 +75,7 @@
 	--foreground: #fff;
 	--border: #fff;
         --BK: #fff;
+        --TC: #fff;
         --WH: #000;
 }
 
@@ -218,7 +219,7 @@
         @media (max-width: 1560px){--headG: .75em;}
         @media (max-width: 1200px){--headG: 0.5em;}
         // --innerPX: calc(var(--headG)*1 );
-        --innerPX: calc(var(--in1320)*1 );
+        --innerPX: calc(var(--into)*1 );
         --navPX: calc(var(--headG)*1 );
         --itemPX: calc(var(--headG)*0 ); 
         --logoPX: calc(var(--headG)*0 ); 
@@ -245,6 +246,30 @@
             --mvImg:calc(100lvh - var(--head)*2 ); 
         }
         // @include menu{--mvImg:calc(50lvh);}
+        --navFZ: var(--inh); //pcnavFZ
+        --navLH: 1.5em;
+        --navC: var(--inh); 
+        --navFW: inherit;
+        --dropBG: var(--MC);
+        --dropC: var(--WH);
+        --SPnavBG: var(--WH); //spnav
+        --SPnavBG: var(--innerBG);//spnav 
+        --SPnavFZ: 1em;
+        --dropbtnBG: var(--un);
+        --dropbtnBF: var(--cur);
+
+        --bargap: calc(var(--btnH) * .25);
+        --menuC: var(--BK);
+        --spanH: 2px;
+        --spanR: 000px;
+        --deg: 150deg;
+        --menuRad: 0px;
+
+
+        --spanW: 67.5%;
+        --menuM: var(--headG) 0;
+
+        --menuH: var(--btnH);
     
     
     

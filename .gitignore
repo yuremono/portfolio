@@ -1,0 +1,82 @@
+
+.vscode/
+ignore/*
+NOTE.md
+NOTE2.md
+voice-input-patterns.md
+.memsearch
+.cursor-memsearch
+private/
+js/
+LOCAL.html
+
+# Vite pre-bundle cache (regenerated locally)
+.vite/
+
+# Compiled CSS at repo root (keep locally)
+css/
+
+# Source maps
+*.map
+
+# Public images (keep locally; clone may need a separate asset step)
+
+# Claude Code — machine-local settings
+.claude/settings.json
+
+# macOS system files
+.DS_Store
+._*
+
+# Claude Code settings
+.claude/output-styles
+.agent/*
+.gemini/*
+.mcp.json
+.cursor/
+
+
+
+
+
+# Temporary files
+tasks/
+tmp/
+*.tmp
+*.bak
+
+# Memory MCP data (local to each installation)
+memory/
+
+# Build output
+dist/
+/build/
+
+# Dependencies
+node_modules/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# IDE/Editor
+.idea/
+*.swp
+*.swo
+
+# Test coverage
+coverage/
+
+# Cache
+.cache/
+.parcel-cache/
+.eslintcache
+
+# TypeScript cache
+*.tsbuildinfo

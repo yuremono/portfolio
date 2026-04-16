@@ -1,0 +1,49 @@
+src/pages/Examples.tsx
+  6540a2ed31da2fc0 51,53-54,56,61-62,72-81,83,93-96,99,101-129
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8",
+  "base_commit_sha": "32ed3df91ef4cc7e456a0afc14d49ab739b734a0",
+  "prompts": {
+    "6540a2ed31da2fc0": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "c1abbd45-11e3-44ac-a1c0-f42b93a89ed0",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 308,
+      "total_deletions": 25,
+      "accepted_lines": 198,
+      "overriden_lines": 13
+    },
+    "7037b57948b36c39": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "c417efdc-1f80-48cb-a401-6323beed6081",
+        "model": "composer-2-fast"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 5,
+      "overriden_lines": 0
+    },
+    "9e0259fb24621516": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "016b374e-54b0-4dbd-9680-2cf7b2aae7b4",
+        "model": "composer-2"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 369,
+      "overriden_lines": 0
+    }
+  }
+}

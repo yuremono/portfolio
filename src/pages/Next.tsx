@@ -4,7 +4,7 @@ import { Cards, CardsItem } from "../components/Cards";
 import Button from '../components/btn';
 // JSX 内
 // import { Image } from "../components/Image";
-// import { getAssetPath } from "../lib/assetPath";
+import { getAssetPath } from "../lib/assetPath";
 
 import {
 	ArrowSquareOut,
@@ -418,7 +418,7 @@ function Next() {
 						>
 							<video
 								className="absolute inset-0 h-full w-full object-cover border-[--BK10] border border-t-0"
-								src="/video/demo.mp4"
+                                                                src={getAssetPath("/video/demo.mp4")}
 								muted
 								loop
 								playsInline

@@ -2,7 +2,7 @@
 
 // *********************************
 // コメントはpencil variebles に同期しない
-@import url('https://fonts.googleapis.com/css2?family=Viaoda+Libre&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@100..900&family=Viaoda+Libre&display=swap');
 :root {//font
         --Ser: "Noto Serif JP", serif;
 
@@ -22,8 +22,9 @@
                 sans-serif;
         --Ship: "Shippori Mincho","Noto Serif JP", serif;
         --Jost: "Jost",var(--San), sans-serif;
+        --Via: "Viaoda Libre",var(--San), sans-serif;
         --FF: var(--San) ,sans-serif;
-        --Eng: "Viaoda Libre",var(--San), sans-serif;
+        --Eng: var(--Jost);
 }
 
 :root {//color
@@ -148,9 +149,12 @@
 :root {
         --LS: 0.05em;
         --LH: 2;
-        --HLH: 1.375;
         --FW: 300;
         --FZ: 1rem;
+        --HFF: var(--Eng);
+        --HFW: 500;
+        --HLH: 1.375;
+        --HLS: 0.00em;
 
         @include max-md {
                 --FZ: 0.875rem;
@@ -185,7 +189,7 @@
 :root{//ボーダー シャドウ デコレーション等
         --bds: solid;
         --bdw: 1px;
-        --bdc: var(--TC);  
+        --bdc: var(--TC30);  
         --line:var(--bdw) var(--bds) var(--bdc); 
         --stw: 4px;
     
@@ -232,7 +236,7 @@
         @media (max-width: 1200px){--headG: 0.5em;}
         // --innerPX: calc(var(--headG)*1 );
         --innerPX: calc(var(--into)*1 );
-        --navPX: calc(var(--headG)*1 );
+        --navPX: calc(var(--headG)*0 );
         --itemPX: calc(var(--headG)*0 ); 
         --logoPX: calc(var(--headG)*0 ); 
         --itemG: calc(var(--headG)*1.5 );
@@ -357,8 +361,6 @@
         --btnRad:4px;
         // --btnSh: var(--bxshbtn);
     
-        --btnIFZ:calc(var(--btnFZ)*1.25);
-        --btnImg:2.25em;
         
         // --btnImg:calc(var(--btnH)*.66 );
         --btnIFF:var(--icon);
@@ -370,16 +372,18 @@
         // hand-pointer f25a //long→&#xf30b;circleright f0a9;caret\f0da 
         // <i class="las la-mars"></i>
         --btnAF: "\f105";
-        --btnAFdis: inline-block;
-        --btnAFMX: 0em 0;
-        --btnAFC: var(--inh);
-        --btnAFFZ: calc(var(--btnFZ)*1);
-        // --btnAFFZ: 1.5em;
+        --btnIFZ:calc(var(--btnFZ)*1);
+        --btnImg:2.25em;
+        --btnIdis: inline-block;
+        --btnIMX: 0.5em 0;
+        --btnIFC: var(--inh);
+        // --btnIFZ: 1.5em;
         // @media (max-width : 640px){
-        --btnAFFW: 900;
-        --btnAFPOS: absolute;
-        // --btnAFRT: 1.25em;
-        --btnAFRT: 0.25em;
+        --btnIFW: 900;
+        --btnIPOS: absolute;
+        // --btnIRT: 1.25em;
+        --btnIRT: 0.25em;
+        --btnIVA: bottom;
 }
 
 :root{//シャドウ デコレーション等

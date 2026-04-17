@@ -27,9 +27,9 @@ const tabPanels = [
 		buttonLead: "Sunset Sea",
 		image: "/images/picsum/003.jpg",
 		alt: "夕暮れの海と波",
-		contentClassName: "Bottom",
+		contentClassName: "Bottom leading-[1.5em] ",
 		content: (
-			<mark>
+			<mark className="">
 				波の向こうに
 				<br />
 				日が沈む
@@ -43,7 +43,7 @@ const tabPanels = [
 		alt: "整然と並ぶ緑の畑",
 		contentClassName: "Right",
 		content: (
-			<span className="tate">
+			<span className="tate  text-center text-[--TC]">
 				風が通る
 				<br />
 				緑のライン
@@ -119,7 +119,7 @@ function ShuffleDivide() {
                                         <div>
                                                 <div className="JsCpL">
                                                         <h1 className="h2FZ">
-                                                                <span>Creative</span>なデザインで未来を創る
+                                                                <span>デザイン</span>で未来を創る
                                                         </h1>
                                                 </div>
                                         </div>

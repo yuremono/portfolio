@@ -10,8 +10,8 @@ import "../scss/glitch.scss";
 
 const images = {
 	over: getAssetPath("/images/common/glitch-bg00.png"),
-	heroA: getAssetPath("/images/common/glitch-bg01.jpg"),
-	heroB: getAssetPath("/images/common/glitch-bg02.jpg"),
+	heroA: getAssetPath("/images/common/glitch01.jpg"),
+	heroB: getAssetPath("/images/common/glitch02.jpg"),
 	heroC: getAssetPath("/images/common/glitch-bg03.jpg"),
 	heroD: getAssetPath("/images/common/glitch-bg04.jpg"),
 	phone: getAssetPath("/images/common/glitch-phone.jpg"),
@@ -44,14 +44,16 @@ function Glitch() {
 	return (
 		<PageRoot
 			ref={pageRootRef}
-			className="glitch bg-black text-white isolate"
+			className="glitch bg-black text-white isolate [--Eng:--Jost] [--innerPX:--PX] [--HFW:100]"
 		>
 			<Header className="NoLogo TopHidden" />
 
 			<main aria-label="Glitch page">
 				<section className="part_text bgLayer out">
 					<div className="bgItem __glitch p-split">
-						<img src={images.heroA} alt="" loading="eager" />
+                                                <img
+                                                        className="bgGlitch"
+                                                        src={images.heroA} alt="" loading="eager" />
 						<img
 							className="bgOverImg"
 							src={images.over}
@@ -70,7 +72,9 @@ function Glitch() {
 						</p>
 					</div>
 					<div className="bgItem __glitch p-split">
-						<img src={images.heroB} alt="" loading="lazy" />
+                                                <img
+                                                        className="bgGlitch"
+                                                        src={images.heroB} alt="" loading="lazy" />
 						<img
 							className="bgOverImg"
 							src={images.over}
@@ -78,7 +82,7 @@ function Glitch() {
 							loading="lazy"
 						/>
 						<p
-							className="bgTxRight JsLetter JsLetterToggle text-left"
+							className="bgTxRight JsLetter JsLetterToggle text-left  sm:px-3"
 							aria-label="Leading Students toward Ideal Professions."
 						>
 							Leading
@@ -143,7 +147,7 @@ function Glitch() {
 					aria-label="Concept"
 				>
 					<div className="min-h-screen">
-						<p className="h3FZ budoux">
+						<p className="h3FZ budoux sm:px-3">
 							未来世代の職業を
 							<br />
 							設計する協力者
@@ -157,9 +161,9 @@ function Glitch() {
 				>
 					<div className="part_text ml-0 spPX10p w-1/2 text-right max-sm:w-full">
 						<h1 className="ml-0 mb-12 [font-family:var(--Eng)] text-[var(--h2FZ)] italic leading-[1.1] [text-shadow:0_1rem_4rem_var(--BK80)]">
-							青年に理想職を
+                                                わたしたちの
 							<br />
-							わたしたちのワンストップサービス
+							ワンストップサービス
 						</h1>
 					</div>
 					<div className="part_text w-full">
@@ -196,7 +200,7 @@ function Glitch() {
 					aria-label="Details"
 				>
 					<div className="min-h-screen">
-						<h2 className="m-0 mb-12 [font-family:Jost] text-[var(--h2FZ)] italic leading-[1.1] [text-shadow:0_1rem_4rem_var(--BK80)]">
+						<h2 className="m-0 mb-12  text-[var(--h2FZ)] italic leading-[1.1] [text-shadow:0_1rem_4rem_var(--BK80)]">
 							Digital Platform Administration
 						</h2>
 						<button

@@ -1,9 +1,13 @@
 import { useState } from "react";
 import type { CSSProperties, FormEvent } from "react";
+
 import {
 	ArrowSquareOut,
 	Moon,
-	Sun,
+        Sun,
+        // CaretUpIcon,
+        // CaretDownIcon,
+        ArrowSquareOutIcon,
 } from "@phosphor-icons/react";
 import Header from "../components/Header";
 import { PageRoot } from "../components/PageRoot";
@@ -17,7 +21,7 @@ const EDITOR_URL = "https://cms0505.vercel.app/editor";
 function Next() {
 	const { ref, dark, toggleTheme } = usePage();
 	useClientRuntime({ rootRef: ref });
-	useHtmlRootClass();
+	useHtmlRootClass("[--MC:--GR]");
 	const [formMessage, setFormMessage] = useState<string | null>(null);
 
 	const onContactSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -28,7 +32,7 @@ function Next() {
 	};
 
 	return (
-		<PageRoot ref={ref} className=" [--innerPX:--PX] [--Eng:--Jost] [--h3FZ:1.325em]">
+		<PageRoot ref={ref} className=" [--innerPX:--PX] [--Eng:--Jost] [--h3FZ:1.325em] ">
 			<Header className="NoLogo TopHidden" />
 
 			<button
@@ -39,13 +43,13 @@ function Next() {
 			>
 				{dark ? (
 					<Sun
-						className="text-amber-400"
+						className=""
 						weight="regular"
 						aria-hidden
 					/>
 				) : (
 					<Moon
-						className="text-zinc-700"
+						className=""
 						weight="regular"
 						aria-hidden
 					/>
@@ -55,7 +59,7 @@ function Next() {
 			<main className=" min-h-screen ">
 				<section className="HtmlContent mindMap out text-center about fontJost font-thin">
 					<p
-						className="mmPin about_p text-[--GR] fw300 text-center"
+						className="mmPin about_p text-[--GR] font-light text-center"
 						style={{ fontSize: "3em" }}
 					>
 						yuremono
@@ -87,7 +91,7 @@ function Next() {
 
 				<section className="HtmlContent mindMap out text-center knowledge fontJost font-thin mt-0">
 					<h2
-						className="mm1-3 text-[--GR] fw300 text-left"
+						className="mm1-3 text-[--GR] font-light text-left"
 						style={{ fontSize: "3em" }}
 					>
 						Knowledge
@@ -98,7 +102,6 @@ function Next() {
 					</h2>
 					<span className="mmPin knowledge_tx text-left fontZen mmStatic">
 						このページはオリジナルCMSのトップページです。
-						<br />
 						<br />
 						アプリ開発、UX設計を経験するために作成しました。
 						<br />
@@ -145,7 +148,7 @@ function Next() {
 					>
 						Pencil.dev
 					</p>
-					<p className="mmPin knowledge_bottom text-[--BK]">
+					<p className="mmPin bg-[--GR] text-[--WH] min-h-[2.5rem] content-center left-0 bottom-0 w-full text-align-last-justify PX">
 						Typescript PhotoShop Figma Three.js Supabase GSAP
 					</p>
 				</section>
@@ -154,7 +157,7 @@ function Next() {
 					<div className="item">
 						<div className="text-center">
 							<div id="Achieves" />
-							<h2 className="mindWobble fw100 text-left leading-[0.68em] tracking-[0.0em]">
+							<h2 className="mindWobble font-thin text-left leading-[0.68em] tracking-[0.0em]">
 								<span style={{ fontSize: "0.875em" }}>
 									Burn
 									<br />
@@ -176,7 +179,16 @@ function Next() {
 							等エージェント向けドキュメントを充実させることで、Web
 							制作の全工程をAI前提で進める為のプロジェクト。
 							<br />
-							<details className="Toggle IsSmall mt-4">
+							<a
+								className="btn px-1 mt-4"
+								href="https://github.com/yuremono/BurnYourOwnStyle/tree/react"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								{/* <span style={{ fontSize: "1.25em" }}>// </span> */}
+								Repositries<ArrowSquareOutIcon className="text-[length:inherit]" />
+							</a>
+							<details className="Toggle IsSmall ">
 								<summary className="fontJost">
 									Thinking...
 								</summary>
@@ -187,15 +199,6 @@ function Next() {
 									事務作業のように決められた手順を実行させることで、vibeコーディングツールでは創造できないプロダクトを効率的に実装できる。
 								</div>
 							</details>
-							<a
-								className="fontJost px-1"
-								href="https://github.com/yuremono/BurnYourOwnStyle/tree/react"
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								<span style={{ fontSize: "1.25em" }}>// </span>
-								BYOS
-							</a>
 						</div>
 					</div>
 				</section>
@@ -211,7 +214,7 @@ function Next() {
 						>
 							<video
 								className="absolute inset-0 h-full w-full object-cover border-[--BK10] border border-t-0"
-								src=""
+								src="/video/demo.mp4"
 								muted
 								loop
 								playsInline
@@ -223,7 +226,7 @@ function Next() {
 					</div>
 					<div className="item content-center">
 						<div className="budoux">
-							<h2 className="mindWobble fw100 text-center leading-[0.6em]">
+							<h2 className="mindWobble font-thin text-center leading-[0.6em]">
 								<span style={{ fontSize: "0.625em" }}>
 									Agent Driven
 									<br />
@@ -270,7 +273,7 @@ function Next() {
 
 				<section className="HtmlContent out text-center creative font-thin">
 					<div id="Demos" />
-					<h2 className="mindWobble fw100 ">
+					<h2 className="mindWobble font-thin ">
 						<span style={{ fontSize: "0.75em" }}>
 							Creative Demos
 						</span>
@@ -281,7 +284,7 @@ function Next() {
 						target="_blank"
 						rel="noopener noreferrer"
 					>
-						<div className="creative_bottom flex flex-wrap items-center justify-center gap-1">
+						<div className="  bg-[--GR] text-[--WH] min-h-[2.5rem] content-center left-0 bottom-0 w-full text-center PX">
 							<span>
 								実務で制作したクリエイティブコンテンツの再現デモ集
 							</span>
@@ -297,7 +300,7 @@ function Next() {
 				<section className="Cards col2">
 					<div className="item">
 						<div className="text-center">
-							<h2 className="mindWobble fw100">
+							<h2 className="mindWobble font-thin">
 								Chat
 								<br />
 								Kanban
@@ -347,7 +350,7 @@ function Next() {
 				<section className="Cards col2 rtl hidden">
 					<div className="item">
 						<div className="text-center">
-							<h2 className="mindWobble fw100">
+							<h2 className="mindWobble font-thin">
 								Chat
 								<br />
 								Kanban
@@ -397,7 +400,7 @@ function Next() {
 				<section className="Cards col2  rtl hidden">
 					<div className="item content-center">
 						<div className="budoux text-center">
-							<h2 className="mindWobble fw100 text-left">
+							<h2 className="mindWobble font-thin text-left">
 								<span style={{ fontSize: "0.75em" }}>
 									CSS Talk
 								</span>

@@ -3,32 +3,7 @@
 html{//基本コンテンツ幅 index.htmlにページクラス home 
     --base:1200px;
     @media (max-width : 1560px){--base:1080px;} 
-    // &:where(.home),
-    // &:where(.page-blog){ 
 
-    //     --base:1320px;
-    //     // @media (max-width : 1680px){--base:1320px;}
-    // }
-    &:not(.home){
-        body{
-            line-height: 2;
-        }
-        --h2FZ:clamp(20px, 3vw, 32px);
-        --h1FZ:clamp(24px, 3.6vw, 48px);
-
-        --hlh:1.5;
-        --gap:24px;
-        --block:40px;
-        --Hafter:30px;
-        --footerMT: 120px;
-        // --gap:32px;
-        @media (max-width : 480px){
-            --gap: 14px;
-        }
-    }
-    // &:is(.page-blog){
-    //     --h1FZ:clamp(24px, 3.0vw, 36px);
-    // }
 }
 // :root{--bodyFZ:clamp(16px,1.6vw,24px);}
 :root{
@@ -215,7 +190,7 @@ u{
 }
 mark{
     padding-inline: 0.5em;
-    --bdc:var(--yel);
+    --bdc:var(--MC);
     display: inline-block;
     color: inherit;
     background: linear-gradient(transparent 50%,var(--bdc) 50%);

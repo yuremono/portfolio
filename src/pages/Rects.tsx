@@ -501,11 +501,11 @@ function Rects() {
 		<PageRoot ref={pageRootRef}>
 			<header
 				id="Header"
-				className="Header pointer-events-none  [--innerBG:unset] [--head:120px] [--innerPX:0px] [--logoPX:--PX]"
+				className="Header pointer-events-none  [--innerBG:unset]  [--innerPX:0px] [--logoPX:--PX]"
 			>
 				<div className="HeaderInner items-start ">
 					<div className="HeaderLogo Eng [--logoW:180px] dswh min-h-[--head] pointer-events-auto">
-						<Link to="/">Brand Name</Link>
+						<Link to="/">yuremono<br/>works</Link>
 					</div>
 					<div className="HeaderItems fix-tab pointer-events-auto">
 						<div

@@ -144,7 +144,23 @@ button,a{
     }
 }
 .btn{//追加クラス・スタイル
-    
+        svg,i{font-size: var(--btnIFZ);}
+        &:has(>i,>svg){
+                &:after{display: none;}
+               svg, i{
+                    color: var(--btnIC);
+                    font-family: var(--btnIFF);
+                    font-size: var(--btnIFZ);
+                    font-weight: var(--btnIFW);
+                    // display: var(--btnAFdis);
+                    // position: var(--btnAFPOS); 
+                    // right: var(--btnAFRT);
+                    line-height: var(--btnFZ);
+                    margin-inline: var(--btnIMX); 
+                    transition: .4s;
+                    vertical-align: var(--btnIVA);
+                }
+            }
     &.__sm{
         --btnW: 222px;
         --btnH: 40px;
@@ -163,26 +179,10 @@ button,a{
         @media (max-width: 640px){
         }
     }
-    &:has(>i){
-        &:after{display: none;}
-        i{
-            color: var(--btnAFC);
-            font-family: var(--btnIFF);
-            font-size: var(--btnAFFZ);
-            font-weight: var(--btnAFFW);
-            // display: var(--btnAFdis);
-            place-items: center;
-            // position: var(--btnAFPOS); 
-            // right: var(--btnAFRT);
-            place-items: center;
-            line-height: var(--btnFZ);
-            margin-inline: var(--btnIMX); 
-            transition: .4s;
-        }
-    }
+
     &.__tel{
         &:after{display: none;}
-        i{
+       svg, i{
             font-size: calc(var(--btnIFZ)*0.5 );
             font-family: var(--fa);
             vertical-align: middle;
@@ -212,7 +212,7 @@ button,a{
     //     --btnC: var(--BK);
     //     &:is(.txwh *){
     //         color: var(--tx);
-    //         i{ 
+    //        svg, i{ 
     //             color: var(--tx);
     //         }
     //     }
@@ -254,7 +254,7 @@ button,a{
     &.__icon {
         --btnW: var(--btnH);
         padding: unset;
-        i{
+       svg, i{
             font-size: var(--btnIFZ);
         }
         img{
@@ -284,7 +284,6 @@ button,a{
     &.__bk{
         color: var(--WH);
     }
-    i{font-size: var(--btnIFZ);}
     img{
         width: var(--btnImg);
         // height: var(--btnImg)!important;
@@ -313,7 +312,7 @@ button,a{
 }
 
 .imgBtn {
-    i{
+   svg, i{
         font-size: var(--btnIFZ);
     }
     img{
@@ -431,7 +430,7 @@ a.label{
         margin-right: var(--TLG);
         object-fit: contain;
     }
-    i{
+   svg, i{
         &:before{
             display: inline-block;
             margin-right: var(--TLG);

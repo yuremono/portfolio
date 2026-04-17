@@ -1,8 +1,6 @@
 
 
-.part_text {
-        background: unset;
-}
+
 
 .bgLayer {
         position: fixed;
@@ -65,7 +63,7 @@
         text-align: center;
         font-family: var(--Eng);
         font-style: italic;
-        font-size: var(--h2FZ);
+        font-size: var(--h1FZ);
         line-height: 1;
         text-shadow: 0 1rem 4rem var(--BK80);
 }
@@ -80,8 +78,14 @@
         object-fit: contain;
         mix-blend-mode: color-dodge;
         opacity: 0;
-        animation: glitch-page-rotate 20s linear infinite;
+        animation: glitch-rotate 20s linear infinite;
         transition: opacity 0.6s ease 0.6s;
+}
+
+@keyframes glitch-rotate {
+	to {
+		transform: rotate(360deg);
+	}
 }
 
 .bgItem.show .bgOverImg {
@@ -143,32 +147,70 @@
         overflow: hidden;
 }
 
-.bgItem.__glitch::before,
-.bgItem.__glitch::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: inherit;
-        background-size: cover;
-        background-position: center;
-        opacity: 0;
-        pointer-events: none;
-}
+// .bgItem.__glitch::before,
+// .bgItem.__glitch::after {
+//         content: "";
+//         position: absolute;
+//         top: 0;
+//         left: 0;
+//         width: 100%;
+//         height: 100%;
+//         background: inherit;
+//         background-size: cover;
+//         background-position: center;
+//         opacity: 0;
+//         pointer-events: none;
+// }
 
-.bgItem.__glitch::before {
-        background-image: inherit;
-        filter: hue-rotate(0deg) saturate(1.5) brightness(1.2);
-        animation: glitch-page-red 0.3s infinite;
-}
+// .bgItem.__glitch::before {
+//         background-image: inherit;
+//         filter: hue-rotate(0deg) saturate(1.5) brightness(1.2);
+//         animation: glitch-red 0.3s infinite;
+// }
 
-.bgItem.__glitch::after {
-        background-image: inherit;
-        filter: hue-rotate(180deg) saturate(1.2) brightness(0.8);
-        animation: glitch-page-blue 0.4s infinite;
-}
+// .bgItem.__glitch::after {
+//         background-image: inherit;
+//         filter: hue-rotate(180deg) saturate(1.2) brightness(0.8);
+//         animation: glitch-blue 0.4s infinite;
+// }
+
+// @keyframes glitch-red {
+// 	0%,
+// 	90%,
+// 	100% {
+// 		opacity: 0;
+// 		transform: translateX(0);
+// 	}
+
+// 	93% {
+// 		opacity: 0.4;
+// 		transform: translateX(4px);
+// 	}
+
+// 	96% {
+// 		opacity: 0.2;
+// 		transform: translateX(-3px);
+// 	}
+// }
+
+// @keyframes glitch-blue {
+// 	0%,
+// 	88%,
+// 	100% {
+// 		opacity: 0;
+// 		transform: translateX(0);
+// 	}
+
+// 	92% {
+// 		opacity: 0.3;
+// 		transform: translateX(-5px);
+// 	}
+
+// 	95% {
+// 		opacity: 0.15;
+// 		transform: translateX(3px);
+// 	}
+// }
 
 .bgItem.show {
         opacity: 1;
@@ -215,7 +257,7 @@
                 200% 1px;
         -webkit-text-stroke: 3px var(--WH);
         paint-order: stroke;
-        animation: glitch-page-rightgrow 3s infinite linear;
+        animation: glitch-rightgrow 3s infinite linear;
 }
 
 .borderLink:hover {
@@ -239,12 +281,25 @@
         line-height: 0.8;
         text-align: right;
         vertical-align: middle;
+        font-weight: 100;
         -webkit-text-stroke: 0;
+        line-height: 1.25;
 }
 
 .borderLink:nth-child(3n + 2) {
         animation-delay: 2s;
 }
+@keyframes glitch-rightgrow {
+	0%,
+	96% {
+		background-position-x: 0%;
+	}
+
+	100% {
+		background-position-x: 200%;
+	}
+}
+
 
 
 @media (max-width: 834px) {
@@ -308,59 +363,4 @@
         .borderLink {
                 animation: none;
         }
-}
-
-@keyframes glitch-page-rotate {
-	to {
-		transform: rotate(360deg);
-	}
-}
-
-@keyframes glitch-page-red {
-	0%,
-	90%,
-	100% {
-		opacity: 0;
-		transform: translateX(0);
-	}
-
-	93% {
-		opacity: 0.4;
-		transform: translateX(4px);
-	}
-
-	96% {
-		opacity: 0.2;
-		transform: translateX(-3px);
-	}
-}
-
-@keyframes glitch-page-blue {
-	0%,
-	88%,
-	100% {
-		opacity: 0;
-		transform: translateX(0);
-	}
-
-	92% {
-		opacity: 0.3;
-		transform: translateX(-5px);
-	}
-
-	95% {
-		opacity: 0.15;
-		transform: translateX(3px);
-	}
-}
-
-@keyframes glitch-page-rightgrow {
-	0%,
-	96% {
-		background-position-x: 0%;
-	}
-
-	100% {
-		background-position-x: 200%;
-	}
 }

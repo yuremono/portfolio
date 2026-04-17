@@ -5,7 +5,10 @@ export type GlitchRuntime = {
 type TimeoutId = ReturnType<typeof window.setTimeout>;
 
 const GLITCH_SOURCE_SELECTOR =
-	"img:not(.bgOverImg):not(.bgPhone):not(.bgFrame)";
+	"img.bgGlitch";
+
+/** ピクセル処理の長辺上限（これ以下に縮小。CSS で全体表示するため見た目は維持しやすい） */
+const GLITCH_MAX_WORK_EDGE_PX = 960;
 
 class GlitchCanvas {
 	private readonly container: HTMLElement;
@@ -19,6 +22,13 @@ class GlitchCanvas {
 	private isGlitching = false;
 	private disposed = false;
 	private readonly reduceMotion: MediaQueryList;
+	/** `shiftChannel` 用スナップショット（毎フレームの new を避ける） */
+	private channelScratch: Uint8ClampedArray | null = null;
+	/** `shiftRow` 用（行の slice / 一時配列の new を避ける） */
+	private rowScratch: Uint8ClampedArray | null = null;
+	private rowShiftedScratch: Uint8ClampedArray | null = null;
+	/** `shiftColumn` 用（列バッファの new を避ける） */
+	private columnScratch: Uint8ClampedArray | null = null;
 
 	constructor(
 		container: HTMLElement,
@@ -50,11 +60,19 @@ class GlitchCanvas {
 		await this.waitForImage();
 		if (this.disposed) return;
 
-		const width = this.sourceImage.naturalWidth || this.container.clientWidth;
-		const height =
+		const naturalW = this.sourceImage.naturalWidth || this.container.clientWidth;
+		const naturalH =
 			this.sourceImage.naturalHeight || this.container.clientHeight;
 
-		if (width <= 0 || height <= 0) return;
+		if (naturalW <= 0 || naturalH <= 0) return;
+
+		const maxEdge = Math.max(naturalW, naturalH);
+		const scale =
+			maxEdge > 0
+				? Math.min(1, GLITCH_MAX_WORK_EDGE_PX / maxEdge)
+				: 1;
+		const width = Math.max(1, Math.round(naturalW * scale));
+		const height = Math.max(1, Math.round(naturalH * scale));
 
 		this.canvas.width = width;
 		this.canvas.height = height;
@@ -91,6 +109,8 @@ class GlitchCanvas {
 	private drawImage() {
 		try {
 			this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+			this.ctx.imageSmoothingEnabled = true;
+			this.ctx.imageSmoothingQuality = "high";
 			this.ctx.drawImage(
 				this.sourceImage,
 				0,
@@ -107,9 +127,37 @@ class GlitchCanvas {
 			this.originalImageData = new Uint8ClampedArray(
 				this.imageData.data,
 			);
+			this.allocateScratchBuffers(
+				this.canvas.width,
+				this.canvas.height,
+				this.imageData.data.length,
+			);
 		} catch {
 			this.imageData = null;
 			this.originalImageData = null;
+			this.channelScratch = null;
+			this.rowScratch = null;
+			this.rowShiftedScratch = null;
+			this.columnScratch = null;
+		}
+	}
+
+	private allocateScratchBuffers(
+		width: number,
+		height: number,
+		dataLength: number,
+	) {
+		if (this.channelScratch?.length !== dataLength) {
+			this.channelScratch = new Uint8ClampedArray(dataLength);
+		}
+		const rowBytes = width * 4;
+		if (this.rowScratch?.length !== rowBytes) {
+			this.rowScratch = new Uint8ClampedArray(rowBytes);
+			this.rowShiftedScratch = new Uint8ClampedArray(rowBytes);
+		}
+		const colBytes = height * 4;
+		if (this.columnScratch?.length !== colBytes) {
+			this.columnScratch = new Uint8ClampedArray(colBytes);
 		}
 	}
 
@@ -147,7 +195,7 @@ class GlitchCanvas {
 			this.timeouts.delete(timeout);
 			this.applyGlitchWithTransition();
 			this.scheduleGlitch();
-		}, Math.random() * 2500 + 500);
+		}, Math.random() * 1500 + 750);
 
 		this.timeouts.add(timeout);
 	}
@@ -182,7 +230,7 @@ class GlitchCanvas {
 					if (!this.imageData || !this.originalImageData) return;
 					this.imageData.data.set(this.originalImageData);
 					this.ctx.putImageData(this.imageData, 0, 0);
-				}, 200);
+				}, 500);
 				this.timeouts.add(timeout);
 				return;
 			}
@@ -206,14 +254,13 @@ class GlitchCanvas {
 	private applyHorizontalShiftWithProgress(progress: number) {
 		if (!this.imageData) return;
 
-		const { data } = this.imageData;
-		const { width, height } = this.canvas;
-		const intensity = Math.sin(progress * Math.PI);
-		const glitchRows = Math.floor(intensity * 5) + 1;
+		const { data, width, height } = this.imageData;
+		const intensity = Math.sin(progress * Math.PI) ** 0.5;
+		const glitchRows = Math.floor(intensity * 20) + 10;
 
 		for (let i = 0; i < glitchRows; i += 1) {
 			const row = Math.floor(Math.random() * height);
-			const offset = Math.round((Math.random() - 0.5) * 10 * intensity);
+			const offset = Math.round((Math.random() - 0.5) * 1 * intensity);
 			this.shiftRow(data, width, height, row, offset);
 		}
 	}
@@ -222,7 +269,7 @@ class GlitchCanvas {
 		if (!this.imageData) return;
 
 		const { data } = this.imageData;
-		const intensity = Math.sin(progress * Math.PI);
+		const intensity = Math.sin(progress * Math.PI) ** 0.35;
 		const pattern = Math.floor(Math.random() * 3);
 		const getBalancedShift = (baseShift: number) => {
 			const direction = Math.random() < 0.5 ? 1 : -1;
@@ -232,31 +279,30 @@ class GlitchCanvas {
 
 		if (pattern === 0) {
 			this.shiftChannel(data, 0, getBalancedShift(20));
-			this.shiftChannel(data, 1, getBalancedShift(20));
+			this.shiftChannel(data, 1, getBalancedShift(10));
 			return;
 		}
 
 		if (pattern === 1) {
-			this.shiftChannel(data, 2, getBalancedShift(20));
+			this.shiftChannel(data, 2, getBalancedShift(30));
 			this.shiftChannel(data, 1, getBalancedShift(20));
 			return;
 		}
 
-		this.shiftChannel(data, 0, getBalancedShift(20));
-		this.shiftChannel(data, 2, getBalancedShift(20));
+		this.shiftChannel(data, 0, getBalancedShift(10));
+		this.shiftChannel(data, 2, getBalancedShift(30));
 	}
 
 	private applyVerticalShiftWithProgress(progress: number) {
 		if (!this.imageData) return;
 
-		const { data } = this.imageData;
-		const { width, height } = this.canvas;
-		const intensity = Math.sin(progress * Math.PI);
-		const glitchCols = Math.floor(intensity * 2) + 1;
+		const { data, width, height } = this.imageData;
+		const intensity = Math.sin(progress * Math.PI) ** 0.5;
+		const glitchCols = Math.floor(intensity * 50) + 5;
 
 		for (let i = 0; i < glitchCols; i += 1) {
 			const col = Math.floor(Math.random() * width);
-			const offset = Math.round((Math.random() - 0.5) * 100 * intensity);
+			const offset = Math.round((Math.random() - 0.5) * 300 * intensity);
 			this.shiftColumn(data, width, height, col, offset);
 		}
 	}
@@ -268,7 +314,10 @@ class GlitchCanvas {
 	) {
 		if (shift === 0) return;
 
-		const source = new Uint8ClampedArray(data);
+		const source = this.channelScratch;
+		if (!source || source.length !== data.length) return;
+
+		source.set(data);
 		for (let i = 0; i < data.length; i += 4) {
 			const targetIndex = i + shift * 4;
 			if (targetIndex >= 0 && targetIndex < source.length) {
@@ -288,21 +337,26 @@ class GlitchCanvas {
 
 		const rowStart = row * width * 4;
 		const rowEnd = rowStart + width * 4;
-		const rowData = data.slice(rowStart, rowEnd);
-		const shiftedData = new Uint8ClampedArray(rowData.length);
+		const rowScratch = this.rowScratch;
+		const shiftedRow = this.rowShiftedScratch;
+		if (!rowScratch || !shiftedRow || rowScratch.length !== width * 4) {
+			return;
+		}
+
+		rowScratch.set(data.subarray(rowStart, rowEnd));
 
 		for (let i = 0; i < width; i += 1) {
 			const sourceIndex = i * 4;
 			const targetColumn = (i + offset + width) % width;
 			const targetIndex = targetColumn * 4;
 
-			shiftedData[targetIndex] = rowData[sourceIndex];
-			shiftedData[targetIndex + 1] = rowData[sourceIndex + 1];
-			shiftedData[targetIndex + 2] = rowData[sourceIndex + 2];
-			shiftedData[targetIndex + 3] = rowData[sourceIndex + 3];
+			shiftedRow[targetIndex] = rowScratch[sourceIndex];
+			shiftedRow[targetIndex + 1] = rowScratch[sourceIndex + 1];
+			shiftedRow[targetIndex + 2] = rowScratch[sourceIndex + 2];
+			shiftedRow[targetIndex + 3] = rowScratch[sourceIndex + 3];
 		}
 
-		data.set(shiftedData, rowStart);
+		data.set(shiftedRow, rowStart);
 	}
 
 	private shiftColumn(
@@ -314,7 +368,9 @@ class GlitchCanvas {
 	) {
 		if (height <= 0 || width <= 0) return;
 
-		const colData = new Uint8ClampedArray(height * 4);
+		const colData = this.columnScratch;
+		if (!colData || colData.length !== height * 4) return;
+
 		for (let row = 0; row < height; row += 1) {
 			const index = (row * width + col) * 4;
 			colData[row * 4] = data[index];

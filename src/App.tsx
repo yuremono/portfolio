@@ -1,5 +1,6 @@
 import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ScrollToTop } from "./components/ScrollToTop";
 
 const Next = lazy(() => import("./pages/Next"));
 const Preview = lazy(() => import("./pages/Preview"));
@@ -12,6 +13,7 @@ const Glitch = lazy(() => import("./pages/glitch"));
 function App() {
 	return (
 		<BrowserRouter basename={import.meta.env.BASE_URL}>
+			<ScrollToTop />
 			<Suspense fallback={null}>
 				<Routes>
 					<Route path="/" element={<Next />} />

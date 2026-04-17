@@ -2,7 +2,10 @@
 
 BurnYourOwnStyleをベースに制作物をまとめています。
 
+https://yuremono.github.io/portfolio/
+
 個人のスタイルシステム（クラス、変数、コンポーネント、jsモジュール）を、Claude Code・Cursor 等のエージェントに利用させ、Web 制作の全工程をAI前提で進める為の public template です。
+
 
 **プロジェクト固有のCSSクラス=CustomClassと呼称します**
 

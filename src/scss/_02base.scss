@@ -36,17 +36,17 @@ html{
     }
 }
 
-body {// --FZ, --FF, --tc
-	font-size: var(--FZ);
-	overflow-x: hidden;
-	font-family: var(--FF);
-	font-weight: var(--FW);
-	line-height: var(--LH);
-	letter-spacing: var(--LS);
-	color: var(--TC);
-	font-style: normal;
-	background-color: var(--background);
-}
+// body {//index.scss tailwind overwrite
+// 	font-size: var(--FZ);
+// 	overflow-x: hidden;
+// 	font-family: var(--FF);
+// 	font-weight: var(--FW);
+// 	line-height: var(--LH);
+// 	letter-spacing: var(--LS);
+// 	color: var(--TC);
+// 	font-style: normal;
+// 	background-color: var(--background);
+// }
 
 .Ser {font-family: var(--Ser);}
 .San {font-family: var(--San);}
@@ -68,6 +68,7 @@ body {// --FZ, --FF, --tc
 // }
 span {display: inline-block;}
 small{font-size: 62.5%;}
+
 :where(div){
         max-width: 100%;
 }
@@ -79,19 +80,19 @@ a {
 img, video {
         object-fit: cover;
 }
-h1,.h1FZ {// --h1FZ
-    font-size: var(--h1FZ);
-}
-h2,.h2FZ {// --h2FZ
-    font-size: var(--h2FZ);
-}
-h3,.h3FZ {// --h3FZ
-    font-size: var(--h3FZ);
-}
-h5,
-h4 {// --h3FZ
-    font-size: var(--h3FZ);
-}
+// h1,.h1FZ {// --h1FZ
+//     font-size: var(--h1FZ);
+// }
+// h2,.h2FZ {// --h2FZ
+//     font-size: var(--h2FZ);
+// }
+// h3,.h3FZ {// --h3FZ
+//     font-size: var(--h3FZ);
+// }
+// h5,
+// h4 {// --h3FZ
+//     font-size: var(--h3FZ);
+// }
 main {// --PX
 	padding-inline: var(--PX);
 

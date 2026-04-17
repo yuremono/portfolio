@@ -44,11 +44,6 @@
         gap: var(--gap);
 
 
-        // 共通ボタン設定
-        .btn {
-                min-width: 100%;
-        }
-
         // --- 1. アイテム基本設定 (デフォルト: 1列 / Flex) ---
         .item {
                 width: var(--itemW);

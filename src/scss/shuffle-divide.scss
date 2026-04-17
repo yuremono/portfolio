@@ -120,7 +120,7 @@
 	}
 
 	.cont01_tx :is(h1, h2, h3, p) > span {
-		color: var(--SC);
+		color: var(--MC);
 		font-style: inherit;
 	}
 
@@ -212,13 +212,12 @@
 		padding: 4vmin;
 		font-family: var(--Ser);
 		text-align: right;
+                > * {
+                        padding: 1em 0.5em;
+                        background-color: var(--BC);
+                }
 	}
 
-	.GenerateBox .Right > * {
-		padding: 1em 0.5em;
-		background-color: var(--SC);
-		color: var(--WH);
-	}
 
 	.GenerateBox .HeaderCenter {
 		position: relative;
@@ -226,7 +225,7 @@
 		padding: 2vmin 1em;
 		align-content: center;
 		border-radius: var(--rad) var(--rad) 0 0;
-		background-color: var(--WH);
+		background-color: var(--WH50);
 		color: var(--BK);
 		font-weight: 400;
 		text-align: center;
@@ -247,11 +246,11 @@
 		display: inline-block;
 		width: min(100%, 1280px);
 		margin-inline: auto;
+               > * {
+                        height: 100%;
+                }
 	}
 
-	.tabContainer > * {
-		height: 100%;
-	}
 
 	.tabPanels {
 		position: relative;

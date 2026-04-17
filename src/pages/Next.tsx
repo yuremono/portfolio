@@ -1,14 +1,22 @@
 import { useState } from "react";
 import type { CSSProperties, FormEvent } from "react";
+import { Cards, CardsItem } from "../components/Cards";
+import Button from '../components/btn';
+// JSX 内
+// import { Image } from "../components/Image";
+// import { getAssetPath } from "../lib/assetPath";
 
 import {
 	ArrowSquareOut,
 	Moon,
-        Sun,
-        // CaretUpIcon,
-        // CaretDownIcon,
-        ArrowSquareOutIcon,
+	Sun,
+	// CaretUpIcon,
+	// CaretDownIcon,
+	// XIcon,
+	ListPlusIcon,
+	ArrowSquareOutIcon,
 } from "@phosphor-icons/react";
+import { FullscreenDialog } from "../components/FullscreenDialog";
 import Header from "../components/Header";
 import { PageRoot } from "../components/PageRoot";
 import { useClientRuntime } from "../hooks/useClientRuntime";
@@ -17,12 +25,16 @@ import { usePage } from "../hooks/usePage";
 import "../scss/Next.scss";
 
 const EDITOR_URL = "https://cms0505.vercel.app/editor";
+const EXPERIENCE_DETAILS_MODAL_ID = "experience-details";
+const EXPERIENCE_DETAILS_DIALOG_ID = "experience-details-dialog";
 
 function Next() {
 	const { ref, dark, toggleTheme } = usePage();
 	useClientRuntime({ rootRef: ref });
 	useHtmlRootClass("[--MC:--GR]");
 	const [formMessage, setFormMessage] = useState<string | null>(null);
+	const [activeModalId, setActiveModalId] = useState<string | null>(null);
+	const experienceDetailsOpen = activeModalId === EXPERIENCE_DETAILS_MODAL_ID;
 
 	const onContactSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
@@ -32,27 +44,22 @@ function Next() {
 	};
 
 	return (
-		<PageRoot ref={ref} className=" [--innerPX:--PX] [--Eng:--Jost] [--h3FZ:1.325em] ">
-			<Header className="NoLogo TopHidden" />
+		<PageRoot
+			ref={ref}
+			className=" [--innerPX:--PX] [--Eng:--Jost] [--h3FZ:1.325rem] [--dropBG:--GR] [--dropC:--BK]"
+		>
+			<Header className="NoLogo TopHidden mix-blend-difference text-WH" />
 
 			<button
 				type="button"
-				className="ThemeToggle"
+				className="ThemeToggle mix-blend-difference text-WH"
 				aria-label="Toggle dark mode"
 				onClick={toggleTheme}
 			>
 				{dark ? (
-					<Sun
-						className=""
-						weight="regular"
-						aria-hidden
-					/>
+					<Sun className="" weight="regular" aria-hidden />
 				) : (
-					<Moon
-						className=""
-						weight="regular"
-						aria-hidden
-					/>
+					<Moon className="" weight="regular" aria-hidden />
 				)}
 			</button>
 
@@ -66,13 +73,17 @@ function Next() {
 						<br />
 						works
 					</p>
-					<h1 className="mmPin about_tx text-left fontZen text-lg">
+					<h1 className="mmPin about_tx text-left fontZen text-xl">
 						web制作会社で3.5年デザインとコーディングに従事
 						<br />
-						AI関連の学習とフロントエンド効率化に取り組んでいます
+						2025/05からAI駆動開発を開始し
+						<br />
+						AIによるヴィジュアル表現のブーストと
+						<br />
+						コンテキストエンジニアリングに注力しています
 					</h1>
 					<p className="mm1-2" style={{ fontSize: "4em" }}>
-						Generate
+						Context
 					</p>
 					<p
 						className="hidden lg:inline-block mm2-9"
@@ -81,7 +92,7 @@ function Next() {
 						Web
 					</p>
 					<p className="mm10-6" style={{ fontSize: "4em" }}>
-						Creation
+						Development
 					</p>
 				</section>
 
@@ -89,68 +100,243 @@ function Next() {
 					<div id="Overview" />
 				</div>
 
-				<section className="HtmlContent mindMap out text-center knowledge fontJost font-thin mt-0">
-					<h2
-						className="mm1-3 text-[--GR] font-light text-left"
-						style={{ fontSize: "3em" }}
-					>
-						Knowledge
-						<br />
-						and
-						<br />
-						Interest
-					</h2>
-					<span className="mmPin knowledge_tx text-left fontZen mmStatic">
-						このページはオリジナルCMSのトップページです。
-						<br />
-						アプリ開発、UX設計を経験するために作成しました。
-						<br />
-						公開サイトの editor で全コンテンツを編集しています。
-						<br />
-						<span className="text-xs leading-none">
-							閲覧pass/view
-						</span>
-						<br />
-						主要技術： Next.js TypeScript Tailwind CSS supabase
-						<br />
-						<a
-							className="fontJost px-1 font-normal"
-							href={EDITOR_URL}
-							target="_blank"
-							rel="noopener noreferrer"
+				<section className="relative out">
+					<div className=" mindMap  text-center experience fontJost font-thin mt-0">
+						<h2
+							className="mm1-3 text-[--GR] font-light text-left tracking-[-0.025em]"
+							style={{ fontSize: "3em" }}
 						>
-							<span style={{ fontSize: "1.25em" }}>/ </span>
-							editor
-						</a>
-					</span>
+							Experience and
+							<br />
+							Dependencies
+						</h2>
+						<span className="mmPin experience_tx text-left fontZen mmStatic  text-xl">
+							AIツールの使用経験と情報の選別が重要と考えています。
+							<br />
+							Cursor / Claude Code / Codex を使用し
+							<br />
+							plugin や OSS を試用しています。
+							<br />
+							<button
+								type="button"
+								className="textlink  mt-4"
+								aria-haspopup="dialog"
+								aria-controls={EXPERIENCE_DETAILS_DIALOG_ID}
+								aria-expanded={experienceDetailsOpen}
+								onClick={() => {
+									setActiveModalId(
+										EXPERIENCE_DETAILS_MODAL_ID,
+									);
+								}}
+							>
+								Details
+								<ListPlusIcon
+									className="[--btnIFZ:1.5em] align-text-bottom"
+									aria-hidden
+								/>
+							</button>
+							<br />
+							主要技術： Next.js TypeScript Tailwind CSS supabase
+							<br />
+							<a
+								className="fontJost px-1 font-normal"
+								href={EDITOR_URL}
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								<span style={{ fontSize: "1.25em" }}>/ </span>
+								editor
+							</a>
+						</span>
 
-					<p style={{ fontSize: "2em" }}>Cursor</p>
-					<p style={{ fontSize: "2em" }}>Claude Code</p>
-					<p
-						className="hidden lg:inline-block"
-						style={{ fontSize: "1em" }}
+						<p style={{ fontSize: "2em" }}>Cursor</p>
+						<p style={{ fontSize: "2em" }}>Claude Code</p>
+						<p
+							className="hidden lg:inline-block"
+							style={{ fontSize: "1em" }}
+						>
+							context/harness
+							<br />
+							engineering
+						</p>
+						<p style={{ fontSize: "1.5em" }}>TailwindCSS</p>
+						<p
+							className="hidden lg:inline-block"
+							style={{ fontSize: "1.5em" }}
+						>
+							canvasAPI
+						</p>
+						<p style={{ fontSize: "1.5em" }}>Codex</p>
+						<p
+							className="hidden lg:inline-block"
+							style={{ fontSize: "1.5em" }}
+						>
+							Pencil.dev
+						</p>
+						<p className="mmPin bg-[--GR] text-[--WH] min-h-[2.5rem] content-center left-0 bottom-0 w-full text-align-last-justify PX">
+							Typescript PhotoShop Figma Three.js Supabase GSAP
+						</p>
+					</div>
+					<FullscreenDialog
+						id={EXPERIENCE_DETAILS_DIALOG_ID}
+						open={experienceDetailsOpen}
+						title="Experience and Dependencies"
+						description="経験と`Vibe`依存性の詳細。"
+						onOpenChange={(open) => {
+							setActiveModalId(
+								open ? EXPERIENCE_DETAILS_MODAL_ID : null,
+							);
+						}}
 					>
-						context/harness
-						<br />
-						engineering
-					</p>
-					<p style={{ fontSize: "1.5em" }}>TailwindCSS</p>
-					<p
-						className="hidden lg:inline-block"
-						style={{ fontSize: "1.5em" }}
-					>
-						canvasAPI
-					</p>
-					<p style={{ fontSize: "1.5em" }}>Codex</p>
-					<p
-						className="hidden lg:inline-block"
-						style={{ fontSize: "1.5em" }}
-					>
-						Pencil.dev
-					</p>
-					<p className="mmPin bg-[--GR] text-[--WH] min-h-[2.5rem] content-center left-0 bottom-0 w-full text-align-last-justify PX">
-						Typescript PhotoShop Figma Three.js Supabase GSAP
-					</p>
+						<section
+							className="mt-6"
+							aria-label="Experience and Dependencies "
+						>
+							<Cards className="col3 [--gap:1rem] ">
+                                                                <CardsItem className="space-y-4">
+                                                                        <article className="BorderXY  px-4 py-5 text-xs bg-WH/70">
+										<h3 className="text-[1rem] BorderB pb-4 flex items-baseline justify-between gap-4 ">
+											エージェント / web 
+											<span className="text-GR   tracking-[0.1em] ">5 skills</span>
+										</h3>
+										<div className="DescList  [--dtW:50%]  mt-4 IsDdright">
+											<dl className="items-center">
+												<dt className="">Cursor</dt>
+												<dd><span className="px-2 bg-AC/30 font-medium">1 Year</span></dd>
+												<dt className="">Claude Code / web</dt>
+												<dd><span className="px-2 bg-AC/30 font-medium">4 Month / 1 Year</span></dd>
+												<dt className="">Codex / web</dt>
+												<dd>1 Month / 1 Year</dd>
+												<dt className="">Gemini / NanoBanana</dt>
+												<dd>1 Year / 6 Month</dd>
+											</dl>
+										</div>
+									</article>
+									<article className="BorderXY  px-4 py-5 text-xs bg-WH/70">
+										<h3 className="text-[1rem] BorderB pb-4 flex items-baseline justify-between gap-4 ">
+											言語 + ライブラリ
+											<span className="text-GR   tracking-[0.1em] ">
+												5 skills
+											</span>
+										</h3>
+										<div className="DescList  [--dtW:50%]  mt-4 IsDdright">
+											<dl className="items-center">
+												<dt >WEB SCSS+JavaScript+HTML</dt>
+												<dd><span className="px-2 bg-AC/30 font-medium">4 Years</span></dd>
+												<dt >TypeScript</dt>
+												<dd><span className="px-2 bg-AC/30 font-medium">Vibe 1 Year</span></dd>
+												<dt >Python</dt>
+												<dd>Vibe 6 Month</dd>
+												<dt >React/Next.Js/Vite</dt><dd>Vibe 1 Year</dd>
+												<dt >vue/astro/svelte</dt><dd>Vibe 4 Month</dd>
+											</dl>
+										</div>
+                                                                        </article>
+                                                                        <article className="BorderXY  px-4 py-5 text-xs bg-WH/70">
+										<h3 className="text-[1rem] BorderB pb-4 flex items-baseline justify-between gap-4 ">
+											インフラ / データベース
+											<span className="text-GR   tracking-[0.1em] ">
+												5 skills
+											</span>
+										</h3>
+										<div className="DescList  [--dtW:50%]  mt-4 IsDdright">
+											<dl className="items-center">
+												<dt className="">Vercel</dt>
+												<dd><span className="px-2 bg-AC/30 font-medium">Vibe 1 Year</span></dd>
+												<dt className="">Supabase</dt>
+												<dd><span className="">Vibe 1 Year</span></dd>
+												<dt className="">Github</dt>
+												<dd>Vibe 1 Year</dd>
+												<dt className="">Xserver+MySQL</dt>
+												<dd><span className="px-2 bg-AC/30 font-medium">Vibe 4 Year</span></dd>
+											</dl>
+										</div>
+									</article>
+								</CardsItem>
+								<CardsItem className="space-y-4">
+									<article className="BorderXY  px-4 py-5 text-xs bg-WH/70">
+										<h3 className="text-[1rem] BorderB pb-4 flex items-baseline justify-between gap-4 ">
+											デザインツール
+											<span className="text-GR   tracking-[0.1em] ">
+												5 skills
+											</span>
+										</h3>
+										<div className="DescList  [--dtW:50%]  mt-4 IsDdright">
+											<dl className="items-center">
+												<dt className="">PhotoShop</dt>
+												<dd><span className="px-2 bg-AC/30 font-medium">4 Year</span></dd>
+												<dt className="">Illustrator</dt>
+												<dd><span className="">Vibe 4 Year</span></dd>
+												<dt className="">Figma</dt>
+												<dd>Vibe 4 Year</dd>
+												<dt className="">Pencil.dev</dt>
+												<dd><span className="px-2 bg-AC/30 font-medium">4 Month</span></dd>
+											</dl>
+										</div>
+                                                                        </article>
+                                                                        <article className="BorderXY  px-4 py-5 text-xs bg-WH/70">
+										<h3 className="text-[1rem] BorderB pb-4 flex items-baseline justify-between gap-4 ">
+											環境
+											<span className="text-GR   tracking-[0.1em] ">
+												5 skills
+											</span>
+										</h3>
+										<div className="DescList  [--dtW:40%]  mt-4 IsDdright">
+											<dl className="items-center">
+												<dt className="">MacOS</dt>
+												<dd><span className="px-2 bg-AC/30 font-medium">4 年</span></dd>
+												<dt className="">Windows</dt>
+												<dd><span className="">社内利用 3.5 年</span></dd>
+												<dt className="">情報収集</dt>
+												<dd><span className="px-2 bg-AC/30 font-medium">主にX,Zenn,+webAI<br/>ディスカバー</span></dd>
+												<dt className="">FE個人最適化</dt>
+												<dd><span className="px-2 bg-AC/30 font-medium">BYOS, task系自作,<br/>メモリー系スキルを使用</span></dd>
+											</dl>
+										</div>
+									</article>
+								</CardsItem>
+								<CardsItem>
+									<article className="BorderXY  px-4 py-5 text-xs bg-WH/70">
+										<h3 className="text-[1rem] BorderB pb-4 flex items-baseline justify-between gap-4 ">
+											その他
+											<span className="text-GR   tracking-[0.1em] ">
+												5 skills
+											</span>
+										</h3>
+										<div className="DescList  [--dtW:50%]  mt-4 IsDdright">
+											<dl className="items-center">
+												<dt className="">Tailwind CSS</dt>
+												<dd><span className="px-2 bg-AC/30 font-medium">6 M,Vibe 1 Y</span></dd>
+												<dt className="">canvas API</dt>
+												<dd><span className="px-2 bg-AC/30 font-medium">Vibe 1 Year</span></dd>
+												<dt className="">Three.js</dt>
+												<dd><span className="">Vibe 1 Year</span></dd>
+												<dt className="">D3.js</dt>
+												<dd>Vibe 6 Month</dd>
+												<dt className="">GSAP</dt>
+												<dd><span className="">3.5 Year</span></dd>
+												<dt className="">VScode/Chrome Extentions</dt>
+												<dd><span className="">1~2回作成</span></dd>
+												<dt className="">NanoBanana SKILL</dt>
+												<dd><span className="">エディターで即時利用</span></dd>
+												<dt className="">Quiver.ai/arrow-1</dt>
+												<dd><span className="">BYOS demoのsvgドローで使用</span></dd>
+												<dt className="">LottieAnimation</dt>
+												<dd><span className="">MCPで試作予定</span></dd>
+												<dt className="">memsearch</dt>
+												<dd><span className="">claude/codex自動記憶</span></dd>
+												<dt className="[--dtW:100%]">superpowers/oh-my-claudecode</dt>
+												<dd className="[--ddW:100%]"><span>試用</span></dd>
+											</dl>
+										</div>
+									</article>
+								</CardsItem>
+								<CardsItem>
+									
+								</CardsItem>
+							</Cards>
+						</section>
+					</FullscreenDialog>
 				</section>
 
 				<section className="Cards col2 ">
@@ -171,34 +357,52 @@ function Next() {
 						</div>
 					</div>
 					<div className="item content-center">
-						<div className="budoux leading-[2]">
+						<div className=" leading-[2]">
 							<h3>AI Native Development</h3>
 							<br />
 							個人のスタイルシステム（クラス、変数、スタイリングの癖）を元に、Claude
-							Code・Cursor
-							等エージェント向けドキュメントを充実させることで、Web
+							Code・Cursor等エージェント向けドキュメントを充実させることで、Web
 							制作の全工程をAI前提で進める為のプロジェクト。
-							<br />
-							<a
-								className="btn px-1 mt-4"
-								href="https://github.com/yuremono/BurnYourOwnStyle/tree/react"
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								{/* <span style={{ fontSize: "1.25em" }}>// </span> */}
-								Repositries<ArrowSquareOutIcon className="text-[length:inherit]" />
-							</a>
-							<details className="Toggle IsSmall ">
-								<summary className="fontJost">
-									Thinking...
-								</summary>
-								<div>
-									- LLM
-									の学習データに基づくwebデザイン・コーディングは平均的で、振れ幅の大きい、標準ではないものであり、個人のマークアップ、スタイリングとかけ離れたものになる。
-									<br />-
-									事務作業のように決められた手順を実行させることで、vibeコーディングツールでは創造できないプロダクトを効率的に実装できる。
-								</div>
-							</details>
+                                                        <br />
+                                                       <div>
+                                                                <Button
+                                                                        className="mt-[--btnH]"
+        								href="https://github.com/yuremono/BurnYourOwnStyle/tree/react"
+        								external
+        							>
+        								Repositories&nbsp;
+                                                                <ArrowSquareOutIcon />
+                                                                </Button>
+                                                                <br/>
+                                                                <Button
+                                                                        className="mt-4 float-right"
+        								href="/preview"
+        							>
+        								Preview
+                                                                </Button>
+                                                                <br />
+        							{/* <a
+        								className="textlink mt-4"
+        								href="https://github.com/yuremono/BurnYourOwnStyle/tree/react"
+        								target="_blank"
+        								rel="noopener noreferrer"
+        							>
+        								
+        								Repositries
+        								<ArrowSquareOutIcon className="text-[length:inherit]" />
+        							</a> */}
+        							<details className="Toggle IsSmall mt-[--btnH]">
+        								<summary className="fontJost">
+        									Thinking...
+        								</summary>
+        								<div>
+        									- LLM
+        									の学習データに基づくwebデザイン・コーディングは平均的で、振れ幅の大きい、標準ではないものであり、個人のマークアップ、スタイリングとかけ離れたものになる。
+        									<br />-
+        									事務作業のように決められた手順を実行させることで、vibeコーディングツールでは創造できないプロダクトを効率的に実装できる。
+        								</div>
+        							</details>
+                                                       </div>
 						</div>
 					</div>
 				</section>
@@ -235,7 +439,8 @@ function Next() {
 							</h2>
 							<br />
 							<br />
-							Codex app-serverまたはClaude CodeをNext.jsの Node runtime経由で中継し、ブラウザから自然言語でサイト編集を行うローカルCMS
+							Codex app-serverまたはClaude CodeをNext.jsの Node
+							runtime経由で中継し、ブラウザから自然言語でサイト編集を行うローカルCMS
 							<br />
 							<div>
 								<details className="Toggle IsSmall mt-4">
@@ -338,7 +543,7 @@ function Next() {
 									rel="noopener noreferrer"
 								>
 									<span style={{ fontSize: "1.25em" }}>
-										//{" "}
+										//
 									</span>
 									ChatKanban
 								</a>
@@ -388,7 +593,7 @@ function Next() {
 									rel="noopener noreferrer"
 								>
 									<span style={{ fontSize: "1.25em" }}>
-										//{" "}
+										//
 									</span>
 									ChatKanban
 								</a>
@@ -423,7 +628,7 @@ function Next() {
 									rel="noopener noreferrer"
 								>
 									<span style={{ fontSize: "1.25em" }}>
-										//{" "}
+										//
 									</span>
 									CSS Talk
 								</a>
@@ -463,7 +668,7 @@ function Next() {
 					}}
 				>
 					<div>
-						<dl >
+						<dl>
 							<dt>Name</dt>
 							<dd>Yano Seiji</dd>
 							<dt>Hobby</dt>
@@ -581,8 +786,6 @@ function Next() {
 						) : null}
 					</form>
 				</section>
-
-				
 			</main>
 		</PageRoot>
 	);

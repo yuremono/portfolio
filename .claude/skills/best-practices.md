@@ -742,7 +742,7 @@ The most effective Skill development process involves Claude itself. Work with o
 
 **Creating a new Skill:**
 
-1. **Complete a task without a Skill:** Work through a problem with Claude A using normal prompting. As you work, you'll naturally provide context, explain preferences, and share procedural knowledge. Notice what information you repeatedly provide.
+1. **Complete a task without a Skill:** Work through a problem with Claude A using normal prompting. As you work, you'll naturally provide context, explain preferences, and share procedural experience. Notice what information you repeatedly provide.
 
 2. **Identify the reusable pattern:** After completing the task, identify what context you provided that would be useful for similar future tasks.
 

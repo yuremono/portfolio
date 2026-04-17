@@ -38,12 +38,12 @@
         /* --- テーマ色（Canvas は readShowcasePalette で参照。ドーナツ4扇は --MC〜--BC）--- */
         --TR: transparent; /* キャンバス背景・穴まわり：4扇以外の塗り */
         --MC: oklch(0.49 0.14 265.73); /* 扇形1 */
-        --SC: oklch(0.97 0.2 109.29); /* 扇形2 */
-        --AC: oklch(0.7 0.15 20); /* 扇形3 */
+        --SC: oklch(0.49 0.14 265.73); /* 扇形2 */
+        --AC: oklch(0.78 0.08 38); /* 扇形3 */
         --BC: oklch(0.96 0.025 110); /* 扇形4・ページ下地 */
         --second: var(--SC);
         --third: oklch(0.92 0.1 169.85);
-        --fourth: oklch(45% 0.3 264);
+        --fourth: oklch(0.97 0.2 109.29);
         --TC: oklch(17% 0.00 271); /* 本文テキスト */
         --GR: oklch(73% 0.00 271); /* スクロールバー等 */
         --BK: oklch(0% 0 0);
@@ -266,8 +266,8 @@
         --navLH: 1.5em;
         --navC: var(--inh); 
         --navFW: inherit;
-        --dropBG: var(--MC);
-        --dropC: var(--WH);
+        --dropBG: var(--BC);
+        --dropC: var(--TC);
         --SPnavBG: var(--WH); //spnav
         --SPnavBG: var(--innerBG);//spnav 
         --SPnavFZ: 1em;
@@ -355,7 +355,7 @@
         --btnPX:1.25em ;
         --btnPY: 0.25em;
         --btnG:.5em;
-        --btnTR:0.6s ease-out; 
+        --btnTR:.6s ease-out; 
         // --btnTR:var(--trt);
         // --btnRad:var(--rad);
         --btnRad:4px;
@@ -363,6 +363,7 @@
     
         
         // --btnImg:calc(var(--btnH)*.66 );
+        --btnIC:var(--inh);
         --btnIFF:var(--icon);
         --btnIMX: 0 0.25em ;
         --btnAC:center; 
@@ -380,7 +381,7 @@
         // --btnIFZ: 1.5em;
         // @media (max-width : 640px){
         --btnIFW: 900;
-        --btnIPOS: absolute;
+        --btnIPOS: static;
         // --btnIRT: 1.25em;
         --btnIRT: 0.25em;
         --btnIVA: bottom;
@@ -420,7 +421,7 @@
         // // --bs2:0px 2px 8px #1119; 
         --bsW:4px;
         // --NbsW:calc(var(--bsW)*-1 );
-        // --bxshwh:  0  var(--bsW) calc(var(--bsW)*2 )  var(--wh10); 
+        // --bxshwh:  0  var(--bsW) calc(var(--bsW)*2 )  var(--WH10); 
         --bxshbk:  0  var(--bsW) calc(var(--bsW)*2 )  var(--bk20); 
         // --bxshmc:  0  var(--bsW) calc(var(--bsW)*2 )  var(--mc10); 
         // --bxshbc:  0  var(--bsW) calc(var(--bsW)*2 )  var(--bc10); 
@@ -428,7 +429,7 @@
         // --bxshgr:  0  var(--bsW) calc(var(--bsW)*2 )  var(--gr10); 
         // --bxshsc:  0  var(--bsW) calc(var(--bsW)*2 )  var(--sc10); 
         // // --bxshgr:5px 5px 0px var(--GR); 
-        // --bxshbtn: inset 2px 2px 4px var(--wh40),
+        // --bxshbtn: inset 2px 2px 4px var(--WH40),
         // inset -2px -2px 4px var(--tx20); 
     
         // --bxshblur:0 0 10px  #11100088;

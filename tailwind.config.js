@@ -18,6 +18,9 @@ const fontSizeWithoutLineHeight = {
 	"9xl": "8rem",
 };
 
+const cssVarColor = (name) =>
+	`color-mix(in srgb, transparent, var(--${name}) calc(<alpha-value> * 100%))`;
+
 export default {
 	content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
 	theme: {
@@ -27,7 +30,18 @@ export default {
 		extend: {
 			screens: {
 				xs: "479px",
-			},
+                        },
+                        colors: {
+                                accent: cssVarColor("accent"),
+                                MC: cssVarColor("MC"),
+                                SC: cssVarColor("SC"),
+                                AC: cssVarColor("AC"),
+                                BC: cssVarColor("BC"),
+                                TC: cssVarColor("TC"),
+                                WH: cssVarColor("WH"),
+                                BK: cssVarColor("BK"),
+                                GR: cssVarColor("GR"),
+                        },
 		},
 	},
 	plugins: [

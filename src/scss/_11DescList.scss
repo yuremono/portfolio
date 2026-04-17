@@ -1,8 +1,8 @@
 @use "mixin" as *;
 
 .DescList {
-	--PY: 1em;
-	--PX: 0.5em;
+	--PY: 0.25em;
+	--PX: 0.25em;
 	--dtBG: var(--TR);
 	--dtW: 20%;
 	--ddW: calc(100% - var(--dtW));
@@ -177,6 +177,11 @@
 		dt {
 			text-align: right;
 			justify-content: flex-end;
+		}
+	}
+	&.IsDdright {
+		dd {
+			text-align: right;
 		}
 	}
 }

@@ -508,7 +508,7 @@ em{
     --arrowC: var(--mc);
 
     @media (max-width : 1200px) {
-        --arrowBG: var(--wh50);
+        --arrowBG: var(--WH50);
         --arrowinset: .25em;
         // --arrowW: 1em;
     }
@@ -576,12 +576,7 @@ em{
 
 
 
-.borderT{border-top   : var(--line);}
-.borderB{border-bottom: var(--line);}
-.borderL{border-left  : var(--line);}
-.borderR{border-right : var(--line);}
-.borderY{border-block : var(--line);}
-.borderX{border-inline: var(--line);} 
+
 
 
 
@@ -1205,7 +1200,7 @@ em{
         border-radius: var(--rad);
     // border: unset;
     --bdc: var(--mc30);
-    --boardBG: var(--wh50);
+    --boardBG: var(--WH50);
     &:before{display: none;}
 }
 
@@ -1224,7 +1219,7 @@ em{
         display: flex;flex-wrap: wrap;
         gap: var(--gap);
         align-items: flex-start;
-        background-color: var(--wh70);
+        background-color: var(--WH70);
         padding: 3.75%;
         margin-left: calc(var(--outBase)*1.5 );
         &:is(.__rev *){
@@ -2433,7 +2428,7 @@ hr {
             display: block ;
             content: '';
             inset: 0;
-            --col: var(--wh50);
+            --col: var(--WH50);
             --size: 4px;
             --pos: 0px;
             background: repeating-radial-gradient(var(--col), var(--col) var(--pos), transparent calc(var(--pos) + 1px), transparent) repeat center/var(--size) var(--size);
@@ -2728,7 +2723,7 @@ hr {
                 &:before{
                     content:'';
                     width: var(--shift2);
-                    background-color: var(--wh30);
+                    background-color: var(--WH30);
                     clip-path: polygon(
                         0% 0%,
                         0% 100%,

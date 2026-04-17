@@ -53,7 +53,14 @@ h1,h2,h3,h4,h5,h6 {
                 pointer-events: auto;
         }
 }
-
+dialog{
+        display: block;
+        transition: var(--trans);
+        opacity: 0;
+        &[open]{
+                opacity: 1;
+        }
+}
 //Generator Page Controller
 div.tp-rotv {
         font-size: inherit;
@@ -169,7 +176,7 @@ div.tp-lblv_v:has(.tp-radgridv) {
         }
 
         @media (max-width: 834px) {
-                .mindMap>*:not(h1, h2, .about_tx, .about_p, .knowledge_tx) {
+                .mindMap>*:not(h1, h2, .about_tx, .about_p, .experience_tx) {
                         pointer-events: none;
                 }
         }
@@ -202,7 +209,7 @@ div.tp-lblv_v:has(.tp-radgridv) {
                 position: absolute;
                 font-weight: 200;
                 font-size: 1.25rem;
-                background-color: var(--wh50);
+                background-color: var(--WH50);
                 z-index: 1;
         }
 
@@ -238,8 +245,7 @@ div.tp-lblv_v:has(.tp-radgridv) {
                         translate: unset;
                 }
         }
-
-        .knowledge_tx {
+        .experience_tx {
                 line-height: 2;
                 left: 50%;
                 top: 50%;
@@ -248,7 +254,7 @@ div.tp-lblv_v:has(.tp-radgridv) {
         }
 
         @media (max-width: 960px) {
-                .knowledge_tx {
+                .experience_tx {
                         padding: 1em;
                         position: relative;
                         inset: unset;

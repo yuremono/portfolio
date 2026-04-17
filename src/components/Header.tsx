@@ -36,8 +36,6 @@ function HeaderNav() {
 							rel="noopener noreferrer"
 						>
 							Portfolio<ArrowSquareOutIcon size={16} />
-
-
 						</a>
 					</li>
 					<li>

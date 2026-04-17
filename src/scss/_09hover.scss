@@ -331,12 +331,6 @@ a.label{
 }
 
 .textlink{
-    &.__wh{
-        --TLC:var(--WH);
-    }
-    &.__bc{
-        --TLC:var(--BC);
-    }
     &.__anchor {
         &:after{
             &:is([target='_blank']:after){
@@ -346,40 +340,33 @@ a.label{
     }
     &:after{ 
         content: var(--btnAF);
-        color: var(--btnAFC);
+        --btnIdis: none;
+    }
+    &:has(>i,>svg):after{
+        --btnIdis: none;
+    }
+    svg,i,
+    &:after{ 
+        color: var(--btnIC);
         font-family: var(--btnIFF);
-        font-size: var(--btnAFFZ);
-        font-weight: var(--btnAFFW);
-        display: var(--btnAFdis);
+        font-size: var(--btnIFZ);
+        font-weight: var(--btnIFW);
+        display: var(--btnIdis);
         place-items: center;
-        position: var(--btnAFPOS); 
-        right: var(--btnAFRT);
+        position: var(--btnIPOS); 
+        right: var(--btnIRT);
         place-items: center;
         line-height: var(--btnFZ);
-        margin-inline: var(--btnAFMX); 
-
-        padding-inline: unset;
-        width: 2.5em;
-        line-height: 2.625;
-        aspect-ratio: 1;
-        align-content: center;text-align: center;
-        color: var(--WH);
-        border-radius: 1000px;
-        margin-left: 0.5em;
+        margin-inline: var(--btnIMX); 
 
         // 画像デザインに合わせた上書きスタイル
-        background-color: var(--AC);
         align-content: center;
         transition: var(--btnTR);
         will-change: scale;
 
-        display: none;
-
         &:is([target='_blank']:after){
             content: "\f35d";
         }
-
-        // flex: 1;
     }
     &:is(a,span){
         text-decoration: var(--TLDeco)!important;
@@ -413,8 +400,8 @@ a.label{
     
     
     @keyframes scaleDown {
-        0%{
-            scale: 1.125;
+        10%{
+            scale: 1.1;
         }
         100%{
             scale: 1;
@@ -534,7 +521,7 @@ p:has(>a){
 .f_link,.pan1 a
 ,.HeaderNav a:not(:has(>span))
 ,.banner a
-,a.textlink:not([href*=tel],.__tel,span,.__grad)
+// ,a.textlink:not([href*=tel],.__tel,span,.__grad)
 // ,.HeaderNav a:not(.drop a,.nopointer,:has(>span),:is(.logo *)) 
 ,.nav a:not(.drop ul li a)
 ,.f_nav ul a

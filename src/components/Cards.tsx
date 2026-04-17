@@ -3,7 +3,10 @@ interface CardsItemProps {
 	children?: React.ReactNode
 }
 
-const CardsItem = ({ className = "", children }: CardsItemProps) => {
+const CardsItem = ({
+        className = "",
+        children
+}: CardsItemProps) => {
 	return (
 		<div className={`item ${className}`}>
 			{children}

@@ -20,7 +20,7 @@ function Preview() {
 
 	return (
 		<PageRoot ref={pageRootRef} className="[--Eng:--Via]">
-			<Header className="LinkShadow UpInit" />
+			<Header className="LinkShadow UpInit " />
 
 			<main id="" className=" min-h-screen  mt-[--head] pb-[--MY]">
 				{/*Stick Lottie*/}

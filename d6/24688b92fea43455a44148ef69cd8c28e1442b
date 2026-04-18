@@ -1,0 +1,80 @@
+src/scss/_01variables.scss
+  h_5a56918e6ebef3 44,51,65,83-88,121,153,155,213,224
+src/components/btn.tsx
+  h_5a56918e6ebef3 38
+src/index.scss
+  h_5a56918e6ebef3 6,13,22
+src/scss/_mixin.scss
+  h_5a56918e6ebef3 23-24
+src/scss/_10UNIT.scss
+  h_5a56918e6ebef3 171-172
+src/scss/_03header.scss
+  h_5a56918e6ebef3 1632,1689,1697,1701
+src/pages/Next.tsx
+  a5b6866b26ab727f 31,33,40-41,567-571,573-575,577,581,583-587,589-596,618-619,664,666,670-672,674-675,677-681,691-692
+  h_5a56918e6ebef3 32,34-39,164,222,256,288,324,408,483-488,504,524,526,530,535,551-552,572,576,578-580,582,588,597-616,620-628,630,632-636,638,640-648,650-662,665,667-669,673,676,682-689,693-717,722-723,733,738,745,792,794-795,819,821-822,847,857,870-871,896,906,919-920,940,973
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.0",
+  "base_commit_sha": "d624688b92fea43455a44148ef69cd8c28e1442b",
+  "prompts": {
+    "6540a2ed31da2fc0": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "c1abbd45-11e3-44ac-a1c0-f42b93a89ed0",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 144,
+      "overriden_lines": 0
+    },
+    "7037b57948b36c39": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "c417efdc-1f80-48cb-a401-6323beed6081",
+        "model": "composer-2-fast"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 5,
+      "overriden_lines": 0
+    },
+    "9e0259fb24621516": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "016b374e-54b0-4dbd-9680-2cf7b2aae7b4",
+        "model": "composer-2"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 369,
+      "overriden_lines": 0
+    },
+    "a5b6866b26ab727f": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019d9f0c-ccd7-71a0-8f2d-222538718471",
+        "model": "gpt-5.4-mini"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 104,
+      "total_deletions": 85,
+      "accepted_lines": 43,
+      "overriden_lines": 38
+    }
+  },
+  "humans": {
+    "h_5a56918e6ebef3": {
+      "author": "yuremono"
+    }
+  }
+}

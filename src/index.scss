@@ -16,9 +16,9 @@ body {//index.scss tailwind overwrite
 }
 svg {display: inline-block;}
 
-h1 {font-size: var(--h1FZ);}
-h2 {font-size: var(--h2FZ);}
-h3 {font-size: var(--h3FZ);}
+h1,.h1FZ {font-size: var(--h1FZ);}
+h2,.h2FZ {font-size: var(--h2FZ);}
+h3,.h3FZ {font-size: var(--h3FZ);}
 h4,h5,h6 {font-size: var(--h3FZ);}
 h1,h2,h3,h4,h5,h6 {
         font-family: var(--HFF);
@@ -27,10 +27,16 @@ h1,h2,h3,h4,h5,h6 {
         letter-spacing: var(--HLS);
 }
 //tailwind recovery
-.inline-size {container-type: inline-size;}
-.rtl {direction: rtl;}
-.ltr {direction: ltr;}
-.text-align-last-justify{text-align-last: justify;}
+@layer base{
+
+        .inline-size {container-type: inline-size;}
+        .rtl {direction: rtl;}
+        .ltr {direction: ltr;}
+        .text-align-last-justify{text-align-last: justify;}
+        .translateYH{translate: 0 -50%;}
+        .translateXH{translate: -50% 0;}
+        .translateXYH{translate: -50% -50%;}
+}
 
 // Header
 .HeaderNavMobile .NavInner .dropbtn {
@@ -57,10 +63,13 @@ dialog{
         display: block;
         transition: var(--trans);
         opacity: 0;
+        pointer-events: none;
         &[open]{
                 opacity: 1;
+                pointer-events: auto;
         }
 }
+
 //Generator Page Controller
 div.tp-rotv {
         font-size: inherit;
@@ -142,126 +151,61 @@ div.tp-lblv_v:has(.tp-radgridv) {
         :root {
 	--mmFZ: 2rem;
 
+                @media (max-width: 1560px) {
+                        --mmFZ: 1.5rem;
+                }
                 @media (max-width: 640px) {
                         --mmFZ: 1.25rem;
                 }
         }
-
-
-
         .mindMap {
-                height: 100vh;
-                font-size: var(--mmFZ);
-                align-content: center;
+                @apply content-center text-[length:--mmFZ] min-h-lvh font-[family-name:--Eng];
         }
 
         .mindMap>* {
-                font-family: var(--Jost);
-                font-weight: inherit;
                 display: inline-block;
                 cursor: default;
                 transition: 0.4s;
                 line-height: 1;
         }
 
-        .mindMap>*:not(.mmStatic):hover {
-                font-weight: 200;
-        }
-
-        .mindMap>div {
-                font-weight: inherit;
-                cursor: default;
-                text-align: left;
-                line-height: 2;
-        }
-
-        @media (max-width: 834px) {
-                .mindMap>*:not(h1, h2, .about_tx, .about_p, .experience_tx) {
-                        pointer-events: none;
-                }
-        }
+        // @media (max-width: 834px) {
+        //         .mindMap>*:not(h1, h2, .about_tx, .about_p, .experience_tx) {
+        //                 pointer-events: none;
+        //         }
+        // }
 
         .mindWobble {
-                font-family: var(--Jost);
-                font-weight: 100;
-                position: relative;
-                z-index: 1;
-                font-size: calc(var(--mmFZ) * 5);
-                line-height: 0.7;
+                @apply relative text-[length:--mmFZ]  font-[family-name:--Eng] z-10 leading-[0.8em];
+                font-size: calc(var(--mmFZ) * 5.5);
                 --mmWobbleAmp: 15;
                 --mmWobbleAmpX: 15;
                 --mmWobbleAmpY: 15;
                 --mmWobbleFreqX: 0.0003;
                 --mmWobbleFreqY: 0.0003;
-        }
-
-        @media (max-width: 1200px) {
-                .mindWobble {
+                @media (max-width: 1200px) {
                         font-size: calc(var(--mmFZ) * 4);
                 }
         }
 
-        .mmStatic {
-                font-weight: 200;
-        }
-
         .mmPin {
-                position: absolute;
-                font-weight: 200;
-                font-size: 1.25rem;
-                background-color: var(--WH50);
-                z-index: 1;
+                @apply bg-background/50 text-xl absolute z-10;
         }
 
 
-        .about_tx {
-                line-height: 2;
-                left: 50%;
-                top: 50%;
-                translate: 0 -50%;
-                z-index: 1;
-        }
 
-        @media (max-width: 1080px) {
-                .about_tx {
-                        padding: 1em;
-                        position: relative;
-                        inset: unset;
-                        translate: unset;
-                }
-        }
 
-        .about_p {
-                padding: 0.25em 1em;
-                right: 50%;
-                bottom: 50%;
-                translate: 0 50%;
-        }
+        // @media (max-width: 1080px) {
+        //         .about_tx {
+        //                 padding: 1em;
+        //                 position: relative;
+        //                 inset: unset;
+        //                 translate: unset;
+        //         }
+        // }
 
-        @media (max-width: 1080px) {
-                .about_p {
-                        position: relative;
-                        inset: unset;
-                        translate: unset;
-                }
-        }
-        .experience_tx {
-                line-height: 2;
-                left: 50%;
-                top: 50%;
-                translate: 0 -50%;
-                z-index: 1;
-        }
 
-        @media (max-width: 960px) {
-                .experience_tx {
-                        padding: 1em;
-                        position: relative;
-                        inset: unset;
-                        translate: unset;
-                }
-        }
-
+        
 
 
         .creative_tx {

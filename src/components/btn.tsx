@@ -31,9 +31,10 @@ const Button = ({
 };
 
 const StyledLink = styled.a`
+
          position: relative;
-         min-height: 3rem;
-         min-width: 50%;
+         min-height: var(--btnH);
+         min-width: var(--btnW);
          padding: 0 1em;
          border: 1px solid var(--cur);
          font-family: inherit;
@@ -42,7 +43,7 @@ const StyledLink = styled.a`
         &:before, &:after {
          content: "";
          position: absolute;
-         background: #fff;
+         background: var(--background);
          transition: all .2s linear;
         }
       

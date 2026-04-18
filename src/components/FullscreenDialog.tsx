@@ -84,7 +84,7 @@ export function FullscreenDialog({
 			aria-labelledby={titleId}
 			aria-describedby={descriptionId}
 			aria-modal="true"
-			className="min-h-lvh  w-screen max-w-none overflow-y-auto overscroll-none bg-WH/70    outline-none "
+			className="min-h-lvh  w-screen max-w-none overflow-y-auto overscroll-none bg-BC/90    outline-none "
 			onClick={(event) => {
 				if (event.target === event.currentTarget) {
 					closeDialog();
@@ -108,7 +108,7 @@ export function FullscreenDialog({
 					</div>
 					<button
 						type="button"
-						className="textlink shrink-0 text-AC fixed top-[PX] right-[--into] p-2"
+						className="textlink dsbc shrink-0 text-AC fixed top-[--PX] right-[--into] p-2  "
 						onClick={closeDialog}
 						data-dialog-initial-focus
 						aria-label={`${title}を閉じる`}

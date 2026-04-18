@@ -331,6 +331,7 @@ a.label{
 }
 
 .textlink{
+
     &.__anchor {
         &:after{
             &:is([target='_blank']:after){

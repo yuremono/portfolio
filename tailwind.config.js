@@ -32,7 +32,13 @@ export default {
 				xs: "479px",
                         },
                         colors: {
+                                primary: cssVarColor("primary"),
+                                secondary: cssVarColor("secondary"),
                                 accent: cssVarColor("accent"),
+                                foreground: cssVarColor("foreground"),
+                                muted: cssVarColor("muted"),
+                                background: cssVarColor("background"),
+                                border: cssVarColor("border"),
                                 MC: cssVarColor("MC"),
                                 SC: cssVarColor("SC"),
                                 AC: cssVarColor("AC"),

@@ -88,53 +88,6 @@ body{
 // :where(section,form) :where(img,iframe,figure){border-radius: var(--rad);}
 // :where(section,form) iframe{aspect-ratio: 16 / 9;height: unset;}
 
-// .bxshwh{box-shadow: var(--bxshwh);}
-.bxshbk{box-shadow: var(--bxshbk);}
-// .bxshmc{box-shadow: var(--bxshmc);}
-// .bxshsc{box-shadow: var(--bxshsc);}
-// .bxshac{box-shadow: var(--bxshac);}
-// .bxshtx{box-shadow: var(--bxshtx);}
-// .bxshgr{box-shadow: var(--bxshgr);}
-
-.txshwh{text-shadow: var(--txshwh);}
-.txshbk{text-shadow: var(--txshbk);}
-.txshmc{text-shadow: var(--txshmc);}
-.txshsc{text-shadow: var(--txshsc);}
-.txshtx{text-shadow: var(--txshtx);}
-// .txshbc{text-shadow: var(--txshbc);}
-
-.txstwh{-webkit-text-stroke: var(--stw) var(--WH);paint-order: stroke;}
-.txstbk{-webkit-text-stroke: var(--stw) var(--BK);paint-order: stroke;}  
-// .txstmc{-webkit-text-stroke: var(--stw) var(--mc);paint-order: stroke;}
-.txstsc{-webkit-text-stroke: var(--stw) var(--SC);paint-order: stroke;}
-// .txstbc{-webkit-text-stroke: var(--stw) var(--BC);paint-order: stroke;}
-// @media (max-width : 640px){[class*=txst]{-webkit-text-stroke-width: 4px;}}
-// .H-txstwh :is(h1,h2,h3){-webkit-text-stroke: 4px var(--WH);paint-order: stroke;}
-// .H-txstbk :is(h1,h2,h3){-webkit-text-stroke: 4px var(--BK);paint-order: stroke;color: var(--WH);}
-// .H-txstmc :is(h1,h2,h3){-webkit-text-stroke: 4px var(--mc);paint-order: stroke;color: var(--WH);}
-// @media (max-width : 640px){[class*=H-txst] :is(h1,h2,h3){-webkit-text-stroke-width: 2px;}}
-
-.dswh{filter: var(--dswh);}
-.dsbk{filter: var(--dsbk);}
-.dsmc{filter: var(--dsmc);}
-// .dsbc{filter: var(--dsbc);}
-// .dstx{filter: var(--dstx);}
-.dsgr{filter: var(--dsgr);}
-
-
-// .pxshmc{text-shadow: var(--pxshmc);}
-// .pxshsc{text-shadow: var(--pxshsc);}
-// .pxshac{text-shadow: var(--pxshac);}
-.pxshwh{text-shadow: var(--pxshwh);}
-// .pxshbk{text-shadow: var(--pxshbk);}
-// .pxshgr{text-shadow: var(--pxshgr);}
-// .pxshbc{text-shadow: var(--pxshbc);}
-
-.pxdswh{filter: var(--pxdswh);}
-// .pxdsbk{filter: var(--pxdsbk);}
-// .pxdsmc{filter: var(--pxdsmc);}
-// .pxdstx{filter: var(--pxdstx);}
-// .pxdsbc{filter: var(--pxdsbc);}
 
 
 

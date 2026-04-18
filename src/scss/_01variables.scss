@@ -21,6 +21,7 @@
                 /* Android */
                 sans-serif;
         --Ship: "Shippori Mincho","Noto Serif JP", serif;
+        --Zen: "Zen Kaku Gothic New",var(--San), sans-serif;
         --Jost: "Jost",var(--San), sans-serif;
         --Via: "Viaoda Libre",var(--San), sans-serif;
         --FF: var(--San) ,sans-serif;
@@ -39,15 +40,15 @@
         --TR: transparent; /* キャンバス背景・穴まわり：4扇以外の塗り */
         --MC: oklch(0.49 0.14 265.73); /* 扇形1 */
         --SC: oklch(0.49 0.14 265.73); /* 扇形2 */
-        --AC: oklch(0.78 0.08 38); /* 扇形3 */
-        --BC: oklch(0.96 0.025 110); /* 扇形4・ページ下地 */
+        --AC: oklch(0.80 0.1 75); /* 扇形3 */
+        --BC: oklch(0.96 0.015 75); /* 扇形4・ページ下地 */
         --second: var(--SC);
         --third: oklch(0.92 0.1 169.85);
         --fourth: oklch(0.97 0.2 109.29);
         --TC: oklch(17% 0.00 271); /* 本文テキスト */
         --GR: oklch(73% 0.00 271); /* スクロールバー等 */
-        --BK: oklch(0% 0 0);
-        --WH: oklch(100% 0 0);
+        --BK: oklch(50% 0.005 60);
+        --WH: oklch(99% 0.005 60);
 
         --tsbk: .25rem .25rem var(--BK);
 }
@@ -79,13 +80,12 @@
         // --neutral: var(--GR);//（グレー系）
 }
 .dark {
-        background: inherit;
 	--background: #000;
 	--foreground: #fff;
 	--border: #fff;
         --BK: #fff;
         --TC: #fff;
-        --WH: #000;
+        --WH: #fff;
 }
 
 :root {// color opacity
@@ -118,7 +118,7 @@
 
 
         --imgW: calc(50% - var(--gap)/2);
-        --wid: 1080px;
+        --wid: 1200px;
         --MY: 120px;
         --MY25: calc(var(--MY)/4);
         --MY5: calc(var(--MY)/2);
@@ -342,12 +342,12 @@
         --btnLH:1.125;
         --btnFW: 700; 
         --btnLS:0.025em; 
-        --btnW:320px;
+        --btnW:300px;
         --btnW48:100%;
         // @media (max-width : 480px){
         //     --btnW:100%;
         // }
-        --btnH:2.5rem;
+        --btnH:4rem;
         // @media (max-width : 640px){
         //     --btnH:56px;
         // }
@@ -387,56 +387,3 @@
         --btnIVA: bottom;
 }
 
-:root{//シャドウ デコレーション等
-        --tsW: .5rem; 
-        --txshwh: 0 0 var(--tsW)  var(--WH);
-        --txshbk: 0 0 var(--tsW)  var(--BK);
-        --txshmc: 0 0 var(--tsW)  var(--MC); 
-        --txshsc: 0 0 var(--tsW)  var(--SC); 
-        --txshtx: 0 0 var(--tsW)  var(--TX); 
-        // --txshbc: 0 0 var(--tsW)  var(--BC); 
-    
-        --dsW:.5rem;
-        --dswh: drop-shadow(0 0px var(--dsW) var(--WH)); 
-        --dsbk: drop-shadow(0 0px var(--dsW) var(--BK)); 
-        --dsmc: drop-shadow(0 0px var(--dsW) var(--mc));  
-        // --dsbc: drop-shadow(0 0px var(--dsW) var(--BC)); 
-        // --dstx: drop-shadow(0 0px var(--dsW) var(--tx)); 
-        --dsgr: drop-shadow(0 0px var(--dsW) var(--GR)); 
-        // --dssc: drop-shadow(0 0px var(--dsW) var(--SC)); 
-    
-        // --pxshmc:1px 1px var(--mc);
-        // --pxshac:1px 1px var(--ac30);
-        --pxshwh:0px 1px var(--WH);
-        // --pxshbk:1px 1px var(--BK);
-        // --pxshgr:1px 1px var(--GR);
-        // --pxshbc:1px 1px var(--BC);
-    
-        --pxdswh:drop-shadow(1px 1px var(--WH));
-        // --pxdsbk:drop-shadow(1px 1px var(--BK));
-        // --pxdsmc:drop-shadow(1px 1px var(--mc));
-        // --pxdstx:drop-shadow(1px 1px var(--tx)); 
-        // --pxdsbc:drop-shadow(1px 1px var(--BC)); 
-    
-        // // --bs2:0px 2px 8px #1119; 
-        --bsW:4px;
-        // --NbsW:calc(var(--bsW)*-1 );
-        // --bxshwh:  0  var(--bsW) calc(var(--bsW)*2 )  var(--WH10); 
-        --bxshbk:  0  var(--bsW) calc(var(--bsW)*2 )  var(--bk20); 
-        // --bxshmc:  0  var(--bsW) calc(var(--bsW)*2 )  var(--mc10); 
-        // --bxshbc:  0  var(--bsW) calc(var(--bsW)*2 )  var(--bc10); 
-        // --bxshtx:  0  var(--bsW) calc(var(--bsW)*2 )  var(--tx10); 
-        // --bxshgr:  0  var(--bsW) calc(var(--bsW)*2 )  var(--gr10); 
-        // --bxshsc:  0  var(--bsW) calc(var(--bsW)*2 )  var(--sc10); 
-        // // --bxshgr:5px 5px 0px var(--GR); 
-        // --bxshbtn: inset 2px 2px 4px var(--WH40),
-        // inset -2px -2px 4px var(--tx20); 
-    
-        // --bxshblur:0 0 10px  #11100088;
-}
-.txshwh{
-        text-shadow: var(--txshwh);
-}
-.dswh{
-        filter: var(--dswh) var(--dswh);
-}

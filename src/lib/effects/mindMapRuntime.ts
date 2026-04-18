@@ -10,6 +10,9 @@ const STYLE_WOBBLE_ID = "mindwobble-inline-style";
 const SVG_FILTERS_ID = "mm-svg-filters";
 const FILTER_ID = "mm-warp";
 
+/** 最後の scroll からこの ms 経過したらスクロール終了とみなし、シミュ／wobble を再開する */
+const SCROLL_SETTLE_MS = 100;
+
 type MindMapNode = {
 	element: HTMLElement;
 	width: number;
@@ -63,18 +66,51 @@ export function initMindMapRuntime(
 	rootDocument: Document | HTMLElement,
 ): () => void {
 	let isScrolling = false;
+	/** 同一スクロール操作内で sim.stop() を一度だけにする（連続 scroll イベント対策） */
+	let simsPausedForScroll = false;
 	let scrollTimer: ReturnType<typeof setTimeout> | null = null;
 	let lastResumeTime = 0;
+	const mindMapStates: MindMapContainerState[] = [];
+	let wobbleScrollResume: (() => void) | null = null;
 
-	const onScroll = () => {
+	/**
+	 * スクロール中は d3 シミュと mind wobble の負荷を抑える（メインスレッド・合成スクロールとの競合軽減）。
+	 *
+	 * 検知は scroll のみ（wheel はスクロール無しでも発火し得るため使わない）。
+	 * レイヤーが重なりポインタが背後に届かない問題は、ダイアログ等の pointer-events 側で直すのが主。
+	 */
+	function pauseMindMapSimsOnce() {
+		if (simsPausedForScroll) return;
+		simsPausedForScroll = true;
+		for (const st of mindMapStates) {
+			st.sim.stop();
+		}
+	}
+
+	function resumeScrollEffects() {
+		scrollTimer = null;
+		isScrolling = false;
+		simsPausedForScroll = false;
+		lastResumeTime = performance.now();
+		for (const st of mindMapStates) {
+			st.sim.restart();
+		}
+		wobbleScrollResume?.();
+	}
+
+	const onScrollActivity = () => {
 		isScrolling = true;
+		pauseMindMapSimsOnce();
 		if (scrollTimer !== null) clearTimeout(scrollTimer);
-		scrollTimer = setTimeout(() => {
-			isScrolling = false;
-			lastResumeTime = performance.now();
-		}, 60);
+		scrollTimer = setTimeout(resumeScrollEffects, SCROLL_SETTLE_MS);
 	};
-	window.addEventListener("scroll", onScroll, { passive: true });
+
+	window.addEventListener("scroll", onScrollActivity, { passive: true });
+	// scroll はバブルしない。capture でネスト overflow のスクロールも拾う
+	document.addEventListener("scroll", onScrollActivity, {
+		passive: true,
+		capture: true,
+	});
 
 	let mmDisplacement: SVGElement | null = null;
 	let mmAnimId = 0;
@@ -91,7 +127,8 @@ export function initMindMapRuntime(
       ${MINDMAP_CONTAINER_SELECTOR} .mindMapNode {
         position: absolute;
         will-change: transform;
-        touch-action: none;
+        /* touch-action:none は縦スクロール等を阻害し得る */
+        touch-action: pan-x pan-y;
       }
       @media (prefers-reduced-motion: reduce) {
         ${MINDMAP_CONTAINER_SELECTOR} .mindMapNode { transition: none !important; }
@@ -683,6 +720,7 @@ export function initMindMapRuntime(
 		}
 
 		sim.on("tick", () => {
+			// isVisible: 非表示。isScrolling: sim.stop とのレースで 1 フレーム残る場合の防御
 			if (isScrolling || !isVisible) return;
 			const now = performance.now();
 			const timeSinceResume = now - lastResumeTime;
@@ -862,10 +900,17 @@ export function initMindMapRuntime(
 		let rafId = 0;
 		let stopped = false;
 
+		const resumeWobble = () => {
+			if (stopped || rafId !== 0) return;
+			rafId = requestAnimationFrame(tick);
+		};
+		wobbleScrollResume = resumeWobble;
+
 		const tick = (now: number) => {
 			if (stopped) return;
+			// スクロール中は RAF を張らない（sim.stop と併用。レース時の防御にもなる）
 			if (isScrolling) {
-				rafId = requestAnimationFrame(tick);
+				rafId = 0;
 				return;
 			}
 
@@ -899,6 +944,7 @@ export function initMindMapRuntime(
 
 		return () => {
 			stopped = true;
+			wobbleScrollResume = null;
 			cancelAnimationFrame(rafId);
 			io.disconnect();
 			for (const it of items) {
@@ -908,7 +954,6 @@ export function initMindMapRuntime(
 	}
 
 	const queryRoot = getQueryRoot(rootDocument);
-	const mindMapStates: MindMapContainerState[] = [];
 	let wobbleCleanup: (() => void) | undefined;
 	let disposed = false;
 
@@ -936,6 +981,9 @@ export function initMindMapRuntime(
 				const state = initMindMapFor(c);
 				if (disposed || !state) continue;
 				mindMapStates.push(state);
+				if (isScrolling) {
+					state.sim.stop();
+				}
 				requestAnimationFrame(() => {
 					c.style.opacity = "1";
 				});
@@ -952,8 +1000,10 @@ export function initMindMapRuntime(
 		if (mmAnimId) cancelAnimationFrame(mmAnimId);
 		mmAnimId = 0;
 
-		window.removeEventListener("scroll", onScroll);
+		window.removeEventListener("scroll", onScrollActivity);
+		document.removeEventListener("scroll", onScrollActivity, { capture: true });
 		if (scrollTimer !== null) clearTimeout(scrollTimer);
+		wobbleScrollResume = null;
 
 		wobbleCleanup?.();
 

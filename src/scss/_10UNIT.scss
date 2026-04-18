@@ -394,6 +394,7 @@
                 }
         }
         &.IsSmall {// --- モディファイア: IsQa (Q&Aスタイル) ---
+                width: fit-content;
                 summary{
                         color: var(--gr);
                         font-size: 1.2em;
@@ -412,13 +413,15 @@
                 }
                 &[open] summary:after {
                         content: "-";
-                        scale: 2 1; 
-                        translate: -0.1em 0;
+                        scale: 1.5 1; 
                 }
                 >div {
                         padding: unset;
                         position: relative;
                         font-size: 0.875em;
+                }
+                summary:hover {
+                        color: var(--AC);
                 }
         }
 }

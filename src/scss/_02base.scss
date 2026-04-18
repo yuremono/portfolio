@@ -70,7 +70,7 @@ html{
 span {display: inline-block;}
 small{font-size: 62.5%;}
 
-:where(div){
+:where(*){
         max-width: 100%;
 }
 a {
@@ -169,3 +169,4 @@ main {// --PX
 	margin-left: var(--out);
 	max-width: unset;
 }
+

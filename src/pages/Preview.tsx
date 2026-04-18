@@ -19,7 +19,7 @@ function Preview() {
 	useHtmlRootClass();
 
 	return (
-		<PageRoot ref={pageRootRef} className="[--Eng:--Via]">
+		<PageRoot ref={pageRootRef} className="[--Eng:--Via] [--HFF:--Via]">
 			<Header className="LinkShadow UpInit " />
 
 			<main id="" className=" min-h-screen  mt-[--head] pb-[--MY]">
@@ -177,7 +177,7 @@ function Preview() {
 							<PanelItem className="items-center ">
 								<div>
 									<h2 className=" mb-4  ">
-										<span className="sub block text-right  text-3xl text-center">
+										<span className="sub block   text-3xl text-center">
 											play on "Bring Your Own Key"
 										</span>
 									</h2>

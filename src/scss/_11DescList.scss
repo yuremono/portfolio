@@ -178,6 +178,12 @@
 			text-align: right;
 			justify-content: flex-end;
 		}
+                @include max-sm {
+			dt, dd { width: var(--dtW); }
+		}
+                @include max-sm {
+                        dd { padding-top: var(--PY); }
+                }
 	}
 	&.IsDdright {
 		dd {

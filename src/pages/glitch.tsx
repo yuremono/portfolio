@@ -4,6 +4,7 @@ import { useClientRuntime } from "../hooks/useClientRuntime";
 import { useHtmlRootClass } from "../hooks/useHtmlRootClass";
 import { getAssetPath } from "../lib/assetPath";
 import Header from "../components/Header";
+import { Footer } from "../components/Footer";
 import { PageRoot } from "../components/PageRoot";
 
 import "../scss/glitch.scss";
@@ -49,7 +50,7 @@ function Glitch() {
 			<Header className="NoLogo TopHidden" />
 
 			<main aria-label="Glitch page">
-				<section className="part_text bgLayer out">
+				<section className=" bgLayer out">
 					<div className="bgItem __glitch p-split">
                                                 <img
                                                         className="bgGlitch"
@@ -136,14 +137,14 @@ function Glitch() {
 
 				<section
 					ref={openingRef}
-					className="part_text js-bgTrigger first"
+					className=" js-bgTrigger first"
 					aria-label="Glitch opening"
 				>
 					<div className="h-[75vh]" />
 				</section>
 
 				<section
-					className="part_text js-bgTrigger ml-0 spPX10p w-1/2  text-right max-sm:w-full"
+					className=" js-bgTrigger ml-0 spPX10p w-1/2  text-right max-sm:w-full"
 					aria-label="Concept"
 				>
 					<div className="min-h-screen">
@@ -159,14 +160,14 @@ function Glitch() {
 					className="part_rect out js-bgTrigger grid min-h-screen content-center gap-[var(--gap)]"
 					aria-label="Service overview"
 				>
-					<div className="part_text ml-0 spPX10p w-1/2 text-right max-sm:w-full">
+					<div className=" ml-0 spPX10p w-1/2 text-right max-sm:w-full">
 						<h1 className="ml-0 mb-12 [font-family:var(--Eng)] text-[var(--h2FZ)] italic leading-[1.1] [text-shadow:0_1rem_4rem_var(--BK80)]">
                                                 わたしたちの
 							<br />
 							ワンストップサービス
 						</h1>
 					</div>
-					<div className="part_text w-full">
+					<div className=" w-full">
 						<button
 							type="button"
 							className="borderLink w-full appearance-none border-0 bg-transparent p-0 text-left"
@@ -196,7 +197,7 @@ function Glitch() {
 
 				<section
 					ref={detailsRef}
-					className="part_text js-bgTrigger mr-0 spPX10p txshbk w-1/2 max-sm:w-full"
+					className=" js-bgTrigger mr-0 spPX10p txshbk w-1/2 max-sm:w-full"
 					aria-label="Details"
 				>
 					<div className="min-h-screen">
@@ -212,7 +213,9 @@ function Glitch() {
 						</button>
 					</div>
 				</section>
-			</main>
+                        </main>
+                        <Footer/>
+                        
 		</PageRoot>
 	);
 }

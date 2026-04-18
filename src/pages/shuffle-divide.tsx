@@ -3,7 +3,9 @@ import { useClientRuntime } from "../hooks/useClientRuntime";
 import { useHtmlRootClass } from "../hooks/useHtmlRootClass";
 
 import Header from "../components/Header";
+import { Footer } from "../components/Footer";
 import { PageRoot } from "../components/PageRoot";
+
 
 import { initShuffleDivide } from "../features/shuffle-divide/initShuffleDivide";
 import { getAssetPath } from "../lib/assetPath";
@@ -187,7 +189,9 @@ function ShuffleDivide() {
                                         </div>
                                 </div>
                         </div>
-			</main>
+                        </main>
+                        <Footer/>
+                        
 		</PageRoot>
 	);
 }

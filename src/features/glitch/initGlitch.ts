@@ -404,8 +404,9 @@ export function initGlitch(root: HTMLElement): GlitchRuntime {
 	const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 	const glitchCanvases: GlitchCanvas[] = [];
 	const controller = new AbortController();
-	let observer: IntersectionObserver | null = null;
 	let nav: HTMLElement | null = null;
+	let scrollRaf = 0;
+	let lastTriggerIndex = -1;
 
 	bgItems.forEach((item) => {
 		item.setAttribute("aria-hidden", "true");
@@ -423,9 +424,16 @@ export function initGlitch(root: HTMLElement): GlitchRuntime {
 		}
 	});
 
-	const activate = (index: number) => {
-		triggers.forEach((trigger, triggerIndex) => {
-			const isCurrent = triggerIndex === index;
+	const resolveBgIndex = (triggerIndex: number): number => {
+		if (bgItems.length === 0) return 0;
+		return Math.min(Math.max(0, triggerIndex), bgItems.length - 1);
+	};
+
+	const activate = (triggerIndex: number) => {
+		const bgIndex = resolveBgIndex(triggerIndex);
+
+		triggers.forEach((trigger, i) => {
+			const isCurrent = i === triggerIndex;
 			trigger.classList.toggle("current", isCurrent);
 			if (isCurrent) {
 				trigger.setAttribute("aria-current", "true");
@@ -435,7 +443,7 @@ export function initGlitch(root: HTMLElement): GlitchRuntime {
 		});
 
 		bgItems.forEach((item, itemIndex) => {
-			const isCurrent = itemIndex === index;
+			const isCurrent = itemIndex === bgIndex;
 			item.classList.toggle("show", isCurrent);
 			item.setAttribute("aria-hidden", isCurrent ? "false" : "true");
 			item.querySelectorAll(".JsLetterToggle").forEach((letter) => {
@@ -444,19 +452,46 @@ export function initGlitch(root: HTMLElement): GlitchRuntime {
 		});
 
 		glitchCanvases.forEach((canvas) => canvas.stop());
-		const activeItem = bgItems[index];
-		const activeCanvas = glitchCanvases.find(
-			(canvas) => canvas.isFor(activeItem),
+		const activeItem = bgItems[bgIndex];
+		const activeCanvas = glitchCanvases.find((canvas) =>
+			canvas.isFor(activeItem),
 		);
 		activeCanvas?.start();
 
 		nav?.querySelectorAll<HTMLButtonElement>(".navDot").forEach(
 			(dot, dotIndex) => {
-				const isCurrent = dotIndex === index;
+				const isCurrent = dotIndex === triggerIndex;
 				dot.classList.toggle("current", isCurrent);
 				dot.setAttribute("aria-current", isCurrent ? "true" : "false");
 			},
 		);
+	};
+
+	/** ビューポート中央を基準に、現在のセクション番号（0 始まり）を一意に決める */
+	const getActiveTriggerIndex = (): number => {
+		if (triggers.length === 0) return 0;
+		const mark = window.innerHeight * 0.5;
+		for (let i = triggers.length - 1; i >= 0; i--) {
+			if (triggers[i].getBoundingClientRect().top <= mark) {
+				return i;
+			}
+		}
+		return 0;
+	};
+
+	const syncFromScroll = () => {
+		const next = getActiveTriggerIndex();
+		if (next === lastTriggerIndex) return;
+		lastTriggerIndex = next;
+		activate(next);
+	};
+
+	const scheduleSyncFromScroll = () => {
+		if (scrollRaf !== 0) return;
+		scrollRaf = window.requestAnimationFrame(() => {
+			scrollRaf = 0;
+			syncFromScroll();
+		});
 	};
 
 	if (triggers.length > 0) {
@@ -465,12 +500,9 @@ export function initGlitch(root: HTMLElement): GlitchRuntime {
 		nav.setAttribute("aria-label", "glitch section navigation");
 
 		triggers.forEach((trigger, index) => {
-			trigger.dataset.bgIndex = String(index);
-
 			const button = document.createElement("button");
 			button.type = "button";
 			button.className = "navDot";
-			button.dataset.bgIndex = String(index);
 			button.setAttribute("aria-label", `section ${index + 1}`);
 			button.addEventListener(
 				"click",
@@ -486,36 +518,29 @@ export function initGlitch(root: HTMLElement): GlitchRuntime {
 		});
 
 		root.appendChild(nav);
-		activate(0);
+		scheduleSyncFromScroll();
 
-		if ("IntersectionObserver" in window) {
-			observer = new IntersectionObserver(
-				(entries) => {
-					entries.forEach((entry) => {
-						if (!entry.isIntersecting) return;
-						const index = Number(
-							(entry.target as HTMLElement).dataset.bgIndex,
-						);
-						if (Number.isNaN(index)) return;
-						activate(index);
-					});
-				},
-				{ threshold: 0.5 },
-			);
-			triggers.forEach((trigger) => observer?.observe(trigger));
-		}
+		window.addEventListener("scroll", scheduleSyncFromScroll, {
+			passive: true,
+			signal: controller.signal,
+		});
+		window.addEventListener("resize", scheduleSyncFromScroll, {
+			signal: controller.signal,
+		});
 	}
 
 	return {
 		disconnect: () => {
 			controller.abort();
-			observer?.disconnect();
+			if (scrollRaf !== 0) {
+				window.cancelAnimationFrame(scrollRaf);
+				scrollRaf = 0;
+			}
 			glitchCanvases.forEach((canvas) => canvas.disconnect());
 			nav?.remove();
 			triggers.forEach((trigger) => {
 				trigger.classList.remove("current");
 				trigger.removeAttribute("aria-current");
-				delete trigger.dataset.bgIndex;
 			});
 			bgItems.forEach((item) => {
 				item.classList.remove("show");

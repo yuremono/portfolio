@@ -4,10 +4,9 @@ import { Cards, CardsItem } from "../components/Cards";
 import Button from "../components/btn";
 // JSX 内
 // import { Image } from "../components/Image";
-import { getAssetPath } from "../lib/assetPath";
+// import { getAssetPath } from "../lib/assetPath";
 
 import {
-	ArrowSquareOut,
 	Moon,
 	Sun,
 	// CaretUpIcon,
@@ -18,6 +17,7 @@ import {
 } from "@phosphor-icons/react";
 import { FullscreenDialog } from "../components/FullscreenDialog";
 import Header from "../components/Header";
+import { Footer } from "../components/Footer";
 import { PageRoot } from "../components/PageRoot";
 import { useClientRuntime } from "../hooks/useClientRuntime";
 import { useHtmlRootClass } from "../hooks/useHtmlRootClass";
@@ -57,7 +57,7 @@ function Next() {
 	return (
 		<PageRoot
 			ref={ref}
-			className=" [--innerPX:--PX] [--Eng:--Jost] [--San:--Zen] [--h3FZ:1.5rem] [--dropBG:--GR] [--dropC:--BK]"
+			className=" [--innerPX:--PX] [--Eng:--Jost] [--San:--Zen] [--h3FZ:1.5rem] [--dropBG:--WH] [--dropC:--TC]"
 		>
 			<Header className="NoLogo TopHidden mix-blend-difference text-WH" />
 
@@ -972,34 +972,7 @@ function Next() {
 					</div>
 				</section> */}
 
-				<div className="DescList  IsCenter  out into Wrap bg-[--foreground] text-[--background] bg-no-repeat bg-contain bg-left-bottom"
-					style={{
-						backgroundImage: `url(images/fff2.svg)`,
-					}}
-				>
-					<div>
-						<dl>
-							<dt>Name</dt>
-							<dd>Yano Seiji</dd>
-							<dt>Hobby</dt>
-							<dd>
-								Manga I love
-								<br />
-								Anime I love
-								<br />
-								Light Novel I love
-								<br />
-								Music I love
-							</dd>
-							<dt>Specialty</dt>
-							<dd>
-								CSS Styling
-								<br />
-								Context Engineering
-							</dd>
-						</dl>
-					</div>
-				</div>
+
 
 				<div className="ImgText  grid-cols-1 items-center gap-8 md:grid-cols-2 ImgText hidden">
 					{/* //画像コンポーネント有り */}
@@ -1091,7 +1064,8 @@ function Next() {
 						) : null}
 					</form>
 				</section>
-			</main>
+                        </main>
+                        <Footer/>
 		</PageRoot>
 	);
 }

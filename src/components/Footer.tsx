@@ -8,18 +8,44 @@ export function Footer({ className }: FooterProps) {
 	return (
 		<footer
 			className={[
-				"Wrap into bg-[--TC] text-white",
+				" Eng Wrap into   bg-[--foreground] text-[--background] bg-no-repeat bg-contain bg-left-bottom",
 				className,
 			]
 				.filter(Boolean)
 				.join(" ")}
+			style={{
+				backgroundImage: `url(images/fff2.svg)`,
+			}}
 		>
-			<div className="text-center font-medium Eng ">
-				<p className="mb-0 font-bold   text-[length:var(--logoFZ)]">
+			<div className="DescList  IsCenter     ">
+				<div>
+					<dl>
+						<dt>Name</dt>
+						<dd>Yano Seiji</dd>
+						<dt>Hobby</dt>
+						<dd>
+							Manga I love
+							<br />
+							Anime I love
+							<br />
+							Light Novel I love
+							<br />
+							Music I love
+						</dd>
+						<dt>Specialty</dt>
+						<dd>
+							CSS Styling
+							<br />
+							Context Engineering
+						</dd>
+					</dl>
+				</div>
+			</div>
+			<div className="text-center   ">
+				<p className="mb-0    text-[length:var(--logoFZ)]">
 					yuremono works
 				</p>
-				<div className="space-x-4">
-					
+				<div className="space-x-4 mt-6">
 					<a
 						href="https://cms0505.vercel.app/"
 						className="hover:text-[--AC] transition-colors "
@@ -51,8 +77,8 @@ export function Footer({ className }: FooterProps) {
 						rel="noopener noreferrer"
 					>
 						CreativeDemos
-                                        </a>
-                                        <Link
+					</a>
+					<Link
 						to="/rects"
 						className="hover:text-[--AC] transition-colors"
 					>

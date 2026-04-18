@@ -28,12 +28,6 @@ type LetterSpacingCanvasContext = CanvasRenderingContext2D & {
 	letterSpacing?: string;
 };
 
-type GraphemeSegmenter = {
-	segment(input: string): Iterable<{ segment: string }>;
-};
-
-type TextDrawMode = "fill" | "stroke";
-
 type CanvasEffectController = {
 	active: boolean;
 	canvas: HTMLCanvasElement;
@@ -100,72 +94,6 @@ function readImageAlpha(host: HTMLElement): number {
 
 function readText(host: HTMLElement): string {
 	return host.textContent?.replace(/\s+/g, " ").trim() ?? "";
-}
-
-function splitGraphemes(text: string): string[] {
-	const segmenterConstructor = (
-		Intl as typeof Intl & {
-			Segmenter?: new (
-				locale?: string,
-				options?: { granularity?: "grapheme" },
-			) => GraphemeSegmenter;
-		}
-	).Segmenter;
-
-	if (segmenterConstructor) {
-		const segmenter = new segmenterConstructor(undefined, {
-			granularity: "grapheme",
-		});
-
-		return Array.from(segmenter.segment(text), ({ segment }) => segment);
-	}
-
-	return Array.from(text);
-}
-
-function resetNativeLetterSpacing(ctx: CanvasRenderingContext2D): void {
-	const spacedCtx = ctx as LetterSpacingCanvasContext;
-	if (!("letterSpacing" in spacedCtx)) return;
-
-	try {
-		spacedCtx.letterSpacing = "0px";
-	} catch {
-		// Native canvas letterSpacing is not consistent enough for this overlay.
-	}
-}
-
-function drawLetterSpacedText(
-	ctx: CanvasRenderingContext2D,
-	text: string,
-	x: number,
-	y: number,
-	letterSpacing: number,
-	mode: TextDrawMode,
-): void {
-	if (!letterSpacing) {
-		if (mode === "stroke") {
-			ctx.strokeText(text, x, y);
-			return;
-		}
-
-		ctx.fillText(text, x, y);
-		return;
-	}
-
-	const segments = splitGraphemes(text);
-	let cursorX = x;
-
-	segments.forEach((segment, index) => {
-		if (mode === "stroke") {
-			ctx.strokeText(segment, cursorX, y);
-		} else {
-			ctx.fillText(segment, cursorX, y);
-		}
-
-		if (index < segments.length - 1) {
-			cursorX += ctx.measureText(segment).width + letterSpacing;
-		}
-	});
 }
 
 /**
@@ -293,7 +221,14 @@ function drawController(controller: CanvasEffectController, step: number): boole
 	ctx.strokeStyle = "#fff";
 	ctx.lineJoin = "round";
 	ctx.lineCap = "round";
-	resetNativeLetterSpacing(ctx);
+	const spacedCtx = ctx as LetterSpacingCanvasContext;
+	if ("letterSpacing" in spacedCtx) {
+		try {
+			spacedCtx.letterSpacing = `${letterSpacing}px`;
+		} catch {
+			// Ignore browsers that expose the property but reject assignment.
+		}
+	}
 
 	const lines = text
 		.split(/\n+/)
@@ -331,7 +266,14 @@ function drawController(controller: CanvasEffectController, step: number): boole
 	fillCtx.strokeStyle = "#000";
 	fillCtx.lineJoin = "round";
 	fillCtx.lineCap = "round";
-	resetNativeLetterSpacing(fillCtx);
+	const spacedFillCtx = fillCtx as LetterSpacingCanvasContext;
+	if ("letterSpacing" in spacedFillCtx) {
+		try {
+			spacedFillCtx.letterSpacing = `${letterSpacing}px`;
+		} catch {
+			// Ignore browsers that expose the property but reject assignment.
+		}
+	}
 
 	fillCtx.globalCompositeOperation = "source-over";
 
@@ -358,29 +300,15 @@ function drawController(controller: CanvasEffectController, step: number): boole
 			const radius = wobble * (0.55 + pseudoRandom(localStep + 11, step, pass + 1) * 0.95);
 			const dx = Math.cos(angle) * radius;
 			const dy = Math.sin(angle) * radius;
-			drawLetterSpacedText(
-				fillCtx,
-				line,
-				padding + dx,
-				baselineY + dy,
-				letterSpacing,
-				"stroke",
-			);
+			fillCtx.strokeText(line, padding + dx, baselineY + dy);
 		}
 
 		fillCtx.lineWidth = Math.max(2, lineWidth * 0.9);
-		drawLetterSpacedText(fillCtx, line, padding, baselineY, letterSpacing, "stroke");
-		drawLetterSpacedText(fillCtx, line, padding, baselineY, letterSpacing, "fill");
+		fillCtx.strokeText(line, padding, baselineY);
+		fillCtx.fillText(line, padding, baselineY);
 
 		if (descent > 0) {
-			drawLetterSpacedText(
-				fillCtx,
-				line,
-				padding,
-				baselineY + 0.5,
-				letterSpacing,
-				"stroke",
-			);
+			fillCtx.strokeText(line, padding, baselineY + 0.5);
 		}
 	});
 

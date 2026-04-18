@@ -168,13 +168,18 @@
                 }
         }
 
+        @include max-lg {
+                &:is(.bp-lg)>.item {
+                        width: calc(50% - var(--gap)/2);
+                        flex: unset;
+                }
+        }
         @include max-md {
                 &:not(.bp-sm)>.item {
                         width: calc(50% - var(--gap)/2);
                         flex: unset;
                 }
         }
-
         @include max-sm {
 
                 //     ！！！！デフォsmで100%に

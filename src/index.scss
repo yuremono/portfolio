@@ -3,14 +3,14 @@
 @tailwind utilities;
 
 //tailwind reset overwrite
-body {//index.scss tailwind overwrite
+html {//index.scss tailwind overwrite
 	font-size: var(--FZ);
 	overflow-x: hidden;
 	font-family: var(--FF);
 	font-weight: var(--FW);
 	line-height: var(--LH);
 	letter-spacing: var(--LS);
-	color: var(--TC);
+	color: var(--foreground);
 	font-style: normal;
 	background-color: var(--background);
 }
@@ -19,7 +19,7 @@ svg {display: inline-block;}
 h1,.h1FZ {font-size: var(--h1FZ);}
 h2,.h2FZ {font-size: var(--h2FZ);}
 h3,.h3FZ {font-size: var(--h3FZ);}
-h4,h5,h6 {font-size: var(--h3FZ);}
+h4,h5,h6 {font-size: 1.25rem;}
 h1,h2,h3,h4,h5,h6 {
         font-family: var(--HFF);
         font-weight: var(--HFW);

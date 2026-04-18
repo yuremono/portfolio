@@ -35,6 +35,7 @@ const StyledLink = styled.a`
          position: relative;
          min-height: var(--btnH);
          min-width: var(--btnW);
+         line-height:1;
          padding: 0 1em;
          border: 1px solid var(--cur);
          font-family: inherit;

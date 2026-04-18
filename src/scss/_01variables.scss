@@ -41,14 +41,14 @@
         --MC: oklch(0.49 0.14 265.73); /* 扇形1 */
         --SC: oklch(0.49 0.14 265.73); /* 扇形2 */
         --AC: oklch(0.80 0.1 75); /* 扇形3 */
-        --BC: oklch(0.96 0.015 75); /* 扇形4・ページ下地 */
+        --BC: oklch(99% 0.005 60); /* 扇形4・ページ下地 */
         --second: var(--SC);
         --third: oklch(0.92 0.1 169.85);
         --fourth: oklch(0.97 0.2 109.29);
         --TC: oklch(17% 0.00 271); /* 本文テキスト */
         --GR: oklch(73% 0.00 271); /* スクロールバー等 */
         --BK: oklch(50% 0.005 60);
-        --WH: oklch(99% 0.005 60);
+        --WH: oklch(100% 0.00 60);
 
         --tsbk: .25rem .25rem var(--BK);
 }
@@ -62,7 +62,7 @@
         --primary: var(--MC);
         --secondary: var(--SC);
         --accent: var(--AC);
-        --background: var(--WH);
+        --background: var(--BC);
         --foreground: var(--TC);
         --muted: var(--GR);
         --border: var(--TC);
@@ -80,12 +80,12 @@
         // --neutral: var(--GR);//（グレー系）
 }
 .dark {
-	--background: #000;
-	--foreground: #fff;
-	--border: #fff;
-        --BK: #fff;
-        --TC: #fff;
-        --WH: #fff;
+	--background: var(--TC);
+	--foreground: var(--WH);
+	// --border: #fff;
+        // --BK: #fff;
+        // --TC: #fff;
+        // --WH: #fff;
 }
 
 :root {// color opacity
@@ -118,7 +118,7 @@
 
 
         --imgW: calc(50% - var(--gap)/2);
-        --wid: 1200px;
+        --wid: 1260px;
         --MY: 120px;
         --MY25: calc(var(--MY)/4);
         --MY5: calc(var(--MY)/2);
@@ -150,15 +150,15 @@
         --LS: 0.05em;
         --LH: 2;
         --FW: 300;
-        --FZ: 1rem;
+        --FZ: 100%;
+        @include max-md {
+                --FZ: 87.5%;
+        }
         --HFF: var(--Eng);
         --HFW: 500;
         --HLH: 1.375;
         --HLS: 0.00em;
 
-        @include max-md {
-                --FZ: 0.875rem;
-        }
 
         --h1: 64px;
         --h2: 40px;
@@ -210,7 +210,7 @@
 :root{//header props
         interpolate-size: allow-keywords;
         --transH: 100px;
-        --trans: 200ms ease-in-out;
+        --trans: 400ms ease-in-out;
         --tw-duration: var(--trans);
         --default-transition-timing-function: var(--trans);
 
@@ -221,7 +221,7 @@
         --PTC: var(--inh);
         --PTBG: var(--un);
         --PTRad: var(--btnRad);
-        --PTW: calc(var(--btnH));
+        --PTW: calc(2.5rem);
         --PTbottom: var(--gapH);
         --PTrightTAB: 0.5em;
         --PTbottomTAB: 0.5em;

@@ -1,8 +1,8 @@
 @use "mixin" as *;
 
 .DescList {
-	--PY: 0.25em;
-	--PX: 0.25em;
+	--PY: 0.5em;
+	--PX: 1em;
 	--dtBG: var(--TR);
 	--dtW: 20%;
 	--ddW: calc(100% - var(--dtW));

@@ -28,6 +28,17 @@ import "../scss/Next.scss";
 const EXPERIENCE_DETAILS_MODAL_ID = "experience-details";
 const EXPERIENCE_DETAILS_DIALOG_ID = "experience-details-dialog";
 
+const otherWorksClasses = {
+	section: "Wrap into text-center mt-0",
+	heading: "mindWobble font-thin",
+	cards: "col3 [--gap:0px] bp-lg text-left [--btnW:50%] md:[--btnH:3em] leading-[1.75em] BorderT BorderL",
+	item: " p-8 bg-WH text-TC BorderB BorderR",
+	body: " mt-2",
+	actions: "[--background:--WH] !mt-4 flex flex-wrap",
+	button: "mt-[-1px]",
+	buttonInline: "mt-[-1px] ml-[-1px]",
+} as const;
+
 function Next() {
 	const { ref, dark, toggleTheme } = usePage();
 	useClientRuntime({ rootRef: ref });
@@ -150,7 +161,7 @@ function Next() {
 									href="https://cms0505.vercel.app/editor"
 									external
 								>
-									Editor&nbsp;
+									CMS Editor&nbsp;
 									<ArrowSquareOutIcon />
 								</Button>
 							</div>
@@ -208,7 +219,7 @@ function Next() {
 												4 lists
 											</span>
 										</h3>
-										<div className="DescList  [--dtW:50%]  mt-4 IsDdright">
+										<div className="DescList  [--dtW:50%] [--PY:0.25em] [--PX:0.25em]  mt-4 IsDdright">
 											<dl className="items-center">
 												<dt className="">Cursor</dt>
 												<dd>
@@ -242,7 +253,7 @@ function Next() {
 												5 lists
 											</span>
 										</h3>
-										<div className="DescList  [--dtW:50%]  mt-4 IsDdright">
+										<div className="DescList  [--dtW:50%] [--PY:0.25em] [--PX:0.25em]  mt-4 IsDdright">
 											<dl className="items-center">
 												<dt>
 													WEB SCSS+JavaScript+HTML
@@ -274,7 +285,7 @@ function Next() {
 												4 lists
 											</span>
 										</h3>
-										<div className="DescList  [--dtW:50%]  mt-4 IsDdright">
+										<div className="DescList  [--dtW:50%] [--PY:0.25em] [--PX:0.25em]  mt-4 IsDdright">
 											<dl className="items-center">
 												<dt className="">Vercel</dt>
 												<dd>
@@ -310,7 +321,7 @@ function Next() {
 												5 lists
 											</span>
 										</h3>
-										<div className="DescList  [--dtW:50%]  mt-4 IsDdright">
+										<div className="DescList  [--dtW:50%] [--PY:0.25em] [--PX:0.25em]  mt-4 IsDdright">
 											<dl className="items-center">
 												<dt className="">PhotoShop</dt>
 												<dd>
@@ -394,7 +405,7 @@ function Next() {
 												11 lists
 											</span>
 										</h3>
-										<div className="DescList  [--dtW:50%]  mt-4 IsDdright">
+										<div className="DescList  [--dtW:50%] [--PY:0.25em] [--PX:0.25em]  mt-4 IsDdright">
 											<dl className="items-center">
 												<dt className="">
 													Tailwind CSS
@@ -469,6 +480,12 @@ function Next() {
 												<dd className="[--ddW:100%]">
 													<span>試用</span>
 												</dd>
+												<dt className="[--dtW:100%]">
+													tweekpane
+												</dt>
+												<dd className="[--ddW:100%]">
+													pane library for parameters
+												</dd>
 											</dl>
 										</div>
 									</article>
@@ -484,7 +501,7 @@ function Next() {
 						<div className="text-center">
 							<div id="Achieves" />
 							<h2 className="mindWobble font-thin text-left leading-[0.68em] tracking-[0.0em]">
-								<span style={{ fontSize: "0.875em" }}>
+								<span style={{ fontSize: "1em" }}>
 									Burn
 									<br />
 									&nbsp;&nbsp;Your
@@ -504,18 +521,18 @@ function Next() {
 							Code・Cursor等エージェント向けドキュメントを充実させることで、Web
 							制作の全工程をAI前提で進める為のプロジェクト。
 							<br />
-							<div>
+							<div className="flex flex-wrap">
 								<Button
-									className="mt-[--btnH] [--btnW:50%]"
+									className="mt-[2.5em] [--btnW:50%] mr-[50%]"
 									href="https://github.com/yuremono/BurnYourOwnStyle/tree/react"
 									external
 								>
-									Repositories&nbsp;
+									Repository&nbsp;
 									<ArrowSquareOutIcon />
 								</Button>
 								<br />
 								<Button
-									className="mt-4 float-right [--btnW:50%]"
+									className="ml-[50%] [--btnW:50%]"
 									href="/preview"
 								>
 									Preview
@@ -531,8 +548,8 @@ function Next() {
         								Repositries
         								<ArrowSquareOutIcon className="text-[length:inherit]" />
         							</a> */}
-								<details className="Toggle IsSmall mt-[--btnH]">
-									<summary className="fontJost">
+								<details className="Toggle IsSmall ">
+									<summary className="Eng">
 										Thinking...
 									</summary>
 									<div>
@@ -545,101 +562,165 @@ function Next() {
 							</div>
 						</div>
 					</div>
-	                                </section>
+				</section>
 
-					<section className="Wrap into">
-						<h2 className="mindWobble font-thin">
-							Other Works
-						</h2>
-						<Cards className="col3">
-							<CardsItem>
-								<h3>Agent Driven CMS</h3>
-								<p>
-									Codex app-serverまたはClaude
-									CodeをNext.jsの Node
-									runtime経由で中継し、ブラウザから自然言語でサイト編集を行うローカルCMS
-								</p>
-								<div>
-									<Button
-										className="mt-4"
-										href="https://github.com/yuremono/agent-driven-CMS"
-										external
-									>
-										Repositories&nbsp;
-										<ArrowSquareOutIcon />
-									</Button>
-									<br />
-									<Button
-										className="mt-4 float-right"
-										href="/agent"
-									>
-										Preview
-									</Button>
+				{/* OtherWorks */}
+				<section className={otherWorksClasses.section}>
+					<h2 className={otherWorksClasses.heading}>Other Works</h2>
+					<Cards className={otherWorksClasses.cards}>
+						<CardsItem
+							className={`${otherWorksClasses.item} w-2/3`}
+						>
+							<h3>Agent Driven CMS</h3>
+							<p
+								className={`${otherWorksClasses.body} min-h-[5.5em]`}
+							>
+								Codex または Claude Code を Next.js Node
+								runtimeで中継。
+								ローカルブラウザからエージェントに直接ソースコードを編集させるCMS
+							</p>
+							<div className={`${otherWorksClasses.actions}`}>
+								<Button
+									className={otherWorksClasses.button}
+									href="https://github.com/yuremono/agent-driven-CMS"
+									external
+								>
+									Repository&nbsp;
+									<ArrowSquareOutIcon />
+								</Button>
+								<Button
+									className={otherWorksClasses.buttonInline}
+									href="/agent"
+								>
+									Preview
+								</Button>
+								<div className="mt-auto">
+									<details className="Toggle IsSmall mt-4">
+										<summary className="Eng">
+											Detail...
+										</summary>
+										<div>
+											動機：AI時代にクライアントが求めるのは
+											「チャットで編集できるwebサイト」でありCMS自体がボトルネック
+											<br />
+											手段：パブリックでなくローカル完結ならモデル性能依存を解消できる
+											<br />
+											成果：フロントエンド以外は全て仕様駆動で実現。エンタメ性もある
+											<br />
+											考察：
+											リテラシーの高いクライアント＆十分な初期サポートという条件は必須と考えていたし、体験としては有意義であるが、
+											エンジニアが負うべきエージェントの行動への責任は「サポート」ではカバーできなそうなので、ここまでやるならCursor、Codex
+											app、Claude
+											Desctop等の使い方自体をサポートした方が無難。などと考えました。
+										</div>
+									</details>
 								</div>
-							</CardsItem>
-							<CardsItem>
-								<h3>Creative Demos</h3>
-								<p>
-									実務で制作したクリエイティブコンテンツの再現デモ集
-								</p>
+							</div>
+						</CardsItem>
+						<CardsItem
+							className={`${otherWorksClasses.item} space-y-2`}
+						>
+							<h3>Random Generator</h3>
+							<p className={otherWorksClasses.body}>
+								`tweekpane`コントローラー付きのランダム図形配置ジェネレーター
+							</p>
+							<details className="Toggle IsSmall mt-[--btnH]">
+								<summary className="Eng">SVG Generator</summary>
 								<div>
-									<Button
-										className="mt-4"
-										href="https://github.com/yuremono/creative-demos"
-										external
-									>
-										Repositories&nbsp;
-										<ArrowSquareOutIcon />
-									</Button>
-									<br />
-									<Button
-										className="mt-4"
-										href="/glitch"
-									>
-										Glitch
-									</Button>
-									<br />
-									<Button
-										className="mt-4 float-right"
-										href="/shuffle-divide"
-									>
-										Shuffle Divide
-									</Button>
+									セル数、コンテナを埋める方向性、図形の種類(正方形、三角形、星、十字)、角度などを調整。rect,circle等SVGタグのスニペットをコピペできる。
 								</div>
-							</CardsItem>
-							<CardsItem>
-								<h3>Activity Diagram</h3>
-								<p>
-									制作プロセスやエージェントの実行フローを整理するアクティビティ図ページを追加予定です。
-								</p>
+							</details>
+							<details className="Toggle IsSmall mt-[--btnH]">
+								<summary className="Eng">
+									Rects Generator
+								</summary>
 								<div>
-									<Button
-										className="mt-4"
-										href="/activity-diagram"
-									>
-										Activity Diagram
-									</Button>
+									divタグの大きさ、個数、角丸、重なり可否などを指定。いいバランスの時にコピーして画像配置などでそのまま使う想定。SVG出力も可。
 								</div>
-							</CardsItem>
-							<CardsItem>
-								<h3>Random Generator</h3>
-								<p>
-									SVGやレイアウト検討用のランダムな矩形・グリッドを生成し、いいバランスの時にコピーして使うためのGenerator
-									Pageです。
-								</p>
-								<div>
-									<Button
-										className="mt-4"
-										href="/rects"
-									>
-										Generator Page
-									</Button>
-								</div>
-							</CardsItem>
-						</Cards>
-					</section>
+							</details>
+							<div className={`${otherWorksClasses.actions}  `}>
+								<Button
+									className={`${otherWorksClasses.button} ml-[50%]`}
+									href="/rects"
+								>
+									Generator
+								</Button>
+							</div>
+						</CardsItem>
+						<CardsItem className={`${otherWorksClasses.item}`}>
+							<h3>Activity</h3>
+							<p className={otherWorksClasses.body}>
+								web制作もAI活用もチリツモだと思ってます。本来`X`に書くような些細な活動報告を記録する予定です。
+							</p>
+							<div className={otherWorksClasses.actions}>
+								<Button
+									className={otherWorksClasses.button}
+									href="/activity"
+								>
+									Activity
+								</Button>
+							</div>
+						</CardsItem>
+						<CardsItem
+							className={`${otherWorksClasses.item} w-2/3`}
+						>
+							<h3>Pages</h3>
+							<p className={otherWorksClasses.body}>
+								実務で制作した派手なコンテンツの再現デモ集
+							</p>
+							<div className={otherWorksClasses.actions}>
+								<Button
+									className={otherWorksClasses.buttonInline}
+									href="/glitch"
+								>
+									BG trigger + Glitch effect
+								</Button>
+								<Button
+									className={otherWorksClasses.button}
+									href="/shuffle-divide"
+								>
+									Shuffle Texts + Divided Images
+								</Button>
+								<Button
+									className={`${otherWorksClasses.button} ml-[50%]`}
+									href="https://github.com/yuremono/creative-demos"
+									external
+								>
+									Repository&nbsp;
+									<ArrowSquareOutIcon />
+								</Button>
+							</div>
+							<h4 className="mt-4">Chat Canban</h4>
+							<p className={otherWorksClasses.body}>
+								ローカル環境の特定ブラウザ(Chromium系)に拡張機能をインストールし、
+								ChatGPTやGeminiにチャット履歴を送信するためのUIを設置。
+								特定のurlでまとめて閲覧。
+								ムーバブルサイドバー機能付き。
+                                                        </p>
+                                                        <div className={otherWorksClasses.actions}>
+								<Button
+									className={`${otherWorksClasses.button} `}
+									href="https://github.com/yuremono/chatKanban"
+									external
+								>
+									Repository&nbsp;
+									<ArrowSquareOutIcon />
+								</Button>
+								<Button
+									className={otherWorksClasses.buttonInline}
+                                                                        href="https://chat-kanban.vercel.app/"
+									external
+								>
+                                                                        Preview&nbsp;
+									<ArrowSquareOutIcon />
+								</Button>
+							</div>
+						</CardsItem>
+					</Cards>
+				</section>
 
-					<section className="Cards col2  items-center">
+                                {/* ADCMS */}
+				{/* <section className="Cards col2  items-center">
 					<div className="item">
 						Codex app-serverまたはClaude CodeをNext.jsの Node
 						runtime経由で中継し、ブラウザから自然言語でサイト編集を行うローカルCMS
@@ -649,21 +730,19 @@ function Next() {
 								href="https://github.com/yuremono/agent-driven-CMS"
 								external
 							>
-								Repositories&nbsp;
+								Repository&nbsp;
 								<ArrowSquareOutIcon />
 							</Button>
 							<br />
 							<Button
-								className="mt-4 float-right [--btnW:50%]"
+								className="mt-4  [--btnW:50%]"
 								href="/agent"
 							>
 								Preview
 							</Button>
 							<br />
 							<details className="Toggle IsSmall mt-[--btnH]">
-								<summary className="fontJost">
-									Detail...
-								</summary>
+								<summary className="Eng">Detail...</summary>
 								<div>
 									動機：AI時代にクライアントが求めるのは
 									<br />
@@ -710,9 +789,10 @@ function Next() {
 							</div>
 						</div>
 					</div>
-				</section>
+				</section> */}
 
-				<section className="HtmlContent out text-center creative font-thin">
+                                {/* CreativeDemos */}
+				{/* <section className=" out text-center creative font-thin">
 					<div id="Demos" />
 					<h2 className="mindWobble font-thin ">
 						<span style={{ fontSize: "0.75em" }}>
@@ -736,9 +816,10 @@ function Next() {
 							/>
 						</div>
 					</a>
-				</section>
+				</section> */}
 
-				<section className="Cards col2">
+                                {/* ChatKanban */}
+				{/* <section className="Cards col2">
 					<div className="item">
 						<div className="text-center">
 							<h2 className="mindWobble font-thin">
@@ -763,7 +844,7 @@ function Next() {
 								<br />
 								<div>
 									<details className="Toggle IsSmall mt-4">
-										<summary className="fontJost">
+										<summary className="Eng">
 											Thinking...
 										</summary>
 										<div>
@@ -773,7 +854,7 @@ function Next() {
 									</details>
 								</div>
 								<a
-									className="fontJost inline-block ltr text-right px-1"
+									className="Eng inline-block ltr text-right px-1"
 									href="https://chat-kanban.vercel.app/"
 									target="_blank"
 									rel="noopener noreferrer"
@@ -786,9 +867,8 @@ function Next() {
 							</div>
 						</div>
 					</div>
-				</section>
-
-				<section className="Cards col2 rtl hidden">
+				</section> */}
+				{/* <section className="Cards col2 rtl hidden">
 					<div className="item">
 						<div className="text-center">
 							<h2 className="mindWobble font-thin">
@@ -813,7 +893,7 @@ function Next() {
 								<br />
 								<div className="ltr text-right">
 									<details className="Toggle IsSmall mt-4">
-										<summary className="fontJost">
+										<summary className="Eng">
 											Thinking...
 										</summary>
 										<div>
@@ -823,7 +903,7 @@ function Next() {
 									</details>
 								</div>
 								<a
-									className="fontJost inline-block ltr text-right px-1"
+									className="Eng inline-block ltr text-right px-1"
 									href="https://chat-kanban.vercel.app/"
 									target="_blank"
 									rel="noopener noreferrer"
@@ -836,9 +916,8 @@ function Next() {
 							</div>
 						</div>
 					</div>
-				</section>
-
-				<section className="Cards col2  rtl hidden">
+				</section> */}
+				{/* <section className="Cards col2  rtl hidden">
 					<div className="item content-center">
 						<div className="budoux text-center">
 							<h2 className="mindWobble font-thin text-left">
@@ -858,7 +937,7 @@ function Next() {
 								<br />
 								<br />
 								<a
-									className="fontJost px-1"
+									className="Eng px-1"
 									href="https://marketplace.visualstudio.com/items?itemName=yuremono.css-talk"
 									target="_blank"
 									rel="noopener noreferrer"
@@ -891,14 +970,9 @@ function Next() {
 						</div>
 						<div />
 					</div>
-				</section>
+				</section> */}
 
-				<div className="HtmlContent mt-0">
-					<div id="Outro" />
-				</div>
-
-				<div
-					className="DescList  IsCenter  out into Wrap bg-[--foreground] text-[--background] bg-no-repeat bg-contain bg-left-bottom"
+				<div className="DescList  IsCenter  out into Wrap bg-[--foreground] text-[--background] bg-no-repeat bg-contain bg-left-bottom"
 					style={{
 						backgroundImage: `url(images/fff2.svg)`,
 					}}
@@ -935,11 +1009,6 @@ function Next() {
 						</div>
 					</div>
 				</div>
-
-				<div
-					className="hidden"
-					style={{ "--gap": "40px" } as CSSProperties}
-				/>
 
 				<section
 					className="Form Form hidden"

@@ -13,7 +13,7 @@ const images = {
 	over: getAssetPath("/images/common/glitch-bg00.png"),
 	heroA: getAssetPath("/images/common/glitch01.jpg"),
 	heroB: getAssetPath("/images/common/glitch02.jpg"),
-	heroC: getAssetPath("/images/common/glitch-bg03.jpg"),
+	heroC: getAssetPath("/images/common/glitch-bg04.jpg"),
 	heroD: getAssetPath("/images/common/glitch-bg04.jpg"),
 	phone: getAssetPath("/images/common/glitch-phone.jpg"),
 	frame: getAssetPath("/images/common/glitch-frame.png"),
@@ -45,11 +45,11 @@ function Glitch() {
 	return (
 		<PageRoot
 			ref={pageRootRef}
-			className="glitch bg-black text-white isolate [--Eng:--Jost] [--innerPX:--PX] [--HFW:100]"
+			className="glitch bg-black text-white isolate [--Eng:--Jost] [--innerPX:--PX] [--HFW:100] "
 		>
 			<Header className="NoLogo TopHidden" />
 
-			<main aria-label="Glitch page">
+			<main aria-label="Glitch page" className="[--MY:0px]">
 				<section className=" bgLayer out">
 					<div className="bgItem __glitch p-split">
                                                 <img
@@ -110,12 +110,10 @@ function Glitch() {
 							loading="lazy"
 						/>
 					</div>
-					<div className="bgItem __glitch">
-						<img src={images.heroC} alt="" loading="lazy" />
-					</div>
-					<div className="bgItem" aria-hidden="true" />
 					<div className="bgItem __glitch p-split">
-						<img src={images.heroD} alt="" loading="lazy" />
+                                                <img
+                                                        className="bgGlitch"
+                                                        src={images.heroC} alt="" loading="eager" />
 						<img
 							className="bgOverImg"
 							src={images.over}
@@ -124,13 +122,13 @@ function Glitch() {
 						/>
 						<p
 							className="JsLetter JsLetterToggle"
-							aria-label="Creative Tech"
+							aria-label="Char Anime Text"
 						>
-							Crea
+							Char
 							<br />
-							tive
+							Anime
 							<br />
-							Tech
+							Text
 						</p>
 					</div>
 				</section>
@@ -157,11 +155,11 @@ function Glitch() {
 				</section>
 
 				<section
-					className="part_rect out js-bgTrigger grid min-h-screen content-center gap-[var(--gap)]"
+					className="part_rect out js-bgTrigger grid min-h-[75lvh] content-center gap-[var(--gap)]"
 					aria-label="Service overview"
 				>
 					<div className=" ml-0 spPX10p w-1/2 text-right max-sm:w-full">
-						<h1 className="ml-0 mb-12 [font-family:var(--Eng)] text-[var(--h2FZ)] italic leading-[1.1] [text-shadow:0_1rem_4rem_var(--BK80)]">
+						<h1 className="ml-0 mb-12 [font-family:var(--Eng)] text-[var(--h3FZ)] italic leading-[1.1] [text-shadow:0_1rem_4rem_var(--BK80)]">
                                                 わたしたちの
 							<br />
 							ワンストップサービス
@@ -200,7 +198,25 @@ function Glitch() {
 					className=" js-bgTrigger mr-0 spPX10p txshbk w-1/2 max-sm:w-full"
 					aria-label="Details"
 				>
-					<div className="min-h-screen">
+					<div className="min-h-[75lvh]]">
+						<h2 className="m-0 mb-12  text-[var(--h2FZ)] italic leading-[1.1] [text-shadow:0_1rem_4rem_var(--BK80)]">
+							Digital Platform Administration
+						</h2>
+						<button
+							type="button"
+							className="btn mt48"
+							onClick={() => scrollToSection(openingRef.current)}
+						>
+							DETAILS
+						</button>
+					</div>
+				</section>
+				<section
+					ref={detailsRef}
+					className=" js-bgTrigger ml-0 text-TC text-right spPX10p txshwh w-1/2 max-sm:w-full"
+					aria-label="Details"
+				>
+					<div className="min-h-[75lvh]">
 						<h2 className="m-0 mb-12  text-[var(--h2FZ)] italic leading-[1.1] [text-shadow:0_1rem_4rem_var(--BK80)]">
 							Digital Platform Administration
 						</h2>

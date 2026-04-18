@@ -545,11 +545,101 @@ function Next() {
 							</div>
 						</div>
 					</div>
-                                </section>
-                                
-                                
+	                                </section>
 
-				<section className="Cards col2  items-center">
+					<section className="Wrap into">
+						<h2 className="mindWobble font-thin">
+							Other Works
+						</h2>
+						<Cards className="col3">
+							<CardsItem>
+								<h3>Agent Driven CMS</h3>
+								<p>
+									Codex app-serverまたはClaude
+									CodeをNext.jsの Node
+									runtime経由で中継し、ブラウザから自然言語でサイト編集を行うローカルCMS
+								</p>
+								<div>
+									<Button
+										className="mt-4"
+										href="https://github.com/yuremono/agent-driven-CMS"
+										external
+									>
+										Repositories&nbsp;
+										<ArrowSquareOutIcon />
+									</Button>
+									<br />
+									<Button
+										className="mt-4 float-right"
+										href="/agent"
+									>
+										Preview
+									</Button>
+								</div>
+							</CardsItem>
+							<CardsItem>
+								<h3>Creative Demos</h3>
+								<p>
+									実務で制作したクリエイティブコンテンツの再現デモ集
+								</p>
+								<div>
+									<Button
+										className="mt-4"
+										href="https://github.com/yuremono/creative-demos"
+										external
+									>
+										Repositories&nbsp;
+										<ArrowSquareOutIcon />
+									</Button>
+									<br />
+									<Button
+										className="mt-4"
+										href="/glitch"
+									>
+										Glitch
+									</Button>
+									<br />
+									<Button
+										className="mt-4 float-right"
+										href="/shuffle-divide"
+									>
+										Shuffle Divide
+									</Button>
+								</div>
+							</CardsItem>
+							<CardsItem>
+								<h3>Activity Diagram</h3>
+								<p>
+									制作プロセスやエージェントの実行フローを整理するアクティビティ図ページを追加予定です。
+								</p>
+								<div>
+									<Button
+										className="mt-4"
+										href="/activity-diagram"
+									>
+										Activity Diagram
+									</Button>
+								</div>
+							</CardsItem>
+							<CardsItem>
+								<h3>Random Generator</h3>
+								<p>
+									SVGやレイアウト検討用のランダムな矩形・グリッドを生成し、いいバランスの時にコピーして使うためのGenerator
+									Pageです。
+								</p>
+								<div>
+									<Button
+										className="mt-4"
+										href="/rects"
+									>
+										Generator Page
+									</Button>
+								</div>
+							</CardsItem>
+						</Cards>
+					</section>
+
+					<section className="Cards col2  items-center">
 					<div className="item">
 						Codex app-serverまたはClaude CodeをNext.jsの Node
 						runtime経由で中継し、ブラウザから自然言語でサイト編集を行うローカルCMS

@@ -20,7 +20,7 @@ function HeaderNav() {
 			<li className="drop" aria-expanded="false">
 				<a className="droplink drop_toggle " tabIndex={-1}>
 					Repositories
-					<CaretDownIcon className="dropIcon" />
+					<CaretDownIcon className="DropIcon" />
 				</a>
 				<button
 					type="button"
@@ -37,7 +37,7 @@ function HeaderNav() {
 						>
 							BurnYourOwnStyle
 						</a>
-                                        </li>
+					</li>
 					<li>
 						<a
 							href="https://github.com/yuremono/agent-driven-CMS"
@@ -47,7 +47,7 @@ function HeaderNav() {
 						>
 							AgentDrivenCMS
 						</a>
-                                        </li>
+					</li>
 					<li>
 						<a
 							href="https://github.com/yuremono/agent-relay"
@@ -57,8 +57,8 @@ function HeaderNav() {
 						>
 							AgentRelay
 						</a>
-                                        </li>
-                                        <li>
+					</li>
+					<li>
 						<Link to="/agent">Agent Driven CMS</Link>
 					</li>
 					<li>
@@ -81,7 +81,7 @@ function HeaderNav() {
 							ChatCanban
 						</a>
 					</li> */}
-					
+
 					<li>
 						<a
 							href="https://cms0505.vercel.app/"

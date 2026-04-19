@@ -15,11 +15,11 @@ export function initHeader(root: Document | Element = document): RuntimeDisconne
 	const nSp = doc.querySelector<HTMLElement>("#HeaderNavMobile");
 	const nUl = doc.querySelector<HTMLElement>("#HeaderNavMobile ul");
 	const toggleBtns = base.querySelectorAll<HTMLElement>(
-		".MenuToggle, .HeaderNavMobile a:not(.nopointer,.drop_toggle)",
+		".MenuToggle, .HeaderNavMobile a:not(.NoPointer,.DropToggle)",
 	);
 	const contactLinks =
 		base.querySelectorAll<HTMLAnchorElement>(".HeaderItems a");
-	const dropToggles = base.querySelectorAll<HTMLElement>(".drop_toggle");
+	const dropToggles = base.querySelectorAll<HTMLElement>(".DropToggle");
 	const header = doc.querySelector<HTMLElement>("#Header");
 	const focusTrap = base.querySelector<HTMLElement>(".FocusTrap");
 

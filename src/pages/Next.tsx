@@ -31,7 +31,7 @@ const EXPERIENCE_DETAILS_DIALOG_ID = "experience-details-dialog";
 const otherWorksClasses = {
 	section: "Wrap into text-center mt-0",
 	heading: "mindWobble font-thin",
-	cards: "col3 [--gap:0px] bp-lg text-left [--btnW:50%] md:[--btnH:3em] leading-[1.75em] BorderT BorderL",
+	cards: "mt-0 col3 [--gap:0px] bp-lg text-left [--btnW:50%] md:[--btnH:3em] leading-[1.75em] BorderT BorderL",
 	item: " p-8 bg-WH text-TC BorderB BorderR",
 	body: " mt-2",
 	actions: "[--background:--WH] !mt-4 flex flex-wrap",
@@ -548,7 +548,7 @@ function Next() {
         								Repositries
         								<ArrowSquareOutIcon className="text-[length:inherit]" />
         							</a> */}
-								<details className="Toggle IsSmall ">
+								<details className="Toggle IsSmall font-normal ">
 									<summary className="Eng">
 										Thinking...
 									</summary>
@@ -595,7 +595,7 @@ function Next() {
 									Preview
 								</Button>
 								<div className="mt-auto">
-									<details className="Toggle IsSmall mt-4">
+									<details className="Toggle IsSmall font-normal mt-4">
 										<summary className="Eng">
 											Detail...
 										</summary>
@@ -624,13 +624,13 @@ function Next() {
 							<p className={otherWorksClasses.body}>
 								`tweekpane`コントローラー付きのランダム図形配置ジェネレーター
 							</p>
-							<details className="Toggle IsSmall mt-[--btnH]">
+							<details className="Toggle IsSmall font-normal mt-[--btnH]">
 								<summary className="Eng">SVG Generator</summary>
 								<div>
 									セル数、コンテナを埋める方向性、図形の種類(正方形、三角形、星、十字)、角度などを調整。rect,circle等SVGタグのスニペットをコピペできる。
 								</div>
 							</details>
-							<details className="Toggle IsSmall mt-[--btnH]">
+							<details className="Toggle IsSmall font-normal mt-[--btnH]">
 								<summary className="Eng">
 									Rects Generator
 								</summary>
@@ -670,19 +670,19 @@ function Next() {
 							</p>
 							<div className={otherWorksClasses.actions}>
 								<Button
-									className={otherWorksClasses.buttonInline}
+									className={otherWorksClasses.button}
 									href="/glitch"
 								>
 									BG trigger + Glitch effect
 								</Button>
 								<Button
-									className={otherWorksClasses.button}
+									className={otherWorksClasses.buttonInline}
 									href="/shuffle-divide"
 								>
 									Shuffle Texts + Divided Images
 								</Button>
 								<Button
-									className={`${otherWorksClasses.button} ml-[50%]`}
+									className={`${otherWorksClasses.button} ml-[calc(50%-1px)]`}
 									href="https://github.com/yuremono/creative-demos"
 									external
 								>
@@ -741,7 +741,7 @@ function Next() {
 								Preview
 							</Button>
 							<br />
-							<details className="Toggle IsSmall mt-[--btnH]">
+							<details className="Toggle IsSmall font-normal mt-[--btnH]">
 								<summary className="Eng">Detail...</summary>
 								<div>
 									動機：AI時代にクライアントが求めるのは
@@ -843,7 +843,7 @@ function Next() {
 								ムーバブルサイドバー機能付き
 								<br />
 								<div>
-									<details className="Toggle IsSmall mt-4">
+									<details className="Toggle IsSmall font-normal mt-4">
 										<summary className="Eng">
 											Thinking...
 										</summary>
@@ -892,7 +892,7 @@ function Next() {
 								ムーバブルサイドバー機能付き
 								<br />
 								<div className="ltr text-right">
-									<details className="Toggle IsSmall mt-4">
+									<details className="Toggle IsSmall font-normal mt-4">
 										<summary className="Eng">
 											Thinking...
 										</summary>

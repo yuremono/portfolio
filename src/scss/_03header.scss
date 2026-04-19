@@ -34,35 +34,21 @@
                 // *****************trans時色変更
 
         // ******************未使用テンプレ完了時消去
-        &.UpInit {
-                //js処理変更、上スクロールでinit(通常に戻るtrans外す)
+        &.UpInit {//js処理変更、上スクロールでinit(通常に戻るtrans外す)
                 transition: var(--trans);
-
                 &.trans {
                         margin-top: var(--Nhead);
                 }
         }
-
-        &.EdgeRail {
-                //初設定、余白調整有
+        &.EdgeRail {//初設定、余白調整有
                 --menuH: calc(var(--head) + 2em);
-
-
                 .HeaderInner {
                         padding-right: unset;
                         background-color: unset;
-
-                        // &:is(.trans *){
-                        //     background-color: var(--innerBG);
-                        //     width: 100%;
-                        //     flex-direction: row;
-                        // }
                 }
-
                 .HeaderLogo {
                         line-height: 1;
                 }
-
                 .btn {
                         display: block;
                         --btnC: var(--tx);
@@ -71,12 +57,10 @@
                         min-height: var(--head);
                         border: unset;
                         background-color: unset;
-
                         &:after {
                                 display: none;
                         }
                 }
-
                 .HeaderItems {
                         display: block;
                         position: absolute;
@@ -85,21 +69,13 @@
                         background-color: var(--innerBG);
                         border-left: var(--line);
                         border-top: 1px solid transparent;
-
                         >* {
-                                // border-right: var(--line);
                                 border-bottom: var(--line);
                         }
-
                         @include menu {
                                 top: var(--menuH);
-
-                                .__icon {
-                                        min-height: var(--menuH);
-                                }
                         }
                 }
-
                 .HeaderNav {
                         background-color: var(--innerBG);
                         outline: var(--line);
@@ -107,24 +83,18 @@
                         align-content: center;
                         padding-right: var(--head);
                 }
-
                 .HeaderMenu {
                         background-color: var(--innerBG);
                         outline: var(--line);
                         margin: unset;
                         width: var(--head);
-                        // width: var(--head2);
-                        // padding-right: var(--head);
                 }
-
-                .HeaderNavMobile_inner>ul {
+                .NavInner>.NavUl {
                         padding-right: var(--head);
                 }
         }
 
-        &.InitColumn {
-
-                //初設定、余白調整有
+        &.InitColumn {//初設定、余白調整有
                 @include menuMin {
                         .HeaderInner {
                                 &:not(.trans *) {
@@ -137,11 +107,6 @@
                                         gap: 1em var(--innerG);
                                 }
 
-                                // &:is(.trans *){
-                                //     background-color: var(--innerBG);
-                                //     width: 100%;
-                                //     flex-direction: row;
-                                // }
                         }
 
                         .HeaderLogo {
@@ -218,7 +183,7 @@
                         }
                 }
 
-                .fix-tab:is(#Header *) {
+                .FixTab:is(#Header *) {
                         @include max-md {
                                 >* {
                                         text-align: center;
@@ -252,19 +217,16 @@
                         right: var(--innerPX);
                         display: block;
                         align-content: center;
+                        height: 100%;
+                        @include menu {
+                                position: unset;
+                        }
 
                         >*+* {
                                 display: block;
                                 margin-top: var(--itemG);
                                 margin-top: calc(var(--bodyFZ)*0.125);
                         }
-
-                        height: 100%;
-
-                        @include menu {
-                                position: unset;
-                        }
-
                         @media (max-width: 834px) {
                                 position: fixed;
                                 top: unset;
@@ -279,7 +241,6 @@
 
                 .HeaderInner {
                         background-color: var(--un);
-                        // ul li:last-of-type{padding-right: unset;}
                 }
 
                 .HeaderNav {
@@ -287,7 +248,6 @@
                         background-color: var(--innerBG);
                         padding-block: 0.5em;
                         border-radius: var(--radH);
-                        // ul li:last-of-type{padding-right: unset;}
                 }
         }
 
@@ -297,7 +257,7 @@
                         pointer-events: none;
                 }
 
-                nav.__tate {
+                .HeaderNav.__tate {
                         align-content: center;
                         transition: var(--btnTR);
 
@@ -318,12 +278,12 @@
                                         background-color: var(--BC);
                                 }
 
-                                &.drop {
+                                &.NavDrop {
                                         z-index: 1;
                                 }
                         }
 
-                        >ul li.drop ul {
+                        >ul li.NavDrop ul {
                                 right: 0;
                                 left: unset;
                                 transform-origin: right;
@@ -338,7 +298,7 @@
 
                         }
 
-                        >ul li.drop ul li {
+                        >ul li.NavDrop ul li {
                                 height: unset;
                                 // writing-mode: horizontal-tb;
 
@@ -362,7 +322,7 @@
                                 }
                         }
 
-                        >ul>li.drop ul {
+                        >ul>li.NavDrop ul {
                                 --size: .5em;
 
                                 a {
@@ -370,7 +330,7 @@
                                 }
                         }
 
-                        >ul>li.drop::after {
+                        >ul>li.NavDrop::after {
                                 background-color: var(--AC);
                         }
                 }
@@ -435,7 +395,7 @@
                         // }
                 }
 
-                .HeaderItems.fix-pc {
+                .HeaderItems.FixPC {
                         flex-wrap: nowrap;
                         bottom: var(--gap);
                         right: var(--gap);
@@ -465,20 +425,10 @@
                 position: fixed;
                 top: 0;
 
-                // &.init{
-                //     position: absolute; 
-                //     top: calc(var(--mvImg));
-                //     @include menu{
-                //         position: fixed;top: 0;
-                //     }
-                // }
                 .HeaderInner {
                         justify-content: center;
                 }
 
-                // .HeaderMenu{
-                //     position: absolute;top: 0;right: 0;
-                // }
                 .HeaderNavMobile li.logo {
                         display: none;
                 }
@@ -826,7 +776,6 @@
         &.NavColumnRight {
                 --navgap: 2lvh;
 
-
                 .HeaderInner {
                         align-items: flex-end;
                         padding-bottom: .5em;
@@ -886,16 +835,16 @@
                         }
                 }
 
-                .HeaderNav>ul li.drop ul {
+                .HeaderNav>ul li.NavDrop ul {
                         right: 0;
                 }
 
-                .HeaderNav>ul li.drop ul a {
+                .HeaderNav>ul li.NavDrop ul a {
                         justify-content: flex-end;
                         padding-inline: var(--headG);
                 }
 
-                .HeaderNav>ul li.drop ul {
+                .HeaderNav>ul li.NavDrop ul {
                         transform-origin: right;
                         padding-block: 1em;
 
@@ -950,7 +899,7 @@
                                 }
                         }
 
-                        >ul li.drop::after {
+                        >ul li.NavDrop::after {
                                 top: calc(100% - var(--size) - .5lvh);
                         }
                 }
@@ -1006,6 +955,12 @@
                         margin-right: auto;
                 }
         }
+
+        &.LinkShadow{
+                a:not(.DropUl *){
+                        filter: var(--dswh) var(--dswh);
+                }
+        }
         &.Triangle{
 
                 svg path{
@@ -1013,7 +968,7 @@
                         stroke: var(--BK70);
                         stroke-width: 2em;
                 }
-                li{
+                .NavLi{
                         font-size: 1.25rem;
                 }
                 a:not(.HeaderLogo){ 
@@ -1021,7 +976,7 @@
                         -webkit-text-stroke: .125em var(--BK70);
                         paint-order:stroke;
                 }
-                a:not(.drop ul *):hover{
+                a:not(.DropUl *):hover{
                                 color: var(--AC);
                 }
                 @apply h-full pointer-events-none;
@@ -1084,20 +1039,301 @@
                 .HeaderItems > a {
                         @apply  px-[--headG];
                 }
-                .dropIcon {
+                .DropIcon {
                         @apply ml-1;
                 }
                 .NavInner ul a{
                         display: block;text-align: right;
 
                 }
-                .HeaderNavMobile .NavInner .dropbtn{
+                .HeaderNavMobile .NavInner .DropBtn{
                         display: none;
                 }
         }
-        &.LinkShadow{
-                a:not(.drop ul *){
-                        filter: var(--dswh) var(--dswh);
+        &.NavCircleLeft{
+                svg path{
+                        fill: white;
+                        stroke: var(--BK70);
+                        stroke-width: 2em;
+                }
+                li{
+                        font-size: 1.25rem;
+                }
+                a:not(.HeaderLogo){ 
+                        color: var(--WH);
+                        -webkit-text-stroke: .125em var(--BK70);
+                        paint-order:stroke;
+                }
+                a:not(.DropUl *):hover{
+                                color: var(--AC);
+                }
+                @apply h-full pointer-events-none;
+                .HeaderInner{
+                        @apply px-0  flex-col items-end justify-between h-full;
+                        >*{
+                                pointer-events: auto;
+                        }
+                        
+                }
+                .HeaderNav {
+                        @apply absolute  top-1/2 left-0 translate-y-[-50%] pointer-events-auto z-[100] w-[--logoW] aspect-[1/2];
+
+                        ul{@apply grid bg-MC/10;}
+                        li{
+                                @apply py-0  content-center   h-[unset];
+                                background: linear-gradient(var(--TC),var(--TC)) no-repeat center/100% 1px;
+                                background-color: var(--GR10);
+                        }
+                        ul:has(li:nth-of-type(6):last-of-type){
+                            li:nth-of-type(1),li:nth-of-type(6){
+                                transform: translateX(44%);
+                            }
+                            li:nth-of-type(2),li:nth-of-type(5){
+                                transform: translateX(83%);
+                            }
+                            li:nth-of-type(3),li:nth-of-type(4){
+                                transform: translateX(98%);
+                            }
+                        }
+                        ul:has(li:nth-of-type(5):last-of-type){
+                            li:nth-of-type(1),li:nth-of-type(5){
+                                transform: translateX(49%);
+                            }
+                            li:nth-of-type(2),li:nth-of-type(4){
+                                transform: translateX(89%);
+                            }
+                            li:nth-of-type(3){
+                                transform: translateX(100%);
+                            }
+                        }
+                        ul:has(li:nth-of-type(4):last-of-type){
+                            li:nth-of-type(1),li:nth-of-type(4){
+                                transform: translateX(58%);
+                            }
+                            li:nth-of-type(2),li:nth-of-type(3){
+                                transform: translateX(95.5%);
+                            }
+                        }
+                        ul:has(li:nth-of-type(3):last-of-type){
+                            li:nth-of-type(1),li:nth-of-type(3){
+                                transform: translateX(68%);
+                            }
+                            li:nth-of-type(2){
+                                transform: translateX(100%);
+                            }
+                        }
+                        ul:has(li:nth-of-type(2):last-of-type){
+                            li:nth-of-type(1),li:nth-of-type(2){
+                                transform: translateX(83%);
+                            }
+                        }
+                        ul:has(li:nth-of-type(1):last-of-type){
+                            li:nth-of-type(1){
+                                transform: translateX(100%);
+                            }
+                        }
+                }
+                .HeaderLogo{
+                        @apply absolute w-[var(--logoW)] top-1/2 left-0 translate-y-[-50%] pointer-events-auto h-auto;
+                        background: url(/images/clip01.png) repeat center/20vw;
+                        filter: grayscale(50%);
+                        border-radius: 0 999px 999px 0;
+                        overflow: hidden;
+                        border: 10px solid var(--TR);
+                        border-left: 0;
+                        aspect-ratio: 1/2;
+                        transform-origin: 0 0%;
+                        transition: var(--trans);
+                        border: var(--line);
+                        &:hover{
+                                scale: 1.06;
+                        }
+                        a{
+                                font-size: 2vw;
+                                line-height: 1;
+                                padding-left: 0.5em;
+                                display: block;
+                                height: 100%;
+                                align-content: center;
+                                background-color: var(--WH);
+                                >span{
+                                        font-weight: 700;
+                                        -webkit-text-stroke: .025em var(--BK50);
+                                        paint-order:stroke;
+                                        background: url(/images/clip01.png) repeat 70% 50%/10vw;
+                                        background-color: var(--WH);
+                                        background-clip: text;
+                                        color: var(--TR);
+                                }
+                        }
+                }
+                .HeaderMenu{
+                        @apply top-2 right-2;
+                }
+                .HeaderItems {
+                        @apply flex flex-col items-end text-right p-2 gap-0;
+                        @include menu {
+                                order: 3;
+                        }
+                }
+                .HeaderItems > a {
+                        @apply  px-[--headG];
+                }
+                .DropIcon {
+                        @apply ml-1;
+                }
+                .NavInner ul a{
+                        display: block;text-align: right;
+
+                }
+                .HeaderNavMobile .NavInner .DropBtn{
+                        display: none;
+                }
+        }
+        &.NavCircleTop{
+                svg path{
+                        fill: white;
+                        stroke: var(--BK70);
+                        stroke-width: 2em;
+                }
+                a:not(.HeaderLogo){ 
+                        color: var(--WH);
+                        -webkit-text-stroke: .125em var(--BK70);
+                        paint-order:stroke;
+                }
+                a:not(.DropUl *):hover{
+                        color: var(--AC);
+                }
+                @apply h-full pointer-events-none;
+                font-size: 1.25rem;
+                .HeaderInner{
+                        @apply px-0  flex-col items-end justify-between h-full;
+                        >*{
+                                pointer-events: auto;
+                        }
+                        
+                }
+                .HeaderNav {
+                        @apply absolute  top-0 left-1/2 translate-x-[-50%] pointer-events-auto z-[100] h-[unset] ;
+
+                        --listH: 2.5em;
+                        --listN: 3;
+                        ul{
+                                @apply block  bg-MC/90 aspect-[2/1];
+                                border-radius: 0 0 999px 999px;
+                                height: calc(var(--listH) * var(--listN) );
+                        }
+                        li{
+                                @apply p-0 h-auto min-h-[--listH]  content-center   w-auto text-center;
+                                background: linear-gradient(var(--TC),var(--TC)) no-repeat center/ 1px 100%,linear-gradient(var(--TC),var(--TC)) no-repeat center/100% 1px  ;
+                                background-color: var(--GR10);
+                                display: inline-block;
+                                width: 50%;
+                        }
+                        ul:has(li:nth-of-type(6):last-of-type){//-??% は手動調整
+                            li:nth-of-type(1){transform: translateX(-49.5%);}
+                            li:nth-of-type(2){transform: translateX(49%);}
+                            li:nth-of-type(3){transform: translateX(-38%);}
+                            li:nth-of-type(4){transform: translateX(38%);}
+                            li:nth-of-type(5){transform: translateX(-7%);}
+                            li:nth-of-type(6){transform: translateX(7%);}
+                        }
+                        ul:has(li:nth-of-type(5):last-of-type){
+                            li:nth-of-type(1),li:nth-of-type(5){
+                                transform: translateY(49% - 80%);
+                            }
+                            li:nth-of-type(2),li:nth-of-type(4){
+                                transform: translateY(89% - 80%);
+                            }
+                            li:nth-of-type(3){
+                                transform: translateY(100% - 80%);
+                            }
+                        }
+                        ul:has(li:nth-of-type(4):last-of-type){
+                            li:nth-of-type(1),li:nth-of-type(4){
+                                transform: translateY(58% - 80%);
+                            }
+                            li:nth-of-type(2),li:nth-of-type(3){
+                                transform: translateY(95.5% - 80%);
+                            }
+                        }
+                        ul:has(li:nth-of-type(3):last-of-type){
+                            li:nth-of-type(1),li:nth-of-type(3){
+                                transform: translateY(68% - 80%);
+                            }
+                            li:nth-of-type(2){
+                                transform: translateY(100% - 80%);
+                            }
+                        }
+                        ul:has(li:nth-of-type(2):last-of-type){
+                            li:nth-of-type(1),li:nth-of-type(2){
+                                transform: translateY(83% - 80%);
+                            }
+                        }
+                        ul:has(li:nth-of-type(1):last-of-type){
+                            li:nth-of-type(1){
+                                transform: translateY(100% - 80%);
+                            }
+                        }
+                }
+                .HeaderLogo{
+                        @apply absolute w-[var(--logoW)] top-1/2 left-0 translate-y-[-50%] pointer-events-auto h-auto;
+                        background: url(/images/clip01.png) repeat center/20vw;
+                        filter: grayscale(50%);
+                        border-radius: 0 999px 999px 0;
+                        overflow: hidden;
+                        border: 10px solid var(--TR);
+                        border-left: 0;
+                        aspect-ratio: 1/2;
+                        transform-origin: 0 0%;
+                        transition: var(--trans);
+                        border: var(--line);
+                        &:hover{
+                                scale: 1.06;
+                        }
+                        a{
+                                font-size: 2vw;
+                                line-height: 1;
+                                padding-left: 0.5em;
+                                display: block;
+                                height: 100%;
+                                align-content: center;
+                                background-color: var(--WH);
+                                >span{
+                                        font-weight: 700;
+                                        -webkit-text-stroke: .025em var(--BK50);
+                                        paint-order:stroke;
+                                        background: url(/images/clip01.png) repeat 70% 50%/10vw;
+                                        background-color: var(--WH);
+                                        background-clip: text;
+                                        color: var(--TR);
+                                }
+                        }
+                }
+                .HeaderMenu{
+                        @apply top-2 right-2;
+                }
+
+
+
+                .HeaderItems {
+                        @apply flex flex-col items-end text-right p-2 gap-0;
+                        @include menu {
+                                order: 3;
+                        }
+                }
+                .HeaderItems > a {
+                        @apply  px-[--headG];
+                }
+                .DropIcon {
+                        @apply ml-1;
+                }
+                .NavInner ul a{
+                        display: block;text-align: right;
+
+                }
+                .HeaderNavMobile .NavInner .DropBtn{
+                        display: none;
                 }
         }
 
@@ -1288,11 +1524,6 @@
 }
 
 // *******************************
-
-
-
-
-
 
 .HeaderItems {
         order: 1;
@@ -1587,7 +1818,7 @@
 }
 
 
-.HeaderNav {
+:where(.HeaderNav) {
         &.a-chev {
                 >ul>li>a::after {
                         content: "\f105";
@@ -1620,57 +1851,54 @@
                 display: none;
         }
 
-        >ul {
+        .NavUl {
                 align-items: center;
                 display: flex;
                 justify-content: flex-end;
                 height: 100%;
+        }
+        .NavLi {
+                height: 100%;
+                position: relative;
+                padding-inline: var(--headG);
+                padding-block: 0.5em;
+                align-content: center;
+                &:has(span) {
+                        --liPY: calc(var(--headG)/2);
 
-                >li {
-                        height: 100%;
-                        position: relative;
-                        padding-inline: var(--headG);
-                        padding-block: 0.5em;
-                        align-content: center;
-                        &:has(span) {
-                                --liPY: calc(var(--headG)/2);
+                        >a:is(#Header *) {
+                                --aPY: calc(var(--headG)/2);
+                                display: grid;
+                                place-items: center;
+                                place-content: center;
+                                font-size: 75%;
+                        }
 
-                                >a:is(#Header *) {
-                                        --aPY: calc(var(--headG)/2);
-                                        display: grid;
-                                        place-items: center;
-                                        place-content: center;
-                                        font-size: 75%;
-                                }
+                        span {
+                                color: var(--spanC);
+                                font-size: 133.334%;
+                                font-weight: 500;
+                                font-family: var(--Eng);
 
-                                span {
-                                        color: var(--spanC);
-                                        font-size: 133.334%;
-                                        font-weight: 500;
-                                        font-family: var(--Eng);
-
-                                        &:is(.span-uppercase *) {
-                                                text-transform: uppercase;
-                                        }
+                                &:is(.span-uppercase *) {
+                                        text-transform: uppercase;
                                 }
                         }
                 }
-
-                a {
-                        padding-inline: var(--aPY);
-                        padding-block: var(--aPX);
-
-                        vertical-align: sub;
-                        text-align: left;
-                }
-
-
         }
+        a {
+                padding-inline: var(--aPY);
+                padding-block: var(--aPX);
+
+                vertical-align: sub;
+                text-align: left;
+        }
+
 
         .FocusTrap {
                 display: none;
         }
-        li.drop {
+        .NavDrop {
                 --size: 7.5px;
                 will-change: transform;
 
@@ -1678,75 +1906,71 @@
                         top: calc(100%);
                         background-color: currentColor;
                 }
-
-                ul {
-                        transition: var(--trans);
-                        position: absolute;
-                        top: calc(100%);
-                        right: 50%;
-                        transform: translateX(50%);
-                        
-                        min-width: 15em;
-                        overflow: hidden;
-                        pointer-events: none;
-                        z-index: 1;
-                        scale: 1 0;
-                        transform-origin: top;
-                        opacity: 0;
-                        background-color: var(--dropBG);
-                        padding: 0.75em 1.5em;
-
-
-                        li {
-                                margin-top: 0.25em;
-                        }
-
-                        a {
-                                width: 100%;
-                                display: flex;
-                                align-items: center;
-                                justify-content: space-between;
-                                white-space: nowrap;
-                                svg {
-                                        margin-left: auto;
-                                }
-                        }
-
-                }
                 &:last-of-type ul {
                         right: 0;
                         transform: unset;
-                }
-                ul a {
-                        width: 100%;
-                        height: 100%;
-                        color: var(--dropC);
-                }
-                .dropbtn {
-                        display: none;
                 }
                 &:hover ul {
                         pointer-events: auto;
                         scale: 1 1;
                         opacity: 1;
                 }
-                ul:hover {
-                        pointer-events: auto;
-                        scale: 1 1;
+        }
+        .DropUl {
+                transition: var(--trans);
+                position: absolute;
+                top: calc(100%);
+                right: 50%;
+                transform: translateX(50%);
+                
+                min-width: 15em;
+                overflow: hidden;
+                pointer-events: none;
+                z-index: 1;
+                scale: 1 0;
+                transform-origin: top;
+                opacity: 0;
+                background-color: var(--dropBG);
+                padding: 0.75em 1.5em;
+
+
+        }
+        .DropLi {
+                margin-top: 0.25em;
+                a {
+                        width: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        white-space: nowrap;
+                        width: 100%;
+                        height: 100%;
+                        color: var(--dropC);
+                        svg {
+                                margin-left: auto;
+                        }
+
                 }
         }
 
-        li.drop ul:has(a:focus) {
+        .DropUl:hover {
+                pointer-events: auto;
+                scale: 1 1;
+        }
+        .DropUl:has(a:focus) {
                 scale: 1 1;
                 opacity: 1;
         }
 }
+.DropBtn {
+        display: none;
+}
 
-.HeaderNav li.drop>ul {
+.HeaderNav .DropUl {
         border-radius: 4px;
         border: var(--line);
 }
-// .Header:has(li.drop:hover){
+// .Header:has(li.NavDrop:hover){
 //         mix-blend-mode: unset;
 //         color: var(--TC);
 // }
@@ -1757,10 +1981,10 @@
         transition: var(--trans);
         vertical-align: middle;
         width: 1em;
-
-        // height: var(--navLH);
-
-        &:is(.drop:hover *) {
+        &:is(.HeaderNav .NavDrop:hover *) {
+                scale: 1 -1;
+        }
+        &:is(.NavInner .NavDrop[aria-expanded=true] *) {
                 scale: 1 -1;
         }
 }
@@ -1899,7 +2123,7 @@
 }
 
 
-.HeaderNavMobile {
+:where(.HeaderNavMobile) {
         font-weight: 500;
         --SPnavPY: 1.25em;
         --SPnavPX: .5em;
@@ -1918,7 +2142,7 @@
         visibility: hidden;
         pointer-events: none;
 
-        li {
+        .NavLi {
                 filter: blur(var(--bw));
                 opacity: 0;
                 translate: 0 var(--bw);
@@ -1984,180 +2208,171 @@
                         height: calc(100% + 0px);
                 }
 
-                >ul {
-                        &::-webkit-scrollbar {
-                                width: 0px;
+                
+        }
+        .NavUl {
+                &::-webkit-scrollbar {
+                        width: 0px;
+                }
+
+                background: var(--SPnavBG);
+                position: relative;
+                z-index: 1;
+                padding: calc(var(--PX) * 1);
+                padding-block: calc(var(--head) * 1.5);
+                width: 50%;
+                margin-left: auto;
+                // line-height: 1;
+                opacity: 0;
+                visibility: hidden;
+                overflow-y: scroll;
+                height: calc(100% + 1px);
+
+                @include menu {
+                        width: 66%;
+                }
+
+                @include max-md {
+                        width: 100%;
+                }
+
+                &.show {
+                        opacity: 1;
+                        visibility: visible;
+                }
+
+                
+        }
+        .NavLi {
+                display: block;
+                height: fit-content;
+
+                a {
+                        font-size: var(--SPnavFZ);
+                        padding: var(--SPnavPY) var(--SPnavPX);
+                        display: flex;
+                        align-items: baseline;
+                        gap: 1em;
+                        margin-inline: auto;
+
+                        span {
+                                color: var(--spanC);
+                                font-weight: var(--spanFW);
+                                font-size: var(--spanFZ);
+                                margin-inline-end: .75em;
+                                font-family: var(--Eng);
                         }
 
-                        background: var(--SPnavBG);
-                        position: relative;
-                        z-index: 1;
-                        padding: calc(var(--PX) * 1);
-                        padding-block: calc(var(--head) * 1.5);
-                        width: 50%;
-                        margin-left: auto;
-                        // line-height: 1;
-                        opacity: 0;
-                        visibility: hidden;
-                        overflow-y: scroll;
-                        height: calc(100% + 1px);
+                }
+                .DropA {
+                        flex: 1;
+                }
 
-                        @include menu {
-                                width: 66%;
-                        }
+                .NoPointer {
+                        cursor: pointer;
+                }
+        }
+        .NavDrop {
+                display: flex;
+                flex-wrap: wrap;
+                position: relative;
 
-                        @include max-md {
-                                width: 100%;
-                        }
+                &:has(.DropBtn) {
+                        padding-right: var(--h);
+                }
+                // &::after {
+                //         content: "";
+                //         display: block;
+                //         width: 10px;
+                //         height: 10px;
+                //         background-color: currentColor;
+                //         position: absolute;
+                //         top: 100%;
+                //         left: 50%;
+                //         translate: -50%;
+                //         clip-path: polygon(0 0, 100% 0, 50% 80%);
 
-                        &.show {
-                                opacity: 1;
-                                visibility: visible;
-                        }
+                //         @include menu {}
 
-                        >li {
-                                &.__sub {
-                                        display: none;
-                                        visibility: hidden;
-                                }
+                //         display: none;
+                // }
 
-                                display: block;
-                                height: fit-content;
+                
+        }
+        .DropUl {
+                width: 100%;
+                overflow: hidden;
+                padding-left: 1em;
 
-                                &.lastitem {
-                                        display: none;
-                                }
-                        }
+        }
+        .DropLi {
+                padding: unset;
+                scale: 1;
+                width: 100%;
+                margin: unset;
+                height: unset;
+                overflow: hidden;
+
+                display: grid;
+                grid-template-rows: 0fr;
+
+                >a {
+                        padding-block: 0;
+                        width: 100%;
+                        min-height: 0;
+                        transition: var(--trans);
+                }
+
+                &:is(ul.show>*) {
+                        grid-template-rows: 1fr;
 
                         a {
-                                font-size: var(--SPnavFZ);
-                                padding: var(--SPnavPY) var(--SPnavPX);
-                                display: flex;
-                                align-items: baseline;
-                                gap: 1em;
-                                margin-inline: auto;
-
-                                span {
-                                        color: var(--spanC);
-                                        font-weight: var(--spanFW);
-                                        font-size: var(--spanFZ);
-                                        margin-inline-end: .75em;
-                                        font-family: var(--Eng);
-                                }
-
-                                &.droplink {
-                                        flex: 1;
-                                }
-
-                                &.nopointer {
-                                        cursor: pointer;
-                                }
-                        }
-                }
-
-                li.drop {
-                        display: flex;
-                        flex-wrap: wrap;
-                        position: relative;
-
-                        &:has(.dropbtn) {
-                                padding-right: var(--h);
-                        }
-
-                        &::after {
-                                content: "";
-                                display: block;
-                                width: 10px;
-                                height: 10px;
-                                background-color: currentColor;
-                                position: absolute;
-                                top: 100%;
-                                left: 50%;
-                                translate: -50%;
-                                clip-path: polygon(0 0, 100% 0, 50% 80%);
-
-                                @include menu {}
-
-                                display: none;
-                        }
-
-                        ul {
-                                width: 100%;
-                                // height: 0;
-                                overflow: hidden;
-                                padding-left: 1em;
-
-                        }
-
-                        li {
-                                padding: unset;
-                                scale: 1;
-                                width: 100%;
-                                margin: unset;
-                                height: unset;
-                                overflow: hidden;
-
-                                display: grid;
-                                grid-template-rows: 0fr;
-
-                                >a {
-                                        padding-block: 0;
-                                        width: 100%;
-                                        min-height: 0;
-                                        transition: var(--trans);
-                                }
-
-                                &:is(ul.show>*) {
-                                        grid-template-rows: 1fr;
-
-                                        a {
-                                                padding-block: var(--SPnavPY);
-                                        }
-                                }
-                        }
-                }
-
-                .dropbtn {
-                        position: absolute;
-                        right: 0;
-                        top: 0;
-                        background-color: var(--dropbtnBG);
-                        width: var(--dropbtnH);
-                        height: var(--dropbtnH);
-                        display: grid;
-                        place-items: center;
-                        align-self: center;
-
-                        &:after,
-                        &:before {
-                                content: "";
-                                display: block;
-                                grid-area: 1/1;
-                                width: 33%;
-                                height: 2px;
-                                background-color: var(--dropbtnBF);
-                                transition: 0.4s;
-                        }
-
-                        &:after {
-                                rotate: 90deg;
-                        }
-
-                        &:focus {
-                                outline-color: transparent;
-                        }
-
-                        &:active {
-                                scale: 1.05;
-                        }
-
-                        &.active {
-                                &:after {
-                                        rotate: 360deg;
-                                }
+                                padding-block: var(--SPnavPY);
                         }
                 }
         }
+
+        //svg chevronIconに変更のため一時コメント
+        // .DropBtn {
+        //         position: absolute;
+        //         right: 0;
+        //         top: 0;
+        //         background-color: var(--dropbtnBG);
+        //         width: var(--dropbtnH);
+        //         height: var(--dropbtnH);
+        //         display: grid;
+        //         place-items: center;
+        //         align-self: center;
+
+        //         &:after,
+        //         &:before {
+        //                 content: "";
+        //                 display: block;
+        //                 grid-area: 1/1;
+        //                 width: 33%;
+        //                 height: 2px;
+        //                 background-color: var(--dropbtnBF);
+        //                 transition: 0.4s;
+        //         }
+
+        //         &:after {
+        //                 rotate: 90deg;
+        //         }
+
+        //         &:focus {
+        //                 outline-color: transparent;
+        //         }
+
+        //         &:active {
+        //                 scale: 1.05;
+        //         }
+
+        //         &.active {
+        //                 &:after {
+        //                         rotate: 360deg;
+        //                 }
+        //         }
+        // }
 
 }
 
@@ -2236,7 +2451,7 @@
                 }
 
 
-                &.drop a {
+                &.NavDrop a {
                         place-items: center;
                 }
         }

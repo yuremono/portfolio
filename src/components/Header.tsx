@@ -4,149 +4,160 @@ import { CaretUpIcon, CaretDownIcon ,ArrowSquareOutIcon} from "@phosphor-icons/r
 
 function HeaderNav() {
 	return (
-		<ul className="">
-			<li className="">
+		<ul className="NavUl">
+			<li className="NavLi">
 				<Link to="/">HOME</Link>
 			</li>
-			<li className="">
+			<li className="NavLi">
 				<Link to="/preview">BYOS</Link>
 			</li>
-			<li className="">
+			<li className="NavLi">
 				<Link to="/agent">Donuts</Link>
 			</li>
-			<li>
+			<li className="NavLi">
 				<Link to="/rects">Generator</Link>
 			</li>
-			<li className="drop" aria-expanded="false">
-				<a className="droplink drop_toggle " tabIndex={-1}>
+			<li className="NavLi NavDrop" aria-expanded="false">
+				<a className="DropA DropToggle " tabIndex={-1}>
 					Repositories
-					<CaretDownIcon className="dropIcon" />
+					<CaretDownIcon className="DropIcon" />
 				</a>
 				<button
 					type="button"
-					className="dropbtn drop_toggle"
+					className="DropBtn DropToggle"
 					aria-label="サブメニューを開閉"
 				/>
-				<ul aria-hidden="true" aria-label="close">
-					<li>
+				<ul className="DropUl" aria-hidden="true" aria-label="close">
+					<li className="DropLi">
 						<a
 							href="https://github.com/yuremono/portfolio"
 							className=" "
 							target="_blank"
 							rel="noopener noreferrer"
 						>
-							Portfolio<ArrowSquareOutIcon size={16} />
+							Portfolio
+							<ArrowSquareOutIcon size={16} />
 						</a>
 					</li>
-					<li>
+					<li className="DropLi">
 						<a
 							href="https://github.com/yuremono/BurnYourOwnStyle/tree/react"
 							className=" "
 							target="_blank"
 							rel="noopener noreferrer"
 						>
-							BurnYourOwnStyle<ArrowSquareOutIcon size={16} />
+							BurnYourOwnStyle
+							<ArrowSquareOutIcon size={16} />
 						</a>
 					</li>
-					<li>
+					<li className="DropLi">
 						<a
 							href="https://github.com/yuremono/agent-driven-CMS"
 							className=" "
 							target="_blank"
 							rel="noopener noreferrer"
 						>
-							AgentDrivenCMS<ArrowSquareOutIcon size={16} />
+							AgentDrivenCMS
+							<ArrowSquareOutIcon size={16} />
 						</a>
 					</li>
-					<li>
+					<li className="DropLi">
 						<a
 							href="https://github.com/yuremono/agent-relay"
 							className=" "
 							target="_blank"
 							rel="noopener noreferrer"
 						>
-							AgentRelay<ArrowSquareOutIcon size={16} />
+							AgentRelay
+							<ArrowSquareOutIcon size={16} />
 						</a>
 					</li>
-					<li>
+					<li className="DropLi">
 						<a
 							href="https://github.com/yuremono/creative-demos"
 							className=" "
 							target="_blank"
 							rel="noopener noreferrer"
 						>
-							CreativeDemos<ArrowSquareOutIcon size={16} />
+							CreativeDemos
+							<ArrowSquareOutIcon size={16} />
 						</a>
 					</li>
-					<li>
+					<li className="DropLi">
 						<a
 							href="https://github.com/yuremono/chatKanban"
 							className=" "
 							target="_blank"
 							rel="noopener noreferrer"
 						>
-							ChatCanban<ArrowSquareOutIcon size={16} />
+							ChatCanban
+							<ArrowSquareOutIcon size={16} />
 						</a>
 					</li>
-					<li>
+					<li className="DropLi">
 						<a
 							href="https://github.com/yuremono/portfolio"
 							className=" "
 							target="_blank"
 							rel="noopener noreferrer"
 						>
-							NextJsCMS<ArrowSquareOutIcon size={16} />
+							NextJsCMS
+							<ArrowSquareOutIcon size={16} />
 						</a>
 					</li>
 				</ul>
 			</li>
-			<li className="drop" aria-expanded="false">
-				<a className="droplink drop_toggle " tabIndex={-1}>
+			<li className="NavLi NavDrop" aria-expanded="false">
+				<a className="DropA DropToggle " tabIndex={-1}>
 					Pages
-					<CaretDownIcon className="dropIcon" />
+					<CaretDownIcon className="DropIcon" />
 				</a>
 				<button
 					type="button"
-					className="dropbtn drop_toggle"
+					className="DropBtn DropToggle"
 					aria-label="サブメニューを開閉"
 				/>
-				<ul aria-hidden="true" aria-label="close">
-					<li>
+				<ul className="DropUl" aria-hidden="true" aria-label="close">
+					<li className="DropLi">
 						<Link to="/preview">BurnYourOwnStyle</Link>
 					</li>
-					<li>
-						<Link to="/agent">Donuts<small>(ADCMS)</small></Link>
+					<li className="DropLi">
+						<Link to="/agent">
+							Donuts<small>(ADCMS)</small>
+						</Link>
 					</li>
-					<li>
+					<li className="DropLi">
 						<Link to="/rects">RandomGenerator</Link>
 					</li>
-					<li>
+					<li className="DropLi">
 						<Link to="/shuffle-divide">ShuffleDivide</Link>
 					</li>
-					<li>
+					<li className="DropLi">
 						<Link to="/glitch">Glitch</Link>
 					</li>
-					<li>
+					<li className="DropLi">
 						<Link to="/examples">EX.forBuildSKILL</Link>
 					</li>
-					<li>
+					<li className="DropLi">
 						<a
 							href="https://chat-kanban.vercel.app/"
 							className=" "
 							target="_blank"
 							rel="noopener noreferrer"
 						>
-							ChatCanban<ArrowSquareOutIcon size={16} />
+							ChatCanban
+							<ArrowSquareOutIcon size={16} />
 						</a>
 					</li>
-					<li>
+					<li className="DropLi">
 						<a
 							href="https://cms0505.vercel.app/"
 							className=" "
 							target="_blank"
 							rel="noopener noreferrer"
 						>
-							NextJsCMS<ArrowSquareOutIcon size={16} />
+							NextJsCMS
+							<ArrowSquareOutIcon size={16} />
 						</a>
 					</li>
 				</ul>

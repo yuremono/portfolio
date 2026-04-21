@@ -143,7 +143,7 @@ button,a{
         border-color: var(--cur);
     }
 }
-.btn{//追加クラス・スタイル
+:where(.btn){//追加クラス・スタイル
         svg,i{font-size: var(--btnIFZ);}
         &:has(>i,>svg){
                 &:after{display: none;}

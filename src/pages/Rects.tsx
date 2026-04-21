@@ -498,7 +498,7 @@ function Rects() {
 	useClientRuntime({ rootRef: pageRootRef });
 	useHtmlRootClass();
 	return (
-		<PageRoot ref={pageRootRef}>
+		<PageRoot ref={pageRootRef} className="[--btnH:2.5em]">
 			<header
 				id="Header"
 				className="Header pointer-events-none  [--innerBG:unset]  [--innerPX:0px] [--logoPX:--PX]"
@@ -767,7 +767,7 @@ function Rects() {
 									aria-label="クリップボードにコピー"
 								>
 									<CopyIcon
-										className="size-4 shrink-0"
+										className="size-4 shrink-0 ml-0"
 										aria-hidden
 									/>
 								</button>
@@ -820,7 +820,7 @@ function Rects() {
 										aria-label="クリップボードにコピー"
 									>
 										<CopyIcon
-											className="size-4 shrink-0"
+											className="size-4 shrink-0 ml-0"
 											aria-hidden
 										/>
 									</button>

@@ -77,6 +77,7 @@ required children : class内で定義されているセレクタではなく、�
 | `.LottieScroll` | Effect | DotLottieReact | true | `IsDemo` `--canvasH` | `.Stick` > `.StickItem.LottieScroll` + `.StickScr` |
 | `.StickyStep` | Effect | direct children | false | `--top` `--step` | `.StickyStep` > span* (段階的にずれるsticky) |
 | `.DescList` | Container | `dl` > `dt` + `dd` | false | `.IsSimple` `.IsZebra` `.IsPlain` `.IsBorder` `.IsHead` `.IsFrame` `.IsColumn` `.IsTimeline` `.IsCenter`  | Wrapper > `.DescList` |
+| `.BorderT` `.BorderB` `.BorderL` `.BorderR` `.BorderX` `.BorderY` `.BorderXY` | Modifier | - | false | - | `_02base.scss` `var(--line)`（TBLR / inline・block 軸 / 全周） |
 
 ## 汎用 component
 | component | props | 書き方 |

@@ -171,14 +171,14 @@
 :root {//space 余白設定
 
         --MY: 6rem;
-        --PX: 2rem;
+        --PX: 1.5rem;
         --PX2: calc(var(--PX) * 2);
-        --gap: 2rem;
+        --gap: 1.5rem;
         --gapN: calc(var(--gap)*-1);
         --gapH: calc(var(--gap)/2);
         
         @include menu {
-                --gap: 1.5rem;
+                --gap: 1rem;
                 --PX: 1.5rem;
         }
         @include max-md {
@@ -249,6 +249,7 @@
         --head:4.5rem;
         
         // --initHead:calc(var(--head) + 20px );
+        --head15:calc(var(--head)*1.5 );
         --head2:calc(var(--head)*2 );
         --Nhead:calc(var(--head)*-1 );
         --contMT:calc(var(--head)*1);

@@ -20,6 +20,11 @@ $menuMin: 960.1px;
         }
 }
 
+@mixin max-xl {
+        @media (max-width: 1279px) {
+                @content;
+        }
+}
 @mixin max-lg {
         @media (max-width: 1023px) {
                 @content;

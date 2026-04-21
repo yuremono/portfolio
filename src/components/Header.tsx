@@ -19,7 +19,7 @@ function HeaderNav() {
 			</li>
 			<li className="NavLi NavDrop" aria-expanded="false">
 				<a className="DropA DropToggle " tabIndex={-1}>
-					Repositories
+					Repositories&nbsp;
 					<CaretDownIcon className="DropIcon" />
 				</a>
 				<button
@@ -109,7 +109,7 @@ function HeaderNav() {
 			</li>
 			<li className="NavLi NavDrop" aria-expanded="false">
 				<a className="DropA DropToggle " tabIndex={-1}>
-					Pages
+					Pages&nbsp;
 					<CaretDownIcon className="DropIcon" />
 				</a>
 				<button
@@ -137,6 +137,9 @@ function HeaderNav() {
 					</li>
 					<li className="DropLi">
 						<Link to="/examples">EX.forBuildSKILL</Link>
+					</li>
+					<li className="DropLi">
+						<Link to="/activity">Activity</Link>
 					</li>
 					<li className="DropLi">
 						<a

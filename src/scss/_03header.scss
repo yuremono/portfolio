@@ -958,7 +958,7 @@
 
         &.LinkShadow{
                 a:not(.DropUl *){
-                        filter: var(--dswh) var(--dswh);
+                        filter: var(--dswh) var(--dswh) var(--dswh) ;
                 }
         }
         &.Triangle{

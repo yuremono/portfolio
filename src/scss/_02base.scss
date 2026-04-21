@@ -54,9 +54,10 @@ html{
 .Eng {
         font-family: var(--Eng);
 }
-:where(.sub) {//タイトルタグ内の小さい文字
-	font-size: 1.5rem;
+.sub {//タイトルタグ内の小さい文字
+	font-size: 0.875rem;
 	color: var(--GR);
+        font-weight: 500;
         font-family: var(--Eng);
         line-height: var(--LH);
         &.block{

@@ -650,7 +650,7 @@ function Next() {
 						<CardsItem className={`${otherWorksClasses.item}`}>
 							<h3>Activity</h3>
 							<p className={otherWorksClasses.body}>
-								web制作もAI活用もチリツモだと思ってます。本来`X`に書くような些細な活動報告を記録する予定です。
+                                                        職務要約と活動記録を書いています。
 							</p>
 							<div className={otherWorksClasses.actions}>
 								<Button

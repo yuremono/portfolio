@@ -45,7 +45,7 @@ function Preview() {
 				{/* Stick Title */}
 				<section className="Stick IsRev out mt-0 into pb-[--2MY] items-start img1-1 [--scr:50%] [--shift:0%]  bg-[--TC] text-[--WH]">
 					<h1 className=" StickItem  md:min-h-[100lvh] content-center Eng font-medium  pt-6 md:pt-0">
-						<span className="sub block ">Not Vibe Design</span>
+						<span className="sub text-2xl block ">Not Vibe Design</span>
 						Class Based
 						<br />
 						<span className="RgbShift IsBeat [--shift:0.125em]">
@@ -59,7 +59,7 @@ function Preview() {
 							{/* <Image image={getAssetPath("/images/picsum/010.jpg")} /> */}
 							<div>
 								<h2 className=" mb-8 mt-[15%] Eng [--h2FZ:2.5rem] font-medium text-center">
-									{/* <span className="sub block ">Instant</span> */}
+									{/* <span className="sub text-2xl block ">Instant</span> */}
 									Import and Update Examples
 								</h2>
 							</div>
@@ -70,7 +70,7 @@ function Preview() {
 							/>
 							<div>
 								<h3 className=" mb-4 ">
-									<span className="sub block ">
+									<span className="sub text-2xl block ">
 										StickItem and StickScr
 									</span>
 								</h3>
@@ -87,7 +87,7 @@ function Preview() {
 							/>
 							<div>
 								<h3 className=" mb-4 ">
-									<span className="sub block ">
+									<span className="sub text-2xl block ">
 										RgbShift IsBeat
 									</span>
 								</h3>
@@ -103,7 +103,7 @@ function Preview() {
 							/>
 							<div>
 								<h3 className=" mb-4 ">
-									<span className="sub block ">
+									<span className="sub text-2xl block ">
 										BorderDraw and PathDraw
 									</span>
 								</h3>
@@ -177,7 +177,7 @@ function Preview() {
 							<PanelItem className="items-center ">
 								<div>
 									<h2 className=" mb-4  ">
-										<span className="sub block   text-3xl text-center">
+										<span className="sub text-2xl block   text-3xl text-center">
 											play on "Bring Your Own Key"
 										</span>
 									</h2>
@@ -192,7 +192,7 @@ function Preview() {
 								/>
 								<div>
 									<h3 className=" mb-4 ">
-										<span className="sub block ">
+										<span className="sub text-2xl block ">
 											CustomClass and Tailwind
 										</span>
 									</h3>
@@ -224,7 +224,7 @@ function Preview() {
 								/>
 								<div>
 									<h3 className=" mb-4 ">
-										<span className="sub block ">
+										<span className="sub text-2xl block ">
 											Scalability
 										</span>
 									</h3>
@@ -268,7 +268,7 @@ function Preview() {
 					<div className="StickScr  [--h3FZ:1.25em]">
 						<div className="bg-[--WH50] w-[--wid] md:[--wid:50%] mx-auto p-4 xl:p-0">
 							<h2 className="text-center   pb-12 ">
-								<span className="sub block mr-0">Toggle</span>
+								<span className="sub text-2xl block mr-0">Toggle</span>
 								Accordion Contents
 							</h2>
 							<Toggle className="">

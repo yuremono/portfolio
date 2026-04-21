@@ -47,8 +47,8 @@
         // --- 1. アイテム基本設定 (デフォルト: 1列 / Flex) ---
         .item {
                 width: var(--itemW);
-                display: flex;
-                flex-direction: column;
+                // display: flex;
+                // flex-direction: column;
                 margin-top: unset;
 
                 img {
@@ -709,11 +709,7 @@
                 top: 0;
 
                 // margin-inline: var(--Nshift) ;
-                @include max-md {
-                        flex: unset;
-                        // position: unset;
-                        //     min-height: unset;
-                }
+
 
                 img {
                         width: 100%;
@@ -749,8 +745,29 @@
                 width: calc(50% - var(--gap)/2);
         }
 
+        @include max-xl {
+                        --Nshift: 0;
+                &:is(.bp-xl)>* {
+                        width: 100%;
+                        flex: unset;
+                }
+                &:is(.bp-xl)>figure {
+                        order: -1;
+                }
+        }
+        @include max-lg {
+                        --Nshift: 0;
+                &:is(.bp-lg)>* {
+                        width: 100%;
+                        flex: unset;
+                }
+                &:is(.bp-lg)>figure {
+                        order: -1;
+                }
+        }
         @include max-md {
                 &:not(.bp-sm)>* {
+                        flex: unset;
                         width: 100%;
                 }
 
@@ -761,6 +778,7 @@
 
         @include max-sm {
                 &:is(.bp-sm)>* {
+                        flex: unset;
                         width: 100%;
                 }
 
@@ -1059,6 +1077,18 @@
                 transform-origin: center; 
                 rotate: var(--GSR);
         }
+}
+.MarkDown{//~/projects/0413portfolio/src/pages/Activity.tsx
+        ul{
+                padding-left: 1em;
+        }
+        li{
+                list-style: disc;
+                ::marker{
+                        margin-right: -8px;
+                }
+        }
+        pre{overflow: auto;}
 }
 
 // ***************画像テキスト ImgText*****************.img??で画像サイズ可変

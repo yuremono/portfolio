@@ -10,6 +10,7 @@ const Agent = lazy(() => import("./pages/Agent"));
 const ShuffleDivide = lazy(() => import("./pages/shuffle-divide"));
 const Glitch = lazy(() => import("./pages/glitch"));
 const Activity = lazy(() => import("./pages/Activity"));
+const Test5 = lazy(() => import("./pages/Test5"));
 
 function App() {
 	return (
@@ -24,6 +25,7 @@ function App() {
 					<Route path="/glitch" element={<Glitch />} />
 					<Route path="/examples" element={<Examples />} />
 					<Route path="/activity" element={<Activity />} />
+					<Route path="/test5" element={<Test5 />} />
 					<Route path="/rects" element={<Rects />} />
 				</Routes>
 			</Suspense>

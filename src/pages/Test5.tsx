@@ -7,7 +7,7 @@
  */
 
 import { useRef } from "react";
-import Header from "../components/Header";
+// import Header from "../components/Header";
 import { PageRoot } from "../components/PageRoot";
 import { Footer } from "../components/Footer";
 import { useClientRuntime } from "../hooks/useClientRuntime";
@@ -23,8 +23,6 @@ function Test5() {
 
 	return (
 		<PageRoot ref={pageRootRef}>
-			<Header className="LinkShadow UpInit" />
-
 			<main className="min-h-screen mt-[var(--head)] pb-[var(--MY)]">
 				<section className="px-[var(--PX)] py-[var(--MY)] text-center">
 					<p className="text-sm text-[var(--GR)] mb-2 font-[family-name:var(--Eng)]">
@@ -39,7 +37,6 @@ function Test5() {
 						それぞれ単独ファイルを <code>import</code> するだけで組み込まれている。
 					</p>
 				</section>
-
 				<IntroSection />
 				<FAQSection />
 			</main>

@@ -13,33 +13,27 @@
 	@include max-sm {
 		--PY: 0.5em;
 	}
-
-	dl {
-		display: flex;
-		flex-wrap: wrap;
-	}
-	dt {
-		width: var(--dtW);
-		font-weight: var(--dtFW);
-		padding-block: var(--PY);
-		padding-inline: var(--PX);
-                background-color: var(--dtBG);
-	}
-	dd {
-                width: var(--ddW);
-		padding-block: var(--PY);
-		padding-inline: var(--PX);
-	}
-	@include max-sm {
+        @include max-sm {
 		dt, dd { width: 100%; }
 		dd { padding-top: 0; }
 	}
+
+	dl {
+                @apply flex flex-wrap;
+	}
+	dt {
+                @apply w-[--dtW] font-[--dtFW] py-[--PY] px-[--PX] bg-[--dtBG];
+	}
+	dd {
+                @apply w-[--ddW] py-[--PY] px-[--PX];
+	}
+
 
 	// --------- Modifiers ---------
 
 	&.IsSimple {
 		dt, dd {
-			border-bottom: var(--bdw) solid var(--bdc);
+                        @apply border-b-[--line];
 		}
 		@include max-sm {
 			dt { border-bottom: none; }
@@ -50,10 +44,10 @@
                 --oddBG: var(--BC);
 		dt:nth-of-type(odd),
 		dd:nth-of-type(odd) {
-			background-color: var(--oddBG);
+                        @apply bg-[--oddBG];
 		}
 		dt, dd {
-			padding-inline: 1em;
+                        @apply px-[--PX];
 		}
 		@include max-sm {
 			dt { border-bottom: none; }

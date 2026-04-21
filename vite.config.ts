@@ -15,6 +15,14 @@ export default defineConfig(({ mode }) => ({
     },
   },
   plugins: [react()],
+  build: {
+    rollupOptions: {
+      input: {
+        main: path.resolve(__dirname, 'index.html'),
+        test5: path.resolve(__dirname, 'test5/index.html'),
+      },
+    },
+  },
   server: {
     port: 3000,
     open: false,

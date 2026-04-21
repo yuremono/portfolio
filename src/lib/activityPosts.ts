@@ -18,7 +18,7 @@ export interface ActivityPost {
 	private?: boolean;
 }
 
-const rawModules = import.meta.glob("../content/activity/*.md", {
+const rawModules = import.meta.glob("../activity/*.md", {
 	eager: true,
 	query: "?raw",
 	import: "default",

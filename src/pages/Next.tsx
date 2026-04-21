@@ -662,7 +662,7 @@ function Next() {
 							</div>
 						</CardsItem>
 						<CardsItem
-							className={`${otherWorksClasses.item} w-2/3`}
+							className={`${otherWorksClasses.item} inline-size lg:w-2/3`}
 						>
 							<h3>Pages</h3>
 							<p className={otherWorksClasses.body}>

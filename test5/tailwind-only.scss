@@ -1,0 +1,15 @@
+/*
+ * /test5/ 独立エントリ専用 CSS。
+ *
+ * 目的: globals.scss / src/index.scss を読み込まない状態で Test5 を表示し、
+ * registry 配布時に受け取る第三者の最小環境に近づける。ここには Tailwind の
+ * preflight + components + utilities だけを置き、プロジェクト固有の reset や
+ * ルート変数宣言 (--MC / --PX / --MY / --head 等) は意図的に含めない。
+ *
+ * 画面が崩れた箇所を観察し、各セクション (<style>) に同梱すべき最小限の
+ * ルート変数・装飾クラスを洗い出す用途。
+ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

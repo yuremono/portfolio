@@ -43,7 +43,7 @@ function Preview() {
 					</p>
 				</section>
 				{/* Stick Title */}
-				<section className="Stick IsRev out mt-0 into pb-[--2MY] items-start img1-1 [--scr:50%] [--shift:0%]  bg-[--TC] text-[--WH]">
+				<section className="Stick bp-md IsRev out mt-0 into pb-[--2MY] items-start img1-1 [--scr:50%] [--shift:0%]  bg-[--TC] text-[--WH]">
 					<h1 className=" StickItem  md:min-h-[100lvh] content-center Eng font-medium  pt-6 md:pt-0">
 						<span className="sub text-2xl block ">Not Vibe Design</span>
 						Class Based
@@ -173,11 +173,11 @@ function Preview() {
 								</g>
 							</svg>
 						</PathDraw>
-						<Panel className="StickScr min-h-[100lvh] content-center  img40  img1-1 bg-[--WH70] [--gap:0.5rem]">
+						<Panel className="StickScr min-h-[100lvh] content-center  img40  img1-1 bg-[--BC70] [--gap:0.5rem]">
 							<PanelItem className="items-center ">
 								<div>
 									<h2 className=" mb-4  ">
-										<span className="sub text-2xl block   text-3xl text-center">
+										<span className="sub block   text-3xl text-center">
 											play on "Bring Your Own Key"
 										</span>
 									</h2>
@@ -266,7 +266,7 @@ function Preview() {
 						/>
 					</div>
 					<div className="StickScr  [--h3FZ:1.25em]">
-						<div className="bg-[--WH50] w-[--wid] md:[--wid:50%] mx-auto p-4 xl:p-0">
+						<div className="bg-[--BC50] w-[--wid] md:[--wid:50%] mx-auto p-4 xl:p-0">
 							<h2 className="text-center   pb-12 ">
 								<span className="sub text-2xl block mr-0">Toggle</span>
 								Accordion Contents

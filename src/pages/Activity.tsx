@@ -124,8 +124,8 @@ function Activity() {
 				id="main-activity"
 				className="min-h-screen mt-[--head] pb-[--MY]"
 			>
-				<section className="Stick out [--scr:100%] [--shift:100%] PX bp-xl">
-					<div className="StickItem Cards col2 xl:[--gap:780px] top-[--head] text-left xl:text-right xl:h-[calc(100lvh-var(--head)-var(--PX))]">
+				<section className="Stick out [--scr:100%] [--shift:100%] PX bp-lg [--wid:clamp(36em,50%,720px)] ">
+					<div className="StickItem Cards col2 lg:[--gap:--wid] top-[--head] text-left lg:text-right lg:h-[calc(100lvh-var(--head)-var(--PX))]">
 						<div
 							className="item p-[--PX] bg-[--WH] BorderXY rounded-[--btnRad] content-center"
 							aria-label="記事の切り替え"
@@ -169,7 +169,7 @@ function Activity() {
 						/>
 					</div>
 					<div className="StickScr  [--h3FZ:1.25em] pointer-events-none">
-						<div className=" w-[--wid] md:[--wid:62.5%] xl:w-[780px] mx-auto p-4 lg:p-0 pointer-events-auto">
+						<div className=" w-[--wid]   mx-auto p-4 lg:p-0 pointer-events-auto">
 							{POSTS.map((post, i) => (
 								<article
 									key={post.id}

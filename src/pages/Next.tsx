@@ -622,17 +622,17 @@ function Next() {
 						>
 							<h3>Random Generator</h3>
 							<p className={otherWorksClasses.body}>
-								`tweekpane`コントローラー付きのランダム図形配置ジェネレーター
+								コントローラー付きのランダム図形配置ジェネレーター
 							</p>
 							<details className="Toggle IsSmall font-normal mt-[--btnH]">
-								<summary className="Eng">SVG Generator</summary>
+								<summary className="Eng">SVG...</summary>
 								<div>
 									セル数、コンテナを埋める方向性、図形の種類(正方形、三角形、星、十字)、角度などを調整。rect,circle等SVGタグのスニペットをコピペできる。
 								</div>
 							</details>
 							<details className="Toggle IsSmall font-normal mt-[--btnH]">
 								<summary className="Eng">
-									Rects Generator
+									Rects...
 								</summary>
 								<div>
 									divタグの大きさ、個数、角丸、重なり可否などを指定。いいバランスの時にコピーして画像配置などでそのまま使う想定。SVG出力も可。
@@ -654,11 +654,23 @@ function Next() {
 							</p>
 							<div className={otherWorksClasses.actions}>
 								<Button
-									className={otherWorksClasses.button}
+									className={`w-full ${otherWorksClasses.button}`}
 									href="/activity"
-								>
+                                                                        >
 									Activity
 								</Button>
+							</div>
+							<h3 className="mt-[--PX]">GridCarousel</h3>
+							<p className={otherWorksClasses.body}>
+                                                        グリッドカルーセルです
+							</p>
+							<div className={otherWorksClasses.actions}>
+								<Button
+									className={`w-full ${otherWorksClasses.button}`}
+									href="/grid-carousel"
+								>
+									GridCarousel
+                                                                </Button>
 							</div>
 						</CardsItem>
 						<CardsItem

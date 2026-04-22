@@ -122,10 +122,10 @@ function Activity() {
 
 			<main
 				id="main-activity"
-				className="min-h-screen mt-[--head] pb-[--MY]"
+				className="min-h-screen mt-[--head] pb-[--MY] [--itemH:calc(100lvh-var(--head)-var(--PX))]"
 			>
-				<section className="Stick out [--scr:100%] [--shift:100%] PX bp-lg [--wid:clamp(36em,50%,720px)] ">
-					<div className="StickItem Cards col2 lg:[--gap:--wid] top-[--head] text-left lg:text-right lg:h-[calc(100lvh-var(--head)-var(--PX))]">
+				<section className="out Stick bp-lg  [--scr:100%] [--shift:100%] PX  [--wid:clamp(36em,50%,720px)] ">
+					<div className="StickItem Cards col2 lg:[--gap:--wid] top-[--head] text-left lg:text-right lg:h-[--itemH]">
 						<div
 							className="item p-[--PX] bg-[--WH] BorderXY rounded-[--btnRad] content-center"
 							aria-label="記事の切り替え"
@@ -177,7 +177,7 @@ function Activity() {
 										articleRefs.current[i] = el;
 									}}
 									id={`panel-${post.id}`}
-									className="   scroll-mt-[--head] BorderB"
+									className="   scroll-mt-[--head] BorderB lg:min-h-[--itemH]"
 									aria-labelledby={`tab-${post.id}`}
 								>
 									<header className="sticky top-[--head] z-10 px-8  py-8 rounded-t-[--btnRad] bg-[--BC80] backdrop-blur-sm">
@@ -191,7 +191,7 @@ function Activity() {
 										</h2>
 									</header>
 									<div
-										className="px-8 pb-12 space-y-3 leading-relaxed MarkDown"
+										className="px-8 pb-12 MarkDown"
 										dangerouslySetInnerHTML={{
 											__html: post.bodyHtml,
 										}}

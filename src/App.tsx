@@ -11,6 +11,7 @@ const ShuffleDivide = lazy(() => import("./pages/shuffle-divide"));
 const Glitch = lazy(() => import("./pages/glitch"));
 const Activity = lazy(() => import("./pages/Activity"));
 const Test5 = lazy(() => import("./pages/Test5"));
+const GridCarousel = lazy(() => import("./pages/GridCarousel"));
 
 function App() {
 	return (
@@ -27,6 +28,7 @@ function App() {
 					<Route path="/activity" element={<Activity />} />
 					<Route path="/test5" element={<Test5 />} />
 					<Route path="/rects" element={<Rects />} />
+					<Route path="/grid-carousel" element={<GridCarousel />} />
 				</Routes>
 			</Suspense>
 		</BrowserRouter>

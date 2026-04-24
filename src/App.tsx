@@ -11,7 +11,10 @@ const ShuffleDivide = lazy(() => import("./pages/shuffle-divide"));
 const Glitch = lazy(() => import("./pages/glitch"));
 const Activity = lazy(() => import("./pages/Activity"));
 const Test5 = lazy(() => import("./pages/Test5"));
+const Test6 = lazy(() => import("./pages/Test6"));
+const Test7 = lazy(() => import("./pages/Test7"));
 const GridCarousel = lazy(() => import("./pages/GridCarousel"));
+const Conversion = lazy(() => import("./pages/Conversion"));
 
 function App() {
 	return (
@@ -27,8 +30,12 @@ function App() {
 					<Route path="/examples" element={<Examples />} />
 					<Route path="/activity" element={<Activity />} />
 					<Route path="/test5" element={<Test5 />} />
+					<Route path="/test6" element={<Test6 />} />
+					<Route path="/test7" element={<Test7 />} />
 					<Route path="/rects" element={<Rects />} />
 					<Route path="/grid-carousel" element={<GridCarousel />} />
+					<Route path="/conversion-inc" element={<Conversion />} />
+					<Route path="/conversion" element={<Conversion />} />
 				</Routes>
 			</Suspense>
 		</BrowserRouter>

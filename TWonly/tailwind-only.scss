@@ -1,7 +1,7 @@
 /*
- * /test5/ 独立エントリ専用 CSS。
+ * /TWonly/ 独立エントリ専用 CSS。
  *
- * 目的: globals.scss / src/index.scss を読み込まない状態で Test5 を表示し、
+ * 目的: globals.scss / src/index.scss を読み込まない状態で Test5 / Test6 を表示し、
  * registry 配布時に受け取る第三者の最小環境に近づける。ここには Tailwind の
  * preflight + components + utilities だけを置き、プロジェクト固有の reset や
  * ルート変数宣言 (--MC / --PX / --MY / --head 等) は意図的に含めない。

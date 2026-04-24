@@ -50,9 +50,15 @@ function Activity() {
 	const [activeIndex, setActiveIndex] = useState(0);
 	const articleRefs = useRef<Array<HTMLElement | null>>([]);
 
-	const currentImage = useMemo(() => {
+	const currentImageSrcs = useMemo(() => {
 		const post = POSTS[activeIndex];
-		return post?.image ?? DEFAULT_IMAGE;
+		const raw = post?.image ?? DEFAULT_IMAGE;
+		const parts = raw
+			.split(",")
+			.map((s) => s.trim())
+			.filter(Boolean);
+		const paths = parts.length > 0 ? parts : [DEFAULT_IMAGE];
+		return paths.map((p) => getAssetPath(p));
 	}, [activeIndex]);
 
 	const primaryPosts = useMemo(
@@ -125,7 +131,7 @@ function Activity() {
 				className="min-h-screen mt-[--head] pb-[--MY] [--itemH:calc(100lvh-var(--head)-var(--PX))]"
 			>
 				<section className="out Stick bp-lg  [--scr:100%] [--shift:100%] PX  [--wid:clamp(36em,50%,720px)] ">
-					<div className="StickItem Cards col2 lg:[--gap:--wid] top-[--head] text-left lg:text-right lg:h-[--itemH]">
+					<div className="StickItem Cards col2 lg:[--gap:--wid] top-[--head] text-left lg:text-right lg:min-h-[--itemH]">
 						<div
 							className="item p-[--PX] bg-[--WH] BorderXY rounded-[--btnRad] content-center"
 							aria-label="記事の切り替え"
@@ -163,8 +169,9 @@ function Activity() {
 							</nav>
 						</div>
 						<Image
-							className="item content-center"
-							image={getAssetPath(currentImage)}
+							figureClassName="item flex flex-col justify-center gap-2 content-center lg:max-h-[--itemH] overflow-hidden"
+							imgClassName=""
+							image={currentImageSrcs}
 							alt=""
 						/>
 					</div>
@@ -191,7 +198,7 @@ function Activity() {
 										</h2>
 									</header>
 									<div
-										className="px-8 pb-12 MarkDown"
+										className="px-8 mt-4 pb-12 MarkDown"
 										dangerouslySetInnerHTML={{
 											__html: post.bodyHtml,
 										}}

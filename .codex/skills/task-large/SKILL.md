@@ -7,10 +7,6 @@ description: 5step以上のtask、4step以下の影響範囲が広い、設計�
 
 - plan モードに入る、またはユーザーに plan mode に切り替えることを促す。
 
-- `/tasks/` に {task_name} を含む類似taskファイルが存在する場合、plan モードでユーザーに継続するか新規作成するかを確認する。
-
-- `$ARGUMENTS` に具体的な指示がない場合。既存コードベースの調査を行わず plan モードで質問する。
-
 - `/tasks/YYYYMMDD_{task_name}.yaml` を作成する。
 
 - {task_name} のない `/tasks/YYYYMMDD.yaml` は`task-large`では更新しない。
@@ -40,13 +36,10 @@ descriptions:
 
 - subagent の初回の指示に以下の文章を必ず含める
 ---
- `tasks/learning.yaml` を呼んでからtaskを実行すること。
+作業ディレクトリに存在する`AGENTS.md`と`tasks/learning.yaml` を呼んでからtaskを実行すること。
 ---
 
 - 全ての task が完了したら `/tasks/YYYYMMDD_{task_name}.yaml` を更新し、ユーザーに報告する
-
-
-
 
 <EXTREMELY-IMPORTANT>
 
@@ -58,7 +51,6 @@ descriptions:
 - API・状態管理・bridge・認証・ロジック変更のときだけ test/build を実施し。必ず報告する
 - `/tasks/YYYYMMDD_{task_name}.yaml` を更新せずにユーザーに報告しないこと
 - あなたやサブエージェントが実行した行動をユーザーに**誤った行動**だと指摘されたら、論理的に分析して `tasks/learning.yaml` に追記する。
-- `$ARGUMENTS` に具体的な指示がない場合。既存コードベースの調査を行わず plan モードで質問する。
 
 選択の余地はありません。必ず従わなければいけません。
 これは交渉不可です。任意ではありません。理屈で回避することはできません。

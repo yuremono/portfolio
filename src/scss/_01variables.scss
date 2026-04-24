@@ -36,17 +36,14 @@
 
         /*  ユーザーの指示がなければ編集禁止*/
         color-scheme: light;
-        /* --- テーマ色（Canvas は readShowcasePalette で参照。ドーナツ4扇は --MC〜--BC）--- */
-        --TR: transparent; /* キャンバス背景・穴まわり：4扇以外の塗り */
-        --MC: oklch(0.49 0.14 265.73); /* 扇形1 */
-        --SC: oklch(0.49 0.14 265.73); /* 扇形2 */
-        --AC: oklch(0.80 0.1 75); /* 扇形3 */
-        --BC: oklch(99% 0.005 60); /* 扇形4・ページ下地 */
-        --second: var(--SC);
-        --third: oklch(0.92 0.1 169.85);
-        --fourth: oklch(0.97 0.2 109.29);
-        --TC: oklch(20% 0.00 270); /* 本文テキスト */
-        --GR: oklch(73% 0.00 270); /* スクロールバー等 */
+        --TR: transparent; 
+        --MC: oklch(0.49 0.14 265.73); 
+        --SC: oklch(0.49 0.14 265.73); 
+        --AC: oklch(0.80 0.1 75); 
+        --BC: oklch(99% 0.005 60); 
+
+        --TC: oklch(20% 0.00 270); 
+        --GR: oklch(73% 0.00 270); 
         --BK: oklch(0% 0.00 60);
         --WH: oklch(100% 0.00 60);
 
@@ -55,8 +52,8 @@
 
 :root {//color Tailwind culture & semantic color name  コメントはpencil variebles に同期しない
         --second: var(--SC);
-        --third: lch(91% 35 168);
-        // --fourth: var(--SC);
+        --third: oklch(0.92 0.1 169.85);
+        --fourth: oklch(0.97 0.2 109.29);
         // --fifth: var(--SC);
 
         --primary: var(--MC);
@@ -64,7 +61,9 @@
         --accent: var(--AC);
         --background: var(--BC);
         --foreground: var(--TC);
+        --surface: var(--TC);
         --muted: var(--GR);
+        --neutral: var(--GR);
         --border: var(--TC);
 
         // --destructive: var(--AC);

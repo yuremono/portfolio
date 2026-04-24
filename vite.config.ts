@@ -19,7 +19,9 @@ export default defineConfig(({ mode }) => ({
     rollupOptions: {
       input: {
         main: path.resolve(__dirname, 'index.html'),
-        test5: path.resolve(__dirname, 'test5/index.html'),
+        twonlyTest5: path.resolve(__dirname, 'TWonly/test5.html'),
+        twonlyTest6: path.resolve(__dirname, 'TWonly/test6.html'),
+        twonlyTest7: path.resolve(__dirname, 'TWonly/test7.html'),
       },
     },
   },

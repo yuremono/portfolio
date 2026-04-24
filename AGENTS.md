@@ -1,15 +1,6 @@
 # プロジェクト概要
 
-`CustomClass`（`src/scss`）でレイアウト構造を組み、Tailwind CSS v3 で装飾・微調整する webページおよびアプリ。
-
-## モード
-
-現在のモード: **DEVELOPMENT**
-
-| モード | 動作 |
-|---|---|
-| DEVELOPMENT | ドキュメント整備・システム設計を行う為、ユーザー指示に柔軟に従う |
-| PRODUCTION | 本番運用。ユーザー指示に従い`ワークフロー`を実行する |
+個人の制作物をまとめるポートフォリオ。ページ編集や行動指針は`タスクレベル`に応じて柔軟に対応する。
 
 ## 技術スタック
 
@@ -48,36 +39,36 @@
 - Props型は `interface` で定義
 - コンポーネント名は **PascalCase**、 `lib`,`utils` modules, custom hooks は **camelCase**、
 - カスタムフックは `use` プレフィックス必須
-- 構造（section / Wrapper / コンポーネント相当）は **CustomClass** で組み、Tailwind v3 は装飾・微調整に使う。
 - 新規のクラスや変数は作らない（ユーザーが作る）。
 - 副作用は `useEffect` 等にまとめ、依存配列を正確に保つ。
-- マークアップでは **a11y**（`role` / `aria-*` など）を意識する（`.claude/rules/coding-style.md`）。
+- マークアップでは **a11y**（`role` / `aria-*` など）を意識する（`.claude/rules/coding-style.md`）
 
-## Execution Levels
+## CustomClass
 
-調査、編集、検証、テストをそれぞれ独立した別々のstepとして定義する。
+ユーザーが`カスタムクラス`を使うと言ったら`STYLE.md`,`CLASS.md`を読む。
+- 構造（section / Wrapper / コンポーネント相当）は **CustomClass** で組み、Tailwind v3 は装飾・微調整に使う。
 
-- 1step: 迷わず即実行
-- 3step以上: `task-log` スキルを実行
-- 5step以上: `task-large` スキルを実行
-- 4step以下でも影響範囲が広い、設計判断が入るものは`task-large` スキルを実行
+## task Levels
 
-**報告はstepに含めない**
+セッション開始時、言われなければ `level 0`、言われたら以降継続する上書き式。
+
+- Level 0: 最短でユーザーの要望をシンプルに解決する。最低限必要な情報のみを読み、複雑化しない。
+- Level 1: `task-level-1` スキルを実行する。テストやタスクログの実行は禁止する。
+- Level 2: `task-level-2`,`task-log` スキルを実行する。
+- Level 3: `task-level-2`,`task-large` スキルを実行する。
 
 ## Execution rules
 
-- あなたが実行した行動をユーザーに**誤った行動**だと指摘されたら、論理的に意図を読み取って `tasks/learning.yaml` に追記する
-- 部分的な修正は、周囲のコードを書き換えないように `apply_patch` のような差分ツールで最小差分を修正する。
-- `app/api/*` は `runtime = "nodejs"` を維持し、app-server との接続はサーバー側で扱う。
-- UI は既存の状態表示・承認フローを壊さずに拡張する。
+- あなたが実行した行動をユーザーに**誤った行動**だと指摘されたら、意図を論理的に整理して `tasks/learning.yaml` に追記する
+- 外科的な変更: 既存コードを編集する際、**必要な部分だけ触る。自分の変更で出た問題だけ片付ける。**
 - 初めて編集するファイルは、編集前に必ず内容を確認する。
-- `tasks` ,`tmp` ディレクトリを github に push しない
-- black,white以外の全ての色は`app/globals.scss`の`oklch`で書かれた既存変数を使用する。透明度もWH50などで指定可能。見つけたら最も近い変数に置き換えてユーザーに報告する。
-- 現環境では[var(--{name})] ではなく [--{name}]が使用すること
+- `.gitignore` に含まれるファイルを強制 push しない。publicで必要な場合は報告する
+- 全ての色は`/src/scss/_01variables.scss`の`oklch`で書かれた既存変数を使用する。透明度は`{name}/50`,WH50などで指定。新規作成しない。見つけたら最も近い変数に置き換えてユーザーに報告する。
+- 現環境ではcalc関数以外では [var(--{name})] ではなく [--{name}] を使用すること
 
 ## ブラウザ確認
 
-- ブラウザでの見た目確認やスクリーンショット比較が必要なときは、`$agent-browser` スキルを使う。
+- ブラウザでの見た目確認やスクリーンショット比較が必要なときは、`agent-browser` スキルを実行する。
 - スクリーンショットはプロジェクト内の `tmp/browser-checks/` を既定の保存先とする。
 
 ## 禁止事項

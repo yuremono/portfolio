@@ -3,8 +3,13 @@ import { sanitizeSvgMarkup } from "../lib/sanitizeSvg"
 import { assertSafeSvgAssetPath } from "../lib/svgAssetPath"
 
 interface ImageProps {
-	image?: string
+	/** 単一、または同じ `figure` 内に並べる複数 `src`（各要素は解決済みの URL/パス） */
+	image?: string | string[]
+	/** `<figure>` 用。`className` と結合して適用 */
 	className?: string
+	figureClassName?: string
+	/** 各 `<img>` に共通で付与 */
+	imgClassName?: string
 	style?: React.CSSProperties
 	alt?: string
 }
@@ -19,10 +24,31 @@ interface ImageSvgProps {
 const svgCache: Record<string, string> = {}
 
 /** 通常画像用 */
-const Image = ({ image, style, className = "", alt = "" }: ImageProps) => {
+const Image = ({
+	image,
+	style,
+	className = "",
+	figureClassName = "",
+	imgClassName = "",
+	alt = "",
+}: ImageProps) => {
+	const srcs = !image
+		? []
+		: Array.isArray(image)
+			? image
+			: [image]
+	const figureCls = [className, figureClassName].filter(Boolean).join(" ")
 	return (
-		<figure className={className} style={style}>
-			{image && <img src={image} alt={alt} loading="lazy" />}
+		<figure className={figureCls} style={style}>
+			{srcs.map((src) => (
+				<img
+					key={src}
+					className={imgClassName || undefined}
+					src={src}
+					alt={alt}
+					loading="lazy"
+				/>
+			))}
 		</figure>
 	)
 }

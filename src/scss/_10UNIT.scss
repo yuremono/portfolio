@@ -990,7 +990,8 @@
 }
 .MarkDown{//~/projects/0413portfolio/src/pages/Activity.tsx
         ul{
-                @apply pl-[1em];
+                @apply pl-[1em] py-4;
+
         }
         li{
                 @apply list-disc;

@@ -1,0 +1,1 @@
+import{c as t,j as r,r as o,B as e}from"./chunk-LFPYN7LY-DfAvohRP.js";/* empty css                      */import s from"./Test7-DxvTVlU8.js";import"./useHtmlRootClass-D7KIST44.js";import"./assetPath-BE5xjP8R.js";t.createRoot(document.getElementById("root")).render(r.jsx(o.StrictMode,{children:r.jsx(e,{children:r.jsx(s,{})})}));

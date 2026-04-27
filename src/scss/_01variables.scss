@@ -89,15 +89,6 @@
 
 :root {// color opacity
         --MC05: color-mix(in srgb, transparent, var(--MC) 05%);
-        // --MC10: color-mix(in srgb, transparent, var(--MC) 10%);
-        // --MC20: color-mix(in srgb, transparent, var(--MC) 20%);
-        // --MC30: color-mix(in srgb, transparent, var(--MC) 30%);
-        // --MC40: color-mix(in srgb, transparent, var(--MC) 40%);
-        // --MC50: color-mix(in srgb, transparent, var(--MC) 50%);
-        // --MC60: color-mix(in srgb, transparent, var(--MC) 60%);
-        // --MC70: color-mix(in srgb, transparent, var(--MC) 70%);
-        // --MC80: color-mix(in srgb, transparent, var(--MC) 80%);
-        // --MC90: color-mix(in srgb, transparent, var(--MC) 90%);
 
         @for $i from 1 through 9 {
                 --MC#{$i}0: color-mix(in srgb, transparent, var(--MC) #{$i}0%);

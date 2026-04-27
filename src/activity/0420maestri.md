@@ -1,6 +1,6 @@
 ---
 id: 001
-label: Maestri (無限キャンバスワークスペース)
+label: Maestri (実行環境)
 category: OSアプリ
 title: Maestri (無限キャンバスワークスペース) 試用
 dateTime: 2026-04-20

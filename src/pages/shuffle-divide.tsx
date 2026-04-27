@@ -7,7 +7,8 @@ import { Footer } from "../components/Footer";
 import { PageRoot } from "../components/PageRoot";
 
 
-import { initShuffleDivide } from "../features/shuffle-divide/initShuffleDivide";
+import { initCanvasDivide } from "../lib/initCanvasDivide";
+import { initShuffle } from "../lib/initShuffle";
 import { getAssetPath } from "../lib/assetPath";
 
 import "../scss/shuffle-divide.scss";
@@ -79,8 +80,12 @@ function ShuffleDivide() {
 		const root = pageRootRef.current;
 		if (!root) return undefined;
 
-		const runtime = initShuffleDivide(root);
-		return runtime.disconnect;
+		const canvas = initCanvasDivide(root);
+		const shuffle = initShuffle(root);
+		return () => {
+			canvas.disconnect();
+			shuffle.disconnect();
+		};
 	}, []);
 
 	return (

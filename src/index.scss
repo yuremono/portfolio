@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 //tailwind reset overwrite
-html {//index.scss tailwind overwrite
+:where(#root)>div {//index.scss tailwind overwrite
 	font-size: var(--FZ);
-	overflow-x: hidden;
+	overflow-x: clip;
 	font-family: var(--FF);
 	font-weight: var(--FW);
 	line-height: var(--LH);
@@ -244,3 +244,4 @@ div.tp-lblv_v:has(.tp-radgridv) {
 
 
 }
+

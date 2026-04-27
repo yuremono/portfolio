@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
-import { initGlitch } from "../features/glitch/initGlitch";
+import { createGlitchLayers } from "../lib/initGlitch";
+import { initBgTrigger } from "../lib/initBgTrigger";
 import { useClientRuntime } from "../hooks/useClientRuntime";
 import { useHtmlRootClass } from "../hooks/useHtmlRootClass";
 import { getAssetPath } from "../lib/assetPath";
@@ -28,8 +29,17 @@ function Glitch() {
 
 	useEffect(() => {
 		if (!pageRootRef.current) return;
-		const runtime = initGlitch(pageRootRef.current);
-		return runtime.disconnect;
+		const root = pageRootRef.current;
+		const layers = createGlitchLayers(root);
+		const { disconnect } = initBgTrigger(root, {
+			onAfterActivate: ({ activeBgItem }) => {
+				layers.syncActiveItem(activeBgItem);
+			},
+		});
+		return () => {
+			disconnect();
+			layers.disconnect();
+		};
 	}, []);
 
 	const scrollToSection = (target: HTMLElement | null) => {
@@ -198,7 +208,7 @@ function Glitch() {
 					className=" js-bgTrigger mr-0 spPX10p txshbk w-1/2 max-sm:w-full"
 					aria-label="Details"
 				>
-					<div className="min-h-[75lvh]]">
+					<div className="min-h-[75lvh]">
 						<h2 className="m-0 mb-12  text-[var(--h2FZ)] italic leading-[1.1] [text-shadow:0_1rem_4rem_var(--BK80)]">
 							Digital Platform Administration
 						</h2>

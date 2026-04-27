@@ -538,16 +538,6 @@ function Next() {
 									Preview
 								</Button>
 								<br />
-								{/* <a
-        								className="textlink mt-4"
-        								href="https://github.com/yuremono/BurnYourOwnStyle/tree/react"
-        								target="_blank"
-        								rel="noopener noreferrer"
-        							>
-        								
-        								Repositries
-        								<ArrowSquareOutIcon className="text-[length:inherit]" />
-        							</a> */}
 								<details className="Toggle IsSmall font-normal ">
 									<summary className="Eng">
 										Thinking...

@@ -12,7 +12,7 @@ function HeaderNav() {
 				<Link to="/preview">BYOS</Link>
 			</li>
 			<li className="NavLi">
-				<Link to="/agent">Donuts</Link>
+				<Link to="/donut">Donut</Link>
 			</li>
 			<li className="NavLi">
 				<Link to="/rects">Generator</Link>
@@ -122,8 +122,8 @@ function HeaderNav() {
 						<Link to="/preview">BurnYourOwnStyle</Link>
 					</li>
 					<li className="DropLi">
-						<Link to="/agent">
-							Donuts<small>(ADCMS)</small>
+						<Link to="/donut">
+							Donut<small>(ADCMS)</small>
 						</Link>
 					</li>
 					<li className="DropLi">

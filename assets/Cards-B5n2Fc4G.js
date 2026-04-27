@@ -1,1 +1,0 @@
-import{j as r}from"./chunk-LFPYN7LY-ttzL4h8A.js";const m=({className:s="",children:a})=>r.jsx("div",{className:`item ${s}`,children:a}),o=({className:s="",style:a,children:t})=>r.jsx("div",{className:`Cards ${s}`,style:a,children:t});export{o as C,m as a};

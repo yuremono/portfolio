@@ -3,11 +3,18 @@ import { useEffect, useRef, type ReactNode } from "react";
 import {
 	XIcon,
 } from "@phosphor-icons/react";
+
 export interface FullscreenDialogProps {
 	id: string;
 	open: boolean;
-	title: string;
-	description?: string;
+	/**
+	 * `dialog` の `aria-label`。指定時は子の見出しに `id` を付けずに名前一意にできる。
+	 * 指定がない場合のみ `ariaLabelledBy` / `ariaDescribedBy` を使う。
+	 */
+	dialogAriaLabel?: string;
+	ariaLabelledBy?: string;
+	ariaDescribedBy?: string;
+	closeAriaLabel: string;
 	children: ReactNode;
 	onOpenChange: (open: boolean) => void;
 }
@@ -15,15 +22,15 @@ export interface FullscreenDialogProps {
 export function FullscreenDialog({
 	id,
 	open,
-	title,
-	description,
+	dialogAriaLabel,
+	ariaLabelledBy,
+	ariaDescribedBy,
+	closeAriaLabel,
 	children,
 	onOpenChange,
 }: FullscreenDialogProps) {
 	const dialogRef = useRef<HTMLDialogElement>(null);
 	const previouslyFocusedRef = useRef<HTMLElement | null>(null);
-	const titleId = `${id}-title`;
-	const descriptionId = description ? `${id}-description` : undefined;
 
 	useEffect(() => {
 		const dialog = dialogRef.current;
@@ -81,8 +88,13 @@ export function FullscreenDialog({
 		<dialog
 			ref={dialogRef}
 			id={id}
-			aria-labelledby={titleId}
-			aria-describedby={descriptionId}
+			aria-label={dialogAriaLabel}
+			aria-labelledby={
+				dialogAriaLabel ? undefined : ariaLabelledBy
+			}
+			aria-describedby={
+				dialogAriaLabel ? undefined : ariaDescribedBy
+			}
 			aria-modal="true"
 			className="min-h-lvh  w-screen max-w-none overflow-y-auto overscroll-none bg-BC/90    outline-none "
 			onClick={(event) => {
@@ -92,30 +104,15 @@ export function FullscreenDialog({
 			}}
 		>
 			<article className=" py-[--PX] into">
-				<header className="flex items-start justify-between gap-[--gap] BorderB pb-4">
-					<div>
-						<p className=" text-sm  font-bold text-AC">
-							Details
-						</p>
-						<h2 id={titleId} className="font-medium text-GR">
-							{title}
-						</h2>
-						{description ? (
-							<p id={descriptionId} className="mt-2 leading-[--LH]">
-								{description}
-							</p>
-						) : null}
-					</div>
-					<button
-						type="button"
-						className="textlink dsbc shrink-0 text-AC fixed top-[--PX] right-[--into] p-2  "
-						onClick={closeDialog}
-						data-dialog-initial-focus
-						aria-label={`${title}を閉じる`}
-					>
-						Close<XIcon className="[--btnIFZ:1.25em]" weight="bold" />
-					</button>
-				</header>
+				<button
+					type="button"
+					className="textlink dsbc shrink-0 text-AC fixed top-[--PX] right-[--into] p-2  "
+					onClick={closeDialog}
+					data-dialog-initial-focus
+					aria-label={closeAriaLabel}
+				>
+					Close<XIcon className="[--btnIFZ:1.25em]" weight="bold" />
+				</button>
 				{children}
 			</article>
 		</dialog>

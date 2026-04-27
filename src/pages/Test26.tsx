@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { PageRoot } from "../components/PageRoot";
 import { useClientRuntime } from "../hooks/useClientRuntime";
 import { useHtmlRootClass } from "../hooks/useHtmlRootClass";
-import { getAssetPath } from "../lib/assetPath";
+// import { getAssetPath } from "../lib/assetPath";
 
 
 

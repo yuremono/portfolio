@@ -128,7 +128,7 @@ function Activity() {
 
 			<main
 				id="main-activity"
-				className="min-h-screen mt-[--head] pb-[--MY] [--itemH:calc(100lvh-var(--head)-var(--PX))]"
+				className="min-h-screen pt-[--head] pb-[--MY] [--itemH:calc(100lvh-var(--head)-var(--PX))]"
 			>
 				<section className="out Stick bp-lg  [--scr:100%] [--shift:100%] PX  [--wid:clamp(36em,50%,720px)] ">
 					<div className="StickItem Cards col2 lg:[--gap:--wid] top-[--head] text-left lg:text-right lg:min-h-[--itemH]">

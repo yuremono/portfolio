@@ -26,10 +26,14 @@ function renderDialog({ open, onOpenChange = vi.fn() }: RenderDialogOptions) {
 			<FullscreenDialog
 				id="test-dialog"
 				open={open}
-				title="Test Dialog"
-				description="Dialog description"
+				dialogAriaLabel="Test Dialog"
+				closeAriaLabel="Test Dialogを閉じる"
 				onOpenChange={onOpenChange}
 			>
+				<div>
+					<h2>Test Dialog</h2>
+					<p>Dialog description</p>
+				</div>
 				<p>Dialog body</p>
 			</FullscreenDialog>,
 		);
@@ -68,13 +72,10 @@ describe("FullscreenDialog", () => {
 
 		expect(dialog?.hasAttribute("open")).toBe(true);
 		expect(dialog?.getAttribute("aria-modal")).toBe("true");
-		expect(dialog?.getAttribute("aria-labelledby")).toBe("test-dialog-title");
-		expect(dialog?.getAttribute("aria-describedby")).toBe(
-			"test-dialog-description",
-		);
-		expect(container.querySelector("#test-dialog-title")?.textContent).toBe(
-			"Test Dialog",
-		);
+		expect(dialog?.getAttribute("aria-label")).toBe("Test Dialog");
+		expect(
+			dialog?.querySelector("h2")?.textContent,
+		).toBe("Test Dialog");
 
 		unmount(root);
 	});

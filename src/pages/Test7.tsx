@@ -56,8 +56,12 @@ function Test7() {
 					<div className="absolute left-[var(--heroColLeft)] top-[var(--heroColTop)] bottom-[var(--heroColBottom)] flex flex-col flex-wrap gap-[--gap] max-h-[100lvh]">
 						<div className="flex items-start gap-[var(--t7TitleGap)]">
 							<p className="[font-size:var(--FZ)] leading-[var(--lhFZ)] tracking-[var(--lsFZ)] text-[--WH]/85 text-shadow-[var(--TSsoft)] [writing-mode:vertical-rl] [text-orientation:upright]">
-								<span className="block">信州・八ヶ岳山麓の有機農園</span>
-								<span className="block">旬の野菜を、手間ひまかけて。</span>
+								<span className="block">
+									信州・八ヶ岳山麓の有機農園
+								</span>
+								<span className="block">
+									旬の野菜を、手間ひまかけて。
+								</span>
 							</p>
 							<h1
 								id="test7-hero-title"
@@ -68,21 +72,21 @@ function Test7() {
 							</h1>
 						</div>
 
-							<div className=" flex items-center gap-[var(--t7TitleGap)]">
-								<img
-									src={asset("logo-mark.png")}
-									alt="八ヶ岳自然農園 YATSUGATAKE NATURAL FARM"
-									decoding="async"
-									className="w-[var(--t7LogoW)]"
-								/>
-								<img
-									src={asset("stamp-organic.png")}
-									alt=""
-									aria-hidden="true"
-									decoding="async"
-									className="w-[var(--t7StampW)]  drop-shadow-[var(--TS)]"
-								/>
-							</div>
+						<div className=" flex items-center gap-[var(--t7TitleGap)]">
+							<img
+								src={asset("logo-mark.png")}
+								alt="八ヶ岳自然農園 YATSUGATAKE NATURAL FARM"
+								decoding="async"
+								className="w-[var(--t7LogoW)]"
+							/>
+							<img
+								src={asset("stamp-organic.png")}
+								alt=""
+								aria-hidden="true"
+								decoding="async"
+								className="w-[var(--t7StampW)]   "
+							/>
+						</div>
 						<div>
 							<p className="font-[var(--Eng)] text-xl leading-[var(--lh2)] tracking-[var(--ls2)] text-[--WH] text-shadow-[var(--TSsoft)]">
 								Rooted in Soil.
@@ -107,24 +111,24 @@ function Test7() {
 							src={asset("label-card.png")}
 							alt="山里の彩り ラベル"
 							decoding="async"
-							className="w-[var(--t7LabelW)]  drop-shadow-[var(--TS)]"
+							className="w-[var(--t7LabelW)]   "
 						/>
 						<img
 							src={asset("tag-green.png")}
 							alt=""
 							aria-hidden="true"
 							decoding="async"
-							className="mt-[clamp(1rem,3vw,2.5rem)] w-[var(--t7TagW)]  drop-shadow-[var(--TS)]"
+							className="mt-[clamp(1rem,3vw,2.5rem)] w-[var(--t7TagW)]   "
 						/>
 					</div>
 
 					{/* 右側：縦書きの締めコピー（label と 認証帯に被らない位置） */}
-					<p
-						className="absolute right-[var(--heroSideCopyRight)] bottom-[var(--heroSideCopyBottom)] [font-size:var(--FZ)] leading-[var(--lhFZ)] tracking-[var(--lsFZ)] text-[--WH]/82 text-shadow-[var(--TSsoft)] [writing-mode:vertical-rl] [text-orientation:upright]"
-					>
+					<p className="absolute right-[var(--heroSideCopyRight)] bottom-[var(--heroSideCopyBottom)] [font-size:var(--FZ)] leading-[var(--lhFZ)] tracking-[var(--lsFZ)] text-[--WH]/82 text-shadow-[var(--TSsoft)] [writing-mode:vertical-rl] [text-orientation:upright]">
 						<span className="block">土を耕し、種をまき、</span>
 						<span className="block">いのちをつなぐ。</span>
-						<span className="block">昔も、いまも、これからも。</span>
+						<span className="block">
+							昔も、いまも、これからも。
+						</span>
 					</p>
 
 					{/* 下辺：紙の山（地平線）— 左外に一部はみ出させて主役テキストを避ける */}
@@ -139,7 +143,10 @@ function Test7() {
 					{/* 下部中央：認証アイコン帯（有機栽培 / 露地栽培 / 無添加） */}
 					<ul className="absolute bottom-[var(--heroCertBottom)] left-1/2 -translate-x-1/2 flex items-end gap-[var(--t7CertGap)]">
 						{certItems.map((it) => (
-							<li key={it.id} className="flex flex-col items-center">
+							<li
+								key={it.id}
+								className="flex flex-col items-center"
+							>
 								<span className="w-[var(--t7CertIconW)] aspect-square rounded-full border border-[--WH]/60 bg-[--BK]/40 grid place-items-center">
 									<CertIcon kind={it.icon} />
 								</span>

@@ -84,7 +84,8 @@ button,a{
     text-align: var(--btnTA);
     will-change: filter;
     overflow: hidden; 
-    transition: var(--btnTR);
+    transition-duration: var(--btnTR);
+    transition-timing-function: var(--btnTRT);
     color: var(--btnC);
 
 
@@ -307,7 +308,7 @@ a.label{
     will-change: scale;
 
     &:not([href*=tel],.__tel,span):hover {
-        animation: scaleDown var(--btnTR) forwards;
+        animation: scaleDown calc(var(--btnTR)*2) var(--btnTRT) forwards;
     }
     
     

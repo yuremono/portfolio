@@ -177,11 +177,7 @@
 
 }
 :root{//ボーダー シャドウ デコレーション等
-        --bds: solid;
-        --bdw: 1px;
-        --bdc: var(--TC30);  
-        --line:var(--bdw) var(--bds) var(--bdc); 
-        --stw: 4px;
+
     
         --rad:0px;
         --rad2:calc(var(--rad)*2 );
@@ -195,7 +191,17 @@
         --sheetP:var(--gap);
         --boardR:var(rad);
         --lineClamp:2;
-    
+
+        --bds: solid;
+        --bdw: 1px;
+        --bdc: var(--TC30);  
+        --line:var(--bdw) var(--bds) var(--bdc); 
+        --tsw: 4px;
+        --TS: 0 0 0.25em var(--BK90);
+        --DS: drop-shadow(0 0 0.25em var(--BK70));
+        --BS: 0.25rem 0.25rem 0rem var(--BK10);
+        --WTS: var(--tsw) var(--BK);
+        --BGgrad: linear-gradient(90deg, var(--BK), transparent 80%) no-repeat center/100% 100%;
 }
 :root{//header props
         interpolate-size: allow-keywords;
@@ -346,7 +352,8 @@
         --btnPX:1.25em ;
         --btnPY: 0.25em;
         --btnG:.5em;
-        --btnTR:.6s ease-out; 
+        --btnTR:.6s ; 
+        --btnTRT: ease-out; 
         // --btnTR:var(--trt);
         // --btnRad:var(--rad);
         --btnRad:4px;

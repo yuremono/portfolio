@@ -449,7 +449,7 @@ function InstituteWordmark({ className = "" }: SvgClassProps) {
 					x="450"
 					y="106"
 					textAnchor="middle"
-					className="fill-MC/15 stroke-MC/25 font-[--Eng] text-[116px] font-black tracking-[0.0625em] [stroke-linejoin:round] [stroke-width:8]"
+					className="fill-MC/15 stroke-MC/25 text-[116px] font-black tracking-[0.0625em] [stroke-linejoin:round] [stroke-width:8]"
 				>
 					AOZORA
 				</text>
@@ -457,7 +457,7 @@ function InstituteWordmark({ className = "" }: SvgClassProps) {
 					x="448"
 					y="102"
 					textAnchor="middle"
-					className="fill-BC/50 stroke-MC/45 font-[--Eng] text-[116px] font-black tracking-[0.0625em] [stroke-dasharray:4_5] [stroke-linejoin:round] [stroke-width:2]"
+					className="fill-BC/50 stroke-MC/45 text-[116px] font-black tracking-[0.0625em] [stroke-dasharray:4_5] [stroke-linejoin:round] [stroke-width:2]"
 				>
 					AOZORA
 				</text>
@@ -465,7 +465,7 @@ function InstituteWordmark({ className = "" }: SvgClassProps) {
 					x="450"
 					y="105"
 					textAnchor="middle"
-					className="fill-MC/85 stroke-TC/45 font-[--Eng] text-[116px] font-black tracking-[0.0625em] [stroke-linejoin:round] [stroke-width:1]"
+					className="fill-MC/85 stroke-TC/45 text-[116px] font-black tracking-[0.0625em] [stroke-linejoin:round] [stroke-width:1]"
 				>
 					AOZORA
 				</text>
@@ -481,7 +481,7 @@ function InstituteWordmark({ className = "" }: SvgClassProps) {
 				x="450"
 				y="190"
 				textAnchor="middle"
-				className="fill-TC/75 font-[--Eng] text-[30px] font-bold tracking-[0.375em]"
+				className="fill-TC/75 text-[30px] font-bold tracking-[0.375em]"
 			>
 				INSTITUTE
 			</text>
@@ -655,10 +655,10 @@ function InstituteSeal({ className = "" }: SvgClassProps) {
 			<path d="M76 22V68H118L98 46L120 22Z" className="fill-current opacity-60" />
 			<circle cx="130" cy="27" r="6" className="fill-AC" />
 			<path d="M42 67L58 39L76 67" className="fill-none stroke-WH/80 [stroke-linecap:round] [stroke-linejoin:round] [stroke-width:5]" />
-			<text x="12" y="92" className="fill-current font-[--Eng] text-[20px] font-bold tracking-[0.125em]">
+			<text x="12" y="92" className="fill-current text-[20px] font-bold tracking-[0.125em]">
 				AOZORA
 			</text>
-			<text x="12" y="112" className="fill-TC font-[--Eng] text-[14px] font-bold tracking-[0.125em]">
+			<text x="12" y="112" className="fill-TC  text-[14px] font-bold tracking-[0.125em]">
 				INSTITUTE
 			</text>
 		</svg>

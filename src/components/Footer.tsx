@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { CaretUpIcon, CaretDownIcon ,ArrowSquareOutIcon} from "@phosphor-icons/react";
+import { ArrowSquareOutIcon} from "@phosphor-icons/react";
 
 type FooterProps = {
 	className?: string;

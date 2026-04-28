@@ -1,1 +1,0 @@
-import{r as e,j as s}from"./chunk-LFPYN7LY-DfAvohRP.js";import{u as t,a as o,P as r}from"./useHtmlRootClass-D7KIST44.js";const m=" [--head:3.5rem] md:[--head:4.5rem] [--mvH:calc(100lvh_-_var(--head))]",l="min-h-[100lvh] ";function i(){const a=e.useRef(null);return t({rootRef:a}),o(),s.jsx(r,{ref:a,className:m,children:s.jsx("main",{className:l})})}export{i as default};

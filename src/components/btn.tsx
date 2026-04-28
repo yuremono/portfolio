@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
-import styled from "styled-components";
+import { Link } from "react-router-dom";
+import styled, { css } from "styled-components";
 
 interface ButtonProps {
 	className?: string;
@@ -7,6 +8,16 @@ interface ButtonProps {
 	/** 新しいタブで開く（`target="_blank"` + `rel="noopener noreferrer"`） */
 	external?: boolean;
 	children?: ReactNode;
+}
+
+/** `basename`（例: `/portfolio/`）付き SPA では `/foo` のまま `<a href>` にすると別 URL になり失敗するため、`Link` を使う */
+function shouldUseRouterLink(href: string, external: boolean): boolean {
+	if (external) return false;
+	if (!href || href === "#") return false;
+	if (href.startsWith("#")) return false;
+	if (/^(https?:|mailto:|tel:)/i.test(href)) return false;
+	if (href.startsWith("//")) return false;
+	return href.startsWith("/");
 }
 
 const Button = ({
@@ -19,18 +30,22 @@ const Button = ({
 		? { target: "_blank" as const, rel: "noopener noreferrer" as const }
 		: {};
 
-                return (
-                        <StyledLink
-                          className={className}
-                          href={href}
-                          {...externalAttrs}
-                        >
-                          <span>{children}</span>
-                        </StyledLink>
-                      );
+	if (shouldUseRouterLink(href, external)) {
+		return (
+			<StyledRouterLink className={className} to={href}>
+				<span>{children}</span>
+			</StyledRouterLink>
+		);
+	}
+
+	return (
+		<StyledAnchor className={className} href={href} {...externalAttrs}>
+			<span>{children}</span>
+		</StyledAnchor>
+	);
 };
 
-const StyledLink = styled.a`
+const linkStyles = css`
 	position: relative;
 	min-height: var(--btnH);
 	min-width: var(--btnW);
@@ -86,6 +101,14 @@ const StyledLink = styled.a`
 		text-align: center;
 		align-content: center;
 	}
+`;
+
+const StyledAnchor = styled.a`
+	${linkStyles}
+`;
+
+const StyledRouterLink = styled(Link)`
+	${linkStyles}
 `;
 
 export default Button;

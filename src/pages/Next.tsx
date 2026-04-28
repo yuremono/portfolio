@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import type { CSSProperties, FormEvent } from "react";
 import { Cards, CardsItem } from "../components/Cards";
 import Button from "../components/btn";
@@ -246,11 +247,11 @@ function Next() {
 														</span>
 													</dd>
 													<dt className="">
-														Claude Code / web
+														Claude Code (GLM, OpenRouter)
 													</dt>
 													<dd>
 														<span className="">
-															4 Month / 1 Year
+															4 Month
 														</span>
 													</dd>
 													<dt className="">
@@ -454,98 +455,51 @@ function Next() {
 									<CardsItem>
 										<article className="BorderXY  px-4 py-5 text-xs bg-WH/70">
 											<h3 className="text-[1rem] BorderB pb-4 flex items-baseline justify-between gap-4 ">
-												その他
-												<span className="text-GR   tracking-[0.1em] ">
-													11 lists
-												</span>
+												その他利用履歴
 											</h3>
 											<div className="DescList  [--dtW:50%] [--PY:0.25em] [--PX:0.25em]  mt-4 IsDdright">
 												<dl className="items-center">
-													<dt className="">
-														Tailwind CSS
-													</dt>
-													<dd>
-														<span className="px-2 bg-AC/30 font-medium">
+													<dt className="">Tailwind CSS</dt>
+													<dd><span className="px-2 bg-AC/30 font-medium">
 															6 M,AI 1 Y
 														</span>
 													</dd>
-													<dt className="">
-														canvas API
-													</dt>
+													<dt className="">canvas API</dt>
 													<dd>
 														<span className="px-2 bg-AC/30 font-medium">
 															AI 1 Year
 														</span>
 													</dd>
-													<dt className="">
-														Three.js
-													</dt>
-													<dd>
-														<span className="">
-															AI 1 Year
-														</span>
-													</dd>
+													<dt className="">Three.js</dt>
+													<dd>AI 1 Year</dd>
 													<dt className="">D3.js</dt>
 													<dd>AI 6 Month</dd>
 													<dt className="">GSAP</dt>
-													<dd>
-														<span className="">
-															3.5 Year
-														</span>
-													</dd>
-													<dt className="">
-														VScode/Chrome Extentions
-													</dt>
-													<dd>
-														<span className="">
-															1~2回作成
-														</span>
-													</dd>
-													<dt className="">
-														NanoBanana SKILL
-													</dt>
-													<dd>
-														<span className="">
-															エディターで即時利用
-														</span>
-													</dd>
-													<dt className="">
-														Quiver.ai/arrow-1
-													</dt>
-													<dd>
-														<span className="">
-															BYOS
-															demoのsvgドローで使用
-														</span>
-													</dd>
-													<dt className="">
-														LottieAnimation
-													</dt>
-													<dd>
-														<span className="">
-															webツール試用
-														</span>
-													</dd>
-													<dt className="">
-														memsearch
-													</dt>
-													<dd>
-														<span className="">
-															claude/codex自動記憶
-														</span>
-													</dd>
-													<dt className="[--dtW:100%]">
-														superpowers/oh-my-claudecode
-													</dt>
-													<dd className="[--ddW:100%]">
-														<span>試用</span>
-													</dd>
-													<dt className="[--dtW:100%]">
-														tweekpane
-													</dt>
-													<dd className="[--ddW:100%]">
-														`/Generator`で使用
-													</dd>
+													<dd>3.5 Year</dd>
+													<dt className="">VScode/Chrome Extentions</dt>
+													<dd>1~2回作成</dd>
+													<dt className="">NanoBanana </dt>
+													<dd>スキルで頻繁に利用</dd>
+													<dt className="">Quiver.ai/arrow-1</dt>
+													<dd>BYOS demoのsvg生成で使用</dd>
+													<dt className="">LottieAnimation</dt>
+													<dd>webツール試用</dd>
+													<dt className="">memsearch</dt>
+													<dd>claude/codexで常用</dd>
+													<dt className="">superpowers/oh-my-claudecode</dt>
+													<dd className=""><span>試用</span></dd>
+													<dt className="">tweekpane</dt>
+													<dd className="">`/Generator`で使用</dd>
+													<dt className="">Z.ai Coding Plan</dt>
+													<dd className="">Claude Codeで使用</dd>
+													<dt className="">Open Router</dt>
+													<dd className="">モデル比較</dd>
+													<dt className="">Fal AI</dt>
+													<dd className="">動画生成で使用</dd>
+													<dt className="">OpenClaw</dt>
+													<dd className="">試用</dd>
+													<dt className="">tailscale</dt>
+													<dd className="">スマホターミナル操作試用</dd>
 												</dl>
 											</div>
 										</article>
@@ -642,7 +596,7 @@ function Next() {
 								</Button>
 								<Button
 									className={otherWorksClasses.buttonInline}
-									href="/agent"
+									href="/donut"
 								>
 									Preview
 								</Button>

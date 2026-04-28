@@ -1,0 +1,1817 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BBox Annotator </title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0f0f0f;
+    --surface: #1a1a1a;
+    --border: #2e2e2e;
+    --accent: #e8ff47;
+    --text: #e0e0e0;
+    --text-dim: #aaa;
+    --font-mono: 'Courier New', monospace;
+    --cyan-guide: rgba(100, 200, 255, 0.2);
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-mono);
+    font-size: 13px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  #toolbar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+    flex-wrap: wrap;
+  }
+
+  #toolbar .logo {
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-right: 4px;
+  }
+
+  .sep { width: 1px; height: 20px; background: var(--border); flex-shrink: 0; }
+
+  label.file-btn {
+    cursor: pointer;
+    padding: 5px 12px;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    color: var(--text);
+    transition: border-color .15s, color .15s;
+    white-space: nowrap;
+  }
+  label.file-btn:hover { border-color: var(--accent); color: var(--accent); }
+  #fileInput { display: none; }
+
+  .btn-group { display: flex; gap: 4px; align-items: center; flex-wrap: wrap; }
+  .btn-group > span.label {
+    color: var(--text-dim);
+    font-size: 11px;
+    margin-right: 2px;
+    white-space: nowrap;
+  }
+
+  .t-btn, .w-btn {
+    cursor: pointer;
+    padding: 4px 10px;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    background: transparent;
+    color: var(--text-dim);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    transition: all .15s;
+    white-space: nowrap;
+  }
+  .t-btn:hover, .w-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .t-btn.active, .w-btn.active {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(232,255,71,.08);
+  }
+
+  .t-btn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  #clearBtn {
+    margin-left: auto;
+    cursor: pointer;
+    padding: 5px 12px;
+    border: 1px solid #ff4747;
+    border-radius: 3px;
+    background: transparent;
+    color: #ff4747;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    transition: all .15s;
+  }
+  #clearBtn:hover { background: rgba(255,71,71,.1); }
+
+  #main {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+    min-height: 0;
+  }
+
+  #canvasWrap {
+    flex: 1;
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 24px;
+    background: #0a0a0a;
+    position: relative;
+  }
+
+  #stage {
+    position: relative;
+    flex-shrink: 0;
+    background: #111;
+    border: 1px solid var(--border);
+    box-shadow: 0 0 0 1px #000, 0 8px 40px rgba(0,0,0,.6);
+    cursor: default;
+    user-select: none;
+  }
+
+  #parentDraftHint {
+    display: none;
+    font-size: 11px;
+    color: var(--accent);
+    max-width: 280px;
+    line-height: 1.35;
+  }
+
+  #stage img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: none;
+    pointer-events: none;
+    user-select: none;
+    vertical-align: top;
+  }
+
+  #overlayCanvas {
+    position: absolute;
+    top: 0; left: 0;
+    pointer-events: auto;
+  }
+
+  #labelEditor {
+    position: absolute;
+    z-index: 5;
+    font: 15px var(--font-mono);
+    padding: 10px 16px;
+    border: 2px solid var(--accent);
+    border-radius: 4px;
+    background: rgba(17, 17, 17, 0.95);
+    color: var(--text);
+    min-width: 160px;
+    box-shadow: 0 4px 24px rgba(0,0,0,.45);
+    display: none;
+    text-align: center;
+  }
+
+  #placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: var(--text-dim);
+    font-size: 13px;
+    height: 300px;
+    width: 600px;
+    border: 2px dashed var(--border);
+    border-radius: 4px;
+    letter-spacing: 0.05em;
+  }
+  #placeholder .icon { font-size: 32px; opacity: .4; }
+
+  #sidebar {
+    width: 340px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid var(--border);
+    background: var(--surface);
+    overflow: hidden;
+    min-height: 0;
+  }
+
+  #sidebar .sidebar-head {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    padding: 10px 16px 8px;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+  }
+
+  #groupTreeWrap {
+    flex-shrink: 0;
+    max-height: 42vh;
+    overflow-y: auto;
+    border-bottom: 1px solid var(--border);
+    padding: 10px 12px 12px;
+  }
+
+  #addGroupBtn {
+    width: 100%;
+    cursor: pointer;
+    padding: 6px 10px;
+    margin-bottom: 10px;
+    border: 1px dashed var(--border);
+    border-radius: 3px;
+    background: transparent;
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    transition: all .15s;
+  }
+  #addGroupBtn:hover { border-color: var(--accent); background: rgba(232,255,71,.06); }
+
+  .tree-group {
+    margin-bottom: 6px;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+    background: rgba(0,0,0,.2);
+    -webkit-user-drag: none;
+  }
+  .tree-group.active {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px rgba(232,255,71,.35), inset 3px 0 0 var(--accent);
+    background: rgba(232,255,71,.09);
+  }
+
+  .tree-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 8px;
+    font-size: 11px;
+    cursor: pointer;
+    -webkit-user-drag: none;
+    user-select: none;
+  }
+  .tree-row:hover { background: rgba(255,255,255,.03); }
+
+  .tree-active-pill {
+    flex-shrink: 0;
+    font-size: 9px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 2px 6px;
+    border-radius: 2px;
+    background: var(--accent);
+    color: #111;
+    font-weight: bold;
+  }
+  .tree-group:not(.active) .tree-active-pill { display: none; }
+
+  .tree-chev {
+    width: 14px;
+    text-align: center;
+    color: var(--text-dim);
+    flex-shrink: 0;
+    user-select: none;
+  }
+  .tree-chev.empty { visibility: hidden; }
+
+  .tree-name {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .tree-name[contenteditable="true"] {
+    outline: 1px solid var(--accent);
+    background: #0a0a0a;
+    padding: 0 4px;
+    user-select: text;
+    -webkit-user-drag: none;
+    user-drag: none;
+  }
+
+  .tree-del {
+    flex-shrink: 0;
+    cursor: pointer;
+    padding: 0 4px;
+    color: var(--text-dim);
+    font-size: 14px;
+    line-height: 1;
+  }
+  .tree-del:hover { color: #ff4747; }
+
+  .tree-boxes {
+    border-top: 1px solid var(--border);
+    padding: 4px 8px 6px 28px;
+    font-size: 10px;
+    color: var(--text-dim);
+  }
+  .tree-boxes.collapsed { display: none; }
+
+  .tree-box-line {
+    padding: 2px 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+    border-radius: 2px;
+  }
+  .tree-box-line:hover { background: rgba(255,255,255,.05); }
+  .tree-box-line.child-selected {
+    color: var(--accent);
+    background: rgba(232,255,71,.1);
+    padding-left: 4px;
+    margin-left: -4px;
+  }
+
+  .tree-parent-meta {
+    font-size: 9px;
+    color: var(--text-dim);
+    padding: 0 8px 6px 28px;
+    opacity: 0.85;
+  }
+
+  #outputFormatRow {
+    display: flex;
+    gap: 6px;
+    padding: 8px 16px 0;
+    flex-shrink: 0;
+  }
+  #outputFormatRow .fmt-btn {
+    flex: 1;
+    cursor: pointer;
+    padding: 6px;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    background: transparent;
+    color: var(--text-dim);
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  #outputFormatRow .fmt-btn:hover { border-color: var(--accent); color: var(--accent); }
+  #outputFormatRow .fmt-btn.active {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(232,255,71,.08);
+  }
+
+  #output {
+    flex: 1;
+    overflow-y: auto;
+    padding: 12px 16px;
+    font-size: 11px;
+    line-height: 1.65;
+    white-space: pre-wrap;
+    word-break: break-word;
+    color: #b0c8a0;
+    font-family: var(--font-mono);
+    min-height: 0;
+  }
+
+  #output .empty-msg {
+    color: var(--text-dim);
+    font-style: italic;
+    white-space: normal;
+  }
+
+  #copyBtn {
+    margin: 0 16px 16px;
+    flex-shrink: 0;
+    cursor: pointer;
+    padding: 8px;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    background: transparent;
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    transition: all .15s;
+    text-transform: uppercase;
+  }
+  #copyBtn:hover { background: rgba(232,255,71,.08); border-color: var(--accent); }
+
+  #sizeBadge {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 10px;
+    color: var(--text-dim);
+    letter-spacing: 0.1em;
+    pointer-events: none;
+  }
+</style>
+</head>
+<body>
+
+<div id="toolbar">
+  <span class="logo">BBox </span>
+  <div class="sep"></div>
+  <label class="file-btn" for="fileInput">+ 画像を開く</label>
+  <input type="file" id="fileInput" accept="image/*">
+  <div class="sep"></div>
+  <div class="btn-group">
+    <span class="label">W:</span>
+    <button class="w-btn" data-w="1920">1920</button>
+    <button class="w-btn active" data-w="1440">1440</button>
+    <button class="w-btn" data-w="768">768</button>
+    <button class="w-btn" data-w="420">420</button>
+  </div>
+  <div class="sep"></div>
+  <div class="btn-group">
+    <span class="label">Snap:</span>
+    <button class="t-btn active" data-snap="0">OFF</button>
+    <button class="t-btn" data-snap="8">8px</button>
+    <button class="t-btn" data-snap="16">16px</button>
+  </div>
+  <div class="sep"></div>
+  <div class="btn-group">
+    <span class="label">Col:</span>
+    <button class="t-btn active" data-col="0">OFF</button>
+    <button class="t-btn" data-col="4">4</button>
+    <button class="t-btn" data-col="8">8</button>
+    <button class="t-btn" data-col="12">12</button>
+    <button class="t-btn" data-col="16">16</button>
+  </div>
+  <div class="sep"></div>
+  <div class="btn-group">
+    <button class="t-btn" id="undoBtn" title="Cmd+Z">Undo</button>
+    <button class="t-btn" id="redoBtn" title="Cmd+Shift+Z">Redo</button>
+  </div>
+  <div class="sep"></div>
+  <div class="btn-group" id="groupModeWrap" style="display: none;">
+    <span class="label">モード:</span>
+    <button type="button" class="t-btn active" id="modeParentBtn" title="親BBoxの移動・リサイズ（子の上をドラッグでグループ全体移動）">親グループ</button>
+    <button type="button" class="t-btn" id="modeDrawChildBtn" title="親の内側に子BBoxを矩形で追加">子を追加描画</button>
+  </div>
+  <span id="parentDraftHint"></span>
+  <button id="clearBtn">Clear All</button>
+</div>
+
+<div id="main">
+  <div id="canvasWrap">
+    <div id="stage">
+      <div id="placeholder">
+        <div class="icon">⊞</div>
+        <div>画像をここにドロップ<br>または「+ 画像を開く」</div>
+      </div>
+      <canvas id="overlayCanvas"></canvas>
+      <input id="labelEditor" type="text" maxlength="120" autocomplete="off" />
+    </div>
+    <div id="sizeBadge"></div>
+  </div>
+
+  <div id="sidebar">
+    <div class="sidebar-head">Groups</div>
+    <div id="groupTreeWrap">
+      <button type="button" id="addGroupBtn">+ グループ追加</button>
+      <div id="groupTree"></div>
+    </div>
+    <div class="sidebar-head">Output</div>
+    <div id="outputFormatRow">
+      <button type="button" class="fmt-btn active" data-fmt="json">JSON</button>
+      <button type="button" class="fmt-btn" data-fmt="md">Markdown</button>
+    </div>
+    <div id="output"><span class="empty-msg">グループを選び BBox を描くと出力されます</span></div>
+    <button type="button" id="copyBtn">Copy to Clipboard</button>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  const HISTORY_MAX = 50;
+  const COLORS = ['#e8ff47','#47e8ff','#ff4778','#a0ff47','#ff9047','#c847ff'];
+  const HANDLE = 5;
+  const MIN_BOX = 4;
+
+  let imgEl = null;
+  let naturalW = 0, naturalH = 0;
+  let containerW = 1440;
+  let snapSize = 0;
+  let columns = 0;
+  let outputFormat = 'json';
+
+  let groups = [];
+  let activeGroupId = null;
+  let selectedBoxIds = [];
+  /** parent: 親BBox操作 / child: ツリーで選んだ子のみ / drawChild: 子を矩形追加 */
+  let interactionMode = 'parent';
+  let nextGroupId = 1;
+  let nextBoxId = 1;
+
+  let history = [];
+  let historyIndex = -1;
+  let historySuspended = false;
+
+  let drawing = false;
+  let startX = 0, startY = 0;
+  let currentRect = null;
+
+  let dragMode = null;
+  let dragHandle = null;
+  let dragStart = null;
+  let dragBoxesSnapshot = null;
+  let dragParent0 = null;
+
+  let labelEditTarget = null;
+  /** 親追加: 数値 n で Parent n をキャンバス上ドラッグして確定（null で通常） */
+  let parentDraftNum = null;
+
+  const stage = document.getElementById('stage');
+  const canvas = document.getElementById('overlayCanvas');
+  const ctx = canvas.getContext('2d');
+  const output = document.getElementById('output');
+  const sizeBadge = document.getElementById('sizeBadge');
+  const placeholder = document.getElementById('placeholder');
+  const groupTree = document.getElementById('groupTree');
+  const labelEditor = document.getElementById('labelEditor');
+
+  function blurGroupTreeContentEditable() {
+    const ae = document.activeElement;
+    if (ae && groupTree.contains(ae) && ae.isContentEditable) ae.blur();
+  }
+
+  function positionLabelEditorOverBox(x, y, w, h) {
+    const sw = stage.clientWidth;
+    const sh = stage.clientHeight;
+    const targetW = Math.round(Math.min(Math.max(180, w * 0.88), Math.min(340, sw - 16)));
+    labelEditor.style.width = targetW + 'px';
+    labelEditor.style.transform = 'translate(-50%, -50%)';
+    let cx = x + w / 2;
+    let cy = y + h / 2;
+    const half = targetW / 2;
+    cx = Math.max(half + 8, Math.min(cx, sw - half - 8));
+    cy = Math.max(28, Math.min(cy, sh - 28));
+    labelEditor.style.left = cx + 'px';
+    labelEditor.style.top = cy + 'px';
+  }
+
+  groupTree.addEventListener('dragstart', e => e.preventDefault(), true);
+  const undoBtn = document.getElementById('undoBtn');
+  const redoBtn = document.getElementById('redoBtn');
+  const groupModeWrap = document.getElementById('groupModeWrap');
+  const modeParentBtn = document.getElementById('modeParentBtn');
+  const modeDrawChildBtn = document.getElementById('modeDrawChildBtn');
+  const parentDraftHint = document.getElementById('parentDraftHint');
+
+  function snapVal(v) {
+    if (snapSize <= 0) return v;
+    return Math.round(v / snapSize) * snapSize;
+  }
+
+  function clampBox(b, sw, sh) {
+    let x = Math.max(0, Math.min(b.x, sw));
+    let y = Math.max(0, Math.min(b.y, sh));
+    let w = Math.max(MIN_BOX, b.w);
+    let h = Math.max(MIN_BOX, b.h);
+    if (x + w > sw) w = Math.max(MIN_BOX, sw - x);
+    if (y + h > sh) h = Math.max(MIN_BOX, sh - y);
+    return { x, y, w, h };
+  }
+
+  function ensureParentBounds(g, sw, sh) {
+    if (typeof g.px !== 'number' || typeof g.pw !== 'number' || g.pw < MIN_BOX || typeof g.ph !== 'number' || g.ph < MIN_BOX) {
+      g.px = 0;
+      g.py = 0;
+      g.pw = sw;
+      g.ph = sh;
+    }
+    const c = clampBox({ x: g.px, y: g.py, w: g.pw, h: g.ph }, sw, sh);
+    g.px = c.x;
+    g.py = c.y;
+    g.pw = c.w;
+    g.ph = c.h;
+  }
+
+  function childAbs(g, b) {
+    return { x: g.px + b.x, y: g.py + b.y, w: b.w, h: b.h };
+  }
+
+  function clampChildInParent(g, b) {
+    let x = Math.max(0, Math.min(b.x, g.pw - MIN_BOX));
+    let y = Math.max(0, Math.min(b.y, g.ph - MIN_BOX));
+    let w = Math.max(MIN_BOX, b.w);
+    let h = Math.max(MIN_BOX, b.h);
+    if (x + w > g.pw) w = Math.max(MIN_BOX, g.pw - x);
+    if (y + h > g.ph) h = Math.max(MIN_BOX, g.ph - y);
+    b.x = x;
+    b.y = y;
+    b.w = w;
+    b.h = h;
+  }
+
+  function clampAllChildren(g) {
+    g.boxes.forEach(b => clampChildInParent(g, b));
+  }
+
+  function pointInParent(g, px, py) {
+    return px >= g.px && px <= g.px + g.pw && py >= g.py && py <= g.py + g.ph;
+  }
+
+  function parentAbsRect(g) {
+    return { x: g.px, y: g.py, w: g.pw, h: g.ph };
+  }
+
+  function cursorForHandle(h) {
+    if (!h) return null;
+    if (h === 'nw' || h === 'se') return 'nwse-resize';
+    if (h === 'ne' || h === 'sw') return 'nesw-resize';
+    if (h === 'n' || h === 's') return 'ns-resize';
+    if (h === 'e' || h === 'w') return 'ew-resize';
+    return null;
+  }
+
+  function updateStageCursor(px, py) {
+    if (!imgEl) {
+      stage.style.cursor = 'default';
+      return;
+    }
+    if (parentDraftNum != null) {
+      stage.style.cursor = 'crosshair';
+      return;
+    }
+    if (drawing) {
+      stage.style.cursor = 'crosshair';
+      return;
+    }
+    if (dragMode === 'groupMove' || dragMode === 'move') {
+      stage.style.cursor = 'grabbing';
+      return;
+    }
+    if (dragMode === 'parentResize' || dragMode === 'resize') {
+      stage.style.cursor = cursorForHandle(dragHandle) || 'default';
+      return;
+    }
+
+    const gAct = activeGroupId ? groups.find(x => x.id === activeGroupId) : null;
+
+    if (interactionMode === 'parent' && gAct) {
+      const pr = parentAbsRect(gAct);
+      const hc = handleAt(px, py, pr);
+      const c = cursorForHandle(hc);
+      if (c) {
+        stage.style.cursor = c;
+        return;
+      }
+      if (pointInParent(gAct, px, py)) {
+        stage.style.cursor = 'move';
+        return;
+      }
+    }
+
+    if (interactionMode === 'child' && gAct) {
+      const prim = getPrimarySelectedChildAbs();
+      if (prim) {
+        const hc = handleAt(px, py, prim.abs);
+        const c = cursorForHandle(hc);
+        if (c) {
+          stage.style.cursor = c;
+          return;
+        }
+      }
+      if (hitTestChildAbs(px, py, null)) {
+        stage.style.cursor = 'pointer';
+        return;
+      }
+    }
+
+    if (interactionMode === 'drawChild' && gAct && pointInParent(gAct, px, py)) {
+      stage.style.cursor = 'crosshair';
+      return;
+    }
+
+    stage.style.cursor = 'default';
+  }
+
+  function nextChildLabel(g) {
+    if (typeof g.childSeq !== 'number' || g.childSeq < 1) g.childSeq = 1;
+    const lab = 'Child ' + g.childSeq;
+    g.childSeq++;
+    return lab;
+  }
+
+  function hitTestChildAbs(px, py, onlyGroupId) {
+    const list = [];
+    groups.forEach((g, gi) => {
+      if (onlyGroupId && g.id !== onlyGroupId) return;
+      g.boxes.forEach((b, bi) => {
+        const a = childAbs(g, b);
+        list.push({ group: g, box: b, gi, bi, abs: a });
+      });
+    });
+    for (let i = list.length - 1; i >= 0; i--) {
+      const { abs } = list[i];
+      if (px >= abs.x && px <= abs.x + abs.w && py >= abs.y && py <= abs.y + abs.h)
+        return list[i];
+    }
+    return null;
+  }
+
+  function findBoxById(id) {
+    for (const g of groups) {
+      const b = g.boxes.find(x => x.id === id);
+      if (b) return { group: g, box: b };
+    }
+    return null;
+  }
+
+  function handleAt(px, py, box) {
+    if (!box || box.w < MIN_BOX || box.h < MIN_BOX) return null;
+    const x0 = box.x, y0 = box.y, x1 = box.x + box.w, y1 = box.y + box.h;
+    const mx = (x0 + x1) / 2, my = (y0 + y1) / 2;
+    const pts = {
+      nw: [x0, y0], n: [mx, y0], ne: [x1, y0],
+      e: [x1, my], se: [x1, y1], s: [mx, y1], sw: [x0, y1], w: [x0, my],
+    };
+    for (const k of Object.keys(pts)) {
+      const [hx, hy] = pts[k];
+      if (Math.abs(px - hx) <= HANDLE && Math.abs(py - hy) <= HANDLE) return k;
+    }
+    return null;
+  }
+
+  function getPrimarySelectedChildAbs() {
+    if (interactionMode !== 'child' || selectedBoxIds.length !== 1) return null;
+    const f = findBoxById(selectedBoxIds[0]);
+    if (!f) return null;
+    return { group: f.group, box: f.box, abs: childAbs(f.group, f.box) };
+  }
+
+  function snapshotState() {
+    return {
+      groups: groups.map(g => ({
+        id: g.id,
+        label: g.label,
+        collapsed: !!g.collapsed,
+        px: g.px,
+        py: g.py,
+        pw: g.pw,
+        ph: g.ph,
+        boxes: g.boxes.map(b => ({
+          id: b.id,
+          label: b.label,
+          x: b.x, y: b.y, w: b.w, h: b.h,
+        })),
+        childSeq: typeof g.childSeq === 'number' ? g.childSeq : 1,
+      })),
+      activeGroupId,
+      selectedBoxIds: [...selectedBoxIds],
+      interactionMode,
+      parentDraftNum: parentDraftNum,
+      nextGroupId,
+      nextBoxId,
+    };
+  }
+
+  function restoreState(s) {
+    groups = s.groups.map(g => ({
+      id: g.id,
+      label: g.label,
+      collapsed: !!g.collapsed,
+      px: g.px,
+      py: g.py,
+      pw: g.pw,
+      ph: g.ph,
+      childSeq: typeof g.childSeq === 'number' ? g.childSeq : 1,
+      boxes: g.boxes.map(b => ({ ...b })),
+    }));
+    activeGroupId = s.activeGroupId;
+    selectedBoxIds = [...s.selectedBoxIds];
+    interactionMode = s.interactionMode || 'parent';
+    parentDraftNum = s.parentDraftNum != null ? s.parentDraftNum : null;
+    nextGroupId = s.nextGroupId;
+    nextBoxId = s.nextBoxId;
+    const sw = canvas.width || naturalW || 800;
+    const sh = canvas.height || naturalH || 600;
+    groups.forEach(g => ensureParentBounds(g, sw, sh));
+  }
+
+  function pushHistory() {
+    if (historySuspended) return;
+    const snap = snapshotState();
+    if (historyIndex < history.length - 1)
+      history = history.slice(0, historyIndex + 1);
+    history.push(snap);
+    if (history.length > HISTORY_MAX)
+      history.shift();
+    historyIndex = history.length - 1;
+    updateUndoRedoButtons();
+  }
+
+  function initHistory() {
+    history = [snapshotState()];
+    historyIndex = 0;
+    updateUndoRedoButtons();
+  }
+
+  function undo() {
+    if (historyIndex <= 0) return;
+    historySuspended = true;
+    historyIndex--;
+    restoreState(history[historyIndex]);
+    historySuspended = false;
+    renderGroupTree();
+    updateModeToolbar();
+    redraw();
+    renderOutput();
+    updateUndoRedoButtons();
+  }
+
+  function redo() {
+    if (historyIndex >= history.length - 1) return;
+    historySuspended = true;
+    historyIndex++;
+    restoreState(history[historyIndex]);
+    historySuspended = false;
+    renderGroupTree();
+    updateModeToolbar();
+    redraw();
+    renderOutput();
+    updateUndoRedoButtons();
+  }
+
+  function updateUndoRedoButtons() {
+    undoBtn.disabled = historyIndex <= 0;
+    redoBtn.disabled = historyIndex >= history.length - 1;
+  }
+
+  function updateModeToolbar() {
+    if (parentDraftNum != null) {
+      groupModeWrap.style.display = 'none';
+      parentDraftHint.style.display = 'inline';
+      parentDraftHint.textContent = 'キャンバスで親 Parent ' + parentDraftNum + ' の範囲をドラッグ（Esc でキャンセル）';
+    } else {
+      parentDraftHint.style.display = 'none';
+      const vis = !!(activeGroupId && imgEl);
+      groupModeWrap.style.display = vis ? 'flex' : 'none';
+    }
+    modeParentBtn.classList.toggle('active', interactionMode === 'parent');
+    modeDrawChildBtn.classList.toggle('active', interactionMode === 'drawChild');
+    if (interactionMode === 'child') {
+      modeParentBtn.classList.remove('active');
+      modeDrawChildBtn.classList.remove('active');
+    }
+  }
+
+  function commitAction() {
+    pushHistory();
+    updateModeToolbar();
+    renderGroupTree();
+    redraw();
+    renderOutput();
+  }
+
+  function getPos(e) {
+    const rect = stage.getBoundingClientRect();
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+    const sw = canvas.width, sh = canvas.height;
+    return {
+      x: Math.max(0, Math.min(clientX - rect.left, sw)),
+      y: Math.max(0, Math.min(clientY - rect.top, sh)),
+    };
+  }
+
+  function syncStageLayout() {
+    if (!imgEl) {
+      stage.style.width = '';
+      stage.style.height = '';
+      canvas.width = 0;
+      canvas.height = 0;
+      canvas.style.width = '0';
+      canvas.style.height = '0';
+      updateSizeBadge(0, 0);
+      return;
+    }
+    const w = naturalW;
+    const h = naturalH;
+    stage.style.width = w + 'px';
+    stage.style.height = h + 'px';
+    canvas.width = w;
+    canvas.height = h;
+    canvas.style.width = w + 'px';
+    canvas.style.height = h + 'px';
+    updateSizeBadge(w, h);
+  }
+
+  function updateSizeBadge(w, h) {
+    sizeBadge.textContent = w ? `${w} × ${h} px（表示） / 出力基準 W ${containerW}px` : '';
+  }
+
+  function loadImage(file) {
+    if (!file || !file.type.startsWith('image/')) return;
+    const url = URL.createObjectURL(file);
+    if (imgEl) {
+      imgEl.remove();
+      URL.revokeObjectURL(imgEl._url);
+    }
+
+    imgEl = document.createElement('img');
+    imgEl._url = url;
+    imgEl.src = url;
+    imgEl.draggable = false;
+    imgEl.onload = () => {
+      naturalW = imgEl.naturalWidth;
+      naturalH = imgEl.naturalHeight;
+      placeholder.style.display = 'none';
+      stage.insertBefore(imgEl, canvas);
+      groups.forEach(g => {
+        g.boxes = [];
+        g.px = 0;
+        g.py = 0;
+        g.pw = naturalW;
+        g.ph = naturalH;
+        g.childSeq = 1;
+      });
+      parentDraftNum = null;
+      selectedBoxIds = [];
+      interactionMode = 'parent';
+      syncStageLayout();
+      historySuspended = true;
+      initHistory();
+      historySuspended = false;
+      renderGroupTree();
+      updateModeToolbar();
+      redraw();
+      renderOutput();
+    };
+  }
+
+  document.getElementById('fileInput').addEventListener('change', e => {
+    loadImage(e.target.files[0]);
+    e.target.value = '';
+  });
+
+  document.getElementById('canvasWrap').addEventListener('dragover', e => e.preventDefault());
+  document.getElementById('canvasWrap').addEventListener('drop', e => {
+    e.preventDefault();
+    loadImage(e.dataTransfer.files[0]);
+  });
+
+  document.querySelectorAll('.w-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.w-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      containerW = parseInt(btn.dataset.w, 10);
+      updateSizeBadge(naturalW, naturalH);
+      renderOutput();
+    });
+  });
+
+  document.querySelectorAll('[data-snap]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('[data-snap]').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      snapSize = parseInt(btn.dataset.snap, 10);
+    });
+  });
+
+  document.querySelectorAll('[data-col]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('[data-col]').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      columns = parseInt(btn.dataset.col, 10);
+      redraw();
+    });
+  });
+
+  document.querySelectorAll('.fmt-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.fmt-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      outputFormat = btn.dataset.fmt;
+      renderOutput();
+    });
+  });
+
+  undoBtn.addEventListener('click', undo);
+  redoBtn.addEventListener('click', redo);
+
+  document.getElementById('addGroupBtn').addEventListener('click', () => {
+    if (!imgEl) return;
+    parentDraftNum = nextGroupId;
+    drawing = false;
+    currentRect = null;
+    hideLabelEditor();
+    updateModeToolbar();
+    renderGroupTree();
+    redraw();
+  });
+
+  modeParentBtn.addEventListener('click', () => {
+    if (!activeGroupId) return;
+    interactionMode = 'parent';
+    selectedBoxIds = [];
+    updateModeToolbar();
+    renderGroupTree();
+    redraw();
+  });
+
+  modeDrawChildBtn.addEventListener('click', () => {
+    if (!activeGroupId) return;
+    interactionMode = 'drawChild';
+    selectedBoxIds = [];
+    updateModeToolbar();
+    renderGroupTree();
+    redraw();
+  });
+
+  document.getElementById('clearBtn').addEventListener('click', () => {
+    groups = [];
+    activeGroupId = null;
+    selectedBoxIds = [];
+    interactionMode = 'parent';
+    nextGroupId = 1;
+    nextBoxId = 1;
+    drawing = false;
+    currentRect = null;
+    dragMode = null;
+    dragParent0 = null;
+    parentDraftNum = null;
+    hideLabelEditor();
+    historySuspended = true;
+    initHistory();
+    historySuspended = false;
+    updateModeToolbar();
+    renderGroupTree();
+    redraw();
+    renderOutput();
+  });
+
+  function renderGroupTree() {
+    groupTree.innerHTML = '';
+    if (groups.length === 0) {
+      const hint = document.createElement('div');
+      hint.style.cssText = 'font-size:10px;color:var(--text-dim);padding:4px 0;';
+      hint.textContent = '画像を開き「+ グループ追加」でキャンバス上に親 Parent の範囲をドラッグしてください';
+      groupTree.appendChild(hint);
+      return;
+    }
+    groups.forEach(g => {
+      const wrap = document.createElement('div');
+      wrap.className = 'tree-group' + (g.id === activeGroupId ? ' active' : '');
+      wrap.draggable = false;
+
+      const row = document.createElement('div');
+      row.className = 'tree-row';
+      row.draggable = false;
+
+      const chev = document.createElement('span');
+      chev.className = 'tree-chev' + (g.boxes.length ? '' : ' empty');
+      chev.textContent = g.collapsed ? '▶' : '▼';
+      chev.draggable = false;
+
+      const pill = document.createElement('span');
+      pill.className = 'tree-active-pill';
+      if (g.id === activeGroupId) {
+        pill.textContent = interactionMode === 'drawChild' ? '子追加' : interactionMode === 'child' ? '子編集' : '親';
+        pill.title =
+          interactionMode === 'drawChild' ? '子BBoxを矩形で追加中' :
+          interactionMode === 'child' ? 'ツリーで選んだ子のみ操作中' :
+          '親BBoxの移動・リサイズ（子の上ドラッグでグループ全体移動）';
+      }
+
+      const name = document.createElement('span');
+      name.className = 'tree-name';
+      name.textContent = g.label || '(無名)';
+      name.draggable = false;
+
+      const del = document.createElement('span');
+      del.className = 'tree-del';
+      del.title = 'グループ削除';
+      del.textContent = '×';
+
+      row.appendChild(chev);
+      row.appendChild(pill);
+      row.appendChild(name);
+      row.appendChild(del);
+
+      row.addEventListener('click', e => {
+        if (e.target === del) return;
+        if (name.isContentEditable) return;
+        if (e.target === chev && g.boxes.length) {
+          g.collapsed = !g.collapsed;
+          renderGroupTree();
+          return;
+        }
+        activeGroupId = g.id;
+        interactionMode = 'parent';
+        selectedBoxIds = [];
+        updateModeToolbar();
+        renderGroupTree();
+        redraw();
+      });
+
+      chev.addEventListener('click', e => {
+        e.stopPropagation();
+        if (!g.boxes.length) return;
+        g.collapsed = !g.collapsed;
+        renderGroupTree();
+      });
+
+      name.addEventListener('dblclick', e => {
+        e.stopPropagation();
+        name.contentEditable = 'true';
+        name.focus();
+        const range = document.createRange();
+        range.selectNodeContents(name);
+        const sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+      });
+
+      name.addEventListener('blur', () => {
+        name.contentEditable = 'false';
+        const t = name.textContent.trim();
+        if (t) g.label = t;
+        else name.textContent = g.label;
+        commitAction();
+      });
+
+      name.addEventListener('keydown', e => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          name.blur();
+        }
+      });
+
+      del.addEventListener('click', e => {
+        e.stopPropagation();
+        groups = groups.filter(x => x.id !== g.id);
+        if (activeGroupId === g.id) activeGroupId = groups[0] ? groups[0].id : null;
+        selectedBoxIds = selectedBoxIds.filter(id => findBoxById(id));
+        commitAction();
+      });
+
+      const meta = document.createElement('div');
+      meta.className = 'tree-parent-meta';
+      meta.textContent = '親 ' + Math.round(g.pw) + '×' + Math.round(g.ph) + ' · 子 ' + g.boxes.length + '件';
+
+      const boxList = document.createElement('div');
+      boxList.className = 'tree-boxes' + (g.collapsed ? ' collapsed' : '');
+      g.boxes.forEach(b => {
+        const line = document.createElement('div');
+        line.className = 'tree-box-line' + (selectedBoxIds.includes(b.id) && interactionMode === 'child' ? ' child-selected' : '');
+        line.textContent = '· ' + (b.label || b.id);
+        line.addEventListener('click', e => {
+          e.stopPropagation();
+          activeGroupId = g.id;
+          interactionMode = 'child';
+          selectedBoxIds = [b.id];
+          updateModeToolbar();
+          renderGroupTree();
+          redraw();
+        });
+        boxList.appendChild(line);
+      });
+
+      wrap.appendChild(row);
+      wrap.appendChild(meta);
+      wrap.appendChild(boxList);
+      groupTree.appendChild(wrap);
+    });
+  }
+
+  function hideLabelEditor() {
+    labelEditor.style.display = 'none';
+    labelEditor.style.transform = '';
+    labelEditTarget = null;
+  }
+
+  function showLabelEditorForEdit(boxId) {
+    const found = findBoxById(boxId);
+    if (!found) return;
+    labelEditTarget = { boxId };
+    labelEditor.value = found.box.label;
+    labelEditor.style.display = 'block';
+    const abs = childAbs(found.group, found.box);
+    positionLabelEditorOverBox(abs.x, abs.y, abs.w, abs.h);
+    labelEditor.focus();
+    labelEditor.select();
+  }
+
+  labelEditor.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      e.preventDefault();
+      hideLabelEditor();
+    }
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      const text = labelEditor.value.trim();
+      if (labelEditTarget) {
+        if (!text) return;
+        const found = findBoxById(labelEditTarget.boxId);
+        if (found && found.box.label !== text) {
+          found.box.label = text;
+          hideLabelEditor();
+          commitAction();
+        } else {
+          hideLabelEditor();
+        }
+      }
+    }
+  });
+
+  labelEditor.addEventListener('blur', () => {
+    setTimeout(() => {
+      if (document.activeElement === labelEditor) return;
+      if (labelEditTarget) {
+        const text = labelEditor.value.trim();
+        const found = findBoxById(labelEditTarget.boxId);
+        if (found && text && found.box.label !== text) {
+          found.box.label = text;
+          commitAction();
+        }
+        hideLabelEditor();
+      }
+    }, 100);
+  });
+
+  function drawColumnGuides() {
+    if (!columns || columns < 2) return;
+    const sw = canvas.width;
+    const step = sw / columns;
+    ctx.strokeStyle = 'rgba(100, 200, 255, 0.2)';
+    ctx.lineWidth = 1;
+    for (let i = 1; i < columns; i++) {
+      const x = i * step;
+      ctx.beginPath();
+      ctx.moveTo(x, 0);
+      ctx.lineTo(x, canvas.height);
+      ctx.stroke();
+    }
+  }
+
+  function drawCanvasLabel(text, left, top, color) {
+    const t = String(text || '');
+    const padX = 6;
+    const padY = 3;
+    ctx.font = 'bold 12px Courier New';
+    const tw = ctx.measureText(t).width;
+    const lineH = 14;
+    const x0 = left;
+    const yBase = top + padY + lineH;
+    const w = tw + padX * 2;
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(x0, yBase + 1);
+    ctx.lineTo(x0 + w, yBase + 1);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(x0 + w, top + padY);
+    ctx.lineTo(x0 + w, yBase + 1);
+    ctx.stroke();
+    ctx.fillStyle = color;
+    ctx.fillText(t, x0 + padX, yBase);
+  }
+
+  function drawHandles(box, color) {
+    const x0 = box.x, y0 = box.y, x1 = box.x + box.w, y1 = box.y + box.h;
+    const mx = (x0 + x1) / 2, my = (y0 + y1) / 2;
+    const pts = [[x0,y0],[mx,y0],[x1,y0],[x1,my],[x1,y1],[mx,y1],[x0,y1],[x0,my]];
+    ctx.fillStyle = '#fff';
+    ctx.strokeStyle = color;
+    pts.forEach(([hx, hy]) => {
+      ctx.fillRect(hx - 3, hy - 3, 6, 6);
+      ctx.strokeRect(hx - 3, hy - 3, 6, 6);
+    });
+  }
+
+  function redraw() {
+    if (!imgEl) {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      return;
+    }
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawColumnGuides();
+
+    groups.forEach((g, gi) => {
+      const col = COLORS[gi % COLORS.length];
+      const isAct = g.id === activeGroupId;
+      const pr = parentAbsRect(g);
+      ctx.fillStyle = isAct && interactionMode === 'parent' ? col + '14' : col + '0a';
+      ctx.fillRect(pr.x, pr.y, pr.w, pr.h);
+      ctx.strokeStyle = isAct && interactionMode === 'parent' ? col : col + 'aa';
+      ctx.lineWidth = isAct && interactionMode === 'parent' ? 2.5 : 1.5;
+      ctx.setLineDash([]);
+      ctx.strokeRect(pr.x, pr.y, pr.w, pr.h);
+      drawCanvasLabel(g.label || 'Parent', pr.x + 4, pr.y + 4, col);
+    });
+
+    groups.forEach((g, gi) => {
+      const col = COLORS[gi % COLORS.length];
+      g.boxes.forEach(b => {
+        const a = childAbs(g, b);
+        const sel = interactionMode === 'child' && selectedBoxIds.includes(b.id);
+        ctx.strokeStyle = col;
+        ctx.lineWidth = sel ? 2.2 : 1.5;
+        ctx.strokeRect(a.x, a.y, a.w, a.h);
+        ctx.fillStyle = col + '20';
+        ctx.fillRect(a.x, a.y, a.w, a.h);
+        drawCanvasLabel(b.label || 'Child', a.x + 4, a.y + 2, col);
+      });
+    });
+
+    if (interactionMode === 'parent' && activeGroupId) {
+      const g = groups.find(x => x.id === activeGroupId);
+      if (g) drawHandles(parentAbsRect(g), COLORS[groups.indexOf(g) % COLORS.length]);
+    }
+
+    const primChild = getPrimarySelectedChildAbs();
+    if (primChild) drawHandles(primChild.abs, COLORS[groups.indexOf(primChild.group) % COLORS.length]);
+
+    if (currentRect) {
+      ctx.strokeStyle = 'rgba(232,255,71,.8)';
+      ctx.lineWidth = 1;
+      ctx.setLineDash([4, 3]);
+      ctx.strokeRect(currentRect.x, currentRect.y, currentRect.w, currentRect.h);
+      ctx.setLineDash([]);
+      ctx.fillStyle = 'rgba(232,255,71,.06)';
+      ctx.fillRect(currentRect.x, currentRect.y, currentRect.w, currentRect.h);
+    }
+  }
+
+  function toOutputFromStageRect(rx, ry, rw, rh) {
+    const sw = canvas.width;
+    if (!sw || !containerW) return { x: '0px / 0%', y: '0px / 0%', w: '0px / 0%', h: '0px / 0%' };
+    const sx = containerW / sw;
+    const fmt = (v) => Math.round(v * sx) + 'px / ' + ((v * sx / containerW) * 100).toFixed(1) + '%';
+    return {
+      x: fmt(rx),
+      y: fmt(ry),
+      w: fmt(rw),
+      h: fmt(rh),
+    };
+  }
+
+  function renderOutput() {
+    if (!groups.length) {
+      output.innerHTML = '<span class="empty-msg">グループを追加し、画像を開いてください</span>';
+      return;
+    }
+
+    if (outputFormat === 'json') {
+      const obj = {
+        container: { width: containerW, unit: 'px' },
+        groups: groups.map(g => {
+          const po = toOutputFromStageRect(g.px, g.py, g.pw, g.ph);
+          return {
+            label: g.label,
+            parent: { x: po.x, y: po.y, w: po.w, h: po.h },
+            boxes: g.boxes.map(b => {
+              const o = toOutputFromStageRect(b.x, b.y, b.w, b.h);
+              return { label: b.label, x: o.x, y: o.y, w: o.w, h: o.h };
+            }),
+          };
+        }),
+      };
+      output.textContent = JSON.stringify(obj, null, 2);
+      return;
+    }
+
+    const parts = [];
+    groups.forEach(g => {
+      parts.push('### ' + g.label + '\n');
+      const po = toOutputFromStageRect(g.px, g.py, g.pw, g.ph);
+      parts.push('**親BBox**');
+      parts.push('| x | y | w | h |');
+      parts.push('|----------|----------|----------|----------|');
+      parts.push('| ' + [po.x, po.y, po.w, po.h].join(' | ') + ' |');
+      parts.push('');
+      parts.push('**子BBox**（親左上からの相対・コンテナ幅基準換算）');
+      parts.push('| label | x | y | w | h |');
+      parts.push('|----------|----------|----------|----------|----------|');
+      g.boxes.forEach(b => {
+        const o = toOutputFromStageRect(b.x, b.y, b.w, b.h);
+        parts.push('| ' + [b.label, o.x, o.y, o.w, o.h].join(' | ') + ' |');
+      });
+      parts.push('');
+    });
+    parts.push('> container: ' + containerW + 'px 基準 / 表示キャンバス: ' + canvas.width + ' × ' + canvas.height + ' px');
+    output.textContent = parts.join('\n');
+  }
+
+  stage.addEventListener('mousedown', e => {
+    if (e.button !== 0) return;
+    if (!imgEl) return;
+
+    blurGroupTreeContentEditable();
+
+    if (labelEditor.style.display === 'block' && e.target !== labelEditor) {
+      labelEditor.blur();
+    }
+
+    const p = getPos(e);
+    const sw = canvas.width, sh = canvas.height;
+    let px = snapVal(p.x), py = snapVal(p.y);
+
+    const gAct = activeGroupId ? groups.find(x => x.id === activeGroupId) : null;
+
+    if (parentDraftNum != null) {
+      drawing = true;
+      startX = px;
+      startY = py;
+      currentRect = null;
+      e.preventDefault();
+      updateStageCursor(px, py);
+      return;
+    }
+
+    if (interactionMode === 'child' && gAct) {
+      const prim = getPrimarySelectedChildAbs();
+      if (prim) {
+        const h = handleAt(px, py, prim.abs);
+        if (h) {
+          dragMode = 'resize';
+          dragHandle = h;
+          dragStart = { x: px, y: py, boxRel: { ...prim.box } };
+          e.preventDefault();
+          updateStageCursor(px, py);
+          return;
+        }
+      }
+      const hit = hitTestChildAbs(px, py, null);
+      if (hit) {
+        const id = hit.box.id;
+        if (e.shiftKey) {
+          if (selectedBoxIds.includes(id))
+            selectedBoxIds = selectedBoxIds.filter(x => x !== id);
+          else
+            selectedBoxIds = [...selectedBoxIds, id];
+        } else {
+          if (!selectedBoxIds.includes(id))
+            selectedBoxIds = [id];
+        }
+        dragMode = 'move';
+        dragStart = { x: px, y: py };
+        dragBoxesSnapshot = {};
+        selectedBoxIds.forEach(sid => {
+          const f = findBoxById(sid);
+          if (f) dragBoxesSnapshot[sid] = { ...f.box };
+        });
+        redraw();
+        e.preventDefault();
+        updateStageCursor(px, py);
+        return;
+      }
+      interactionMode = 'parent';
+      selectedBoxIds = [];
+      updateModeToolbar();
+      renderGroupTree();
+      redraw();
+      e.preventDefault();
+      updateStageCursor(px, py);
+      return;
+    }
+
+    if (interactionMode === 'drawChild' && gAct) {
+      if (hitTestChildAbs(px, py, activeGroupId)) {
+        e.preventDefault();
+        updateStageCursor(px, py);
+        return;
+      }
+      if (!pointInParent(gAct, px, py)) {
+        e.preventDefault();
+        updateStageCursor(px, py);
+        return;
+      }
+      drawing = true;
+      startX = px;
+      startY = py;
+      currentRect = null;
+      e.preventDefault();
+      updateStageCursor(px, py);
+      return;
+    }
+
+    if (interactionMode === 'parent' && gAct) {
+      const pr = parentAbsRect(gAct);
+      const ph = handleAt(px, py, pr);
+      if (ph) {
+        dragMode = 'parentResize';
+        dragHandle = ph;
+        dragParent0 = { px: gAct.px, py: gAct.py, pw: gAct.pw, ph: gAct.ph };
+        dragStart = { x: px, y: py };
+        e.preventDefault();
+        updateStageCursor(px, py);
+        return;
+      }
+      if (pointInParent(gAct, px, py)) {
+        dragMode = 'groupMove';
+        dragStart = { x: px, y: py, px0: gAct.px, py0: gAct.py, groupId: gAct.id };
+        e.preventDefault();
+        updateStageCursor(px, py);
+        return;
+      }
+    }
+
+    e.preventDefault();
+    updateStageCursor(px, py);
+  });
+
+  stage.addEventListener('mouseleave', () => {
+    stage.style.cursor = 'default';
+  });
+
+  window.addEventListener('mousemove', e => {
+    if (!imgEl) return;
+    const p = getPos(e);
+    const sw = canvas.width, sh = canvas.height;
+    let px = snapVal(p.x), py = snapVal(p.y);
+
+    const gAct = activeGroupId ? groups.find(x => x.id === activeGroupId) : null;
+
+    if (dragMode === 'groupMove' && dragStart && dragStart.groupId) {
+      const g = groups.find(x => x.id === dragStart.groupId);
+      if (!g) {
+        updateStageCursor(px, py);
+        return;
+      }
+      const dx = px - dragStart.x;
+      const dy = py - dragStart.y;
+      let npx = snapVal(dragStart.px0 + dx);
+      let npy = snapVal(dragStart.py0 + dy);
+      npx = Math.max(0, Math.min(npx, sw - g.pw));
+      npy = Math.max(0, Math.min(npy, sh - g.ph));
+      g.px = npx;
+      g.py = npy;
+      redraw();
+      updateStageCursor(px, py);
+      return;
+    }
+
+    if (dragMode === 'parentResize' && dragStart && dragHandle && dragParent0) {
+      const g = groups.find(x => x.id === activeGroupId);
+      if (!g) {
+        updateStageCursor(px, py);
+        return;
+      }
+      let x0 = dragParent0.px, y0 = dragParent0.py, x1 = dragParent0.px + dragParent0.pw, y1 = dragParent0.py + dragParent0.ph;
+      const h = dragHandle;
+      if (h === 'e' || h === 'ne' || h === 'se') x1 = px;
+      if (h === 'w' || h === 'nw' || h === 'sw') x0 = px;
+      if (h === 's' || h === 'se' || h === 'sw') y1 = py;
+      if (h === 'n' || h === 'ne' || h === 'nw') y0 = py;
+      x0 = snapVal(x0);
+      x1 = snapVal(x1);
+      y0 = snapVal(y0);
+      y1 = snapVal(y1);
+      let rx = Math.min(x0, x1), ry = Math.min(y0, y1);
+      let rw = Math.abs(x1 - x0), rh = Math.abs(y1 - y0);
+      const c = clampBox({ x: rx, y: ry, w: rw, h: rh }, sw, sh);
+      g.px = c.x;
+      g.py = c.y;
+      g.pw = c.w;
+      g.ph = c.h;
+      clampAllChildren(g);
+      redraw();
+      updateStageCursor(px, py);
+      return;
+    }
+
+    if (dragMode === 'move' && dragStart && dragBoxesSnapshot) {
+      const dx = px - dragStart.x;
+      const dy = py - dragStart.y;
+      selectedBoxIds.forEach(sid => {
+        const f = findBoxById(sid);
+        const snap0 = dragBoxesSnapshot[sid];
+        if (!f || !snap0) return;
+        f.box.x = snapVal(snap0.x + dx);
+        f.box.y = snapVal(snap0.y + dy);
+        clampChildInParent(f.group, f.box);
+      });
+      redraw();
+      updateStageCursor(px, py);
+      return;
+    }
+
+    if (dragMode === 'resize' && dragStart && dragHandle) {
+      const b0 = dragStart.boxRel;
+      const prim = getPrimarySelectedChildAbs();
+      if (!prim) {
+        updateStageCursor(px, py);
+        return;
+      }
+      const G = prim.group;
+      let x0 = b0.x, y0 = b0.y, x1 = b0.x + b0.w, y1 = b0.y + b0.h;
+      const rx = px - G.px;
+      const ry = py - G.py;
+      const h = dragHandle;
+      if (h === 'e' || h === 'ne' || h === 'se') x1 = rx;
+      if (h === 'w' || h === 'nw' || h === 'sw') x0 = rx;
+      if (h === 's' || h === 'se' || h === 'sw') y1 = ry;
+      if (h === 'n' || h === 'ne' || h === 'nw') y0 = ry;
+      x0 = snapVal(x0);
+      x1 = snapVal(x1);
+      y0 = snapVal(y0);
+      y1 = snapVal(y1);
+      let rx0 = Math.min(x0, x1), ry0 = Math.min(y0, y1);
+      let rw = Math.abs(x1 - x0), rh = Math.abs(y1 - y0);
+      const c = clampBox({ x: rx0, y: ry0, w: rw, h: rh }, G.pw, G.ph);
+      Object.assign(prim.box, c);
+      redraw();
+      updateStageCursor(px, py);
+      return;
+    }
+
+    if (!drawing) {
+      updateStageCursor(px, py);
+      return;
+    }
+    let x2 = px, y2 = py;
+    let r = {
+      x: Math.min(startX, x2),
+      y: Math.min(startY, y2),
+      w: Math.abs(x2 - startX),
+      h: Math.abs(y2 - startY),
+    };
+    if (interactionMode === 'drawChild' && gAct) {
+      const ix = Math.max(r.x, gAct.px);
+      const iy = Math.max(r.y, gAct.py);
+      const ix2 = Math.min(r.x + r.w, gAct.px + gAct.pw);
+      const iy2 = Math.min(r.y + r.h, gAct.py + gAct.ph);
+      r = { x: ix, y: iy, w: Math.max(0, ix2 - ix), h: Math.max(0, iy2 - iy) };
+    } else if (parentDraftNum != null) {
+      r = clampBox(
+        {
+          x: r.x,
+          y: r.y,
+          w: Math.max(MIN_BOX, r.w),
+          h: Math.max(MIN_BOX, r.h),
+        },
+        sw,
+        sh
+      );
+    }
+    currentRect = r;
+    redraw();
+    updateStageCursor(px, py);
+  });
+
+  function endDragCommit() {
+    if (dragMode === 'move' || dragMode === 'resize' || dragMode === 'groupMove' || dragMode === 'parentResize') {
+      dragMode = null;
+      dragHandle = null;
+      dragStart = null;
+      dragBoxesSnapshot = null;
+      dragParent0 = null;
+      commitAction();
+    }
+  }
+
+  window.addEventListener('mouseup', e => {
+    if (!imgEl) return;
+    if (dragMode) {
+      endDragCommit();
+      return;
+    }
+    if (!drawing) return;
+    drawing = false;
+    const sw = canvas.width, sh = canvas.height;
+
+    if (parentDraftNum != null) {
+      if (currentRect && currentRect.w > MIN_BOX && currentRect.h > MIN_BOX) {
+        const c = clampBox(
+          {
+            x: snapVal(currentRect.x),
+            y: snapVal(currentRect.y),
+            w: Math.max(MIN_BOX, snapVal(currentRect.w)),
+            h: Math.max(MIN_BOX, snapVal(currentRect.h)),
+          },
+          sw,
+          sh
+        );
+        const n = parentDraftNum;
+        parentDraftNum = null;
+        const g = {
+          id: 'g' + n,
+          label: 'Parent ' + n,
+          collapsed: false,
+          childSeq: 1,
+          px: c.x,
+          py: c.y,
+          pw: c.w,
+          ph: c.h,
+          boxes: [],
+        };
+        groups.push(g);
+        nextGroupId = n + 1;
+        activeGroupId = g.id;
+        interactionMode = 'parent';
+        selectedBoxIds = [];
+        currentRect = null;
+        commitAction();
+        return;
+      }
+      currentRect = null;
+      redraw();
+      updateModeToolbar();
+      return;
+    }
+
+    if (currentRect && currentRect.w > MIN_BOX && currentRect.h > MIN_BOX && activeGroupId && interactionMode === 'drawChild') {
+      const g = groups.find(x => x.id === activeGroupId);
+      if (g) {
+        const ix = Math.max(currentRect.x, g.px);
+        const iy = Math.max(currentRect.y, g.py);
+        const ix2 = Math.min(currentRect.x + currentRect.w, g.px + g.pw);
+        const iy2 = Math.min(currentRect.y + currentRect.h, g.py + g.ph);
+        const iw = ix2 - ix, ih = iy2 - iy;
+        if (iw > MIN_BOX && ih > MIN_BOX) {
+          const bid = 'b' + nextBoxId++;
+          const lab = nextChildLabel(g);
+          const box = { id: bid, label: lab, x: ix - g.px, y: iy - g.py, w: iw, h: ih };
+          clampChildInParent(g, box);
+          historySuspended = true;
+          g.boxes.push(box);
+          selectedBoxIds = [];
+          historySuspended = false;
+          pushHistory();
+          renderGroupTree();
+          redraw();
+          renderOutput();
+        }
+      }
+    }
+    currentRect = null;
+    redraw();
+  });
+
+  stage.addEventListener('dblclick', e => {
+    if (!imgEl || interactionMode !== 'child') return;
+    const p = getPos(e);
+    const hit = hitTestChildAbs(snapVal(p.x), snapVal(p.y), null);
+    if (hit) {
+      e.preventDefault();
+      selectedBoxIds = [hit.box.id];
+      redraw();
+      showLabelEditorForEdit(hit.box.id);
+    }
+  });
+
+  window.addEventListener('keydown', e => {
+    const mod = e.metaKey || e.ctrlKey;
+    if (mod && e.key.toLowerCase() === 'z' && !e.shiftKey) {
+      e.preventDefault();
+      undo();
+      return;
+    }
+    if (mod && e.key.toLowerCase() === 'z' && e.shiftKey) {
+      e.preventDefault();
+      redo();
+      return;
+    }
+    if (e.key === 'Backspace') {
+      if (document.activeElement === labelEditor || document.activeElement?.isContentEditable) return;
+      if (interactionMode !== 'child' || !selectedBoxIds.length) return;
+      e.preventDefault();
+      const ids = new Set(selectedBoxIds);
+      groups.forEach(g => {
+        g.boxes = g.boxes.filter(b => !ids.has(b.id));
+      });
+      selectedBoxIds = [];
+      commitAction();
+      return;
+    }
+    if (e.key === 'Escape') {
+      if (labelEditor.style.display === 'block') {
+        labelEditor.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
+        return;
+      }
+      drawing = false;
+      currentRect = null;
+      parentDraftNum = null;
+      selectedBoxIds = [];
+      interactionMode = 'parent';
+      updateModeToolbar();
+      renderGroupTree();
+      redraw();
+    }
+  });
+
+  initHistory();
+  renderGroupTree();
+  updateModeToolbar();
+  redraw();
+  renderOutput();
+  updateUndoRedoButtons();
+})();
+</script>
+</body>
+</html>

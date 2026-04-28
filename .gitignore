@@ -39,6 +39,9 @@ css/
 
 
 
+# BBox 一括生成（開発サーバー、日本時間 `YYYYMMDDHHmm` 12桁のみのディレクトリ）
+src/pages/Bbox/[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]/
+
 # Temporary files
 tasks/
 tmp/

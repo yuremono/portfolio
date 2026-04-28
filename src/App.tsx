@@ -21,6 +21,7 @@ const Test7 = lazy(() => import("./pages/Test7"));
 const Test8 = lazy(() => import("./pages/Test8"));
 const GridCarousel = lazy(() => import("./pages/GridCarousel"));
 const Conversion = lazy(() => import("./pages/Conversion"));
+const Bbox = lazy(() => import("./pages/Bbox"));
 
 function App() {
 	return (
@@ -48,6 +49,7 @@ function App() {
 					<Route path="/grid-carousel" element={<GridCarousel />} />
 					<Route path="/conversion-inc" element={<Conversion />} />
 					<Route path="/conversion" element={<Conversion />} />
+					<Route path="/bbox" element={<Bbox />} />
 				</Routes>
 			</Suspense>
 		</BrowserRouter>

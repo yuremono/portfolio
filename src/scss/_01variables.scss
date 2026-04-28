@@ -3,6 +3,7 @@
 // *********************************
 // コメントはpencil variebles に同期しない
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@100..900&family=Viaoda+Libre&display=swap');
+
 :root {//font
         --Ser: "Noto Serif JP", serif;
 
@@ -29,28 +30,23 @@
 }
 
 :root {//color
-        --un: unset;
-        --inh: inherit;
-        --cur: currentColor;
-        --tr: transparent;
+        --UN: unset;
+        --IN: inherit;
+        --CC: currentColor;
 
-        /*  ユーザーの指示がなければ編集禁止*/
-        color-scheme: light;
         --TR: transparent; 
-        --MC: oklch(0.49 0.14 265.73); 
-        --SC: oklch(0.49 0.14 265.73); 
-        --AC: oklch(0.80 0.1 75); 
-        --BC: oklch(99% 0.005 60); 
+        --MC: oklch(0.50 0.125 265); 
+        --SC: oklch(0.50 0.125 265); 
+        --AC: oklch(0.8 0.1 75); 
+        --BC: oklch(98% 0.01 60); 
 
         --TC: oklch(20% 0.00 270); 
-        --GR: oklch(73% 0.00 270); 
+        --GR: oklch(75% 0.00 270); 
         --BK: oklch(0% 0.00 60);
         --WH: oklch(100% 0.00 60);
-
-        --tsbk: .25rem .25rem var(--BK);
 }
 
-:root {//color Tailwind culture & semantic color name  コメントはpencil variebles に同期しない
+:root {//standard color name, do not use tertiary, quaternary,quinary 
         --second: var(--SC);
         --third: oklch(0.92 0.1 169.85);
         --fourth: oklch(0.97 0.2 109.29);
@@ -102,11 +98,77 @@
         }
 }
 
-:root {//intoパディングで子要素サイズ、レフトで位置指定 out基本幅→画面幅に
+:root {
+        --LS: 0.025em;
+        --LH: 2;
+        --FW: 300;
+        --FZ: 87.5%;
+        @media (min-width: 768px){
+                --FZ: 100%;
+        }
+
+        --HTC: var(--IN);
+        --HFF: var(--Eng);
+        --HFW: 500;
+        --HLH: 1.25;
+        --HLS: 0.00em;
+
+        --h1FZ: clamp(32px, 5vw, 64px);
+        --h2FZ: clamp(24px, 3.2vw, 40px);
+        --h3FZ: clamp(18px, 2vw, 24px);
+        --largeFZ: clamp(48px, 6.4vw, 96px);
+}
 
 
+:root{
+        --rad:4px;
+        @media (min-width: 768px){
+                --rad:4px;
+        }
+        --rad2:calc(var(--rad)*2 );
+        --radH:calc(var(--rad)/2 );
+        --sheetR:var(--rad);
+        --sheetBG:var(--BC);
+        --sheetP:var(--gap);
+        --boardR:var(--rad);
+        --lineClamp:2;
+}
+:root{
+        interpolate-size: allow-keywords;
+}
 
+:root{//ボーダー シャドウ デコレーション等
 
+        --lineClamp:2;
+        --bds: solid;
+        --bdw: 1px;
+        --bdc: var(--TC30);  
+        --line:var(--bdw) var(--bds) var(--bdc); 
+        --tsw: 4px;
+        --TS: 0 0 0.25em var(--BK90);
+        --DS: drop-shadow(0 0 0.25em var(--BK70));
+        --BS: 0.25rem 0.25rem 0rem var(--BK10);
+        --WTS: var(--tsw) var(--BK);
+        --BGgrad: linear-gradient(90deg, var(--BK), transparent 80%) no-repeat center/100% 100%;
+}
+:root {//space 余白設定
+        --MY: 4rem;
+        --PX2: calc(var(--PX) * 2);
+        --gap: 1rem;
+        --PX: 1rem;
+        --PY: 1rem;
+        --gapN: calc(var(--gap)*-1);
+        --gapH: calc(var(--gap)/2);
+        @media (min-width: 1024px){
+                --PX: 1.5rem;
+                --PY: 1.5rem;
+                --gap: 1.5rem;
+        }
+        @media (min-width: 768px){
+                --MY: 6rem;
+        }
+}
+:root {//サイズ
         --imgW: calc(50% - var(--gap)/2);
         --wid: 1260px;
         --MY: 120px;
@@ -118,6 +180,12 @@
         --25MY: calc(var(--MY)*2.5);
         --3MY: calc(var(--MY)*3.0);
         --4MY: calc(var(--MY)*4.0);
+}
+
+// ！！！！！以降TWonlyには未定義！！！！！！！！！！！！！！！！
+
+:root {//intoパディングで子要素サイズ、レフトで位置指定 out基本幅→画面幅に
+
         --into: calc(50vw - clamp(0px, 50vw - var(--PX), (var(--wid) / 2)));
         --in1800: calc(50vw - clamp(0px, 50vw - var(--PX), 900px));
         --in1728: calc(50vw - clamp(0px, 50vw - var(--PX), 864px));
@@ -135,76 +203,7 @@
         --in660: calc(50vw - clamp(0px, 50vw - var(--PX), 330px));
         --out: calc(50% - 50vw);
 }
-
-:root {
-        --LS: 0.05em;
-        --LH: 2;
-        --FW: 300;
-        --FZ: 100%;
-        @include max-md {
-                --FZ: 87.5%;
-        }
-        --HFF: var(--Eng);
-        --HFW: 500;
-        --HLH: 1.375;
-        --HLS: 0.00em;
-
-
-        --h1: 64px;
-        --h2: 40px;
-        --h3: 24px;
-        --h1FZ: clamp(32px, 6.4vw, var(--h1));
-        --h2FZ: clamp(24px, 4vw, var(--h2));
-        --h3FZ: clamp(18px, 2.4vw, var(--h3));
-}
-
-:root {//space 余白設定
-
-        --MY: 6rem;
-        --PX: 1.5rem;
-        --PX2: calc(var(--PX) * 2);
-        --gap: 1.5rem;
-        --gapN: calc(var(--gap)*-1);
-        --gapH: calc(var(--gap)/2);
-        
-        @include menu {
-                --gap: 1rem;
-                --PX: 1.5rem;
-        }
-        @include max-md {
-                --MY: 4rem;
-        }
-
-}
-:root{//ボーダー シャドウ デコレーション等
-
-    
-        --rad:0px;
-        --rad2:calc(var(--rad)*2 );
-        @media (max-width: 640px){
-            // --rad:10px;
-        }
-        --rad3:calc(var(--rad)*3 );
-        --radH:calc(var(--rad)/2 );
-        --sheetR:var(--rad);
-        --sheetBG:var(--BC);
-        --sheetP:var(--gap);
-        --boardR:var(rad);
-        --lineClamp:2;
-
-        --bds: solid;
-        --bdw: 1px;
-        --bdc: var(--TC30);  
-        --line:var(--bdw) var(--bds) var(--bdc); 
-        --tsw: 4px;
-        --TS: 0 0 0.25em var(--BK90);
-        --DS: drop-shadow(0 0 0.25em var(--BK70));
-        --BS: 0.25rem 0.25rem 0rem var(--BK10);
-        --WTS: var(--tsw) var(--BK);
-        --BGgrad: linear-gradient(90deg, var(--BK), transparent 80%) no-repeat center/100% 100%;
-}
 :root{//header props
-        interpolate-size: allow-keywords;
         --transH: 100px;
         --trans: 400ms ease-in-out;
         --tw-duration: var(--trans);

@@ -106,7 +106,7 @@ export function FullscreenDialog({
 			<article className=" py-[--PX] into">
 				<button
 					type="button"
-					className="textlink dsbc shrink-0 text-AC fixed top-[--PX] right-[--into] p-2  "
+					className="textlink DS shrink-0 text-AC fixed top-[--PX] right-[--into] p-2  "
 					onClick={closeDialog}
 					data-dialog-initial-focus
 					aria-label={closeAriaLabel}

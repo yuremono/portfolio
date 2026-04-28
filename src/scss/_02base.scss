@@ -120,38 +120,6 @@ main {// --PX
     
 
 
-.BorderT{border-top   : var(--line);}
-.BorderB{border-bottom: var(--line);}
-.BorderL{border-left  : var(--line);}
-.BorderR{border-right : var(--line);}
-.BorderY{border-block : var(--line);}
-.BorderX{border-inline: var(--line);} 
-.BorderXY{border: var(--line);} 
-
-.TS {text-shadow: var(--TS);}
-.DS {filter: drop-shadow(var(--DS));}
-.BS {box-shadow: var(--BS);}
-.WTS {-webkit-text-stroke: var(--ST);paint-order: stroke;}
-.BGgrad {background: var(--BGgrad);}
-.TS2 {text-shadow: var(--TS);}
-.DS2 {filter: drop-shadow(var(--DS));}
-.BS2 {box-shadow: var(--BS);}
-.WTS2 {-webkit-text-stroke: var(--ST);paint-order: stroke;}
-.BGgrad2 {background: var(--BGgrad);}
-.TS3 {text-shadow: var(--TS);}
-.DS3 {filter: drop-shadow(var(--DS));}
-.BS3 {box-shadow: var(--BS);}
-.WTS3 {-webkit-text-stroke: var(--ST);paint-order: stroke;}
-.BGgrad3 {background: var(--BGgrad);}
-
-
-.wid {width: var(--wid);}
-.PX {padding-inline: var(--PX);}
-.PX2 {padding-inline: var(--PX2);}
-.MY {margin-block: var(--MY);}
-.gap{gap: var(--gap);}
-.gapH{gap: var(--gapH);}
-
 // *****レイアウト ラッパー制御  主要変数クラス
 .into {// --into
 	padding-inline: var(--into);

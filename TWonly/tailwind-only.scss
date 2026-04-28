@@ -7,6 +7,9 @@
 
 :root {//font
         --Ser: "Noto Serif JP", serif;
+
+           // "Noto Sans JP",
+           // "メイリオ", Meiryo,
         --San:
                 -apple-system,
                 /* iOS/macOS */
@@ -26,6 +29,7 @@
         --FF: var(--San) ,sans-serif;
         --Eng: var(--Jost);
 }
+
 :root {//color
         --UN: unset;
         --IN: inherit;
@@ -96,20 +100,6 @@
 }
 
 :root {
-        --imgW: calc(50% - var(--gap)/2);
-        --wid: 1080px;
-        --MY: 120px;
-        --MY25: calc(var(--MY)/4);
-        --MY5: calc(var(--MY)/2);
-        --MY75: calc(var(--MY)/4*3);
-        --15MY: calc(var(--MY)*1.5);
-        --2MY: calc(var(--MY)*2.0);
-        --25MY: calc(var(--MY)*2.5);
-        --3MY: calc(var(--MY)*3.0);
-        --4MY: calc(var(--MY)*4.0);
-}
-
-:root {
         --LS: 0.025em;
         --LH: 2;
         --FW: 300;
@@ -118,6 +108,7 @@
                 --FZ: 100%;
         }
 
+        --HTC: var(--IN);
         --HFF: var(--Eng);
         --HFW: 500;
         --HLH: 1.25;
@@ -129,6 +120,38 @@
         --largeFZ: clamp(48px, 6.4vw, 96px);
 }
 
+
+:root{
+        --rad:4px;
+        @media (min-width: 768px){
+                --rad:4px;
+        }
+        --rad2:calc(var(--rad)*2 );
+        --radH:calc(var(--rad)/2 );
+        --sheetR:var(--rad);
+        --sheetBG:var(--BC);
+        --sheetP:var(--gap);
+        --boardR:var(--rad);
+        --lineClamp:2;
+}
+:root{
+        interpolate-size: allow-keywords;
+}
+
+:root{//ボーダー シャドウ デコレーション等
+
+        --lineClamp:2;
+        --bds: solid;
+        --bdw: 1px;
+        --bdc: var(--TC30);  
+        --line:var(--bdw) var(--bds) var(--bdc); 
+        --tsw: 4px;
+        --TS: 0 0 0.25em var(--BK90);
+        --DS: drop-shadow(0 0 0.25em var(--BK70));
+        --BS: 0.25rem 0.25rem 0rem var(--BK10);
+        --WTS: var(--tsw) var(--BK);
+        --BGgrad: linear-gradient(90deg, var(--BK), transparent 80%) no-repeat center/100% 100%;
+}
 :root {//space 余白設定
         --MY: 4rem;
         --PX2: calc(var(--PX) * 2);
@@ -146,22 +169,22 @@
                 --MY: 6rem;
         }
 }
-:root{
-        --rad:4px;
-        @media (min-width: 768px){
-                --rad:4px;
-        }
-        --rad2:calc(var(--rad)*2 );
-        --radH:calc(var(--rad)/2 );
-        --sheetR:var(--rad);
-        --sheetBG:var(--BC);
-        --sheetP:var(--gap);
-        --boardR:var(--rad);
-        --lineClamp:2;
+:root {//サイズ
+        --imgW: calc(50% - var(--gap)/2);
+        --wid: 1260px;
+        --MY: 120px;
+        --MY25: calc(var(--MY)/4);
+        --MY5: calc(var(--MY)/2);
+        --MY75: calc(var(--MY)/4*3);
+        --15MY: calc(var(--MY)*1.5);
+        --2MY: calc(var(--MY)*2.0);
+        --25MY: calc(var(--MY)*2.5);
+        --3MY: calc(var(--MY)*3.0);
+        --4MY: calc(var(--MY)*4.0);
 }
-:root{
-        interpolate-size: allow-keywords;
-}
+
+// ！！！！！以上01variablesと同期！！！！！！！！！！！！！！！！
+
 :where(#root)>div {//Pageroot
         font-size: var(--FZ);
         overflow-x: clip;
@@ -171,7 +194,7 @@
         letter-spacing: var(--LS);
         color: var(--TC);
         font-style: normal;
-        background-color: var(--WH);
+        background-color: var(--background);
 }
 .Ser {font-family: var(--Ser);}
 .San {font-family: var(--San);}
@@ -190,6 +213,7 @@ h3,.h3FZ {font-size: var(--h3FZ);}
 .largeFZ {font-size: var(--largeFZ);}
 h4,h5,h6 {font-size: inherit;}
 h1,h2,h3,h4,h5,h6,.largeFZ {
+        color: var(--HTC);
         font-family: var(--HFF);
         font-weight: var(--HFW);
         line-height: var(--HLH);
@@ -203,18 +227,7 @@ h1,h2,h3,h4,h5,h6,.largeFZ {
 .gap{gap: var(--gap);}
 .gapH{gap: var(--gapH);}
 
-:root {
-        --bds: solid;
-        --bdw: 1px;
-        --bdc: var(--TC30);  
-        --line:var(--bdw) var(--bds) var(--bdc); 
-        --tsw: 4px;
-        --TS: 0 0 0.25em var(--BK90);
-        --DS: drop-shadow(0 0 0.25em var(--BK70));
-        --BS: 0.25rem 0.25rem 0rem var(--BK10);
-        --WTS: var(--tsw) var(--BK);
-        --BGgrad: linear-gradient(90deg, var(--BK), transparent 80%) no-repeat center/100% 100%;
-}
+
 .BorderT{border-top   : var(--line);}
 .BorderB{border-bottom: var(--line);}
 .BorderL{border-left  : var(--line);}

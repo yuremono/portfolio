@@ -4,6 +4,8 @@ import { fileURLToPath } from 'node:url'
 import { defineConfig } from 'vitest/config'
 import react from '@vitejs/plugin-react'
 
+import { vitePluginBboxLocalBatch } from './vitePluginBboxLocalBatch'
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 // https://vite.dev/config/
@@ -14,7 +16,7 @@ export default defineConfig(({ mode }) => ({
 			"@": path.resolve(__dirname, "./src"),
 		},
 	},
-	plugins: [react()],
+	plugins: [react(), vitePluginBboxLocalBatch(__dirname)],
 	build: {
 		rollupOptions: {
 			input: {
@@ -27,6 +29,7 @@ export default defineConfig(({ mode }) => ({
 				twonlyTest26: path.resolve(__dirname, "TWonly/test26.html"),
 				twonlyTest9: path.resolve(__dirname, "TWonly/test9.html"),
 				twonlyZzzScratch: path.resolve(__dirname, "TWonly/zzzscratch.html"),
+				twonlyBbox: path.resolve(__dirname, "TWonly/bbox.html"),
 			},
 		},
 	},

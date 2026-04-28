@@ -1,4 +1,8 @@
 /** @type {import('tailwindcss').Config} */
+/**
+ * Arbitrary クラス `[prop:value]` の value に空白を含めるときは `_` で書く（JIT がソースを単語分割するため）。
+ * 生成 CSS では `_` が空白に戻る。OKLCH は `[--x:oklch(0.06_0_0)]` のように書けば問題なく出力される。
+ */
 import plugin from "tailwindcss/plugin";
 
 /** Default Tailwind font sizes as plain strings: only font-size, no line-height on text-* utilities. */
@@ -47,6 +51,10 @@ export default {
                                 muted: cssVarColor("muted"),
                                 background: cssVarColor("background"),
                                 border: cssVarColor("border"),
+                                third: cssVarColor("third"),
+                                fourth: cssVarColor("fourth"),
+                                stage: cssVarColor("stage"),
+                                rail: cssVarColor("rail"),
                         },
 		},
 	},

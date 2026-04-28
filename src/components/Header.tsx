@@ -142,6 +142,9 @@ function HeaderNav() {
 						<Link to="/grid-carousel">GridCarousel</Link>
 					</li>
 					<li className="DropLi">
+						<Link to="/bbox">BBox</Link>
+					</li>
+					<li className="DropLi">
 						<Link to="/activity">Activity</Link>
 					</li>
 					<li className="DropLi">

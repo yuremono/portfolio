@@ -300,7 +300,7 @@
         // --MY5, --bc, --mc, --sc, --rad, --gap, --imgW
         @apply relative;
         --MY: 0em;
-        --bg: var(--un);
+        --bg: var(--UN);
         --beforeFZ: 75%;
         --beforeC: var(--MC);
         --afterW: 2em;
@@ -760,7 +760,7 @@
         --PES: 0.55;
         --PVM: 0.5;
         --stw: 1;
-        --stc: var(--cur);
+        --stc: var(--CC);
         @apply min-h-[55vh];
 
         svg {
@@ -781,7 +781,7 @@
         --PDS: 0.2;
         --PVM: 0.345;
         --stw: 1px;
-        --stc: var(--cur);
+        --stc: var(--CC);
         @apply relative;
 
         >.BorderDrawSvg {
@@ -811,7 +811,7 @@
 
 :where(.RgbShift) {
         --stw: 20;
-        --stc: var(--cur);
+        --stc: var(--CC);
         --RgbShiftRX: -10px;
         --RgbShiftRY: -5px;
         --RgbShiftBX: 10px;

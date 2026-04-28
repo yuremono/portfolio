@@ -40,7 +40,7 @@ export default function BboxToolbar({
 	return (
 			<header
 				data-l="EditorToolbar"
-				className="flex shrink-0 flex-wrap items-center gapH PX py-3 BorderB bg-WH/80 BS"
+				className="flex shrink-0 flex-wrap items-center gapH PX  BorderB bg-background/80 BS min-h-[--head]"
 				aria-label="編集ツールバー"
 			>
 			<li className="NavLi">
@@ -71,7 +71,7 @@ export default function BboxToolbar({
 							type="button"
 							aria-pressed={st.containerW === w}
 							aria-label={`表示幅 ${w} ピクセル`}
-							className={`whitespace-nowrap rounded BorderXY px-[10px] py-1 text-[11px] transition-colors hover:border-accent hover:text-accent ${
+							className={`whitespace-nowrap rounded BorderXY px-[10px] py-1 text-[11px] transition-colors  hover:border-accent hover:text-accent ${
 								st.containerW === w
 									? "border-accent bg-accent/10 text-accent"
 									: "text-GR"

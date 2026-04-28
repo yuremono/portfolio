@@ -23,7 +23,6 @@ h3,.h3FZ {font-size: var(--h3FZ);}
 .largeFZ {font-size: var(--largeFZ);}
 h4,h5,h6 {font-size: inherit;}
 h1,h2,h3,h4,h5,h6,.largeFZ {
-        color: var(--TC);
         font-family: var(--HFF);
         font-weight: var(--HFW);
         line-height: var(--HLH);
@@ -32,6 +31,7 @@ h1,h2,h3,h4,h5,h6,.largeFZ {
 
 .wid {width: var(--wid);}
 .PX {padding-inline: var(--PX);}
+.PY {padding-block: var(--PY);}
 .PX2 {padding-inline: var(--PX2);}
 .MY {margin-block: var(--MY);}
 .gap{gap: var(--gap);}
@@ -98,8 +98,12 @@ h1,h2,h3,h4,h5,h6,.largeFZ {
 dialog{
         display: block;
         transition: var(--trans);
+        top: 0;
         opacity: 0;
         pointer-events: none;
+        >*{
+                transition: none;
+        }
         &[open]{
                 opacity: 1;
                 pointer-events: auto;

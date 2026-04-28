@@ -4,7 +4,7 @@ import {
 	XIcon,
 } from "@phosphor-icons/react";
 
-export interface FullscreenDialogProps {
+export interface DialogBaseProps {
 	id: string;
 	open: boolean;
 	/**
@@ -19,7 +19,7 @@ export interface FullscreenDialogProps {
 	onOpenChange: (open: boolean) => void;
 }
 
-export function FullscreenDialog({
+export function DialogBase({
 	id,
 	open,
 	dialogAriaLabel,
@@ -28,7 +28,7 @@ export function FullscreenDialog({
 	closeAriaLabel,
 	children,
 	onOpenChange,
-}: FullscreenDialogProps) {
+}: DialogBaseProps) {
 	const dialogRef = useRef<HTMLDialogElement>(null);
 	const previouslyFocusedRef = useRef<HTMLElement | null>(null);
 
@@ -96,17 +96,17 @@ export function FullscreenDialog({
 				dialogAriaLabel ? undefined : ariaDescribedBy
 			}
 			aria-modal="true"
-			className="min-h-lvh  w-screen max-w-none overflow-y-auto overscroll-none bg-BC/90    outline-none "
+			className="min-h-lvh  w-screen max-w-none overflow-y-auto overscroll-none bg-WH/20  py-[--head]  outline-none cursor-pointer "
 			onClick={(event) => {
 				if (event.target === event.currentTarget) {
 					closeDialog();
 				}
 			}}
 		>
-			<article className=" py-[--PX] into">
+			<article className=" wid mx-auto bg-BC/90  p-[--PX2]  rounded-[--rad] cursor-default ">
 				<button
 					type="button"
-					className="textlink DS shrink-0 text-AC fixed top-[--PX] right-[--into] p-2  "
+					className="textlink DS shrink-0 text-AC fixed top-[--PX] right-[calc(var(--into)+1rem)] p-2  "
 					onClick={closeDialog}
 					data-dialog-initial-focus
 					aria-label={closeAriaLabel}

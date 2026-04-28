@@ -208,7 +208,7 @@ export default function BboxSidebar({
 			data-l="SidebarPanel"
 			aria-label="グループ一覧と出力"
 			lang="ja"
-			className="flex shrink-0 flex-col overflow-hidden BorderL bg-WH/80 BS mt-0"
+			className="flex shrink-0 flex-col overflow-hidden BorderL bg-background/80 BS mt-0"
 			style={{ width: sidebarWidthPx, flexShrink: 0 }}
 		>
 			<div
@@ -280,7 +280,7 @@ export default function BboxSidebar({
 									}`}
 								>
 									<div
-										className="flex cursor-pointer items-center gap-1.5 px-2 py-1.5 text-[11px] hover:bg-WH/5"
+										className="flex cursor-pointer items-center gap-1.5 px-2 py-1.5 text-[11px] hover:bg-background/5"
 										onClick={(e) => {
 											if ((e.target as HTMLElement).closest("[data-del]"))
 												return;
@@ -456,7 +456,7 @@ export default function BboxSidebar({
 														role="treeitem"
 														tabIndex={0}
 														aria-selected={childSelected}
-														className={`cursor-grab overflow-hidden rounded py-0.5 hover:bg-WH/5 active:cursor-grabbing ${
+														className={`cursor-grab overflow-hidden rounded py-0.5 hover:bg-background/5 active:cursor-grabbing ${
 															childSelected
 																? "border-l-2 border-accent bg-accent/10 pl-1.5 text-accent"
 																: ""
@@ -573,7 +573,7 @@ export default function BboxSidebar({
 										})}
 										{g.boxes.length > 0 ? (
 											<div
-												className="min-h-2 rounded py-0.5 hover:bg-WH/5"
+												className="min-h-2 rounded py-0.5 hover:bg-background/5"
 												onDragOver={(e) =>
 													onChildDragOver(e, g.id, g.boxes.length)
 												}

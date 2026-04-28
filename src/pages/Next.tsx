@@ -15,7 +15,7 @@ import {
 	ListPlusIcon,
 	ArrowSquareOutIcon,
 } from "@phosphor-icons/react";
-import { FullscreenDialog } from "../components/FullscreenDialog";
+import { DialogFull } from "../components/DialogFull";
 import Header from "../components/Header";
 import { Footer } from "../components/Footer";
 import { PageRoot } from "../components/PageRoot";
@@ -121,7 +121,7 @@ function Next() {
 							<div className="text-base mmPin mmStatic max-w-[calc(var(--wid)/2)]  experience_tx text-left San font-light   leading-[2em] static lg:absolute left-1/2 top-[--MY] z-10 p-4 bg-background/80">
 								Cursor / Claude Code / Codex を使用
 								<br />
-								AI前提のツール使用経験を積み重ねています。
+								↓ツール使用経験をまとめています。
 								<br />
 								<button
 									type="button"
@@ -147,9 +147,10 @@ function Next() {
 										This Site
 									</h3>
 									<span className="budoux">
-									        スタイルやモジュールを再利用するために、実務外で制作したページをまとめています。<br />
-        									このページはオリジナルCMSのトップページを移植したものです。
-        									以前の状態ですが、管理画面はこちらからご覧いただけます。
+										実務外で制作したページや自作ツールをまとめています。
+										<br />
+										このページはオリジナルCMSのトップページを移植しました。
+										以前の状態ですが、管理画面はこちらからご覧いただけます。
 									</span>
 									<br />
 									<span className="mt-2 mr-6 font-medium">
@@ -195,7 +196,7 @@ function Next() {
 								GSAP
 							</p>
 						</div>
-						<FullscreenDialog
+						<DialogFull
 							id="experience-dialog"
 							open={experienceDialogOpen}
 							dialogAriaLabel="Experience and Dependencies"
@@ -215,7 +216,11 @@ function Next() {
 										Experience and Dependencies
 									</h2>
 									<p className="mt-2 leading-[--LH]">
-										経験とAI依存の詳細。<span className="leading-[1.5] px-[1em] bg-AC/30">&nbsp;&nbsp;</span> は特に注力しているもの。
+										経験とAI依存の詳細。
+										<span className="leading-[1.5] px-[1em] bg-AC/30">
+											&nbsp;&nbsp;
+										</span>{" "}
+										は特に注力しているもの。
 									</p>
 								</div>
 							</header>
@@ -251,8 +256,9 @@ function Next() {
 													<dt className="">
 														Codex / web
 													</dt>
-                                                                                                        <dd><span className="px-2 bg-AC/30 font-medium">
-                                                                                                        1 Month / 1 Year
+													<dd>
+														<span className="px-2 bg-AC/30 font-medium">
+															1 Month / 1 Year
 														</span>
 													</dd>
 													<dt className="">
@@ -289,10 +295,10 @@ function Next() {
 													<dd>AI 6 Month</dd>
 													<dt>React/Next.Js/Vite</dt>
 													<dd>
-                                                                                                        <span className="px-2 bg-AC/30 font-medium">
+														<span className="px-2 bg-AC/30 font-medium">
 															AI 1 Year
 														</span>
-                                                                                                        </dd>
+													</dd>
 													<dt>vue/astro/svelte</dt>
 													<dd>AI 4 Month</dd>
 												</dl>
@@ -362,7 +368,9 @@ function Next() {
 														</span>
 													</dd>
 													<dt className="">Figma</dt>
-													<dd>HtmlToFigmaなど補助利用</dd>
+													<dd>
+														HtmlToFigmaなど補助利用
+													</dd>
 													<dt className="">
 														Pencil.dev
 													</dt>
@@ -377,13 +385,17 @@ function Next() {
 															数回
 														</span>
 													</dd>
-													<dt className="">GPT Image-2.0</dt>
+													<dt className="">
+														GPT Image-2.0
+													</dt>
 													<dd>
 														<span className="px-2 bg-AC/30 font-medium">
 															LPデザイン作成
 														</span>
 													</dd>
-													<dt className="">Claude Design</dt>
+													<dt className="">
+														Claude Design
+													</dt>
 													<dd>
 														<span className="">
 															まだ未使用
@@ -541,7 +553,7 @@ function Next() {
 									<CardsItem></CardsItem>
 								</Cards>
 							</section>
-						</FullscreenDialog>
+						</DialogFull>
 					</div>
 					<section className="Cards col2 relative items-center into">
 						<div className="item">
@@ -597,10 +609,9 @@ function Next() {
 									</details>
 								</div>
 							</div>
-                                                </div>
-                                                <p className="bg-GR/70 text-xs md:text-xl absolute z-10  font-thin Eng text-[--WH] min-h-[2.5rem] content-center left-0 bottom-0 w-full text-align-last-justify px-2 md:px-16">
-								Typescript PhotoShop Figma Three.js Supabase
-								GSAP
+						</div>
+						<p className="bg-GR/70 text-xs md:text-xl absolute z-10  font-thin Eng text-[--WH] min-h-[2.5rem] content-center left-0 bottom-0 w-full text-align-last-justify px-2 md:px-16">
+							Typescript PhotoShop Figma Three.js Supabase GSAP
 						</p>
 					</section>
 				</ScrollXSection>
@@ -686,26 +697,38 @@ function Next() {
 								</Button>
 							</div>
 						</CardsItem>
-						<CardsItem className={`${otherWorksClasses.item}`}>
+						<CardsItem className={`${otherWorksClasses.item}  lg:w-2/5`}>
 							<h3>Activity</h3>
 							<p className={otherWorksClasses.body}>
 								職務要約と活動記録を書いています。
 							</p>
 							<div className={otherWorksClasses.actions}>
 								<Button
-									className={`w-full ${otherWorksClasses.button}`}
+									className={`ml-auto  ${otherWorksClasses.button}`}
 									href="/activity"
 								>
 									Activity
 								</Button>
 							</div>
-							<h3 className="mt-[--PX]">GridCarousel</h3>
+							<h3 className="mt-6 pt-6 BorderT">BoundingBoxOnDesign</h3>
+							<p className={otherWorksClasses.body}>
+                                                        AI生成のLPデザインにバウンディングボックスを配置し、画像+構造化データをエージェントに渡すツールです。
+							</p>
+							<div className={otherWorksClasses.actions}>
+								<Button
+									className={`ml-auto  ${otherWorksClasses.button}`}
+									href="/bbox"
+								>
+									BBox
+								</Button>
+							</div>
+							<h3 className="mt-6 pt-6 BorderT">GridCarousel</h3>
 							<p className={otherWorksClasses.body}>
 								グリッドカルーセルです
 							</p>
 							<div className={otherWorksClasses.actions}>
 								<Button
-									className={`w-full ${otherWorksClasses.button}`}
+									className={`ml-auto  ${otherWorksClasses.button}`}
 									href="/grid-carousel"
 								>
 									GridCarousel
@@ -713,7 +736,7 @@ function Next() {
 							</div>
 						</CardsItem>
 						<CardsItem
-							className={`${otherWorksClasses.item} inline-size lg:w-2/3`}
+							className={`${otherWorksClasses.item}  lg:w-3/5`}
 						>
 							<h3>Pages</h3>
 							<p className={otherWorksClasses.body}>
@@ -741,7 +764,7 @@ function Next() {
 									<ArrowSquareOutIcon />
 								</Button>
 							</div>
-							<h4 className="mt-4">Chat Canban</h4>
+							<h3 className="mt-6 pt-6 BorderT">Chat Canban</h3>
 							<p className={otherWorksClasses.body}>
 								ローカル環境の特定ブラウザ(Chromium系)に拡張機能をインストールし、
 								ChatGPTやGeminiにチャット履歴を送信するためのUIを設置。

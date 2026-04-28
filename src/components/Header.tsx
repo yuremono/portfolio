@@ -136,9 +136,6 @@ function HeaderNav() {
 						<Link to="/glitch">Glitch</Link>
 					</li>
 					<li className="DropLi">
-						<Link to="/examples">EX.forBuildSKILL</Link>
-					</li>
-					<li className="DropLi">
 						<Link to="/grid-carousel">GridCarousel</Link>
 					</li>
 					<li className="DropLi">

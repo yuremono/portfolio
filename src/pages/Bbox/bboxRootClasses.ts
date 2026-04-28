@@ -11,7 +11,7 @@ export const bboxScrollOverflowThumbClass =
 	"[&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-GR/45";
 
 export const rootClasses =
-	"flex min-h-0 h-[100dvh] flex-col overflow-hidden [--wid:100%] [--FF:ui-monospace] [--bdc:--WH] [--line:1px_solid_var(--GR)] " +
-	"[--TC:oklch(0.88_0_0)] [--BC:oklch(0.14_0_0)] [--GR:oklch(0.65_0_0)] [--AC:oklch(0.93_0.16_115)] [--WH:oklch(0.22_0_0)] " +
+	"flex min-h-0 h-[100dvh] flex-col overflow-hidden [--head:3rem] md:[--head:4em] [--FF:ui-monospace] [--bdc:--WH] [--line:1px_solid_var(--GR)] bg-BC text-TC " +
+	"[--TC:oklch(0.88_0_0)] [--BC:oklch(0.14_0_0)] [--GR:oklch(0.65_0_0)] [--AC:oklch(0.93_0.16_115)] [--background:oklch(0.22_0_0)] " +
 	"[--third:oklch(0.72_0.06_145)] [--fourth:oklch(0.63_0.22_25)] [--stage:oklch(0.08_0_0)] [--rail:oklch(0.12_0_0)] " +
-	`${annotatorCanvasRootVars} bg-BC text-TC`;
+	`${annotatorCanvasRootVars} `;

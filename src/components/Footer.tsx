@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { CaretUpIcon, CaretDownIcon ,ArrowSquareOutIcon} from "@phosphor-icons/react";
 
 type FooterProps = {
 	className?: string;
@@ -44,48 +45,58 @@ export function Footer({ className }: FooterProps) {
 			<div className="text-center   ">
 				<p className="mb-0    text-[length:var(--logoFZ)]">
 					yuremono works
-				</p>
-				<div className="space-x-4 mt-6">
-					<a
-						href="https://cms0505.vercel.app/"
-						className="hover:text-[--AC] transition-colors "
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						Works
-					</a>
-					<a
-						href="https://github.com/yuremono/BurnYourOwnStyle/tree/react"
-						className=" hover:text-[--AC] transition-colors"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						BYOS
-					</a>
-					<a
-						href="https://chat-kanban.vercel.app/"
-						className=" hover:text-[--AC] transition-colors"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						ChatCanban
-					</a>
-					<a
-						href="https://github.com/yuremono/creative-demos"
-						className=" hover:text-[--AC] transition-colors"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						CreativeDemos
-					</a>
-					<Link
-						to="/rects"
-						className="hover:text-[--AC] transition-colors"
-					>
-						RandomRects
-					</Link>
-				</div>
-			</div>
+                                </p>
+                        <ul className="flex flex-wrap gap md:justify-center mt-6" >
+					<li className="">
+						<Link to="/preview">BurnYourOwnStyle</Link>
+					</li>
+					<li className="">
+						<Link to="/donut">
+							Donut<small>(ADCMS)</small>
+						</Link>
+					</li>
+					<li className="">
+						<Link to="/rects">RandomGenerator</Link>
+					</li>
+					<li className="">
+						<Link to="/shuffle-divide">ShuffleDivide</Link>
+					</li>
+					<li className="">
+						<Link to="/glitch">Glitch</Link>
+					</li>
+					<li className="">
+						<Link to="/grid-carousel">GridCarousel</Link>
+					</li>
+					<li className="">
+						<Link to="/bbox">BBox</Link>
+					</li>
+					<li className="">
+						<Link to="/activity">Activity</Link>
+					</li>
+					<li className="">
+						<a
+							href="https://chat-kanban.vercel.app/"
+							className=" "
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							ChatCanban&nbsp;
+							<ArrowSquareOutIcon size={16} />
+						</a>
+					</li>
+					<li className="">
+						<a
+							href="https://cms0505.vercel.app/"
+							className=" "
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							NextJsCMS&nbsp;
+							<ArrowSquareOutIcon size={16} />
+						</a>
+					</li>
+                                </ul>
+                                </div>
 		</footer>
 	);
 }

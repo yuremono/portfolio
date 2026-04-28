@@ -501,7 +501,7 @@ em{
     // --arrowContent:"\f105";
     --arrowinset: calc(100% - var(--gap));
     --arrowinset: -2em;
-    --arrowBG: var(--un);
+    --arrowBG: var(--UN);
     --arrowR: 999px;
     --arrowFZ: max(16px, 3vmin);
     --arrowW: 2em;
@@ -525,7 +525,7 @@ em{
 
     .sns_list .sns_date {
         font-family: var(--Eng);
-        color: var(--inh);
+        color: var(--IN);
     }
 
 
@@ -564,7 +564,7 @@ em{
             font-size: inherit;
             height: 3.125rem;
             flex: 1;
-            background-color: var(--un);
+            background-color: var(--UN);
             background-image: repeating-linear-gradient(0deg, var(--bdc), var(--bdc) 1px, transparent 2px, transparent 1em);
             margin-bottom: -1.5rem;
             @media (max-width: 834px){
@@ -600,7 +600,7 @@ em{
     &:before{
         content:'';
         content: "STEP." counter(flow, decimal-leading-zero);
-        font-family: var(--inh);
+        font-family: var(--IN);
         font-size: 1.2em;
         margin-right: 8px;
     }
@@ -609,7 +609,7 @@ em{
 
 .dl_simple {
     //下線のみ
-    --bdc: var(--cur);
+    --bdc: var(--CC);
     --bdw: 1px;
     --bds: solid;
     // --bdc:currentColor;
@@ -1180,7 +1180,7 @@ em{
     padding: 0 0.5em;
     margin-block:.125em ;
     background-color: unset;
-    color: var(--inh);
+    color: var(--IN);
     }
 }
 
@@ -1196,7 +1196,7 @@ em{
         
         // +.sheet,+.board{margin-top: 30px;}
         
-        background-color: var(--un);
+        background-color: var(--UN);
         border-radius: var(--rad);
     // border: unset;
     --bdc: var(--mc30);
@@ -2118,7 +2118,7 @@ em{
 
 .H-bg {
     --bgc: var(--BC);
-    --color: var(--inh);
+    --color: var(--IN);
     --subC: var(--mc);
     :is(h1, h2, h3) {
         display: block;
@@ -2126,7 +2126,7 @@ em{
         color: var(--color);
         padding: 0.125em 0.25em;
         // color: #fff;
-        i{color: var(--inh)}
+        i{color: var(--IN)}
     }
     &.__ac{
         --bgc: var(--AC);
@@ -2333,7 +2333,7 @@ hr {
         // max-height: calc(100lvh );
         // height: 100%;
         @media (max-width: 1440px){
-            // height: var(--un) ;
+            // height: var(--UN) ;
             // aspect-ratio: 3/2;  
         }
 
@@ -2749,7 +2749,7 @@ hr {
         //     position: relative;
         //     overflow: hidden;
         //     @include menu{
-        //         height: var(--un);
+        //         height: var(--UN);
         //         aspect-ratio: 3/2;
         //     }
         //     @media (max-width : 834px){

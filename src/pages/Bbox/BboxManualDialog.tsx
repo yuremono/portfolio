@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { QuestionIcon } from "@phosphor-icons/react";
-import { FullscreenDialog } from "../../components/FullscreenDialog";
+import { DialogBase } from "../../components/DialogBase";
 
 /** 公開向けの簡易マニュアル。ツールバー「一括生成」の直前から全画面モーダルで表示する */
 export default function BboxManualDialog() {
@@ -22,37 +22,49 @@ export default function BboxManualDialog() {
 				<QuestionIcon className="h-4 w-4 shrink-0" aria-hidden />
 				<span>使い方</span>
 			</button>
-			<FullscreenDialog
+			<DialogBase
 				id="bbox-public-manual-dialog"
 				open={open}
 				dialogAriaLabel="BBox エディタの使い方"
 				closeAriaLabel="マニュアルを閉じる"
 				onOpenChange={setOpen}
 			>
-				<div className="San wid mx-auto flex flex-col gap pb-[--PY] text-GR [--HTC:--WH]">
+				<div className="San wid mx-auto flex flex-col gap pb-[--PY] text-GR ">
 					<header className="BorderB pb-[--PY]">
 						<p className="text-xs font-medium uppercase text-accent">
-							BBox エディタ
+							Manual
 						</p>
-						<h2 className="mt-3">使い方（簡易）</h2>
+						<h1 className="h2FZ mt-3 text-TC">
+							Bounding Box On Design
+						</h1>
 						<p className="mt-4 ">
-							写真やスクリーンショットを開き、注目したい矩形を親・子の入れ子で囲み、座標やラベルを
-							JSON または Markdown として取り出せる画面です。データ取りやメモ用の下書きに向いています。
+                                                AI生成のLPデザイン全体またはセクション毎の画像にバウンディングボックスを配置し、画像+構造化データをエージェントに渡すためのツールです。{" "}
+							<br />
+							LLMの画像認識能力は構造化データに置き換える能力ではないので、人間が直感的に理解できる構造をAIは理解できません。
+							「忠実に再現して」と言ったところで学習データに基づくテンプレートに当てはめて構築します。
+							丁寧にスタイリングの指示を出す代わりに少ない手間で再現度を上げるためのツールです。
+							以降の説明はAIによるもので矛盾が含まれる場合があります。
 						</p>
 					</header>
 					<section
 						className="flex flex-col gapH"
 						aria-labelledby="bbox-manual-start"
 					>
-						<h3 id="bbox-manual-start">始め方</h3>
+						<h3 className="text-TC mt-4" id="bbox-manual-start">
+							始め方
+						</h3>
 						<ul className="flex list-inside list-disc flex-col gapH ">
 							<li>
 								<span className="text-TC">画像を載せる</span>
-								：ツールバーの「+ 画像を開く」、または中央のキャンバスへ画像ファイルをドラッグ＆ドロップします。
+								：ツールバーの「+
+								画像を開く」、または中央のキャンバスへ画像ファイルをドラッグ＆ドロップします。
 							</li>
 							<li>
-								<span className="text-TC">親の範囲を決める</span>
-								：右の「+ グループ追加」を押したあと、キャンバス上でドラッグして親（大きい枠）を確定します。{" "}
+								<span className="text-TC">
+									親の範囲を決める
+								</span>
+								：右の「+
+								グループ追加」を押したあと、キャンバス上でドラッグして親（大きい枠）を確定します。{" "}
 								<span className="text-TC">Esc</span>
 								で取りやめられます。
 							</li>
@@ -62,7 +74,9 @@ export default function BboxManualDialog() {
 						className="flex flex-col gapH"
 						aria-labelledby="bbox-manual-toolbar"
 					>
-						<h3 id="bbox-manual-toolbar">上部ツールバー</h3>
+						<h3 className="text-TC" id="bbox-manual-toolbar">
+							上部ツールバー
+						</h3>
 						<ul className="flex list-inside list-disc flex-col gapH ">
 							<li>
 								<span className="text-TC">W</span>
@@ -86,9 +100,8 @@ export default function BboxManualDialog() {
 							</li>
 							<li>
 								<span className="text-TC">モード</span>
-								（グループを選んだとき）：<span className="text-TC">
-									親グループ
-								</span>{" "}
+								（グループを選んだとき）：
+								<span className="text-TC">親グループ</span>{" "}
 								では外枠の移動・リサイズができ、親の内側をドラッグするとそのグループごと動かせます。
 								<span className="text-TC">子を追加描画</span>{" "}
 								では親の内側にドラッグして子の矩形を追加します。
@@ -99,7 +112,9 @@ export default function BboxManualDialog() {
 						className="flex flex-col gapH"
 						aria-labelledby="bbox-manual-sidebar"
 					>
-						<h3 id="bbox-manual-sidebar">右のパネル（Groups / Output）</h3>
+						<h3 className="text-TC" id="bbox-manual-sidebar">
+							右のパネル（Groups / Output）
+						</h3>
 						<ul className="flex list-inside list-disc flex-col gapH ">
 							<li>
 								グループ行をクリックするとそのグループがアクティブになります。名前は行をダブルクリックして編集します。
@@ -112,7 +127,8 @@ export default function BboxManualDialog() {
 							</li>
 							<li>
 								<span className="text-TC">カメラ</span>
-								のアイコンは、その親に合わせた範囲で画像と枠線をつなげた PNG を保存します。
+								のアイコンは、その親に合わせた範囲で画像と枠線をつなげた
+								PNG を保存します。
 							</li>
 							<li>
 								キャンバスでは、子編集モードで枠を{" "}
@@ -124,10 +140,11 @@ export default function BboxManualDialog() {
 								のアイコンから、書き出しに含めたいコメントを親・子ごとに付けられます。
 							</li>
 							<li>
-								<span className="text-TC">Output</span>
-								：<span className="text-TC">JSON</span> /{" "}
+								<span className="text-TC">Output</span>：
+								<span className="text-TC">JSON</span> /{" "}
 								<span className="text-TC">Markdown</span>
-								を切り替えて内容を確認し、「Copy to Clipboard」でクリップボードへコピーします。
+								を切り替えて内容を確認し、「Copy to
+								Clipboard」でクリップボードへコピーします。
 							</li>
 						</ul>
 					</section>
@@ -135,7 +152,9 @@ export default function BboxManualDialog() {
 						className="flex flex-col gapH"
 						aria-labelledby="bbox-manual-keys"
 					>
-						<h3 id="bbox-manual-keys">主なキー操作</h3>
+						<h3 className="text-TC" id="bbox-manual-keys">
+							主なキー操作
+						</h3>
 						<ul className="flex list-inside list-disc flex-col gapH ">
 							<li>
 								<span className="text-TC">⌘Z</span> /{" "}
@@ -164,23 +183,20 @@ export default function BboxManualDialog() {
 						className="flex flex-col gapH"
 						aria-labelledby="bbox-manual-batch"
 					>
-						<h3 id="bbox-manual-batch">
+						<h3 className="text-TC" id="bbox-manual-batch">
 							「一括生成（ローカル限定）」について
 						</h3>
 						<p className="">
-							開発者が手元で{" "}
-							<code className="rounded BorderXY bg-BK/30 px-2 py-1 text-TC">
-								npm run dev
-							</code>
-							などでサイトを動かしているときだけ使える補助機能です。
+							ワンクリックでローカルの特定ディレクトリにBB付き画像とmdファイルが作成されます
+							<br />
 							<span className="text-TC">
-								インターネットに公開されただけの静的サイトではファイルは保存されません。
+								公開サイトでは無効です。
 							</span>
-							一般利用では、右側のコピーや親範囲の PNG 保存をご利用ください。
+							カメラアイコンから画像ダウンロード。クリップポードから貼り付けでプロンプトに利用できます。
 						</p>
 					</section>
 				</div>
-			</FullscreenDialog>
+			</DialogBase>
 		</>
 	);
 }

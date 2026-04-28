@@ -2,7 +2,7 @@ import { act } from "react";
 import { createRoot, type Root } from "react-dom/client";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
-import { FullscreenDialog } from "./FullscreenDialog";
+import { DialogFull } from "./DialogFull";
 
 (
 	globalThis as typeof globalThis & { IS_REACT_ACT_ENVIRONMENT?: boolean }
@@ -23,7 +23,7 @@ function renderDialog({ open, onOpenChange = vi.fn() }: RenderDialogOptions) {
 
 	act(() => {
 		root.render(
-			<FullscreenDialog
+			<DialogFull
 				id="test-dialog"
 				open={open}
 				dialogAriaLabel="Test Dialog"
@@ -35,7 +35,7 @@ function renderDialog({ open, onOpenChange = vi.fn() }: RenderDialogOptions) {
 					<p>Dialog description</p>
 				</div>
 				<p>Dialog body</p>
-			</FullscreenDialog>,
+			</DialogFull>,
 		);
 	});
 
@@ -65,7 +65,7 @@ afterEach(() => {
 	HTMLDialogElement.prototype.close = originalClose;
 });
 
-describe("FullscreenDialog", () => {
+describe("DialogFull", () => {
 	it("open=trueでdialogを開き、アクセシビリティ属性を付与する", () => {
 		const { container, root } = renderDialog({ open: true });
 		const dialog = container.querySelector("dialog");
@@ -73,9 +73,7 @@ describe("FullscreenDialog", () => {
 		expect(dialog?.hasAttribute("open")).toBe(true);
 		expect(dialog?.getAttribute("aria-modal")).toBe("true");
 		expect(dialog?.getAttribute("aria-label")).toBe("Test Dialog");
-		expect(
-			dialog?.querySelector("h2")?.textContent,
-		).toBe("Test Dialog");
+		expect(dialog?.querySelector("h2")?.textContent).toBe("Test Dialog");
 
 		unmount(root);
 	});
@@ -100,7 +98,10 @@ describe("FullscreenDialog", () => {
 		const focusSpy = vi.fn();
 		const originalFocus = HTMLElement.prototype.focus;
 		HTMLElement.prototype.focus = function focus(options?: FocusOptions) {
-			if (this instanceof HTMLButtonElement && this.textContent === "Close") {
+			if (
+				this instanceof HTMLButtonElement &&
+				this.textContent === "Close"
+			) {
 				focusSpy(options);
 			}
 		};

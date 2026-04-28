@@ -38,7 +38,7 @@
         --MC: oklch(0.50 0.125 265); 
         --SC: oklch(0.50 0.125 265); 
         --AC: oklch(0.8 0.1 75); 
-        --BC: oklch(98% 0.01 60); 
+        --BC: oklch(99% 0.005 60); 
 
         --TC: oklch(20% 0.00 270); 
         --GR: oklch(75% 0.00 270); 
@@ -99,7 +99,7 @@
 }
 
 :root {
-        --LS: 0.025em;
+        --LS: 0.05em;
         --LH: 2;
         --FW: 300;
         --FZ: 87.5%;
@@ -107,7 +107,6 @@
                 --FZ: 100%;
         }
 
-        --HTC: var(--IN);
         --HFF: var(--Eng);
         --HFW: 500;
         --HLH: 1.25;
@@ -213,14 +212,14 @@
         --PTAF: var(--btnAF);
         // --PTFZ: 1.5em;
         --PTscale: 1.5;
-        --PTC: var(--inh);
-        --PTBG: var(--un);
+        --PTC: var(--IN);
+        --PTBG: var(--UN);
         --PTRad: var(--btnRad);
         --PTW: calc(2.5rem);
         --PTbottom: var(--gapH);
         --PTrightTAB: 0.5em;
         --PTbottomTAB: 0.5em;
-        --PTborder: var(--un);
+        --PTborder: var(--UN);
         @media (max-width: 480px){
             --PTrightTAB: 0.25em;
             --PTbottomTAB: 0.25em;
@@ -258,17 +257,17 @@
             --mvImg:calc(100lvh - var(--head)*2 ); 
         }
         // @include menu{--mvImg:calc(50lvh);}
-        --navFZ: var(--inh); //pcnavFZ
+        --navFZ: var(--IN); //pcnavFZ
         --navLH: 1.5em;
-        --navC: var(--inh); 
+        --navC: var(--IN); 
         --navFW: inherit;
         --dropBG: var(--BC);
         --dropC: var(--TC);
         --SPnavBG: var(--WH); //spnav
         --SPnavBG: var(--innerBG);//spnav 
         --SPnavFZ: 1em;
-        --dropbtnBG: var(--un);
-        --dropbtnBF: var(--cur);
+        --dropbtnBG: var(--UN);
+        --dropbtnBF: var(--CC);
 
         --bargap: calc(var(--btnH) * .25);
         --menuC: var(--BK);
@@ -317,7 +316,7 @@
         --transY: 6vmin;
 }
 :root{//ボタンプロパティ
-        --TLC :var(--inh);
+        --TLC :var(--IN);
         --TLFZ:1.25rem;
         --TLFF:var(--Eng);
         --TLFW:500;
@@ -360,7 +359,7 @@
     
         
         // --btnImg:calc(var(--btnH)*.66 );
-        --btnIC:var(--inh);
+        --btnIC:var(--IN);
         --btnIFF:var(--icon);
         --btnIMX: 0 0.25em ;
         --btnAC:center; 
@@ -374,7 +373,7 @@
         --btnImg:2.25em;
         --btnIdis: inline-block;
         --btnIMX: 0.5em 0;
-        --btnIFC: var(--inh);
+        --btnIFC: var(--IN);
         // --btnIFZ: 1.5em;
         // @media (max-width : 640px){
         --btnIFW: 900;

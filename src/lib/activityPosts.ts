@@ -49,6 +49,22 @@ function parseFrontmatter(raw: string): {
 
 marked.setOptions({ breaks: true, gfm: true });
 
+/**
+ * Markdown 内の `<a href="/foo">` を、Vite の `import.meta.env.BASE_URL`（GitHub Pages の `/repo/` 等）付きにする。
+ * `href="#..."`・`https://`・`//`・`mailto:` 等はそのまま。
+ */
+function rewriteRootAbsoluteHrefs(html: string): string {
+	const base = import.meta.env.BASE_URL;
+	return html.replace(
+		/\bhref\s*=\s*(["'])([^"']+)\1/gi,
+		(_match, quote: string, path: string) => {
+			if (!path.startsWith("/") || path.startsWith("//")) return `href=${quote}${path}${quote}`;
+			const rest = path.slice(1);
+			return `href=${quote}${base}${rest}${quote}`;
+		},
+	);
+}
+
 function parsePriority(raw: string | undefined): number {
 	if (raw === undefined || raw === "") return 0;
 	const n = Number.parseInt(raw, 10);
@@ -112,6 +128,7 @@ export const POSTS: ActivityPost[] = Object.entries(rawModules)
 		const html = marked.parse(preprocessMarkdown(content), {
 			async: false,
 		}) as string;
+		const safe = DOMPurify.sanitize(html);
 		return {
 			id: data.id || fallbackId,
 			label: data.label ?? "",
@@ -120,7 +137,7 @@ export const POSTS: ActivityPost[] = Object.entries(rawModules)
 			dateTime: data.dateTime || "",
 			image: data.image,
 			priority: parsePriority(data.priority),
-			bodyHtml: DOMPurify.sanitize(html),
+			bodyHtml: rewriteRootAbsoluteHrefs(safe),
 			private: parseBoolean(data.private),
 		} satisfies ActivityPost;
 	})

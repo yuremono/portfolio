@@ -1,1 +1,0 @@
-import{j as e}from"./chunk-LFPYN7LY-DfAvohRP.js";const r=({className:s="",children:a})=>e.jsx("div",{className:`item ${s}`,children:a}),m=({className:s="",style:a,children:t})=>e.jsx("div",{className:`Panel ${s}`,style:a,children:t});export{m as P,r as a};

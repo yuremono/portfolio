@@ -11,6 +11,7 @@ const Aozora = lazy(() => import("./pages/Aozora"));
 const Test26 = lazy(() => import("./pages/Test26"));
 const ZzzScratch = lazy(() => import("./pages/ZzzScratch"));
 const Test9 = lazy(() => import("./pages/Test9"));
+const Lumaport = lazy(() => import("./pages/Lumaport"));
 const ShuffleDivide = lazy(() => import("./pages/shuffle-divide"));
 const Glitch = lazy(() => import("./pages/glitch"));
 const Yugen = lazy(() => import("./pages/yugen"));
@@ -36,6 +37,7 @@ function App() {
 					<Route path="/Test26" element={<Test26 />} />
 					<Route path="/ZzzScratch" element={<ZzzScratch />} />
 					<Route path="/Test9" element={<Test9 />} />
+					<Route path="/Lumaport" element={<Lumaport />} />
 					<Route path="/shuffle-divide" element={<ShuffleDivide />} />
 					<Route path="/glitch" element={<Glitch />} />
 					<Route path="/yugen" element={<Yugen />} />

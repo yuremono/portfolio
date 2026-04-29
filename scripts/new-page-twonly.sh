@@ -44,11 +44,12 @@ import { useRef } from "react";
 import { PageRoot } from "../components/PageRoot";
 import { useClientRuntime } from "../hooks/useClientRuntime";
 import { useHtmlRootClass } from "../hooks/useHtmlRootClass";
+// 必ず使うので消さずにコメントで残す
 import { getAssetPath } from "../lib/assetPath";
 
 
 
-// PageRoot: テーマ・寸法の塊。特殊レイアウトのまとまり。
+// PageRoot: デザイン再現のために変数を上書きする。--headは必須。hero高さが計算できないのでpyでヘッダー高さを決めない。
 const pageRootClass =" [--head:3.5rem] md:[--head:4.5rem] [--mvH:calc(100lvh_-_var(--head))]";
 
 const mainClass = "min-h-[100lvh] ";
@@ -62,7 +63,7 @@ function ${PASCAL}() {
 	return (
 		<PageRoot ref={pageRootRef} className={pageRootClass}>
 			<main className={mainClass}>
-				
+				{/* main>* にスタイル指定有り、必ず確認し、必要なら無効化する */}
 			</main>
 		</PageRoot>
 	);

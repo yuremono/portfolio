@@ -48,7 +48,7 @@ h1,h2,h3,h4,h5,h6,.largeFZ {
 .TS {text-shadow: var(--TS);}
 .DS {filter: drop-shadow(var(--DS));}
 .BS {box-shadow: var(--BS);}
-.WTS {-webkit-text-stroke: var(--ST);paint-order: stroke;}
+.WTS {-webkit-text-stroke: var(--WTS);paint-order: stroke;}
 .BGgrad {background: var(--BGgrad);}
 .TS2 {text-shadow: var(--TS);}
 .DS2 {filter: drop-shadow(var(--DS));}
@@ -96,7 +96,6 @@ h1,h2,h3,h4,h5,h6,.largeFZ {
         }
 }
 dialog{
-        display: block;
         transition: var(--trans);
         top: 0;
         opacity: 0;

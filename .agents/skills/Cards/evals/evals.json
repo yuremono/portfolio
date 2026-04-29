@@ -1,0 +1,20 @@
+{
+  "skill_name": "Cards",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Cards セクションを作って、3 列レイアウトで幅 1200 ピクセル、ギャップ 20 ピクセルにしてください",
+      "expected_output": "cards.col3 クラスを使用した HTML 構造、--gap: 20px カスタム変数、max-width: 1200px 設定"
+    },
+    {
+      "id": 2,
+      "prompt": "カードグリッドのレイヤーモードを使って、画像とテキストを重ねるコンポーネントを作成して",
+      "expected_output": "cards.is_layer クラス、figure と div の grid 配置、z-index 使用"
+    },
+    {
+      "id": 3,
+      "prompt": "4 カラムのカードレイアウトを作りたい。Tailwind で装飾も追加して",
+      "expected_output": "cards.col4 クラス、Tailwind クラスでの装飾上書き、レスポンシブ対応"
+    }
+  ]
+}

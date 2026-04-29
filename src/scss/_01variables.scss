@@ -144,10 +144,11 @@
         --bdc: var(--TC30);  
         --line:var(--bdw) var(--bds) var(--bdc); 
         --tsw: 4px;
+        --tsc: var(--MC);
         --TS: 0 0 0.25em var(--BK90);
         --DS: drop-shadow(0 0 0.25em var(--BK70));
         --BS: 0.25rem 0.25rem 0rem var(--BK10);
-        --WTS: var(--tsw) var(--BK);
+        --WTS: var(--tsw) var(--tsc);
         --BGgrad: linear-gradient(90deg, var(--BK), transparent 80%) no-repeat center/100% 100%;
 }
 :root {//space 余白設定

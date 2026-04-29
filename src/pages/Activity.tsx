@@ -169,8 +169,8 @@ function Activity() {
 							</nav>
 						</div>
 						<Image
-							figureClassName="item flex flex-col justify-center gap-2 content-center lg:max-h-[--itemH] overflow-hidden"
-							imgClassName=""
+							figureClassName="item gap-2 content-center lg:max-h-[--itemH] overflow-hidden"
+							imgClassName="max-h-full object-contain"
 							image={currentImageSrcs}
 							alt=""
 						/>

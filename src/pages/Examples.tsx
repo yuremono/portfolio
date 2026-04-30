@@ -7,6 +7,8 @@ import { Image } from "../components/Image";
 // import { RgbShift } from "../components/RgbShift";
 import { PathDraw } from "../components/PathDraw";
 import { LottieScroll } from "../components/LottieScroll";
+import { HoudiniGalleryCards } from "../components/HoudiniGalleryCards";
+
 
 // Common
 import Header from "../components/Header";
@@ -46,8 +48,11 @@ function Examples() {
 						<span>StickyStepは</span>
 						<span>FV向け調整</span>
 					</div>
-                                </section>
-                                
+				</section>
+				{/* Houdini Paint Worklet */}
+				<section className="out bg-[--BC] Eng">
+					<HoudiniGalleryCards />
+				</section>
 				{/* DescList */}
 				<section className="Wrap into">
 					<h2>DescList</h2>
@@ -60,11 +65,11 @@ function Examples() {
 							<dd>パディングを最小にしたコンパクト表示</dd>
 						</dl>
 					</div>
-                                        
+
 					<div className="DescList IsSimple">
 						<dl>
 							<dt>IsSimple</dt>
-                                                        <dd>下線で区切るシンプルなDLリスト</dd>
+							<dd>下線で区切るシンプルなDLリスト</dd>
 							<dt>border-bottom</dt>
 							<dd>dt/ddの下部にボーダーを表示</dd>
 						</dl>
@@ -79,8 +84,6 @@ function Examples() {
 						</dl>
 					</div>
 
-
-
 					<div className="DescList IsBorder">
 						<dl>
 							<dt>IsBorder</dt>
@@ -93,9 +96,9 @@ function Examples() {
 					<div className="DescList IsHead">
 						<dl>
 							<dt>IsHead</dt>
-                                                        <dd>dlにMCカラーの下線を付与</dd>
-                                                        </dl>
-                                                        <dl>
+							<dd>dlにMCカラーの下線を付与</dd>
+						</dl>
+						<dl>
 							<dt>dt background</dt>
 							<dd>下線装飾のためdt,dd一と組づつdlでwrap</dd>
 						</dl>

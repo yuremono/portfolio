@@ -42,6 +42,7 @@ function Preview() {
 						<span>Animation</span>
 					</p>
 				</section>
+
 				{/* Stick Title */}
 				<section className="Stick bp-md IsRev out mt-0 into pb-[--2MY] items-start img1-1 [--scr:50%] [--shift:0%]  bg-[--TC] text-[--WH]">
 					<h1 className=" StickItem  md:min-h-[100lvh] content-center Eng font-medium  pt-6 md:pt-0">

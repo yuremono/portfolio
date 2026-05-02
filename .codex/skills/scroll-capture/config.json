@@ -1,0 +1,28 @@
+{
+  "viewport": {
+    "width": 1920,
+    "height": 960
+  },
+  "scroll": {
+    "startY": 0,
+    "endY": "auto",
+    "step": 500,
+    "wheelIntervalMs": 200,
+    "initialWaitMs": 1000,
+    "waitMs": 200,
+    "maxShots": 5
+  },
+  "capture": {
+    "format": "jpeg",
+    "quality": 60
+  },
+  "chrome": {
+    "remoteDebuggingPort": 9223
+  },
+  "output": {
+    "dir": "tmp/scroll-captures/{site}"
+  },
+  "preCapture": {
+    "dismissCookieBanner": true
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "scroll": {
+    "startY": 0,
+    "endY": "auto",
+    "step": 500,
+    "wheelIntervalMs": 200,
+    "initialWaitMs": 2000,
+    "waitMs": 200,
+    "maxShots": 10
+  },
+  "capture": {
+    "format": "jpeg",
+    "quality": 90
+  },
+  "chrome": {
+    "remoteDebuggingPort": 9224
+  },
+  "output": {
+    "dir": "tmp/scroll-captures/{site}/iphone"
+  },
+  "preCapture": {
+    "dismissCookieBanner": true
+  }
+}
+

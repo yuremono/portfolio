@@ -49,36 +49,41 @@ function Examples() {
 						<span>FV向け調整</span>
 					</div>
 					</section>
-					{/* Houdini Paint Worklet */}
-					<section className="out bg-[--BC] Eng">
-						<HoudiniGalleryCards />
-					</section>
-					<section className="Wrap bg-[--TC] text-[--WH] Eng">
-						<div className="Cards col4 MaskMosaique [--mosaique-mask-color:var(--TC)] [--mosaique-colors:#ff3b30,#ff8a65,#3548fe,#151a36]">
-							<div className="item min-h-[30lvh] content-between bg-[rgba(255,255,255,0.08)] p-6">
+					<section className="Wrap PX bg-TC text-[--WH] Eng">
+						<div className="Cards col4 MaskMosaique [--mosaique-colors:#3548FE,#353F9E,#4855DB,#151A36,#2D38B7,#434ECB]">
+							<div className="item min-h-[30lvh] p-6">
 								<p className="text-xl">MaskMosaique</p>
 								<h2 className="h3FZ">Layered block</h2>
 							</div>
-							<div className="item min-h-[30lvh] content-between bg-[rgba(255,255,255,0.08)] p-6 [--mosaique-delay:120]">
+							<div className="item min-h-[30lvh] p-6">
 								<p className="text-xl">MaskMosaique</p>
 								<h2 className="h3FZ">Random reveal</h2>
 							</div>
-							<div className="item min-h-[30lvh] content-between overflow-hidden bg-[rgba(255,255,255,0.08)] p-0 [--mosaique-delay:240]">
+							<div className="item relative min-h-[30lvh] overflow-hidden p-6">
 								<video
-									className="h-full min-h-[30lvh] w-full object-cover opacity-70"
+									className="absolute inset-0 h-full w-full object-cover opacity-30 mix-blend-screen"
 									src={getAssetPath("/video/demo.mp4")}
 									autoPlay
 									muted
 									loop
 									playsInline
 								/>
+								<div className="relative">
+									<p className="text-xl">MaskMosaique</p>
+									<h2 className="h3FZ">Media layer</h2>
+								</div>
 							</div>
-							<div className="item min-h-[30lvh] content-between bg-[rgba(255,255,255,0.08)] p-6 [--mosaique-delay:360]">
+							<div className="item min-h-[30lvh] p-6">
 								<p className="text-xl">MaskMosaique</p>
 								<h2 className="h3FZ">Canvas mask</h2>
 							</div>
 						</div>
 					</section>
+					{/* Houdini Paint Worklet */}
+					<section className="out bg-BC Eng">
+						<HoudiniGalleryCards />
+					</section>
+
 					{/* DescList */}
 					<section className="Wrap into">
 					<h2>DescList</h2>

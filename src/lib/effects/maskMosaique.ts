@@ -1,27 +1,17 @@
 const HOST_SELECTOR = ".MaskMosaique";
-const ITEM_SELECTOR =
-	":scope > :not(canvas):not(script):not(style), :scope [data-mask-mosaique-item]";
 const ATTR = "data-mask-mosaique";
 const CANVAS_ATTR = "data-mask-mosaique-canvas";
+const ITEM_ATTR = "data-mask-mosaique-item";
 
 export type RuntimeDisconnect = { disconnect: () => void };
 
-interface MosaicTile {
+interface ShadowObject {
 	x: number;
 	y: number;
-	w: number;
-	h: number;
-	item: HTMLElement;
-	order: number;
-	delay: number;
-}
-
-interface Glow {
-	x: number;
-	y: number;
-	r: number;
-	vx: number;
-	vy: number;
+	size: number;
+	dirX: 1 | -1;
+	dirY: 1 | -1;
+	speed: number;
 	color: string;
 }
 
@@ -29,13 +19,40 @@ interface HostState {
 	host: HTMLElement;
 	canvas: HTMLCanvasElement;
 	ctx: CanvasRenderingContext2D;
-	tiles: MosaicTile[];
-	glows: Glow[];
-	startTime: number | null;
-	revealed: boolean;
+	offscreenCanvas: HTMLCanvasElement;
+	offscreenCtx: CanvasRenderingContext2D;
+	objects: ShadowObject[];
+	active: boolean;
+	then: number;
+	resizeTimeoutId: number | null;
+	lastViewportWidth: number;
+	resizeObserver: ResizeObserver | null;
 }
 
+const DEFAULT_COLORS = [
+	"#3548FE",
+	"#353F9E",
+	"#4855DB",
+	"#151A36",
+	"#3548fe",
+	"#2D38B7",
+	"#434ECB",
+];
+
+const VARPI = 2 * Math.PI;
+const RESIZE_DEBOUNCE_MS = 200;
 const states = new Set<HostState>();
+let rafId: number | null = null;
+
+function isMobileAgent(): boolean {
+	return /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(
+		navigator.userAgent,
+	);
+}
+
+function vwToPx(vw: number): number {
+	return (vw / 100) * window.innerWidth;
+}
 
 function readNumber(el: HTMLElement, name: string, fallback: number): number {
 	const raw = getComputedStyle(el).getPropertyValue(name).trim();
@@ -46,199 +63,250 @@ function readNumber(el: HTMLElement, name: string, fallback: number): number {
 
 function readColors(el: HTMLElement): string[] {
 	const raw = getComputedStyle(el).getPropertyValue("--mosaique-colors").trim();
-	if (!raw) {
-		return ["#3548fe", "#2d38b7", "#4855db", "#151a36"];
-	}
-	return raw
+	if (!raw) return DEFAULT_COLORS;
+	const colors = raw
 		.split(",")
 		.map((color) => color.trim())
 		.filter(Boolean);
+	return colors.length > 0 ? colors : DEFAULT_COLORS;
 }
 
-function getItems(host: HTMLElement): HTMLElement[] {
-	const seen = new Set<HTMLElement>();
-	const items: HTMLElement[] = [];
-	host.querySelectorAll(ITEM_SELECTOR).forEach((node) => {
-		if (!(node instanceof HTMLElement)) return;
-		if (node.hasAttribute(CANVAS_ATTR)) return;
-		const directHost = node.closest(HOST_SELECTOR);
-		if (directHost !== host) return;
-		if (seen.has(node)) return;
-		seen.add(node);
-		items.push(node);
-	});
-	return items;
+function formatPathNumber(value: number): string {
+	return Number(value.toFixed(3)).toString();
 }
 
-function resizeCanvas(state: HostState) {
-	const rect = state.host.getBoundingClientRect();
-	const dpr = Math.min(window.devicePixelRatio || 1, 2);
-	const width = Math.max(1, Math.round(rect.width));
-	const height = Math.max(1, Math.round(rect.height));
-	state.canvas.width = Math.round(width * dpr);
-	state.canvas.height = Math.round(height * dpr);
+function getViewportWidth(): number {
+	return window.visualViewport?.width ?? window.innerWidth;
+}
+
+function getTargetItems(host: HTMLElement): HTMLElement[] {
+	const explicit = Array.from(
+		host.querySelectorAll<HTMLElement>(`[${ITEM_ATTR}]`),
+	).filter((item) => item.closest(HOST_SELECTOR) === host);
+
+	if (explicit.length > 0) {
+		return explicit;
+	}
+
+	return Array.from(host.children).filter(
+		(child): child is HTMLElement =>
+			child instanceof HTMLElement &&
+			!child.hasAttribute(CANVAS_ATTR) &&
+			!["CANVAS", "SCRIPT", "STYLE"].includes(child.tagName),
+	);
+}
+
+function getNumByArea(state: HostState): number {
+	const area = state.canvas.width * state.canvas.height;
+	if (!isMobileAgent()) return 2;
+	if (area < 300000) return 3;
+	if (area < 500000) return 4;
+	return 5;
+}
+
+function resizeCanvas(state: HostState): void {
+	const width = state.host.offsetWidth;
+	const height = state.host.offsetHeight;
+	if (!width || !height) return;
+
+	state.canvas.width = width;
+	state.canvas.height = height;
 	state.canvas.style.width = `${width}px`;
 	state.canvas.style.height = `${height}px`;
-	state.ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-	buildTiles(state);
-	buildGlows(state);
+	state.offscreenCanvas.width = width;
+	state.offscreenCanvas.height = height;
 }
 
-function buildTiles(state: HostState) {
-	const hostRect = state.host.getBoundingClientRect();
-	const factor = readNumber(state.host, "--mosaique-size-factor", 0.01875);
-	const items = getItems(state.host);
-	const tiles: MosaicTile[] = [];
+function createObjects(state: HostState): void {
+	const mobile = isMobileAgent();
+	const colors = readColors(state.host);
+	const baseSize = readNumber(state.host, "--mosaique-base-size", mobile ? 12 : 4);
+	const sizeVariation = readNumber(
+		state.host,
+		"--mosaique-size-variation",
+		mobile ? 4 : 1.5,
+	);
+	const initialDuration = readNumber(state.host, "--mosaique-duration", 7);
+	const durationVariation = readNumber(state.host, "--mosaique-duration-variation", 6);
+	const speedCoef = readNumber(state.host, "--mosaique-speed", mobile ? 2 : 0.7);
+	const total = colors.length * getNumByArea(state);
+
+	state.objects = Array.from({ length: total }, (_, index) => {
+		const finalSizeVw = baseSize + Math.random() * sizeVariation;
+		const duration = initialDuration + Math.random() * durationVariation;
+		return {
+			x: Math.random() * state.canvas.width,
+			y: Math.random() * state.canvas.height,
+			size: vwToPx(finalSizeVw),
+			dirX: Math.random() < 0.5 ? -1 : 1,
+			dirY: Math.random() < 0.5 ? -1 : 1,
+			speed: (state.canvas.width / (duration * readNumber(state.host, "--mosaique-fps", 35))) * speedCoef,
+			color: colors[index % colors.length],
+		};
+	});
+}
+
+function clampObjectsToCanvas(state: HostState): void {
+	const mobile = isMobileAgent();
+	const baseSize = readNumber(state.host, "--mosaique-base-size", mobile ? 12 : 4);
+	const sizeVariation = readNumber(
+		state.host,
+		"--mosaique-size-variation",
+		mobile ? 4 : 1.5,
+	);
+	const boundary = vwToPx(baseSize + sizeVariation);
+	const maxX = state.canvas.width + boundary;
+	const maxY = state.canvas.height + boundary;
+	const minBoundary = -boundary;
+
+	state.objects.forEach((obj) => {
+		obj.x = Math.max(minBoundary, Math.min(obj.x, maxX));
+		obj.y = Math.max(minBoundary, Math.min(obj.y, maxY));
+	});
+}
+
+function moveObject(obj: ShadowObject, state: HostState): void {
+	obj.x += obj.dirX * obj.speed;
+	obj.y += obj.dirY * obj.speed;
+
+	if (obj.x > state.canvas.width + obj.size / 2 || obj.x < -obj.size / 2) {
+		obj.dirX *= -1;
+	}
+	if (obj.y > state.canvas.height + obj.size / 2 || obj.y < -obj.size / 2) {
+		obj.dirY *= -1;
+	}
+}
+
+function applyClipPath(state: HostState, pathSegments: string[]): void {
+	if (pathSegments.length === 0) {
+		state.canvas.style.clipPath = "none";
+		state.canvas.style.setProperty("-webkit-clip-path", "none");
+		return;
+	}
+
+	const pathString = pathSegments.join(" ");
+	const clipPath = `path('${pathString}')`;
+	state.canvas.style.clipPath = clipPath;
+	state.canvas.style.setProperty("-webkit-clip-path", clipPath);
+	state.canvas.style.willChange = "clip-path";
+	state.canvas.style.transform = "translateZ(0)";
+}
+
+function draw(state: HostState): void {
+	const items = getTargetItems(state.host);
+	if (items.length === 0) {
+		state.ctx.clearRect(0, 0, state.canvas.width, state.canvas.height);
+		applyClipPath(state, []);
+		return;
+	}
+
+	state.offscreenCtx.clearRect(
+		0,
+		0,
+		state.offscreenCanvas.width,
+		state.offscreenCanvas.height,
+	);
+
+	state.objects.forEach((obj) => {
+		state.offscreenCtx.beginPath();
+		state.offscreenCtx.arc(obj.x, obj.y, obj.size, 0, VARPI, false);
+		state.offscreenCtx.fillStyle = obj.color;
+		state.offscreenCtx.shadowColor = obj.color;
+		state.offscreenCtx.shadowBlur = isMobileAgent() ? 0 : 50;
+		state.offscreenCtx.fill();
+		moveObject(obj, state);
+	});
+
+	state.ctx.clearRect(0, 0, state.canvas.width, state.canvas.height);
+	const parentRect = state.host.getBoundingClientRect();
+	const pathSegments: string[] = [];
 
 	items.forEach((item) => {
 		const rect = item.getBoundingClientRect();
-		const x0 = rect.left - hostRect.left;
-		const y0 = rect.top - hostRect.top;
-		const cols = Math.max(1, Math.ceil(rect.width * factor));
-		const rows = Math.max(1, Math.ceil(rect.height * factor));
-		const tileW = Math.ceil(rect.width / cols);
-		const tileH = Math.ceil(rect.height / rows);
-
-		for (let y = 0; y < rows; y += 1) {
-			for (let x = 0; x < cols; x += 1) {
-				const w = x === cols - 1 ? rect.width - x * tileW : tileW;
-				const h = y === rows - 1 ? rect.height - y * tileH : tileH;
-				const delay = readNumber(item, "--mosaique-delay", 0);
-				tiles.push({
-					x: x0 + x * tileW,
-					y: y0 + y * tileH,
-					w,
-					h,
-					item,
-					order: Math.random(),
-					delay,
-				});
-			}
-		}
-	});
-
-	state.tiles = tiles.sort((a, b) => a.order - b.order);
-}
-
-function buildGlows(state: HostState) {
-	const colors = readColors(state.host);
-	const width = state.canvas.clientWidth;
-	const height = state.canvas.clientHeight;
-	const amount = Math.max(3, Math.min(12, Math.ceil((width * height) / 180000)));
-	state.glows = Array.from({ length: amount }, (_, index) => ({
-		x: Math.random() * width,
-		y: Math.random() * height,
-		r: Math.max(width, height) * (0.18 + Math.random() * 0.16),
-		vx: (Math.random() < 0.5 ? -1 : 1) * (0.25 + Math.random() * 0.55),
-		vy: (Math.random() < 0.5 ? -1 : 1) * (0.18 + Math.random() * 0.45),
-		color: colors[index % colors.length],
-	}));
-}
-
-function clipToItems(ctx: CanvasRenderingContext2D, state: HostState) {
-	const hostRect = state.host.getBoundingClientRect();
-	ctx.beginPath();
-	getItems(state.host).forEach((item) => {
-		const rect = item.getBoundingClientRect();
-		ctx.rect(
-			rect.left - hostRect.left,
-			rect.top - hostRect.top,
+		const x = rect.left - parentRect.left;
+		const y = rect.top - parentRect.top;
+		pathSegments.push(
+			`M${formatPathNumber(x)} ${formatPathNumber(y)}h${formatPathNumber(rect.width)}v${formatPathNumber(rect.height)}h${formatPathNumber(-rect.width)}Z`,
+		);
+		state.ctx.drawImage(
+			state.offscreenCanvas,
+			x,
+			y,
+			rect.width,
+			rect.height,
+			x,
+			y,
 			rect.width,
 			rect.height,
 		);
 	});
-	ctx.clip();
+
+	applyClipPath(state, pathSegments);
 }
 
-function drawGlows(state: HostState) {
-	const { ctx, canvas } = state;
-	ctx.save();
-	clipToItems(ctx, state);
-	ctx.globalCompositeOperation = "source-over";
-	state.glows.forEach((glow) => {
-		glow.x += glow.vx;
-		glow.y += glow.vy;
-		if (glow.x < -glow.r || glow.x > canvas.clientWidth + glow.r) glow.vx *= -1;
-		if (glow.y < -glow.r || glow.y > canvas.clientHeight + glow.r) glow.vy *= -1;
-
-		const gradient = ctx.createRadialGradient(
-			glow.x,
-			glow.y,
-			0,
-			glow.x,
-			glow.y,
-			glow.r,
-		);
-		gradient.addColorStop(0, glow.color);
-		gradient.addColorStop(1, "rgba(0,0,0,0)");
-		ctx.fillStyle = gradient;
-		ctx.fillRect(0, 0, canvas.clientWidth, canvas.clientHeight);
-	});
-	ctx.restore();
+function hasActiveState(): boolean {
+	return Array.from(states).some((state) => state.active);
 }
 
-function drawTiles(state: HostState, progress: number) {
-	const color = getComputedStyle(state.host)
-		.getPropertyValue("--mosaique-mask-color")
-		.trim();
-	state.ctx.fillStyle = color || getComputedStyle(state.host).backgroundColor;
-	state.tiles.forEach((tile, index) => {
-		const tileProgress = Math.min(
-			1,
-			Math.max(0, progress - tile.delay / readNumber(state.host, "--mosaique-duration", 900)),
-		);
-		const threshold = 1 - index / state.tiles.length;
-		if (tileProgress >= threshold) return;
-		state.ctx.fillRect(tile.x, tile.y, tile.w, tile.h);
-	});
-}
+function loop(now: number): void {
+	let hasActive = false;
 
-function drawState(state: HostState, now: number) {
-	const { ctx, canvas } = state;
-	ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
-	drawGlows(state);
-
-	if (state.startTime != null && !state.revealed) {
-		const duration = readNumber(state.host, "--mosaique-duration", 900);
-		const delay = readNumber(state.host, "--mosaique-delay", 0);
-		const elapsed = Math.max(0, now - state.startTime - delay);
-		const progress = Math.min(1, elapsed / duration);
-		drawTiles(state, progress);
-		const maxTileDelay = state.tiles.reduce(
-			(max, tile) => Math.max(max, tile.delay),
-			0,
-		);
-		if (elapsed >= duration + maxTileDelay) {
-			state.revealed = true;
+	states.forEach((state) => {
+		if (!state.active) return;
+		hasActive = true;
+		const fps = Math.max(1, readNumber(state.host, "--mosaique-fps", 35));
+		const interval = 1000 / fps;
+		const delta = now - state.then;
+		if (delta > interval) {
+			draw(state);
+			state.then = now - (delta % interval);
 		}
-	} else if (state.startTime == null) {
-		drawTiles(state, 0);
-	}
+	});
+
+	rafId = hasActive ? requestAnimationFrame(loop) : null;
 }
 
-let rafId: number | null = null;
-
-function loop(now: number) {
-	states.forEach((state) => drawState(state, now));
-	rafId = states.size > 0 ? requestAnimationFrame(loop) : null;
-}
-
-function ensureLoop() {
-	if (rafId == null) {
+function ensureLoop(): void {
+	if (rafId == null && hasActiveState()) {
 		rafId = requestAnimationFrame(loop);
 	}
+}
+
+function scheduleResize(state: HostState): void {
+	const currentWidth = getViewportWidth();
+	if (currentWidth === state.lastViewportWidth && state.canvas.width === state.host.offsetWidth) {
+		return;
+	}
+
+	state.lastViewportWidth = currentWidth;
+	if (state.resizeTimeoutId != null) {
+		window.clearTimeout(state.resizeTimeoutId);
+	}
+	state.resizeTimeoutId = window.setTimeout(() => {
+		state.resizeTimeoutId = null;
+		resizeCanvas(state);
+		clampObjectsToCanvas(state);
+		state.then = performance.now();
+		draw(state);
+	}, RESIZE_DEBOUNCE_MS);
 }
 
 function createState(host: HTMLElement): HostState | null {
 	host.querySelectorAll(`:scope > canvas[${CANVAS_ATTR}]`).forEach((el) => {
 		el.remove();
 	});
+
 	const canvas = document.createElement("canvas");
 	canvas.setAttribute(CANVAS_ATTR, "1");
 	canvas.setAttribute("aria-hidden", "true");
 	canvas.className = "MaskMosaiqueCanvas";
+
 	const ctx = canvas.getContext("2d");
 	if (!ctx) return null;
+
+	const offscreenCanvas = document.createElement("canvas");
+	const offscreenCtx = offscreenCanvas.getContext("2d");
+	if (!offscreenCtx) return null;
 
 	host.appendChild(canvas);
 	host.setAttribute(ATTR, "1");
@@ -247,12 +315,19 @@ function createState(host: HTMLElement): HostState | null {
 		host,
 		canvas,
 		ctx,
-		tiles: [],
-		glows: [],
-		startTime: null,
-		revealed: false,
+		offscreenCanvas,
+		offscreenCtx,
+		objects: [],
+		active: false,
+		then: performance.now(),
+		resizeTimeoutId: null,
+		lastViewportWidth: getViewportWidth(),
+		resizeObserver: null,
 	};
+
 	resizeCanvas(state);
+	createObjects(state);
+	draw(state);
 	return state;
 }
 
@@ -260,17 +335,20 @@ export function initMaskMosaique(
 	root: Document | Element = document,
 ): RuntimeDisconnect {
 	const localStates: HostState[] = [];
-	const observer = new IntersectionObserver(
+	const intersectionObserver = new IntersectionObserver(
 		(entries) => {
 			entries.forEach((entry) => {
-				if (!entry.isIntersecting) return;
 				const state = localStates.find((item) => item.host === entry.target);
-				if (!state || state.startTime != null) return;
-				state.startTime = performance.now();
-				observer.unobserve(state.host);
+				if (!state) return;
+				state.active = entry.isIntersecting;
+				if (state.active) {
+					state.then = performance.now();
+					draw(state);
+					ensureLoop();
+				}
 			});
 		},
-		{ rootMargin: "0px 0px -20% 0px", threshold: 0.05 },
+		{ rootMargin: "10% 0px", threshold: 0 },
 	);
 
 	root.querySelectorAll(HOST_SELECTOR).forEach((node) => {
@@ -279,25 +357,37 @@ export function initMaskMosaique(
 		if (!state) return;
 		states.add(state);
 		localStates.push(state);
-		observer.observe(node);
+		intersectionObserver.observe(node);
+
+		if ("ResizeObserver" in window) {
+			state.resizeObserver = new ResizeObserver(() => scheduleResize(state));
+			state.resizeObserver.observe(node);
+		}
 	});
 
 	const onResize = () => {
-		localStates.forEach((state) => resizeCanvas(state));
+		localStates.forEach((state) => scheduleResize(state));
 	};
 
 	window.addEventListener("resize", onResize, { passive: true });
-	ensureLoop();
+	window.visualViewport?.addEventListener("resize", onResize);
 
 	return {
 		disconnect: () => {
-			observer.disconnect();
+			intersectionObserver.disconnect();
 			window.removeEventListener("resize", onResize);
+			window.visualViewport?.removeEventListener("resize", onResize);
+
 			localStates.forEach((state) => {
+				if (state.resizeTimeoutId != null) {
+					window.clearTimeout(state.resizeTimeoutId);
+				}
+				state.resizeObserver?.disconnect();
 				states.delete(state);
 				state.canvas.remove();
 				state.host.removeAttribute(ATTR);
 			});
+
 			if (states.size === 0 && rafId != null) {
 				cancelAnimationFrame(rafId);
 				rafId = null;

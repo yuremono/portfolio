@@ -72,7 +72,7 @@ required children : class内で定義されているセレクタではなく、�
 | `.Hero` | Wrapper | `.back` + `.item` | false | - | Wrapper + `.Hero` + Wrapper |
 | `.Stick` | Wrapper, Effect | `.StickItem` + `.StickScr` | false | `.IsRev` | `.Stick`>`h2.StickItem` + `.StickScr.panel` |
 | `.RgbShift` | Effect | auto insert | true | `IsBeat` | Wrapper>`figure.RgbShift` + Component |
-| `.MaskMosaique` | Effect | direct children or `[data-mask-mosaique-item]` | false | `.IsFront` `--mosaique-mask-color` `--mosaique-size-factor` `--mosaique-duration` `--mosaique-delay` `--mosaique-colors` | `.Cards.MaskMosaique` / media wrapper |
+| `.MaskMosaique` | Effect | direct children or `[data-mask-mosaique-item]` | false | `.IsFront` `--mosaique-colors` `--mosaique-fps` `--mosaique-base-size` `--mosaique-size-variation` | `.Cards.MaskMosaique` / media wrapper |
 | `.PathDraw` | Effect |  `path` in `svg` | true | `--PDS` `--PES` `--PVM`  | Wrapper > `.PathDraw>svg` + Container |
 | `.BorderDraw` | Effect | auto insert | false | `.IsDown` `--PVM` `--PDS` | `.Panel` > `.item.BorderDraw` |
 | `.LottieScroll` | Effect | DotLottieReact | true | `IsDemo` `--canvasH` | `.Stick` > `.StickItem.LottieScroll` + `.StickScr` |

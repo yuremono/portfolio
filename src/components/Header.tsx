@@ -166,8 +166,8 @@ function HeaderNav() {
 							<ArrowSquareOutIcon size={16} />
 						</a>
 					</li>
-					<li className="DropLi opacity-10">
-						<Link to="/examples">EX. for Build</Link>
+					<li className="DropLi opacity-30">
+						<Link to="/examples">Examples</Link>
 					</li>
 				</ul>
 			</li>

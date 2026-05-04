@@ -22,6 +22,20 @@
         }
 }
 
+// ********** ホバー波形プレビュー (.WaveHover) **********
+// WaveHoverBody / WaveHoverCanvas は WaveHover.tsx が出力
+:where(.WaveHover) {
+        @apply relative isolate;
+
+        >.WaveHoverCanvas {
+                @apply pointer-events-none fixed left-0 top-[--head] z-[3] block bg-transparent opacity-0 transition-opacity duration-200;
+        }
+
+        &:has(a:hover)>.WaveHoverCanvas {
+                @apply opacity-100;
+        }
+}
+
 // ********** カードシリーズ (.Cards) **********
 :where(.Cards) {
         // --gap , --itemW
@@ -924,20 +938,16 @@
 }
 
 :where(.MaskMosaique) {
-        --mosaique-size-factor: 0.01875;
-        --mosaique-stagger: 750;
+        // canvasに描くモザイクの色。
+        --mosaique-color: var(--MC);
+        // 対象要素の幅・高さに対する分割係数。大きいほど細かいマスになる。
+        --mosaique-size-factor: 0.02;
+        // 全マスが消え始めるまでの時間幅。大きいほどゆっくり現れる。
+        --mosaique-stagger: 800;
         @apply relative isolate overflow-hidden;
 
-        >:not(.MaskMosaiqueCanvas) {
-                @apply relative z-[1];
-        }
-
         >.MaskMosaiqueCanvas {
-                @apply pointer-events-none absolute inset-0 z-[2] block h-full w-full;
-        }
-
-        &.IsBack>.MaskMosaiqueCanvas {
-                @apply z-[0];
+                @apply pointer-events-none absolute inset-0  ;
         }
 }
 

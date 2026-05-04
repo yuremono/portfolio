@@ -73,6 +73,7 @@ required children : class内で定義されているセレクタではなく、�
 | `.Stick` | Wrapper, Effect | `.StickItem` + `.StickScr` | false | `.IsRev` | `.Stick`>`h2.StickItem` + `.StickScr.panel` |
 | `.RgbShift` | Effect | auto insert | true | `IsBeat` | Wrapper>`figure.RgbShift` + Component |
 | `.MaskMosaique` | Effect | direct children or `[data-mask-mosaique-item]` | false | `.IsBack` `--mosaique-size-factor` `--mosaique-stagger` | `.Cards.MaskMosaique` / media wrapper |
+| `.WaveHover` | `<WaveHover>` or `useWaveHover` | `.item` | true | - | ラッパー `.WaveHover` > 任意マークアップ（例: `ul` 無修飾） |
 | `.PathDraw` | Effect |  `path` in `svg` | true | `--PDS` `--PES` `--PVM`  | Wrapper > `.PathDraw>svg` + Container |
 | `.BorderDraw` | Effect | auto insert | false | `.IsDown` `--PVM` `--PDS` | `.Panel` > `.item.BorderDraw` |
 | `.LottieScroll` | Effect | DotLottieReact | true | `IsDemo` `--canvasH` | `.Stick` > `.StickItem.LottieScroll` + `.StickScr` |

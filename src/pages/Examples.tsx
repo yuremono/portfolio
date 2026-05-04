@@ -8,7 +8,7 @@ import { Image } from "../components/Image";
 import { PathDraw } from "../components/PathDraw";
 import { LottieScroll } from "../components/LottieScroll";
 import { HoudiniGalleryCards } from "../components/HoudiniGalleryCards";
-
+import { useWaveHover } from "../components/WaveHover";
 
 // Common
 import Header from "../components/Header";
@@ -20,14 +20,190 @@ import { getAssetPath } from "../lib/assetPath";
 
 function Examples() {
 	const pageRootRef = useRef<HTMLDivElement>(null);
+	const waveHoverRef = useRef<HTMLDivElement>(null);
 	useClientRuntime({ rootRef: pageRootRef });
 	useHtmlRootClass();
+	useWaveHover(waveHoverRef);
 
 	return (
 		<PageRoot ref={pageRootRef}>
 			<Header className="" />
 
 			<main className="mt-[--head]">
+				<div ref={waveHoverRef} className="WaveHover Wrap bg-GR/20 px-[--PX] md:px-0 MY">
+					<ul>
+						<li className="relative w-full border-0 text-left md:border-t md:border-[--GR] md:last:border-b">
+							<a
+								className="relative block w-full overflow-hidden p-0 md:p-[--PX]  text-current no-underline pointer-events-none  md:pointer-events-auto"
+								href="#"
+								draggable={false}
+								aria-label="ウェーブホバー項目 1"
+								onClick={(event) => event.preventDefault()}
+							>
+								<div className="pointer-events-none flex w-full flex-col gap-2 md:flex-row md:items-center md:gap-8">
+									<figure
+										className="aspect-[3/4] block w-full overflow-hidden md:hidden"
+										aria-hidden="true"
+									>
+										<img
+											className="h-full w-full object-cover"
+											src={getAssetPath(
+												"/images/picsum/001.jpg",
+											)}
+											alt=""
+											loading="lazy"
+										/>
+									</figure>
+									<div className="w-full flex flex-wrap  items-center">
+										<h2 className=" h3FZ ">
+											項目 1 のタイトル
+										</h2>
+										<span className="ml-auto  text-xs ">
+											項目 1
+											の説明やサブテキストをここに書きます。
+										</span>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li className="relative w-full border-0 text-left md:border-t md:border-[--GR] md:last:border-b">
+							<a
+								className="relative block w-full overflow-hidden p-0 md:p-[--PX]  text-current no-underline pointer-events-none  md:pointer-events-auto"
+								href="#"
+								draggable={false}
+								aria-label="ウェーブホバー項目 1"
+								onClick={(event) => event.preventDefault()}
+							>
+								<div className="pointer-events-none flex w-full flex-col gap-2 md:flex-row md:items-center md:gap-8">
+									<figure
+										className="aspect-[3/4] block w-full overflow-hidden md:hidden"
+										aria-hidden="true"
+									>
+										<img
+											className="h-full w-full object-cover"
+											src={getAssetPath(
+												"/images/picsum/002.jpg",
+											)}
+											alt=""
+											loading="lazy"
+										/>
+									</figure>
+									<div className="w-full flex flex-wrap  items-center">
+										<h2 className=" h3FZ ">
+											項目 1 のタイトル
+										</h2>
+										<span className="ml-auto  text-xs ">
+											項目 1
+											の説明やサブテキストをここに書きます。
+										</span>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li className="relative w-full border-0 text-left md:border-t md:border-[--GR] md:last:border-b">
+							<a
+								className="relative block w-full overflow-hidden p-0 md:p-[--PX]  text-current no-underline pointer-events-none  md:pointer-events-auto"
+								href="#"
+								draggable={false}
+								aria-label="ウェーブホバー項目 1"
+								onClick={(event) => event.preventDefault()}
+							>
+								<div className="pointer-events-none flex w-full flex-col gap-2 md:flex-row md:items-center md:gap-8">
+									<figure
+										className="aspect-[3/4] block w-full overflow-hidden md:hidden"
+										aria-hidden="true"
+									>
+										<img
+											className="h-full w-full object-cover"
+											src={getAssetPath(
+												"/images/picsum/002.jpg",
+											)}
+											alt=""
+											loading="lazy"
+										/>
+									</figure>
+									<div className="w-full flex flex-wrap  items-center">
+										<h2 className=" h3FZ ">
+											項目 1 のタイトル
+										</h2>
+										<span className="ml-auto  text-xs ">
+											項目 1
+											の説明やサブテキストをここに書きます。
+										</span>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li className="relative w-full border-0 text-left md:border-t md:border-[--GR] md:last:border-b">
+							<a
+								className="relative block w-full overflow-hidden p-0 md:p-[--PX]  text-current no-underline pointer-events-none  md:pointer-events-auto"
+								href="#"
+								draggable={false}
+								aria-label="ウェーブホバー項目 1"
+								onClick={(event) => event.preventDefault()}
+							>
+								<div className="pointer-events-none flex w-full flex-col gap-2 md:flex-row md:items-center md:gap-8">
+									<figure
+										className="aspect-[3/4] block w-full overflow-hidden md:hidden"
+										aria-hidden="true"
+									>
+										<img
+											className="h-full w-full object-cover"
+											src={getAssetPath(
+												"/images/picsum/003.jpg",
+											)}
+											alt=""
+											loading="lazy"
+										/>
+									</figure>
+									<div className="w-full flex flex-wrap  items-center">
+										<h2 className=" h3FZ ">
+											項目 1 のタイトル
+										</h2>
+										<span className="ml-auto  text-xs ">
+											項目 1
+											の説明やサブテキストをここに書きます。
+										</span>
+									</div>
+								</div>
+							</a>
+						</li>
+					</ul>
+                                </div>
+                                {/* MaskMosaique */}
+				<section className="Wrap PX bg-TC text-[--WH] Eng">
+					<div className="Cards col4 MaskMosaique">
+						<div className="item bg-GR min-h-[30lvh] p-6">
+							<p className="text-xl">MaskMosaique</p>
+							<h2 className="h3FZ">Layered block</h2>
+						</div>
+						<div className="item bg-GR min-h-[30lvh] p-6">
+							<p className="text-xl">MaskMosaique</p>
+							<h2 className="h3FZ">Random reveal</h2>
+						</div>
+						<div className="item bg-GR relative min-h-[30lvh] overflow-hidden p-6">
+							<img
+								className="absolute inset-0 h-full w-full object-cover  "
+								src={getAssetPath("/images/picsum/001.jpg")}
+							/>
+							<div className="relative">
+								<p className="text-xl">MaskMosaique</p>
+								<h2 className="h3FZ">Media layer</h2>
+							</div>
+						</div>
+						<div className="item bg-GR min-h-[30lvh] p-6">
+							<p className="text-xl">MaskMosaique</p>
+							<h2 className="h3FZ">Canvas mask</h2>
+						</div>
+					</div>
+				</section>
+				<section className="mt-4 MaskMosaique">
+					<div className="item bg-GR min-h-[30lvh] p-6">
+						<p className="text-xl">MaskMosaique</p>
+						<h2 className="h3FZ">Layered block</h2>
+					</div>
+				</section>
+
 				<section className="out Stick IsColumn mt-[--Nhead]">
 					<LottieScroll
 						src={getAssetPath("/lottie/untitled.lottie")}
@@ -48,44 +224,15 @@ function Examples() {
 						<span>StickyStepは</span>
 						<span>FV向け調整</span>
 					</div>
-					</section>
-					<section className="Wrap PX bg-TC text-[--WH] Eng">
-						<div className="Cards col4 MaskMosaique">
-							<div className="item min-h-[30lvh] p-6">
-								<p className="text-xl">MaskMosaique</p>
-								<h2 className="h3FZ">Layered block</h2>
-							</div>
-							<div className="item min-h-[30lvh] p-6">
-								<p className="text-xl">MaskMosaique</p>
-								<h2 className="h3FZ">Random reveal</h2>
-							</div>
-							<div className="item relative min-h-[30lvh] overflow-hidden p-6">
-								<video
-									className="absolute inset-0 h-full w-full object-cover opacity-30 mix-blend-screen"
-									src={getAssetPath("/video/demo.mp4")}
-									autoPlay
-									muted
-									loop
-									playsInline
-								/>
-								<div className="relative">
-									<p className="text-xl">MaskMosaique</p>
-									<h2 className="h3FZ">Media layer</h2>
-								</div>
-							</div>
-							<div className="item min-h-[30lvh] p-6">
-								<p className="text-xl">MaskMosaique</p>
-								<h2 className="h3FZ">Canvas mask</h2>
-							</div>
-						</div>
-					</section>
-					{/* Houdini Paint Worklet */}
-					<section className="out bg-BC Eng">
-						<HoudiniGalleryCards />
-					</section>
+				</section>
+				
+				{/* Houdini Paint Worklet */}
+				<section className="out bg-BC Eng">
+					<HoudiniGalleryCards />
+				</section>
 
-					{/* DescList */}
-					<section className="Wrap into">
+				{/* DescList */}
+				<section className="Wrap into">
 					<h2>DescList</h2>
 
 					<div className="DescList ">

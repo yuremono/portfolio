@@ -25,7 +25,8 @@ interface HostState {
 	resizeObserver: ResizeObserver | null;
 }
 
-const RESIZE_DEBOUNCE_MS = 200;
+const RESIZE_DEBOUNCE_MS = 200; // 画面サイズ変更後、モザイクの位置と分割数を再計算するまでの待ち時間。
+const SQUARE_OVERLAP_PX = 1; // canvasの小数座標で出るマス同士の境目を隠すための重なり幅。
 
 function readNumber(el: HTMLElement, name: string, fallback: number): number {
 	const raw = getComputedStyle(el).getPropertyValue(name).trim();
@@ -38,25 +39,13 @@ function formatPathNumber(value: number): string {
 	return Number(value.toFixed(3)).toString();
 }
 
-function isTransparent(color: string): boolean {
-	return (
-		!color ||
-		color === "transparent" ||
-		color === "rgba(0, 0, 0, 0)" ||
-		color === "rgba(0,0,0,0)"
-	);
+function readCssValue(el: HTMLElement, name: string, fallback: string): string {
+	const raw = getComputedStyle(el).getPropertyValue(name).trim();
+	return raw || fallback;
 }
 
-function getCoverColor(host: HTMLElement): string {
-	let current: HTMLElement | null = host;
-	while (current) {
-		const color = getComputedStyle(current).backgroundColor;
-		if (!isTransparent(color)) return color;
-		current = current.parentElement;
-	}
-	return "#101010";
-}
-
+// data-mask-mosaique-itemが付いた要素だけを覆います。
+// 指定がない場合は、canvas/script/style以外の直下要素を対象にします。
 function getTargetItems(host: HTMLElement): HTMLElement[] {
 	const explicit = Array.from(
 		host.querySelectorAll<HTMLElement>(`[${ITEM_ATTR}]`),
@@ -74,6 +63,8 @@ function getTargetItems(host: HTMLElement): HTMLElement[] {
 	);
 }
 
+// canvas全体を表示するのではなく、対象要素の矩形部分だけに切り抜きます。
+// これにより、モザイクのフタはテキストや画像など対象要素の上にだけ重なります。
 function applyClipPath(state: HostState): void {
 	const hostRect = state.host.getBoundingClientRect();
 	const pathSegments = getTargetItems(state.host).map((item) => {
@@ -96,6 +87,7 @@ function applyClipPath(state: HostState): void {
 	state.canvas.style.transform = "translateZ(0)";
 }
 
+// host要素と同じサイズにcanvasを合わせ、切り抜き範囲も作り直します。
 function resizeCanvas(state: HostState): void {
 	const width = state.host.offsetWidth;
 	const height = state.host.offsetHeight;
@@ -108,6 +100,9 @@ function resizeCanvas(state: HostState): void {
 	applyClipPath(state);
 }
 
+// 対象要素ごとに矩形を小さなマスへ分割します。
+// --mosaique-size-factor は MaskMosaique要素に指定するCSS変数で、値が大きいほどマスが細かくなります。
+// --mosaique-stagger は最後のマスが消え始めるまでの時間幅で、値が大きいほど全体がゆっくり消えます。
 function buildSquares(state: HostState): void {
 	const hostRect = state.host.getBoundingClientRect();
 	const factor = readNumber(state.host, "--mosaique-size-factor", 0.01875);
@@ -149,8 +144,10 @@ function buildSquares(state: HostState): void {
 	state.squares = squares;
 }
 
+// --mosaique-color の色で、まだ消えていないマスだけをcanvasへ描画します。
+// 時間が進むほど描画されるマスが減り、下にある対象要素がランダムに現れます。
 function draw(state: HostState, now = performance.now()): void {
-	const color = getCoverColor(state.host);
+	const color = readCssValue(state.host, "--mosaique-color", "#101010");
 	const elapsed = state.startTime == null ? 0 : now - state.startTime;
 
 	state.ctx.clearRect(0, 0, state.canvas.width, state.canvas.height);
@@ -159,7 +156,12 @@ function draw(state: HostState, now = performance.now()): void {
 	let visibleCount = 0;
 	state.squares.forEach((square) => {
 		if (state.startTime != null && elapsed >= square.startAt) return;
-		state.ctx.fillRect(square.x, square.y, square.w, square.h);
+		state.ctx.fillRect(
+			square.x - SQUARE_OVERLAP_PX,
+			square.y - SQUARE_OVERLAP_PX,
+			square.w + SQUARE_OVERLAP_PX * 2,
+			square.h + SQUARE_OVERLAP_PX * 2,
+		);
 		visibleCount += 1;
 	});
 
@@ -191,6 +193,7 @@ function animate(state: HostState): void {
 	state.rafId = requestAnimationFrame(tick);
 }
 
+// 初期化時や再実行時に、canvasサイズ、対象マス、初期描画を作り直します。
 function reset(state: HostState): void {
 	stopAnimation(state);
 	state.startTime = null;
@@ -200,6 +203,7 @@ function reset(state: HostState): void {
 	draw(state);
 }
 
+// リサイズ時は現在の完了状態を保ったまま、位置とマスだけを作り直します。
 function rebuild(state: HostState): void {
 	resizeCanvas(state);
 	buildSquares(state);

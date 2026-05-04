@@ -924,7 +924,8 @@
 }
 
 :where(.MaskMosaique) {
-        --mosaique-colors: #3548fe, #2d38b7, #4855db, #151a36;
+        --mosaique-size-factor: 0.01875;
+        --mosaique-stagger: 750;
         @apply relative isolate overflow-hidden;
 
         >:not(.MaskMosaiqueCanvas) {
@@ -932,11 +933,11 @@
         }
 
         >.MaskMosaiqueCanvas {
-                @apply pointer-events-none absolute inset-0 z-[0] block h-full w-full;
+                @apply pointer-events-none absolute inset-0 z-[2] block h-full w-full;
         }
 
-        &.IsFront>.MaskMosaiqueCanvas {
-                @apply z-[2];
+        &.IsBack>.MaskMosaiqueCanvas {
+                @apply z-[0];
         }
 }
 

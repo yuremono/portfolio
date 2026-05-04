@@ -50,7 +50,7 @@ function Examples() {
 					</div>
 					</section>
 					<section className="Wrap PX bg-TC text-[--WH] Eng">
-						<div className="Cards col4 MaskMosaique [--mosaique-colors:#3548FE,#353F9E,#4855DB,#151A36,#2D38B7,#434ECB]">
+						<div className="Cards col4 MaskMosaique">
 							<div className="item min-h-[30lvh] p-6">
 								<p className="text-xl">MaskMosaique</p>
 								<h2 className="h3FZ">Layered block</h2>

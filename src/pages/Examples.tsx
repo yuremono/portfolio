@@ -48,13 +48,39 @@ function Examples() {
 						<span>StickyStepは</span>
 						<span>FV向け調整</span>
 					</div>
-				</section>
-				{/* Houdini Paint Worklet */}
-				<section className="out bg-[--BC] Eng">
-					<HoudiniGalleryCards />
-				</section>
-				{/* DescList */}
-				<section className="Wrap into">
+					</section>
+					{/* Houdini Paint Worklet */}
+					<section className="out bg-[--BC] Eng">
+						<HoudiniGalleryCards />
+					</section>
+					<section className="Wrap bg-[--TC] text-[--WH] Eng">
+						<div className="Cards col4 MaskMosaique [--mosaique-mask-color:var(--TC)] [--mosaique-colors:#ff3b30,#ff8a65,#3548fe,#151a36]">
+							<div className="item min-h-[30lvh] content-between bg-[rgba(255,255,255,0.08)] p-6">
+								<p className="text-xl">MaskMosaique</p>
+								<h2 className="h3FZ">Layered block</h2>
+							</div>
+							<div className="item min-h-[30lvh] content-between bg-[rgba(255,255,255,0.08)] p-6 [--mosaique-delay:120]">
+								<p className="text-xl">MaskMosaique</p>
+								<h2 className="h3FZ">Random reveal</h2>
+							</div>
+							<div className="item min-h-[30lvh] content-between overflow-hidden bg-[rgba(255,255,255,0.08)] p-0 [--mosaique-delay:240]">
+								<video
+									className="h-full min-h-[30lvh] w-full object-cover opacity-70"
+									src={getAssetPath("/video/demo.mp4")}
+									autoPlay
+									muted
+									loop
+									playsInline
+								/>
+							</div>
+							<div className="item min-h-[30lvh] content-between bg-[rgba(255,255,255,0.08)] p-6 [--mosaique-delay:360]">
+								<p className="text-xl">MaskMosaique</p>
+								<h2 className="h3FZ">Canvas mask</h2>
+							</div>
+						</div>
+					</section>
+					{/* DescList */}
+					<section className="Wrap into">
 					<h2>DescList</h2>
 
 					<div className="DescList ">

@@ -11,6 +11,7 @@ import { initScrollX } from "./scrollX";
 import { initSpanWrap } from "./spanWrap";
 import { initVideo } from "./video";
 import { setupRgbShift } from "./effects/rgbShift";
+import { initMaskMosaique } from "./effects/maskMosaique";
 
 export type RuntimeDisconnect = { disconnect: () => void };
 
@@ -28,6 +29,7 @@ export function initClientRuntime(
 	const scrollX = initScrollX(root);
 	const header = initHeader(root);
 	const borderDraw = initBorderDraw(root, { frameStride: 1 });
+	const maskMosaique = initMaskMosaique(root);
 	setupRgbShift();
 
 	return {
@@ -40,6 +42,7 @@ export function initClientRuntime(
 			scrollX.disconnect();
 			header.disconnect();
 			borderDraw.disconnect();
+			maskMosaique.disconnect();
 		},
 	};
 }

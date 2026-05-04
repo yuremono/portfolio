@@ -923,6 +923,27 @@
         }
 }
 
+:where(.MaskMosaique) {
+        --mosaique-mask-color: var(--TC);
+        --mosaique-size-factor: 0.01875;
+        --mosaique-duration: 900;
+        --mosaique-delay: 0;
+        --mosaique-colors: #3548fe, #2d38b7, #4855db, #151a36;
+        @apply relative isolate overflow-hidden;
+
+        >:not(.MaskMosaiqueCanvas) {
+                @apply relative z-[1];
+        }
+
+        >.MaskMosaiqueCanvas {
+                @apply pointer-events-none absolute inset-0 z-[0] block h-full w-full;
+        }
+
+        &.IsFront>.MaskMosaiqueCanvas {
+                @apply z-[2];
+        }
+}
+
 :where(.LottieScroll) {
         //animation demo用
         --canvasH: 100lvh;

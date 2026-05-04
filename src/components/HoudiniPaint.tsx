@@ -46,11 +46,15 @@ export function HoudiniPaint({
 		const houdiniCSS = globalThis.CSS as HoudiniCSS | undefined;
 
 		if (!houdiniCSS?.paintWorklet) {
-			setStatus("unsupported");
+			queueMicrotask(() => {
+				if (isMounted) setStatus("unsupported");
+			});
 			return;
 		}
 
-		setStatus("loading");
+		queueMicrotask(() => {
+			if (isMounted) setStatus("loading");
+		});
 		const workletPromise = loadedWorklets.get(workletUrl) ?? houdiniCSS.paintWorklet.addModule(workletUrl);
 		loadedWorklets.set(workletUrl, workletPromise);
 

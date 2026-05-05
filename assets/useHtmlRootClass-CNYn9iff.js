@@ -1,1 +1,0 @@
-import{r as e}from"./chunk-LFPYN7LY-C1lLk5uQ.js";function m(o=""){e.useEffect(()=>{const t=o.trim();if(!t)return;const r=document.documentElement;return r.classList.add(t),()=>{r.classList.remove(t)}},[o])}export{m as u};

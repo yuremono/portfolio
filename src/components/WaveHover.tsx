@@ -1,7 +1,18 @@
 /* eslint-disable react-refresh/only-export-components -- コンポーネントと `useWaveHover` を同ファイルで提供 */
 import { useEffect, useRef, type ReactNode, type RefObject } from "react";
 import { gsap } from "gsap";
-import * as THREE from "three";
+import {
+	Mesh,
+	PerspectiveCamera,
+	PlaneGeometry,
+	Scene,
+	ShaderMaterial,
+	Texture,
+	TextureLoader,
+	Vector2,
+	Vector3,
+	WebGLRenderer,
+} from "three";
 
 export interface WaveHoverProps {
 	children: ReactNode;
@@ -17,27 +28,27 @@ interface WaveItem {
 	element: HTMLAnchorElement;
 	img: HTMLImageElement | null;
 	index: number;
-	texture?: THREE.Texture | null;
+	texture?: Texture | null;
 }
 
 /** `.WaveHover` 内 `a[href]` → キャンバスはラッパー直下の末尾へ追加（SCSS `>.WaveHoverCanvas`） */
 class WaveHoverEffect {
 	private readonly container: HTMLElement;
 	private readonly strength: number;
-	private renderer: THREE.WebGLRenderer;
-	private scene: THREE.Scene;
-	private camera: THREE.PerspectiveCamera;
-	private mouse = new THREE.Vector2();
-	private position = new THREE.Vector3(0, 0, 0);
-	private geometry = new THREE.PlaneGeometry(1, 1, 32, 32);
+	private renderer: WebGLRenderer;
+	private scene: Scene;
+	private camera: PerspectiveCamera;
+	private mouse = new Vector2();
+	private position = new Vector3(0, 0, 0);
+	private geometry = new PlaneGeometry(1, 1, 32, 32);
 	/** シェーダへ渡す状態（画像・波形オフセット・フェード） */
 	private uniforms = {
-		uTexture: { value: null as THREE.Texture | null },
-		uOffset: { value: new THREE.Vector2(0, 0) },
+		uTexture: { value: null as Texture | null },
+		uOffset: { value: new Vector2(0, 0) },
 		uAlpha: { value: 0 },
 	};
-	private material: THREE.ShaderMaterial;
-	private plane: THREE.Mesh<THREE.PlaneGeometry, THREE.ShaderMaterial>;
+	private material: ShaderMaterial;
+	private plane: Mesh<PlaneGeometry, ShaderMaterial>;
 	private items: WaveItem[] = [];
 	private currentItem: WaveItem | null = null;
 	private isLoaded = false;
@@ -49,17 +60,17 @@ class WaveHoverEffect {
 		this.container = container;
 		/** マウス追従時の「歪みの強さ」（プレーン目標位置との差に掛ける係数） */
 		this.strength = strength;
-		this.scene = new THREE.Scene();
-		this.camera = new THREE.PerspectiveCamera(40, this.viewport.aspectRatio, 0.1, 100);
+		this.scene = new Scene();
+		this.camera = new PerspectiveCamera(40, this.viewport.aspectRatio, 0.1, 100);
 		this.camera.position.set(0, 0, 3);
-		this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+		this.renderer = new WebGLRenderer({ antialias: true, alpha: true });
 		this.renderer.setPixelRatio(window.devicePixelRatio);
 		this.renderer.setSize(this.viewport.width, this.viewport.height);
 		this.renderer.domElement.className = "WaveHoverCanvas";
 		this.container.appendChild(this.renderer.domElement);
 
 		// 頂点シェーダで sin ベースの波形、フラグメントでテクスチャ × uAlpha
-		this.material = new THREE.ShaderMaterial({
+		this.material = new ShaderMaterial({
 			uniforms: this.uniforms,
 			vertexShader: `
 				uniform vec2 uOffset;
@@ -90,7 +101,7 @@ class WaveHoverEffect {
 			`,
 			transparent: true,
 		});
-		this.plane = new THREE.Mesh(this.geometry, this.material);
+		this.plane = new Mesh(this.geometry, this.material);
 		this.scene.add(this.plane);
 		this.renderer.setAnimationLoop(this.render);
 		this.createEventsListeners();
@@ -134,12 +145,12 @@ class WaveHoverEffect {
 			img: element.querySelector("img"),
 			index,
 		}));
-		const loader = new THREE.TextureLoader();
+		const loader = new TextureLoader();
 		loader.setCrossOrigin("anonymous");
 		const loaded = await Promise.all(
 			this.items.map(
 				(item) =>
-					new Promise<THREE.Texture | null>((resolve) => {
+					new Promise<Texture | null>((resolve) => {
 						if (!item.img?.src) {
 							resolve(null);
 							return;
@@ -205,7 +216,7 @@ class WaveHoverEffect {
 	private syncPlaneToMouse() {
 		const x = this.mapRange(this.mouse.x, -1, 1, -this.viewSize.width / 2, this.viewSize.width / 2);
 		const y = this.mapRange(this.mouse.y, -1, 1, -this.viewSize.height / 2, this.viewSize.height / 2);
-		this.position = new THREE.Vector3(x, y, 0);
+		this.position = new Vector3(x, y, 0);
 		gsap.to(this.plane.position, {
 			x,
 			y,

@@ -18,6 +18,8 @@ export default defineConfig(({ mode }) => ({
 	},
 	plugins: [react(), vitePluginBboxLocalBatch(__dirname)],
 	build: {
+		// three のコア（+ R3F が参照する部分）は minify 後でも ~700KB 超になりやすい。gzip は ~190KB 程度。
+		chunkSizeWarningLimit: 800,
 		rollupOptions: {
 			input: {
 				main: path.resolve(__dirname, "index.html"),

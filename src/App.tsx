@@ -1,6 +1,10 @@
-import { lazy, Suspense } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { ScrollToTop } from "./components/ScrollToTop";
+import { lazy } from "react";
+import { BrowserRouter } from "react-router-dom";
+import { InitialLoadingOverlay } from "./components/InitialLoadingOverlay";
+import {
+	PageTransitionRoutes,
+	type PageTransitionRoute,
+} from "./components/PageTransitionRoutes";
 
 const Next = lazy(() => import("./pages/Next"));
 const Preview = lazy(() => import("./pages/Preview"));
@@ -24,36 +28,36 @@ const GridCarousel = lazy(() => import("./pages/GridCarousel"));
 const Conversion = lazy(() => import("./pages/Conversion"));
 const Bbox = lazy(() => import("./pages/Bbox"));
 
+const routes: PageTransitionRoute[] = [
+	{ path: "/", element: <Next /> },
+	{ path: "/preview", element: <Preview /> },
+	{ path: "/donut", element: <Donut /> },
+	{ path: "/aozora", element: <Aozora /> },
+	{ path: "/Test26", element: <Test26 /> },
+	{ path: "/ZzzScratch", element: <ZzzScratch /> },
+	{ path: "/Test9", element: <Test9 /> },
+	{ path: "/Lumaport", element: <Lumaport /> },
+	{ path: "/shuffle-divide", element: <ShuffleDivide /> },
+	{ path: "/glitch", element: <Glitch /> },
+	{ path: "/yugen", element: <Yugen /> },
+	{ path: "/examples", element: <Examples /> },
+	{ path: "/activity", element: <Activity /> },
+	{ path: "/test5", element: <Test5 /> },
+	{ path: "/test6", element: <Test6 /> },
+	{ path: "/test7", element: <Test7 /> },
+	{ path: "/test8", element: <Test8 /> },
+	{ path: "/rects", element: <Rects /> },
+	{ path: "/grid-carousel", element: <GridCarousel /> },
+	{ path: "/conversion-inc", element: <Conversion /> },
+	{ path: "/conversion", element: <Conversion /> },
+	{ path: "/bbox", element: <Bbox /> },
+];
+
 function App() {
 	return (
 		<BrowserRouter basename={import.meta.env.BASE_URL}>
-			<ScrollToTop />
-			<Suspense fallback={null}>
-				<Routes>
-					<Route path="/" element={<Next />} />
-					<Route path="/preview" element={<Preview />} />
-					<Route path="/donut" element={<Donut />} />
-					<Route path="/aozora" element={<Aozora />} />
-					<Route path="/Test26" element={<Test26 />} />
-					<Route path="/ZzzScratch" element={<ZzzScratch />} />
-					<Route path="/Test9" element={<Test9 />} />
-					<Route path="/Lumaport" element={<Lumaport />} />
-					<Route path="/shuffle-divide" element={<ShuffleDivide />} />
-					<Route path="/glitch" element={<Glitch />} />
-					<Route path="/yugen" element={<Yugen />} />
-					<Route path="/examples" element={<Examples />} />
-					<Route path="/activity" element={<Activity />} />
-					<Route path="/test5" element={<Test5 />} />
-					<Route path="/test6" element={<Test6 />} />
-					<Route path="/test7" element={<Test7 />} />
-					<Route path="/test8" element={<Test8 />} />
-					<Route path="/rects" element={<Rects />} />
-					<Route path="/grid-carousel" element={<GridCarousel />} />
-					<Route path="/conversion-inc" element={<Conversion />} />
-					<Route path="/conversion" element={<Conversion />} />
-					<Route path="/bbox" element={<Bbox />} />
-				</Routes>
-			</Suspense>
+			<InitialLoadingOverlay />
+			<PageTransitionRoutes routes={routes} />
 		</BrowserRouter>
 	);
 }

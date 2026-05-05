@@ -25,6 +25,25 @@ interface HostState {
 	resizeObserver: ResizeObserver | null;
 }
 
+export interface PageTransitionMosaiqueOptions {
+	color?: string;
+	label?: PageTransitionMosaiqueLabel;
+	sizeFactor?: number;
+	stagger?: number;
+}
+
+export type PageTransitionMosaiquePhase = "cover" | "reveal";
+
+export interface PageTransitionMosaiqueLabel {
+	color?: string;
+	fontFamily?: string;
+	fontSize?: number;
+	fontStyle?: string;
+	fontWeight?: string;
+	lineHeight?: number;
+	text: string;
+}
+
 const RESIZE_DEBOUNCE_MS = 200; // 画面サイズ変更後、モザイクの位置と分割数を再計算するまでの待ち時間。
 const SQUARE_OVERLAP_PX = 1; // canvasの小数座標で出るマス同士の境目を隠すための重なり幅。
 
@@ -144,6 +163,45 @@ function buildSquares(state: HostState): void {
 	state.squares = squares;
 }
 
+function buildRectSquares(
+	width: number,
+	height: number,
+	factor: number,
+	stagger: number,
+): MosaicSquare[] {
+	const cols = Math.max(1, Math.ceil(width * factor));
+	const rows = Math.max(1, Math.ceil(height * factor));
+	const squareSizeX = Math.ceil(width / cols);
+	const squareSizeY = Math.ceil(height / rows);
+	const squares: MosaicSquare[] = [];
+
+	for (let y = 0; y < rows; y += 1) {
+		for (let x = 0; x < cols; x += 1) {
+			const w = x === cols - 1 ? width - x * squareSizeX : squareSizeX;
+			const h = y === rows - 1 ? height - y * squareSizeY : squareSizeY;
+			squares.push({
+				x: x * squareSizeX,
+				y: y * squareSizeY,
+				w,
+				h,
+				startAt: 0,
+			});
+		}
+	}
+
+	const order = squares
+		.map((_, index) => index)
+		.sort(() => Math.random() - 0.5);
+	order.forEach((squareIndex, orderIndex) => {
+		squares[squareIndex].startAt =
+			squares.length <= 1
+				? 0
+				: (orderIndex / (squares.length - 1)) * stagger;
+	});
+
+	return squares;
+}
+
 // --mosaique-color の色で、まだ消えていないマスだけをcanvasへ描画します。
 // 時間が進むほど描画されるマスが減り、下にある対象要素がランダムに現れます。
 function draw(state: HostState, now = performance.now()): void {
@@ -168,6 +226,91 @@ function draw(state: HostState, now = performance.now()): void {
 	if (state.startTime != null && visibleCount === 0) {
 		state.complete = true;
 	}
+}
+
+function drawPageTransitionMosaique(
+	ctx: CanvasRenderingContext2D,
+	squares: MosaicSquare[],
+	color: string,
+	phase: PageTransitionMosaiquePhase,
+	elapsed: number,
+	label?: PageTransitionMosaiqueLabel,
+): boolean {
+	ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+	ctx.fillStyle = color;
+
+	let visibleCount = 0;
+	const visibleSquares: MosaicSquare[] = [];
+	squares.forEach((square) => {
+		const visible =
+			phase === "cover"
+				? elapsed >= square.startAt
+				: elapsed < square.startAt;
+		if (!visible) return;
+		visibleSquares.push(square);
+
+		ctx.fillRect(
+			square.x - SQUARE_OVERLAP_PX,
+			square.y - SQUARE_OVERLAP_PX,
+			square.w + SQUARE_OVERLAP_PX * 2,
+			square.h + SQUARE_OVERLAP_PX * 2,
+		);
+		visibleCount += 1;
+	});
+
+	if (label) {
+		drawPageTransitionLabel(ctx, visibleSquares, label);
+	}
+
+	return phase === "cover"
+		? visibleCount === squares.length
+		: visibleCount === 0;
+}
+
+export function drawPageTransitionLabel(
+	ctx: CanvasRenderingContext2D,
+	clipSquares: MosaicSquare[],
+	label: PageTransitionMosaiqueLabel,
+) {
+	const lines = label.text
+		.split(/\r?\n/)
+		.map((line) => line.trim())
+		.filter(Boolean);
+	if (lines.length === 0 || clipSquares.length === 0) return;
+
+	const fontSize = Math.round(
+		label.fontSize ?? Math.min(Math.max(ctx.canvas.width * 0.08, 48), 120),
+	);
+	const fontFamily = label.fontFamily ?? "sans-serif";
+	const fontStyle = label.fontStyle ?? "italic";
+	const fontWeight = label.fontWeight ?? "400";
+	const lineHeight = fontSize * (label.lineHeight ?? 1);
+	const firstLineY =
+		ctx.canvas.height / 2 - ((lines.length - 1) * lineHeight) / 2;
+
+	ctx.save();
+	ctx.beginPath();
+	clipSquares.forEach((square) => {
+		ctx.rect(
+			square.x - SQUARE_OVERLAP_PX,
+			square.y - SQUARE_OVERLAP_PX,
+			square.w + SQUARE_OVERLAP_PX * 2,
+			square.h + SQUARE_OVERLAP_PX * 2,
+		);
+	});
+	ctx.clip();
+	ctx.fillStyle = label.color ?? "#ffffff";
+	ctx.font = `${fontStyle} ${fontWeight} ${fontSize}px ${fontFamily}`;
+	ctx.textAlign = "center";
+	ctx.textBaseline = "middle";
+	lines.forEach((line, index) => {
+		ctx.fillText(
+			line,
+			ctx.canvas.width / 2,
+			firstLineY + index * lineHeight,
+		);
+	});
+	ctx.restore();
 }
 
 function stopAnimation(state: HostState): void {
@@ -308,4 +451,65 @@ export function initMaskMosaique(
 			});
 		},
 	};
+}
+
+export function playPageTransitionMosaique(
+	canvas: HTMLCanvasElement,
+	phase: PageTransitionMosaiquePhase,
+	options: PageTransitionMosaiqueOptions = {},
+): Promise<void> {
+	const ctx = canvas.getContext("2d");
+	if (!ctx) return Promise.resolve();
+
+	const width = Math.max(1, window.innerWidth);
+	const height = Math.max(1, window.innerHeight);
+	const factor = options.sizeFactor ?? 0.01875;
+	const stagger = options.stagger ?? 750;
+	const color = options.color ?? "#101010";
+	const label = options.label;
+	const squares = buildRectSquares(width, height, factor, stagger);
+
+	canvas.width = width;
+	canvas.height = height;
+	canvas.style.width = `${width}px`;
+	canvas.style.height = `${height}px`;
+
+	return new Promise((resolve) => {
+		let rafId: number | null = null;
+		const startTime = performance.now();
+
+		const finish = () => {
+			if (phase === "cover") {
+				ctx.fillStyle = color;
+				ctx.fillRect(0, 0, canvas.width, canvas.height);
+			} else {
+				ctx.clearRect(0, 0, canvas.width, canvas.height);
+			}
+			rafId = null;
+			resolve();
+		};
+
+		const tick = (now: number) => {
+			const complete = drawPageTransitionMosaique(
+				ctx,
+				squares,
+				color,
+				phase,
+				now - startTime,
+				label,
+			);
+
+			if (complete) {
+				finish();
+				return;
+			}
+
+			rafId = requestAnimationFrame(tick);
+		};
+
+		rafId = requestAnimationFrame(tick);
+		if (rafId == null) {
+			resolve();
+		}
+	});
 }

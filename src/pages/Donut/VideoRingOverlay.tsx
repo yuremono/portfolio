@@ -8,8 +8,8 @@ import {
 	useRef,
 	useState,
 } from "react";
-import { createPortal } from "react-dom";
 
+import { LoadingLayer } from "../../components/LoadingLayer";
 import { getAssetPath } from "../../lib/assetPath";
 import {
 	clampUnit,
@@ -539,39 +539,17 @@ const VideoRingOverlay = forwardRef<VideoRingOverlayHandle, VideoRingOverlayProp
 		const holeY = ringCenter.cy - innerSize / 2;
 		const loadingPortalTarget =
 			mounted && typeof document !== "undefined" ? document.body : null;
-		const loadingLayer = (
-			<div
-				data-l="LoadingLayer"
-				aria-hidden="true"
-				className={`Eng fixed inset-0 z-[1000] bg-[var(--WH)] text-[var(--BK70)] transition-opacity duration-[1500ms] ease-out ${
-					openingPhase === "done"
-						? "pointer-events-none"
-						: "pointer-events-auto"
-				}`}
-				style={{ opacity: loadingOverlayOpacity }}
-			>
-				<div data-l="LoadingStage" className="relative h-full w-full">
-					{loadingTextVisible ? (
-						<div
-							data-l="LoadingValue"
-							className="absolute left-1/2 top-1/2 text-[clamp(2.5rem,6vw,5.75rem)] italic leading-none  transition-[transform,opacity] duration-[1000ms] ease-out"
-							style={{
-								opacity: loadingOverlayOpacity,
-								transform: `translate(-50%, -50%) translateX(${loadingTextShift}vw)`,
-							}}
-						>
-							{displayLoadPercent}%
-						</div>
-					) : null}
-				</div>
-			</div>
-		);
 
 		return (
 			<>
-				{loadingPortalTarget
-					? createPortal(loadingLayer, loadingPortalTarget)
-					: loadingLayer}
+				<LoadingLayer
+					active={openingPhase !== "done"}
+					opacity={loadingOverlayOpacity}
+					portalTarget={loadingPortalTarget}
+					text={loadingTextVisible ? `${displayLoadPercent}%` : null}
+					textOpacity={loadingOverlayOpacity}
+					textShiftVw={loadingTextShift}
+				/>
 				{canRenderMedia ? (
 					<div
 						data-l="VideoRingLayer"

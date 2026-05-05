@@ -30,7 +30,7 @@ html{
     -moz-text-size-adjust: none;
     -webkit-text-size-adjust: none;
 //     overflow-x: hidden;
-    scroll-behavior: smooth;
+//     scroll-behavior: smooth;
     scrollbar-gutter: stable;
     &:has(.h.active, .policy-wrap.active, .modal.active) {
         overflow: hidden;

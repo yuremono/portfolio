@@ -77,6 +77,7 @@ function Next() {
 
 			<main className=" min-h-screen ">
 				<section className="out mindMap   text-center   font-thin">
+					{/* InitialLoadingOverlay の INITIAL_LOADING_LABEL_TEXT と文言を同期 */}
 					<p
 						className="mmPin about_p lg:w-[calc(var(--wid)/2)] text-[--GR] font-light text-center p-4 px-6 bg-background/80 right-1/2 top-1/2 lg:translateYH static lg:absolute"
 						style={{ fontSize: "3em" }}

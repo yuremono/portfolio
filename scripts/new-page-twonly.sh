@@ -113,7 +113,7 @@ cat > "$TW_HTML" <<EOF
 </html>
 EOF
 
-# --- App.tsx: lazy import を ShuffleDivide の直前に、Route を shuffle-divide の直前に挿入
+# --- App.tsx: lazy import を ShuffleDivide の直前に、Route を shuffleDivide の直前に挿入
 awk -v p="$PASCAL" '
 /^const ShuffleDivide = lazy/ {
 	print "const " p " = lazy(() => import(\"./pages/" p "\"));"
@@ -122,7 +122,7 @@ awk -v p="$PASCAL" '
 ' "$APP_TSX" > "$APP_TSX.tmp" && mv "$APP_TSX.tmp" "$APP_TSX"
 
 awk -v p="$PASCAL" '
-/<Route path="\/shuffle-divide"/ {
+/<Route path="\/shuffleDivide"/ {
 	print "\t\t\t\t\t<Route path=\"/" p "\" element={<" p " />} />"
 }
 { print }

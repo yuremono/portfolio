@@ -16,7 +16,7 @@ const Test26 = lazy(() => import("./pages/Test26"));
 const ZzzScratch = lazy(() => import("./pages/ZzzScratch"));
 const Test9 = lazy(() => import("./pages/Test9"));
 const Lumaport = lazy(() => import("./pages/Lumaport"));
-const ShuffleDivide = lazy(() => import("./pages/shuffle-divide"));
+const ShuffleDivide = lazy(() => import("./pages/ShuffleDivide"));
 const Glitch = lazy(() => import("./pages/glitch"));
 const Yugen = lazy(() => import("./pages/yugen"));
 const Activity = lazy(() => import("./pages/Activity"));
@@ -30,27 +30,47 @@ const Bbox = lazy(() => import("./pages/Bbox"));
 
 const routes: PageTransitionRoute[] = [
 	{ path: "/", element: <Next /> },
-	{ path: "/preview", element: <Preview /> },
-	{ path: "/donut", element: <Donut /> },
-	{ path: "/aozora", element: <Aozora /> },
-	{ path: "/Test26", element: <Test26 /> },
-	{ path: "/ZzzScratch", element: <ZzzScratch /> },
-	{ path: "/Test9", element: <Test9 /> },
-	{ path: "/Lumaport", element: <Lumaport /> },
-	{ path: "/shuffle-divide", element: <ShuffleDivide /> },
-	{ path: "/glitch", element: <Glitch /> },
-	{ path: "/yugen", element: <Yugen /> },
-	{ path: "/examples", element: <Examples /> },
-	{ path: "/activity", element: <Activity /> },
-	{ path: "/test5", element: <Test5 /> },
-	{ path: "/test6", element: <Test6 /> },
-	{ path: "/test7", element: <Test7 /> },
-	{ path: "/test8", element: <Test8 /> },
-	{ path: "/rects", element: <Rects /> },
-	{ path: "/grid-carousel", element: <GridCarousel /> },
-	{ path: "/conversion-inc", element: <Conversion /> },
-	{ path: "/conversion", element: <Conversion /> },
-	{ path: "/bbox", element: <Bbox /> },
+	{ path: "/preview", element: <Preview />, transitionTitle: "BYOS" },
+	{ path: "/donut", element: <Donut />, transitionTitle: "Donut" },
+	{ path: "/aozora", element: <Aozora />, transitionTitle: "Aozora" },
+	{ path: "/Test26", element: <Test26 />, transitionTitle: "Test26" },
+	{
+		path: "/ZzzScratch",
+		element: <ZzzScratch />,
+		transitionTitle: "ZzzScratch",
+	},
+	{ path: "/Test9", element: <Test9 />, transitionTitle: "Test9" },
+	{ path: "/Lumaport", element: <Lumaport />, transitionTitle: "Lumaport" },
+	{
+		path: "/ShuffleDivide",
+		element: <ShuffleDivide />,
+		transitionTitle: "ShuffleDivide",
+	},
+	{ path: "/glitch", element: <Glitch />, transitionTitle: "Glitch" },
+	{ path: "/yugen", element: <Yugen />, transitionTitle: "Yugen" },
+	{ path: "/examples", element: <Examples />, transitionTitle: "Examples" },
+	{ path: "/activity", element: <Activity />, transitionTitle: "Activity" },
+	{ path: "/test5", element: <Test5 />, transitionTitle: "Test5" },
+	{ path: "/test6", element: <Test6 />, transitionTitle: "Test6" },
+	{ path: "/test7", element: <Test7 />, transitionTitle: "Test7" },
+	{ path: "/test8", element: <Test8 />, transitionTitle: "Test8" },
+	{ path: "/rects", element: <Rects />, transitionTitle: "Rects" },
+	{
+		path: "/grid-carousel",
+		element: <GridCarousel />,
+		transitionTitle: "GridCarousel",
+	},
+	{
+		path: "/conversion-inc",
+		element: <Conversion />,
+		transitionTitle: "ConversionInc",
+	},
+	{
+		path: "/conversion",
+		element: <Conversion />,
+		transitionTitle: "Conversion",
+	},
+	{ path: "/bbox", element: <Bbox />, transitionTitle: "Bbox" },
 ];
 
 function App() {

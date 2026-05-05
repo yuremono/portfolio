@@ -45,8 +45,8 @@ export function Footer({ className }: FooterProps) {
 			<div className="text-center   ">
 				<p className="mb-0    text-[length:var(--logoFZ)]">
 					yuremono works
-                                </p>
-                        <ul className="flex flex-wrap gap md:justify-center mt-6" >
+				</p>
+				<ul className="flex flex-wrap gap md:justify-center mt-6">
 					<li className="">
 						<Link to="/preview">BurnYourOwnStyle</Link>
 					</li>
@@ -59,7 +59,7 @@ export function Footer({ className }: FooterProps) {
 						<Link to="/rects">RandomGenerator</Link>
 					</li>
 					<li className="">
-						<Link to="/shuffle-divide">ShuffleDivide</Link>
+						<Link to="/shuffleDivide">ShuffleDivide</Link>
 					</li>
 					<li className="">
 						<Link to="/glitch">Glitch</Link>
@@ -95,8 +95,8 @@ export function Footer({ className }: FooterProps) {
 							<ArrowSquareOutIcon size={16} />
 						</a>
 					</li>
-                                </ul>
-                                </div>
+				</ul>
+			</div>
 		</footer>
 	);
 }

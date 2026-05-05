@@ -1,17 +1,22 @@
 import { useEffect, useRef } from "react";
+
 import { useClientRuntime } from "../hooks/useClientRuntime";
+
 import { useHtmlRootClass } from "../hooks/useHtmlRootClass";
 
 import Header from "../components/Header";
+
 import { Footer } from "../components/Footer";
+
 import { PageRoot } from "../components/PageRoot";
 
-
 import { initCanvasDivide } from "../lib/initCanvasDivide";
+
 import { initShuffle } from "../lib/initShuffle";
+
 import { getAssetPath } from "../lib/assetPath";
 
-import "../scss/shuffle-divide.scss";
+import "../scss/ShuffleDivide.scss";
 
 const heroImages = [
 	{
@@ -33,9 +38,8 @@ const tabPanels = [
 		contentClassName: "Bottom leading-[1.5em] ",
 		content: (
 			<mark className="">
-				波の向こうに
-				<br />
-				日が沈む
+				{" "}
+				波の向こうに <br /> 日が沈む{" "}
 			</mark>
 		),
 	},
@@ -47,9 +51,8 @@ const tabPanels = [
 		contentClassName: "Right",
 		content: (
 			<span className="tate  text-center text-[--TC]">
-				風が通る
-				<br />
-				緑のライン
+				{" "}
+				風が通る <br /> 緑のライン{" "}
 			</span>
 		),
 	},
@@ -73,7 +76,10 @@ const tabPanels = [
 
 function ShuffleDivide() {
 	const pageRootRef = useRef<HTMLDivElement>(null);
-	useClientRuntime({ rootRef: pageRootRef });
+
+	useClientRuntime({
+		rootRef: pageRootRef,
+	});
 	useHtmlRootClass();
 
 	useEffect(() => {
@@ -82,6 +88,7 @@ function ShuffleDivide() {
 
 		const canvas = initCanvasDivide(root);
 		const shuffle = initShuffle(root);
+
 		return () => {
 			canvas.disconnect();
 			shuffle.disconnect();
@@ -90,113 +97,133 @@ function ShuffleDivide() {
 
 	return (
 		<PageRoot ref={pageRootRef}>
-			<Header className=" " />
-
+			{" "}
+			<Header className=" " />{" "}
 			<main
-				className="shuffle-divide [--h1FZ:clamp(32px,6.4vw,96px)]"
+				className="ShuffleDivide [--h1FZ:clamp(32px,6.4vw,96px)]"
 				aria-label="Shuffle Divide  page"
 			>
-                        <div className="clearfix H-grad halfRight my-[10vh]">
-                                <div>
-                                        <p className="shuffle __lg __step">
-                                                Right
-                                                <br />
-                                                &nbsp;&nbsp;&nbsp;&nbsp;Shuffle
-                                        </p>
-                                </div>
-                        </div>
-
-                        <div className="cont01 out into  ">
-                                <div className="clearfix  relative z-[10] text-white">
-                                        <div>
-                                                <h2 className="shuffle tate  ">Our&nbsp;Service</h2>
-                                        </div>
-                                </div>
-
-                                <div className="cont01_fb abs0 JsCpL">
-                                        {heroImages.map((image) => (
-                                                <div className="box" key={image.src}>
-                                                        <img src={getAssetPath(image.src)} alt={image.alt} />
-                                                        <div aria-hidden="true" />
-                                                </div>
-                                        ))}
-                                </div>
-
-                                <div className=" cont01_tx halfRight">
-                                        <div>
-                                                <div className="JsCpL">
-                                                        <h1 className="h2FZ">
-                                                                <span>デザイン</span>で未来を創る
-                                                        </h1>
-                                                </div>
-                                        </div>
-                                </div>
-                        </div>
-
-                        <div className="clearfix H-grad halfLeft">
-                                <div>
-                                        <p className="shuffle __lg __step">
-                                                Left
-                                                <br />
-                                                &nbsp;&nbsp;&nbsp;&nbsp;Shuffle
-                                        </p>
-                                </div>
-                        </div>
-
-                        <div className="cont02  ">
-                                <div className="tabContainer JsHide text-white">
-                                        <div className="tabButtons">
-                                                {tabPanels.map((panel, index) => (
-                                                        <button
-                                                                className="tab"
-                                                                data-tab={index}
-                                                                
-                                                                type="button"
-                                                        >
-                                                                <i>{panel.buttonLead}</i>
-                                                                {panel.buttonLabel}
-                                                        </button>
-                                                ))}
-                                        </div>
-
-                                        <button
-                                                className="tab-next-button"
-                                                type="button"
-                                                aria-label="次のタブを表示"
-                                        >
-                                                <span aria-hidden="true">NEXT</span>
-                                        </button>
-
-                                        <div className="tabPanels">
-                                                {tabPanels.map((panel) => (
-                                                        <div
-                                                                className="clearfix GenerateBox tabPanel"
-                                                                
-                                                        >
-                                                                <img
-                                                                        src={getAssetPath(panel.image)}
-                                                                        alt={panel.alt}
-                                                                        className="imgC"
-                                                                />
-                                                                <div>
-                                                                        <div className={panel.contentClassName}>{panel.content}</div>
-                                                                </div>
-                                                        </div>
-                                                ))}
-                                        </div>
-                                </div>
-                        </div>
-
-                        <div className="out my-[15vh] text-center">
-                                <div className="clearfix H-grad pl1e">
-                                        <div>
-                                                <h2 className="shuffle __lg">PERFORMANCE END</h2>
-                                        </div>
-                                </div>
-                        </div>
-                        </main>
-                        <Footer/>
-                        
+				{" "}
+				<div className="clearfix H-grad halfRight my-[10vh]">
+					{" "}
+					<div>
+						{" "}
+						<p className="shuffle __lg __step">
+							{" "}
+							Right <br /> &nbsp;&nbsp;&nbsp;&nbsp;Shuffle{" "}
+						</p>{" "}
+					</div>{" "}
+				</div>{" "}
+				<div className="cont01 out into  ">
+					{" "}
+					<div className="clearfix  relative z-[10] text-white">
+						{" "}
+						<div>
+							{" "}
+							<h2 className="shuffle tate  ">
+								Our&nbsp;Service
+							</h2>{" "}
+						</div>{" "}
+					</div>{" "}
+					<div className="cont01_fb abs0 JsCpL">
+						{" "}
+						{heroImages.map((image) => (
+							<div className="box" key={image.src}>
+								{" "}
+								<img
+									src={getAssetPath(image.src)}
+									alt={image.alt}
+								/>{" "}
+								<div aria-hidden="true" />{" "}
+							</div>
+						))}
+					</div>{" "}
+					<div className=" cont01_tx halfRight">
+						{" "}
+						<div>
+							{" "}
+							<div className="JsCpL">
+								{" "}
+								<h1 className="h2FZ">
+									{" "}
+									<span>デザイン</span>で未来を創る{" "}
+								</h1>{" "}
+							</div>{" "}
+						</div>{" "}
+					</div>{" "}
+				</div>{" "}
+				<div className="clearfix H-grad halfLeft">
+					{" "}
+					<div>
+						{" "}
+						<p className="shuffle __lg __step">
+							{" "}
+							Left <br /> &nbsp;&nbsp;&nbsp;&nbsp;Shuffle{" "}
+						</p>{" "}
+					</div>{" "}
+				</div>{" "}
+				<div className="cont02  ">
+					{" "}
+					<div className="tabContainer JsHide text-white">
+						{" "}
+						<div className="tabButtons">
+							{" "}
+							{tabPanels.map((panel, index) => (
+								<button
+									className="tab"
+									data-tab={index}
+									type="button"
+								>
+									{" "}
+									<i> {panel.buttonLead}</i>{" "}
+									{panel.buttonLabel}
+								</button>
+							))}
+						</div>{" "}
+						<button
+							className="tab-next-button"
+							type="button"
+							aria-label="次のタブを表示"
+						>
+							{" "}
+							<span aria-hidden="true">NEXT</span>{" "}
+						</button>{" "}
+						<div className="tabPanels">
+							{" "}
+							{tabPanels.map((panel) => (
+								<div className="clearfix GenerateBox tabPanel">
+									{" "}
+									<img
+										src={getAssetPath(panel.image)}
+										alt={panel.alt}
+										className="imgC"
+									/>{" "}
+									<div>
+										{" "}
+										<div className={panel.contentClassName}>
+											{" "}
+											{panel.content}
+										</div>{" "}
+									</div>{" "}
+								</div>
+							))}
+						</div>{" "}
+					</div>{" "}
+				</div>{" "}
+				<div className="out my-[15vh] text-center">
+					{" "}
+					<div className="clearfix H-grad pl1e">
+						{" "}
+						<div>
+							{" "}
+							<h2 className="shuffle __lg">
+								PERFORMANCE END
+							</h2>{" "}
+						</div>{" "}
+					</div>{" "}
+				</div>{" "}
+			</main>{" "}
+			<Footer />{" "}
 		</PageRoot>
 	);
 }

@@ -248,7 +248,8 @@ function Next() {
 														</span>
 													</dd>
 													<dt className="">
-														Claude Code (GLM, OpenRouter)
+														Claude Code (GLM,
+														OpenRouter)
 													</dt>
 													<dd>
 														<span className="">
@@ -460,47 +461,90 @@ function Next() {
 											</h3>
 											<div className="DescList  [--dtW:50%] [--PY:0.25em] [--PX:0.25em]  mt-4 IsDdright">
 												<dl className="items-center">
-													<dt className="">Tailwind CSS</dt>
-													<dd><span className="px-2 bg-AC/30 font-medium">
+													<dt className="">
+														Tailwind CSS
+													</dt>
+													<dd>
+														<span className="px-2 bg-AC/30 font-medium">
 															6 M,AI 1 Y
 														</span>
 													</dd>
-													<dt className="">canvas API</dt>
+													<dt className="">
+														canvas API
+													</dt>
 													<dd>
 														<span className="px-2 bg-AC/30 font-medium">
 															AI 1 Year
 														</span>
 													</dd>
-													<dt className="">Three.js</dt>
+													<dt className="">
+														Three.js
+													</dt>
 													<dd>AI 1 Year</dd>
 													<dt className="">D3.js</dt>
 													<dd>AI 6 Month</dd>
 													<dt className="">GSAP</dt>
 													<dd>3.5 Year</dd>
-													<dt className="">VScode/Chrome Extentions</dt>
+													<dt className="">
+														VScode/Chrome Extentions
+													</dt>
 													<dd>1~2回作成</dd>
-													<dt className="">NanoBanana </dt>
+													<dt className="">
+														NanoBanana{" "}
+													</dt>
 													<dd>スキルで頻繁に利用</dd>
-													<dt className="">Quiver.ai/arrow-1</dt>
-													<dd>BYOS demoのsvg生成で使用</dd>
-													<dt className="">LottieAnimation</dt>
+													<dt className="">
+														Quiver.ai/arrow-1
+													</dt>
+													<dd>
+														BYOS demoのsvg生成で使用
+													</dd>
+													<dt className="">
+														LottieAnimation
+													</dt>
 													<dd>webツール試用</dd>
-													<dt className="">memsearch</dt>
+													<dt className="">
+														memsearch
+													</dt>
 													<dd>claude/codexで常用</dd>
-													<dt className="">superpowers/oh-my-claudecode</dt>
-													<dd className=""><span>試用</span></dd>
-													<dt className="">tweekpane</dt>
-													<dd className="">`/Generator`で使用</dd>
-													<dt className="">Z.ai Coding Plan</dt>
-													<dd className="">Claude Codeで使用</dd>
-													<dt className="">Open Router</dt>
-													<dd className="">モデル比較</dd>
+													<dt className="">
+														superpowers/oh-my-claudecode
+													</dt>
+													<dd className="">
+														<span>試用</span>
+													</dd>
+													<dt className="">
+														tweekpane
+													</dt>
+													<dd className="">
+														`/Generator`で使用
+													</dd>
+													<dt className="">
+														Z.ai Coding Plan
+													</dt>
+													<dd className="">
+														Claude Codeで使用
+													</dd>
+													<dt className="">
+														Open Router
+													</dt>
+													<dd className="">
+														モデル比較
+													</dd>
 													<dt className="">Fal AI</dt>
-													<dd className="">動画生成で使用</dd>
-													<dt className="">OpenClaw</dt>
+													<dd className="">
+														動画生成で使用
+													</dd>
+													<dt className="">
+														OpenClaw
+													</dt>
 													<dd className="">試用</dd>
-													<dt className="">tailscale</dt>
-													<dd className="">スマホターミナル操作試用</dd>
+													<dt className="">
+														tailscale
+													</dt>
+													<dd className="">
+														スマホターミナル操作試用
+													</dd>
 												</dl>
 											</div>
 										</article>
@@ -510,10 +554,27 @@ function Next() {
 							</section>
 						</DialogFull>
 					</div>
-					<section className="Cards col2 relative items-center into">
-						<div className="item">
-							<div className="text-center">
-								<h2 className="mindWobble font-thin text-left leading-[0.875em] tracking-[0.0em]">
+					<section className="Cards col2 relative items-center into [--gap:0px]">
+						<div className="item PX">
+							<div className="text-center ">
+								<div className=" ">
+									<h2 className="font-thin grid content-center md:h-[100lvh]">
+										<span className="mindWobble text-left leading-[0.7em] tracking-[-0.0em]" style={{ fontSize: "3em" }}>
+											Vibe
+											<br />
+											&nbsp;&nbsp;Design
+										</span>
+										<span className="mindWobble text-center leading-[1em] mt-[-0.25em] tracking-[-0.0em] font-normal text-GR/10 " style={{ fontSize: "8em" }}>
+											or
+										</span>
+										<span className="mindWobble text-right leading-[0.465em] tracking-[0em]" style={{ fontSize: "3.5em" }}>
+											Vault
+											<br />
+											&nbsp;&nbsp;Driven
+										</span>
+									</h2>
+								</div>
+								{/* <h2 className="mindWobble font-thin text-left leading-[0.875em] tracking-[0.0em]">
 									<span style={{ fontSize: "1.125em" }}>
 										Burn
 										<br />
@@ -523,20 +584,21 @@ function Next() {
 										<br />
 										&nbsp;&nbsp;&nbsp;Style
 									</span>
-								</h2>
+								</h2> */}
 							</div>
 						</div>
-						<div className="item content-center">
+						<div className="item content-center bg-background/80 p-4">
 							<div className=" leading-[2]">
-								<h3>AI Native Development</h3>
-								<br />
-								個人のスタイルシステム（クラス、変数、スタイリングの癖）を元に、Claude
-								Code・Cursor等エージェント向けドキュメントを充実させることで、Web
-								制作の全工程をAI前提で進める為のプロジェクト。
-								<br />
+								<h3>AI Ready</h3>
+                                                                <br />
+                                                                AI前提開発は大きく分けると<br />
+                                                                - DESIGN.md、画像生成を基点にする<br />
+                                                                - スタイルとモジュールを資産化し、再利用する<br />
+                                                                の２つのアプローチがあると考えています。<br /><br />
+                                                                個人のスタイルシステム（クラス、変数、スタイリングの癖）を元に、エージェントに全て実装させる実験を行っていました。
 								<div className="flex flex-wrap">
 									<Button
-										className="mt-[2.5em] [--btnW:50%] mr-[50%]"
+										className="mt-[1em] [--btnW:50%] mr-[50%]"
 										href="https://github.com/yuremono/BurnYourOwnStyle/tree/react"
 										external
 									>
@@ -548,7 +610,7 @@ function Next() {
 										className="ml-[50%] [--btnW:50%]"
 										href="/preview"
 									>
-										Preview
+										BYOS
 									</Button>
 									<br />
 									<details className="Toggle IsSmall font-normal ">
@@ -652,7 +714,9 @@ function Next() {
 								</Button>
 							</div>
 						</CardsItem>
-						<CardsItem className={`${otherWorksClasses.item}  lg:w-2/5`}>
+						<CardsItem
+							className={`${otherWorksClasses.item}  lg:w-2/5`}
+						>
 							<h3>Activity</h3>
 							<p className={otherWorksClasses.body}>
 								職務要約と活動記録を書いています。
@@ -665,9 +729,11 @@ function Next() {
 									Activity
 								</Button>
 							</div>
-							<h3 className="mt-6 pt-6 BorderT">BoundingBoxOnDesign</h3>
+							<h3 className="mt-6 pt-6 BorderT">
+								BoundingBoxOnDesign
+							</h3>
 							<p className={otherWorksClasses.body}>
-                                                        AI生成のLPデザインにバウンディングボックスを配置し、画像+構造化データをエージェントに渡すツールです。
+								AI生成のLPデザインにバウンディングボックスを配置し、画像+構造化データをエージェントに渡すツールです。
 							</p>
 							<div className={otherWorksClasses.actions}>
 								<Button
@@ -706,7 +772,7 @@ function Next() {
 								</Button>
 								<Button
 									className={otherWorksClasses.buttonInline}
-									href="/shuffle-divide"
+									href="/shuffleDivide"
 								>
 									Shuffle Texts + Divided Images
 								</Button>

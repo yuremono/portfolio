@@ -130,7 +130,7 @@ function HeaderNav() {
 						<Link to="/rects">RandomGenerator</Link>
 					</li>
 					<li className="DropLi">
-						<Link to="/shuffle-divide">ShuffleDivide</Link>
+						<Link to="/shuffleDivide">ShuffleDivide</Link>
 					</li>
 					<li className="DropLi">
 						<Link to="/glitch">Glitch</Link>

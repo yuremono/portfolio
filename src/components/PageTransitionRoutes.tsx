@@ -15,16 +15,30 @@ import {
 	type Location,
 } from "react-router-dom";
 
+import {
+	readPageTransitionCanvasLabel,
+	resolveCssColorOnElement,
+	waitForPageTransitionCanvasFont,
+} from "../lib/pageTransitionCanvasLabel";
+import { INITIAL_LOADING_LABEL_TEXT } from "./InitialLoadingOverlay";
 import { ScrollToTop } from "./ScrollToTop";
 import { playPageTransitionMosaique } from "../lib/effects/maskMosaique";
 
 const ScrollSmoothClass = "PageTransitionScrollSmooth";
 const ScrollInstantClass = "PageTransitionScrollInstant";
 
+/**
+ * 試験用: `true` のとき cover 完了後〜reveal 開始前のキャンバス全面塗りつぶしをスキップする。
+ * 従来動作に戻すなら `false` に変更するだけでよい。
+ */
+const PAGE_TRANSITION_SKIP_SOLID_FILL_BETWEEN_PHASES = true;
+
 export interface PageTransitionRoute {
 	path: string;
 	element: ReactNode;
 	pageTransition?: boolean;
+	/** 遷移アニメの canvas に出す名前。省略時は URL 末尾から自動生成。 */
+	transitionTitle?: string;
 }
 
 function prefersReducedMotion() {
@@ -39,6 +53,41 @@ function findRoute(routes: PageTransitionRoute[], pathname: string) {
 	return routes.find((route) =>
 		matchPath({ path: route.path, end: true }, pathname),
 	);
+}
+
+/** 未定義時は末尾セグメントをそのまま、ハイフン区切りは単語頭を大文字にそろえる。 */
+function defaultTransitionTitle(pathname: string): string {
+	const normalized = pathname.replace(/\/+$/, "") || "/";
+	if (normalized === "/") {
+		return INITIAL_LOADING_LABEL_TEXT;
+	}
+	const leaf =
+		normalized.split("/").filter(Boolean).pop() ?? pathname.replace(/^\//u, "");
+
+	if (!leaf) {
+		return INITIAL_LOADING_LABEL_TEXT;
+	}
+	if (!leaf.includes("-")) {
+		if (/^[a-z][a-z0-9]*$/u.test(leaf)) {
+			return leaf.charAt(0).toUpperCase() + leaf.slice(1);
+		}
+		return leaf;
+	}
+
+	return leaf
+		.replace(/-/g, " ")
+		.replace(/\b\w/gu, (character) => character.toUpperCase());
+}
+
+function resolveRouteTransitionTitle(
+	routes: PageTransitionRoute[],
+	pathname: string,
+): string {
+	const route = findRoute(routes, pathname);
+	if (route?.transitionTitle) {
+		return route.transitionTitle;
+	}
+	return defaultTransitionTitle(pathname);
 }
 
 function canAnimateRouteChange(
@@ -64,20 +113,9 @@ function readTimeMs(value: string, fallback: number) {
 	return trimmed.endsWith("ms") ? parsed : parsed * 1000;
 }
 
-function resolveCssColor(
-	value: string,
-	fallback: string,
-	scope: Element = document.documentElement,
+function readTransitionMosaicOptions(
+	source: Element = document.documentElement,
 ) {
-	const probe = document.createElement("span");
-	probe.style.color = value || fallback;
-	scope.appendChild(probe);
-	const resolved = getComputedStyle(probe).color;
-	probe.remove();
-	return resolved || fallback;
-}
-
-function readTransitionOptions(source: Element = document.documentElement) {
 	const rootStyle = getComputedStyle(source);
 	const pageTransitionMs = readTimeMs(
 		rootStyle.getPropertyValue("--pageTR"),
@@ -92,7 +130,7 @@ function readTransitionOptions(source: Element = document.documentElement) {
 	);
 
 	return {
-		color: resolveCssColor(rawColor, "#101010", source),
+		color: resolveCssColorOnElement(rawColor, "#101010", source),
 		sizeFactor: Number.isFinite(sizeFactor) ? sizeFactor : 0.01875,
 		stagger: pageTransitionMs,
 	};
@@ -191,6 +229,7 @@ export function PageTransitionRoutes({ routes }: {
 	const navigate = useNavigate();
 	const [overlayVisible, setOverlayVisible] = useState(false);
 	const transitionRef = useRef<HTMLDivElement | null>(null);
+	const textStyleProbeRef = useRef<HTMLParagraphElement | null>(null);
 	const canvasRef = useRef<HTMLCanvasElement | null>(null);
 	const currentLocationRef = useRef(location);
 	const pendingTargetRef = useRef<string | null>(null);
@@ -230,19 +269,37 @@ export function PageTransitionRoutes({ routes }: {
 			return;
 		}
 
-		const options = readTransitionOptions(
-			transitionRef.current ?? document.documentElement,
+		const root = transitionRef.current ?? document.documentElement;
+		const mosaic = readTransitionMosaicOptions(root);
+		const resolved = new URL(target, window.location.href);
+		const targetPathname = stripBasePath(resolved.pathname);
+		const transitionText = resolveRouteTransitionTitle(
+			routes,
+			targetPathname,
 		);
+		const textProbe = textStyleProbeRef.current ?? root;
+		const label = readPageTransitionCanvasLabel(
+			transitionText,
+			root,
+			textProbe,
+		);
+		const options = { ...mosaic, label };
+
+		await waitForPageTransitionCanvasFont(label);
 		await playPageTransitionMosaique(canvas, "cover", options);
 
 		if (pendingTargetRef.current !== target) return;
 
 		// ScrollToTopを戻す場合は、この直接スクロールと下の disabled を外す。
 		window.scrollTo({ top: 0, left: 0, behavior: "auto" });
-		fillCanvas(canvas, options.color);
+		if (!PAGE_TRANSITION_SKIP_SOLID_FILL_BETWEEN_PHASES) {
+			fillCanvas(canvas, mosaic.color);
+		}
 		navigate(target);
 		await new Promise((resolve) => window.setTimeout(resolve, 0));
-		fillCanvas(canvas, options.color);
+		if (!PAGE_TRANSITION_SKIP_SOLID_FILL_BETWEEN_PHASES) {
+			fillCanvas(canvas, mosaic.color);
+		}
 
 		await playPageTransitionMosaique(canvas, "reveal", options);
 
@@ -288,6 +345,11 @@ export function PageTransitionRoutes({ routes }: {
 			</div>
 			{overlayVisible ? (
 				<div className="PageTransitionOverlay" aria-hidden="true">
+					<p
+						ref={textStyleProbeRef}
+						className="InitialLoadingTextProbe mmPin"
+						aria-hidden="true"
+					/>
 					<canvas ref={canvasRef} className="PageTransitionCanvas" />
 				</div>
 			) : null}

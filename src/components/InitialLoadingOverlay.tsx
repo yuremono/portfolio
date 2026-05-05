@@ -4,6 +4,11 @@ import {
 	drawPageTransitionLabel,
 	playPageTransitionMosaique,
 } from "../lib/effects/maskMosaique";
+import {
+	readPageTransitionCanvasLabel,
+	resolveCssColorOnElement,
+	waitForPageTransitionCanvasFont,
+} from "../lib/pageTransitionCanvasLabel";
 import { LoadingLayer } from "./LoadingLayer";
 
 const InitialLoadingStorageKey = "InitialLoadingViewed";
@@ -24,20 +29,6 @@ function readTimeMs(value: string, fallback: number) {
 	const parsed = Number.parseFloat(trimmed);
 	if (!Number.isFinite(parsed)) return fallback;
 	return trimmed.endsWith("ms") ? parsed : parsed * 1000;
-}
-
-function readNumber(value: string, fallback: number) {
-	const parsed = Number.parseFloat(value.trim());
-	return Number.isFinite(parsed) ? parsed : fallback;
-}
-
-function resolveCssColor(value: string, fallback: string, scope: Element) {
-	const probe = document.createElement("span");
-	probe.style.color = value || fallback;
-	scope.appendChild(probe);
-	const resolved = getComputedStyle(probe).color;
-	probe.remove();
-	return resolved || fallback;
 }
 
 function getSessionViewed(storageKey: string) {
@@ -91,7 +82,6 @@ function waitForPreferredAnchor(): Promise<Element | null> {
 
 function readInitialLoadingOptions(source: Element, textStyleSource: Element) {
 	const style = getComputedStyle(source);
-	const textStyle = getComputedStyle(textStyleSource);
 	const pageTransitionMs = readTimeMs(style.getPropertyValue("--pageTR"), 600);
 	const minimumMs = readTimeMs(
 		style.getPropertyValue("--initial-loading-min"),
@@ -101,44 +91,21 @@ function readInitialLoadingOptions(source: Element, textStyleSource: Element) {
 		style.getPropertyValue("--page-rect-bg").trim() ||
 		style.getPropertyValue("--MC").trim() ||
 		"#101010";
-	const rawTextColor =
-		textStyle.color ||
-		"#ffffff";
-	const fontSize = readNumber(textStyle.fontSize, 96);
-	const lineHeightPx = readNumber(textStyle.lineHeight, fontSize);
 	const sizeFactor = Number.parseFloat(
 		style.getPropertyValue("--page-rect-size").trim(),
 	);
 
 	return {
-		color: resolveCssColor(rawColor, "#101010", source),
-		label: {
-			color: resolveCssColor(rawTextColor, "#ffffff", source),
-			fontFamily: textStyle.fontFamily || "sans-serif",
-			fontSize,
-			fontStyle: textStyle.fontStyle || "normal",
-			fontWeight: textStyle.fontWeight || "300",
-			lineHeight: lineHeightPx / fontSize,
-			text: INITIAL_LOADING_LABEL_TEXT,
-		},
+		color: resolveCssColorOnElement(rawColor, "#101010", source),
+		label: readPageTransitionCanvasLabel(
+			INITIAL_LOADING_LABEL_TEXT,
+			source,
+			textStyleSource,
+		),
 		minimumMs,
 		sizeFactor: Number.isFinite(sizeFactor) ? sizeFactor : 0.01875,
 		stagger: pageTransitionMs,
 	};
-}
-
-function waitForCanvasFont(
-	label: ReturnType<typeof readInitialLoadingOptions>["label"],
-) {
-	if (typeof document === "undefined" || !("fonts" in document)) {
-		return Promise.resolve();
-	}
-
-	const font = `${label.fontStyle ?? "normal"} ${label.fontWeight ?? "400"} ${label.fontSize}px ${label.fontFamily}`;
-	return Promise.race([
-		document.fonts.load(font, label.text).then(() => undefined),
-		new Promise<void>((resolve) => window.setTimeout(resolve, 250)),
-	]);
 }
 
 function fillCanvas(
@@ -198,7 +165,7 @@ export function InitialLoadingOverlay({
 				root,
 				textStyleRef.current ?? root,
 			);
-			void waitForCanvasFont(options.label).then(() => {
+			void waitForPageTransitionCanvasFont(options.label).then(() => {
 				if (!alive) return;
 				fillCanvas(canvas, options.color, options.label);
 				timeoutId = window.setTimeout(() => {

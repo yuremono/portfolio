@@ -3,6 +3,12 @@ const ATTR = "data-mask-mosaique";
 const CANVAS_ATTR = "data-mask-mosaique-canvas";
 const ITEM_ATTR = "data-mask-mosaique-item";
 
+/**
+ * 試験用: `true` のとき `playPageTransitionMosaique` の cover 完了時の全面 fillRect をスキップする。
+ * 従来動作に戻すなら `false` に変更するだけでよい。
+ */
+const PAGE_TRANSITION_SKIP_COVER_FINISH_SOLID_FILL = true;
+
 export type RuntimeDisconnect = { disconnect: () => void };
 
 interface MosaicSquare {
@@ -480,8 +486,10 @@ export function playPageTransitionMosaique(
 
 		const finish = () => {
 			if (phase === "cover") {
-				ctx.fillStyle = color;
-				ctx.fillRect(0, 0, canvas.width, canvas.height);
+				if (!PAGE_TRANSITION_SKIP_COVER_FINISH_SOLID_FILL) {
+					ctx.fillStyle = color;
+					ctx.fillRect(0, 0, canvas.width, canvas.height);
+				}
 			} else {
 				ctx.clearRect(0, 0, canvas.width, canvas.height);
 			}

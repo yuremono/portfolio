@@ -27,6 +27,12 @@ html.PageTransitionScrollInstant {
 }
 
 .PageTransition {
+	/* InitialLoading と同じトークンで canvas ラベルを揃える */
+	--initial-loading-font-style: normal;
+	--initial-loading-font-weight: 300;
+	--initial-loading-line-height: 1;
+	--initial-loading-font-size: calc(var(--mmFZ) * 3);
+	--initial-loading-text: var(--WH);
 	--page-rect-bg: var(--MC);
 	--page-rect-size: 0.01;
 	position: relative;
@@ -59,7 +65,7 @@ html.PageTransitionScrollInstant {
 	--initial-loading-line-height: 1;
         //overwrite
 	--initial-loading-font-size: calc(var(--mmFZ)*3);
-	--initial-loading-text: var(--WH);
+	--initial-loading-text: var(--background);
 
 	--page-rect-bg: var(--MC);
 	--page-rect-size: 0.01;

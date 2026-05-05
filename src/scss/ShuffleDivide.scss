@@ -1,4 +1,4 @@
-.shuffle-divide {
+.ShuffleDivide {
 
 	.absLT {
 		position: absolute;
@@ -195,11 +195,11 @@
 
 	.GenerateBox.show canvas {
 		opacity: 1;
-		animation: shuffle-divide-zigzag 0.5s steps(1) forwards;
+		animation: ShuffleDivide-zigzag 0.5s steps(1) forwards;
 	}
 
 	.GenerateBox.show canvas:first-of-type {
-		animation-name: shuffle-divide-zigzag-rev;
+		animation-name: ShuffleDivide-zigzag-rev;
 	}
 
 	.GenerateBox .Bottom {
@@ -321,7 +321,7 @@
 
 }
 
-@keyframes shuffle-divide-zigzag {
+@keyframes ShuffleDivide-zigzag {
 	0% {
 		transform: translate(150px, 150px);
 	}
@@ -339,7 +339,7 @@
 	}
 }
 
-@keyframes shuffle-divide-zigzag-rev {
+@keyframes ShuffleDivide-zigzag-rev {
 	0% {
 		transform: translate(-150px, -150px);
 	}
@@ -358,7 +358,7 @@
 }
 
 @media (max-width: 960px) {
-	.shuffle-divide {
+	.ShuffleDivide {
 		.halfLeft,
 		.halfRight {
 			width: 100%;
@@ -386,7 +386,7 @@
 }
 
 @media (max-width: 834px) {
-	.shuffle-divide {
+	.ShuffleDivide {
 		.wrapper100,
 		.out {
 			padding-block: var(--MY5);
@@ -420,7 +420,7 @@
 
 
 @media (prefers-reduced-motion: reduce) {
-	.shuffle-divide {
+	.ShuffleDivide {
 		*,
 		*::before,
 		*::after {

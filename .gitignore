@@ -26,6 +26,7 @@ css/
 
 # macOS system files
 .DS_Store
+**/.DS_Store
 ._*
 
 # Claude Code settings

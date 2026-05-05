@@ -157,8 +157,8 @@ export function initCanvasDivide(root: Document | Element): RuntimeDisconnect {
 				const panel = panels[tabIndex];
 				if (!panel) return;
 
-				const tabId = `shuffle-divide-tab-${containerIndex}-${tabIndex}`;
-				const panelId = `shuffle-divide-panel-${containerIndex}-${tabIndex}`;
+				const tabId = `shuffleDivide-tab-${containerIndex}-${tabIndex}`;
+				const panelId = `shuffleDivide-panel-${containerIndex}-${tabIndex}`;
 
 				tab.setAttribute("role", "tab");
 				tab.setAttribute("id", tabId);

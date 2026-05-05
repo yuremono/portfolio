@@ -24,7 +24,7 @@ todos:
     content: _10UNIT.scss .Toggle / .Stick / .DescList ブロックを @apply 化
     status: completed
   - id: phase2_remainder
-    content: _10UNIT.scss の残余ブロックを @apply 化し、全ページ (/preview /next /rects /shuffle-divide /glitch /agent /activity) で最終回帰確認
+    content: _10UNIT.scss の残余ブロックを @apply 化し、全ページ (/preview /next /rects /shuffleDivide /glitch /agent /activity) で最終回帰確認
     status: completed
 isProject: false
 ---
@@ -137,7 +137,7 @@ build: {
 - 2-5. その他残余ブロック
 
 各ステップで:
-- `npm run dev` で `/preview` `/next` `/rects` `/shuffle-divide` `/glitch` を目視回帰
+- `npm run dev` で `/preview` `/next` `/rects` `/shuffleDivide` `/glitch` を目視回帰
 - `_10UNIT.bak` ([src/scss/_10UNIT.bak](src/scss/_10UNIT.bak)) は保険として残置
 
 ### 既存規約との整合

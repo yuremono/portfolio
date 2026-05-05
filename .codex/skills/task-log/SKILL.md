@@ -1,6 +1,6 @@
 ---
 name: task-log
-description: 3step以上のtaskで実行
+description: task-level-2以上のtaskで実行
 ---
 
 `$ARGUMENTS` を実行。

@@ -55,7 +55,7 @@ alwaysApply: true
 セッション開始時、言われなければ `level 0`、言われたら以降継続する上書き式。
 
 - Level 0: 最短でユーザーの要望をシンプルに解決する。最低限必要な情報のみを読み、複雑化しない。
-- Level 1: `task-level-1` スキルを実行する。テストやタスクログの実行は禁止する。
+- Level 1: `task-level-1` スキルを実行する。テストやタスクログの実行は禁止。
 - Level 2: `task-level-2`,`task-log` スキルを実行する。
 - Level 3: `task-level-2`,`task-large` スキルを実行する。
 
@@ -65,7 +65,10 @@ alwaysApply: true
 - 外科的な変更: 既存コードを編集する際、**必要な部分だけ触る。自分の変更で出た問題だけ片付ける。**
 - 初めて編集するファイルは、編集前に必ず内容を確認する。
 - `.gitignore` に含まれるファイルを強制 push しない。publicで必要な場合は報告する
-- 現環境ではcalc関数以外では [var(--{name})] ではなく [--{name}] を使用すること
+- 現環境ではcalc関数以外では [var(--{name})] ではなく [--{name}] を使用する。例: p-[--PX]
+- 全ての色は`/src/scss/_01variables.scss`の`oklch`で書かれた既存変数を使用する。透明度は`{name}/50`,WH50などで指定。
+例: `bg-MC`, `text-AC`,  `bg-background` 、透明度付きカラー指定: `MC/50` 
+- 変数をそのまま使用するクラスが`/src/index.scss`に書かれているので優先的に使う(`wid PX BorderXY BGgrad`等)
 
 ## ブラウザ確認
 

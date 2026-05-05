@@ -258,9 +258,9 @@
             --mvImg:calc(100lvh - var(--head)*2 ); 
         }
         // @include menu{--mvImg:calc(50lvh);}
-        --navFZ: var(--IN); //pcnavFZ
+        --navFZ: 1em; //pcnavFZ
         --navLH: 1.5em;
-        --navC: var(--IN); 
+        --navC: inherit; 
         --navFW: inherit;
         --dropBG: var(--BC);
         --dropC: var(--TC);

@@ -1337,6 +1337,33 @@
                 }
         }
 
+        &.NoLogo .HeaderLogo {
+                        display: none;
+        }
+
+        &.TopHidden {
+                transition: var(--trans);
+                opacity: 0;
+                
+                &:hover {
+                        opacity: 1;
+                }
+                &.trans {
+                        opacity: 1;
+                }
+        }
+        &.mix-blend-difference {
+                color: var(--WH);
+                --menuC: inherit;
+                @include menu {
+                        color: inherit;
+                        mix-blend-mode: unset;
+                }
+                &.active{
+                        mix-blend-mode: unset;
+                }
+        }
+
 }
 
 .Header {//基本設定
@@ -2190,7 +2217,6 @@
                         }
                 }
         }
-
         .NavInner {
                 &::-webkit-scrollbar {
                         width: 0px;
@@ -2330,6 +2356,9 @@
                                 padding-block: var(--SPnavPY);
                         }
                 }
+        }
+        .dropbtn {
+                display: none;
         }
 
         //svg chevronIconに変更のため一時コメント

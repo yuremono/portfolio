@@ -74,27 +74,7 @@ h1,h2,h3,h4,h5,h6,.largeFZ {
         .translateXYH{translate: -50% -50%;}
 }
 
-// Header
-.HeaderNavMobile .NavInner .dropbtn {
-        display: none;
-}
 
-.NoLogo {
-        .HeaderLogo {
-                display: none;
-        }
-}
-
-.TopHidden.Header {
-        transition: var(--trans);
-        opacity: 0;
-        pointer-events: none;
-
-        &.trans {
-                opacity: 1;
-                pointer-events: auto;
-        }
-}
 dialog{
         transition: var(--trans);
         top: 0;

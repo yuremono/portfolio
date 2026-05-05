@@ -169,6 +169,13 @@ div.tp-lblv_v:has(.tp-radgridv) {
 @layer base {
         :root {
 	--mmFZ: 2rem;
+	--mmWobbleAmp: 32;
+	--mmWobbleAmpX: 32;
+	--mmWobbleAmpY: 32;
+	// --mmWobbleFreqX: 0.00024;
+	// --mmWobbleFreqY: 0.00014;
+	--mmWobbleFreqX: 0.0005;
+	--mmWobbleFreqY: 0.0003;
 
                 @media (max-width: 1560px) {
                         --mmFZ: 1.5rem;
@@ -198,9 +205,9 @@ div.tp-lblv_v:has(.tp-radgridv) {
                 @apply relative text-[length:--mmFZ]  font-[family-name:--Eng] z-10 leading-[0.8em];
                 font-size: calc(var(--mmFZ) * 5.5);
                 --mmWobbleAmp: 15;
-                --mmWobbleAmpX: 15;
-                --mmWobbleAmpY: 15;
-                --mmWobbleFreqX: 0.0003;
+                --mmWobbleAmpX: 32;
+                --mmWobbleAmpY: 32;
+                --mmWobbleFreqX: 0.0005;
                 --mmWobbleFreqY: 0.0003;
                 @media (max-width: 1200px) {
                         font-size: calc(var(--mmFZ) * 4);

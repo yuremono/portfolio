@@ -31,7 +31,8 @@ type MindMapNode = {
 	wobblePhaseY: number;
 	wobbleFreqX: number;
 	wobbleFreqY: number;
-	wobbleAmp: number;
+	wobbleAmpX: number;
+	wobbleAmpY: number;
 	fx?: number;
 	fy?: number;
 	homeX: number;
@@ -268,6 +269,83 @@ export function initMindMapRuntime(
 		return Math.max(min, Math.min(max, value));
 	}
 
+	/** 未設定・非数は undefined（0 は有効） */
+	function parseCssCustomNumber(
+		style: CSSStyleDeclaration,
+		name: string,
+	): number | undefined {
+		const raw = style.getPropertyValue(name).trim();
+		if (!raw) return undefined;
+		const n = parseFloat(raw);
+		return Number.isFinite(n) ? n : undefined;
+	}
+
+	function dataNumberAttr(el: HTMLElement, attr: string): number | undefined {
+		const raw = el.getAttribute(attr);
+		if (raw == null || raw === "") return undefined;
+		const n = parseFloat(raw);
+		return Number.isFinite(n) ? n : undefined;
+	}
+
+	/** `.mindMap` に mindWobble と同名の CSS 変数（と data-wobble-*）で揺れを一括指定 */
+	function resolveMindMapContainerWobble(container: HTMLElement): {
+		ampX: number;
+		ampY: number;
+		freqFixed: { freqX: number; freqY: number } | null;
+	} {
+		const MM_AMP_LEGACY = 32;
+		const WOBBLE_FALLBACK_FREQ_X = 0.0008;
+		const WOBBLE_FALLBACK_FREQ_Y = 0.0006;
+
+		const cs = getComputedStyle(container);
+		const varAmp = parseCssCustomNumber(cs, "--mmWobbleAmp");
+		const varAmpX = parseCssCustomNumber(cs, "--mmWobbleAmpX");
+		const varAmpY = parseCssCustomNumber(cs, "--mmWobbleAmpY");
+		const varFreqX = parseCssCustomNumber(cs, "--mmWobbleFreqX");
+		const varFreqY = parseCssCustomNumber(cs, "--mmWobbleFreqY");
+
+		const dAmp = dataNumberAttr(container, "data-wobble-amp");
+		const dAmpX = dataNumberAttr(container, "data-wobble-amp-x");
+		const dAmpY = dataNumberAttr(container, "data-wobble-amp-y");
+		const dFreqX = dataNumberAttr(container, "data-wobble-freq-x");
+		const dFreqY = dataNumberAttr(container, "data-wobble-freq-y");
+
+		const hasAmpOverride =
+			varAmp !== undefined ||
+			varAmpX !== undefined ||
+			varAmpY !== undefined ||
+			dAmp !== undefined ||
+			dAmpX !== undefined ||
+			dAmpY !== undefined;
+
+		let ampX: number;
+		let ampY: number;
+		if (!hasAmpOverride) {
+			ampX = MM_AMP_LEGACY;
+			ampY = MM_AMP_LEGACY;
+		} else {
+			const amp = varAmp ?? dAmp ?? MM_AMP_LEGACY;
+			ampX = varAmpX ?? dAmpX ?? amp;
+			ampY = varAmpY ?? dAmpY ?? Math.max(6, amp * 0.6);
+		}
+
+		const hasFreqOverride =
+			varFreqX !== undefined ||
+			varFreqY !== undefined ||
+			dFreqX !== undefined ||
+			dFreqY !== undefined;
+
+		const freqFixed =
+			hasFreqOverride ?
+				{
+					freqX: varFreqX ?? dFreqX ?? WOBBLE_FALLBACK_FREQ_X,
+					freqY: varFreqY ?? dFreqY ?? WOBBLE_FALLBACK_FREQ_Y,
+				}
+			:	null;
+
+		return { ampX, ampY, freqFixed };
+	}
+
 	function animateFilterScale(to: number, durationMs: number) {
 		const disp = mmDisplacement;
 		if (!disp) return;
@@ -310,6 +388,8 @@ export function initMindMapRuntime(
 			container.style.position = "relative";
 			setPositionRelative = true;
 		}
+
+		const containerWobble = resolveMindMapContainerWobble(container);
 
 		const gridRows = 10;
 		const gridCols = 10;
@@ -474,7 +554,8 @@ export function initMindMapRuntime(
 				wobblePhaseY: 0,
 				wobbleFreqX: 0,
 				wobbleFreqY: 0,
-				wobbleAmp: 0,
+				wobbleAmpX: 0,
+				wobbleAmpY: 0,
 				fx: cx,
 				fy: cy,
 				homeX: cx,
@@ -533,6 +614,19 @@ export function initMindMapRuntime(
 				} while (collides(x, y, it.halfW, it.halfH));
 			}
 
+			const wf = containerWobble.freqFixed;
+			const wfx =
+				wf ?
+					wf.freqX
+				:	0.00012 + Math.random() * 0.00024;
+			const wfy =
+				wf ?
+					wf.freqY
+				:	0.0001 + Math.random() * 0.00008;
+			const wax =
+				it.isStatic || prefersReduced ? 0 : containerWobble.ampX;
+			const way =
+				it.isStatic || prefersReduced ? 0 : containerWobble.ampY;
 			nodes.push({
 				element: it.el,
 				width: it.w,
@@ -548,9 +642,10 @@ export function initMindMapRuntime(
 				dispY: y,
 				wobblePhaseX: Math.random() * Math.PI * 2,
 				wobblePhaseY: Math.random() * Math.PI * 2,
-				wobbleFreqX: 0.00012 + Math.random() * 0.00024,
-				wobbleFreqY: 0.0001 + Math.random() * 0.00008,
-				wobbleAmp: it.isStatic ? 0 : prefersReduced ? 0 : 32.0,
+				wobbleFreqX: wfx,
+				wobbleFreqY: wfy,
+				wobbleAmpX: wax,
+				wobbleAmpY: way,
 				homeX: x,
 				homeY: y,
 				isGrid: Boolean(it.gridRC),
@@ -765,8 +860,8 @@ export function initMindMapRuntime(
 					n.wobblePhaseY += n.wobbleFreqY * 16.6;
 				}
 
-				const sinX = n.static ? 0 : Math.sin(n.wobblePhaseX) * n.wobbleAmp;
-				const sinY = n.static ? 0 : Math.sin(n.wobblePhaseY) * n.wobbleAmp;
+				const sinX = n.static ? 0 : Math.sin(n.wobblePhaseX) * n.wobbleAmpX;
+				const sinY = n.static ? 0 : Math.sin(n.wobblePhaseY) * n.wobbleAmpY;
 
 				const targetX = clamp(
 					n.x + sinX,

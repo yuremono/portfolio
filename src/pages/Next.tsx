@@ -35,7 +35,7 @@ const otherWorksClasses = {
 	cards: "mt-0 col3 [--gap:0px] bp-lg text-left [--btnW:50%] md:[--btnH:3em] leading-[1.75em] BorderT BorderL",
 	item: " p-8 bg-WH text-TC BorderB BorderR",
 	body: " mt-2",
-	actions: "[--background:--WH] !mt-4 flex flex-wrap",
+	actions: "[--background:--WH] mt-4 flex flex-wrap",
 	button: "mt-[-1px]",
 	buttonInline: "mt-[-1px] ml-[-1px]",
 } as const;
@@ -58,7 +58,7 @@ function Next() {
 	return (
 		<PageRoot
 			ref={ref}
-			className=" [--innerPX:--PX] [--Eng:--Jost] [--San:--Zen] [--h3FZ:1.5rem] [--dropBG:--WH] [--dropC:--TC]"
+			className=" [--innerPX:--PX] [--Eng:--Jost] [--San:--Zen] [--h3FZ:1.5rem] [--dropBG:--WH] [--dropC:--TC] [--WTS:var(--tsw)_var(--TC30)]"
 		>
 			<Header className="NoLogo TopHidden mix-blend-difference text-WH" />
 
@@ -146,7 +146,7 @@ function Next() {
 								<br />
 								<div className="text-left">
 									<h3 className="text-GR mt-10 mb-4">
-										This Site
+										About This Site
 									</h3>
 									<span className="budoux">
 										実務外で制作したページや自作ツールをまとめています。
@@ -232,6 +232,46 @@ function Next() {
 							>
 								<Cards className="col3 [--gap:1rem] ">
 									<CardsItem className="space-y-4">
+										<article className="BorderXY  px-4 py-5 text-xs bg-AC/10">
+											<h3 className="text-[1rem] BorderB pb-4 flex items-baseline justify-between gap-4 ">
+												職種・スキル概要
+												<span className="text-GR   tracking-[0.1em] ">
+													4 lists
+												</span>
+											</h3>
+											<div className="DescList  [--dtW:50%] [--PY:0.25em] [--PX:0.25em]  mt-4 IsDdright ">
+												<dl className="items-center">
+													<dt className="">Web デザイナー</dt>
+													<dd>
+														<span className="px-2 bg-WH font-medium">
+															3.5 Year
+														</span>
+													</dd>
+													<dt className="">
+														Web コーダー
+													</dt>
+													<dd>
+														<span className="px-2 bg-WH font-medium">
+                                                                                                                3.5 Year
+														</span>
+													</dd>
+													<dt className="">
+														フロントエンドエンジニア
+													</dt>
+													<dd>
+														<span className="px-2 bg-WH font-medium">
+															実務未経験
+														</span>
+													</dd>
+													<dt className="">
+														AI駆動開発
+													</dt>
+													<dd><span className="px-2 bg-WH font-medium">
+															1 Year 
+														</span></dd>
+												</dl>
+											</div>
+										</article>
 										<article className="BorderXY  px-4 py-5 text-xs bg-WH/70">
 											<h3 className="text-[1rem] BorderB pb-4 flex items-baseline justify-between gap-4 ">
 												エージェント / web
@@ -307,49 +347,14 @@ function Next() {
 												</dl>
 											</div>
 										</article>
-										<article className="BorderXY  px-4 py-5 text-xs bg-WH/70">
-											<h3 className="text-[1rem] BorderB pb-4 flex items-baseline justify-between gap-4 ">
-												インフラ / データベース
-												<span className="text-GR   tracking-[0.1em] ">
-													4 lists
-												</span>
-											</h3>
-											<div className="DescList  [--dtW:50%] [--PY:0.25em] [--PX:0.25em]  mt-4 IsDdright">
-												<dl className="items-center">
-													<dt className="">Vercel</dt>
-													<dd>
-														<span className="px-2 bg-AC/30 font-medium">
-															AI 1 Year
-														</span>
-													</dd>
-													<dt className="">
-														Supabase
-													</dt>
-													<dd>
-														<span className="">
-															AI 1 Year
-														</span>
-													</dd>
-													<dt className="">Github</dt>
-													<dd>AI 1 Year</dd>
-													<dt className="">
-														Xserver+MySQL
-													</dt>
-													<dd>
-														<span className="">
-															実務 4 Year
-														</span>
-													</dd>
-												</dl>
-											</div>
-										</article>
+										
 									</CardsItem>
 									<CardsItem className="space-y-4">
 										<article className="BorderXY  px-4 py-5 text-xs bg-WH/70">
 											<h3 className="text-[1rem] BorderB pb-4 flex items-baseline justify-between gap-4 ">
 												デザインツール
 												<span className="text-GR   tracking-[0.1em] ">
-													5 lists
+													7 lists
 												</span>
 											</h3>
 											<div className="DescList  [--dtW:50%] [--PY:0.25em] [--PX:0.25em]  mt-4 IsDdright">
@@ -388,20 +393,21 @@ function Next() {
 															数回
 														</span>
 													</dd>
-													<dt className="">
+													<dt className="[--dtW:100%] ">
 														GPT Image-2.0
 													</dt>
-													<dd>
+													<dd className="[--ddW:100%]">
 														<span className="px-2 bg-AC/30 font-medium">
-															LPデザイン作成
+															LPデザイン・アセット作成の実運用を研究
 														</span>
 													</dd>
+													
 													<dt className="">
 														Claude Design
 													</dt>
 													<dd>
 														<span className="">
-															まだ未使用
+															情報収集
 														</span>
 													</dd>
 												</dl>
@@ -430,24 +436,57 @@ function Next() {
 															社内利用 3.5 年
 														</span>
 													</dd>
-													<dt className="">
+													<dt className="[--dtW:100%] ">
 														情報収集
 													</dt>
-													<dd>
+													<dd className="[--ddW:100%]">
 														<span className="px-2 bg-AC/30 font-medium">
 															主にX,Zenn,+webAI
-															<br />
 															ディスカバー
 														</span>
 													</dd>
-													<dt className="">
+													<dt className="[--dtW:100%] ">
 														制作環境
 													</dt>
+													<dd className="[--ddW:100%]">
+														<span className="px-2 bg-AC/30 font-medium">
+															自作のtask系,memory系,実装系スキルを使用
+														</span>
+													</dd>
+												</dl>
+											</div>
+                                                                                </article>
+                                                                                <article className="BorderXY  px-4 py-5 text-xs bg-WH/70">
+											<h3 className="text-[1rem] BorderB pb-4 flex items-baseline justify-between gap-4 ">
+												インフラ / データベース
+												<span className="text-GR   tracking-[0.1em] ">
+													4 lists
+												</span>
+											</h3>
+											<div className="DescList  [--dtW:50%] [--PY:0.25em] [--PX:0.25em]  mt-4 IsDdright">
+												<dl className="items-center">
+													<dt className="">Vercel</dt>
 													<dd>
 														<span className="px-2 bg-AC/30 font-medium">
-															自作のtask/memory/実行
-															<br />
-															スキル作成
+															AI 1 Year
+														</span>
+													</dd>
+													<dt className="">
+														Supabase
+													</dt>
+													<dd>
+														<span className="">
+															AI 1 Year
+														</span>
+													</dd>
+													<dt className="">Github</dt>
+													<dd>AI 1 Year</dd>
+													<dt className="">
+														Xserver+MySQL
+													</dt>
+													<dd>
+														<span className="">
+															実務 4 Year
 														</span>
 													</dd>
 												</dl>
@@ -496,8 +535,16 @@ function Next() {
 													<dt className="">
 														Quiver.ai/arrow-1
 													</dt>
-													<dd>
+													<dd className="[--ddW:100%]">
 														BYOS demoのsvg生成で使用
+                                                                                                        </dd>
+                                                                                                        <dt className="[--dtW:100%] ">
+														Recraft
+													</dt>
+													<dd className="[--ddW:100%]">
+														<span className="">
+															高度な画像生成、SVG作成
+														</span>
 													</dd>
 													<dt className="">
 														LottieAnimation
@@ -567,10 +614,10 @@ function Next() {
 										<span className="mindWobble text-center leading-[1em] mt-[-0.25em] tracking-[-0.0em] font-normal text-GR/10 " style={{ fontSize: "8em" }}>
 											or
 										</span>
-										<span className="mindWobble text-right leading-[0.465em] tracking-[0em]" style={{ fontSize: "3.5em" }}>
-											Vault
+										<span className="mindWobble text-right leading-[0.57em] tracking-[0.08em] WTS !text-[--BC]" style={{ fontSize: "3em" }}>
+											Vault&nbsp;
 											<br />
-											&nbsp;&nbsp;Driven
+											Driven
 										</span>
 									</h2>
 								</div>
@@ -591,14 +638,14 @@ function Next() {
 							<div className=" leading-[2]">
 								<h3>AI Ready</h3>
                                                                 <br />
-                                                                AI前提開発は大きく分けると<br />
-                                                                - DESIGN.md、画像生成を基点にする<br />
-                                                                - スタイルとモジュールを資産化し、再利用する<br />
-                                                                の２つのアプローチがあると考えています。<br /><br />
-                                                                個人のスタイルシステム（クラス、変数、スタイリングの癖）を元に、エージェントに全て実装させる実験を行っていました。
-								<div className="flex flex-wrap">
+                                                                `DESIGN.md`,`画像生成`,`個人スタイルシステム`<br />
+                                                                それぞれを基点としたページ作成や、<br />
+                                                                一般公開サイトの高度なヴィジュアルの再現を行なっています。<br />
+                                                                <br />
+                                                                個人のスタイルシステム（クラス、変数、スタイリングの癖）を元に開発する環境を整え、このサイトのベースに使用しています。
+								<div className="flex flex-wrap mt-4">
 									<Button
-										className="mt-[1em] [--btnW:50%] mr-[50%]"
+										className="mt-[-1px]  [--btnW:50%] "
 										href="https://github.com/yuremono/BurnYourOwnStyle/tree/react"
 										external
 									>
@@ -607,13 +654,13 @@ function Next() {
 									</Button>
 									<br />
 									<Button
-										className="ml-[50%] [--btnW:50%]"
+										className="mt-[-1px] ml-[-1px] [--btnW:50%]"
 										href="/preview"
 									>
 										BYOS
 									</Button>
 									<br />
-									<details className="Toggle IsSmall font-normal ">
+									<details className="Toggle IsSmall font-normal mt-4">
 										<summary className="Eng">
 											Thinking...
 										</summary>
@@ -642,7 +689,7 @@ function Next() {
 						>
 							<h3>Agent Driven CMS</h3>
 							<p
-								className={`${otherWorksClasses.body} min-h-[5.5em]`}
+								className={`${otherWorksClasses.body} `}
 							>
 								Codex または Claude Code を Next.js Node
 								runtimeで中継。
@@ -669,18 +716,16 @@ function Next() {
 											Detail...
 										</summary>
 										<div>
-											動機：AI時代にクライアントが求めるのは
+											- AI時代にクライアントが求めるのは
 											「チャットで編集できるwebサイト」でありCMS自体がボトルネック
 											<br />
-											手段：パブリックでなくローカル完結ならモデル性能依存を解消できる
+											- パブリックでなくローカル完結ならモデル性能依存を解消できる
 											<br />
-											成果：フロントエンド以外は全て仕様駆動で実現。エンタメ性もある
+											- フロントエンド以外は全て仕様駆動で実現。エンタメ性もある
 											<br />
 											考察：
 											リテラシーの高いクライアント＆十分な初期サポートという条件は必須と考えていたし、体験としては有意義であるが、
-											エンジニアが負うべきエージェントの行動への責任は「サポート」ではカバーできなそうなので、ここまでやるならCursor、Codex
-											app、Claude
-											Desctop等の使い方自体をサポートした方が無難。などと考えました。
+											エージェントの行動への責任は「サポート」ではカバーできないことを実感した。ここまでやるならCursor、Codex等の使い方自体をサポートした方が無難。などと考えました。
 										</div>
 									</details>
 								</div>
@@ -790,7 +835,8 @@ function Next() {
 								ローカル環境の特定ブラウザ(Chromium系)に拡張機能をインストールし、
 								ChatGPTやGeminiにチャット履歴を送信するためのUIを設置。
 								特定のurlでまとめて閲覧。
-								ムーバブルサイドバー機能付き。
+                                                                ムーバブルサイドバー機能付き。<br />
+                                                                ＊デモページです。当サイトに統合していません。
 							</p>
 							<div className={otherWorksClasses.actions}>
 								<Button

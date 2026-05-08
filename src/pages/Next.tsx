@@ -30,9 +30,6 @@ import "../scss/Next.scss";
 const EXPERIENCE_DIALOG_KEY = "experience";
 
 const otherWorksClasses = {
-	section: "Wrap into text-center mt-0",
-	heading: "mindWobble font-thin",
-	cards: "mt-0 col3 [--gap:0px] bp-lg text-left [--btnW:50%] md:[--btnH:3em] leading-[1.75em] BorderT BorderL",
 	item: " p-8 bg-WH text-TC BorderB BorderR",
 	body: " mt-2",
 	actions: "[--background:--WH] mt-4 flex flex-wrap",
@@ -681,9 +678,9 @@ function Next() {
 				</ScrollXSection>
 
 				{/* OtherWorks */}
-				<section className={otherWorksClasses.section}>
-					<h2 className={otherWorksClasses.heading}>Other Works</h2>
-					<Cards className={otherWorksClasses.cards}>
+				<section className="Wrap into text-center mt-0">
+					<h2 className="mindWobble font-thin">Other Works</h2>
+					<Cards className="mt-0 col3 [--gap:0px] bp-lg text-left [--btnW:50%] md:[--btnH:3em] leading-[1.75em] BorderT BorderL">
 						<CardsItem
 							className={`${otherWorksClasses.item} w-2/3`}
 						>

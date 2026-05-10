@@ -1,0 +1,53 @@
+src/scss/_08intersection.scss
+  h_53dad1e32c3c71 12-16,18-27,30,33,38,42,45,47,52,56,58,63,68,70,75,78-96,98,104,116,120,126,129-135,137,141,145,152,184
+  s_5318fd154a3922::t_f3723a939dc9c2 17
+src/lib/spanWrap.test.ts
+  s_5318fd154a3922::t_3695d603b84ff9 28,32
+  h_53dad1e32c3c71 7,9,15,22-26,29-30,33-34,38,40,42,47,54,56,58
+  s_5318fd154a3922::t_3450747fe92af7 21
+  s_5318fd154a3922::t_a135a680c08433 43,45,48,50
+  s_5318fd154a3922::t_3d2d29ffb09785 44,49
+src/lib/intersectionShow.ts
+  s_5318fd154a3922::t_72d687e042d4ff 59-64,68-70
+  s_5318fd154a3922::t_fa2830015783c7 10-11,15-17,19-20
+  s_5318fd154a3922::t_a3718820b5ac01 18
+  s_5318fd154a3922::t_c5f85d89f6f36a 9,12
+src/pages/Next.tsx
+  h_53dad1e32c3c71 86,91,121,170,186,404,648,650-651,654-665,680,683,693-694,703,706,729-730,732-733,735-736,740,850-852,874-949
+src/index.scss
+  h_53dad1e32c3c71 174-204,208,212-213,215
+src/pages/Glitch.tsx
+  h_53dad1e32c3c71 58,62
+src/components/InitialLoadingOverlay.tsx
+  h_53dad1e32c3c71 20
+src/lib/spanWrap.ts
+  s_5318fd154a3922::t_28abd3bbdaa888 2
+  s_5318fd154a3922::t_f763a9facb67df 9
+  s_5318fd154a3922::t_bc836e22a05804 14
+src/scss/_10UNIT.scss
+  h_53dad1e32c3c71 207,211-213
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.4",
+  "base_commit_sha": "650ca05dfa0fc5b147242583ecc1dbf44066745d",
+  "prompts": {},
+  "humans": {
+    "h_53dad1e32c3c71": {
+      "author": "yuremono <5alviaofficinali50@gmail.com>"
+    },
+    "h_5a56918e6ebef3": {
+      "author": "yuremono"
+    }
+  },
+  "sessions": {
+    "s_5318fd154a3922": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "64efc3df-1cbe-4397-99c7-9b04be3fb2e7",
+        "model": "composer-2"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  }
+}

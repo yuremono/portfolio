@@ -6,9 +6,18 @@
 const ATTR_ONCE = "data-io-once";
 const ATTR_TOGGLE = "data-io-toggle";
 
-const SELECTOR_ONCE =
-	"[class*=Js]:not([class*=JsCh],.JsBgFix,.JsLetterToggle),[class*=JsCh]>* ";
+/** `.bgItem` 内の `JsLetterToggle` は `initBgTrigger` が `show` を出し分け */
+const SELECTOR_ONCE_LEGACY =
+	"[class*=Js]:not([class*=JsCh],.JsBgFix),[class*=JsCh]>* ";
+const SELECTOR_ONCE_LETTER = ".JsLetter";
 const SELECTOR_TOGGLE = ".f_main,.JsBgFix";
+
+function isBgItemLetterToggle(el: Element): boolean {
+	if (!(el instanceof HTMLElement)) return false;
+	return Boolean(
+		el.closest(".bgItem") && el.classList.contains("JsLetterToggle"),
+	);
+}
 
 const ROOT_MARGIN_ONCE = "0% 0% -15% 0px";
 const THRESHOLD_ONCE = 0;
@@ -47,11 +56,18 @@ export function initIntersectionShow(
 		{ rootMargin: ROOT_MARGIN_TOGGLE },
 	);
 
-	base.querySelectorAll(SELECTOR_ONCE).forEach((el) => {
+	const onceSeen = new Set<Element>();
+	const observeOnce = (el: Element) => {
+		if (onceSeen.has(el)) return;
+		onceSeen.add(el);
+		if (isBgItemLetterToggle(el)) return;
+		if (!(el instanceof HTMLElement)) return;
 		if (el.hasAttribute(ATTR_ONCE)) return;
 		el.setAttribute(ATTR_ONCE, "1");
 		observerOnce.observe(el);
-	});
+	};
+	base.querySelectorAll(SELECTOR_ONCE_LEGACY).forEach(observeOnce);
+	base.querySelectorAll(SELECTOR_ONCE_LETTER).forEach(observeOnce);
 
 	base.querySelectorAll(SELECTOR_TOGGLE).forEach((el) => {
 		if (el.hasAttribute(ATTR_TOGGLE)) return;

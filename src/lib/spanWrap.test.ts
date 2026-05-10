@@ -4,53 +4,57 @@ import { initSpanWrap } from "./spanWrap"
 describe("initSpanWrap", () => {
 	it("テキストノード内の < をエスケープし、新たな要素として解釈されない", () => {
 		document.body.innerHTML = ""
-		const wrap = document.createElement("div")
-		wrap.className = "p-split"
+		const wrap = document.createElement("div");
 		const p = document.createElement("p")
+		p.className = "JsLetter";
 		p.appendChild(document.createTextNode('<img src=x onerror=alert(1)>'))
 		wrap.appendChild(p)
 		document.body.appendChild(wrap)
 
 		initSpanWrap(document.body)
-		const el = document.querySelector(".p-split p")!
+		const el = document.querySelector(".JsLetter")!;
 		expect(el.querySelector("img")).toBeNull()
 		expect(el.innerHTML).toContain("&lt;")
 		expect(el.innerHTML).not.toMatch(/<img[^>]*onerror/i)
 	})
 
-	it("通常の文字は p 直下の span に分割される", () => {
-		document.body.innerHTML = '<div class="p-split"><p>ab</p></div>'
-		initSpanWrap(document.body)
-		const spans = document.querySelectorAll(".p-split p > span")
-		expect(spans).toHaveLength(2)
-		expect(spans[0]?.textContent).toBe("a")
+	it("通常の文字は JsLetter 直下の span に分割される", () => {
+		document.body.innerHTML = '<div><p class="JsLetter">ab</p></div>';
+		initSpanWrap(document.body);
+		const spans = document.querySelectorAll(".JsLetter > span");
+		expect(spans).toHaveLength(2);
+		expect(spans[0]?.textContent).toBe("a");
 		expect(spans[0]?.getAttribute("style")).toBe(
-			"transition-delay:calc(var(--bgTR) + 0s)",
-		)
-		expect(spans[1]?.textContent).toBe("b")
+			"transition-delay:calc(var(--first-delay) + 0 * var(--letter-delay))",
+		);
+		expect(spans[1]?.textContent).toBe("b");
 		expect(spans[1]?.getAttribute("style")).toBe(
-			"transition-delay:calc(var(--bgTR) + 0.05s)",
-		)
-	})
+			"transition-delay:calc(var(--first-delay) + 1 * var(--letter-delay))",
+		);
+	});
 
 	it("ディレイカウンタは段落ごとに0から始まる", () => {
 		document.body.innerHTML =
-			'<div class="p-split"><p>ab</p><p>cd</p></div>'
+			'<div><p class="JsLetter">ab</p><p class="JsLetter">cd</p></div>';
 		initSpanWrap(document.body)
-		const paragraphs = document.querySelectorAll(".p-split p")
-		expect(paragraphs[0]?.querySelector("span")?.getAttribute("style")).toBe(
-			"transition-delay:calc(var(--bgTR) + 0s)",
-		)
-		expect(paragraphs[1]?.querySelector("span")?.getAttribute("style")).toBe(
-			"transition-delay:calc(var(--bgTR) + 0s)",
-		)
+		const paragraphs = document.querySelectorAll(".JsLetter");
+		expect(
+			paragraphs[0]?.querySelector("span")?.getAttribute("style"),
+		).toBe(
+			"transition-delay:calc(var(--first-delay) + 0 * var(--letter-delay))",
+		);
+		expect(
+			paragraphs[1]?.querySelector("span")?.getAttribute("style"),
+		).toBe(
+			"transition-delay:calc(var(--first-delay) + 0 * var(--letter-delay))",
+		);
 	})
 
 	it("brはspan化せずそのまま残す", () => {
-		document.body.innerHTML = '<div class="p-split"><p>a<br>b</p></div>'
+		document.body.innerHTML = '<div><p class="JsLetter">a<br>b</p></div>';
 		initSpanWrap(document.body)
-		const inner = document.querySelector(".p-split p")!.innerHTML
+		const inner = document.querySelector(".JsLetter")!.innerHTML;
 		expect(inner).toContain("<br>")
-		expect(document.querySelectorAll(".p-split p > span")).toHaveLength(2)
+		expect(document.querySelectorAll(".JsLetter > span")).toHaveLength(2);
 	})
 })

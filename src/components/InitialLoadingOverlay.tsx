@@ -17,7 +17,7 @@ const InitialLoadingStorageKey = "InitialLoadingViewed";
 export const INITIAL_LOADING_LABEL_TEXT = "yuremono\nworks";
 
 // デバッグ時は true にすると、sessionStorage を無視してリロードごとに表示します。
-const InitialLoadingAlwaysShow = true;
+const InitialLoadingAlwaysShow = false;
 
 interface InitialLoadingOverlayProps {
 	storageKey?: string;

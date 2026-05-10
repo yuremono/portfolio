@@ -55,11 +55,11 @@ function Glitch() {
 	return (
 		<PageRoot
 			ref={pageRootRef}
-			className="glitch bg-black text-white isolate [--Eng:--Jost] [--innerPX:--PX] [--HFW:100] "
+			className="glitch bg-black text-white isolate [--Eng:--Jost] [--innerPX:--PX] [--HFW:100] [--letter-delay:0.1s]"
 		>
 			<Header className="NoLogo TopHidden" />
 
-			<main aria-label="Glitch page" className="[--MY:0px]">
+			<main aria-label="Glitch page" className="[--MY:0px] ">
 				<section className=" bgLayer out">
 					<div className="bgItem __glitch p-split">
                                                 <img

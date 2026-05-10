@@ -83,12 +83,12 @@ function Next() {
 						<br />
 						works
 					</p>
-					<h1 className="text-lg font-normal budoux mmPin about_tx static lg:absolute lg:translateYH leading-[2em] left-1/2 top-1/2 z-10 text-left p-4 bg-background/80 ">
+					<h1 className="JsLetter  text-lg font-normal budoux mmPin about_tx static lg:absolute lg:translateYH leading-[2em] left-1/2 top-1/2 z-10 text-left p-4 bg-background/80 ">
 						web制作会社で3.5年デザインとコーディングに従事
 						<br />
 						2025/05からAI駆動開発を開始
 						<br />
-						ヴィジュアル表現をブーストし
+						ヴィジュアル表現をAIでブーストし
 						<br />
 						コンテキストエンジニアリングに注力しています
 					</h1>
@@ -118,7 +118,7 @@ function Next() {
 								Dependencies
 							</h2>
 							<div className="text-base mmPin mmStatic max-w-[calc(var(--wid)/2)]  experience_tx text-left San font-light   leading-[2em] static lg:absolute left-1/2 top-[--MY] z-10 p-4 bg-background/80">
-								Cursor / Claude Code / Codex を使用
+								Cursor / Codex / Claude Code を使用
 								<br />
 								↓ツール使用経験をまとめています。
 								<br />
@@ -167,7 +167,7 @@ function Next() {
 							</div>
 
 							<p style={{ fontSize: "2em" }}>Cursor</p>
-							<p style={{ fontSize: "2em" }}>Claude Code</p>
+							<p style={{ fontSize: "1.5em" }}>Claude Code</p>
 							<p
 								className="hidden lg:inline-block"
 								style={{ fontSize: "1em" }}
@@ -183,7 +183,7 @@ function Next() {
 							>
 								canvasAPI
 							</p>
-							<p style={{ fontSize: "1.5em" }}>Codex</p>
+							<p style={{ fontSize: "2em" }}>Codex</p>
 							<p
 								className="hidden lg:inline-block"
 								style={{ fontSize: "1.5em" }}
@@ -238,7 +238,9 @@ function Next() {
 											</h3>
 											<div className="DescList  [--dtW:50%] [--PY:0.25em] [--PX:0.25em]  mt-4 IsDdright ">
 												<dl className="items-center">
-													<dt className="">Web デザイナー</dt>
+													<dt className="">
+														Web デザイナー
+													</dt>
 													<dd>
 														<span className="px-2 bg-WH font-medium">
 															3.5 Year
@@ -249,7 +251,7 @@ function Next() {
 													</dt>
 													<dd>
 														<span className="px-2 bg-WH font-medium">
-                                                                                                                3.5 Year
+															3.5 Year
 														</span>
 													</dd>
 													<dt className="">
@@ -263,9 +265,11 @@ function Next() {
 													<dt className="">
 														AI駆動開発
 													</dt>
-													<dd><span className="px-2 bg-WH font-medium">
-															1 Year 
-														</span></dd>
+													<dd>
+														<span className="px-2 bg-WH font-medium">
+															1 Year
+														</span>
+													</dd>
 												</dl>
 											</div>
 										</article>
@@ -344,7 +348,6 @@ function Next() {
 												</dl>
 											</div>
 										</article>
-										
 									</CardsItem>
 									<CardsItem className="space-y-4">
 										<article className="BorderXY  px-4 py-5 text-xs bg-WH/70">
@@ -398,7 +401,7 @@ function Next() {
 															LPデザイン・アセット作成の実運用を研究
 														</span>
 													</dd>
-													
+
 													<dt className="">
 														Claude Design
 													</dt>
@@ -452,8 +455,8 @@ function Next() {
 													</dd>
 												</dl>
 											</div>
-                                                                                </article>
-                                                                                <article className="BorderXY  px-4 py-5 text-xs bg-WH/70">
+										</article>
+										<article className="BorderXY  px-4 py-5 text-xs bg-WH/70">
 											<h3 className="text-[1rem] BorderB pb-4 flex items-baseline justify-between gap-4 ">
 												インフラ / データベース
 												<span className="text-GR   tracking-[0.1em] ">
@@ -534,8 +537,8 @@ function Next() {
 													</dt>
 													<dd className="[--ddW:100%]">
 														BYOS demoのsvg生成で使用
-                                                                                                        </dd>
-                                                                                                        <dt className="[--dtW:100%] ">
+													</dd>
+													<dt className="[--dtW:100%] ">
 														Recraft
 													</dt>
 													<dd className="[--ddW:100%]">
@@ -603,15 +606,24 @@ function Next() {
 							<div className="text-center ">
 								<div className=" ">
 									<h2 className="font-thin grid content-center md:h-[100lvh]">
-										<span className="mindWobble text-left leading-[0.7em] tracking-[-0.0em]" style={{ fontSize: "3em" }}>
+										<span
+											className="mindWobble text-left leading-[0.7em] tracking-[-0.0em]"
+											style={{ fontSize: "3em" }}
+										>
 											Vibe
 											<br />
 											&nbsp;&nbsp;Design
 										</span>
-										<span className="mindWobble text-center leading-[1em] mt-[-0.25em] tracking-[-0.0em] font-normal text-GR/10 " style={{ fontSize: "8em" }}>
+										<span
+											className="mindWobble text-center leading-[1em] mt-[-0.25em] tracking-[-0.0em] font-normal text-GR/10 "
+											style={{ fontSize: "8em" }}
+										>
 											or
 										</span>
-										<span className="mindWobble text-right leading-[0.57em] tracking-[0.08em] WTS !text-[--BC]" style={{ fontSize: "3em" }}>
+										<span
+											className="mindWobble text-right leading-[0.57em] tracking-[0.08em] WTS !text-[--BC]"
+											style={{ fontSize: "3em" }}
+										>
 											Vault&nbsp;
 											<br />
 											Driven
@@ -633,13 +645,24 @@ function Next() {
 						</div>
 						<div className="item content-center bg-background/80 p-4">
 							<div className=" leading-[2]">
-								<h3>AI Ready</h3>
+								<h3 className="text-GR ">AI Ready</h3>
+								<br />
+								<b>DESIGN.md</b> , <b>画像生成デザイン</b>を基点としたゼロからのページ作成の検証と、
+								<b>自然言語でUIパーツを再利用</b>する為の環境構築を行っています。
+								<br />
                                                                 <br />
-                                                                `DESIGN.md`,`画像生成`,`個人スタイルシステム`<br />
-                                                                それぞれを基点としたページ作成や、<br />
-                                                                一般公開サイトの高度なヴィジュアルの再現を行なっています。<br />
-                                                                <br />
-                                                                個人のスタイルシステム（クラス、変数、スタイリングの癖）を元に開発する環境を整え、このサイトのベースに使用しています。
+								<h3 className="text-GR ">Burn Your Own Style</h3>
+                                                                <details className="Toggle IsSmall font-normal mt-4">
+										<summary className="Eng">
+											Thinking...
+										</summary>
+										<div>
+											- モデルの学習データに基づくwebデザイン・コーディングは平均的で、振れ幅が大きく、個人の理想とするマークアップ、スタイリングとかけ離れたものになる。
+											<br />- 構造=既存クラス、装飾=Tailwindで手直ししやすい状態になるが、無駄な記述が多い。
+                                                                                <br />考察：モデルのファインチューニングが民主化するまでは「完成品の再利用」を効率化する方が良い
+										</div>
+									</details>
+								{/* 個人のスタイルシステム（クラス、変数、jsモジュール）を元に開発する環境を整え、このサイトのベースに使用しています。 */}
 								<div className="flex flex-wrap mt-4">
 									<Button
 										className="mt-[-1px]  [--btnW:50%] "
@@ -654,20 +677,10 @@ function Next() {
 										className="mt-[-1px] ml-[-1px] [--btnW:50%]"
 										href="/preview"
 									>
-										BYOS
+										Preview
 									</Button>
 									<br />
-									<details className="Toggle IsSmall font-normal mt-4">
-										<summary className="Eng">
-											Thinking...
-										</summary>
-										<div>
-											- LLM
-											の学習データに基づくwebデザイン・コーディングは平均的で、振れ幅の大きい、標準ではないものであり、個人のマークアップ、スタイリングとかけ離れたものになる。
-											<br />-
-											事務作業のように決められた手順を実行させることで、vibeコーディングツールでは創造できないプロダクトを効率的に実装できる。
-										</div>
-									</details>
+									
 								</div>
 							</div>
 						</div>
@@ -677,6 +690,8 @@ function Next() {
 					</section>
 				</ScrollXSection>
 
+
+
 				{/* OtherWorks */}
 				<section className="Wrap into text-center mt-0">
 					<h2 className="mindWobble font-thin">Other Works</h2>
@@ -685,12 +700,10 @@ function Next() {
 							className={`${otherWorksClasses.item} w-2/3`}
 						>
 							<h3>Agent Driven CMS</h3>
-							<p
-								className={`${otherWorksClasses.body} `}
-							>
+							<p className={`${otherWorksClasses.body} `}>
 								Codex または Claude Code を Next.js Node
 								runtimeで中継。
-								ローカルブラウザからエージェントに直接ソースコードを編集させるCMS
+								ローカルブラウザでエージェントに直接ソースコードを編集させるCMS
 							</p>
 							<div className={`${otherWorksClasses.actions}`}>
 								<Button
@@ -713,16 +726,18 @@ function Next() {
 											Detail...
 										</summary>
 										<div>
-											- AI時代にクライアントが求めるのは
-											「チャットで編集できるwebサイト」でありCMS自体がボトルネック
+											- AI時代では
+											「チャットで編集できるwebサイト」が求められると仮定する
 											<br />
-											- パブリックでなくローカル完結ならモデル性能依存を解消できる
+											-
+											ローカル完結ならモデル性能依存を解消できる
 											<br />
-											- フロントエンド以外は全て仕様駆動で実現。エンタメ性もある
+											-
+											フロントエンド以外は全て仕様駆動。
 											<br />
 											考察：
 											リテラシーの高いクライアント＆十分な初期サポートという条件は必須と考えていたし、体験としては有意義であるが、
-											エージェントの行動への責任は「サポート」ではカバーできないことを実感した。ここまでやるならCursor、Codex等の使い方自体をサポートした方が無難。などと考えました。
+											エージェントの行動への責任は「サポート」ではカバーできないことを実感した。ここまでやるならCursor、Codex等の使い方自体をサポートした方が無難。と考えました。
 										</div>
 									</details>
 								</div>
@@ -832,8 +847,9 @@ function Next() {
 								ローカル環境の特定ブラウザ(Chromium系)に拡張機能をインストールし、
 								ChatGPTやGeminiにチャット履歴を送信するためのUIを設置。
 								特定のurlでまとめて閲覧。
-                                                                ムーバブルサイドバー機能付き。<br />
-                                                                ＊デモページです。当サイトに統合していません。
+								ムーバブルサイドバー機能付き。
+								<br />
+								＊デモページです。当サイトに統合していません。
 							</p>
 							<div className={otherWorksClasses.actions}>
 								<Button
@@ -855,7 +871,82 @@ function Next() {
 							</div>
 						</CardsItem>
 					</Cards>
-				</section>
+                                </section>
+                                
+                                				{/* Make*/}
+				{/* <section className=" mt-0 Wrap ">
+					<ul className="UL [--wid:60rem] mx-auto">
+						<details className="Toggle  font-normal mt-4">
+							<summary className="Eng"><h3>Agent Driven CMS</h3></summary>
+							<div>
+								- LLM
+								の学習データに基づくwebデザイン・コーディングは平均的で、振れ幅の大きい、標準ではないものであり、個人のマークアップ、スタイリングとかけ離れたものになる。
+								<br />-
+								事務作業のように決められた手順を実行させることで、vibeコーディングツールでは創造できないプロダクトを効率的に実装できる。
+							</div>
+						</details>
+						<details className="Toggle  font-normal mt-4">
+							<summary className="Eng"><h3>Random Generator</h3></summary>
+							<div>
+								- LLM
+								の学習データに基づくwebデザイン・コーディングは平均的で、振れ幅の大きい、標準ではないものであり、個人のマークアップ、スタイリングとかけ離れたものになる。
+								<br />-
+								事務作業のように決められた手順を実行させることで、vibeコーディングツールでは創造できないプロダクトを効率的に実装できる。
+							</div>
+						</details>
+						<details className="Toggle  font-normal mt-4">
+							<summary className="Eng">
+							<h3>Activity</h3></summary>
+							<div>
+								- LLM
+								の学習データに基づくwebデザイン・コーディングは平均的で、振れ幅の大きい、標準ではないものであり、個人のマークアップ、スタイリングとかけ離れたものになる。
+								<br />-
+								事務作業のように決められた手順を実行させることで、vibeコーディングツールでは創造できないプロダクトを効率的に実装できる。
+							</div>
+						</details>
+						<details className="Toggle  font-normal mt-4">
+							<summary className="Eng">
+							<h3>Bounding Box On Design</h3></summary>
+							<div>
+								- LLM
+								の学習データに基づくwebデザイン・コーディングは平均的で、振れ幅の大きい、標準ではないものであり、個人のマークアップ、スタイリングとかけ離れたものになる。
+								<br />-
+								事務作業のように決められた手順を実行させることで、vibeコーディングツールでは創造できないプロダクトを効率的に実装できる。
+							</div>
+						</details>
+						<details className="Toggle  font-normal mt-4">
+							<summary className="Eng">
+							<h3>Grid Carousel</h3></summary>
+							<div>
+								- LLM
+								の学習データに基づくwebデザイン・コーディングは平均的で、振れ幅の大きい、標準ではないものであり、個人のマークアップ、スタイリングとかけ離れたものになる。
+								<br />-
+								事務作業のように決められた手順を実行させることで、vibeコーディングツールでは創造できないプロダクトを効率的に実装できる。
+							</div>
+						</details>
+						<details className="Toggle  font-normal mt-4">
+							<summary className="Eng">
+							
+							<h3>Pages</h3></summary>
+							<div>
+								- LLM
+								の学習データに基づくwebデザイン・コーディングは平均的で、振れ幅の大きい、標準ではないものであり、個人のマークアップ、スタイリングとかけ離れたものになる。
+								<br />-
+								事務作業のように決められた手順を実行させることで、vibeコーディングツールでは創造できないプロダクトを効率的に実装できる。
+							</div>
+						</details>
+						<details className="Toggle  font-normal mt-4">
+							<summary className="Eng">
+							<h3 className="">Chat Canban</h3></summary>
+							<div>
+								- LLM
+								の学習データに基づくwebデザイン・コーディングは平均的で、振れ幅の大きい、標準ではないものであり、個人のマークアップ、スタイリングとかけ離れたものになる。
+								<br />-
+								事務作業のように決められた手順を実行させることで、vibeコーディングツールでは創造できないプロダクトを効率的に実装できる。
+							</div>
+						</details>
+					</ul>
+				</section> */}
 
 				{/* ADCMS */}
 				{/* <section className="Cards col2  items-center">

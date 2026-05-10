@@ -132,17 +132,6 @@
         filter: blur(0);
 }
 
-.JsLetter > span {
-        display: inline-block;
-        opacity: 0;
-        rotate: none;
-        transition:0s ;
-}
-
-.bgItem.show .JsLetter.show > span {
-        opacity: 1;
-        --bgTR: 0.6s;
-}
 
 .bgItem:not(.show) .JsLetter > span {
         transition-delay: 0s !important;

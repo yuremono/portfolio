@@ -204,10 +204,13 @@
         --bfBG: var(--MC);
         --abfBG: var(--SC);
         --bfRad: 4px;
+        --trans: 400ms ;
 
         &::details-content {
                 // 開閉アニメーション
-                @apply h-0 overflow-hidden [transition:height_0.4s_ease,content-visibility_0.4s_allow-discrete];
+                // @apply h-0 overflow-hidden [transition:height_0.4s_ease,content-visibility_0.4s_allow-discrete];
+                @apply h-0 overflow-hidden [transition:var(--trans)_allow-discrete];
+                
         }
 
         &[open]::details-content {

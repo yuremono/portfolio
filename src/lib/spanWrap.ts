@@ -1,18 +1,17 @@
 /**
- * .p-split p の中身を元jQueryの文字分割に合わせて span 化する。
+ * `.JsLetter` 要素の中身を元jQueryの文字分割に合わせて span 化する。
  * spanWrap は分割だけを担当し、show の付け外しは Intersection 側で扱う。
  */
 
 import { escapeHtmlTextChar } from "./escapeHtmlText";
 
 const ATTR_DONE = "data-span-wrap";
-const SELECTOR = ".p-split p";
-const DELAY_STEP = 0.05;
+const SELECTOR = ".JsLetter";
 
 export type RuntimeDisconnect = { disconnect: () => void };
 
 function delayStyle(index: number) {
-	return `transition-delay:calc(var(--bgTR) + ${index * DELAY_STEP}s)`;
+	return `transition-delay:calc(var(--first-delay) + ${index} * var(--letter-delay))`;
 }
 
 function wrapText(text: string, index: { count: number }) {

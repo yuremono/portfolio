@@ -345,6 +345,21 @@ function Next() {
 													</dd>
 													<dt>vue/astro/svelte</dt>
 													<dd>AI 4 Month</dd>
+													<dt>WordPress</dt>
+													<dd className="[--ddW:100%]">
+														`Local`で学習中&nbsp;
+														<a
+															href="https://github.com/yuremono/wp-local-demo"
+															className=" align-top leading-[1.8]"
+															target="_blank"
+															rel="noopener noreferrer"
+														>
+															wp-local-demo
+															<ArrowSquareOutIcon
+																size={16}
+															/>
+														</a>
+													</dd>
 												</dl>
 											</div>
 										</article>
@@ -647,21 +662,28 @@ function Next() {
 							<div className=" leading-[2]">
 								<h3 className="text-GR ">AI Ready</h3>
 								<br />
-								<b>DESIGN.md</b> , <b>画像生成デザイン</b>を基点としたゼロからのページ作成の検証と、
-								<b>自然言語でUIパーツを再利用</b>する為の環境構築を行っています。
+								<b>DESIGN.md</b> , <b>画像生成デザイン</b>
+								を基点としたゼロからのページ作成の検証と、
+								<b>自然言語でUIパーツを再利用</b>
+								する為の環境構築を行っています。
 								<br />
-                                                                <br />
-								<h3 className="text-GR ">Burn Your Own Style</h3>
-                                                                <details className="Toggle IsSmall font-normal mt-4">
-										<summary className="Eng">
-											Thinking...
-										</summary>
-										<div>
-											- モデルの学習データに基づくwebデザイン・コーディングは平均的で、振れ幅が大きく、個人の理想とするマークアップ、スタイリングとかけ離れたものになる。
-											<br />- 構造=既存クラス、装飾=Tailwindで手直ししやすい状態になるが、無駄な記述が多い。
-                                                                                <br />考察：モデルのファインチューニングが民主化するまでは「完成品の再利用」を効率化する方が良い
-										</div>
-									</details>
+								<br />
+								<h3 className="text-GR ">
+									Burn Your Own Style
+								</h3>
+								<details className="Toggle IsSmall font-normal mt-4">
+									<summary className="Eng">
+										Thinking...
+									</summary>
+									<div>
+										-
+										モデルの学習データに基づくwebデザイン・コーディングは平均的で、振れ幅が大きく、個人の理想とするマークアップ、スタイリングとかけ離れたものになる。
+										<br />-
+										構造=既存クラス、装飾=Tailwindで手直ししやすい状態になるが、無駄な記述が多い。
+										<br />
+										考察：モデルのファインチューニングが民主化するまでは「完成品の再利用」を効率化する方が良い
+									</div>
+								</details>
 								{/* 個人のスタイルシステム（クラス、変数、jsモジュール）を元に開発する環境を整え、このサイトのベースに使用しています。 */}
 								<div className="flex flex-wrap mt-4">
 									<Button
@@ -680,7 +702,6 @@ function Next() {
 										Preview
 									</Button>
 									<br />
-									
 								</div>
 							</div>
 						</div>
@@ -689,8 +710,6 @@ function Next() {
 						</p>
 					</section>
 				</ScrollXSection>
-
-
 
 				{/* OtherWorks */}
 				<section className="Wrap into text-center mt-0">
@@ -732,8 +751,7 @@ function Next() {
 											-
 											ローカル完結ならモデル性能依存を解消できる
 											<br />
-											-
-											フロントエンド以外は全て仕様駆動。
+											- フロントエンド以外は全て仕様駆動。
 											<br />
 											考察：
 											リテラシーの高いクライアント＆十分な初期サポートという条件は必須と考えていたし、体験としては有意義であるが、
@@ -871,9 +889,9 @@ function Next() {
 							</div>
 						</CardsItem>
 					</Cards>
-                                </section>
-                                
-                                				{/* Make*/}
+				</section>
+
+				{/* Make*/}
 				{/* <section className=" mt-0 Wrap ">
 					<ul className="UL [--wid:60rem] mx-auto">
 						<details className="Toggle  font-normal mt-4">

@@ -3,12 +3,14 @@
 ignore/*
 NOTE.md
 NOTE2.md
+NOTE3.md
 voice-input-patterns.md
 .memsearch
 .cursor-memsearch
 private/
 js/
 LOCAL.html
+public/images/oasiz
 
 # Vite pre-bundle cache (regenerated locally)
 .vite/

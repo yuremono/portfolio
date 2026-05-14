@@ -9,6 +9,7 @@ import { PathDraw } from "../components/PathDraw";
 import { LottieScroll } from "../components/LottieScroll";
 import { HoudiniGalleryCards } from "../components/HoudiniGalleryCards";
 import { useWaveHover } from "../components/WaveHover";
+import { OasizThreeCanvas } from "../components/OasizThreeCanvas";
 
 // Common
 import Header from "../components/Header";
@@ -29,8 +30,11 @@ function Examples() {
 		<PageRoot ref={pageRootRef}>
 			<Header className="" />
 
-			<main className="mt-[--head]">
-				<div ref={waveHoverRef} className="WaveHover Wrap bg-GR/20 px-[--PX] md:px-0 MY">
+                        <main className="mt-[--head]">
+                                {/* OASIZ three.js canvas */}
+				<OasizThreeCanvas className="out "/>
+                                {/* WaveHover */}
+				<div ref={waveHoverRef} className="WaveHover Wrap bg-GR/20 px-[--PX] md:px-0 mt-[100lvh]">
 					<ul>
 						<li className="relative w-full border-0 text-left md:border-t md:border-[--GR] md:last:border-b">
 							<a
@@ -169,7 +173,10 @@ function Examples() {
 							</a>
 						</li>
 					</ul>
-                                </div>
+				</div>
+
+				
+
                                 {/* MaskMosaique */}
 				<section className="Wrap PX bg-TC text-[--WH] Eng">
 					<div className="Cards col4 MaskMosaique">

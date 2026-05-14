@@ -24,7 +24,7 @@ description: Capture viewport screenshots of a public website or local developme
 ./scroll-capture https://example.com
 ```
 
-設定ファイルを明示する場合:
+設定ファイルを明示する場合（別設定は `.codex/skills/scroll-capture/` 配下に置く）:
 
 ```bash
 .codex/skills/scroll-capture/scripts/run.sh --config tmp/scroll-capture.config.json http://localhost:3000/
@@ -45,7 +45,7 @@ description: Capture viewport screenshots of a public website or local developme
  `config.iphone.json` と `config.tablet.json` は、画面サイズ別の再利用設定として扱う。
 スマホ表示、タブレット表示、レスポンシブ確認などが必要な場合は、該当する設定ファイルを `--config` で指定して実行する。
 
-特定のページで既定とは違う設定を複数回実行する必要がある場合は`config.json` を直接変更せず、別の設定ファイルを作成して `--config` で指定する。ユーザーに設定ファイルを作成したことを報告し、継続して使うかどうか確認する。
+特定のページで既定とは違う設定を複数回実行する必要がある場合は`config.json` を直接変更せず、別の設定ファイルを`scroll-capture/`に作成して `--config` で指定する。ユーザーに設定ファイルを作成したことを報告し、継続して使うかどうか確認する。
 
 ## Output
 

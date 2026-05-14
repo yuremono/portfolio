@@ -41,6 +41,17 @@ function HeaderNav() {
 					</li>
 					<li className="DropLi">
 						<a
+							href="https://github.com/yuremono/wp-local-demo"
+							className=" "
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							wp-local-demo
+							<ArrowSquareOutIcon size={16} />
+						</a>
+					</li>
+					<li className="DropLi">
+						<a
 							href="https://github.com/yuremono/BurnYourOwnStyle/tree/react"
 							className=" "
 							target="_blank"

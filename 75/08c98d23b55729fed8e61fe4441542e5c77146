@@ -1,0 +1,21 @@
+src/components/Footer.tsx
+  h_53dad1e32c3c71 53-55
+src/pages/Next.tsx
+  h_53dad1e32c3c71 640
+src/components/Header.tsx
+  h_53dad1e32c3c71 6,18-19,136-138
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.8",
+  "base_commit_sha": "7508c98d23b55729fed8e61fe4441542e5c77146",
+  "prompts": {},
+  "humans": {
+    "h_53dad1e32c3c71": {
+      "author": "yuremono <5alviaofficinali50@gmail.com>"
+    },
+    "h_5a56918e6ebef3": {
+      "author": "yuremono"
+    }
+  }
+}

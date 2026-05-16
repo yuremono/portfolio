@@ -1,0 +1,17 @@
+src/components/BunmyakuTeaserSection.tsx
+  h_53dad1e32c3c71 18,23,46,50,127-128,130-135,549-550,559-562,565,567
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.8",
+  "base_commit_sha": "ac9e30741cf874309511e7ed79c7a13a1a709d81",
+  "prompts": {},
+  "humans": {
+    "h_53dad1e32c3c71": {
+      "author": "yuremono <5alviaofficinali50@gmail.com>"
+    },
+    "h_5a56918e6ebef3": {
+      "author": "yuremono"
+    }
+  }
+}

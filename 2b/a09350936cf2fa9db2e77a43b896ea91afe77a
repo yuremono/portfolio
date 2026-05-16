@@ -1,0 +1,136 @@
+src/pages/Lumaport.tsx
+  1332a72d8dd70436 9,16,19
+  h_5a56918e6ebef3 1-5,7-8,12-15,17-18,20-31,42-47
+  c59e81b1908585f1 11
+  71eb7712b4457126 6,32-41
+  40123b3f9b9a932c 10
+src/pages/Lumaport/HeroSection.tsx
+  h_5a56918e6ebef3 3-9,13-17,19-21,23-25,27,29-39,41-54,58,67-69,73,76,78-79,81-83,88-92,94,96-108
+  e46799ca48451d84 1-2,10-12,18,22,26,28,40,55-57,59-66,70-72,74-75,77,80,84-87,93,95
+src/activity/0429GPTdesign.md
+  h_5a56918e6ebef3 1-45
+src/pages/AGENTS.md
+  h_5a56918e6ebef3 4-5,8-22,25-26
+scripts/new-page-twonly.sh
+  h_5a56918e6ebef3 47,52,66
+src/pages/Lumaport/PlanSection.tsx
+  h_5a56918e6ebef3 1,3-39,41-49,51-53,55-57,59-69,71-82,87-99,101-104,106-112,114-116,118-121,123-126,128-138
+  e46799ca48451d84 2,40,50,54,58,70,83-86,100,105,113,117,122,127
+src/pages/Lumaport/SafeSection.tsx
+  e46799ca48451d84 1,34,43,45-46,49,54-55,60,65,71-72
+  h_5a56918e6ebef3 2-33,35-42,44,47-48,50-53,56-59,61-64,66-70,73-87
+src/pages/Lumaport/CitySection.tsx
+  h_5a56918e6ebef3 1-126
+src/scss/_01variables.scss
+  h_5a56918e6ebef3 147,151
+src/pages/Activity.tsx
+  h_5a56918e6ebef3 172-173
+src/pages/Lumaport/LumaHeader.tsx
+  e46799ca48451d84 3,36
+  h_5a56918e6ebef3 1-2,4-35,37-71
+src/index.scss
+  h_5a56918e6ebef3 51
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "2ba09350936cf2fa9db2e77a43b896ea91afe77a",
+  "prompts": {
+    "1332a72d8dd70436": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019dd8bb-9f6a-7ed1-8c33-9cd1741e6485",
+        "model": "gpt-5.5"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 6,
+      "total_deletions": 3,
+      "accepted_lines": 3,
+      "overriden_lines": 0
+    },
+    "1d32454cb342f876": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019dd8bb-9f34-7001-a306-8f46cc17a768",
+        "model": "gpt-5.5"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 62,
+      "total_deletions": 18,
+      "accepted_lines": 44,
+      "overriden_lines": 7
+    },
+    "40123b3f9b9a932c": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019dd8bb-a02e-7870-97c1-c1bc21f23eec",
+        "model": "gpt-5.5"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 3,
+      "total_deletions": 1,
+      "accepted_lines": 1,
+      "overriden_lines": 0
+    },
+    "71eb7712b4457126": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019dd8bb-a331-7c21-a75c-a5302ddba87e",
+        "model": "gpt-5.5"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 13,
+      "total_deletions": 10,
+      "accepted_lines": 11,
+      "overriden_lines": 1
+    },
+    "c59e81b1908585f1": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019dd8bb-a194-7253-bc27-4e44d326226a",
+        "model": "gpt-5.5"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 526,
+      "total_deletions": 4,
+      "accepted_lines": 364,
+      "overriden_lines": 67
+    },
+    "c7678366e5ae7992": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "595752d2-7a2f-419e-ad22-f204f3056e56",
+        "model": "composer-2"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 47,
+      "total_deletions": 8,
+      "accepted_lines": 0,
+      "overriden_lines": 8
+    },
+    "e46799ca48451d84": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019dd8ba-94ae-7950-bc82-a08d41265837",
+        "model": "gpt-5.5"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 87,
+      "total_deletions": 79,
+      "accepted_lines": 64,
+      "overriden_lines": 15
+    }
+  },
+  "humans": {
+    "h_5a56918e6ebef3": {
+      "author": "yuremono"
+    }
+  }
+}

@@ -1,0 +1,57 @@
+src/lib/rects.ts
+  109e0816200d953f 20-22,27-58,83-86,154,172-174
+vite.config.ts
+  109e0816200d953f 1,8-12
+src/pages/Rects.tsx
+  109e0816200d953f 3,5-6,14,20-48,92-93,95-97,100-101,103-105,115-137,141-145,159-171,203-225,241
+tsconfig.json
+  109e0816200d953f 3-8
+tsconfig.app.json
+  109e0816200d953f 18-21
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.5",
+  "base_commit_sha": "3f8b39cb6c3f606a30e9116251e52065afbc5dc6",
+  "prompts": {
+    "109e0816200d953f": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "f84001cb-640f-4f16-b660-a6b8089a3c02",
+        "model": "composer-2-fast"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 188,
+      "total_deletions": 38,
+      "accepted_lines": 175,
+      "overriden_lines": 1
+    },
+    "9e0259fb24621516": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "016b374e-54b0-4dbd-9680-2cf7b2aae7b4",
+        "model": "composer-2"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 383,
+      "overriden_lines": 0
+    },
+    "ea6646d23ec6b285": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "05780366-d022-4977-9ab4-f0b7956d1a91",
+        "model": "glm-5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 1,
+      "overriden_lines": 0
+    }
+  }
+}

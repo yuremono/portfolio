@@ -1,0 +1,25 @@
+ops/tutorial-state.yaml
+  10d59ccb692e4cf3 2-3
+notes/AI導入は段階的なアプローチが必要.md
+  10d59ccb692e4cf3 1-15
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.11",
+  "base_commit_sha": "c495a8144517c426d9e1400a94447b3b12503709",
+  "prompts": {
+    "10d59ccb692e4cf3": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "36bd4050-1d4b-44e1-9aa4-1ec1cffbeb95",
+        "model": "glm-4.7"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 17,
+      "total_deletions": 2,
+      "accepted_lines": 17,
+      "overriden_lines": 0
+    }
+  }
+}

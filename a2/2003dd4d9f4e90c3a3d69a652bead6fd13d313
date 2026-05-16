@@ -1,0 +1,86 @@
+src/components/vue/ToggleSummary.vue
+  ec92bdc9e3ab2e5c 2
+src/components/vue/FlexRImage.vue
+  ec92bdc9e3ab2e5c 2
+src/components/vue/PanelItem.vue
+  ec92bdc9e3ab2e5c 2
+src/components/vue/Toggle.vue
+  ec92bdc9e3ab2e5c 2
+  8ffbe91b6d21ad93 6,8-9,12
+src/components/vue/Panel.vue
+  ec92bdc9e3ab2e5c 2
+  8ffbe91b6d21ad93 6,8-9,12
+src/components/vue/CardsItem.vue
+  ec92bdc9e3ab2e5c 2
+  8ffbe91b6d21ad93 1,3-17
+src/components/vue/ToggleBody.vue
+  ec92bdc9e3ab2e5c 2
+src/components/vue/Cards.vue
+  ec92bdc9e3ab2e5c 2
+  8ffbe91b6d21ad93 1,3-10,14
+src/components/vue/FlexR.vue
+  8ffbe91b6d21ad93 6,8-9,12
+  ec92bdc9e3ab2e5c 2
+src/components/vue/ImgText.vue
+  8ffbe91b6d21ad93 6,11,13-14,18
+  ec92bdc9e3ab2e5c 2
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.10",
+  "base_commit_sha": "a22003dd4d9f4e90c3a3d69a652bead6fd13d313",
+  "prompts": {
+    "8ffbe91b6d21ad93": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b9085f47-b25c-4d81-bf26-93fe0a718b3e",
+        "model": "google/gemini-3.1-flash-lite-preview-20260303"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 314,
+      "total_deletions": 123,
+      "accepted_lines": 225,
+      "overriden_lines": 0
+    },
+    "b8d116699a9a573a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d3e246b4-f71a-4b2b-8c18-482d56901f76",
+        "model": "qwen/qwen3.5-flash-20260224"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 186,
+      "total_deletions": 25,
+      "accepted_lines": 43,
+      "overriden_lines": 0
+    },
+    "ec92bdc9e3ab2e5c": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c73cc55a-60c0-4760-b91a-c0b924ac189c",
+        "model": "google/gemini-3.1-flash-lite-preview-20260303"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 10,
+      "total_deletions": 10,
+      "accepted_lines": 10,
+      "overriden_lines": 0
+    },
+    "f208f549ed19b744": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d0acdaa7-b215-463a-a6ef-176e3b193930",
+        "model": "qwen/qwen3.5-flash-20260224"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 6,
+      "overriden_lines": 0
+    }
+  }
+}

@@ -1,0 +1,23 @@
+README.md
+  0c02ee07294cb541 7,11,13,15-17,19,21-27,31,35,38,45,47-50,52,54,56,58,61,67,69-75,77,79,81-84,86,88,90-97,99,101,103-111,113,117,119,121-128,130,132,134-145,147-148,150-152,154,156-158,160,162-164,168-171,173-195,201-203,207-208,210-211,214,219,221,225,229,231,233,238-243,247,249-251,253
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.12",
+  "base_commit_sha": "774f5dc0890f0d90787393d122c27248ab05d31c",
+  "prompts": {
+    "0c02ee07294cb541": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "03227d0d-8414-4e96-9147-c4c9b1bc9427",
+        "model": "glm-4.7"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 216,
+      "total_deletions": 151,
+      "accepted_lines": 161,
+      "overriden_lines": 24
+    }
+  }
+}

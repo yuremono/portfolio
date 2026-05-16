@@ -1,0 +1,457 @@
+src/pages/Bbox.tsx
+  bbb3a7cfa9cc753a 127
+  098aa0e13679f87f 1228,1254
+  656b7507efd22fa8 23,26,55-56,129-131,398-399,551-555,599,613-621,745
+  27474132dd3c6f34 18,444-450,605-606,611-612,1280
+  0ec3e09dfa1494ad 39-48,50-54,68,113,1212-1223,1226,1232-1246,1248-1252,1266,1268-1279,1281
+  h_5a56918e6ebef3 17,600-603,607-609,1260,1282
+  5310a3a388bc7d63 49,610
+  ae236215a8b17feb 1-7,9-16,19-22,24-25,27-38,114-117,119-123,125-126,128,132-134,141,151,166-167,179-397,400-443,505-550,556,558,560-598,622-623,641,643-744,746-995,997-999,1002-1147,1210-1211,1283-1285
+  1df67632b5c3fbcd 8,57-59,70-73,88,93-97,99-107,109,124,135-137,142-148,152-155,157,159,163-165,169-170,626,1148-1206,1227,1229-1231,1253,1255-1256,1259,1261-1265,1267
+  bc567036391cd9ea 60-67,451-504,604,1224-1225
+  5b38347d935459a2 69,75-87,89-92,118,138-140,156,158,160-162,178,1207-1209,1257-1258
+  c6ebffe541ba79b2 74,98,108,110-112,149-150,168,171-177,557,559,624-625,627-640,642,996,1000-1001,1247
+tailwind.config.js
+  bf247dc76f15f1e4 54-57
+  8f6ae8ab37c550eb 2-5
+TWonly/bbox.tsx
+  6e3e8707a37bc45e 1-13
+vitePluginBboxLocalBatch.ts
+  bc567036391cd9ea 1-90
+src/lib/annotatorConstants.ts
+  6e3e8707a37bc45e 1-8,17-18
+  b64f175fb616c558 9-16,19-22
+src/components/Header.tsx
+  h_5a56918e6ebef3 145
+src/scss/_01variables.scss
+  h_5a56918e6ebef3 6,33-35,38-41,44,49,101-120,123-138,140,142-171,183-188
+src/lib/annotatorTypes.ts
+  0de9f751642c386c 1
+  656b7507efd22fa8 7-8,19-20
+  f0b1d249688fa5dd 3,15,30,33,36,44-55,63,69,76,81,89,100,109
+  6e3e8707a37bc45e 2,4-6,9-14,16-18,21-29,31-32,34-35,37-43,56-62,64-68,70-75,77-80,82-88,90-99,101-108,110-114
+src/lib/annotatorGeometry.ts
+  656b7507efd22fa8 8-9,88-112
+  f0b1d249688fa5dd 1-5,7,10-11,20,22-32,40,51,55,58-62,77-85,113,115-119,122,127,138,143-144,153,159-163,166,194,206,211,219,229,237
+  1c1c529d5f87e3cd 42-43
+  27474132dd3c6f34 75-76
+  h_5a56918e6ebef3 6
+  bcca52aa60042edd 34,37
+  6e3e8707a37bc45e 12-19,21,33,35-36,38-39,41,44-50,52-54,56-57,63-74,86-87,114,120-121,123-126,128-137,139-142,145-152,154-158,164-165,167-193,195-205,207-210,212-218,220-228,230-236,238-248
+src/lib/annotatorOutput.ts
+  27474132dd3c6f34 1,3,103-109,111-124,133-138,147-151,155-156
+  656b7507efd22fa8 71,83-92,95-97
+  6e3e8707a37bc45e 4,6-12,17-33,39-46,48-70,72-82,93-94,98-102,110,125-132,139-146,152-154,157-161
+  0122a2a412104f11 2,5,13-16,34-38,47
+TWonly/bbox.html
+  6e3e8707a37bc45e 1-14
+src/lib/annotatorCanvas.ts
+  b64f175fb616c558 4-8,21-67,73,77,121-122,140-141,158-164,178,186,189,206,228-229,242-243,247,252
+  0de9f751642c386c 1-2
+  6e3e8707a37bc45e 3,9-20,68-72,74-76,78-120,123-139,142-157,165-177,179-185,187-188,190-201,203-205,207-217,219-227,230-241,244-246,248-251,253-255
+  656b7507efd22fa8 202,218
+src/lib/annotatorSnapshot.ts
+  0de9f751642c386c 1
+  656b7507efd22fa8 23,50
+  f1447f427019e2e6 9,41
+  6e3e8707a37bc45e 2-8,10-22,24-40,42-49,51-63
+src/App.tsx
+  6e3e8707a37bc45e 24,52
+TWonly/tailwind-only.scss
+  h_5a56918e6ebef3 10-12,32,111,123,140-154,172-183,185-187,197,216,230
+.gitignore
+  bc567036391cd9ea 42-44
+src/pages/Bbox/BboxManualDialog.tsx
+  fac22d6c7ed77ded 1-16,18-31,33,35-37,39-47,49-65,67-102,104-138,140-158,160-169,171-186
+  h_5a56918e6ebef3 17,32,34,38,48,66,103,139,159,170
+src/index.scss
+  h_5a56918e6ebef3 23-26,32-63
+src/pages/Bbox/bboxPendingParentDraft.ts
+  1df67632b5c3fbcd 1-43
+src/pages/Bbox/BboxToolbar.tsx
+  0ec3e09dfa1494ad 1,3,6-18,22-36,39-41,43-45,49-63,65-88,90-92,94,96-97,100-119,121,123,125-130,133-150,152-178,180-234,254-256,258-280,283-285
+  h_5a56918e6ebef3 4-5,46-48
+  fac22d6c7ed77ded 2,236
+  098aa0e13679f87f 42,64,89,120,151,179,235
+  bc567036391cd9ea 19-21,37-38,237-253,257,281-282
+  bcca52aa60042edd 93,95,98-99,124
+  74177fb22c6db42c 122,131-132
+src/pages/Bbox/BboxSidebar.tsx
+  bc567036391cd9ea 3,546,548-550
+  098aa0e13679f87f 208,214-217,220-223,243,254,274,593
+  c6ebffe541ba79b2 269
+  h_5a56918e6ebef3 367,373,380,386,540,547
+  27474132dd3c6f34 50-51,81,289-290,359-366,368-372,374-376
+  656b7507efd22fa8 1,5,10-35,52-63,83-205,207,209-213,218-219,224-238,240-242,244-253,255-268,270-273,275-288,291-314,316-341,344-352,354-358,377-379,381-385,387-452,454-455,459,464-472,474-479,490,498-539,541-545,551-552,554-592,594-656
+  1df67632b5c3fbcd 7,37,68
+  5b38347d935459a2 8
+  0ec3e09dfa1494ad 2,4,6,9,36,38-49,64-67,69-80,82,206,239,315,342-343,353,453,456-458,460-463,473,480-489,491-497,553,657-658
+src/pages/Bbox.html
+  h_5a56918e6ebef3 938
+vite.config.ts
+  bc567036391cd9ea 7-8,19
+  6e3e8707a37bc45e 32
+src/pages/Bbox/bboxPageModel.ts
+  bcca52aa60042edd 87-88
+  bc567036391cd9ea 1,71-79
+  27474132dd3c6f34 13
+  0ec3e09dfa1494ad 2-12,14-70,82-86,89-120,123-141
+  656b7507efd22fa8 121-122
+  5310a3a388bc7d63 80-81
+src/pages/Bbox/BboxStage.tsx
+  5b38347d935459a2 14,66
+  098aa0e13679f87f 64
+  c6ebffe541ba79b2 33,56,69-72
+  0ec3e09dfa1494ad 1-13,15-32,34-55,57-63,65,67-68,73-195
+src/pages/Bbox/bboxDemoSeed.ts
+  bc567036391cd9ea 44,50
+  656b7507efd22fa8 1-5,7-28,32-34,39-43,45-49,51-58,60-64,66-77
+  5310a3a388bc7d63 6,29-31,35-38,59,65
+src/pages/Bbox/bboxRootClasses.ts
+  0ec3e09dfa1494ad 1-7,13-14,16-17
+  5b38347d935459a2 8-12
+  h_5a56918e6ebef3 15
+src/components/FullscreenDialog.tsx
+  h_5a56918e6ebef3 109
+src/pages/Bbox/bboxParentRegionCapture.ts
+  bc567036391cd9ea 1-42
+src/pages/Bbox/bboxLocalBatchApi.ts
+  bc567036391cd9ea 1-64
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "01453a8536f02b9761c39072812f5b23cead3f8a",
+  "prompts": {
+    "0122a2a412104f11": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "4f4ed4bc-9406-490f-828f-a6f1f3b9bc57",
+        "model": "composer-2-fast"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 28,
+      "total_deletions": 14,
+      "accepted_lines": 12,
+      "overriden_lines": 0
+    },
+    "098aa0e13679f87f": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "97fa9c22-ec34-41ae-af15-6bd1167565bd",
+        "model": "composer-2"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 23,
+      "total_deletions": 7,
+      "accepted_lines": 23,
+      "overriden_lines": 0
+    },
+    "0de9f751642c386c": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "2ebc0272-cffa-4b8a-b288-0bb7d2346c75",
+        "model": "composer-2-fast"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 15,
+      "total_deletions": 4,
+      "accepted_lines": 4,
+      "overriden_lines": 0
+    },
+    "0ec3e09dfa1494ad": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "a7da125f-04c1-443e-b9e1-66d78e0f48ed",
+        "model": "composer-2"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 1025,
+      "total_deletions": 827,
+      "accepted_lines": 692,
+      "overriden_lines": 4
+    },
+    "1c1c529d5f87e3cd": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "b29ced03-502b-4658-b0f5-b2b9ae31ac88",
+        "model": "composer-2-fast"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 16,
+      "total_deletions": 15,
+      "accepted_lines": 2,
+      "overriden_lines": 0
+    },
+    "1df67632b5c3fbcd": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "96dfd16c-1b5c-4607-a0b7-b3169443c7f6",
+        "model": "composer-2-fast"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 200,
+      "total_deletions": 26,
+      "accepted_lines": 166,
+      "overriden_lines": 1
+    },
+    "27474132dd3c6f34": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "01e4b040-5a64-43de-8ecb-c6853f3233c6",
+        "model": "composer-2"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 285,
+      "total_deletions": 87,
+      "accepted_lines": 73,
+      "overriden_lines": 9
+    },
+    "5310a3a388bc7d63": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "727bea79-a1a4-4fe3-a70f-3765ca9c178c",
+        "model": "composer-2"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 30,
+      "total_deletions": 20,
+      "accepted_lines": 14,
+      "overriden_lines": 0
+    },
+    "5b38347d935459a2": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "5c3a6b80-6bb6-41e6-8b09-65cb35481ef1",
+        "model": "composer-2"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 43,
+      "total_deletions": 24,
+      "accepted_lines": 41,
+      "overriden_lines": 0
+    },
+    "656b7507efd22fa8": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "d832b97a-8649-49f1-973f-dda8819b195e",
+        "model": "composer-2"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 923,
+      "total_deletions": 428,
+      "accepted_lines": 680,
+      "overriden_lines": 1
+    },
+    "6e3e8707a37bc45e": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "a49d3708-62fc-402a-a79b-2cb8d1cd0048",
+        "model": "composer-2"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 2293,
+      "total_deletions": 55,
+      "accepted_lines": 611,
+      "overriden_lines": 0
+    },
+    "74177fb22c6db42c": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "cbf7c2a9-9253-43f1-a425-5691880ba9c9",
+        "model": "composer-2-fast"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 3,
+      "total_deletions": 3,
+      "accepted_lines": 3,
+      "overriden_lines": 0
+    },
+    "8f6ae8ab37c550eb": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "fd1f8772-1e0a-43af-a19b-b86097d222e3",
+        "model": "composer-2"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 10,
+      "total_deletions": 5,
+      "accepted_lines": 4,
+      "overriden_lines": 0
+    },
+    "ab633d974498685e": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "65ec6245-4705-4faf-a51d-ffd78f965759",
+        "model": "composer-2-fast"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 51,
+      "total_deletions": 31,
+      "accepted_lines": 0,
+      "overriden_lines": 0
+    },
+    "ae236215a8b17feb": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "c1a28045-942b-4513-b363-e6987231213c",
+        "model": "composer-2-fast"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 1735,
+      "total_deletions": 61,
+      "accepted_lines": 911,
+      "overriden_lines": 1
+    },
+    "b64f175fb616c558": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "7836c9ac-b0d1-454c-aed5-95f71452c2ad",
+        "model": "composer-2-fast"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 125,
+      "total_deletions": 72,
+      "accepted_lines": 87,
+      "overriden_lines": 0
+    },
+    "b7b08fb9abe3f5e3": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "42bcf002-dd12-443c-beb9-0030167f3951",
+        "model": "composer-2-fast"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 11,
+      "total_deletions": 0,
+      "accepted_lines": 0,
+      "overriden_lines": 0
+    },
+    "bbb3a7cfa9cc753a": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "7eabd724-53db-4b08-b51a-a6b6db701f2f",
+        "model": "composer-2-fast"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 83,
+      "total_deletions": 34,
+      "accepted_lines": 1,
+      "overriden_lines": 0
+    },
+    "bc567036391cd9ea": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "cc5c150b-906f-4082-ace1-573e8765fb8a",
+        "model": "composer-2"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 351,
+      "total_deletions": 112,
+      "accepted_lines": 309,
+      "overriden_lines": 4
+    },
+    "bcca52aa60042edd": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "678d5ce1-09e0-4c22-8a23-b2b3702e7767",
+        "model": "composer-2-fast"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 11,
+      "total_deletions": 9,
+      "accepted_lines": 9,
+      "overriden_lines": 0
+    },
+    "bf247dc76f15f1e4": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "3b0f8094-1ae8-4686-a018-8da1c7e5f850",
+        "model": "composer-2-fast"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 48,
+      "total_deletions": 40,
+      "accepted_lines": 4,
+      "overriden_lines": 0
+    },
+    "c6ebffe541ba79b2": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "fa294b69-a982-420a-8844-846bef50c2b2",
+        "model": "composer-2-fast"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 68,
+      "total_deletions": 19,
+      "accepted_lines": 46,
+      "overriden_lines": 0
+    },
+    "f0b1d249688fa5dd": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "cbd64327-2796-401a-a96d-aa57dc948afb",
+        "model": "composer-2-fast"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 96,
+      "total_deletions": 22,
+      "accepted_lines": 85,
+      "overriden_lines": 0
+    },
+    "f1447f427019e2e6": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "4ca3aa6d-1c27-4ca7-9328-f227f814474a",
+        "model": "composer-2-fast"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 14,
+      "total_deletions": 1,
+      "accepted_lines": 2,
+      "overriden_lines": 0
+    },
+    "fac22d6c7ed77ded": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "6065d446-c0fc-4f30-b058-267c02eb5ba4",
+        "model": "composer-2"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 293,
+      "total_deletions": 105,
+      "accepted_lines": 178,
+      "overriden_lines": 13
+    }
+  },
+  "humans": {
+    "h_5a56918e6ebef3": {
+      "author": "yuremono"
+    }
+  }
+}

@@ -1,0 +1,55 @@
+src/lib/components/Cards.svelte
+  47e031481ec60479 1-7
+src/lib/components/ToggleSummary.svelte
+  47e031481ec60479 1-7
+postcss.config.js
+  47e031481ec60479 1-6
+src/routes/+page.svelte
+  47e031481ec60479 1-197
+tailwind.config.js
+  47e031481ec60479 1-10
+src/lib/components/CardsItem.svelte
+  47e031481ec60479 1-12
+src/lib/components/ImgText.svelte
+  47e031481ec60479 1-12
+src/lib/components/FlexR.svelte
+  47e031481ec60479 1-7
+src/lib/components/Panel.svelte
+  47e031481ec60479 1-7
+src/lib/components/PanelItem.svelte
+  47e031481ec60479 1-12
+src/lib/styles/tailwind.css
+  47e031481ec60479 1-17
+src/lib/components/Units.svelte
+  47e031481ec60479 1-25
+src/lib/components/ToggleBody.svelte
+  47e031481ec60479 1-7
+svelte.config.js
+  47e031481ec60479 9-15
+src/lib/components/Toggle.svelte
+  47e031481ec60479 1-7
+src/routes/+layout.svelte
+  47e031481ec60479 3-4,8-13
+src/lib/components/FlexRImage.svelte
+  47e031481ec60479 1-9
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.12",
+  "base_commit_sha": "e2f11ff5c745af66bc83e5b530ac51bf24c9c17e",
+  "prompts": {
+    "47e031481ec60479": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "56b43974-cb0d-41f9-8a6d-8ce6c62e7102",
+        "model": "glm-4.7"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 806,
+      "total_deletions": 456,
+      "accepted_lines": 357,
+      "overriden_lines": 0
+    }
+  }
+}

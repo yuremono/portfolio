@@ -1,0 +1,109 @@
+src/scss/shuffle-divide.scss
+  h_5a56918e6ebef3 123,217,228
+src/pages/Next.tsx
+  h_5a56918e6ebef3 3,8-10,24,35,46,52,62,94,151,160,183,188-189,191,217,229,276,287,303,353,403
+src/scss/_09hover.scss
+  h_5a56918e6ebef3 147-148,150-151,153-154,161,182,185,215,257,315,433
+src/index.scss
+  h_5a56918e6ebef3 6-16,18,22-25,27,33,259,285
+src/scss/glitch.scss
+  h_5a56918e6ebef3 3,66,81,85-90,150-163,165-169,171-175,177-213,260,284,286,292-302
+src/components/ScrollToTop.tsx
+  6add1f1089b95b53 1-12
+src/scss/_01variables.scss
+  h_5a56918e6ebef3 5,25,27,154-157,192,239,375-380,382-386
+src/scss/_02foundation.scss
+  h_5a56918e6ebef3 193
+src/App.tsx
+  6add1f1089b95b53 3,16
+src/pages/shuffle-divide.tsx
+  h_5a56918e6ebef3 30,32,46,122
+src/scss/_02base.scss
+  h_5a56918e6ebef3 39-49,71,83-95
+src/pages/Rects.tsx
+  h_5a56918e6ebef3 504,508
+src/pages/Preview.tsx
+  h_5a56918e6ebef3 22
+src/features/glitch/initGlitch.ts
+  h_5a56918e6ebef3 8,198,233,258-259,263,282,287,292-293,300-301,305
+  7e610b7b3fd8f2c0 10-11,25-31,63-64,67-75,112-113,130-134,138-160,257,272,299,317-320,340-346,353-356,359,371-373
+src/pages/glitch.tsx
+  h_5a56918e6ebef3 13-14,47,55,76,85,150,164,166,203
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.0",
+  "base_commit_sha": "447e64f168609309b80cee93a6f7eff80974ccfe",
+  "prompts": {
+    "6540a2ed31da2fc0": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "c1abbd45-11e3-44ac-a1c0-f42b93a89ed0",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 146,
+      "overriden_lines": 0
+    },
+    "6add1f1089b95b53": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "05adcb9d-9a26-4270-a7bf-79180fece5c3",
+        "model": "composer-2"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 17,
+      "total_deletions": 3,
+      "accepted_lines": 14,
+      "overriden_lines": 0
+    },
+    "7037b57948b36c39": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "c417efdc-1f80-48cb-a401-6323beed6081",
+        "model": "composer-2-fast"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 5,
+      "overriden_lines": 0
+    },
+    "7e610b7b3fd8f2c0": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "a4d05753-dc22-480f-b421-90299214a11d",
+        "model": "composer-2"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 88,
+      "total_deletions": 32,
+      "accepted_lines": 73,
+      "overriden_lines": 15
+    },
+    "9e0259fb24621516": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "016b374e-54b0-4dbd-9680-2cf7b2aae7b4",
+        "model": "composer-2"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 369,
+      "overriden_lines": 0
+    }
+  },
+  "humans": {
+    "h_5a56918e6ebef3": {
+      "author": "yuremono"
+    }
+  }
+}

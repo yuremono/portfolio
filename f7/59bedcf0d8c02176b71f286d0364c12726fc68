@@ -1,0 +1,113 @@
+src/pages/Test2.tsx
+  3a3b460dfd2a6358 5,42-45,52-53,60-62,69,71-73,80,82-84,91,93-95,102,111,121-123,130-131,133-135,142-143,145-147,154-155,157-159,166-167,170,174,229-231,238-239,241-243,250-251,253-255,262-263,265-267,274-275,278,283,292-294,301-302,304-306,313-314,316-318,325-326,328-330,337-338,341
+src/pages/Playground.tsx
+  3a3b460dfd2a6358 4,20-24,31-32,37-38,44-45,48-49,55-56,59-60,66-67,76,86-88,95-96,98-100,107-108,110-112,119-120,123,128,161-172,174
+  e5bb4bcd0f3a3d40 1-3,6-17,19,25-30,33-36,39-43,46-47,50-54,57-58,61-65,68-75,78-80,82-85,89-94,97,101-106,109,113-118,121-122,124-127,129-160,173,175-181
+src/App.tsx
+  e5bb4bcd0f3a3d40 4,13
+  aaf24472522a83c8 5,14
+src/components/Panel.tsx
+  3a3b460dfd2a6358 2-3,6-11,15-17,21-25
+src/components/Cards.tsx
+  3a3b460dfd2a6358 1-3,6-11,14-17,20-25
+src/components/Image.tsx
+  3a3b460dfd2a6358 1-4,6-15,18-20,22-84
+src/pages/Preview.tsx
+  3a3b460dfd2a6358 37-38,54,57,61,63-64,71,75,77,85-86,89,91-92,99-100,160,219,238,266,277,280
+src/lib/rgbShift.ts
+  691478d8d2345a04 1-227
+src/lib/initClientRuntime.ts
+  691478d8d2345a04 13,31
+src/pages/Examples.tsx
+  aaf24472522a83c8 1-5,8,10-22,40,52-53,55-57,66-67,70,74-75,78-82,86-89,93,96,100,103,107,110-114,116-118,122,125-128,130-133,135,137-140,142-144,146-151,153,155,158-161,163-165,167-168,170,174,176-178,180-181,185,188,192,202-203,205-207,209-210,212-231,233-243
+  3a3b460dfd2a6358 6,30,41,43-47,50-51,63-65,68-69,71-73,76-77,90-92,94-95,97-99,101-102,104-106,108-109,119-121,123-124,154,156-157,162,173,182-184,186-187,189-191,193-194,196-198,200-201,204
+CLASS.md
+  3a3b460dfd2a6358 64,66-67,71-72
+src/components/ImgText.tsx
+  3a3b460dfd2a6358 2-4,7-12
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.17",
+  "base_commit_sha": "f759bedcf0d8c02176b71f286d0364c12726fc68",
+  "prompts": {
+    "3a3b460dfd2a6358": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "8007c4cc-3e1c-4ba9-bb1b-1981da1bd9c5",
+        "model": "glm-5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 876,
+      "total_deletions": 780,
+      "accepted_lines": 491,
+      "overriden_lines": 21
+    },
+    "691478d8d2345a04": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "77558259-3452-449b-ae6e-998bab16af0e",
+        "model": "glm-5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 258,
+      "total_deletions": 30,
+      "accepted_lines": 229,
+      "overriden_lines": 0
+    },
+    "9e0259fb24621516": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "016b374e-54b0-4dbd-9680-2cf7b2aae7b4",
+        "model": "composer-2"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 383,
+      "overriden_lines": 0
+    },
+    "aaf24472522a83c8": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7424042a-dc98-4144-b407-e052833134e0",
+        "model": "glm-5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 271,
+      "total_deletions": 3,
+      "accepted_lines": 136,
+      "overriden_lines": 32
+    },
+    "e5bb4bcd0f3a3d40": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d34f5d54-2c6c-4824-9ede-50457315998a",
+        "model": "glm-5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 181,
+      "total_deletions": 12,
+      "accepted_lines": 128,
+      "overriden_lines": 4
+    },
+    "ea6646d23ec6b285": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "05780366-d022-4977-9ab4-f0b7956d1a91",
+        "model": "glm-5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 2,
+      "overriden_lines": 0
+    }
+  }
+}

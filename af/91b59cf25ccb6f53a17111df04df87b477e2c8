@@ -1,0 +1,44 @@
+src/pages/index.astro
+  7f6b7d20e51b6ad1 3-12,16-17,21,24-25,28,30,32-33,36-37,40,42,44-45,48,55,60,66,71,90,92,103,105,119,121,132,145
+src/components/astro/CardsItem.astro
+  7f6b7d20e51b6ad1 1-17
+src/components/astro/Toggle.astro
+  7f6b7d20e51b6ad1 3,5,7-9
+src/components/astro/ToggleBody.astro
+  7f6b7d20e51b6ad1 1-9
+src/components/astro/PanelItem.astro
+  7f6b7d20e51b6ad1 1-17
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.10",
+  "base_commit_sha": "af91b59cf25ccb6f53a17111df04df87b477e2c8",
+  "prompts": {
+    "7f6b7d20e51b6ad1": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2e97f4ff-6d2d-45f3-815f-2c67f23e3805",
+        "model": "google/gemini-3.1-flash-lite-preview-20260303"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 829,
+      "total_deletions": 1279,
+      "accepted_lines": 475,
+      "overriden_lines": 0
+    },
+    "ec92bdc9e3ab2e5c": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c73cc55a-60c0-4760-b91a-c0b924ac189c",
+        "model": "google/gemini-3.1-flash-lite-preview-20260303"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 32,
+      "total_deletions": 35,
+      "accepted_lines": 24,
+      "overriden_lines": 0
+    }
+  }
+}

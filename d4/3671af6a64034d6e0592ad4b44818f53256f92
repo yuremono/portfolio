@@ -1,0 +1,40 @@
+self/methodology.md
+  1a2496fc5657d2ce 8-18,20-41,61-71,74-77
+self/memory/voice-input-patterns.md
+  1a2496fc5657d2ce 5-9,11-15,18-23,27-35,38-44,46-50,54
+ops/methodology/llm-comparison-expectations.md
+  e690a5a8db870a7f 1-56
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.12",
+  "base_commit_sha": "d43671af6a64034d6e0592ad4b44818f53256f92",
+  "prompts": {
+    "1a2496fc5657d2ce": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d9c59320-fd83-4218-8d3a-e6465a247908",
+        "model": "glm-4.7"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 86,
+      "overriden_lines": 0
+    },
+    "e690a5a8db870a7f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "817460b7-6456-431e-9f78-80a181dc9929",
+        "model": "glm-5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 56,
+      "total_deletions": 0,
+      "accepted_lines": 56,
+      "overriden_lines": 0
+    }
+  }
+}

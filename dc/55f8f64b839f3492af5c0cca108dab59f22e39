@@ -1,0 +1,129 @@
+tsconfig.app.json
+  60c321ce81dcea5d 32
+src/lib/mindMapRuntime.ts
+  f46168b95f7f8215 2,8-11,62
+src/pages/Next.tsx
+  289627f98c3aedf5 1-10,13-14,16,18-24,26-40,42-55,58-85,88-93,95,97-112,114-134,137-138,140-151,153-159,161-180,183-189,191-195,197,199-210,212-240,242,244-253,255-258,261-268,270-282,284-303,306-313,315-327,329-348,351-375,377-396,398-425,427-444,446-509,511-537
+  f46168b95f7f8215 11,25,41
+src/hooks/usePage.ts
+  f46168b95f7f8215 1-4,6-10,12-41
+src/components/Header.tsx
+  536ea73a12887d0d 29-40,42-43
+src/pages/Agent.tsx
+  60c321ce81dcea5d 12-15,17-18,23,28
+  d2639f2d5557fb1f 1-2,7,9-11,16,19-22,24-27,29-30
+src/App.tsx
+  d2639f2d5557fb1f 8,17
+  536ea73a12887d0d 9,16
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8",
+  "base_commit_sha": "dc55f8f64b839f3492af5c0cca108dab59f22e39",
+  "prompts": {
+    "289627f98c3aedf5": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "9b1aa534-d6b8-4da2-81b8-6665daed8ec0",
+        "model": "composer-2"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 2029,
+      "total_deletions": 53,
+      "accepted_lines": 495,
+      "overriden_lines": 38
+    },
+    "536ea73a12887d0d": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "86e83016-3dbd-4198-b457-7862209d67f0",
+        "model": "composer-2"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 18,
+      "total_deletions": 0,
+      "accepted_lines": 17,
+      "overriden_lines": 1
+    },
+    "60c321ce81dcea5d": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "fa754374-74f2-4295-926d-77790e84ccc3",
+        "model": "composer-2-fast"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 27,
+      "total_deletions": 29,
+      "accepted_lines": 9,
+      "overriden_lines": 1
+    },
+    "9e0259fb24621516": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "016b374e-54b0-4dbd-9680-2cf7b2aae7b4",
+        "model": "composer-2"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 383,
+      "overriden_lines": 0
+    },
+    "d2639f2d5557fb1f": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "b311f5b8-826a-461d-9cd4-7c091ff56a70",
+        "model": "composer-2"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 2768,
+      "total_deletions": 13,
+      "accepted_lines": 19,
+      "overriden_lines": 5
+    },
+    "e0b86538d5ebc578": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "6a0f6f70-df2c-4e3b-b35a-6fa3dca05b0b",
+        "model": "composer-2-fast"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 67,
+      "total_deletions": 15,
+      "accepted_lines": 0,
+      "overriden_lines": 0
+    },
+    "ea6646d23ec6b285": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "05780366-d022-4977-9ab4-f0b7956d1a91",
+        "model": "glm-5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 1,
+      "overriden_lines": 0
+    },
+    "f46168b95f7f8215": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "e5fa6089-073d-440e-a972-c86c250d97ed",
+        "model": "composer-2-fast"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 52,
+      "total_deletions": 11,
+      "accepted_lines": 48,
+      "overriden_lines": 2
+    }
+  }
+}

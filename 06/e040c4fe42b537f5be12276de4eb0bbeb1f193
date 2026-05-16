@@ -1,0 +1,27 @@
+projects/0314BYOS-astro/src/layouts/Layout.astro
+  461be23777c81192 1-11
+projects/0314BYOS-astro/astro.config.mjs
+  461be23777c81192 6-10
+projects/0314BYOS-astro/package.json
+  461be23777c81192 9-10,12-14
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.11",
+  "base_commit_sha": "06e040c4fe42b537f5be12276de4eb0bbeb1f193",
+  "prompts": {
+    "461be23777c81192": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f1d11381-1ec3-4398-a4db-3bdd1788cb29",
+        "model": "glm-4.7"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 26,
+      "total_deletions": 7,
+      "accepted_lines": 21,
+      "overriden_lines": 0
+    }
+  }
+}

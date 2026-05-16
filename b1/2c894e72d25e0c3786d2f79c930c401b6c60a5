@@ -1,0 +1,23 @@
+src/styles/global.css
+  131bb98c1d23c806 2-19
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.10",
+  "base_commit_sha": "b12c894e72d25e0c3786d2f79c930c401b6c60a5",
+  "prompts": {
+    "131bb98c1d23c806": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "93dfe563-2b98-4b79-96e5-b3236dd61836",
+        "model": "google/gemini-3.1-flash-lite-preview-20260303"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 18,
+      "total_deletions": 3,
+      "accepted_lines": 18,
+      "overriden_lines": 0
+    }
+  }
+}

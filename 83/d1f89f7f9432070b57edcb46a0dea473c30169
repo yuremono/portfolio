@@ -1,0 +1,23 @@
+README_ja.md
+  10d59ccb692e4cf3 1-317
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.11",
+  "base_commit_sha": "83d1f89f7f9432070b57edcb46a0dea473c30169",
+  "prompts": {
+    "10d59ccb692e4cf3": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "36bd4050-1d4b-44e1-9aa4-1ec1cffbeb95",
+        "model": "glm-4.7"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 317,
+      "total_deletions": 0,
+      "accepted_lines": 317,
+      "overriden_lines": 0
+    }
+  }
+}

@@ -1,0 +1,54 @@
+.claude/skills/Cards/SKILL.md
+  e7778536ffe68ed9 7,34-41,52,64-70,81-83,86-87,91-92,99-100,106,118,124-135,137,139-143,145-152,155-156,171-174,179-195,197-198,201,203,205,220,226,237,240-244,328
+src/components/FlexR.tsx
+  e7778536ffe68ed9 1-14,18,20-27
+src/App.tsx
+  e7778536ffe68ed9 3-5,89,92,94,105,107,110,112-113,116,118,122,152,181,194-196,198-205,207-211,213,216-217,219,222-237,239-250,252-261,263-268,270
+.claude/skills/Panel/SKILL.md
+  e7778536ffe68ed9 1-329
+src/components/Toggle.tsx
+  e7778536ffe68ed9 1-4,6-10,15-43
+.claude/skills/Toggle/SKILL.md
+  e7778536ffe68ed9 1-290
+.claude/skills/ImgText/SKILL.md
+  e7778536ffe68ed9 1-262
+src/components/ImgText.tsx
+  e7778536ffe68ed9 1,3-7,9-10,13-18
+src/components/Panel.tsx
+  e7778536ffe68ed9 1-5,7-16,19-32
+.claude/skills/FlexR/SKILL.md
+  e7778536ffe68ed9 1-281
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.10",
+  "base_commit_sha": "e573234017f78b24b618aed0553d326c65edd0b5",
+  "prompts": {
+    "e7778536ffe68ed9": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "9dada268-b578-4b34-83ff-5ebd675570ea",
+        "model": "qwen/qwen3.5-flash-20260224"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 2077,
+      "total_deletions": 658,
+      "accepted_lines": 1443,
+      "overriden_lines": 37
+    },
+    "f208f549ed19b744": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d0acdaa7-b215-463a-a6ef-176e3b193930",
+        "model": "qwen/qwen3.5-flash-20260224"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 392,
+      "overriden_lines": 0
+    }
+  }
+}

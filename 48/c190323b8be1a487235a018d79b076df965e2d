@@ -1,0 +1,285 @@
+TWonly/variables.scss
+  h_5a56918e6ebef3 1-217
+TWonly/aozora.tsx
+  h_5a56918e6ebef3 1-13
+src/activity/0420maestri.md
+  h_5a56918e6ebef3 3
+src/pages/glitch.tsx
+  4ff7d2ea98f714c5 3,32-42
+src/pages/Test8.tsx
+  bff74d37e0e7b118 1,6-8,92-127
+  fbaeab9195407559 5,24,32,38,41-42,44-52,54-55,71,74-75,77-78,80-84,86-89,128,135,137-141,143,145-146,148-150
+  h_5a56918e6ebef3 2-4,9-23,25-31,33-37,39-40,43,53,56-70,72-73,76,79,85,90-91,129-134,136,142,144,147,151-157
+TWonly/tailwind-only.scss
+  h_5a56918e6ebef3 1-2,7-205,207-216,218-225,228,230-240
+  fbaeab9195407559 206,217,226-227,229
+TWonly/aozora.html
+  h_5a56918e6ebef3 1-20
+src/pages/Donut.tsx
+  h_5a56918e6ebef3 1-27
+src/pages/Test26.tsx
+  6711cfd4fd663f1a 6-9
+  89eb7aee27588e44 1,10,14-22,25
+TWonly/test8.tsx
+  h_5a56918e6ebef3 1-13
+TWonly/test26.html
+  h_5a56918e6ebef3 1-20
+src/App.tsx
+  h_5a56918e6ebef3 9-13,16,21,33-37,40,46
+TWonly/test7.tsx
+  h_5a56918e6ebef3 1
+scripts/new-page-twonly.sh
+  6711cfd4fd663f1a 1-2,5-16,18-129,131,133-145
+  h_5a56918e6ebef3 3-4,17,130,132
+package.json
+  8d6ade3467076516 25,39
+  36896f46010eb5da 49
+  0f9083ba0b41040f 24
+vite.config.ts
+  h_5a56918e6ebef3 11,14,21-27,30,42,44,46
+src/pages/AGENTS.md
+  h_5a56918e6ebef3 3-4,8-9,12-21,23,29-30,38,43-44,48-54,56,59-60,71,73-74
+src/index.scss
+  h_5a56918e6ebef3 6,8,247
+src/components/three/BrassCompass.tsx
+  bff74d37e0e7b118 1-2,4-8,11-13,16-41,43,45,47,49,51-57,59,61-67,70-72,78-95,97,99,102-103,108-116,119-124,126-136,140-143,147-150,154-157,160-163,167-173,175-196,198-278,280-287,289-494,496-498,501-502
+  0f9083ba0b41040f 42,44,46,48,50,69,73-77,96,98,100,137-139,144-146,151-153,158-159,164-166
+  h_5a56918e6ebef3 58,68
+src/pages/ZzzScratch.tsx
+  6711cfd4fd663f1a 6-8
+scripts/build-brass-compass-lottie.mjs
+  fa67f99cebd533aa 1-17,25-236,238-269,271-279,281-337,339-376,378,381-450,452-460,462-478
+  0f9083ba0b41040f 18-23,237,270,280,338
+  h_5a56918e6ebef3 24,377,451
+  a81394c52cb60160 379-380,461
+src/lib/initBgTrigger.ts
+  4ff7d2ea98f714c5 1,5-9,11-14,16-23,26-28,34,43,71-72,79,105
+src/components/Header.tsx
+  h_5a56918e6ebef3 15,125-126
+src/pages/yugen.tsx
+  4ff7d2ea98f714c5 32,105,110,112,114-116,118,121,123,125,133
+  h_5a56918e6ebef3 1-31,33-80,82,85-89,92,101-104,106-109,111,113,117,119-120,122,124,126-132,134-208
+  3253e7561518841a 81,83-84,90-91,93-100
+src/activity/0425compass.md
+  h_5a56918e6ebef3 1-17
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "48c190323b8be1a487235a018d79b076df965e2d",
+  "prompts": {
+    "0f9083ba0b41040f": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019dc496-e033-7971-908b-0a318c291c2f",
+        "model": "gpt-5.4-mini"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 39,
+      "total_deletions": 49,
+      "accepted_lines": 39,
+      "overriden_lines": 0
+    },
+    "3253e7561518841a": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019dc4a0-6e82-7db0-bb04-1344b1f9772c",
+        "model": "gpt-5.4-mini"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 23,
+      "total_deletions": 4,
+      "accepted_lines": 13,
+      "overriden_lines": 6
+    },
+    "36896f46010eb5da": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019dbf17-53e0-70b1-ba42-e820b82c6ef8",
+        "model": "gpt-5.5"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 37,
+      "total_deletions": 37,
+      "accepted_lines": 1,
+      "overriden_lines": 0
+    },
+    "4bfbdfbeb617352f": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019dbef9-d365-79d0-8ff0-5ac2d01b1e22",
+        "model": "gpt-5.5"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 1,
+      "total_deletions": 1,
+      "accepted_lines": 0,
+      "overriden_lines": 1
+    },
+    "4ff7d2ea98f714c5": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "3ff5b67b-1df4-4f0f-b0df-4363a222f1e4",
+        "model": "composer-2"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 417,
+      "total_deletions": 236,
+      "accepted_lines": 182,
+      "overriden_lines": 4
+    },
+    "6285195e18117600": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019dbefa-51d6-7d70-bb58-825909e17ca1",
+        "model": "gpt-5.5"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 308,
+      "total_deletions": 10,
+      "accepted_lines": 0,
+      "overriden_lines": 0
+    },
+    "6711cfd4fd663f1a": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "2cfadbfe-8f00-41de-930d-09fe67b4e46a",
+        "model": "composer-2"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 161,
+      "total_deletions": 19,
+      "accepted_lines": 147,
+      "overriden_lines": 5
+    },
+    "89eb7aee27588e44": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "7d4669c5-a706-455b-8f1a-348ddffc4345",
+        "model": "composer-2"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 449,
+      "total_deletions": 48,
+      "accepted_lines": 6,
+      "overriden_lines": 3
+    },
+    "8d6ade3467076516": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019dbefa-20eb-7e70-bc65-e42447f10b49",
+        "model": "gpt-5.5"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 250,
+      "total_deletions": 53,
+      "accepted_lines": 2,
+      "overriden_lines": 0
+    },
+    "a81394c52cb60160": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "a7dbca9e-3cff-4c3a-a00b-523025122f24",
+        "model": "composer-2"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 103,
+      "total_deletions": 60,
+      "accepted_lines": 3,
+      "overriden_lines": 3
+    },
+    "bea65935aa789346": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019dbefa-b8ad-7a93-b0e8-6f5a3b53d57e",
+        "model": "gpt-5.5"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 8,
+      "total_deletions": 6,
+      "accepted_lines": 0,
+      "overriden_lines": 1
+    },
+    "bff74d37e0e7b118": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "d04d537a-3e3b-48f8-8d47-c7b499e4f062",
+        "model": "composer-2"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 659,
+      "total_deletions": 118,
+      "accepted_lines": 512,
+      "overriden_lines": 2
+    },
+    "fa67f99cebd533aa": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "ac4423a3-682a-4602-bc10-d3d03718ebb5",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 541,
+      "total_deletions": 7,
+      "accepted_lines": 462,
+      "overriden_lines": 0
+    },
+    "fae9dec5205f0cde": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019dbef9-fc7b-7f90-9cdf-4f334964c225",
+        "model": "gpt-5.5"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 134,
+      "total_deletions": 61,
+      "accepted_lines": 0,
+      "overriden_lines": 0
+    },
+    "fbaeab9195407559": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019dbe0a-6fb6-7840-b952-faa640e099c4",
+        "model": "gpt-5.4-mini"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 176,
+      "total_deletions": 143,
+      "accepted_lines": 49,
+      "overriden_lines": 30
+    },
+    "fd1710da2d595f81": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019dbe7c-7966-7900-9a7e-5074183034d0",
+        "model": "gpt-5.5"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 90,
+      "total_deletions": 35,
+      "accepted_lines": 0,
+      "overriden_lines": 0
+    }
+  },
+  "humans": {
+    "h_5a56918e6ebef3": {
+      "author": "yuremono"
+    }
+  }
+}

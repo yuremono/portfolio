@@ -1,0 +1,298 @@
+src/hooks/useRectsTweakpane.ts
+  50ef0b0e328f12c7 91,93-94,97-99,103,114
+  109e0816200d953f 1-5,9,30-36,41-42,45,47-48,92,204-205,209-210,213-214,216
+  65d57d613021f568 53,60,66,72,120,141-142,147,153,165,167
+  201fd6aea0e5b47b 126,202
+  2199df8ab694da57 54,56-59,181,188-190,194-197
+  bc1564fa862eb0b8 6-7,12,14-29,37-40,43-44,46,50-51,55,65,71,74,76,79,85-86,89,95,101,104,108,110,113,121,124,130,136-137,140,143,149,155,161,164,170,176,203,206-208,211-212,215
+  955be2dcb367b7ef 116-119,122-123,125,127-129,131-135,138-139
+  b6cfa7d2195b7f7f 81-84,87-88
+  6354c4a77a6ead92 166,171-175
+  637e75746dfd07be 10-11,13,52,61-64,67-70,73,75,77-78,80,90,96,102,105,109,111-112,115,144-146,148,150-152,154,156-160,162,200
+  5b1887207962e5c6 182-187,191-193,198-199
+  4af8f9d562bd1482 8,177-180,201
+src/pages/Rects.tsx
+  b4f8bf4cb03532e2 170,485,557,666,674
+  201fd6aea0e5b47b 10,23,55,57-59,98-106,130-133,272-273,275-292,340-343,356,361,372-382,391-393,395-397,400-436,438-458,740-747,749-752,754-756,761-762,764-767,801-812,815,817-820,848-855,858-860
+  b6cfa7d2195b7f7f 15,17,19,529,531-533,537,558-560,712
+  50ef0b0e328f12c7 21,335
+  5b1887207962e5c6 123-129
+  6354c4a77a6ead92 162-164,538-542,563-565,567-568,570-576,579-582,639,643
+  65d57d613021f568 40-41,138-145,159-161,306-313,461-467,469-474,492-493,577,667
+  497614195c90fd3e 550-556,583-616,618-633,635-636,638,640-642,645-655
+  bc1564fa862eb0b8 13,18,22,25-37,43,47-53,56,80-95,97,107-114,182,184-192,194-203,219-236,240-243,258-259,263-267,271,293,316-324,326-334,336-339,390,673,677-709,713-725,729-735,737-739,748,757,785-787,841-847,856-857,861-862
+  5f116abb01489ae1 117-122,172-173,239,676,710
+  4af8f9d562bd1482 42,63-76,96,206,244-257,325,344-355,358-360,362-371,383-389,477,483,758-760,763,768-784,788,790,792,794,797-800,813,816,821-838,840
+  637e75746dfd07be 16,24,38-39,44,46,54,135-137,146-158,165,167-168,175-177,180,209-212,215-218,237,260-262,274,294-304,314-315,475-476,478-482,484,486-491,517-520,523,525,530,536,561-562,569,578,656-657,659-665,669-672
+  955be2dcb367b7ef 178-179,213-214
+  109e0816200d953f 20,174,238,268,270,305,507-508,510
+src/lib/randomGrid.test.ts
+  955be2dcb367b7ef 5-7,9,12,15-39,41-54,112-115,132-164
+  65d57d613021f568 8,11,116,118-119,124,126-128,131,165-170,175-176,182,184-190,209-212,214
+  637e75746dfd07be 1-4,10,13,40,85-95,98-111,117,120-123,125,129-130,171-174,177-181,183,191-208,215-222
+  6354c4a77a6ead92 14,96-97,213
+src/components/ui/button.tsx
+  109e0816200d953f 58
+src/lib/rectsPageMarkup.ts
+  bc1564fa862eb0b8 1-251,253,255,257-317
+src/lib/rectsTweakParams.test.ts
+  2199df8ab694da57 1-43
+src/lib/randomGrid.ts
+  955be2dcb367b7ef 18-20,23,29-30,115-122,124-134,136-137,152-264,275-276,284,287,290-315
+  201fd6aea0e5b47b 34-37,40-41,265-274
+  65d57d613021f568 43-45,93-98,141,145-149,280-283,285,330-331,335-338,343,346,354-358,387-389,393-395,398,400-401,404,409-412,415-425,428-435,438,455
+  637e75746dfd07be 1-17,24-28,31-33,38-39,42,46-77,88-92,99-100,138-140,142-144,150-151,277-279,286,288-289,316-329,332-334,339-342,344-345,347-353,359-384,386,396-397,399,402-403,405-408,413-414,426-427,439-454,456
+  6354c4a77a6ead92 385,390-392,436-437
+src/lib/rects.ts
+  50ef0b0e328f12c7 39-41,64-72,74-83,85,90-95,102,104-107,109,111,114-122,190-192,197,199-206,213-216,218-221,229
+src/lib/rectsTweakParams.ts
+  201fd6aea0e5b47b 8,168,185
+  2199df8ab694da57 212-213,304-310
+  bc1564fa862eb0b8 1-7,9-167,169-184,186-211,214-303,311-314
+vite.config.ts
+  109e0816200d953f 2-3,7
+src/index.css
+  b6cfa7d2195b7f7f 76-80,94
+  bab24eb86623f032 43
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.5",
+  "base_commit_sha": "e84d84bc97b6baa8a554092e050603f52e69d08e",
+  "prompts": {
+    "109e0816200d953f": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "f84001cb-640f-4f16-b660-a6b8089a3c02",
+        "model": "composer-2-fast"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 410,
+      "total_deletions": 220,
+      "accepted_lines": 53,
+      "overriden_lines": 7
+    },
+    "201fd6aea0e5b47b": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "51771a8c-c51f-425f-a770-f016548ffdab",
+        "model": "composer-2-fast"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 214,
+      "total_deletions": 152,
+      "accepted_lines": 194,
+      "overriden_lines": 1
+    },
+    "2199df8ab694da57": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "84081a51-a6bb-4ab4-a1e5-4bcc4cc0242d",
+        "model": "gpt-5.4-xhigh"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 137,
+      "total_deletions": 83,
+      "accepted_lines": 65,
+      "overriden_lines": 0
+    },
+    "497614195c90fd3e": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "e2fd4a9b-cc32-4a13-a781-5c617d7af5a2",
+        "model": "gpt-5.4-mini-medium"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 84,
+      "total_deletions": 76,
+      "accepted_lines": 74,
+      "overriden_lines": 0
+    },
+    "4af8f9d562bd1482": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "b849c72e-d7ee-489c-800d-09b3474615d8",
+        "model": "composer-2-fast"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 207,
+      "total_deletions": 104,
+      "accepted_lines": 125,
+      "overriden_lines": 3
+    },
+    "50ef0b0e328f12c7": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "02dc1a7d-d367-4ee3-b7d5-613dbdb09faa",
+        "model": "composer-2-fast"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 188,
+      "total_deletions": 110,
+      "accepted_lines": 79,
+      "overriden_lines": 1
+    },
+    "5b1887207962e5c6": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "c2a4cb29-b499-4b9d-a1b3-a1c76ce75ed8",
+        "model": "gpt-5.4-mini-medium"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 104,
+      "total_deletions": 92,
+      "accepted_lines": 18,
+      "overriden_lines": 0
+    },
+    "5f116abb01489ae1": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "af057dbd-0bf5-42df-8b5a-2cc8e68267ba",
+        "model": "claude-4.6-sonnet-medium-thinking"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 126,
+      "total_deletions": 45,
+      "accepted_lines": 13,
+      "overriden_lines": 0
+    },
+    "6354c4a77a6ead92": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "cd8a36a3-42c1-4d54-ad13-f5bcfb7f7614",
+        "model": "composer-2-fast"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 323,
+      "total_deletions": 224,
+      "accepted_lines": 42,
+      "overriden_lines": 2
+    },
+    "637e75746dfd07be": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "65729cc7-1f3d-48ea-a59d-f12d09810004",
+        "model": "gpt-5.4-xhigh"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 931,
+      "total_deletions": 203,
+      "accepted_lines": 380,
+      "overriden_lines": 6
+    },
+    "65d57d613021f568": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "daa6e9bc-466b-4ae5-bb00-e77f46ff17dc",
+        "model": "composer-2-fast"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 351,
+      "total_deletions": 207,
+      "accepted_lines": 148,
+      "overriden_lines": 2
+    },
+    "955be2dcb367b7ef": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "6d06561f-f83c-4f2b-a1ed-010ef8c59d22",
+        "model": "composer-2-fast"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 376,
+      "total_deletions": 69,
+      "accepted_lines": 272,
+      "overriden_lines": 3
+    },
+    "9e0259fb24621516": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "016b374e-54b0-4dbd-9680-2cf7b2aae7b4",
+        "model": "composer-2"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 383,
+      "overriden_lines": 0
+    },
+    "b4f8bf4cb03532e2": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "666b9d36-4cc9-4099-853e-04a48bb8c4d9",
+        "model": "gpt-5.4-xhigh"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 101,
+      "total_deletions": 8,
+      "accepted_lines": 5,
+      "overriden_lines": 2
+    },
+    "b6cfa7d2195b7f7f": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "e03330ec-a8c6-47d8-bfb7-d7640729cfb3",
+        "model": "claude-4.6-sonnet-medium-thinking"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 188,
+      "total_deletions": 34,
+      "accepted_lines": 26,
+      "overriden_lines": 8
+    },
+    "bab24eb86623f032": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "9441e54a-3168-4208-be83-2beab4e1495d",
+        "model": "default"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 32,
+      "total_deletions": 14,
+      "accepted_lines": 1,
+      "overriden_lines": 19
+    },
+    "bc1564fa862eb0b8": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "a9a9df62-f7a8-44a2-b254-1752ab49665b",
+        "model": "composer-2-fast"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 1158,
+      "total_deletions": 926,
+      "accepted_lines": 898,
+      "overriden_lines": 6
+    },
+    "ea6646d23ec6b285": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "05780366-d022-4977-9ab4-f0b7956d1a91",
+        "model": "glm-5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 1,
+      "overriden_lines": 0
+    }
+  }
+}

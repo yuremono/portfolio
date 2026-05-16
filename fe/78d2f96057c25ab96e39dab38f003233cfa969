@@ -1,0 +1,23 @@
+templates/byos-document.md
+  089823603b4ae9c3 1-45
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.11",
+  "base_commit_sha": "fe78d2f96057c25ab96e39dab38f003233cfa969",
+  "prompts": {
+    "089823603b4ae9c3": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "327966b3-efc4-4ebb-b024-5b668405cc11",
+        "model": "glm-4.7"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 45,
+      "total_deletions": 0,
+      "accepted_lines": 45,
+      "overriden_lines": 0
+    }
+  }
+}

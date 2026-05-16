@@ -1,0 +1,79 @@
+src/lib/rects.ts
+  cadb1ec33c9b1693 1-14,16-17,19-22,25-30,32-35,37-159
+src/pages/Preview.tsx
+  ef97d9b7140dc4dd 9,326
+src/components/Header.tsx
+  ef97d9b7140dc4dd 14-16,74-77,81,83-88
+src/pages/Examples.tsx
+  ef97d9b7140dc4dd 13,241-242
+src/pages/Rects.tsx
+  cadb1ec33c9b1693 1-2,4,7-8,11,13-14,16,20-42,49-86,88,90-95,100-128,130-131,133,144-145,147-157,161-162,166,169-173
+  ef97d9b7140dc4dd 5,17-19,43-48,87,146,167-168
+src/App.tsx
+  cadb1ec33c9b1693 6,16
+src/components/Footer.tsx
+  ef97d9b7140dc4dd 1-10,12-21,23-65
+src/pages/Playground.tsx
+  ef97d9b7140dc4dd 8,178-179
+src/pages/Test2.tsx
+  ef97d9b7140dc4dd 10,425
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.5",
+  "base_commit_sha": "e089e7152cbde278aa8d6ff048f8cc5810244a38",
+  "prompts": {
+    "9e0259fb24621516": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "016b374e-54b0-4dbd-9680-2cf7b2aae7b4",
+        "model": "composer-2"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 383,
+      "overriden_lines": 0
+    },
+    "cadb1ec33c9b1693": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "8b429dd6-9430-4101-9c90-e11ba70b9e7f",
+        "model": "composer-2-fast"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 659,
+      "total_deletions": 196,
+      "accepted_lines": 285,
+      "overriden_lines": 19
+    },
+    "ea6646d23ec6b285": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "05780366-d022-4977-9ab4-f0b7956d1a91",
+        "model": "glm-5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 1,
+      "overriden_lines": 0
+    },
+    "ef97d9b7140dc4dd": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "09a9cde8-639b-4c02-b3b9-736466adb332",
+        "model": "composer-2-fast"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 110,
+      "total_deletions": 70,
+      "accepted_lines": 101,
+      "overriden_lines": 1
+    }
+  }
+}

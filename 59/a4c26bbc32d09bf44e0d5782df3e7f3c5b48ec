@@ -1,0 +1,36 @@
+.gitignore
+  cf03988c530bd939 26-27
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.10",
+  "base_commit_sha": "59a4c26bbc32d09bf44e0d5782df3e7f3c5b48ec",
+  "prompts": {
+    "8ffbe91b6d21ad93": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b9085f47-b25c-4d81-bf26-93fe0a718b3e",
+        "model": "google/gemini-3.1-flash-lite-preview-20260303"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 182,
+      "overriden_lines": 0
+    },
+    "cf03988c530bd939": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "e4d6eaf7-d377-4dd4-b66e-aec80f5818b1",
+        "model": "composer-1"
+      },
+      "human_author": null,
+      "messages": [],
+      "total_additions": 3,
+      "total_deletions": 0,
+      "accepted_lines": 3,
+      "overriden_lines": 0
+    }
+  }
+}

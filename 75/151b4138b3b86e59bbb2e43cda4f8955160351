@@ -1,0 +1,47 @@
+src/components/WaveHover.tsx
+  194f29ec4b797e37 1-15,23-33,50-61,100,107-130,172-180,202-287,289,294,306-321
+  219e4c034f8c62d4 17,48,98-99,101-104,132-136,189-192,288,290-293,295-305
+src/pages/Examples.tsx
+  194f29ec4b797e37 23,26,33-34,171
+  219e4c034f8c62d4 36,38-43,59-60,62-63,66-102,104,106-107,109-111,128,134-170
+CLASS.md
+  194f29ec4b797e37 76
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "75151b4138b3b86e59bbb2e43cda4f8955160351",
+  "prompts": {
+    "194f29ec4b797e37": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "9fc035e5-e691-4ec2-9d88-732739f28f0e",
+        "model": "composer-2"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 120,
+      "total_deletions": 91,
+      "accepted_lines": 66,
+      "overriden_lines": 7
+    },
+    "219e4c034f8c62d4": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "d00f4611-3a48-4e6c-b886-4b3a0e2a8925",
+        "model": "composer-2"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 313,
+      "total_deletions": 337,
+      "accepted_lines": 79,
+      "overriden_lines": 20
+    }
+  },
+  "humans": {
+    "h_5a56918e6ebef3": {
+      "author": "yuremono"
+    }
+  }
+}

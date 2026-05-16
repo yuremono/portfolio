@@ -1,0 +1,23 @@
+"notes/burn your own styleプロジェクトの概要.md"
+  089823603b4ae9c3 1-138
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.11",
+  "base_commit_sha": "4d815a92949d3c38f45d3a5b6676dbbcdfd729c7",
+  "prompts": {
+    "089823603b4ae9c3": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "327966b3-efc4-4ebb-b024-5b668405cc11",
+        "model": "glm-4.7"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 138,
+      "total_deletions": 0,
+      "accepted_lines": 138,
+      "overriden_lines": 0
+    }
+  }
+}

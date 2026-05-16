@@ -1,0 +1,60 @@
+src/App.tsx
+  b17f56c05451c74a 240-264
+  214c6a0b4f37c00d 265-279
+.claude/skills/Hero/SKILL.md
+  61ad7f1e92cc381c 18-24,42,48,53-55,59,61-62,97,100-104,109,111,113,115-116,124,126,128-130,132,134-145,150-151,202,208,210-211,231-234
+.claude/skills/Toggle/SKILL.md
+  61ad7f1e92cc381c 18-24,48,53,59,61-62,68,84,86,89,92,94-96,98,101-105,108-110,112,114,116-120,125,127,129-131,133,135-139,141,143-145,151-152,202,207,209,231-234
+.claude/skills/ImgText/SKILL.md
+  61ad7f1e92cc381c 18-24,48,53,59,61-62,67-68,76,87,89,92-96,99,102-106,109-111,113,115,117-121,123,125,127-129,131,133-137,139,141,143,150,179,211-214
+.claude/skills/Panel/SKILL.md
+  61ad7f1e92cc381c 18-24,48,53,59,61-62,92,94,97-99,103,106-110,113-115,117,119,121-125,127,129-147,153-154,196,223-226
+.claude/skills/FlexR/SKILL.md
+  61ad7f1e92cc381c 18,20,47,52,58,60-61,84,86-96,98,100-102,104,107-111,114-116,118,120,122-127,132,134,136-138,140,142-146,148-153,159,197,227-230
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.12",
+  "base_commit_sha": "32937e077591831b3fcfc544e24f51d7fe4be3ee",
+  "prompts": {
+    "214c6a0b4f37c00d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "9bc64f0d-ca4b-4e35-a783-5652aff2963f",
+        "model": "glm-5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 16,
+      "total_deletions": 1,
+      "accepted_lines": 15,
+      "overriden_lines": 0
+    },
+    "61ad7f1e92cc381c": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "888e9743-be73-475a-928b-920f4143762c",
+        "model": "glm-5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 393,
+      "total_deletions": 792,
+      "accepted_lines": 307,
+      "overriden_lines": 0
+    },
+    "b17f56c05451c74a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "8be00a17-448d-420b-a8df-b6154c707410",
+        "model": "glm-5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 25,
+      "total_deletions": 0,
+      "accepted_lines": 25,
+      "overriden_lines": 0
+    }
+  }
+}

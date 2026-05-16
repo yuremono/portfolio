@@ -1,0 +1,33 @@
+src/components/FlexR.tsx
+  84a90e416c3e975a 17,21,24
+src/components/Panel.tsx
+  84a90e416c3e975a 3,8,11
+src/components/ImgText.tsx
+  84a90e416c3e975a 3,9,12-13
+src/components/Cards.tsx
+  84a90e416c3e975a 17,22,25
+src/App.tsx
+  84a90e416c3e975a 7-8,26,30-31,36,40,44-45,47-48,52,62-63,65-66,70,80,84,86,94,100,103,108,112,118,120-121,124-125,128-129,132-133,139,145,153,164,169,171-172,175-176,179-180,186,191,198,212,220
+src/components/Toggle.tsx
+  84a90e416c3e975a 22
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.12",
+  "base_commit_sha": "434668cf5ec1f568e39f9a6dc625e3cd9d209c8e",
+  "prompts": {
+    "84a90e416c3e975a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "4fd9fa68-c56a-4a31-94bb-764da31f1629",
+        "model": "glm-5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 97,
+      "total_deletions": 147,
+      "accepted_lines": 65,
+      "overriden_lines": 0
+    }
+  }
+}

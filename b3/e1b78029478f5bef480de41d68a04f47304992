@@ -1,0 +1,21 @@
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.12",
+  "base_commit_sha": "b3e1b78029478f5bef480de41d68a04f47304992",
+  "prompts": {
+    "47e031481ec60479": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "56b43974-cb0d-41f9-8a6d-8ce6c62e7102",
+        "model": "glm-4.7"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 1,
+      "overriden_lines": 0
+    }
+  }
+}

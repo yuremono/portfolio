@@ -1,0 +1,27 @@
+package.json
+  f762ee2db1a6965e 6,11-13
+vite.config.ts
+  f762ee2db1a6965e 5-6,16
+src/App.tsx
+  f762ee2db1a6965e 8-12,98,106,115,158,166,183,187,191,230
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.12",
+  "base_commit_sha": "0b92a2a1c42a2401202f08eae2f48c810463de97",
+  "prompts": {
+    "f762ee2db1a6965e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "acf547fa-f587-4e08-8a50-a0032aaeee17",
+        "model": "glm-5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 22,
+      "total_deletions": 13,
+      "accepted_lines": 21,
+      "overriden_lines": 0
+    }
+  }
+}

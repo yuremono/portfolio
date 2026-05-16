@@ -1,0 +1,29 @@
+ops/tutorial-state.yaml
+  10d59ccb692e4cf3 2-3
+notes/AI導入は段階的なアプローチが必要.md
+  10d59ccb692e4cf3 9
+notes/コンテキストエンジニアリングは反復学習だ.md
+  10d59ccb692e4cf3 9
+notes/コンテキストエンジニアリングはプロンプトエンジニアリングより正確な用語だ.md
+  10d59ccb692e4cf3 1-19
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.11",
+  "base_commit_sha": "f37d6493d74b9c8b5c8d784d83c4b9d84bae752a",
+  "prompts": {
+    "10d59ccb692e4cf3": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "36bd4050-1d4b-44e1-9aa4-1ec1cffbeb95",
+        "model": "glm-4.7"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 23,
+      "total_deletions": 4,
+      "accepted_lines": 23,
+      "overriden_lines": 0
+    }
+  }
+}

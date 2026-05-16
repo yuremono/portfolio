@@ -1,0 +1,29 @@
+postcss.config.cjs
+  131bb98c1d23c806 1-6
+src/styles/global.css
+  131bb98c1d23c806 1-4
+astro.config.mjs
+  131bb98c1d23c806 5
+tailwind.config.mjs
+  131bb98c1d23c806 1-8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.10",
+  "base_commit_sha": "a50b34ab599d4bacd430509afc98a7d3761cdafd",
+  "prompts": {
+    "131bb98c1d23c806": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "93dfe563-2b98-4b79-96e5-b3236dd61836",
+        "model": "google/gemini-3.1-flash-lite-preview-20260303"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 19,
+      "total_deletions": 17,
+      "accepted_lines": 19,
+      "overriden_lines": 0
+    }
+  }
+}

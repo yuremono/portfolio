@@ -1,0 +1,23 @@
+byos/Astro環境構築.md
+  b9d65a4dcf1c1e68 1-153
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.11",
+  "base_commit_sha": "64e38bccc19786e3a63bd189d013f6e516867275",
+  "prompts": {
+    "b9d65a4dcf1c1e68": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "44bf4ee1-cab0-45a7-be14-3a4ff253ace9",
+        "model": "glm-4.7"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 153,
+      "total_deletions": 0,
+      "accepted_lines": 153,
+      "overriden_lines": 0
+    }
+  }
+}

@@ -1,0 +1,114 @@
+src/lib/sanitizeSvg.test.ts
+  e5cb1713d05e2e17 1-26
+.claude/skills/Cards/SKILL.md
+  e5cb1713d05e2e17 5,67,73-75,141,223
+index.html
+  e5cb1713d05e2e17 11-14,17,19-20,25
+.claude/skills/Panel/SKILL.md
+  e5cb1713d05e2e17 136,222
+src/lib/escapeHtmlText.test.ts
+  e5cb1713d05e2e17 1-17
+.claude/skills/ImgText/SKILL.md
+  e5cb1713d05e2e17 136,214
+src/lib/sanitizeSvg.ts
+  e5cb1713d05e2e17 1-15
+.github/workflows/ci.yml
+  e5cb1713d05e2e17 1-19
+src/lib/assetPath.ts
+  ea6646d23ec6b285 1-8
+.claude/skills/Toggle/SKILL.md
+  e5cb1713d05e2e17 139,235
+src/lib/svgAssetPath.test.ts
+  e5cb1713d05e2e17 1-20
+STYLE.md
+  e5cb1713d05e2e17 16-19,151,203,205,207-209
+src/components/Cards.tsx
+  ea6646d23ec6b285 25
+src/lib/video.ts
+  ea6646d23ec6b285 49
+verify-override.cjs
+  e5cb1713d05e2e17 8
+vite.config.ts
+  e5cb1713d05e2e17 1,16-19
+src/lib/spanWrap.ts
+  e5cb1713d05e2e17 6-7,29
+.claude/skills/SKILL_TEMPLATE.md
+  e5cb1713d05e2e17 151,233
+src/components/FigureSvg.tsx
+  e5cb1713d05e2e17 2-3,22,24-30,33-38,40-43,45-51
+src/lib/escapeHtmlText.ts
+  e5cb1713d05e2e17 1-12
+.claude/skills/FlexR/SKILL.md
+  e5cb1713d05e2e17 146,231
+CLAUDE.md
+  e5cb1713d05e2e17 20-21,125
+src/App.tsx
+  ea6646d23ec6b285 3-4
+UNIT.md
+  e5cb1713d05e2e17 132,162,230
+  ea6646d23ec6b285 236,241-250,252,254-261,264,266-270,272,280,282-284,286,288-289,291
+src/lib/svgAssetPath.ts
+  e5cb1713d05e2e17 1-11
+verify-css.cjs
+  e5cb1713d05e2e17 8
+.claude/skills/Hero/SKILL.md
+  e5cb1713d05e2e17 138,235
+README.md
+  e5cb1713d05e2e17 66,105,108-110,112-115,214
+src/components/Hero.tsx
+  ea6646d23ec6b285 36
+src/lib/spanWrap.test.ts
+  e5cb1713d05e2e17 1-29
+src/pages/Preview.tsx
+  ea6646d23ec6b285 9
+src/components/Header.tsx
+  e5cb1713d05e2e17 80
+package.json
+  e5cb1713d05e2e17 11-14,23,41,48-49
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.17",
+  "base_commit_sha": "0ffd6f9c66f83383c6fd6fdaa80cb92c992f81c0",
+  "prompts": {
+    "9e0259fb24621516": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "016b374e-54b0-4dbd-9680-2cf7b2aae7b4",
+        "model": "composer-2"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 383,
+      "overriden_lines": 0
+    },
+    "e5cb1713d05e2e17": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "578339a0-3ca2-4207-824f-9234384bc5d8",
+        "model": "composer-2"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 248,
+      "overriden_lines": 0
+    },
+    "ea6646d23ec6b285": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "05780366-d022-4977-9ab4-f0b7956d1a91",
+        "model": "glm-5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 51,
+      "overriden_lines": 0
+    }
+  }
+}

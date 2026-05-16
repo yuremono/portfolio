@@ -1,0 +1,38 @@
+ARCHITECTURE.md
+  8185acf621cba175 1-178
+designs/architecture-unit-system.excalidraw
+  f96c602d91c920fc 1-1231
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.12",
+  "base_commit_sha": "056d93c302ea9ee1655e5247967a221db7fc42c7",
+  "prompts": {
+    "8185acf621cba175": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "9e3f03e5-6936-4be0-a926-2a3dc48d4b68",
+        "model": "glm-5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 178,
+      "overriden_lines": 0
+    },
+    "f96c602d91c920fc": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "30bb8b93-40f5-4783-88bd-1b2f38385e9d",
+        "model": "glm-5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 1231,
+      "overriden_lines": 0
+    }
+  }
+}

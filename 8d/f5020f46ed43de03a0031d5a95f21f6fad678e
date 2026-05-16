@@ -1,0 +1,92 @@
+CLASS.md
+  a30dbd72905e1f7c 1-52,60,62,67
+src/hooks/useClientRuntime.ts
+  a106c390090e1fa6 1-16
+src/lib/initBorderDraw.ts
+  a106c390090e1fa6 28,88
+src/pages/Test2.tsx
+  a106c390090e1fa6 10,14,96,166,220,224,342,344,378,420,464
+src/lib/headerTrans.ts
+  a106c390090e1fa6 9,13
+src/lib/budoux.ts
+  a106c390090e1fa6 10,14
+src/lib/intersectionShow.ts
+  a106c390090e1fa6 6-7,10-11,18,22
+src/lib/video.ts
+  a106c390090e1fa6 10,14
+NAMING.md
+  a106c390090e1fa6 37-38,48-49
+src/lib/scrollX.ts
+  a106c390090e1fa6 13,26
+src/components/Header.tsx
+  a106c390090e1fa6 45
+src/lib/index.ts
+  a106c390090e1fa6 6
+src/lib/pathDrawMath.ts
+  a106c390090e1fa6 60
+src/lib/initClientRuntime.ts
+  a106c390090e1fa6 1-43
+src/lib/header.ts
+  a106c390090e1fa6 6,8
+src/lib/spanWrap.ts
+  a106c390090e1fa6 2,41,43,47
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.17",
+  "base_commit_sha": "8df5020f46ed43de03a0031d5a95f21f6fad678e",
+  "prompts": {
+    "9e0259fb24621516": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "016b374e-54b0-4dbd-9680-2cf7b2aae7b4",
+        "model": "composer-2"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 383,
+      "overriden_lines": 0
+    },
+    "a106c390090e1fa6": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "61b3c547-851a-42c1-9bc5-cfe6e294efc5",
+        "model": "composer-2-fast"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 113,
+      "total_deletions": 105,
+      "accepted_lines": 100,
+      "overriden_lines": 0
+    },
+    "a30dbd72905e1f7c": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "7dc04926-d9da-4bea-adb4-30ddd9fe31e6",
+        "model": "composer-2-fast"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 332,
+      "total_deletions": 227,
+      "accepted_lines": 55,
+      "overriden_lines": 16
+    },
+    "ea6646d23ec6b285": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "05780366-d022-4977-9ab4-f0b7956d1a91",
+        "model": "glm-5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 2,
+      "overriden_lines": 0
+    }
+  }
+}

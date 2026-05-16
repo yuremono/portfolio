@@ -1,0 +1,99 @@
+CLASS.md
+  b914745c03f4dcb8 7
+src/scss/_10UNIT.scss
+  af75c8990f97de0e 822-825,849
+CLAUDE.md
+  62cdd7d3a288d795 26
+src/components/LottieScroll.tsx
+  af75c8990f97de0e 1-186
+src/pages/Test.tsx
+  af75c8990f97de0e 8,43
+  ed03d7f5c5107240 45-46,50,350
+STYLE.md
+  b914745c03f4dcb8 5,15,179
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.17",
+  "base_commit_sha": "27eba5e6285acc332a579be3298bb3aaadb758b1",
+  "prompts": {
+    "62cdd7d3a288d795": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "8df4508d-590b-43a6-9a52-182a9482ceee",
+        "model": "glm-5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 6,
+      "total_deletions": 13,
+      "accepted_lines": 1,
+      "overriden_lines": 0
+    },
+    "9e0259fb24621516": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "016b374e-54b0-4dbd-9680-2cf7b2aae7b4",
+        "model": "composer-2"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 383,
+      "overriden_lines": 0
+    },
+    "af75c8990f97de0e": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "c848baba-6ddd-4b8a-987d-cb147bb9c90c",
+        "model": "composer-2-fast"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 244,
+      "total_deletions": 227,
+      "accepted_lines": 193,
+      "overriden_lines": 1
+    },
+    "b914745c03f4dcb8": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c165c5c3-1d3e-4e13-9d65-b1cddab465f9",
+        "model": "glm-5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 6,
+      "total_deletions": 6,
+      "accepted_lines": 4,
+      "overriden_lines": 0
+    },
+    "ea6646d23ec6b285": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "05780366-d022-4977-9ab4-f0b7956d1a91",
+        "model": "glm-5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 2,
+      "overriden_lines": 0
+    },
+    "ed03d7f5c5107240": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "e620c2af-554b-4859-aca2-286be325583e",
+        "model": "composer-2-fast"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 308,
+      "total_deletions": 135,
+      "accepted_lines": 6,
+      "overriden_lines": 0
+    }
+  }
+}

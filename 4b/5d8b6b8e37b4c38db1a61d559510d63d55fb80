@@ -1,0 +1,39 @@
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "4b5d8b6b8e37b4c38db1a61d559510d63d55fb80",
+  "prompts": {
+    "b55b5a7eba841d8f": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "9634c1a6-36a4-45ad-a009-bb49fe579cec",
+        "model": "composer-2"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 29,
+      "total_deletions": 8,
+      "accepted_lines": 29,
+      "overriden_lines": 0
+    },
+    "e198597a1296a1c2": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "42fb4d44-2ff9-47c7-8c7b-1e5a0d3a60ab",
+        "model": "composer-2"
+      },
+      "human_author": "yuremono",
+      "messages": [],
+      "total_additions": 296,
+      "total_deletions": 172,
+      "accepted_lines": 172,
+      "overriden_lines": 19
+    }
+  },
+  "humans": {
+    "h_5a56918e6ebef3": {
+      "author": "yuremono"
+    }
+  }
+}

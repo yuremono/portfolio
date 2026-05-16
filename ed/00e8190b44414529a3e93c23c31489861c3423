@@ -1,0 +1,133 @@
+preview/src/App.tsx
+  21952ef4359fbb00 72-73,108
+  fdc784fc26e4c3a9 44,53
+  a05d242d43f43c50 110-113,115-119,122-125,128-131,134-137,140
+preview/src/index.css
+  21952ef4359fbb00 1-3
+preview/src/main.tsx
+  21952ef4359fbb00 4-5
+preview/src/components/Cards.tsx
+  21952ef4359fbb00 3,7,12,15-18,21,24,26-27,29-30,32
+CLAUDE.md
+  a05d242d43f43c50 148
+scss/RatioKit.scss
+  21952ef4359fbb00 294
+FRAMEWORK.md
+  21952ef4359fbb00 19-21,23,25-32
+  7c0b9d33a7e9d79f 36,38,42-44,47,50,53,55-56,61,63,65-70,74,79-80,104,109-110,139-144,150,195,197-200,206,208,210,212,214,216,222,224-225
+UNIT.md
+  a05d242d43f43c50 13,15-17,19-20,28,30,37,39,41,63,65,271,355-356
+STYLE.md
+  f208f549ed19b744 1-17,19-27,29,32,35-40,42-45,48-84,86-110,112-214
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.8",
+  "base_commit_sha": "ed00e8190b44414529a3e93c23c31489861c3423",
+  "prompts": {
+    "21952ef4359fbb00": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "ed5609f9-238e-4e9b-b40f-e9892b56ee9b",
+        "model": "qwen/qwen3.5-flash-20260224"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 234,
+      "total_deletions": 266,
+      "accepted_lines": 52,
+      "overriden_lines": 5
+    },
+    "6b328ce7eae6e7c8": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "431c3daa-5597-40d4-99dc-aabefa31e269",
+        "model": "qwen/qwen3.5-flash-20260224"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 122,
+      "total_deletions": 23,
+      "accepted_lines": 1,
+      "overriden_lines": 0
+    },
+    "7c0b9d33a7e9d79f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d8629cc4-6f47-40c1-b489-a32ff62c4bf6",
+        "model": "qwen/qwen3.5-flash-20260224"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 255,
+      "total_deletions": 854,
+      "accepted_lines": 60,
+      "overriden_lines": 18
+    },
+    "9f5ad60df1577535": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "712e93ee-10c9-43e7-bee3-56b4f067a352",
+        "model": "qwen/qwen3.5-flash-20260224"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 97,
+      "total_deletions": 38,
+      "accepted_lines": 1,
+      "overriden_lines": 0
+    },
+    "a05d242d43f43c50": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d856e900-d471-459a-ac4e-ce260c5c3c54",
+        "model": "qwen/qwen3.5-flash-20260224"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 106,
+      "total_deletions": 35,
+      "accepted_lines": 49,
+      "overriden_lines": 1
+    },
+    "f208f549ed19b744": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d0acdaa7-b215-463a-a6ef-176e3b193930",
+        "model": "qwen/qwen3.5-flash-20260224"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 746,
+      "total_deletions": 0,
+      "accepted_lines": 722,
+      "overriden_lines": 8
+    },
+    "fdc784fc26e4c3a9": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5dd16060-4625-41a9-9ba3-6df9366ad677",
+        "model": "qwen/qwen3.5-flash-20260224"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 37,
+      "total_deletions": 57,
+      "accepted_lines": 7,
+      "overriden_lines": 9
+    },
+    "fdf24ed00ce5f253": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "970087cc-cab6-4c82-a653-66dae9721e20",
+        "model": "qwen/qwen3.5-flash-20260224"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 100,
+      "total_deletions": 0,
+      "accepted_lines": 0,
+      "overriden_lines": 0
+    }
+  }
+}

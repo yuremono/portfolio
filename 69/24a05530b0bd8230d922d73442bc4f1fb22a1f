@@ -1,0 +1,25 @@
+notes/BurnYourOwnStyleプロジェクトの現在の状況.md
+  089823603b4ae9c3 1-69
+self/goals.md
+  089823603b4ae9c3 9
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.11",
+  "base_commit_sha": "6924a05530b0bd8230d922d73442bc4f1fb22a1f",
+  "prompts": {
+    "089823603b4ae9c3": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "327966b3-efc4-4ebb-b024-5b668405cc11",
+        "model": "glm-4.7"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 70,
+      "total_deletions": 1,
+      "accepted_lines": 70,
+      "overriden_lines": 0
+    }
+  }
+}

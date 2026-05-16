@@ -1,0 +1,162 @@
+src/App.tsx
+  s_1fa0d5205c03cf::t_8a33a224f29a88 46-49
+src/components/OasizThreeCanvas.tsx
+  s_647d1bbbf84638::t_2cbb0436e588a5 791
+  h_53dad1e32c3c71 386,475,521,705,836-838
+  s_647d1bbbf84638::t_253dd2675666f6 702
+  s_647d1bbbf84638::t_cd70182cd0f882 535
+  s_647d1bbbf84638::t_4e95bd5a686495 553-557,559-564,566
+  s_909bca8848326b::t_d5f002f40d1936 570-608,610-611,622
+  s_647d1bbbf84638::t_352eb14dfee824 774
+  s_769ca527cb3b0a::t_4c9eecb4f6c139 28
+  s_647d1bbbf84638::t_6e796a790a135f 104
+  s_647d1bbbf84638::t_ed9f480a09ffeb 479
+  s_647d1bbbf84638::t_286581488e862e 200
+  s_909bca8848326b::t_efaa2305bb1753 507-508,511-512
+  s_769ca527cb3b0a::t_64c6e74133a6a5 1-27,29-103,105-199,201-385,387-474,476-478,480-506,522-533,536-538,541-545,547-552,609,612-621,623-689,691-694,699-701,703-704,706-713,717-726,728-730,744-747,749-751,757,765-769,771-773,775-779,783-784,799-802,807-810,812-816,825-832,834-835,839-840
+  s_647d1bbbf84638::t_d9e2a27aebffe2 690
+  s_909bca8848326b::t_3fb10e0cfb90ab 695-698
+  s_647d1bbbf84638::t_5735f0ebb1c085 731-736,740,742,748,752-756,758-762,770
+  s_909bca8848326b::t_875480fbbee946 737,741,743
+  s_909bca8848326b::t_b8b327f0a01d04 780-782
+  s_647d1bbbf84638::t_1a9a634e647758 540
+  s_909bca8848326b::t_6a6d0e60644470 833
+  s_909bca8848326b::t_1b12cf61aa83c4 817-824
+  s_647d1bbbf84638::t_773e43d61018af 546
+  s_909bca8848326b::t_430e5258c1ce9f 509-510,513-520
+  s_647d1bbbf84638::t_ac1219af6212b4 714-716,738-739,763-764,785-790,792-798,803-806,811
+  s_647d1bbbf84638::t_4d0143fffe186a 534,539
+  s_647d1bbbf84638::t_88124549bb0434 558,565,567-569
+  s_647d1bbbf84638::t_2ccdaefe1795d1 727
+.gitignore
+  h_53dad1e32c3c71 6,13
+.codex/skills/recreate-module/SKILL.md
+  s_3b8ab62b4f5a83::t_74a23e65ec7c4c 38-39,76-90,99-100,147-148
+  h_53dad1e32c3c71 152-168
+AGENTS.md
+  h_53dad1e32c3c71 3,67-68
+.codex/skills/scroll-capture/config.json
+  s_ae6be6cf1b6d4a::t_f9e57addfbf1b5 8-9,11,13
+src/pages/LingoChat.tsx
+  s_332f20be1bd97c::t_3a6e7cdd12a10f 568
+  s_332f20be1bd97c::t_9be56b5207051d 117,121-123,126,130-132,140-142,146-147,155-157,161-162,170-172
+  s_332f20be1bd97c::t_7d51ecbbc92220 72
+  s_332f20be1bd97c::t_0bfba5ee3a52b5 484,497,510,524,538
+  h_53dad1e32c3c71 3,10,15,18,29,31,35
+  s_332f20be1bd97c::t_fd8da91d476c2e 393
+  s_332f20be1bd97c::t_b7d550b231b858 481,489,494,502,507,515,521,529,535,543
+  s_332f20be1bd97c::t_5db2028aa132e8 40,43-58,61,70-71,73-76,78-79,83,89,95-110
+  s_4233085e331c55::t_91c7c84beffdf5 573
+  s_4233085e331c55::t_02bf4b8eaec7be 275
+  s_332f20be1bd97c::t_1b1273155a28a9 341,345-348,351,355-361,363-381,385,390-392,394-427,429-434,436-454,458
+  s_332f20be1bd97c::t_e360e949708059 554,557,562
+  s_332f20be1bd97c::t_2b137edb8caccb 77
+  s_1fa0d5205c03cf::t_bb4dfa1d41b319 12,32
+  s_332f20be1bd97c::t_3c8cd6cdc3211d 183,187-189,192,196-197,199,204-207,211,213,218-221,225,227,232-235
+  s_332f20be1bd97c::t_b4c1f2602ded3b 245,249-251,254,258-260,266,268-274,278,284-285,291,293-299,303,308-309,315,317-325,329
+  s_332f20be1bd97c::t_5f65a6ec88d9be 469,473-475,479-480,482-483,485-487,493,495-496,498-500,506,508-509,511-513,520,522-523,525-527,534,536-537,539-541
+  s_4233085e331c55::t_d31aaebff9a72e 574
+  s_4233085e331c55::t_e6d2d1ee7c253d 1-2,5-6,13-14,17,20-26,36-39,41-42,59-60,62-69,80-82,84-88,90-94,111-116,118-120,124-125,127-129,133-139,143-145,148-154,158-160,163-169,173-182,184-186,190-191,193-195,198,200-203,208-210,212,214-217,222-224,226,228-231,236-244,246-248,252-253,255-257,261-265,267,276-277,279-283,286-290,292,300-302,304-307,310-314,316,326-328,330-340,342-344,349-350,352-354,362,382-384,386-389,428,435,455-457,459-468,470-472,476-478,488,490-492,501,503-505,514,516-519,528,530-533,542,544-553,555-556,558-561,563-567,569-572,575-576
+  s_332f20be1bd97c::t_bb7976624d7d90 4
+src/pages/Examples.tsx
+  s_981d2c8ea0f5d1::t_ea1f1671163456 176,179
+  h_53dad1e32c3c71 34-37,177-178
+  s_769ca527cb3b0a::t_cfce93f52d8b40 12
+.codex/skills/scroll-capture/SKILL.md
+  s_ae6be6cf1b6d4a::t_4aa22df1014589 27
+  h_53dad1e32c3c71 48
+src/pages/AGENTS.md
+  h_53dad1e32c3c71 6
+src/components/Header.tsx
+  h_53dad1e32c3c71 44-50
+src/pages/Next.tsx
+  h_53dad1e32c3c71 348-362,893
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.8",
+  "base_commit_sha": "3874cada1cda08d5a2d206f620bb7a312a9cc1ed",
+  "prompts": {},
+  "humans": {
+    "h_53dad1e32c3c71": {
+      "author": "yuremono <5alviaofficinali50@gmail.com>"
+    },
+    "h_5a56918e6ebef3": {
+      "author": "yuremono"
+    }
+  },
+  "sessions": {
+    "s_1fa0d5205c03cf": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "49093ee4-74c3-4d4d-9d4a-026d24e4248b",
+        "model": "composer-2-fast"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    },
+    "s_332f20be1bd97c": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "ca0abfeb-d814-4f79-b739-75289e538581",
+        "model": "composer-2"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    },
+    "s_3b8ab62b4f5a83": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "d9228489-a7fd-458f-8c93-371210d4ceb1",
+        "model": "gpt-5.5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    },
+    "s_4233085e331c55": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "0cf64f32-0854-4095-8386-db2a79ab8cd7",
+        "model": "composer-2-fast"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    },
+    "s_647d1bbbf84638": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "19fdde4a-3817-4d82-96c2-4f3c39f8a5e0",
+        "model": "composer-2"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    },
+    "s_769ca527cb3b0a": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "74c6953c-6b1b-420d-ab45-a086cc05fb1e",
+        "model": "gpt-5.5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    },
+    "s_909bca8848326b": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "7df0a950-fdb1-420b-b88c-e07209eefa52",
+        "model": "composer-2"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    },
+    "s_981d2c8ea0f5d1": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "8a253320-821a-459e-8ca8-61f7eae764e7",
+        "model": "composer-2"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    },
+    "s_ae6be6cf1b6d4a": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "8964ecc6-285e-44f6-804c-fef87d6c5011",
+        "model": "composer-2"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  }
+}

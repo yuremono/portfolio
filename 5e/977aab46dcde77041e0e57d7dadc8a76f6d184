@@ -1,0 +1,41 @@
+src/styles/global.css
+  7f6b7d20e51b6ad1 1
+src/layouts/Layout.astro
+  7f6b7d20e51b6ad1 8
+  ec92bdc9e3ab2e5c 1-3,11
+package.json
+  7f6b7d20e51b6ad1 9-11
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.10",
+  "base_commit_sha": "5e977aab46dcde77041e0e57d7dadc8a76f6d184",
+  "prompts": {
+    "7f6b7d20e51b6ad1": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2e97f4ff-6d2d-45f3-815f-2c67f23e3805",
+        "model": "google/gemini-3.1-flash-lite-preview-20260303"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 4,
+      "total_deletions": 3,
+      "accepted_lines": 395,
+      "overriden_lines": 0
+    },
+    "ec92bdc9e3ab2e5c": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c73cc55a-60c0-4760-b91a-c0b924ac189c",
+        "model": "google/gemini-3.1-flash-lite-preview-20260303"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 9,
+      "overriden_lines": 0
+    }
+  }
+}

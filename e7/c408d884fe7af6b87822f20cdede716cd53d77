@@ -1,0 +1,25 @@
+src/app/layout.tsx
+  5323d88ed95cd384 25-32
+.gitignore
+  5323d88ed95cd384 34-35
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.11",
+  "base_commit_sha": "e7c408d884fe7af6b87822f20cdede716cd53d77",
+  "prompts": {
+    "5323d88ed95cd384": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "59e2b0df-e521-403b-9f33-cf09f3c55cb2",
+        "model": "glm-4.7"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 10,
+      "total_deletions": 0,
+      "accepted_lines": 10,
+      "overriden_lines": 0
+    }
+  }
+}

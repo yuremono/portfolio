@@ -1,0 +1,40 @@
+.cursor/hooks.json
+  0abbf60a1b492fbf 1-9
+.cursor/hooks/lib/parse-cursor-transcript.py
+  0abbf60a1b492fbf 1-69
+.cursor/hooks/lib/parse-cursor-transcript.sh
+  0abbf60a1b492fbf 1-4
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.15",
+  "base_commit_sha": "16141ae785cd2a3f769b320f5b4c4a26761417c4",
+  "prompts": {
+    "0abbf60a1b492fbf": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "da118b29-3e15-45fe-b034-9e6a6b48db44",
+        "model": "composer-1.5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 82,
+      "overriden_lines": 0
+    },
+    "58decbb9a68e3854": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "4d948421-bd35-4057-b8ff-736a840e751c",
+        "model": "glm-5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 374,
+      "overriden_lines": 0
+    }
+  }
+}

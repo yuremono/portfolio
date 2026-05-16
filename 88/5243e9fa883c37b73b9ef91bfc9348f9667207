@@ -1,0 +1,68 @@
+notes/index.md
+  9a36d507726698a9 10,19-20
+ops/derivation-manifest.md
+  924e59f31a4a4d8d 68
+  9a36d507726698a9 41,46-47,51,53-54,56-61,71-85
+  db909ae11e00e702 63-67
+ops/tutorial-state.yaml
+  10d59ccb692e4cf3 1-5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.11",
+  "base_commit_sha": "885243e9fa883c37b73b9ef91bfc9348f9667207",
+  "prompts": {
+    "10d59ccb692e4cf3": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "36bd4050-1d4b-44e1-9aa4-1ec1cffbeb95",
+        "model": "glm-4.7"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 5,
+      "total_deletions": 0,
+      "accepted_lines": 5,
+      "overriden_lines": 0
+    },
+    "924e59f31a4a4d8d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a81f282c-9f4a-45e8-8524-8f1f44f72b72",
+        "model": "glm-4.7"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 1,
+      "overriden_lines": 0
+    },
+    "9a36d507726698a9": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2e54bc97-bb24-46e1-93f0-20f36b6a9b5f",
+        "model": "glm-4.7"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 30,
+      "overriden_lines": 0
+    },
+    "db909ae11e00e702": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c6b2eaec-d537-4c7b-b2ae-376de9ee892e",
+        "model": "glm-4.7"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 5,
+      "overriden_lines": 0
+    }
+  }
+}

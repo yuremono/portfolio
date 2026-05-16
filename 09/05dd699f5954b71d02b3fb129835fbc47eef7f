@@ -1,0 +1,23 @@
+.gitignore
+  cf03988c530bd939 26-27
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.10",
+  "base_commit_sha": "0905dd699f5954b71d02b3fb129835fbc47eef7f",
+  "prompts": {
+    "cf03988c530bd939": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "e4d6eaf7-d377-4dd4-b66e-aec80f5818b1",
+        "model": "composer-1"
+      },
+      "human_author": null,
+      "messages": [],
+      "total_additions": 3,
+      "total_deletions": 0,
+      "accepted_lines": 3,
+      "overriden_lines": 0
+    }
+  }
+}

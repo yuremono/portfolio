@@ -1,0 +1,37 @@
+src/components/astro/Cards.astro
+  ec92bdc9e3ab2e5c 3,7
+  7f6b7d20e51b6ad1 5,8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.10",
+  "base_commit_sha": "bc322745db1390d979e0d66d0bfc3c384365cc7a",
+  "prompts": {
+    "7f6b7d20e51b6ad1": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2e97f4ff-6d2d-45f3-815f-2c67f23e3805",
+        "model": "google/gemini-3.1-flash-lite-preview-20260303"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 18,
+      "total_deletions": 16,
+      "accepted_lines": 404,
+      "overriden_lines": 0
+    },
+    "ec92bdc9e3ab2e5c": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c73cc55a-60c0-4760-b91a-c0b924ac189c",
+        "model": "google/gemini-3.1-flash-lite-preview-20260303"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 21,
+      "overriden_lines": 0
+    }
+  }
+}

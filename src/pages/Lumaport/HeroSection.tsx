@@ -37,7 +37,10 @@ function HeroSection() {
 							気分とフライト時刻から提案します。
 						</p>
 						<div className="mt-8 flex flex-wrap gap-4">
-							<Link to="#" className="flex min-w-48 items-center justify-center gap-6 rounded-lg bg-[--AC] px-8 py-4 font-bold text-[--MC]">
+							<Link
+								to="#"
+								className="flex min-w-48 items-center justify-center gap-6 rounded-lg bg-[--AC] px-8 py-4 font-bold text-[--MC]"
+							>
 								旅を探す
 								<ArrowRight size={24} aria-hidden="true" />
 							</Link>
@@ -56,8 +59,12 @@ function HeroSection() {
 			{/* ターミナルカード: 左下の案内板風UIを追加する。 */}
 			<aside className="relative z-10 mx-[--PX] -mt-24 mb-6 w-[min(92%,28rem)] overflow-hidden rounded-xl border-2 border-[--MC] bg-[--AC] text-[--MC] md:absolute md:bottom-8 md:left-0 md:mt-0">
 				<div className="flex items-center justify-between gap-4 bg-[--MC] px-4 py-2 font-mono text-[--WH]">
-					<p className="text-[--h3FZ] font-bold leading-none tracking-[0.125em]">TERMINAL LUMA</p>
-					<p className="rounded-md border border-[--AC] px-2 py-1 text-xs font-bold">GATE L-25</p>
+					<p className=" font-bold leading-none tracking-[0.125em]">
+						TERMINAL LUMA
+					</p>
+					<p className="rounded-md border border-[--AC] px-2 py-1 text-xs font-bold">
+						GATE L-25
+					</p>
 				</div>
 				<div className="flex items-center justify-between gap-4 px-4 py-3 font-mono text-xs font-bold tracking-[0.125em] md:text-base">
 					<p>HAVE A NICE MICRO TRIP!</p>
@@ -69,19 +76,27 @@ function HeroSection() {
 			<aside className="relative z-10 ml-auto mr-[--PX] mb-10 w-[min(92%,32rem)] rounded-2xl BorderXY bg-[--MC] p-4 md:absolute md:bottom-8 md:right-0">
 				<div className="grid grid-cols-3 gap-4 border-b border-[--AC] pb-4">
 					<div className="border-r border-[--AC] pr-4">
-						<AirplaneTilt size={32} weight="fill" aria-hidden="true" />
+						<AirplaneTilt
+							size={32}
+							weight="fill"
+							aria-hidden="true"
+						/>
 						<p className="mt-2 text-xs font-bold uppercase">From</p>
-						<p className="text-[--h2FZ] font-bold leading-tight">NRT</p>
+						<p className=" font-bold leading-tight">NRT</p>
 						<p className="text-xs font-bold">東京（成田）</p>
 					</div>
 					<div className="border-r border-[--AC] pr-4">
 						<Clock size={28} aria-hidden="true" />
-						<p className="mt-2 text-xs font-bold uppercase">Duration</p>
-						<p className="text-[--h2FZ] font-bold leading-tight">3h 20m</p>
+						<p className="mt-2 text-xs font-bold uppercase">
+							Duration
+						</p>
+						<p className=" font-bold leading-tight">3h 20m</p>
 					</div>
 					<div>
-						<p className="mt-10 text-xs font-bold uppercase">Theme</p>
-						<p className="flex items-center gap-3 text-[--h2FZ] font-bold leading-tight">
+						<p className="mt-10 text-xs font-bold uppercase">
+							Theme
+						</p>
+						<p className="flex items-center gap-3  font-bold leading-tight">
 							ALL
 							<CaretDown size={22} aria-hidden="true" />
 						</p>
@@ -89,14 +104,27 @@ function HeroSection() {
 				</div>
 				<div className="mt-4 grid grid-cols-3 gap-3">
 					{themes.map((theme) => (
-						<Link key={theme.label} to="#" className="rounded-lg BorderXY p-3 text-center text-[--WH]">
-							<img src={asset(theme.image)} alt="" className="mx-auto h-16 w-full object-contain" />
+						<Link
+							key={theme.label}
+							to="#"
+							className="rounded-lg BorderXY p-3 text-center text-[--WH]"
+						>
+							<img
+								src={asset(theme.image)}
+								alt=""
+								className="mx-auto h-16 w-full object-contain"
+							/>
 							<p className="font-bold">{theme.label}</p>
-							<p className="mt-1 text-xs font-bold text-[--SC]">{theme.sub}</p>
+							<p className="mt-1 text-xs font-bold text-[--SC]">
+								{theme.sub}
+							</p>
 						</Link>
 					))}
 				</div>
-				<Link to="#" className="mt-4 flex items-center justify-center gap-6 rounded-lg bg-[--AC] px-8 py-4 text-center h3FZ font-bold text-[--MC]">
+				<Link
+					to="#"
+					className="mt-4 flex items-center justify-center gap-6 rounded-lg bg-[--AC] px-8 py-4 text-center h3FZ font-bold text-[--MC]"
+				>
 					プランを提案する
 					<ArrowRight size={24} aria-hidden="true" />
 				</Link>

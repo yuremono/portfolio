@@ -40,19 +40,28 @@ function SafeSection() {
 				className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-full w-full object-cover object-bottom "
 			/>
 
-			<div className="mx-auto max-w-[--wid] items-center gap-[--gap] lg:grid-cols-[minmax(0,1fr)_minmax(22rem,30rem)]">
+			<div className="mx-auto max-w-[--wid] items-center gap lg:grid-cols-[minmax(0,1fr)_minmax(22rem,30rem)]">
 				<div className="relative overflow-hidden rounded-[2rem] BorderXY bg-[--MC] p-6 text-WH BS md:p-8">
 					<div className="absolute right-8 top-14 hidden w-32 md:block">
-						<img src={asset("i20.png")} alt="" aria-hidden="true" className="block h-auto w-full object-contain" />
+						<img
+							src={asset("i20.png")}
+							alt=""
+							aria-hidden="true"
+							className="block h-auto w-full object-contain"
+						/>
 					</div>
 
 					<div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.125em] text-[--AC]">
-						<ShieldCheck size={22} weight="fill" aria-hidden="true" />
+						<ShieldCheck
+							size={22}
+							weight="fill"
+							aria-hidden="true"
+						/>
 						<span>Safe Return</span>
 					</div>
 
 					<div className="mt-6 max-w-[38rem] pr-0 md:pr-32">
-						<h2 className="text-[--h3FZ] font-black leading-[--LH] md:text-[--h2FZ]">
+						<h2 className=" font-black leading-[--LH] md:">
 							搭乗時刻から逆算して、
 							<br />
 							戻る余裕まで見える。
@@ -63,13 +72,24 @@ function SafeSection() {
 					</div>
 
 					<div className="mt-8 border-t-2 border-dashed border-[--AC] pt-8">
-						<img src={asset("flow.png")} alt="現在地、出発、探索、帰路、搭乗口までの流れ" className="w-full" />
+						<img
+							src={asset("flow.png")}
+							alt="現在地、出発、探索、帰路、搭乗口までの流れ"
+							className="w-full"
+						/>
 					</div>
 
 					<div className="mt-8 grid gap-4 md:grid-cols-3">
 						{safetyStats.map((stat) => (
-							<div key={stat.id} className="overflow-hidden rounded-[1.25rem]">
-								<img src={asset(stat.image)} alt={stat.alt} className="block h-auto w-full object-contain" />
+							<div
+								key={stat.id}
+								className="overflow-hidden rounded-[1.25rem]"
+							>
+								<img
+									src={asset(stat.image)}
+									alt={stat.alt}
+									className="block h-auto w-full object-contain"
+								/>
 								<div className="sr-only">
 									{stat.label} {stat.value}
 								</div>
@@ -77,8 +97,6 @@ function SafeSection() {
 						))}
 					</div>
 				</div>
-
-				
 			</div>
 		</section>
 	);

@@ -61,16 +61,25 @@ function LingoChat() {
 								className="h1FZ max-w-xl font-semibold leading-tight text-foreground"
 							>
 								目的でつながる、
-								<span className="text-primary">オンライン英会話</span>
+								<span className="text-primary">
+									オンライン英会話
+								</span>
 							</h1>
 							<p className="max-w-xl text-muted leading-relaxed">
 								ビジネス英語・TOEIC・日常会話など、学習目的に合わせてネイティブ講師とマッチング。
 								仕事の合間に続けやすい料金から始められます。
 							</p>
 							<div className="flex flex-wrap items-center gap-3 text-muted">
-								<span className="flex items-center gap-0.5 text-accent" aria-hidden="true">
+								<span
+									className="flex items-center gap-0.5 text-accent"
+									aria-hidden="true"
+								>
 									{[0, 1, 2, 3, 4].map((i) => (
-										<StarIcon key={`star-${String(i)}`} weight="fill" className="h-6 w-6" />
+										<StarIcon
+											key={`star-${String(i)}`}
+											weight="fill"
+											className="h-6 w-6"
+										/>
 									))}
 								</span>
 								<span className="text-sm">
@@ -127,48 +136,54 @@ function LingoChat() {
 						>
 							選ばれる理由
 						</h2>
-						<ul className="grid list-none gap-[--gap] p-0 lg:grid-cols-3">
+						<ul className="grid list-none gap p-0 lg:grid-cols-3">
 							<li className="flex flex-col gap-4 rounded-2xl border border-border/40 bg-background p-8 shadow-lg shadow-BK/5 transition hover:-translate-y-0.5 hover:shadow-xl hover:shadow-primary/25">
 								<div className="flex h-[4.75rem] w-[4.75rem] shrink-0 items-center justify-center rounded-2xl bg-third/85 p-3 ring ring-primary/10">
-								<img
-									src={iconMatch}
-									width={96}
-									height={96}
-									alt=""
-									className="h-16 w-16 object-contain"
-								/>
+									<img
+										src={iconMatch}
+										width={96}
+										height={96}
+										alt=""
+										className="h-16 w-16 object-contain"
+									/>
 								</div>
-								<h3 className="h3FZ font-semibold text-foreground">目的別マッチング</h3>
+								<h3 className="h3FZ font-semibold text-foreground">
+									目的別マッチング
+								</h3>
 								<p className="leading-relaxed text-muted">
 									ビジネス・試験対策・カジュアルまで、目標に合う講師を自動で提案します。
 								</p>
 							</li>
 							<li className="flex flex-col gap-4 rounded-2xl border border-border/40 bg-background p-8 shadow-lg shadow-BK/5 transition hover:-translate-y-0.5 hover:shadow-xl hover:shadow-primary/25">
 								<div className="flex h-[4.75rem] w-[4.75rem] shrink-0 items-center justify-center rounded-2xl bg-third/85 p-3 ring ring-primary/10">
-								<img
-									src={iconBusiness}
-									width={96}
-									height={96}
-									alt=""
-									className="h-16 w-16 object-contain"
-								/>
+									<img
+										src={iconBusiness}
+										width={96}
+										height={96}
+										alt=""
+										className="h-16 w-16 object-contain"
+									/>
 								</div>
-								<h3 className="h3FZ font-semibold text-foreground">ビジネスに直結</h3>
+								<h3 className="h3FZ font-semibold text-foreground">
+									ビジネスに直結
+								</h3>
 								<p className="leading-relaxed text-muted">
 									会議・メール・プレゼン想定のロールプレイで、そのまま職場で使える表現が身につきます。
 								</p>
 							</li>
 							<li className="flex flex-col gap-4 rounded-2xl border border-border/40 bg-background p-8 shadow-lg shadow-BK/5 transition hover:-translate-y-0.5 hover:shadow-xl hover:shadow-primary/25">
 								<div className="flex h-[4.75rem] w-[4.75rem] shrink-0 items-center justify-center rounded-2xl bg-third/85 p-3 ring ring-primary/10">
-								<img
-									src={iconFlex}
-									width={96}
-									height={96}
-									alt=""
-									className="h-16 w-16 object-contain"
-								/>
+									<img
+										src={iconFlex}
+										width={96}
+										height={96}
+										alt=""
+										className="h-16 w-16 object-contain"
+									/>
 								</div>
-								<h3 className="h3FZ font-semibold text-foreground">柔軟なスケジュール</h3>
+								<h3 className="h3FZ font-semibold text-foreground">
+									柔軟なスケジュール
+								</h3>
 								<p className="leading-relaxed text-muted">
 									早朝・昼休み・夜。予約はアプリからいつでも。キャンセルルールもわかりやすく設計しています。
 								</p>
@@ -193,7 +208,7 @@ function LingoChat() {
 						>
 							使い方はシンプル 3 ステップ
 						</h2>
-						<ol className="grid list-none gap-[--gap] p-0 lg:grid-cols-3 lg:gap-8">
+						<ol className="grid list-none gap p-0 lg:grid-cols-3 lg:gap-8">
 							<li className="relative rounded-2xl border border-primary/40 bg-fourth/50 p-6 pl-[calc(var(--PX)+2.75rem)] shadow-md backdrop-blur-sm">
 								<span
 									className="absolute left-5 top-6 flex h-10 w-10 items-center justify-center rounded-full bg-primary text-sm font-bold text-WH shadow-md ring-4 ring-primary/25"
@@ -255,7 +270,7 @@ function LingoChat() {
 						>
 							お客様の声
 						</h2>
-						<ul className="grid list-none gap-[--gap] p-0 lg:grid-cols-3">
+						<ul className="grid list-none gap p-0 lg:grid-cols-3">
 							<li className="flex flex-col gap-5 rounded-2xl border border-border/40 bg-background p-8 shadow-lg shadow-primary/15">
 								<div className="flex items-start gap-3">
 									<img
@@ -266,18 +281,29 @@ function LingoChat() {
 										className="h-14 w-14 shrink-0 rounded-full object-cover ring-2 ring-primary/25 ring-offset-2 ring-offset-background"
 									/>
 									<div className="min-w-0">
-										<span className="mb-3 flex gap-1 text-accent" aria-hidden="true">
+										<span
+											className="mb-3 flex gap-1 text-accent"
+											aria-hidden="true"
+										>
 											{[0, 1, 2, 3].map((i) => (
-												<StarIcon key={`voice1-${String(i)}`} weight="fill" size={22} />
+												<StarIcon
+													key={`voice1-${String(i)}`}
+													weight="fill"
+													size={22}
+												/>
 											))}
 										</span>
-										<p className="truncate font-semibold text-foreground">田中 誠（仮名）</p>
-										<p className="text-xs text-muted">IT 企業・営業</p>
+										<p className="truncate font-semibold text-foreground">
+											田中 誠（仮名）
+										</p>
+										<p className="text-xs text-muted">
+											IT 企業・営業
+										</p>
 									</div>
 								</div>
 								<blockquote className="m-0 rounded-xl border-l-[5px] border-accent bg-accent/35 py-6 pl-4 pr-2 leading-relaxed text-foreground/75">
-									海外との定例が増え、Listening は伸びましたが Speaking
-									が課題でした。週 2
+									海外との定例が増え、Listening は伸びましたが
+									Speaking が課題でした。週 2
 									回のビジネス枠で自信がつき、商談での質問が自然に言えるようになりました。
 								</blockquote>
 							</li>
@@ -291,13 +317,24 @@ function LingoChat() {
 										className="h-14 w-14 shrink-0 rounded-full object-cover ring-2 ring-primary/25 ring-offset-2 ring-offset-background"
 									/>
 									<div className="min-w-0">
-										<span className="mb-3 flex gap-1 text-accent" aria-hidden="true">
+										<span
+											className="mb-3 flex gap-1 text-accent"
+											aria-hidden="true"
+										>
 											{[0, 1, 2, 3, 4].map((i) => (
-												<StarIcon key={`voice2-${String(i)}`} weight="fill" size={22} />
+												<StarIcon
+													key={`voice2-${String(i)}`}
+													weight="fill"
+													size={22}
+												/>
 											))}
 										</span>
-										<p className="truncate font-semibold text-foreground">佐藤 奈々（仮名）</p>
-										<p className="text-xs text-muted">メーカー・人事</p>
+										<p className="truncate font-semibold text-foreground">
+											佐藤 奈々（仮名）
+										</p>
+										<p className="text-xs text-muted">
+											メーカー・人事
+										</p>
 									</div>
 								</div>
 								<blockquote className="m-0 rounded-xl border-l-[5px] border-accent bg-accent/35 py-6 pl-4 pr-2 leading-relaxed text-foreground/75">
@@ -315,15 +352,24 @@ function LingoChat() {
 										className="h-14 w-14 shrink-0 rounded-full object-cover ring-2 ring-primary/25 ring-offset-2 ring-offset-background"
 									/>
 									<div className="min-w-0">
-										<span className="mb-3 flex gap-1 text-accent" aria-hidden="true">
+										<span
+											className="mb-3 flex gap-1 text-accent"
+											aria-hidden="true"
+										>
 											{[0, 1, 2, 3].map((i) => (
-												<StarIcon key={`voice3-${String(i)}`} weight="fill" size={22} />
+												<StarIcon
+													key={`voice3-${String(i)}`}
+													weight="fill"
+													size={22}
+												/>
 											))}
 										</span>
 										<p className="truncate font-semibold text-foreground">
 											山本 大輔（仮名）
 										</p>
-										<p className="text-xs text-muted">コンサル・マネージャー</p>
+										<p className="text-xs text-muted">
+											コンサル・マネージャー
+										</p>
 									</div>
 								</div>
 								<blockquote className="m-0 rounded-xl border-l-[5px] border-accent bg-accent/35 py-6 pl-4 pr-2 leading-relaxed text-foreground/75">
@@ -345,36 +391,55 @@ function LingoChat() {
 						<p className="mb-4 text-xs font-semibold uppercase tracking-wider text-primary">
 							Pricing
 						</p>
-						<h2 id="pricing-heading" className="h2FZ mb-2 font-semibold text-foreground">
+						<h2
+							id="pricing-heading"
+							className="h2FZ mb-2 font-semibold text-foreground"
+						>
 							料金プラン
 						</h2>
 						<p className="mb-[--gap] max-w-3xl leading-relaxed text-muted">
 							ベーシックは月額 2,980
 							円から。学習量に合わせてプランをお選びください（税込イメージ）。
 						</p>
-						<div className="grid gap-[--gap] lg:grid-cols-3">
+						<div className="grid gap lg:grid-cols-3">
 							<div className="flex flex-col rounded-2xl border border-border bg-background p-8 shadow-md transition hover:border-primary/25 hover:shadow-lg">
-								<h3 className="h3FZ font-semibold text-foreground">ベーシック</h3>
-								<p className="mt-2 text-sm text-muted">週 1 回から試したい方</p>
+								<h3 className="h3FZ font-semibold text-foreground">
+									ベーシック
+								</h3>
+								<p className="mt-2 text-sm text-muted">
+									週 1 回から試したい方
+								</p>
 								<p className="mt-8 h2FZ font-bold text-primary md:mt-10">
 									¥2,980
-									<span className="align-top text-xs font-normal text-muted"> / 月</span>
+									<span className="align-top text-xs font-normal text-muted">
+										{" "}
+										/ 月
+									</span>
 								</p>
 								<ul className="mt-6 flex-1 list-none space-y-3 text-muted">
 									<li className="flex gap-2 text-sm leading-snug">
-										<span className="font-bold text-primary" aria-hidden="true">
+										<span
+											className="font-bold text-primary"
+											aria-hidden="true"
+										>
 											✓
 										</span>
 										月 4 コマまで予約可能
 									</li>
 									<li className="flex gap-2 text-sm leading-snug">
-										<span className="font-bold text-primary" aria-hidden="true">
+										<span
+											className="font-bold text-primary"
+											aria-hidden="true"
+										>
 											✓
 										</span>
 										目的別マッチング
 									</li>
 									<li className="flex gap-2 text-sm leading-snug">
-										<span className="font-bold text-primary" aria-hidden="true">
+										<span
+											className="font-bold text-primary"
+											aria-hidden="true"
+										>
 											✓
 										</span>
 										レッスン要約メモ
@@ -392,27 +457,43 @@ function LingoChat() {
 									<p className="absolute right-4 top-4 rounded-full bg-primary px-3 py-2 text-[0.6875rem] font-semibold uppercase tracking-wide text-WH lg:right-8">
 										おすすめ
 									</p>
-									<h3 className="h3FZ font-semibold text-foreground">スタンダード</h3>
-									<p className="mt-2 text-sm text-muted">継続学習に最適</p>
+									<h3 className="h3FZ font-semibold text-foreground">
+										スタンダード
+									</h3>
+									<p className="mt-2 text-sm text-muted">
+										継続学習に最適
+									</p>
 									<p className="mt-8 h2FZ font-bold text-primary md:mt-10">
 										¥5,480
-										<span className="align-top text-xs font-normal text-muted"> / 月</span>
+										<span className="align-top text-xs font-normal text-muted">
+											{" "}
+											/ 月
+										</span>
 									</p>
 									<ul className="mt-6 flex-1 list-none space-y-3 text-muted">
 										<li className="flex gap-2 text-sm leading-snug">
-											<span className="font-bold text-primary" aria-hidden="true">
+											<span
+												className="font-bold text-primary"
+												aria-hidden="true"
+											>
 												✓
 											</span>
 											月 8 コマまで予約可能
 										</li>
 										<li className="flex gap-2 text-sm leading-snug">
-											<span className="font-bold text-primary" aria-hidden="true">
+											<span
+												className="font-bold text-primary"
+												aria-hidden="true"
+											>
 												✓
 											</span>
 											優先マッチング
 										</li>
 										<li className="flex gap-2 text-sm leading-snug">
-											<span className="font-bold text-primary" aria-hidden="true">
+											<span
+												className="font-bold text-primary"
+												aria-hidden="true"
+											>
 												✓
 											</span>
 											ビジネストピック集中モード
@@ -427,27 +508,43 @@ function LingoChat() {
 								</div>
 							</div>
 							<div className="flex flex-col rounded-2xl border border-border bg-background p-8 shadow-md transition hover:border-primary/25 hover:shadow-lg">
-								<h3 className="h3FZ font-semibold text-foreground">プレミアム</h3>
-								<p className="mt-2 text-sm text-muted">短期集中・複数目標</p>
+								<h3 className="h3FZ font-semibold text-foreground">
+									プレミアム
+								</h3>
+								<p className="mt-2 text-sm text-muted">
+									短期集中・複数目標
+								</p>
 								<p className="mt-8 h2FZ font-bold text-primary md:mt-10">
 									¥8,980
-									<span className="align-top text-xs font-normal text-muted"> / 月</span>
+									<span className="align-top text-xs font-normal text-muted">
+										{" "}
+										/ 月
+									</span>
 								</p>
 								<ul className="mt-6 flex-1 list-none space-y-3 text-muted">
 									<li className="flex gap-2 text-sm leading-snug">
-										<span className="font-bold text-primary" aria-hidden="true">
+										<span
+											className="font-bold text-primary"
+											aria-hidden="true"
+										>
 											✓
 										</span>
 										月 16 コマまで予約可能
 									</li>
 									<li className="flex gap-2 text-sm leading-snug">
-										<span className="font-bold text-primary" aria-hidden="true">
+										<span
+											className="font-bold text-primary"
+											aria-hidden="true"
+										>
 											✓
 										</span>
 										複数目的プロフィール
 									</li>
 									<li className="flex gap-2 text-sm leading-snug">
-										<span className="font-bold text-primary" aria-hidden="true">
+										<span
+											className="font-bold text-primary"
+											aria-hidden="true"
+										>
 											✓
 										</span>
 										講師固定リクエスト
@@ -473,13 +570,18 @@ function LingoChat() {
 						<p className="mb-4 text-xs font-semibold uppercase tracking-wider text-primary">
 							FAQ
 						</p>
-						<h2 id="faq-heading" className="h2FZ mb-[--gap] font-semibold text-foreground">
+						<h2
+							id="faq-heading"
+							className="h2FZ mb-[--gap] font-semibold text-foreground"
+						>
 							よくある質問
 						</h2>
 						<div className="overflow-hidden rounded-2xl border border-border shadow-md">
 							<details className="group border-b border-border/80 bg-fourth/30 px-8 py-1 last:border-b-0 open:bg-fourth/50">
 								<summary className="flex cursor-pointer items-center gap-4 py-4 font-semibold text-foreground marker:content-none [&::-webkit-details-marker]:hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
-									<span className="grow">初心者やリスニング特化でも始められますか？</span>
+									<span className="grow">
+										初心者やリスニング特化でも始められますか？
+									</span>
 									<CaretDownIcon
 										className="h-7 w-7 shrink-0 text-primary transition group-open:-rotate-180"
 										weight="regular"
@@ -492,7 +594,9 @@ function LingoChat() {
 							</details>
 							<details className="group border-b border-border/80 bg-fourth/30 px-8 py-1 last:border-b-0 open:bg-fourth/50">
 								<summary className="flex cursor-pointer items-center gap-4 py-4 font-semibold text-foreground marker:content-none [&::-webkit-details-marker]:hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
-									<span className="grow">マッチングはどのように決まりますか？</span>
+									<span className="grow">
+										マッチングはどのように決まりますか？
+									</span>
 									<CaretDownIcon
 										className="h-7 w-7 shrink-0 text-primary transition group-open:-rotate-180"
 										weight="regular"
@@ -505,7 +609,9 @@ function LingoChat() {
 							</details>
 							<details className="group border-b border-border/80 bg-fourth/30 px-8 py-1 last:border-b-0 open:bg-fourth/50">
 								<summary className="flex cursor-pointer items-center gap-4 py-4 font-semibold text-foreground marker:content-none [&::-webkit-details-marker]:hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
-									<span className="grow">予約の変更・キャンセルはできますか？</span>
+									<span className="grow">
+										予約の変更・キャンセルはできますか？
+									</span>
 									<CaretDownIcon
 										className="h-7 w-7 shrink-0 text-primary transition group-open:-rotate-180"
 										weight="regular"
@@ -519,7 +625,9 @@ function LingoChat() {
 							</details>
 							<details className="group border-b border-border/80 bg-fourth/30 px-8 py-1 last:border-b-0 open:bg-fourth/50">
 								<summary className="flex cursor-pointer items-center gap-4 py-4 font-semibold text-foreground marker:content-none [&::-webkit-details-marker]:hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
-									<span className="grow">無料トライアルはありますか？</span>
+									<span className="grow">
+										無料トライアルはありますか？
+									</span>
 									<CaretDownIcon
 										className="h-7 w-7 shrink-0 text-primary transition group-open:-rotate-180"
 										weight="regular"
@@ -527,13 +635,17 @@ function LingoChat() {
 									/>
 								</summary>
 								<p className="max-w-none pb-6 pr-28 leading-relaxed text-muted lg:pr-[30%]">
-									新規登録後 7 日間、ベーシック相当の枠をお試しいただけます（お一人様 1
+									新規登録後 7
+									日間、ベーシック相当の枠をお試しいただけます（お一人様
+									1
 									回・クレジット登録が必要な場合があります）。
 								</p>
 							</details>
 							<details className="group border-b border-border/80 bg-fourth/30 px-8 py-1 last:border-b-0 open:bg-fourth/50">
 								<summary className="flex cursor-pointer items-center gap-4 py-4 font-semibold text-foreground marker:content-none [&::-webkit-details-marker]:hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
-									<span className="grow">法人・チーム契約は対応していますか？</span>
+									<span className="grow">
+										法人・チーム契約は対応していますか？
+									</span>
 									<CaretDownIcon
 										className="h-7 w-7 shrink-0 text-primary transition group-open:-rotate-180"
 										weight="regular"
@@ -541,7 +653,8 @@ function LingoChat() {
 									/>
 								</summary>
 								<p className="max-w-none pb-6 pr-28 leading-relaxed text-muted lg:pr-[30%]">
-									5 名以上からまとめて割引と管理者ダッシュボードをご用意しています。詳細はお問い合わせフォームからご連絡ください。
+									5
+									名以上からまとめて割引と管理者ダッシュボードをご用意しています。詳細はお問い合わせフォームからご連絡ください。
 								</p>
 							</details>
 						</div>
@@ -556,11 +669,15 @@ function LingoChat() {
 				>
 					<div className="mx-auto flex w-full max-w-[--wid] flex-col items-start gap-8 md:flex-row md:items-center md:justify-between">
 						<div>
-							<h2 id="footer-cta-heading" className="h2FZ font-semibold">
+							<h2
+								id="footer-cta-heading"
+								className="h2FZ font-semibold"
+							>
 								今すぐ目的別マッチングを体験
 							</h2>
 							<p className="mt-2 max-w-xl text-sm text-WH/80">
-								30〜40 代のビジネス英語学習者向けに設計。月額 2,980 円から。
+								30〜40 代のビジネス英語学習者向けに設計。月額
+								2,980 円から。
 							</p>
 						</div>
 						<a

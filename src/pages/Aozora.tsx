@@ -168,15 +168,27 @@ function Aozora() {
 			<header className="sticky top-0 z-[1000] BorderB min-h-[--head] bg-BC/90 backdrop-blur">
 				<div className="PX">
 					<div className="flex min-h-[--head] items-center gapH">
-						<a href="#top" className="flex items-center gapH" aria-label="青空インスティチュート トップ">
+						<a
+							href="#top"
+							className="flex items-center gapH"
+							aria-label="青空インスティチュート トップ"
+						>
 							<LogoMark className="h-10 w-10" />
-							<span className="font-[--Eng] tracking-[0.125em] text-sm uppercase">AOZORA</span>
+							<span className="font-[--Eng] tracking-[0.125em] text-sm uppercase">
+								AOZORA
+							</span>
 						</a>
-						<nav aria-label="メインナビゲーション" className="ml-auto">
+						<nav
+							aria-label="メインナビゲーション"
+							className="ml-auto"
+						>
 							<ul className="hidden gapH md:flex">
 								{navItems.map((item) => (
 									<li key={item.id}>
-										<a href={`#${item.id}`} className="font-[--Eng] text-sm tracking-[0.125em]">
+										<a
+											href={`#${item.id}`}
+											className="font-[--Eng] text-sm tracking-[0.125em]"
+										>
 											{item.label}
 										</a>
 									</li>
@@ -202,7 +214,10 @@ function Aozora() {
 							<p className="font-[--Eng] text-sm tracking-[0.25em] text-MC uppercase">
 								Lottie Creator MCP Preview
 							</p>
-							<h2 id="brass-compass-title" className="h2FZ leading-[--HLH]">
+							<h2
+								id="brass-compass-title"
+								className="h2FZ leading-[--HLH]"
+							>
 								問いを測るための、黄銅の針。
 							</h2>
 							<p className="max-w-prose text-TC/75">
@@ -211,14 +226,24 @@ function Aozora() {
 								layerで構成しています。
 							</p>
 							<ul className="space-y-[--gapH] text-sm text-TC/70">
-								<li>ソース: <code className="font-[--Eng]">public/lottie/brass-compass.json</code></li>
+								<li>
+									ソース:{" "}
+									<code className="font-[--Eng]">
+										public/lottie/brass-compass.json
+									</code>
+								</li>
 								<li>
 									生成スクリプト:{" "}
-									<code className="font-[--Eng]">scripts/build-brass-compass-lottie.mjs</code>
+									<code className="font-[--Eng]">
+										scripts/build-brass-compass-lottie.mjs
+									</code>
 								</li>
 								<li>
 									再生成:{" "}
-									<code className="font-[--Eng]">node scripts/build-brass-compass-lottie.mjs</code>
+									<code className="font-[--Eng]">
+										node
+										scripts/build-brass-compass-lottie.mjs
+									</code>
 								</li>
 							</ul>
 						</div>
@@ -245,7 +270,10 @@ function Aozora() {
 									Ask Better. Build the Future.
 								</p>
 							</div>
-							<h1 id="title" className="h1FZ leading-[--HLH] tracking-[0.125em]">
+							<h1
+								id="title"
+								className="h1FZ leading-[--HLH] tracking-[0.125em]"
+							>
 								青空インスティチュート
 							</h1>
 							<InstituteWordmark className="w-full max-w-[42rem]" />
@@ -253,19 +281,29 @@ function Aozora() {
 								問いを立て、試し、語り直す。複雑な世界に意味ある解をつくるための、探究と実装のための学び場です。
 							</p>
 							<div className="flex flex-wrap gapH pt-[--gapH]">
-								<a href="#method" className="BorderXY bg-MC px-[--PX2] py-[--gapH] font-[--Eng] text-sm tracking-[0.125em] text-WH">
+								<a
+									href="#method"
+									className="BorderXY bg-MC px-[--PX2] py-[--gapH] font-[--Eng] text-sm tracking-[0.125em] text-WH"
+								>
 									Our Method
 								</a>
-								<a href="#principles" className="BorderXY bg-WH/70 px-[--PX2] py-[--gapH] font-[--Eng] text-sm tracking-[0.125em] text-MC">
+								<a
+									href="#principles"
+									className="BorderXY bg-WH/70 px-[--PX2] py-[--gapH] font-[--Eng] text-sm tracking-[0.125em] text-MC"
+								>
 									Five Principles
 								</a>
 							</div>
 						</div>
 
-						<aside className="space-y-[--gap]" aria-label="補助素材">
+						<aside
+							className="space-y-[--gap]"
+							aria-label="補助素材"
+						>
 							<Compass3DObject className="mx-auto aspect-square w-full max-w-[14rem] sm:max-w-[18rem] lg:max-w-[22rem]" />
 							<p className="-rotate-2 [font-family:Yomogi,cursive] text-2xl leading-[1.375] text-MC/75">
-								Socratic inquiry turns a question into a compass.
+								Socratic inquiry turns a question into a
+								compass.
 							</p>
 						</aside>
 					</div>
@@ -275,11 +313,19 @@ function Aozora() {
 				</section>
 
 				{/* Principles: 原画の5項目リストを、余白のある下層セクションとして展開。 */}
-				<section id="principles" aria-labelledby="principles-title" className="mx-auto wid max-w-full PX py-[--MY]">
+				<section
+					id="principles"
+					aria-labelledby="principles-title"
+					className="mx-auto wid max-w-full PX py-[--MY]"
+				>
 					<div className="grid gap-[--MY] lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)]">
 						<div className="space-y-[--gap]">
-							<p className="font-[--Eng] text-sm tracking-[0.25em] text-MC uppercase">Our principles</p>
-							<h2 id="principles-title" className="h2FZ">問いを社会につなぐ、5つの姿勢。</h2>
+							<p className="font-[--Eng] text-sm tracking-[0.25em] text-MC uppercase">
+								Our principles
+							</p>
+							<h2 id="principles-title" className="h2FZ">
+								問いを社会につなぐ、5つの姿勢。
+							</h2>
 							<p className="max-w-prose text-TC/70">
 								右側に詰め込まず、読み進めるリズムを作るために原則を下層へ移動しました。アイコンはすべてインラインSVGです。
 							</p>
@@ -287,14 +333,24 @@ function Aozora() {
 						</div>
 						<ul className="grid gap md:grid-cols-2">
 							{siteItems.map((item) => (
-								<li key={item.id} id={item.id} className="BorderT flex gap-[--gap] py-[--gap]">
+								<li
+									key={item.id}
+									id={item.id}
+									className="BorderT flex gap py-[--gap]"
+								>
 									<span className="grid h-12 w-12 shrink-0 place-items-center rounded-full BorderXY bg-BC text-MC">
 										<FeatureIcon kind={item.icon} />
 									</span>
 									<span className="space-y-[--gapH]">
-										<span className="block h3FZ">{item.title}</span>
-										<span className="block font-[--Eng] text-sm tracking-[0.125em] text-MC">{item.en}</span>
-										<span className="block text-TC/70">{item.copy}</span>
+										<span className="block h3FZ">
+											{item.title}
+										</span>
+										<span className="block font-[--Eng] text-sm tracking-[0.125em] text-MC">
+											{item.en}
+										</span>
+										<span className="block text-TC/70">
+											{item.copy}
+										</span>
 									</span>
 								</li>
 							))}
@@ -303,13 +359,21 @@ function Aozora() {
 				</section>
 
 				{/* Method: 方眼と幾何学線を背景に、探究プロセスを循環として説明。 */}
-				<section id="method" aria-labelledby="method-title" className="relative overflow-hidden bg-TC py-[--MY] text-BC">
+				<section
+					id="method"
+					aria-labelledby="method-title"
+					className="relative overflow-hidden bg-TC py-[--MY] text-BC"
+				>
 					<GridPattern className="absolute inset-0 h-full w-full opacity-10" />
 					<GeometryLayer className="absolute inset-0 h-full w-full opacity-40" />
 					<div className="relative mx-auto grid wid max-w-full gap-[--MY] PX lg:grid-cols-2">
 						<div className="space-y-[--gap]">
-							<p className="font-[--Eng] text-sm tracking-[0.25em] text-AC uppercase">Socratic inquiry</p>
-							<h2 id="method-title" className="h2FZ">問い、探索し、試作し、振り返る。</h2>
+							<p className="font-[--Eng] text-sm tracking-[0.25em] text-AC uppercase">
+								Socratic inquiry
+							</p>
+							<h2 id="method-title" className="h2FZ">
+								問い、探索し、試作し、振り返る。
+							</h2>
 							<p className="max-w-prose text-BC/75">
 								方法論は直線ではなく循環です。小さな問いを何度も回し、理解と実装の距離を少しずつ縮めます。
 							</p>
@@ -319,12 +383,21 @@ function Aozora() {
 						</div>
 						<ol className="grid gap-[--gap]">
 							{methodSteps.map((step, index) => (
-								<li key={step.id} className="BorderT border-BC/25 py-[--gap]">
+								<li
+									key={step.id}
+									className="BorderT border-BC/25 py-[--gap]"
+								>
 									<div className="flex gap-[--gap]">
-										<span className="font-[--Eng] text-AC">0{index + 1}</span>
+										<span className="font-[--Eng] text-AC">
+											0{index + 1}
+										</span>
 										<div className="space-y-[--gapH]">
-											<h3 className="h3FZ">{step.title}</h3>
-											<p className="text-BC/75">{step.copy}</p>
+											<h3 className="h3FZ">
+												{step.title}
+											</h3>
+											<p className="text-BC/75">
+												{step.copy}
+											</p>
 										</div>
 									</div>
 								</li>
@@ -334,16 +407,27 @@ function Aozora() {
 				</section>
 
 				{/* CTA: 右下ロゴを置き、最後の行動をひとつに絞る。 */}
-				<section id="contact" aria-labelledby="contact-title" className="relative overflow-hidden bg-MC py-[--MY] text-WH">
+				<section
+					id="contact"
+					aria-labelledby="contact-title"
+					className="relative overflow-hidden bg-MC py-[--MY] text-WH"
+				>
 					<div className="absolute -bottom-16 -right-16 h-64 w-64 rounded-full bg-AC/90" />
 					<div className="relative mx-auto wid max-w-full PX">
 						<div className="max-w-3xl space-y-[--gap]">
-							<p className="font-[--Eng] text-sm tracking-[0.25em] text-WH/75 uppercase">Ask Better. Build the Future.</p>
-							<h2 id="contact-title" className="h2FZ">未来の問いを、ここから始める。</h2>
+							<p className="font-[--Eng] text-sm tracking-[0.25em] text-WH/75 uppercase">
+								Ask Better. Build the Future.
+							</p>
+							<h2 id="contact-title" className="h2FZ">
+								未来の問いを、ここから始める。
+							</h2>
 							<p className="max-w-prose text-WH/80">
 								見学、共同プロジェクト、探究プログラムの相談まで。まずはひとつの問いを持って話しかけてください。
 							</p>
-							<a href="mailto:hello@example.com" className="BorderXY bg-WH px-[--PX2] py-[--gapH] font-[--Eng] text-sm tracking-[0.125em] text-MC">
+							<a
+								href="mailto:hello@example.com"
+								className="BorderXY bg-WH px-[--PX2] py-[--gapH] font-[--Eng] text-sm tracking-[0.125em] text-MC"
+							>
 								Contact
 							</a>
 						</div>

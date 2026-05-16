@@ -66,12 +66,16 @@ function LumaFooter() {
 					<div className="pointer-events-none absolute inset-x-[--PX] bottom-[--PY] h-px bg-[oklch(0.76_0.12_164)]" />
 
 					{/* 上段コンテンツ */}
-					<div className="grid gap-[--gap] lg:grid-cols-[1fr_1.5fr_1fr] lg:items-start">
+					<div className="grid gap lg:grid-cols-[1fr_1.5fr_1fr] lg:items-start">
 						<div className="relative z-20 max-w-md">
 							<h2 id="footer-heading" className="sr-only">
 								LUMA PORT footer
 							</h2>
-							<Link to="#" aria-label="LUMA PORT home" className="inline-block">
+							<Link
+								to="#"
+								aria-label="LUMA PORT home"
+								className="inline-block"
+							>
 								<img
 									src={asset("hero/logo.png")}
 									alt="LUMA PORT"
@@ -114,7 +118,7 @@ function LumaFooter() {
 						{/* フッターナビゲーション */}
 						<nav
 							aria-label="Footer navigation"
-							className="relative z-20 grid gap-[--gap] sm:grid-cols-3"
+							className="relative z-20 grid gap sm:grid-cols-3"
 						>
 							{footerGroups.map((group) => (
 								<div
@@ -127,7 +131,7 @@ function LumaFooter() {
 										aria-hidden="true"
 										className="mb-4 size-16 object-contain"
 									/>
-									<p className="text-[--h3FZ] font-bold text-[oklch(0.78_0.14_150)]">
+									<p className=" font-bold text-[oklch(0.78_0.14_150)]">
 										{group.title}
 									</p>
 									<div className="my-4 border-t border-dotted border-[oklch(0.66_0.11_153)]" />
@@ -154,7 +158,7 @@ function LumaFooter() {
 
 						{/* 出発案内 */}
 						<div className="relative z-20 rounded-2xl border border-[oklch(0.72_0.12_163)] bg-[oklch(0.18_0.06_205)] p-6 text-xs">
-							<div className="mb-4 flex items-center gap-2 text-[--h3FZ] font-bold uppercase text-[oklch(0.78_0.14_150)]">
+							<div className="mb-4 flex items-center gap-2  font-bold uppercase text-[oklch(0.78_0.14_150)]">
 								<span>Departures</span>
 								<AirplaneTilt size={20} weight="fill" />
 							</div>
@@ -183,7 +187,7 @@ function LumaFooter() {
 
 					{/* CTAフォーム */}
 					<div className="relative z-20 mt-[--gap] ml-auto max-w-3xl rounded-3xl border border-[oklch(0.72_0.12_163)] bg-[oklch(0.19_0.07_205)] p-6">
-						<div className="mb-4 flex items-center gap-4 text-[--h3FZ] font-bold">
+						<div className="mb-4 flex items-center gap-4  font-bold">
 							<span className="relative grid size-14 place-items-center rounded-md bg-[oklch(0.80_0.14_150)] text-[oklch(0.20_0.07_205)]">
 								<EnvelopeSimple size={36} weight="fill" />
 								<span className="absolute -right-2 -top-2 size-5 rounded-full bg-[oklch(0.74_0.18_9)]" />

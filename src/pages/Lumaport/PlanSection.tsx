@@ -49,13 +49,13 @@ export function PlanSection() {
 
 			<div className="mx-auto flex w-full max-w-[--wid] flex-col gap-[--gap]">
 				{/* 見出し: プラン生成の価値を伝える導入。 */}
-				<div className="grid items-start gap-[--gap] lg:grid-cols-[minmax(0,1fr)_minmax(18rem,32rem)]">
+				<div className="grid items-start gap lg:grid-cols-[minmax(0,1fr)_minmax(18rem,32rem)]">
 					<div className="flex flex-col items-start gap-6">
 						<p className="inline-flex items-center gap-2 rounded-md bg-[--MC] px-4 py-2 font-mono text-xs font-bold uppercase tracking-[0.05em] text-[--AC]">
 							<SparkleIcon aria-hidden="true" weight="fill" />
 							<span>PLAN BUILDER</span>
 						</p>
-						<h2 className="max-w-4xl text-[--h3FZ] font-bold leading-[1.45] md:text-[--h2FZ]">
+						<h2 className="max-w-4xl  font-bold leading-[1.45] md:">
 							フライトまでの時間から、
 							<br />
 							寄り道プランを組み立てる。
@@ -73,17 +73,20 @@ export function PlanSection() {
 							<ArrowRightIcon aria-hidden="true" weight="bold" />
 						</Link>
 					</div>
-					
 				</div>
 
 				{/* 手順カード: 入力からルート提案までを3枚で示す。 */}
-				<ol className="grid gap-[--gap] lg:grid-cols-3">
+				<ol className="grid gap lg:grid-cols-3">
 					{planSteps.map((step, index) => (
 						<li key={step.id} className="relative">
 							<article className="h-full overflow-hidden rounded-md border-2 border-[--MC] bg-WH shadow-none">
 								<header className="flex items-center justify-center gap-4 bg-[--MC] px-4 py-4 text-[--AC] sm:gap-8 sm:px-6">
-									<span className="font-mono text-[--FZ] font-bold text-[--AC]">{step.id}</span>
-									<h3 className="text-[--FZ] font-bold">{step.title}</h3>
+									<span className="font-mono text-[--FZ] font-bold text-ω[--AC]">
+										{step.id}ω
+									</span>
+									<h3 className="text-[--FZ] font-bold">
+										{step.title}
+									</h3>
 								</header>
 								<div className="flex min-h-56 flex-col items-center justify-center gap-6 px-6 py-8 text-center">
 									<div className="flex min-h-20 items-center justify-center gap-4">
@@ -97,12 +100,16 @@ export function PlanSection() {
 											/>
 										))}
 									</div>
-									<p className="text-base font-bold leading-[1.8] text-[--MC]">{step.text}</p>
+									<p className="text-base font-bold leading-[1.8] text-[--MC]">
+										{step.text}
+									</p>
 								</div>
 							</article>
 							{index < planSteps.length - 1 ? (
 								<div className="hidden lg:absolute lg:left-full lg:top-1/2 lg:z-10 lg:flex lg:w-[--gap] lg:-translate-y-1/2 lg:items-center lg:justify-center">
-									<span className="text-3xl font-bold leading-none text-[--MC]">•••</span>
+									<span className="text-3xl font-bold leading-none text-[--MC]">
+										•••
+									</span>
 								</div>
 							) : null}
 						</li>
@@ -113,25 +120,41 @@ export function PlanSection() {
 				<div className="rounded-md border-2 border-[--MC] bg-WH px-6 py-5 text-[--MC]">
 					<ol className="grid gap-6 md:grid-cols-4">
 						{routeItems.map((item, index) => (
-							<li key={item.id} className="relative flex items-center gap-4 md:justify-center">
+							<li
+								key={item.id}
+								className="relative flex items-center gap-4 md:justify-center"
+							>
 								<div className="flex size-16 shrink-0 items-center justify-center rounded-md border-2 border-[--MC] bg-WH">
-									<img src={asset(item.image)} alt="" aria-hidden="true" className="max-h-12 max-w-12 object-contain" />
+									<img
+										src={asset(item.image)}
+										alt=""
+										aria-hidden="true"
+										className="max-h-12 max-w-12 object-contain"
+									/>
 								</div>
 								<div className="font-mono font-bold leading-[1.35]">
 									<p className="">{item.label}</p>
-									<p className={index === 0 || index === routeItems.length - 1 ? "" : " text-[--SC]"}>
+									<p
+										className={
+											index === 0 ||
+											index === routeItems.length - 1
+												? ""
+												: " text-[--SC]"
+										}
+									>
 										{item.time}
 									</p>
 								</div>
 								{index < routeItems.length - 1 ? (
-									<div className="hidden md:block md:h-px md:flex-1 md:border-t-2 md:border-dashed md:border-[--MC]" aria-hidden="true" />
+									<div
+										className="hidden md:block md:h-px md:flex-1 md:border-t-2 md:border-dashed md:border-[--MC]"
+										aria-hidden="true"
+									/>
 								) : null}
 							</li>
 						))}
 					</ol>
 				</div>
-
-				
 			</div>
 		</section>
 	);

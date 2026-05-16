@@ -1,0 +1,66 @@
+src/scss/_01variables.scss
+  s_321cdfc56102ad::t_e6883ea168fec0 5
+vite.config.ts
+  s_b24c9a15f77a10::t_7d647200ada1de 35
+src/components/InitialLoadingOverlay.test.tsx
+  s_d8640ec0f50377::t_7cb9fbfc4fa473 114,119,128
+src/index.scss
+  s_a8d785edba7299::t_69d4947058ba44 46-47,50-57,60-61
+  h_53dad1e32c3c71 5-25,42-45,48-49,58-59,181-189
+src/pages/Test7.tsx
+  h_53dad1e32c3c71 56
+src/components/PageTransitionRoutes.tsx
+  s_d8640ec0f50377::t_d20198e8d9613d 37,162-228,412
+  s_d8640ec0f50377::t_3625b5be52edfd 5,347,353
+  s_d8640ec0f50377::t_7cb9fbfc4fa473 7,276-294,296,310,327-330,348-352,354-364,411,457-461
+src/pages/Next.tsx
+  h_53dad1e32c3c71 58,209
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.8",
+  "base_commit_sha": "e2412ad90973489d40ab6f6fa3cb00a1570d9f1a",
+  "prompts": {},
+  "humans": {
+    "h_53dad1e32c3c71": {
+      "author": "yuremono <5alviaofficinali50@gmail.com>"
+    },
+    "h_5a56918e6ebef3": {
+      "author": "yuremono"
+    }
+  },
+  "sessions": {
+    "s_321cdfc56102ad": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019e2b59-fc09-7922-b86a-cd4f257377ee",
+        "model": "gpt-5.5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    },
+    "s_a8d785edba7299": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019e2bac-8500-7cb3-b72e-08899f012e03",
+        "model": "gpt-5.5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    },
+    "s_b24c9a15f77a10": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019e2a2f-943f-7b20-874f-ffea64a2afd2",
+        "model": "gpt-5.5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    },
+    "s_d8640ec0f50377": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019e2f97-7f42-7241-b324-75bfc6e11e96",
+        "model": "gpt-5.5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  }
+}

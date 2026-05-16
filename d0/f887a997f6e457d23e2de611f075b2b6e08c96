@@ -1,0 +1,27 @@
+src/pages/Lumaport/HeroSection.tsx
+  h_53dad1e32c3c71 62,85,93,99
+src/pages/Lumaport/SafeSection.tsx
+  h_53dad1e32c3c71 43,64
+src/pages/Lumaport/LumaFooter.tsx
+  h_53dad1e32c3c71 69,121,134,161,190
+src/pages/Lumaport/PlanSection.tsx
+  h_53dad1e32c3c71 52,58,79,84-85
+src/pages/Aozora.tsx
+  h_53dad1e32c3c71 230,339
+src/pages/LingoChat.tsx
+  h_53dad1e32c3c71 139,211,273,404,415,469,520
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.8",
+  "base_commit_sha": "d0f887a997f6e457d23e2de611f075b2b6e08c96",
+  "prompts": {},
+  "humans": {
+    "h_53dad1e32c3c71": {
+      "author": "yuremono <5alviaofficinali50@gmail.com>"
+    },
+    "h_5a56918e6ebef3": {
+      "author": "yuremono"
+    }
+  }
+}

@@ -9,11 +9,12 @@ import {
 	ShapesIcon,
 	UserCircleIcon,
 } from "@phosphor-icons/react";
+import { getAssetPath } from "../../lib/assetPath";
 import type { SideNavProps } from "./data";
 import { FutureNotice } from "./FutureNotice";
 
 // navItems: サイドバーに表示する主要ナビゲーション。
-const logoSrc = "/images/bunmyaku/bunmyaku-logo.png";
+const logoSrc = getAssetPath("/images/bunmyaku/bunmyaku-logo.png");
 
 const navSections = [
 	{

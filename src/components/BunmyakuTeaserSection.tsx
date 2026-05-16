@@ -1,13 +1,13 @@
 import { useCallback, useEffect, useRef } from "react";
-// import {
-// 	// Moon,
-// 	// Sun,
-// 	CaretRightIcon,
-// 	// CaretDownIcon,
-// 	// XIcon,
-// 	// ListPlusIcon,
-// 	// ArrowSquareOutIcon,
-// } from "@phosphor-icons/react";
+import {
+	// Moon,
+	// Sun,
+	CaretRightIcon,
+	// CaretDownIcon,
+	// XIcon,
+	// ListPlusIcon,
+	// ArrowSquareOutIcon,
+} from "@phosphor-icons/react";
 
 interface BunmyakuTeaserSectionProps {
 	className?: string;
@@ -15,12 +15,12 @@ interface BunmyakuTeaserSectionProps {
 
 const COLOR_SCHEME = {
 	"--background": "oklch(0.16 0.055 255)",
-	"--foreground": "oklch(0.91 0.02 235)",
+	"--foreground": "oklch(0.8 0.02 235)",
 	"--MC": "oklch(0.16 0.055 255)",
 	"--SC": "oklch(0.22 0.9 188)",
 	"--AC": "oklch(0.45 0.9 188)",
 	"--BC": "oklch(0.115 0.035 255)",
-	"--TC": "oklch(0.91 0.02 255)",
+	"--TC": "oklch(0.8 0.02 255)",
 	"--GR": "oklch(0.62 0.025 255)",
 	"--Eng": "var(--Ship)",
 	"--HFF": "var(--Ship)",
@@ -43,11 +43,11 @@ const TIMELINE = {
 	// 断片が見え始めてから本来の濃さになるまでの長さ。
 	fragmentIntroLength: 0.52,
 	// 断片がアウトラインへ戻り切る位置。小さいほど早く集合します。
-	gatherEnd: 0.4,
+	gatherEnd: 0.35,
 	// 断片収束のカーブ。1 は直線、2〜3 は後半で加速、4 以上はかなり極端です。
 	gatherPower: 2,
 	// fill の開始位置。終了位置は 1.0 固定なので、小さいほど長く満たされます。
-	fillStart: 0.38,
+	fillStart: 0.325,
 	// fill が見え始めてから不透明になるまでの長さ。短いほど早く濃くなります。
 	fillFadeLength: 1,
 	// 断片アウトラインを薄くし始める位置。fill と重ねて見せるため後半寄りにしています。
@@ -124,15 +124,15 @@ function resolveShipFont() {
 	return ship || '"Shippori Mincho", serif';
 }
 
-function resolveForegroundColor() {
-	if (typeof window === "undefined") return "oklch(0.91 0.02 235)";
+// function resolveForegroundColor() {
+// 	if (typeof window === "undefined") return "oklch(0.91 0.02 235)";
 
-	const rootStyle = getComputedStyle(document.documentElement);
-	return (
-		rootStyle.getPropertyValue("--foreground").trim() ||
-		"oklch(0.91 0.02 235)"
-	);
-}
+// 	const rootStyle = getComputedStyle(document.documentElement);
+// 	return (
+// 		rootStyle.getPropertyValue("--foreground").trim() ||
+// 		"oklch(0.91 0.02 235)"
+// 	);
+// }
 
 function createParticleField(font: string): ParticleField {
 	const mask = document.createElement("canvas");
@@ -546,8 +546,8 @@ export function BunmyakuTeaserSection({
 
 	return (
 		<section ref={rootRef} data-l="BunmyakuTeaser" className={className}>
-			<div className="relative min-h-[125vw] [grid-area:1/1] max-w-[1680px] mx-auto">
-				<div className="sticky h-100lvh top-0 xl:top-[-25%]  grid  place-items-center ">
+			<div className="relative min-h-[112.5vw] [grid-area:1/1] max-w-[1620px] mx-auto">
+				<div className="sticky h-100lvh top-0 xl:top-[-30%]  grid  place-items-center ">
 					<canvas
 						ref={canvasRef}
 						className="block  w-full aspect-square"
@@ -556,18 +556,19 @@ export function BunmyakuTeaserSection({
 				</div>
 			</div>
 			<div className="relative z-10  PX [grid-area:1/1] h3FZ [font-family:--HFF]">
-				<div className="w-fit max-w-[--wid] mx-auto py-[50lvh] ">
-					<h2 className=" h2FZ HFF"># 文脈.app</h2>
-					<p className="mx-auto mt-8 ">
-						## SPEC.md, DESIGN.md, AGENTS.md をGUIで作成するMVP
+				<div className="[--LS:0.1em] w-fit max-w-[--wid] mx-auto py-[50lvh] ">
+					<h2 className=" h2FZ HFF BarAF ">## 文脈.app</h2>
+					<p className=" mx-auto my-[--MY]">
+                                                - SPEC.md, DESIGN.md, AGENTS.md をGUIで作成するツール
 						<br />
-						### プロンプトテンプレート、SKILL保管庫を兼ねる想定
+						<br />
+						- プロンプト保存、SKILL保管機能を実装予定
 					</p>
-					<a href="/Bunmyaku" className="mt-6 BarBF ">
+					<a href="/Bunmyaku" className="mt-6 BarBF  hover:text-AC">
 						Bunmyaku
-						{/* <CaretRightIcon
+						<CaretRightIcon
 							className=" align-middle ml-0"
-						/> */}
+						/>
 					</a>
 				</div>
 			</div>

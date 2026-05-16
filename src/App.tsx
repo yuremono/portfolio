@@ -17,6 +17,7 @@ const ZzzScratch = lazy(() => import("./pages/ZzzScratch"));
 const Test9 = lazy(() => import("./pages/Test9"));
 const Lumaport = lazy(() => import("./pages/Lumaport"));
 const LingoChat = lazy(() => import("./pages/LingoChat"));
+const Bunmyaku = lazy(() => import("./pages/Bunmyaku"));
 const ShuffleDivide = lazy(() => import("./pages/ShuffleDivide"));
 const Glitch = lazy(() => import("./pages/Glitch"));
 const Yugen = lazy(() => import("./pages/Yugen"));
@@ -46,6 +47,11 @@ const routes: PageTransitionRoute[] = [
 		path: "/lingochat",
 		element: <LingoChat />,
 		transitionTitle: "LingoChat",
+	},
+	{
+		path: "/Bunmyaku",
+		element: <Bunmyaku />,
+		transitionTitle: "Bunmyaku",
 	},
 	{
 		path: "/ShuffleDivide",

@@ -32,6 +32,7 @@ export default defineConfig(({ mode }) => ({
 				twonlyTest9: path.resolve(__dirname, "TWonly/test9.html"),
 				twonlyZzzScratch: path.resolve(__dirname, "TWonly/zzzscratch.html"),
 				twonlyBbox: path.resolve(__dirname, "TWonly/bbox.html"),
+				twonlyBunmyaku: path.resolve(__dirname, "TWonly/bunmyaku.html"),
 			},
 		},
 	},

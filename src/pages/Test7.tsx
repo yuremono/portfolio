@@ -53,7 +53,7 @@ function Test7() {
 					<div className="absolute inset-0 bg-[image:var(--BGgrad3)] mix-blend-screen" />
 
 					{/* 左カラム全体：縦書き見出し → 英語コピー → ブランドロゴを縦方向に重ならないよう配置 */}
-					<div className="absolute left-[var(--heroColLeft)] top-[var(--heroColTop)] bottom-[var(--heroColBottom)] flex flex-col flex-wrap gap-[--gap] max-h-[100lvh]">
+					<div className="absolute left-[var(--heroColLeft)] top-[var(--heroColTop)] bottom-[var(--heroColBottom)] flex flex-col flex-wrap gap max-h-[100lvh]">
 						<div className="flex items-start gap-[var(--t7TitleGap)]">
 							<p className="[font-size:var(--FZ)] leading-[var(--lhFZ)] tracking-[var(--lsFZ)] text-[--WH]/85 text-shadow-[var(--TSsoft)] [writing-mode:vertical-rl] [text-orientation:upright]">
 								<span className="block">

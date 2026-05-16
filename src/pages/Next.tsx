@@ -55,7 +55,7 @@ function Next() {
 	return (
 		<PageRoot
 			ref={ref}
-			className=" [--innerPX:--PX] [--Eng:--Jost] [--San:--Zen] [--h3FZ:1.5rem] [--dropBG:--WH] [--dropC:--TC] [--WTS:var(--tsw)_var(--TC30)]"
+			className="PageRoot [--innerPX:--PX] [--Eng:--Jost] [--San:--Zen] [--h3FZ:1.5rem] [--dropBG:--WH] [--dropC:--TC] [--WTS:var(--tsw)_var(--TC30)]"
 		>
 			<Header className="NoLogo TopHidden mix-blend-difference text-WH" />
 
@@ -206,7 +206,7 @@ function Next() {
 								);
 							}}
 						>
-							<header className="flex items-start justify-between gap-[--gap] BorderB pb-4">
+							<header className="flex items-start justify-between gap BorderB pb-4">
 								<div>
 									<p className=" text-sm  font-bold text-AC">
 										Details

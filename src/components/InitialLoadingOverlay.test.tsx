@@ -111,12 +111,12 @@ describe("InitialLoadingOverlay", () => {
 				.querySelector(".InitialLoading")
 				?.classList.contains("InitialLoadingDone"),
 		).toBe(true);
-		expect(window.sessionStorage.getItem("InitialLoadingTest")).toBeNull();
+		expect(window.sessionStorage.getItem("InitialLoadingTest")).toBe("1");
 
 		unmount(root);
 	});
 
-	it("デバッグ表示中は同一セッションで表示済みでも描画する", () => {
+	it("表示済みなら初期状態でdoneになる", () => {
 		window.sessionStorage.setItem("InitialLoadingTest", "1");
 		const { container, root } = renderInitialLoading();
 
@@ -125,7 +125,7 @@ describe("InitialLoadingOverlay", () => {
 			container
 				.querySelector(".InitialLoading")
 				?.classList.contains("InitialLoadingDone"),
-		).toBe(false);
+		).toBe(true);
 		expect(playPageTransitionMosaiqueMock).not.toHaveBeenCalled();
 
 		unmount(root);

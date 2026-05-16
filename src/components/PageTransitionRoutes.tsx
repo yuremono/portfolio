@@ -2,7 +2,9 @@ import {
 	Suspense,
 	type MouseEvent as ReactMouseEvent,
 	type ReactNode,
+	useCallback,
 	useEffect,
+	useLayoutEffect,
 	useRef,
 	useState,
 } from "react";
@@ -32,6 +34,7 @@ const ScrollInstantClass = "PageTransitionScrollInstant";
  * 従来動作に戻すなら `false` に変更するだけでよい。
  */
 const PAGE_TRANSITION_SKIP_SOLID_FILL_BETWEEN_PHASES = true;
+const PAGE_TRANSITION_READY_TIMEOUT_MS = 1400;
 
 export interface PageTransitionRoute {
 	path: string;
@@ -156,6 +159,73 @@ function fillCanvas(canvas: HTMLCanvasElement, color: string) {
 	ctx.fillRect(0, 0, canvas.width, canvas.height);
 }
 
+function waitForTimeout(ms: number) {
+	return new Promise<void>((resolve) => {
+		window.setTimeout(resolve, ms);
+	});
+}
+
+function waitForNextFrame() {
+	return new Promise<void>((resolve) => {
+		window.requestAnimationFrame(() => resolve());
+	});
+}
+
+async function waitForStableFrames(count = 2) {
+	for (let i = 0; i < count; i += 1) {
+		await waitForNextFrame();
+	}
+}
+
+async function waitForDocumentFonts() {
+	if (!("fonts" in document)) return;
+
+	try {
+		await document.fonts.ready;
+	} catch {
+		// Font readiness is best-effort; a failed font should not freeze navigation.
+	}
+}
+
+async function waitForImageDecode(image: HTMLImageElement) {
+	if (image.complete && image.naturalWidth > 0) return;
+
+	try {
+		if (typeof image.decode === "function") {
+			await image.decode();
+			return;
+		}
+	} catch {
+		return;
+	}
+
+	await new Promise<void>((resolve) => {
+		const done = () => resolve();
+		image.addEventListener("load", done, { once: true });
+		image.addEventListener("error", done, { once: true });
+	});
+}
+
+async function waitForVisualReadiness(root: Element | null) {
+	if (!root) {
+		await waitForStableFrames();
+		return;
+	}
+
+	const images = Array.from(root.querySelectorAll<HTMLImageElement>("img"))
+		.filter((image) => image.currentSrc || image.src)
+		.slice(0, 16);
+
+	await Promise.race([
+		Promise.all([
+			waitForDocumentFonts(),
+			Promise.all(images.map((image) => waitForImageDecode(image))),
+			waitForStableFrames(),
+		]).then(() => undefined),
+		waitForTimeout(PAGE_TRANSITION_READY_TIMEOUT_MS),
+	]);
+}
+
 function stripBasePath(pathname: string) {
 	const base = import.meta.env.BASE_URL;
 	if (base === "/" || !pathname.startsWith(base)) {
@@ -203,8 +273,27 @@ function getInternalNavigationTarget(event: MouseEvent) {
 	return `${pathname}${url.search}${url.hash}`;
 }
 
-function RouteSet({ location, routes }: {
+function RouteCommitMarker({
+	location,
+	onCommit,
+}: {
 	location: Location;
+	onCommit: (location: Location) => void;
+}) {
+	useLayoutEffect(() => {
+		onCommit(location);
+	}, [location, onCommit]);
+
+	return null;
+}
+
+function AnimatedRouteSet({
+	location,
+	onCommit,
+	routes,
+}: {
+	location: Location;
+	onCommit: (location: Location) => void;
 	routes: PageTransitionRoute[];
 }) {
 	return (
@@ -218,6 +307,7 @@ function RouteSet({ location, routes }: {
 					/>
 				))}
 			</Routes>
+			<RouteCommitMarker location={location} onCommit={onCommit} />
 		</Suspense>
 	);
 }
@@ -234,6 +324,10 @@ export function PageTransitionRoutes({ routes }: {
 	const currentLocationRef = useRef(location);
 	const pendingTargetRef = useRef<string | null>(null);
 	const transitionRunningRef = useRef(false);
+	const routeCommitWaiterRef = useRef<{
+		pathname: string;
+		resolve: () => void;
+	} | null>(null);
 
 	useEffect(() => {
 		currentLocationRef.current = location;
@@ -249,6 +343,24 @@ export function PageTransitionRoutes({ routes }: {
 			);
 		};
 	}, []);
+
+	const handleRouteCommit = useCallback((committedLocation: Location) => {
+		const waiter = routeCommitWaiterRef.current;
+		if (!waiter || committedLocation.pathname !== waiter.pathname) return;
+
+		routeCommitWaiterRef.current = null;
+		waiter.resolve();
+	}, []);
+
+	function waitForRouteCommit(pathname: string) {
+		if (currentLocationRef.current.pathname === pathname) {
+			return Promise.resolve();
+		}
+
+		return new Promise<void>((resolve) => {
+			routeCommitWaiterRef.current = { pathname, resolve };
+		});
+	}
 
 	async function runTransition(target: string) {
 		if (transitionRunningRef.current) return;
@@ -296,7 +408,8 @@ export function PageTransitionRoutes({ routes }: {
 			fillCanvas(canvas, mosaic.color);
 		}
 		navigate(target);
-		await new Promise((resolve) => window.setTimeout(resolve, 0));
+		await waitForRouteCommit(targetPathname);
+		await waitForVisualReadiness(transitionRef.current);
 		if (!PAGE_TRANSITION_SKIP_SOLID_FILL_BETWEEN_PHASES) {
 			fillCanvas(canvas, mosaic.color);
 		}
@@ -341,7 +454,11 @@ export function PageTransitionRoutes({ routes }: {
 			{/* 一時停止中。戻す場合は disabled を外し、上の直接 scrollTo を削除する。 */}
 			<ScrollToTop disabled />
 			<div className="PageTransitionActive">
-				<RouteSet location={location} routes={routes} />
+				<AnimatedRouteSet
+					location={location}
+					onCommit={handleRouteCommit}
+					routes={routes}
+				/>
 			</div>
 			{overlayVisible ? (
 				<div className="PageTransitionOverlay" aria-hidden="true">

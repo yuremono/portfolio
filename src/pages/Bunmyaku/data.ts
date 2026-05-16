@@ -1823,7 +1823,7 @@ const createEmptyAnswers = () =>
 
 export const createInitialState = (): DocumentDraftState => ({
 	outputType: "SPEC",
-	answerVolume: "standard",
+	answerVolume: "deep",
 	showUnansweredAnswers: false,
 	globalFreeText: "",
 	answers: createEmptyAnswers(),

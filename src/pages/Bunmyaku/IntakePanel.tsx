@@ -1,24 +1,25 @@
-import { Check } from "@phosphor-icons/react";
 import { useState } from "react";
 import { outputQuestionSections, type IntakePanelProps, type OutputType, type QuestionCard } from "./data";
+import { FutureNotice } from "./FutureNotice";
 
-const answerVolumeLabels = {
-	quick: {
-		label: "Quick",
-		count: "5-8問",
-		description: "最小限の指示文を素早く作る",
-	},
-	standard: {
-		label: "Standard",
-		count: "12-18問",
-		description: "実用的な粒度の指示文を作る",
-	},
-	deep: {
-		label: "Deep",
-		count: "20-35問",
-		description: "制約、判断基準、出力構成まで細かく指定する",
-	},
-} as const;
+// 回答量UIを再表示するときは Check import と answerVolumeLabels も戻す。
+// const answerVolumeLabels = {
+// 	quick: {
+// 		label: "Quick",
+// 		count: "5-8問",
+// 		description: "最小限の指示文を素早く作る",
+// 	},
+// 	standard: {
+// 		label: "Standard",
+// 		count: "12-18問",
+// 		description: "実用的な粒度の指示文を作る",
+// 	},
+// 	deep: {
+// 		label: "Deep",
+// 		count: "20-35問",
+// 		description: "制約、判断基準、出力構成まで細かく指定する",
+// 	},
+// } as const;
 
 const groupQuestions = (questions: QuestionCard[]) =>
 	questions.reduce<Record<string, QuestionCard[]>>((groups, question) => {
@@ -48,9 +49,15 @@ const outputTypeJaLabels = {
 	PROMPT_FOR_SKILL: "スキル作成",
 } as const;
 
+// PROMPT / PROMPT_FOR_SKILL は未確認のため表示だけ隠す。機能実装時はこの除外を外す。
+const hiddenOutputTypes: OutputType[] = ["PROMPT", "PROMPT_FOR_SKILL"];
+
 export function IntakePanel({ state, className }: IntakePanelProps) {
 	const [openFreeTextIds, setOpenFreeTextIds] = useState<Set<string>>(() => new Set());
 	const questionGroups = getQuestionGroups(state.outputType, state.visibleQuestions);
+	const visibleOutputOptions = state.outputOptions.filter(
+		(format) => !hiddenOutputTypes.includes(format.id),
+	);
 	const toggleFreeText = (questionId: string, isOpen: boolean) => {
 		setOpenFreeTextIds((current) => {
 			const next = new Set(current);
@@ -80,9 +87,9 @@ export function IntakePanel({ state, className }: IntakePanelProps) {
 				<header data-l="IntakeHeader" className="shrink-0   PY">
 					<div data-l="HeaderRow" className="flex flex-col gap md:flex-row md:items-center md:justify-between">
 						<div data-l="HeaderTitle">
-							<h1 id="intake-title" className=" leading-[--HLH] ">
+							{/* <h1 id="intake-title" className=" leading-[--HLH] ">
 								文脈を紡ぐ
-							</h1>
+							</h1> */}
 						</div>
 						<div data-l="HeaderActions" className="flex flex-wrap gap-2">
 							<button
@@ -96,9 +103,11 @@ export function IntakePanel({ state, className }: IntakePanelProps) {
 							>
 								未選択を出力
 							</button>
-							<button className="BabelRightDown BorderXY  px-3 py-2 text-xs " type="button">
-								テンプレートから作成
-							</button>
+							<FutureNotice>
+								<button className="BabelRightDown BorderXY  px-3 py-2 text-xs " type="button">
+									テンプレートから作成
+								</button>
+							</FutureNotice>
 							<button className="BabelRightDown bg-SC/70 hover:bg-AC/70  px-3 py-2 text-xs " type="button">
 								保存
 							</button>
@@ -117,18 +126,17 @@ export function IntakePanel({ state, className }: IntakePanelProps) {
 							</div>
 							<span className="text-xs ">Generate {state.currentOutput.label}</span>
 						</div>
-						<div data-l="FormatGrid" className="text-xs mt-[--gap] grid overflow-hidden BabelRightDown BorderXY bg-MC/35 grid-cols-2 md:grid-cols-5">
-							{state.outputOptions.map((format, index) => {
+						<div data-l="FormatGrid" className="text-center text-xs mt-[--gap] grid overflow-hidden BabelRightDown BorderXY bg-MC/35 xs:grid-cols-3 ">
+							{visibleOutputOptions.map((format, index) => {
 								const isSelected = state.outputType === format.id;
 								// const Icon = formatIcons[index] ?? FileText;
 
 								return (
 									<label
 										className={[
-											" group relative flex min-h-12 cursor-pointer items-center gap-2 border-WH/20 p-1 transition md:flex-col md:justify-center md:gap-1.5 md:border-b-0 ",
-											index % 2 === 0 && index !== state.outputOptions.length - 1 ? "border-r md:border-r" : "md:border-r",
-											index < state.outputOptions.length - 1 ? "border-b md:border-b-0" : "",
-											index === state.outputOptions.length - 1 ? "md:border-r-0" : "",
+											" group relative  min-h-12 cursor-pointer content-center gap-2 border-WH/20 p-1 transition ",
+											index < visibleOutputOptions.length - 1 ? "border-b xs:border-b-0 xs:border-r" : "",
+											index === visibleOutputOptions.length - 1 ? "xs:border-r-0" : "",
 											isSelected ? "bg-SC/25 text-WH shadow-[inset_0_-3px_0_var(--AC)]" : "text-WH/65 hover:bg-SC/10 hover:text-WH",
 										].join(" ")}
 										key={format.id}
@@ -143,7 +151,7 @@ export function IntakePanel({ state, className }: IntakePanelProps) {
 										{/* <span className="grid size-8 shrink-0 place-items-center md:size-7">
 											<Icon aria-hidden="true" size={20} weight={isSelected ? "fill" : "duotone"} />
 										</span> */}
-										<span className="min-w-0 leading-none md:text-center">
+										<span className="min-w-0 leading-none ">
 											<span className="block truncate  font-bold leading-none ">
 												{format.label}
 											</span>
@@ -157,9 +165,9 @@ export function IntakePanel({ state, className }: IntakePanelProps) {
 						</div>
 					</section>
 
-					<section data-l="VolumeSection" className="BabelRightDown BorderXY  p-[--gap]" aria-labelledby="answer-volume-title">
+					{/* 回答量UIは一時非表示。再表示するときはこのコメントアウトを外す。 */}
+					{/* <section data-l="VolumeSection" className="BabelRightDown BorderXY  p-[--gap]" aria-labelledby="answer-volume-title">
 						<h2 id="answer-volume-title" className=" leading-[--HLH] ">
-						<span className="text-xs mr-1">01</span>
 							回答量
 						</h2>
 						<div data-l="VolumeGrid" className="mt-[--gap] grid gap sm:grid-cols-3">
@@ -202,17 +210,17 @@ export function IntakePanel({ state, className }: IntakePanelProps) {
 								);
 							})}
 						</div>
-					</section>
+					</section> */}
 
 					<section data-l="OverviewSection" className="BabelRightDown BorderXY  p-[--gap]" aria-labelledby="global-note-title">
 						<label className="block" htmlFor="global-note">
 							<span id="global-note-title" className="h2FZ Eng block  leading-[--HLH] ">
-						<span className="text-xs mr-1">03</span>
+						{/* <span className="text-xs mr-1">03</span> */}
 								概要（自由入力）
 							</span>
 						</label>
 						<textarea
-							className="mt-[--gap] min-h-32 w-full resize-y BabelRightDown BorderXY bg-background p-[--gap] leading-[--LH]  placeholder:text-GR focus:outline-none focus:border-WH/80"
+							className="mt-[--gap] min-h-20 w-full resize-y BabelRightDown BorderXY bg-background p-[--gap] leading-[--LH]  placeholder:text-GR focus:outline-none focus:border-WH/80"
 							id="global-note"
 							onChange={(event) => state.setGlobalFreeText(event.currentTarget.value)}
 							placeholder="プロンプトの冒頭にそのまま入れたい概要、前提、目的、対象外にしたい条件など"
@@ -224,7 +232,7 @@ export function IntakePanel({ state, className }: IntakePanelProps) {
 						<div data-l="SectionHeader2" className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
 							<div data-l="SectionTitle2">
 								<h2 id="questions-title" className=" leading-[--HLH] ">
-								<span className="text-xs mr-1">04</span>
+								{/* <span className="text-xs mr-1">04</span> */}
 									設問カード群
 								</h2>
 							</div>
@@ -328,7 +336,7 @@ export function IntakePanel({ state, className }: IntakePanelProps) {
 						</div>
 					</section>
 
-					<section data-l="ReviewSection" className="BabelRightDown BorderXY  p-[--gap] " aria-labelledby="review-title">
+					{/* <section data-l="ReviewSection" className="BabelRightDown BorderXY  p-[--gap] " aria-labelledby="review-title">
 						<div data-l="ReviewGrid" className="grid gap md:grid-cols-[1fr_auto] md:items-center">
 							<div data-l="ReviewTitle">
 								<h2 id="review-title" className=" leading-[--HLH] ">
@@ -345,7 +353,7 @@ export function IntakePanel({ state, className }: IntakePanelProps) {
 								</button>
 							</div>
 						</div>
-					</section>
+					</section> */}
 				</div>
 			</div>
 		</section>

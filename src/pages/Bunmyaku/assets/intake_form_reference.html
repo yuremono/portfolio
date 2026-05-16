@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>design-creator-v2 Intake</title>
+<style>
+  :root {
+    --bg: #0e0f14;
+    --surface: #181a22;
+    --surface-2: #21242e;
+    --border: #2a2e3a;
+    --text: #e8eaef;
+    --text-dim: #8a90a0;
+    --accent: #af6681;
+    --accent-2: #c4a28b;
+    --ok: #6ec6a7;
+    --warn: #e0a948;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", "Noto Sans JP", sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(14, 15, 20, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  header h1 {
+    font-size: 14px;
+    margin: 0;
+    color: var(--text-dim);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+  }
+  header h1 strong { color: var(--text); font-weight: 700; }
+  .controls { display: flex; gap: 8px; align-items: center; }
+  .controls select, .controls button {
+    background: var(--surface-2);
+    color: var(--text);
+    border: 1px solid var(--border);
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 13px;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .controls button:hover { border-color: var(--accent); }
+  main { max-width: 1440px; margin-inline: auto; padding: 32px 24px 120px; }
+  .intro {
+    margin-bottom: 32px;
+  }
+  .intro h2 { font-size: 18px; margin: 0 0 8px; }
+  .intro p { margin: 4px 0; color: var(--text-dim); font-size: 14px; }
+  .intro .hint { color: var(--accent-2); font-size: 13px; margin-top: 12px; }
+  .question {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 16px;
+  }
+  .question .q-meta {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 12px;
+    font-size: 11px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .q-meta .layer-tag {
+    background: var(--surface-2);
+    padding: 2px 8px;
+    border-radius: 3px;
+  }
+  .q-meta .qid { color: var(--accent); }
+  .question .prompt { font-size: 16px; font-weight: 600; margin-bottom: 16px; }
+  .options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  .option {
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 6px;
+    max-width: 100%;
+    padding: 5px 7px;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+  .option:hover { border-color: var(--accent); }
+  .option input { flex: 0 0 auto; margin-top: 3px; accent-color: var(--accent); }
+  .option label {
+    min-width: 0;
+    flex: 1;
+    cursor: pointer;
+    font-size: 13px;
+    overflow-wrap: anywhere;
+  }
+  .option.checked { border-color: var(--accent); background: rgba(175, 102, 129, 0.08); }
+  .free-option {
+    width: 100%;
+    flex-basis: 100%;
+    flex-wrap: wrap;
+    background: unset;
+    border: unset;
+
+
+  }
+  .free-option .freetext-input {
+    flex: 0 0 100%;
+    width: 100%;
+    margin-top: 2px;
+    padding: 6px 8px;
+    background: var(--bg);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 13px;
+    resize: vertical;
+    min-height: 60px;
+  }
+  .free-option:not(.checked) .freetext-input { display: none; }
+  .option .hint {
+    font-size: 12px;
+    color: var(--text-dim);
+    margin-top: 4px;
+  }
+  .question .text-input {
+    width: 100%;
+    padding: 10px 12px;
+    background: var(--bg);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 14px;
+    resize: vertical;
+    min-height: 88px;
+  }
+  .question .scale-input {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+    align-items: center;
+    padding: 10px 14px;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+  }
+  .question .scale-input input {
+    width: 100%;
+    accent-color: var(--accent);
+  }
+  #questions .questions-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    align-items: start;
+  }
+  .free-note {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 16px;
+  }
+  .free-note label { display: block; font-weight: 600; margin-bottom: 8px; }
+  .free-note textarea {
+    width: 100%;
+    padding: 12px;
+    background: var(--bg);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 14px;
+    resize: vertical;
+    min-height: 100px;
+  }
+  .submit-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(14, 15, 20, 0.95);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid var(--border);
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+  .progress { font-size: 13px; color: var(--text-dim); }
+  .progress strong { color: var(--text); }
+  .submit {
+    background: var(--accent);
+    color: var(--bg);
+    border: none;
+    padding: 12px 32px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    transition: opacity 0.2s ease;
+  }
+  .submit:hover { opacity: 0.85; }
+  .submit:disabled { opacity: 0.4; cursor: not-allowed; }
+  .output {
+    margin-top: 32px;
+    background: var(--surface);
+    border: 1px solid var(--ok);
+    border-radius: 8px;
+    padding: 24px;
+  }
+  .output h2 { margin: 0 0 12px; font-size: 16px; color: var(--ok); }
+  .output textarea {
+    width: 100%;
+    min-height: 320px;
+    padding: 12px;
+    background: var(--bg);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 12px;
+    resize: vertical;
+    line-height: 1.5;
+  }
+  .output .copied {
+    color: var(--ok);
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .toast {
+    position: fixed;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--surface-2);
+    color: var(--text);
+    border: 1px solid var(--accent);
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 13px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 100;
+  }
+  .toast.show { opacity: 1; }
+  @media (max-width: 640px) {
+    header {
+      display: block;
+    }
+    .controls {
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+    main {
+      padding: 24px 16px 132px;
+    }
+    .question,
+    .intro,
+    .free-note,
+    .output {
+      padding: 18px;
+    }
+    .option {
+      width: auto;
+      flex-basis: auto;
+    }
+    .free-option {
+      width: 100%;
+      flex-basis: 100%;
+    }
+    #questions .questions-cols {
+      grid-template-columns: 1fr;
+    }
+    .submit-bar {
+      display: block;
+    }
+    .submit {
+      width: 100%;
+      margin-top: 10px;
+    }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1><strong>design-creator-v2</strong> — intake</h1>
+  <div class="controls">
+    <label style="font-size:12px;color:var(--text-dim)">volume</label>
+    <select id="volume-select">
+      <option value="quick">Quick (5)</option>
+      <option value="standard" selected>Standard (10)</option>
+      <option value="deep">Deep (20)</option>
+    </select>
+    <select id="lang-select">
+      <option value="ja" selected>日本語</option>
+      <option value="en">English</option>
+    </select>
+  </div>
+</header>
+
+<main>
+  <div class="intro">
+    <h2 id="intro-title">設問に答えていくと、最後に構造化された成果物が生成される</h2>
+    <p id="intro-body">各設問の選択肢を選び、必要に応じて最後の自由入力欄に補足を書いてください。</p>
+    <p class="hint" id="intro-hint">回答が完了したら、ページ下部の「完了 → 成果物生成」を押してね。</p>
+  </div>
+
+  <div id="questions">
+    <div class="questions-cols">
+      <div class="questions-col questions-col-general" id="questions-col-general" role="region" aria-label="通常の設問（意図・トーン・感情・情報設計など）"></div>
+      <div class="questions-col questions-col-concrete" id="questions-col-concrete" role="region" aria-label="具体的な視覚・モーション・アニメ雰囲気・実装・技術（フォント・色・質感ほか）"></div>
+    </div>
+  </div>
+
+  <div class="free-note">
+    <label id="free-note-label">補足（自由記述・任意）</label>
+    <textarea id="free-note" placeholder="設問に収まらない要望・参考サイト名・避けたい表現など"></textarea>
+  </div>
+</main>
+
+<div class="submit-bar">
+  <div class="progress"><span id="progress">0 / 0</span> 回答済み</div>
+  <button class="submit" id="submit-btn">完了 → 成果物生成</button>
+</div>
+
+<div class="toast" id="toast">コピーしたよ</div>
+
+<script>
+const QUESTIONS = [
+  {
+    id: "Q-intent-01", layer: "intent", order: 1,
+    prompt: { ja: "このサイトは何のためのもの？", en: "What is this site for?" },
+    multi: false,
+    volume: { quick: true, standard: true, deep: true },
+    options: [
+      { id: "a", label: { ja: "コーポレート（企業情報・ブランド発信）", en: "Corporate (company info, brand)" } },
+      { id: "b", label: { ja: "LP・プロモーション（製品/イベント告知）", en: "Landing page / promotion" } },
+      { id: "c", label: { ja: "EC・販売", en: "E-commerce / shop" } },
+      { id: "d", label: { ja: "ポートフォリオ・作品集", en: "Portfolio / works" } },
+      { id: "e", label: { ja: "その他（自由入力）", en: "Other (free input)" }, freetext: true }
+    ]
+  },
+  {
+    id: "Q-intent-02", layer: "intent", order: 2,
+    prompt: { ja: "主なターゲット層は？", en: "Who is the main audience?" },
+    multi: false,
+    volume: { quick: true, standard: true, deep: true },
+    options: [
+      { id: "a", label: { ja: "10代〜20代前半（若年層）", en: "Teens to early 20s" } },
+      { id: "b", label: { ja: "20代後半〜30代（中堅層）", en: "Late 20s to 30s" } },
+      { id: "c", label: { ja: "40代以上（成熟層）", en: "40s and above" } },
+      { id: "d", label: { ja: "業界プロ・専門家（年齢不問）", en: "Industry pros / specialists" } },
+      { id: "e", label: { ja: "その他（自由入力）", en: "Other (free input)" }, freetext: true }
+    ]
+  },
+  {
+    id: "Q-intent-03", layer: "intent", order: 3,
+    prompt: { ja: "訪問して3秒で受け取ってほしい第一印象は？", en: "What single impression do you want visitors to feel in 3 seconds?" },
+    multi: false,
+    volume: { quick: true, standard: true, deep: true },
+    options: [
+      { id: "a", label: { ja: "信頼感・誠実", en: "Trust / sincerity" } },
+      { id: "b", label: { ja: "神秘性・特別感", en: "Mystique / special" } },
+      { id: "c", label: { ja: "楽しさ・遊び心", en: "Fun / playful" } },
+      { id: "d", label: { ja: "静けさ・余白", en: "Calm / minimal" } },
+      { id: "e", label: { ja: "その他（自由入力）", en: "Other (free input)" }, freetext: true }
+    ]
+  },
+  {
+    id: "Q-intent-04", layer: "intent", order: 4,
+    prompt: { ja: "同業・類似サイトでよく見る表現で「避けたい」ものはある？", en: "What common expression in similar sites do you want to avoid?" },
+    multi: false,
+    volume: { quick: false, standard: true, deep: true },
+    options: [
+      { id: "a", label: { ja: "ありきたりな透明感・明るさ", en: "Generic transparency / brightness" } },
+      { id: "b", label: { ja: "過剰な装飾・エフェクト", en: "Excessive decoration / effects" } },
+      { id: "c", label: { ja: "冷たすぎる無機質さ", en: "Too cold / sterile" } },
+      { id: "d", label: { ja: "特に避けたい表現はない", en: "No specific avoidance" } },
+      { id: "e", label: { ja: "その他（自由入力）", en: "Other (free input)" }, freetext: true }
+    ]
+  },
+  {
+    id: "Q-mood-01", layer: "mood", order: 1,
+    prompt: { ja: "サイト全体の明るさは？", en: "What's the overall brightness baseline?" },
+    multi: false,
+    volume: { quick: true, standard: true, deep: true },
+    options: [
+      { id: "a", label: { ja: "暗色ベース（黒〜深い色を背景に）", en: "Dark base (black or deep color background)" } },
+      { id: "b", label: { ja: "明色ベース（白〜淡い色を背景に）", en: "Light base (white or pale color background)" } },
+      { id: "c", label: { ja: "中間（グレー・ベージュ等の中明度）", en: "Mid-tone (gray, beige, etc.)" } },
+      { id: "d", label: { ja: "グラデーション主体", en: "Gradient-driven" } },
+      { id: "e", label: { ja: "その他（自由入力）", en: "Other (free input)" }, freetext: true }
+    ]
+  },
+  {
+    id: "Q-mood-02", layer: "mood", order: 2,
+    prompt: { ja: "配色の温度感は？", en: "What's the color temperature?" },
+    multi: false,
+    volume: { quick: false, standard: false, deep: true },
+    options: [
+      { id: "a", label: { ja: "暖色寄り（赤・オレンジ・ベージュ・ピンク）", en: "Warm (red, orange, beige, pink)" } },
+      { id: "b", label: { ja: "寒色寄り（青・緑・紫）", en: "Cool (blue, green, purple)" } },
+      { id: "c", label: { ja: "中性（モノクロ・グレー・無彩色）", en: "Neutral (monochrome, gray, achromatic)" } },
+      { id: "d", label: { ja: "暖寒の対比（両極を意図的に組む）", en: "Warm-cool contrast" } },
+      { id: "e", label: { ja: "その他（自由入力）", en: "Other (free input)" }, freetext: true }
+    ]
+  },
+  {
+    id: "Q-mood-03", layer: "mood", order: 3,
+    prompt: { ja: "サイトのエネルギー感は？", en: "What's the energy level?" },
+    multi: false,
+    volume: { quick: false, standard: false, deep: true },
+    options: [
+      { id: "a", label: { ja: "静寂（calm・余白多め・動きを抑える）", en: "Calm (lots of whitespace, restrained motion)" } },
+      { id: "b", label: { ja: "表現的（expressive・適度な動き・印象付け）", en: "Expressive (moderate motion, memorable)" } },
+      { id: "c", label: { ja: "劇的（theatrical・大きな動き・没入感）", en: "Theatrical (big motion, immersive)" } },
+      { id: "d", label: { ja: "機能優先（情報伝達最優先）", en: "Function-first (info-priority)" } },
+      { id: "e", label: { ja: "その他（自由入力）", en: "Other (free input)" }, freetext: true }
+    ]
+  },
+  {
+    id: "Q-mood-04", layer: "mood", order: 4,
+    prompt: { ja: "サイトの形式感は？", en: "What's the level of formality?" },
+    multi: false,
+    volume: { quick: false, standard: false, deep: true },
+    options: [
+      { id: "a", label: { ja: "フォーマル（堅実・きっちり・敬体）", en: "Formal (firm, structured, polite)" } },
+      { id: "b", label: { ja: "カジュアル（親しみやすさ・ゆるさ）", en: "Casual (friendly, relaxed)" } },
+      { id: "c", label: { ja: "プレイフル（遊び心・ユーモア）", en: "Playful (humor, whimsy)" } },
+      { id: "d", label: { ja: "その他（自由入力）", en: "Other (free input)" }, freetext: true }
+    ]
+  },
+  {
+    id: "Q-visual-01", layer: "visual", order: 1,
+    prompt: { ja: "配色の組み立て方は？", en: "How should colors be composed?" },
+    multi: false,
+    volume: { quick: true, standard: true, deep: true },
+    options: [
+      { id: "a", label: { ja: "モノクロ（無彩色のみ）", en: "Monochrome (achromatic only)" } },
+      { id: "b", label: { ja: "2色構成（メイン + 差し色1色）", en: "Duotone (main + 1 accent)" } },
+      { id: "c", label: { ja: "多色（3色以上の意図的なパレット）", en: "Vivid palette (3+ colors)" } },
+      { id: "d", label: { ja: "グラデーション主体", en: "Gradient-driven" } },
+      { id: "e", label: { ja: "その他（自由入力）", en: "Other (free input)" }, freetext: true }
+    ]
+  },
+  {
+    id: "Q-visual-02", layer: "visual", order: 2,
+    prompt: { ja: "差し色（アクセント）の使い方は？", en: "How should the accent color be used?" },
+    multi: false,
+    volume: { quick: false, standard: false, deep: true },
+    options: [
+      { id: "a", label: { ja: "単一の差し色を強く効かせる", en: "One strong accent" } },
+      { id: "b", label: { ja: "2色のアクセント（主・副）を使い分け", en: "Two accents (primary + secondary)" } },
+      { id: "c", label: { ja: "差し色なし（モノトーンで完結）", en: "No accent (monotone only)" } },
+      { id: "d", label: { ja: "グラデーションアクセント", en: "Gradient accent" } },
+      { id: "e", label: { ja: "その他（自由入力）", en: "Other (free input)" }, freetext: true }
+    ]
+  },
+  {
+    id: "Q-visual-03", layer: "visual", order: 3,
+    prompt: { ja: "全体の質感は？", en: "What's the overall texture feel?" },
+    multi: false,
+    volume: { quick: false, standard: false, deep: true },
+    options: [
+      { id: "a", label: { ja: "マット（フラット・影なし）", en: "Matte (flat, no shadow)" } },
+      { id: "b", label: { ja: "光沢（gloss・グラデ・反射感）", en: "Glossy (gradient, reflective)" } },
+      { id: "c", label: { ja: "テクスチャあり（紙・布・ノイズ）", en: "Textured (paper, fabric, noise)" } },
+      { id: "d", label: { ja: "ガラス感（blur / backdrop-filter 多用）", en: "Glass (blur / backdrop-filter heavy)" } },
+      { id: "e", label: { ja: "その他（自由入力）", en: "Other (free input)" }, freetext: true }
+    ]
+  },
+  {
+    id: "Q-type-01", layer: "typography", order: 1,
+    prompt: { ja: "文字組みの主軸は？", en: "What's the primary type style?" },
+    multi: false,
+    volume: { quick: false, standard: true, deep: true },
+    options: [
+      { id: "a", label: { ja: "serif / 明朝 主役", en: "Serif / mincho leading" } },
+      { id: "b", label: { ja: "sans / ゴシック 主役", en: "Sans / gothic leading" } },
+      { id: "c", label: { ja: "混在（見出しserif + 本文sans 等）", en: "Mixed (serif heading + sans body)" } },
+      { id: "d", label: { ja: "装飾的（手書き・display・特殊フォント）", en: "Decorative (handwritten, display, specialty)" } },
+      { id: "e", label: { ja: "その他（自由入力）", en: "Other (free input)" }, freetext: true }
+    ]
+  },
+  {
+    id: "Q-type-02", layer: "typography", order: 2,
+    prompt: { ja: "日本語フォントの系統は？", en: "What style for Japanese fonts?" },
+    multi: false,
+    volume: { quick: false, standard: false, deep: true },
+    options: [
+      { id: "a", label: { ja: "明朝（伝統・上品・editorial）", en: "Mincho (traditional, elegant, editorial)" } },
+      { id: "b", label: { ja: "ゴシック（現代・読みやすさ・実用）", en: "Gothic (modern, readable, practical)" } },
+      { id: "c", label: { ja: "丸ゴシック（親しみやすい・rounded）", en: "Rounded gothic (friendly)" } },
+      { id: "d", label: { ja: "日本語フォント不要（英字のみで完結）", en: "Japanese not needed (English only)" } },
+      { id: "e", label: { ja: "その他（自由入力）", en: "Other (free input)" }, freetext: true }
+    ]
+  },
+  {
+    id: "Q-motion-01", layer: "motion", order: 1,
+    prompt: { ja: "アニメーションのテンポ感は？", en: "What's the animation tempo?" },
+    multi: false,
+    volume: { quick: false, standard: true, deep: true },
+    options: [
+      { id: "a", label: { ja: "素早い（0.2s前後・反応早く軽快）", en: "Fast (~0.2s, responsive, snappy)" } },
+      { id: "b", label: { ja: "中庸（0.4〜0.8s・標準的）", en: "Medium (0.4-0.8s, standard)" } },
+      { id: "c", label: { ja: "ゆったり（1.5〜2s・余裕・贅沢）", en: "Slow (1.5-2s, relaxed, luxurious)" } },
+      { id: "d", label: { ja: "アニメ最小限（必要箇所のみ・無くてもOK）", en: "Minimal motion (only essentials)" } },
+      { id: "e", label: { ja: "その他（自由入力）", en: "Other (free input)" }, freetext: true }
+    ]
+  },
+  {
+    id: "Q-motion-02", layer: "motion", order: 2,
+    prompt: { ja: "アニメーションの性格は？", en: "What's the motion character?" },
+    multi: false,
+    volume: { quick: false, standard: false, deep: true },
+    options: [
+      { id: "a", label: { ja: "控えめ（subtle・気付かれない程度のフィードバック）", en: "Subtle (barely-noticeable feedback)" } },
+      { id: "b", label: { ja: "表現的（expressive・印象に残る動き）", en: "Expressive (memorable motion)" } },
+      { id: "c", label: { ja: "劇的（theatrical・物語的・没入演出）", en: "Theatrical (cinematic, story-driven)" } },
+      { id: "d", label: { ja: "機械的（precise・動きの形が明快）", en: "Mechanical (precise, clearly-shaped)" } },
+      { id: "e", label: { ja: "その他（自由入力）", en: "Other (free input)" }, freetext: true }
+    ]
+  },
+  {
+    id: "Q-motion-03", layer: "motion", order: 3,
+    prompt: { ja: "アニメーション実装の手段はどこまで許容？", en: "How far can animation implementation reach?" },
+    multi: false,
+    volume: { quick: false, standard: false, deep: true },
+    options: [
+      { id: "a", label: { ja: "CSS + IntersectionObserver のみ（外部依存ゼロ）", en: "CSS + IntersectionObserver only (no external deps)" } },
+      { id: "b", label: { ja: "GSAP 系を許容", en: "GSAP allowed" } },
+      { id: "c", label: { ja: "WebGL / Three.js も含めて自由", en: "WebGL / Three.js anything goes" } },
+      { id: "d", label: { ja: "必要最小限（要件次第で都度判断）", en: "Minimum necessary (decide per requirement)" } },
+      { id: "e", label: { ja: "その他（自由入力）", en: "Other (free input)" }, freetext: true }
+    ]
+  },
+  {
+    id: "Q-component-01", layer: "component", order: 1,
+    prompt: { ja: "レイアウトの基本型は？", en: "What's the base layout type?" },
+    multi: false,
+    volume: { quick: false, standard: true, deep: true },
+    options: [
+      { id: "a", label: { ja: "editorial（文字主役・余白多め・雑誌風）", en: "Editorial (text-driven, magazine-style)" } },
+      { id: "b", label: { ja: "card-grid（カード一覧主体・並列構造）", en: "Card-grid (card-list, parallel structure)" } },
+      { id: "c", label: { ja: "full-bleed（画面いっぱいのKV・縦長サイト）", en: "Full-bleed (screen-wide KV, long scroll)" } },
+      { id: "d", label: { ja: "sectioned（セクション区切り明快・伝統的）", en: "Sectioned (clearly-separated sections, traditional)" } },
+      { id: "e", label: { ja: "その他（自由入力）", en: "Other (free input)" }, freetext: true }
+    ]
+  },
+  {
+    id: "Q-component-02", layer: "component", order: 2,
+    prompt: { ja: "必須となるパーツ群は？（複数選択可）", en: "Which parts are required? (multi-select)" },
+    multi: true,
+    volume: { quick: false, standard: false, deep: true },
+    options: [
+      { id: "a", label: { ja: "入場演出系（page-loader / opening-sequence / page-transition）", en: "Entry effects (loader / opening / transition)" } },
+      { id: "b", label: { ja: "ナビ系（nav-header / nav-link / sp-menu）", en: "Navigation (nav-header / nav-link / sp-menu)" } },
+      { id: "c", label: { ja: "KV系（kv-hero / hero-title / scroll-indicator）", en: "Key visual (kv-hero / hero-title / scroll-indicator)" } },
+      { id: "d", label: { ja: "コンテンツ系（section-heading / card-item / cta-button）", en: "Content (section-heading / card-item / cta-button)" } },
+      { id: "e", label: { ja: "その他（自由入力で個別パーツ名を列挙）", en: "Other (list specific part names)" }, freetext: true }
+    ]
+  },
+  {
+    id: "Q-tech-01", layer: "technical", order: 1,
+    prompt: { ja: "優先するデバイス環境は？", en: "Which device environment is the priority?" },
+    multi: false,
+    volume: { quick: false, standard: true, deep: true },
+    options: [
+      { id: "a", label: { ja: "モバイル優先（SP UX が最重要）", en: "Mobile-first (SP UX top priority)" } },
+      { id: "b", label: { ja: "デスクトップ優先（PC UX が最重要）", en: "Desktop-first (PC UX top priority)" } },
+      { id: "c", label: { ja: "両立（SP/PC 等しく作り込む）", en: "Both equally" } },
+      { id: "d", label: { ja: "SP 専用（PC 表示は最低限）", en: "SP only (minimal PC support)" } },
+      { id: "e", label: { ja: "その他（自由入力）", en: "Other (free input)" }, freetext: true }
+    ]
+  },
+  {
+    id: "Q-tech-02", layer: "technical", order: 2,
+    prompt: { ja: "外部ライブラリ・サービスの許容度は？", en: "How tolerant of external libraries / services?" },
+    multi: false,
+    volume: { quick: false, standard: false, deep: true },
+    options: [
+      { id: "a", label: { ja: "依存ゼロ（CDN含めて外部リソース禁止）", en: "Zero deps (no CDN, no external resources)" } },
+      { id: "b", label: { ja: "限定的（Google Fonts / 軽量CDNのみ可）", en: "Limited (Google Fonts / light CDN only)" } },
+      { id: "c", label: { ja: "自由（GSAP / Three.js 等含めて目的次第）", en: "Free (GSAP / Three.js etc. as needed)" } },
+      { id: "d", label: { ja: "その他（自由入力）", en: "Other (free input)" }, freetext: true }
+    ]
+  },
+  {
+    id: "Q-corporate-01", layer: "corporate", order: 1, appliesTo: ["corporate"],
+    prompt: { ja: "会社の現在地をどう見せたいか", en: "How should the company's current stage be shown?" },
+    multi: false, volume: { quick: false, standard: true, deep: true },
+    options: [
+      { id: "a", label: { ja: "堅実に成長している", en: "Steadily growing" } },
+      { id: "b", label: { ja: "変革期にある", en: "In transition" } },
+      { id: "c", label: { ja: "新しく挑戦している", en: "Taking on new challenges" } },
+      { id: "d", label: { ja: "成熟した専門家集団", en: "Mature expert organization" } },
+      { id: "e", label: { ja: "その他（自由入力）", en: "Other (free input)" }, freetext: true }
+    ]
+  },
+  {
+    id: "Q-corporate-02", layer: "corporate", order: 2, appliesTo: ["corporate"],
+    prompt: { ja: "信頼の根拠として最も見せたいものは何か（複数選択可）", en: "What should prove trust? (multi-select)" },
+    multi: true, volume: { quick: false, standard: true, deep: true },
+    options: [
+      { id: "a", label: { ja: "実績", en: "Results" } },
+      { id: "b", label: { ja: "導入事例", en: "Case studies" } },
+      { id: "c", label: { ja: "技術力", en: "Technical capability" } },
+      { id: "d", label: { ja: "人", en: "People" } },
+      { id: "e", label: { ja: "歴史", en: "History" } },
+      { id: "f", label: { ja: "その他（自由入力）", en: "Other (free input)" }, freetext: true }
+    ]
+  },
+  {
+    id: "Q-corporate-03", layer: "corporate", order: 3, appliesTo: ["corporate"],
+    prompt: { ja: "優先して読ませたい情報は何か（複数選択可）", en: "What content should be prioritized? (multi-select)" },
+    multi: true, volume: { quick: false, standard: false, deep: true },
+    options: [
+      { id: "a", label: { ja: "事業内容", en: "Business overview" } },
+      { id: "b", label: { ja: "導入事例・実績", en: "Case studies / proof" } },
+      { id: "c", label: { ja: "採用情報", en: "Recruiting" } },
+      { id: "d", label: { ja: "会社概要・代表メッセージ", en: "Company profile / message" } },
+      { id: "e", label: { ja: "問い合わせ導線", en: "Contact path" } },
+      { id: "f", label: { ja: "その他（自由入力）", en: "Other (free input)" }, freetext: true }
+    ]
+  },
+  {
+    id: "Q-corporate-04", layer: "corporate", order: 4, appliesTo: ["corporate"],
+    prompt: { ja: "企業サイトとしてどこまで遊んでよいか", en: "How playful can the corporate site be?" },
+    kind: "scale", multi: false, volume: { quick: false, standard: false, deep: true },
+    options: []
+  },
+  {
+    id: "Q-corporate-05", layer: "corporate", order: 5, appliesTo: ["corporate"],
+    prompt: { ja: "最も重視するステークホルダーは誰か", en: "Which stakeholder matters most?" },
+    multi: false, volume: { quick: false, standard: true, deep: true },
+    options: [
+      { id: "a", label: { ja: "顧客", en: "Customers" } },
+      { id: "b", label: { ja: "採用候補者", en: "Candidates" } },
+      { id: "c", label: { ja: "投資家・パートナー", en: "Investors / partners" } },
+      { id: "d", label: { ja: "既存社員", en: "Employees" } },
+      { id: "e", label: { ja: "その他（自由入力）", en: "Other (free input)" }, freetext: true }
+    ]
+  },
+  {
+    id: "Q-lp-01", layer: "lp", order: 1, appliesTo: ["lp"],
+    prompt: { ja: "何を訴求する LP か", en: "What is the LP offering?" },
+    multi: false, volume: { quick: false, standard: true, deep: true },
+    options: [
+      { id: "a", label: { ja: "商品・サービス", en: "Product / service" } },
+      { id: "b", label: { ja: "イベント・キャンペーン", en: "Event / campaign" } },
+      { id: "c", label: { ja: "ブランド・世界観", en: "Brand / world view" } },
+      { id: "d", label: { ja: "採用・説明会", en: "Recruiting / briefing" } },
+      { id: "e", label: { ja: "その他（自由入力）", en: "Other (free input)" }, freetext: true }
+    ]
+  },
+  {
+    id: "Q-lp-02", layer: "lp", order: 2, appliesTo: ["lp"],
+    prompt: { ja: "コンバージョンの種類は何か", en: "What type of conversion is needed?" },
+    multi: false, volume: { quick: false, standard: true, deep: true },
+    options: [
+      { id: "a", label: { ja: "購入", en: "Purchase" } },
+      { id: "b", label: { ja: "問い合わせ", en: "Contact" } },
+      { id: "c", label: { ja: "資料請求", en: "Download request" } },
+      { id: "d", label: { ja: "予約・申込", en: "Booking / signup" } },
+      { id: "e", label: { ja: "その他（自由入力）", en: "Other (free input)" }, freetext: true }
+    ]
+  },
+  {
+    id: "Q-lp-03", layer: "lp", order: 3, appliesTo: ["lp"],
+    prompt: { ja: "常設・期間限定・イベント・新商品など、文脈は何か", en: "What is the campaign context?" },
+    multi: false, volume: { quick: false, standard: true, deep: true },
+    options: [
+      { id: "a", label: { ja: "常設", en: "Evergreen" } },
+      { id: "b", label: { ja: "期間限定", en: "Limited-time" } },
+      { id: "c", label: { ja: "イベント", en: "Event" } },
+      { id: "d", label: { ja: "新商品", en: "New product" } },
+      { id: "e", label: { ja: "その他（自由入力）", en: "Other (free input)" }, freetext: true }
+    ]
+  },
+  {
+    id: "Q-lp-04", layer: "lp", order: 4, appliesTo: ["lp"],
+    prompt: { ja: "何で納得させたいか（複数選択可）", en: "What should persuade visitors? (multi-select)" },
+    multi: true, volume: { quick: false, standard: false, deep: true },
+    options: [
+      { id: "a", label: { ja: "機能・性能", en: "Features / performance" } },
+      { id: "b", label: { ja: "実績・証拠", en: "Proof / track record" } },
+      { id: "c", label: { ja: "感情・共感", en: "Emotion / empathy" } },
+      { id: "d", label: { ja: "価格・お得感", en: "Price / value" } },
+      { id: "e", label: { ja: "限定性・緊急性", en: "Scarcity / urgency" } },
+      { id: "f", label: { ja: "その他（自由入力）", en: "Other (free input)" }, freetext: true }
+    ]
+  },
+  {
+    id: "Q-lp-05", layer: "lp", order: 5, appliesTo: ["lp"],
+    prompt: { ja: "どの順で理解・納得・行動へ進めたいか", en: "What scroll story should lead to action?" },
+    multi: false, volume: { quick: false, standard: false, deep: true },
+    options: [
+      { id: "a", label: { ja: "課題提示 → 解決策 → 証拠 → CTA", en: "Problem -> solution -> proof -> CTA" } },
+      { id: "b", label: { ja: "世界観 → 商品理解 → 利用シーン → CTA", en: "World -> product -> use case -> CTA" } },
+      { id: "c", label: { ja: "ベネフィット → 詳細 → 比較 → CTA", en: "Benefit -> details -> comparison -> CTA" } },
+      { id: "d", label: { ja: "キャンペーン訴求 → 限定性 → 申込", en: "Campaign -> scarcity -> signup" } },
+      { id: "e", label: { ja: "その他（自由入力）", en: "Other (free input)" }, freetext: true }
+    ]
+  },
+  {
+    id: "Q-lp-06", layer: "lp", order: 6, appliesTo: ["lp"],
+    prompt: { ja: "CTA はどれくらい強く出すべきか", en: "How strong should the CTA be?" },
+    kind: "scale", multi: false, volume: { quick: false, standard: false, deep: true },
+    options: []
+  },
+  {
+    id: "Q-ec-01", layer: "ec", order: 1, appliesTo: ["ec"],
+    prompt: { ja: "商品数は単品・少数・多数のどれに近いか", en: "How many products are there?" },
+    multi: false, volume: { quick: false, standard: true, deep: true },
+    options: [
+      { id: "a", label: { ja: "単品", en: "Single product" } },
+      { id: "b", label: { ja: "少数", en: "A few products" } },
+      { id: "c", label: { ja: "多数", en: "Many products" } },
+      { id: "d", label: { ja: "その他（自由入力）", en: "Other (free input)" }, freetext: true }
+    ]
+  },
+  {
+    id: "Q-ec-02", layer: "ec", order: 2, appliesTo: ["ec"],
+    prompt: { ja: "探索型・指名買い・比較型のどれが中心か", en: "What browsing style is primary?" },
+    multi: false, volume: { quick: false, standard: true, deep: true },
+    options: [
+      { id: "a", label: { ja: "探索型", en: "Discovery" } },
+      { id: "b", label: { ja: "指名買い", en: "Direct purchase" } },
+      { id: "c", label: { ja: "比較型", en: "Comparison" } },
+      { id: "d", label: { ja: "その他（自由入力）", en: "Other (free input)" }, freetext: true }
+    ]
+  },
+  {
+    id: "Q-ec-03", layer: "ec", order: 3, appliesTo: ["ec"],
+    prompt: { ja: "購入前の不安を消すために必要な情報は何か（複数選択可）", en: "What information removes purchase anxiety? (multi-select)" },
+    multi: true, volume: { quick: false, standard: true, deep: true },
+    options: [
+      { id: "a", label: { ja: "返品・保証", en: "Returns / warranty" } },
+      { id: "b", label: { ja: "レビュー", en: "Reviews" } },
+      { id: "c", label: { ja: "配送", en: "Shipping" } },
+      { id: "d", label: { ja: "素材・仕様", en: "Materials / specs" } },
+      { id: "e", label: { ja: "支払い安全性", en: "Payment security" } },
+      { id: "f", label: { ja: "その他（自由入力）", en: "Other (free input)" }, freetext: true }
+    ]
+  },
+  {
+    id: "Q-ec-04", layer: "ec", order: 4, appliesTo: ["ec"],
+    prompt: { ja: "商品写真・ブランド世界観・価格訴求のどれを優先するか", en: "What should be visually prioritized?" },
+    multi: false, volume: { quick: false, standard: false, deep: true },
+    options: [
+      { id: "a", label: { ja: "商品写真を最優先", en: "Product photos first" } },
+      { id: "b", label: { ja: "ブランド世界観を最優先", en: "Brand world first" } },
+      { id: "c", label: { ja: "価格・キャンペーン訴求を最優先", en: "Price / campaign first" } },
+      { id: "d", label: { ja: "レビュー・安心材料を最優先", en: "Reviews / trust first" } },
+      { id: "e", label: { ja: "その他（自由入力）", en: "Other (free input)" }, freetext: true }
+    ]
+  },
+  {
+    id: "Q-portfolio-01", layer: "portfolio", order: 1, appliesTo: ["portfolio"],
+    prompt: { ja: "誰のポートフォリオか", en: "Whose portfolio is it?" },
+    multi: false, volume: { quick: false, standard: true, deep: true },
+    options: [
+      { id: "a", label: { ja: "デザイナー", en: "Designer" } },
+      { id: "b", label: { ja: "エンジニア", en: "Engineer" } },
+      { id: "c", label: { ja: "クリエイター", en: "Creator" } },
+      { id: "d", label: { ja: "チーム・会社", en: "Team / company" } },
+      { id: "e", label: { ja: "その他（自由入力）", en: "Other (free input)" }, freetext: true }
+    ]
+  },
+  {
+    id: "Q-portfolio-02", layer: "portfolio", order: 2, appliesTo: ["portfolio"],
+    prompt: { ja: "何を実力の証明として見せたいか（複数選択可）", en: "What should prove capability? (multi-select)" },
+    multi: true, volume: { quick: false, standard: false, deep: true },
+    options: [
+      { id: "a", label: { ja: "完成作品", en: "Finished works" } },
+      { id: "b", label: { ja: "制作プロセス", en: "Process" } },
+      { id: "c", label: { ja: "成果数値", en: "Metrics" } },
+      { id: "d", label: { ja: "推薦・評価", en: "Testimonials" } },
+      { id: "e", label: { ja: "思想・文章", en: "Thinking / writing" } },
+      { id: "f", label: { ja: "その他（自由入力）", en: "Other (free input)" }, freetext: true }
+    ]
+  },
+  {
+    id: "Q-portfolio-03", layer: "portfolio", order: 3, appliesTo: ["portfolio"],
+    prompt: { ja: "一覧・詳細・ストーリーのどれを重視するか", en: "Which browsing depth matters most?" },
+    multi: false, volume: { quick: false, standard: true, deep: true },
+    options: [
+      { id: "a", label: { ja: "一覧", en: "Index" } },
+      { id: "b", label: { ja: "詳細", en: "Detail" } },
+      { id: "c", label: { ja: "ストーリー", en: "Story" } },
+      { id: "d", label: { ja: "その他（自由入力）", en: "Other (free input)" }, freetext: true }
+    ]
+  },
+  {
+    id: "Q-portfolio-04", layer: "portfolio", order: 4, appliesTo: ["portfolio"],
+    prompt: { ja: "本人性や個性をどの程度出すか", en: "How much personality should be visible?" },
+    kind: "scale", multi: false, volume: { quick: false, standard: false, deep: true },
+    options: []
+  },
+  {
+    id: "Q-expression-01", layer: "expression", order: 1,
+    prompt: { ja: "訪問後に何を覚えていてほしいか", en: "What should visitors remember afterward?" },
+    multi: false, volume: { quick: false, standard: true, deep: true },
+    options: [
+      { id: "a", label: { ja: "ブランド名・社名", en: "Brand / company name" } },
+      { id: "b", label: { ja: "独自の世界観", en: "Distinct world view" } },
+      { id: "c", label: { ja: "信頼できる理由", en: "Reason to trust" } },
+      { id: "d", label: { ja: "具体的な行動", en: "Concrete next action" } },
+      { id: "e", label: { ja: "その他（自由入力）", en: "Other (free input)" }, freetext: true }
+    ]
+  },
+  {
+    id: "Q-expression-02", layer: "expression", order: 2,
+    prompt: { ja: "感情の幅はどこに置きたいか（複数選択可）", en: "Where should the emotional range sit? (multi-select)" },
+    multi: true, volume: { quick: false, standard: true, deep: true },
+    options: [
+      { id: "a", label: { ja: "安心", en: "Calm" } },
+      { id: "b", label: { ja: "期待", en: "Expectation" } },
+      { id: "c", label: { ja: "高揚", en: "Energy" } },
+      { id: "d", label: { ja: "知的", en: "Intellectual" } },
+      { id: "e", label: { ja: "親近感", en: "Friendly" } },
+      { id: "f", label: { ja: "その他（自由入力）", en: "Other (free input)" }, freetext: true }
+    ]
+  },
+  {
+    id: "Q-expression-03", layer: "expression", order: 3,
+    prompt: { ja: "強い対比で見せるか、なじませて見せるか", en: "Should contrast be strong or blended?" },
+    multi: false, volume: { quick: false, standard: true, deep: true },
+    options: [
+      { id: "a", label: { ja: "強い対比", en: "Strong contrast" } },
+      { id: "b", label: { ja: "中間", en: "Balanced" } },
+      { id: "c", label: { ja: "なじませる", en: "Soft blend" } },
+      { id: "d", label: { ja: "その他（自由入力）", en: "Other (free input)" }, freetext: true }
+    ]
+  },
+  {
+    id: "Q-expression-04", layer: "expression", order: 4,
+    prompt: { ja: "情報密度はどれくらいが適切か", en: "How dense should the information be?" },
+    multi: false, volume: { quick: false, standard: false, deep: true },
+    options: [
+      { id: "a", label: { ja: "余白多め・要点をゆっくり読ませる（低密度寄り）", en: "Spacious, gradual reading (low density bias)" } },
+      { id: "b", label: { ja: "標準・バランス型", en: "Balanced / standard" } },
+      { id: "c", label: { ja: "詰めめ・一覧性とスキャンしやすさ重視（中〜高密度寄り）", en: "Tighter, scan-friendly (medium-high density bias)" } },
+      { id: "d", label: { ja: "情報量最優先・できるだけコンパクト（高密度寄り）", en: "Maximum info, compact layout (high density bias)" } },
+      { id: "e", label: { ja: "その他（自由入力）", en: "Other (free input)" }, freetext: true }
+    ]
+  },
+  {
+    id: "Q-expression-05", layer: "expression", order: 5,
+    prompt: { ja: "動きの役割は何か", en: "What role should motion play?" },
+    multi: false, volume: { quick: false, standard: true, deep: true },
+    options: [
+      { id: "a", label: { ja: "ほぼ不要", en: "Mostly unnecessary" } },
+      { id: "b", label: { ja: "理解を助ける", en: "Clarify understanding" } },
+      { id: "c", label: { ja: "印象を残す", en: "Leave an impression" } },
+      { id: "d", label: { ja: "操作感を高める", en: "Improve interaction feel" } },
+      { id: "e", label: { ja: "その他（自由入力）", en: "Other (free input)" }, freetext: true }
+    ]
+  },
+  {
+    id: "Q-expression-06", layer: "expression", order: 6,
+    prompt: { ja: "見た目で避けたい失敗例は何か", en: "What visual failures should be avoided?" },
+    multi: true, volume: { quick: false, standard: false, deep: true },
+    options: [
+      { id: "a", label: { ja: "安っぽく見える", en: "Looks cheap" } },
+      { id: "b", label: { ja: "情報が読みにくい", en: "Hard to read" } },
+      { id: "c", label: { ja: "既視感が強い", en: "Feels generic" } },
+      { id: "d", label: { ja: "演出が重い・邪魔", en: "Motion feels heavy / intrusive" } },
+      { id: "e", label: { ja: "ターゲットに幼く見える", en: "Feels too childish for the audience" } },
+      { id: "f", label: { ja: "その他（自由入力）", en: "Other (free input)" }, freetext: true }
+    ]
+  }
+];
+
+const I18N = {
+  ja: {
+    introTitle: "設問に答えていくと、最後に構造化された成果物が生成される",
+    introBody: "各設問の選択肢を選び、必要に応じて最後の自由入力欄に補足を書いてください。",
+    introHint: "回答が完了したら、ページ下部の「完了 → 成果物生成」を押してね。",
+    freeNoteLabel: "補足（自由記述・任意）",
+    freeNotePh: "設問に収まらない要望・参考サイト名・避けたい表現など",
+    progress: "回答済み",
+    submit: "完了 → 成果物生成",
+    answered: "回答済み",
+    outputTitle: "成果物生成完了 — クリップボードにコピーしたよ。",
+    copied: "コピーしたよ",
+    promptHeader: "# Design Brief",
+    settings: "設定",
+    answerLog: "回答ログ",
+    options: "提示された選択肢",
+    selected: "選択",
+    freenoteSection: "ユーザー追記",
+    confirmVolumeChange: "ボリュームを変えると現在の回答がすべて消えます。続行しますか？"
+  },
+  en: {
+    introTitle: "Answer the questions, then structured content will be generated",
+    introBody: "Choose options for each question, and add details in the final free-input field when needed.",
+    introHint: "When done, press 'Done → Generate Content' at the bottom.",
+    freeNoteLabel: "Free note (optional)",
+    freeNotePh: "Anything that doesn't fit the questions — reference sites, things to avoid, etc.",
+    progress: "answered",
+    submit: "Done → Generate Content",
+    answered: "answered",
+    outputTitle: "Content generated — copied to clipboard. ",
+    copied: "Copied",
+    promptHeader: "# Design Brief",
+    settings: "Settings",
+    answerLog: "Answer log",
+    options: "Options shown",
+    selected: "Selected",
+    freenoteSection: "User notes",
+    confirmVolumeChange: "Changing the volume will discard all current answers. Continue?"
+  }
+};
+
+const state = {
+  lang: "ja",
+  volume: "deep",
+  answers: {}
+};
+
+function readHash() {
+  const hash = location.hash.replace(/^#/, "");
+  const params = {};
+  hash.split("&").forEach(pair => {
+    const [k, v] = pair.split("=");
+    if (k) params[decodeURIComponent(k)] = decodeURIComponent(v || "");
+  });
+  return params;
+}
+
+function applyHash() {
+  const p = readHash();
+  if (p.volume && ["quick", "standard", "deep"].includes(p.volume)) state.volume = p.volume;
+  if (p.lang && ["ja", "en"].includes(p.lang)) state.lang = p.lang;
+}
+
+function getQuestionsForVolume() {
+  const use = getSelectedUse();
+  const visible = QUESTIONS.filter(q => q.volume[state.volume] && (!q.appliesTo || q.appliesTo.includes(use)));
+  const first = visible.filter(q => q.id === "Q-intent-01");
+  const branch = visible.filter(q => q.appliesTo && q.appliesTo.includes(use));
+  const rest = visible.filter(q => q.id !== "Q-intent-01" && !(q.appliesTo && q.appliesTo.includes(use)));
+  return first.concat(branch, rest);
+}
+
+function t(key) { return I18N[state.lang][key]; }
+
+function getSelectedUse() {
+  const answer = state.answers["Q-intent-01"];
+  if (!answer || !answer.id) return "";
+  return { a: "corporate", b: "lp", c: "ec", d: "portfolio", e: "other" }[answer.id] || "";
+}
+
+/**
+ * 左（general）: 通常設問・抽象的なトーン・感情・情報設計など
+ * 右（concrete）: フォント／配色・明度・質感、モーションのテンポ・性格、許容ライブラリ等（具体仕様）
+ */
+const QUESTION_IDS_CONCRETE_COLUMN = new Set([
+  "Q-mood-01",
+  "Q-mood-02",
+  "Q-visual-01",
+  "Q-visual-02",
+  "Q-visual-03",
+  "Q-type-01",
+  "Q-type-02",
+  "Q-motion-01",
+  "Q-motion-02",
+  "Q-motion-03",
+  "Q-tech-01",
+  "Q-tech-02"
+]);
+
+function questionColumn(q) {
+  return QUESTION_IDS_CONCRETE_COLUMN.has(q.id) ? "concrete" : "general";
+}
+
+// 注記: 本ファイル内で `innerHTML` に流し込む文字列は、すべて QUESTIONS 配列のリテラル
+// （prompt / label / id / layer）に限定されています。hash パラメータや user 入力の値は
+// 一切 innerHTML に注入していません。将来 hash 由来や DOM 経由の動的データを扱う場合は
+// textContent / setAttribute に切り替えるか、入念にエスケープしてください。
+function renderQuestions() {
+  const generalCol = document.getElementById("questions-col-general");
+  const concreteCol = document.getElementById("questions-col-concrete");
+  if (generalCol) generalCol.innerHTML = "";
+  if (concreteCol) concreteCol.innerHTML = "";
+  const list = getQuestionsForVolume();
+  list.forEach((q, idx) => {
+    const card = document.createElement("div");
+    card.className = "question";
+    card.dataset.qid = q.id;
+
+    const meta = document.createElement("div");
+    meta.className = "q-meta";
+    meta.innerHTML = `<span class="qid">${q.id}</span><span class="layer-tag">${q.layer}</span><span>${idx + 1} / ${list.length}</span>`;
+    card.appendChild(meta);
+
+    const prompt = document.createElement("div");
+    prompt.className = "prompt";
+    prompt.textContent = q.prompt[state.lang];
+    card.appendChild(prompt);
+
+    if (q.kind === "text") {
+      const ta = document.createElement("textarea");
+      ta.className = "text-input";
+      ta.placeholder = state.lang === "ja" ? "自由に入力" : "Free input";
+      ta.value = state.answers[q.id] && state.answers[q.id].text ? state.answers[q.id].text : "";
+      ta.addEventListener("input", () => onTextChange(q, ta));
+      card.appendChild(ta);
+    } else if (q.kind === "scale") {
+      const savedValue = state.answers[q.id] && state.answers[q.id].value ? state.answers[q.id].value : "3";
+      const scale = document.createElement("div");
+      scale.className = "scale-input";
+      scale.innerHTML = `<input type="range" min="1" max="5" value="${savedValue}" name="${q.id}"><strong>${savedValue}</strong>`;
+      const input = scale.querySelector("input");
+      const output = scale.querySelector("strong");
+      input.addEventListener("input", () => {
+        output.textContent = input.value;
+        onScaleChange(q, input);
+      });
+      card.appendChild(scale);
+      onScaleChange(q, input);
+    } else {
+      const opts = document.createElement("div");
+      opts.className = "options";
+      q.options.filter(opt => !opt.freetext).forEach(opt => {
+        const wrap = document.createElement("div");
+        wrap.className = "option";
+        const inputType = q.multi ? "checkbox" : "radio";
+        const inputId = `${q.id}-${opt.id}`;
+        const label = opt.label[state.lang];
+        wrap.innerHTML = `
+          <input type="${inputType}" name="${q.id}" id="${inputId}" value="${opt.id}">
+          <label for="${inputId}">${label}</label>
+        `;
+        const input = wrap.querySelector("input");
+        const saved = state.answers[q.id];
+        if ((q.multi && saved && saved.ids && saved.ids.includes(opt.id)) || (!q.multi && saved && saved.id === opt.id)) {
+          input.checked = true;
+          wrap.classList.add("checked");
+        }
+        input.addEventListener("change", () => onAnswerChange(q, opt, wrap));
+        opts.appendChild(wrap);
+      });
+      opts.appendChild(renderFreeOption(q));
+      card.appendChild(opts);
+    }
+
+    const target = questionColumn(q) === "concrete" ? concreteCol : generalCol;
+    if (target) target.appendChild(card);
+  });
+  updateProgress();
+}
+
+function renderFreeOption(q) {
+  const wrap = document.createElement("div");
+  wrap.className = "option free-option";
+  wrap.dataset.freeFor = q.id;
+  const inputId = `${q.id}-free`;
+  const freetextOption = q.options.find(opt => opt.freetext);
+  const label = freetextOption ? freetextOption.label[state.lang] : (state.lang === "ja" ? "自由入力" : "Free input");
+  wrap.innerHTML = `
+    <input type="checkbox" id="${inputId}" value="free">
+    <label for="${inputId}">${label}</label>
+    <textarea class="freetext-input" placeholder="${state.lang === "ja" ? "補足があれば入力" : "Add details if needed"}"></textarea>
+  `;
+  const input = wrap.querySelector("input");
+  const ta = wrap.querySelector(".freetext-input");
+  const saved = state.answers[q.id];
+  if (saved && saved.freeText) {
+    ta.value = saved.freeText;
+    setFreeOptionOpen(q, wrap, true);
+  }
+  input.addEventListener("change", () => {
+    setFreeOptionOpen(q, wrap, input.checked);
+    updateProgress();
+  });
+  ta.addEventListener("focus", () => setFreeOptionOpen(q, wrap, true));
+  ta.addEventListener("input", () => onFreetextChange(q, wrap, ta));
+  return wrap;
+}
+
+function onAnswerChange(q, opt, wrap) {
+  const card = document.querySelector(`.question[data-qid="${q.id}"]`);
+  const freeText = state.answers[q.id] && state.answers[q.id].freeText ? state.answers[q.id].freeText : "";
+  if (q.multi) {
+    state.answers[q.id] = state.answers[q.id] || { ids: [], freeText: "" };
+    const checked = wrap.querySelector("input").checked;
+    const ids = state.answers[q.id].ids;
+    if (checked && !ids.includes(opt.id)) ids.push(opt.id);
+    if (!checked) state.answers[q.id].ids = ids.filter(i => i !== opt.id);
+  } else {
+    state.answers[q.id] = { id: opt.id, freeText };
+    card.querySelectorAll(".option:not(.free-option)").forEach(o => o.classList.remove("checked"));
+  }
+  wrap.classList.toggle("checked", wrap.querySelector("input").checked);
+  if (q.id === "Q-intent-01") renderQuestions();
+  updateProgress();
+}
+
+function setFreeOptionOpen(q, wrap, isOpen) {
+  if (!wrap) return;
+  const input = wrap.querySelector("input");
+  input.checked = isOpen;
+  wrap.classList.toggle("checked", isOpen);
+  state.answers[q.id] = state.answers[q.id] || (q.multi ? { ids: [], freeText: "" } : { id: "", freeText: "" });
+}
+
+function onFreetextChange(q, wrap, ta) {
+  setFreeOptionOpen(q, wrap, true);
+  if (q.multi) {
+    state.answers[q.id] = state.answers[q.id] || { ids: [], freeText: "" };
+    state.answers[q.id].freeText = ta.value;
+  } else {
+    state.answers[q.id] = state.answers[q.id] || { id: "", freeText: "" };
+    state.answers[q.id].freeText = ta.value;
+  }
+  updateProgress();
+}
+
+function onTextChange(q, ta) {
+  state.answers[q.id] = { text: ta.value };
+  updateProgress();
+}
+
+function onScaleChange(q, input) {
+  state.answers[q.id] = { value: input.value };
+  updateProgress();
+}
+
+function updateProgress() {
+  const list = getQuestionsForVolume();
+  const answered = list.filter(q => {
+    const a = state.answers[q.id];
+    if (!a) return false;
+    if (q.kind === "text") return !!a.text && !!a.text.trim();
+    if (q.kind === "scale") return !!a.value;
+    if (q.multi) return (a.ids && a.ids.length > 0) || !!(a.freeText && a.freeText.trim());
+    return !!a.id || !!(a.freeText && a.freeText.trim());
+  }).length;
+  document.getElementById("progress").innerHTML = `<strong>${answered}</strong> / ${list.length}`;
+  document.getElementById("submit-btn").disabled = answered === 0;
+}
+
+function generateContent() {
+  const list = getQuestionsForVolume();
+  const answers = list.map(q => buildAnswerLog(q));
+  const lines = [];
+  lines.push(`# Design Brief v2 — ${new Date().toISOString()}`);
+  lines.push("");
+  lines.push(`## ${t("settings")}`);
+  lines.push(`- Volume: ${state.volume}`);
+  lines.push(`- Language: ${state.lang}`);
+  lines.push(`- Selected use: ${getSelectedUse() || "(unknown)"}`);
+  lines.push("");
+  lines.push("## answers");
+  lines.push("");
+  answers.forEach(answer => {
+    lines.push(`### ${answer.id}: ${answer.question}`);
+    lines.push(`- layer: ${answer.layer}`);
+    lines.push(`- answer_type: ${answer.answer_type}`);
+    if (answer.options.length) {
+      lines.push(`- ${t("options")}:`);
+      answer.options.forEach(opt => lines.push(`  - ${opt.id.toUpperCase()}. ${opt.label}`));
+    }
+    lines.push(`- ${t("selected")}: ${answer.raw_answer || "(skipped)"}`);
+    if (answer.free_text) lines.push(`  - freetext: ${answer.free_text}`);
+    lines.push("");
+  });
+  lines.push("## contradictions");
+  lines.push("");
+  lines.push("- []");
+  lines.push("");
+  lines.push("## assumptions");
+  lines.push("");
+  lines.push("- 分岐質問は選択された用途に応じて表示される");
+  lines.push("");
+  lines.push("## followups");
+  lines.push("");
+  lines.push("- []");
+  lines.push("");
+  const note = document.getElementById("free-note").value.trim();
+  lines.push(`## ${t("freenoteSection")}`);
+  lines.push(note || "(none)");
+  lines.push("");
+  return lines.join("\n");
+}
+
+function buildAnswerLog(q) {
+  const a = state.answers[q.id] || {};
+  const options = q.options.filter(opt => !opt.freetext).map(opt => ({ id: opt.id, label: opt.label[state.lang] }));
+  let raw = "";
+  let freeText = a.freeText || "";
+  if (q.kind === "text") {
+    raw = (a.text || "").trim();
+  } else if (q.kind === "scale") {
+    raw = a.value || "";
+  } else if (q.multi) {
+    raw = (a.ids || []).map(id => {
+      const opt = q.options.find(item => item.id === id);
+      return opt ? `${id.toUpperCase()}. ${opt.label[state.lang]}` : id.toUpperCase();
+    }).join(", ");
+  } else if (a.id) {
+    const opt = q.options.find(item => item.id === a.id);
+    raw = opt ? `${a.id.toUpperCase()}. ${opt.label[state.lang]}` : a.id.toUpperCase();
+  }
+  if (freeText) raw = raw ? `${raw} / freetext: ${freeText}` : `freetext: ${freeText}`;
+  return {
+    id: q.id,
+    layer: q.layer,
+    question: q.prompt[state.lang],
+    answer_type: q.kind || (q.multi ? "multi" : "single"),
+    options,
+    raw_answer: raw,
+    free_text: freeText
+  };
+}
+
+function showOutput(text) {
+  let box = document.getElementById("output-box");
+  if (!box) {
+    box = document.createElement("div");
+    box.className = "output";
+    box.id = "output-box";
+    box.innerHTML = `
+      <h2 id="output-title"></h2>
+      <textarea readonly id="output-text"></textarea>
+      <p class="copied" id="output-copied"></p>
+    `;
+    document.querySelector("main").appendChild(box);
+  }
+  document.getElementById("output-title").textContent = t("outputTitle");
+  document.getElementById("output-text").value = text;
+  document.getElementById("output-copied").textContent = "✓ " + t("copied");
+  box.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function copyToClipboard(text) {
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).catch(() => fallbackCopy(text));
+  } else {
+    fallbackCopy(text);
+  }
+}
+
+function fallbackCopy(text) {
+  const ta = document.createElement("textarea");
+  ta.value = text;
+  ta.style.position = "fixed";
+  ta.style.left = "-9999px";
+  document.body.appendChild(ta);
+  ta.select();
+  try { document.execCommand("copy"); } catch (e) {}
+  document.body.removeChild(ta);
+}
+
+function showToast(msg) {
+  const toast = document.getElementById("toast");
+  toast.textContent = msg;
+  toast.classList.add("show");
+  setTimeout(() => toast.classList.remove("show"), 2200);
+}
+
+function applyLang() {
+  document.documentElement.lang = state.lang;
+  document.getElementById("intro-title").textContent = t("introTitle");
+  document.getElementById("intro-body").textContent = t("introBody");
+  document.getElementById("intro-hint").textContent = t("introHint");
+  document.getElementById("free-note-label").textContent = t("freeNoteLabel");
+  document.getElementById("free-note").placeholder = t("freeNotePh");
+  document.getElementById("submit-btn").textContent = t("submit");
+  renderQuestions();
+}
+
+function init() {
+  applyHash();
+  document.getElementById("volume-select").value = state.volume;
+  document.getElementById("lang-select").value = state.lang;
+  document.getElementById("volume-select").addEventListener("change", e => {
+    const hasAnswers = Object.keys(state.answers).length > 0;
+    if (hasAnswers && !confirm(t("confirmVolumeChange"))) {
+      e.target.value = state.volume;
+      return;
+    }
+    state.volume = e.target.value;
+    state.answers = {};
+    renderQuestions();
+  });
+  document.getElementById("lang-select").addEventListener("change", e => {
+    state.lang = e.target.value;
+    applyLang();
+  });
+  document.getElementById("submit-btn").addEventListener("click", () => {
+    const text = generateContent();
+    copyToClipboard(text);
+    showOutput(text);
+  });
+  applyLang();
+}
+
+init();
+</script>
+</body>
+</html>

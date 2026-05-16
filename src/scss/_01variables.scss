@@ -155,13 +155,11 @@
         --MY: 4rem;
         --PX2: calc(var(--PX) * 2);
         --gap: 1rem;
-        --PX: 1rem;
-        --PY: 1rem;
+        --PX: 1.5rem;
+        --PY: 1.5rem;
         --gapN: calc(var(--gap)*-1);
         --gapH: calc(var(--gap)/2);
         @media (min-width: 1024px){
-                --PX: 1.5rem;
-                --PY: 1.5rem;
                 --gap: 1.5rem;
         }
         @media (min-width: 768px){

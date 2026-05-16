@@ -20,6 +20,7 @@ import { DialogFull } from "../components/DialogFull";
 import Header from "../components/Header";
 import { Footer } from "../components/Footer";
 import { PageRoot } from "../components/PageRoot";
+import { BunmyakuTeaserSection } from "../components/BunmyakuTeaserSection";
 import { ScrollXSection } from "../components/ScrollXSection";
 import { useClientRuntime } from "../hooks/useClientRuntime";
 import { useHtmlRootClass } from "../hooks/useHtmlRootClass";
@@ -55,7 +56,7 @@ function Next() {
 	return (
 		<PageRoot
 			ref={ref}
-			className="PageRoot [--innerPX:--PX] [--Eng:--Jost] [--San:--Zen] [--h3FZ:1.5rem] [--dropBG:--WH] [--dropC:--TC] [--WTS:var(--tsw)_var(--TC30)]"
+			className="PageRoot [--innerPX:--PX] [--Eng:--Jost] [--San:--Zen] [--h3FZ:1.5em] [--dropBG:--WH] [--dropC:--TC] [--WTS:var(--tsw)_var(--TC30)]"
 		>
 			<Header className="NoLogo TopHidden mix-blend-difference text-WH" />
 
@@ -711,8 +712,10 @@ function Next() {
 					</section>
 				</ScrollXSection>
 
+				<BunmyakuTeaserSection className="out relative mt-0    grid" />
+
 				{/* OtherWorks */}
-				<section className="Wrap into text-center mt-0">
+				<section className="pb-[--MY]  text-center mt-[-25lvh]">
 					<h2 className="mindWobble font-thin">Other Works</h2>
 					<Cards className="mt-0 col3 [--gap:0px] bp-lg text-left [--btnW:50%] md:[--btnH:3em] leading-[1.75em] BorderT BorderL">
 						<CardsItem

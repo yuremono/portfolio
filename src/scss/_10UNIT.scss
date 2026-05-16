@@ -1085,3 +1085,25 @@ $val in $imgW {
                 @apply -order-1 w-full sm:[order:revert] sm:w-[var(--imgW,calc(50%-var(--gap)/2))];
         }
 }
+
+:is(.BarBFAF, .BarBF, .BarAF){
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: .5rem;
+        @media (max-width: 640px){
+        }
+        &:before,
+        &:after{
+                content: "";
+                height: var(--bdw);
+                flex: 1;
+                background-color: var(--CC);
+        }
+}
+:is( .BarBF):after{
+        display: none;
+}
+:is(.BarAF):before{
+        display: none;
+}

@@ -33,6 +33,7 @@
 	color: var(--foreground);
 	font-style: normal;
 	background-color: var(--background);
+        transition: 600ms;
 }
 :root{
         --pageTR: 0.5s;

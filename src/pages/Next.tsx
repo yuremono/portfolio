@@ -637,7 +637,7 @@ function Next() {
 											or
 										</span>
 										<span
-											className="mindWobble text-right leading-[0.57em] tracking-[0.08em] WTS !text-[--BC]"
+											className="mindWobble text-right leading-[0.57em] tracking-[0.08em] "
 											style={{ fontSize: "3em" }}
 										>
 											Vault&nbsp;

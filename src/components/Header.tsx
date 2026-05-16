@@ -1,6 +1,10 @@
 // import type { CSSProperties } from "react";
 import { Link } from "react-router-dom";
-import { CaretUpIcon, CaretDownIcon ,ArrowSquareOutIcon} from "@phosphor-icons/react";
+import {
+	CaretUpIcon,
+	CaretDownIcon,
+	ArrowSquareOutIcon,
+} from "@phosphor-icons/react";
 
 function HeaderNav() {
 	return (
@@ -11,11 +15,8 @@ function HeaderNav() {
 			<li className="NavLi">
 				<Link to="/preview">BYOS</Link>
 			</li>
-			<li className="NavLi">
-				<Link to="/donut">Donut</Link>
-			</li>
-			<li className="NavLi">
-				<Link to="/rects">Generator</Link>
+			<li className="NavLi [font-family:--Ship]">
+				<Link to="/bunmyaku">文脈</Link>
 			</li>
 			<li className="NavLi NavDrop" aria-expanded="false">
 				<a className="DropA DropToggle " tabIndex={-1}>
@@ -131,6 +132,9 @@ function HeaderNav() {
 				<ul className="DropUl" aria-hidden="true" aria-label="close">
 					<li className="DropLi">
 						<Link to="/preview">BurnYourOwnStyle</Link>
+					</li>
+					<li className="DropLi [font-family:--Ship]">
+						<Link to="/bunmyaku">文脈</Link>
 					</li>
 					<li className="DropLi">
 						<Link to="/donut">

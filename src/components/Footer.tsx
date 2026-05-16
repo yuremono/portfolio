@@ -49,7 +49,10 @@ export function Footer({ className }: FooterProps) {
 				<ul className="flex flex-wrap gap md:justify-center mt-6">
 					<li className="">
 						<Link to="/preview">BurnYourOwnStyle</Link>
-					</li>
+                                        </li>
+					<li className="[font-family:--Ship]">
+                                        <Link to="/bunmyaku">文脈</Link>
+                                        </li>
 					<li className="">
 						<Link to="/donut">
 							Donut<small>(ADCMS)</small>

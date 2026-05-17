@@ -1,0 +1,17 @@
+src/pages/Examples.tsx
+  h_53dad1e32c3c71 45
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.8",
+  "base_commit_sha": "41d4078db83a90c589fe1b50a03f83975e4db9a8",
+  "prompts": {},
+  "humans": {
+    "h_53dad1e32c3c71": {
+      "author": "yuremono <5alviaofficinali50@gmail.com>"
+    },
+    "h_5a56918e6ebef3": {
+      "author": "yuremono"
+    }
+  }
+}

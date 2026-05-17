@@ -1,0 +1,135 @@
+.gitignore
+  s_d05a0bafa55724::t_af4a57c13bcc78 23-24
+src/pages/Examples.tsx
+  h_53dad1e32c3c71 35-42,45,243
+  s_fef4091f07ae20::t_a5d8b97ded2ec7 21
+  s_fef4091f07ae20::t_b7cad64740a23c 12
+  s_fef4091f07ae20::t_49ec1659b51f27 43
+src/pages/RepulsionLists/layout.ts
+  s_421332fd1104ac::t_43856a521e2fac 295-299,301-306,483,511-512
+  s_fef4091f07ae20::t_2b0e53bf837083 617-644
+  s_fef4091f07ae20::t_23b15ac6e48985 325
+  s_fef4091f07ae20::t_9a80b16b037cb8 457
+  s_fef4091f07ae20::t_92fd22b7f8b591 597
+  h_53dad1e32c3c71 300
+  s_fef4091f07ae20::t_2bebfc82d26a50 559
+  s_421332fd1104ac::t_171a08824bb673 25
+  s_fef4091f07ae20::t_c0641e22a7d047 453
+  s_fef4091f07ae20::t_ef5a98607825a6 12,91
+  s_fef4091f07ae20::t_6bba469b835e61 4,62-63,89,137,208,233,260,287,400,429,473-480,515,600
+  s_fef4091f07ae20::t_4541f4fc1e5ca1 67,216,403
+  s_fef4091f07ae20::t_7bf028d01b87fc 26-46,112-113,146,177-191,228-229,239-250,274-278,322,343-353,444-449,461-465,499-510,518,572-584,598
+  s_fef4091f07ae20::t_923f683bff6421 18,236,261
+  s_fef4091f07ae20::t_df8b698110a7c4 64,213
+  s_fef4091f07ae20::t_a8b402a10cc0dc 150-151
+src/pages/Next.tsx
+  h_53dad1e32c3c71 6-7,35-41,101-103,172-173,182,189,719-722,724
+src/pages/RepulsionLists/RepulsionListChip.tsx
+  s_fef4091f07ae20::t_eb61f50c432c9a 1-4,6-7,9-11,18-19,21,31-35,37-56,58-67,69-118,127-134,136-140,143,169-171
+  s_421332fd1104ac::t_8ef8b81ff79331 16,26,135
+  s_421332fd1104ac::t_1853892169dd08 15,17,25,27-29,57,68,151,162
+  s_421332fd1104ac::t_c580eff42abca4 36
+  s_421332fd1104ac::t_4974581bd0d23a 119-126
+  s_421332fd1104ac::t_6ff77e94a43ae9 30
+  s_421332fd1104ac::t_907968bc3efc5a 8
+  s_421332fd1104ac::t_dfbdae7887f919 5,12-14,20,22-24,144-150,152-158,160-161,164-165,167-168
+  h_53dad1e32c3c71 159,163,166
+  s_421332fd1104ac::t_5e5551429bcbeb 141-142
+src/pages/RepulsionLists/styles.ts
+  s_fef4091f07ae20::t_0892f9342b3a37 95-114,155-163,184,211,231-233
+  s_fef4091f07ae20::t_51a6d3a09a8b30 185-187
+  s_fef4091f07ae20::t_d9537cf02bf048 204,224
+  s_fef4091f07ae20::t_06b12b122514b9 85
+  s_fef4091f07ae20::t_4ee3550cb45697 92
+  s_fef4091f07ae20::t_8f5346389ab1e3 68,133,169
+  s_fef4091f07ae20::t_79b5f119f22bed 31
+  s_421332fd1104ac::t_23be9d8607e493 56-59
+  s_fef4091f07ae20::t_8e1080129e2265 125,147,151,176-180
+  s_fef4091f07ae20::t_4d99f10fad5d09 119,152
+  s_fef4091f07ae20::t_b5980b3926a9dd 1-2
+  s_fef4091f07ae20::t_24330ca9c5bc71 8,15
+  s_fef4091f07ae20::t_454937f418a53c 60
+  s_fef4091f07ae20::t_eb16365b94277c 80
+  s_fef4091f07ae20::t_6a4d06d0769e63 132,174
+  s_fef4091f07ae20::t_1909508a6ca3ef 37,172
+  s_fef4091f07ae20::t_a9f2c05764233e 166-167
+  s_fef4091f07ae20::t_589b8cd4393d9e 201,219
+  s_421332fd1104ac::t_0d7b2083c545d3 50,173
+  h_53dad1e32c3c71 3-6,13,29,35,40-41,46-47,51-54,69,75-79,89,93,120,143-145,149,153,171,216-218,221,226
+  s_fef4091f07ae20::t_56b11bf366cece 20
+  s_fef4091f07ae20::t_9b30ee8a6be248 134,168
+src/pages/RepulsionLists/RepulsionLists.tsx
+  s_421332fd1104ac::t_d9ef25655cd000 166,168,174,176,216-219,227,231
+  s_fef4091f07ae20::t_8e0f45ad4d44aa 54-56,59-60,63-66,69-70,84,87-91,104-107
+  s_fef4091f07ae20::t_f156620b850616 10,12-13,51-53,57-58,61-62,67-68,71-72,79-83,85-86,92-103,234-236,238-239
+  s_421332fd1104ac::t_155b94be1e4ecd 1-9,17-24,32-38,40-49,108-109,113-114,116-117,121,141-143,145,162-165,170-173,178-181,184-186,189,194-197,200,202,205,212-215,223,226,233
+  s_fef4091f07ae20::t_461cabb1998995 11
+  h_53dad1e32c3c71 14-16,50,73-78,115,118-120,122-140,144,167,175,182,187-188,201,203-204,209,220-222,224-225,228-230,232,237
+  s_421332fd1104ac::t_6cf85c24a68157 110-112,146-161,169,177,183,190-193,198-199,206-208,210-211
+  s_421332fd1104ac::t_12163a25d9d703 25-31,39
+src/components/BunmyakuTeaserSection.tsx
+  h_53dad1e32c3c71 31
+designs/1357.pen
+  s_d05a0bafa55724::t_4c06e22f010370 1-20,22-57,59-61,63-64,67-68,70-230,247-282,290-292,294-299,301-456,470-473,475-490,504-507,509-548,550-552,554-1100,1102,1104-3783,3785,3787-3818
+  s_d05a0bafa55724::t_df19b77f54d2b2 21,58,65-66,69,231-233,235-238,242,244-245,457,474,491,508,549,553,1101,1103,3784
+  s_d05a0bafa55724::t_64c725f3cff7d5 234,239-241,243,246,283,300,3786
+  s_d05a0bafa55724::t_ceef0b22e2ed56 284-289,293,458-469,492-503
+src/index.scss
+  h_53dad1e32c3c71 343-344,347,375
+.codex/skills/task-large/SKILL.md
+  h_53dad1e32c3c71 3
+AGENTS.md
+  s_421332fd1104ac::t_fe2d3fc1a1a116 67
+.codex/skills/recreate-module/SKILL.md
+  s_ea211a6adc6f6b::t_6f5a82eb067f91 41-42,87-108,122-123,128-130,150-151,180,182,195-196
+.codex/skills/Pencil/SKILL.md
+  s_d05a0bafa55724::t_c43997d39a8c72 1-299
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.8",
+  "base_commit_sha": "2b53af6245193d7ae61911ba79cb4981f026537b",
+  "prompts": {},
+  "humans": {
+    "h_53dad1e32c3c71": {
+      "author": "yuremono <5alviaofficinali50@gmail.com>"
+    },
+    "h_5a56918e6ebef3": {
+      "author": "yuremono"
+    }
+  },
+  "sessions": {
+    "s_421332fd1104ac": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019e34e7-2e6f-7d91-8ff6-ac6ada2463f0",
+        "model": "gpt-5.5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    },
+    "s_d05a0bafa55724": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019e3423-a25a-7aa0-b618-7f12a1364648",
+        "model": "gpt-5.5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    },
+    "s_ea211a6adc6f6b": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019e34ab-4331-7941-9b15-60c755ce5d67",
+        "model": "gpt-5.5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    },
+    "s_fef4091f07ae20": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "665e7957-2ed6-45fd-b57d-9d5e2460800b",
+        "model": "composer-2"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  }
+}

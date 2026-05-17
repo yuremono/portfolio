@@ -1,0 +1,30 @@
+AGENTS.md
+  h_53dad1e32c3c71 69,73
+.codex/skills/recreate-module/SKILL.md
+  s_d05a0bafa55724::t_b05960aa1dfb84 16
+  h_53dad1e32c3c71 10
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.8",
+  "base_commit_sha": "a5f3a35f37aed15e3f197b0265e125ca8370fbab",
+  "prompts": {},
+  "humans": {
+    "h_53dad1e32c3c71": {
+      "author": "yuremono <5alviaofficinali50@gmail.com>"
+    },
+    "h_5a56918e6ebef3": {
+      "author": "yuremono"
+    }
+  },
+  "sessions": {
+    "s_d05a0bafa55724": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019e3423-a25a-7aa0-b618-7f12a1364648",
+        "model": "gpt-5.5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  }
+}

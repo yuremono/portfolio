@@ -340,11 +340,11 @@ div.tp-lblv_v:has(.tp-radgridv) {
 	--mmWobbleFreqX: 0.0005;
 	--mmWobbleFreqY: 0.0003;
 
-                @media (max-width: 1560px) {
-                        --mmFZ: 1.5rem;
+                @media (max-width: 1440px) {
+                        --mmFZ: 1.25rem;
                 }
                 @media (max-width: 640px) {
-                        --mmFZ: 1.25rem;
+                        --mmFZ: 0.875rem;
                 }
         }
         .mindMap {
@@ -372,9 +372,7 @@ div.tp-lblv_v:has(.tp-radgridv) {
                 --mmWobbleAmpY: 32;
                 --mmWobbleFreqX: 0.0005;
                 --mmWobbleFreqY: 0.0003;
-                @media (max-width: 1200px) {
-                        font-size: calc(var(--mmFZ) * 4);
-                }
+                
         }
 
 

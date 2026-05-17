@@ -9,7 +9,7 @@ import { PathDraw } from "../components/PathDraw";
 import { LottieScroll } from "../components/LottieScroll";
 import { HoudiniGalleryCards } from "../components/HoudiniGalleryCards";
 import { useWaveHover } from "../components/WaveHover";
-import { OasizThreeCanvas } from "../components/OasizThreeCanvas";
+// import { OasizThreeCanvas } from "../components/OasizThreeCanvas";
 
 // Common
 import Header from "../components/Header";
@@ -18,6 +18,7 @@ import { Footer } from "../components/Footer";
 import { useClientRuntime } from "../hooks/useClientRuntime";
 import { useHtmlRootClass } from "../hooks/useHtmlRootClass";
 import { getAssetPath } from "../lib/assetPath";
+import { RepulsionLists } from "./RepulsionLists/RepulsionLists";
 
 function Examples() {
 	const pageRootRef = useRef<HTMLDivElement>(null);
@@ -31,9 +32,18 @@ function Examples() {
 			<Header className="" />
 
                         <main className="mt-[--head]">
-                                {/* OASIZ three.js canvas */}
-				<OasizThreeCanvas className="out "/>
-                                {/* WaveHover */}
+                        <div className="repulsion-lists-module mt-0 MY ">
+				<h2 className="">Repulsion lists</h2>
+				<p>
+					recreated from `https://www.shopify.com/editions/winter2026`
+				</p>
+				<RepulsionLists className="out px-[calc(var(--into)/2)] MY Eng font-light bg-GR"/>
+			</div>
+                                
+
+				{/* OASIZ three.js canvas */}
+				{/* <OasizThreeCanvas className="out " /> */}
+				{/* WaveHover */}
 				<div ref={waveHoverRef} className="WaveHover Wrap bg-GR/20 px-[--PX] md:px-0 mt-[100lvh]">
 					<ul>
 						<li className="relative w-full border-0 text-left md:border-t md:border-[--GR] md:last:border-b">
@@ -175,9 +185,7 @@ function Examples() {
 					</ul>
 				</div>
 
-				
-
-                                {/* MaskMosaique */}
+				{/* MaskMosaique */}
 				<section className="Wrap PX bg-TC text-[--WH] Eng">
 					<div className="Cards col4 MaskMosaique">
 						<div className="item bg-GR min-h-[30lvh] p-6">
@@ -232,7 +240,7 @@ function Examples() {
 						<span>FV向け調整</span>
 					</div>
 				</section>
-				
+
 				{/* Houdini Paint Worklet */}
 				<section className="out bg-BC Eng">
 					<HoudiniGalleryCards />

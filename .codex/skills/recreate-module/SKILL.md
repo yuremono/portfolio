@@ -38,6 +38,8 @@ description: 既存の公開URLから、Webサイトのセクション、視覚�
    - CSSも同じ重要度で見る。canvasの位置、opacity切替、pointer-events、responsive条件はCSS側にあることが多い。
    - **禁止**: minified bundle 内に対象の constructor / shader / geometry / animation 本体が見つかっているのに、構造だけを見て手書き近似へ置き換えない。
    - **必須**: minified bundle の該当コードを、移植前に利用可能な形へ処理する。該当シンボル周辺を十分広く切り出し、短縮名の依存対応表を作り、Three.js / GSAP / DOM API / 独自関数へ置き換えられる単位に整形してから実装する。
+   - **CSSも必須**: minified CSS も「読んだ」だけで終わらせない。対象ID、対象class、JSが付与する `data-*` / CSS custom properties / animation名 / utility class をキーに、使用ルールを抽出し、コピペ可能なCSSブロックまたは既存スタイルへ写せる対応表にしてから実装する。
+   - ランダム配置、磁力、衝突回避、接続線、mousemove 追従、初期安定化などは CSS と JS の組み合わせで成立することが多い。`transform`、`scale`、`opacity`、`transition`、`grid-template-rows`、`data-state`、CSS変数のどちらか片方だけを写して完成扱いにしない。
 
 5. 補助スクリプトで取得と検索をまとめる
    - `extract-sources.mjs` は、HTML、inline script/style、外部JS/CSS、CSS内URL、JS/CSS内の相対URL、`sourceMappingURL`、gzip済みテキストbundleを取得し、検索結果を `report.md` にまとめる。
@@ -82,6 +84,28 @@ rtk node .codex/skills/recreate-module/scripts/snip-source.mjs tmp/recreate-modu
 rtk rg -n "const ShaderName|function GeometryFn|createMeshLine|new [A-Za-z0-9_$]+\\(|uniforms|vertexShader|fragmentShader|requestAnimationFrame|mousemove|touchmove" tmp/recreate-module/example.com/constructor.snip.js tmp/recreate-module/example.com/shader.snip.js
 ```
 
+minified CSS の該当ルールを利用可能な状態に処理する手順:
+
+```bash
+rtk rg -n "TargetClass|target-id|data-state|animation-name|css-variable|transform|opacity|pointer-events" tmp/recreate-module/example.com/files/*.css
+rtk node - <<'NODE'
+const fs=require('fs');
+const css=fs.readFileSync('tmp/recreate-module/example.com/files/CANDIDATE.css','utf8');
+const keys=['target-id','target-class','data-state','animation-name','utility-class','css-variable'];
+for (const key of keys) {
+  const idx=css.indexOf(key);
+  if (idx>=0) console.log(`\n/* ${key} */\n`+css.slice(Math.max(0,idx-1800), Math.min(css.length,idx+3500)));
+}
+NODE
+```
+
+CSS処理で必ず作るもの:
+
+- `CSS対象ルール対応表`: 対象ID/class、JSが付与する `data-state`、CSS変数、animation/keyframes、responsive条件、utility class の実際の宣言値。
+- `CSS移植対象一覧`: layout、sizing、transform/scale、opacity、transition/easing/duration、pointer-events、overflow、position、z-index、font、color、background、border、keyframes。
+- `JS-CSS接続表`: JSが `style.setProperty()` する変数、JSが切り替える属性/class、CSSがそれをどう解釈するか。
+- `除外理由`: 元CSSを使わない場合は、既存プロジェクトCSSで代替できる根拠と、見た目や挙動に影響しない理由。
+
 この処理で必ず作るもの:
 
 - `対象シンボル対応表`: 例 `hn = ShaderMaterial`, `zt = Mesh`, `mi = PlaneGeometry`, `be = Vector2`, `X = Vector3`, `ln = PerspectiveCamera`, `Be = gsap`。
@@ -95,10 +119,15 @@ rtk rg -n "const ShaderName|function GeometryFn|createMeshLine|new [A-Za-z0-9_$]
    - hover preview: `mouseenter`, `mouseover`, `mouseleave`, `pointermove`, `dataset`, `data-`, `TextureLoader`
    - smooth scroll: `lenis`, `locomotive`, `scrollTo`, `wheel`, `transform`
    - image/media: `imagesLoaded`, `url(`, `srcset`, `crossOrigin`, `video`, `canvas`
+   - random/layout: `jitter`, `collision`, `repulsion`, `distance`, `getBoundingClientRect`, `requestAnimationFrame`, `IntersectionObserver`, `ResizeObserver`, `data-state`, `style.setProperty`, `transition`, `grid-template-rows`
+   - generated CSS: 対象class、Tailwind utility、arbitrary value、`@keyframes`、`@media`、CSS変数名、JSから参照される `data-*` セレクタ
 
 7. 移植する
    - 原則は、処理済みの minified bundle 該当コードを直訳移植する。該当箇所が多い、長い場合も、まず constructor / shader / geometry / render loop の中核を元コードの変数名・uniform名・attribute名に近い形で移植する。
    - 元コードをそのまま再現できない場合だけ縮約する。その場合も、縮約前に「どの元コードを捨てたか」「見た目にどう影響するか」を明記し、ユーザー確認なしに手書き近似へ切り替えない。
+   - CSSは抽出済みの元ルールを先に移植し、その後にプロジェクト都合のスコープ化や変数差し替えを行う。ブラウザで見つけた差分を1個ずつ手修正する前に、元CSS/JSの取りこぼしを疑う。
+   - ランダムに見えるレイアウトは、単なる乱数だけでなく、初回測定、安定化ループ、衝突回避、近接拡大、周辺要素の反発、接続線再描画、モバイル横ドラッグの組み合わせを直訳対象に含める。
+   - 元コードが `getBoundingClientRect()` を繰り返し使う場合、初回 `setTimeout` や1回だけの `requestAnimationFrame` に縮約しない。元実装の測定期間、安定判定、resize/scroll/mouse/touch listener、cleanup まで移植する。
    - その後の指示があった場合はそれに従う。
    - 必要な挙動、入力、状態遷移、cleanup、responsive gating を実装する。
    - 名前は対象サイト固有名ではなく、効果や役割を表す短い語にする。
@@ -118,6 +147,8 @@ rtk sed -n '1,220p' src/pages/PageName.tsx
    - build/test を通す。
    - hoverやmousemoveなど、元挙動で重要だった操作をブラウザで再確認する。
    - canvas/WebGLの場合は、canvas数、opacity、サイズ、ピクセルが非空であることも確認する。
+   - ブラウザ確認で差分が出たら、すぐに見た目を逐次手修正しない。まず「元JSの未移植処理」「元CSSの未抽出ルール」「JS-CSS接続の欠落」「DOM構造/属性の不一致」のどれかを再確認する。
+   - ユーザーが「ブラウザで見つかった箇所を直す方式を避ける」と指示している場合、差分を見つけた時点で一旦停止し、取りこぼし候補と次の抽出方針を報告する。
    - 最終報告では、参照した元ソースの場所と、再現したファイルを短く説明する。
 
 検証コマンド:
@@ -146,7 +177,9 @@ rtk agent-browser eval '({canvasCount: document.querySelectorAll("canvas").lengt
 [] 元サイトの表示DOM要素と構造が一致しているか
 [] inline scriptの初期化コードだけで止まらず、constructor本体がある外部bundleまで追ったか。
 [] minified bundle の該当コードを切り出し、短縮名の依存対応表を作り、利用可能な移植単位に処理したか。
+[] minified CSS の該当ルールを切り出し、CSS対象ルール対応表とJS-CSS接続表を作ったか。
 [] 対象の constructor / shader / geometry / render loop があるのに、手書き近似で置き換えていないか。
+[] ランダム/磁力/衝突回避/接続線/初期安定化など、レイアウトを作るJS処理をCSSだけ・HTMLだけで近似していないか。
 [] CSSのhover条件、fixed配置、responsive条件が一致しているか
 [] source map、gzip bundle、CDN/S3上のhelper bundleを確認したか。
 [] 操作中の歪みや遅延など、静止画では見えない差分を実カーソルで確認したか。
@@ -159,6 +192,8 @@ recreate-module どおり 抽出レポート → 該当バンドル特定 → sn
 
 ### 移植時
 minified の 短縮シンボル対応表（ju=パス生成、wb=ジオメトリ、Be=GSAP など）を前提にすると迷いが減る。
+CSSも同じ。minified CSS 内の対象 utility / keyframes / data-state ルールを対応表にしてから移植すると、目視差分を1つずつ潰す非効率を避けられる。
+ランダム配置は `Math.random` や seed だけではない。元実装が DOM 測定後に安定化ループ、衝突回避、反発、接続線再計算をしている場合、その一連の処理を移植対象に含める。
 シェーダは「整理」と「省略」を混同しない。例: permute(vec3) を落として コンパイルエラーになった。
 コピペだけでなく、Three のバージョン・結合順で壊れる部分（overload・precision）はビルド／コンソールで必ず確認する。
 

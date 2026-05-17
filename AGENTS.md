@@ -64,7 +64,7 @@
 - 全ての色は`/src/scss/_01variables.scss`の`oklch`で書かれた既存変数を使用する。透明度は`{name}/50`,WH50などで指定。
 例: `bg-MC`, `text-AC`,  `bg-background` 、透明度付きカラー指定: `MC/50` 
 - 変数をそのまま使用するクラスが`/src/index.scss`に書かれているので優先的に使う(`wid PX BorderXY BGgrad`等)
-- 新規コンポーネントは className?: string を受け取り、ルート要素へ className={className} で渡す（デフォルトのルート用クラスがない限り、結合ロジックは書かない）。
+- React コンポーネントを新規作成・編集するときは、外部から import して使う可能性があるコンポーネントに必ず `className?: string` を Props に含め、最外周のルート要素へ渡す。既定クラスがある場合は `["base-class", className].filter(Boolean).join(" ")` で結合し、既定クラスがない場合は `className={className}` をそのまま渡す。実装前と完了前にこの項目を確認する。
 - ユーザーの指示がないのに勝手に本ファイルを編集しない。
 - ブラウザ確認、ビルド、テストをユーザーの指示がない時に実行しない。問題が生じた時に実行すれば良い。
 

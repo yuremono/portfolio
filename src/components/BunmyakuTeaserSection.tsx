@@ -28,7 +28,7 @@ const COLOR_SCHEME = {
 
 const CANVAS_COLOR = {
 	// 通常時の canvas 色。既存変数は参照せず、--BC と同じベージュ寄りの色を直接指定します。
-	base: "oklch(99% 0.005 60)",
+	base: "oklch(80% 0.005 60)",
 	// COLOR_SCHEME が有効な間だけ使う canvas 色。以前の --foreground と同じ色です。
 	active: "oklch(0.9 0.02 235)",
 } as const;

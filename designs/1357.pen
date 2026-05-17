@@ -18,7 +18,7 @@
           "id": "xbleo",
           "x": 0,
           "y": 0,
-          "name": "10215_司法書士法人ロック",
+          "name": "10215_司法書士法人 澄和リーガル",
           "clip": true,
           "width": 1920,
           "height": 12148,
@@ -55,18 +55,18 @@
                   "id": "D4eKI",
                   "x": 0,
                   "y": 0,
-                  "name": "download 1",
+                  "name": "澄和リーガル ロゴマーク",
                   "fill": {
                     "type": "image",
                     "enabled": true,
-                    "url": "",
+                    "url": "./images/generated-1778994657679.png",
                     "mode": "fill"
                   },
-                  "width": 352,
-                  "height": 88,
+                  "width": 76,
+                  "height": 76,
                   "stroke": {
                     "align": "inside",
-                    "thickness": 1
+                    "thickness": 0
                   }
                 },
                 {
@@ -228,6 +228,22 @@
                       }
                     }
                   ]
+                },
+                {
+                  "type": "text",
+                  "id": "H8n2VW",
+                  "x": 88,
+                  "y": 11,
+                  "name": "司法書士法人 澄和リーガル",
+                  "fill": "#142b67ff",
+                  "textGrowth": "fixed-width-height",
+                  "width": 255,
+                  "height": 58,
+                  "content": "司法書士法人\n澄和リーガル",
+                  "lineHeight": 1.25,
+                  "fontFamily": "Noto Sans JP",
+                  "fontSize": 24,
+                  "fontWeight": "700"
                 }
               ]
             },
@@ -264,18 +280,24 @@
                       "id": "EGtDw",
                       "x": 0,
                       "y": 0,
-                      "name": "AdobeStock_380225371 1",
+                      "name": "司法書士 相談風景 メインビジュアル",
+                      "metadata": {
+                        "type": "unsplash",
+                        "username": "benjamin_photography",
+                        "link": "https://unsplash.com/@benjamin_photography",
+                        "author": "Benjamin Cheng"
+                      },
                       "fill": {
                         "type": "image",
                         "enabled": true,
-                        "url": "",
+                        "url": "https://images.unsplash.com/photo-1714150458873-715e134901a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3Nzg5OTQ2Mzl8&ixlib=rb-4.1.0&q=80&w=1080",
                         "mode": "fill"
                       },
                       "width": 1920,
                       "height": 850,
                       "stroke": {
                         "align": "inside",
-                        "thickness": 1
+                        "thickness": 0
                       }
                     }
                   ]
@@ -426,20 +448,30 @@
                   "x": 1734,
                   "y": 160,
                   "name": "Mask group",
-                  "opacity": 0.30000001192092896,
                   "children": [
                     {
                       "type": "ellipse",
                       "id": "6Ihw3",
                       "x": -90,
                       "y": 86,
-                      "name": "Ellipse 1",
-                      "fill": "#d9d9d9ff",
+                      "name": "相続書類 円形画像",
+                      "metadata": {
+                        "type": "unsplash",
+                        "username": "emmages",
+                        "link": "https://unsplash.com/@emmages",
+                        "author": "Emmanuel Ikwuegbu"
+                      },
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "https://images.unsplash.com/photo-1622555473213-4fc6bc77d1d7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3Nzg5OTQ2NDF8&ixlib=rb-4.1.0&q=80&w=1080",
+                        "mode": "fill"
+                      },
                       "width": 908,
                       "height": 879,
                       "stroke": {
                         "align": "inside",
-                        "thickness": 1
+                        "thickness": 0
                       }
                     }
                   ]
@@ -456,13 +488,24 @@
                       "id": "FK8nq",
                       "x": 273,
                       "y": -12,
-                      "name": "Ellipse 1",
-                      "fill": "#d9d9d9ff",
+                      "name": "相談風景 円形画像",
+                      "metadata": {
+                        "type": "unsplash",
+                        "username": "lycs",
+                        "link": "https://unsplash.com/@lycs",
+                        "author": "LYCS Architecture"
+                      },
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "https://images.unsplash.com/photo-1531973576160-7125cd663d86?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3Nzg5OTQ2NDB8&ixlib=rb-4.1.0&q=80&w=1080",
+                        "mode": "fill"
+                      },
                       "width": 902,
                       "height": 898,
                       "stroke": {
                         "align": "inside",
-                        "thickness": 1
+                        "thickness": 0
                       }
                     }
                   ]
@@ -503,11 +546,11 @@
                   "id": "yFbuV",
                   "x": 1436,
                   "y": 461,
-                  "name": "福岡県粕屋町に開設した司法書士法人ロックでは、相続登記や相続放棄をメインに相続関連の手続きをサポートしています。初めての方でも安心して手続きを進められるよう、戸籍収集や書類作成、家庭裁判所への申立まで一貫して丁寧に対応いたします。ご家族の大切な財産や権利を守るため、親身でわかりやすいサポートを心がけています。まずはお気軽にご相談ください。",
+                  "name": "福岡県粕屋町に開設した司法書士法人 澄和リーガルでは、相続登記や相続放棄をメインに相続関連の手続きをサポートしています。初めての方でも安心して手続きを進められるよう、戸籍収集や書類作成、家庭裁判所への申立まで一貫して丁寧に対応いたします。ご家族の大切な財産や権利を守るため、親身でわかりやすいサポートを心がけています。まずはお気軽にご相談ください。",
                   "fill": "#142b67ff",
                   "textGrowth": "fixed-width",
                   "width": 662,
-                  "content": "福岡県粕屋町に開設した司法書士法人ロックでは、相続登記や相続放棄をメインに相続関連の手続きをサポートしています。初めての方でも安心して手続きを進められるよう、戸籍収集や書類作成、家庭裁判所への申立まで一貫して丁寧に対応いたします。ご家族の大切な財産や権利を守るため、親身でわかりやすいサポートを心がけています。まずはお気軽にご相談ください。",
+                  "content": "福岡県粕屋町に開設した司法書士法人 澄和リーガルでは、相続登記や相続放棄をメインに相続関連の手続きをサポートしています。初めての方でも安心して手続きを進められるよう、戸籍収集や書類作成、家庭裁判所への申立まで一貫して丁寧に対応いたします。ご家族の大切な財産や権利を守るため、親身でわかりやすいサポートを心がけています。まずはお気軽にご相談ください。",
                   "lineHeight": 2.3333333333333335,
                   "fontFamily": "Noto Sans JP",
                   "fontSize": 18,
@@ -1055,9 +1098,9 @@
                   "id": "wog3K",
                   "x": 553,
                   "y": 68,
-                  "name": "ロックの強み",
+                  "name": "澄和リーガルの強み",
                   "fill": "#00a990ff",
-                  "content": "ロックの強み",
+                  "content": "澄和リーガルの強み",
                   "fontFamily": "Noto Sans JP",
                   "fontSize": 16,
                   "fontWeight": "normal"
@@ -3738,9 +3781,9 @@
               "id": "jpO9z",
               "x": 1323,
               "y": 7732,
-              "name": "© 2025 司法書士法人ロック",
+              "name": "© 2025 司法書士法人 澄和リーガル",
               "fill": "#142b67ff",
-              "content": "© 2025  司法書士法人ロック",
+              "content": "© 2025 司法書士法人 澄和リーガル",
               "fontFamily": "Noto Sans JP",
               "fontSize": 18,
               "fontWeight": "normal"

@@ -20,6 +20,8 @@ public/images/oasiz
 # ただし、運用対象のスキルだけ追跡する
 !.codex/skills/data-l/
 !.codex/skills/data-l/**
+!.codex/skills/Pencil/
+!.codex/skills/Pencil/**
 !.codex/skills/recreate-module/
 !.codex/skills/recreate-module/**
 !.codex/skills/scroll-capture/

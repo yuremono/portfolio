@@ -1,6 +1,6 @@
 ---
 name: task-large
-description: 5step以上のtask、4step以下の影響範囲が広い、設計判断が入るtaskで実行
+description: 10step以上のtask、9step以下の影響範囲が広い、設計判断が入るtaskで実行
 ---
 
  - `/tasks/learning.yaml` を確認する。存在しなければ作成する。

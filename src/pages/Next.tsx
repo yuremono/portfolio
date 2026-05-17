@@ -3,6 +3,8 @@ import { useState } from "react";
 import type { CSSProperties, FormEvent } from "react";
 import { Cards, CardsItem } from "../components/Cards";
 import Button from "../components/btn";
+import { RepulsionLists } from "./RepulsionLists/RepulsionLists";
+
 // JSX 内
 // import { Image } from "../components/Image";
 // import { getAssetPath } from "../lib/assetPath";
@@ -30,13 +32,13 @@ import "../scss/Next.scss";
 /** `activeDialogId` が指すフルスクリーンダイアログ（DOM の `id` とは別） */
 const EXPERIENCE_DIALOG_KEY = "experience";
 
-const otherWorksClasses = {
-	item: " p-8 bg-WH text-TC BorderB BorderR",
-	body: " mt-2",
-	actions: "[--background:--WH] mt-4 flex flex-wrap",
-	button: "mt-[-1px]",
-	buttonInline: "mt-[-1px] ml-[-1px]",
-} as const;
+// const otherWorksClasses = {
+// 	item: " p-8 bg-WH text-TC BorderB BorderR",
+// 	body: " mt-2",
+// 	actions: "[--background:--WH] mt-4 flex flex-wrap",
+// 	button: "mt-[-1px]",
+// 	buttonInline: "mt-[-1px] ml-[-1px]",
+// } as const;
 
 function Next() {
 	const { ref, dark, toggleTheme } = usePage();
@@ -96,14 +98,14 @@ function Next() {
 					<p className="mm2-2" style={{ fontSize: "4em" }}>
 						Context
 					</p>
+					<p className="mm9-6" style={{ fontSize: "4em" }}>
+						Development
+					</p>
 					<p
 						className="hidden lg:inline-block mm3-9"
 						style={{ fontSize: "5em" }}
 					>
 						Web
-					</p>
-					<p className="mm9-6" style={{ fontSize: "4em" }}>
-						Development
 					</p>
 				</section>
 
@@ -167,8 +169,8 @@ function Next() {
 								</div>
 							</div>
 
-							<p style={{ fontSize: "2em" }}>Cursor</p>
-							<p style={{ fontSize: "1.5em" }}>Claude Code</p>
+							<p className="hidden lg:inline-block" style={{ fontSize: "2em" }}>Cursor</p>
+							<p className="hidden lg:inline-block" style={{ fontSize: "1.5em" }}>Claude Code</p>
 							<p
 								className="hidden lg:inline-block"
 								style={{ fontSize: "1em" }}
@@ -177,14 +179,14 @@ function Next() {
 								<br />
 								engineering
 							</p>
-							<p style={{ fontSize: "1.5em" }}>TailwindCSS</p>
+							<p className="hidden lg:inline-block" style={{ fontSize: "1.5em" }}>TailwindCSS</p>
 							<p
 								className="hidden lg:inline-block"
 								style={{ fontSize: "1.5em" }}
 							>
 								canvasAPI
 							</p>
-							<p style={{ fontSize: "2em" }}>Codex</p>
+							<p className="hidden lg:inline-block" style={{ fontSize: "2em" }}>Codex</p>
 							<p
 								className="hidden lg:inline-block"
 								style={{ fontSize: "1.5em" }}
@@ -714,8 +716,12 @@ function Next() {
 
 				<BunmyakuTeaserSection className="out relative mt-0    grid" />
 
+				<div className="repulsion-lists-module  mt-[-25lvh] z-10">
+					<RepulsionLists className="out px-[calc(var(--into)/3*2)] MY Eng font-light " />
+				</div>
+
 				{/* OtherWorks */}
-				<section className="pb-[--MY]  text-center mt-[-25lvh]">
+				{/* <section className="pb-[--MY]  text-center mt-[-25lvh]">
 					<h2 className="mindWobble font-thin">Other Works</h2>
 					<Cards className="mt-0 col3 [--gap:0px] bp-lg text-left [--btnW:50%] md:[--btnH:3em] leading-[1.75em] BorderT BorderL">
 						<CardsItem
@@ -892,81 +898,6 @@ function Next() {
 							</div>
 						</CardsItem>
 					</Cards>
-				</section>
-
-				{/* Make*/}
-				{/* <section className=" mt-0 Wrap ">
-					<ul className="UL [--wid:60rem] mx-auto">
-						<details className="Toggle  font-normal mt-4">
-							<summary className="Eng"><h3>Agent Driven CMS</h3></summary>
-							<div>
-								- LLM
-								の学習データに基づくwebデザイン・コーディングは平均的で、振れ幅の大きい、標準ではないものであり、個人のマークアップ、スタイリングとかけ離れたものになる。
-								<br />-
-								事務作業のように決められた手順を実行させることで、vibeコーディングツールでは創造できないプロダクトを効率的に実装できる。
-							</div>
-						</details>
-						<details className="Toggle  font-normal mt-4">
-							<summary className="Eng"><h3>Random Generator</h3></summary>
-							<div>
-								- LLM
-								の学習データに基づくwebデザイン・コーディングは平均的で、振れ幅の大きい、標準ではないものであり、個人のマークアップ、スタイリングとかけ離れたものになる。
-								<br />-
-								事務作業のように決められた手順を実行させることで、vibeコーディングツールでは創造できないプロダクトを効率的に実装できる。
-							</div>
-						</details>
-						<details className="Toggle  font-normal mt-4">
-							<summary className="Eng">
-							<h3>Activity</h3></summary>
-							<div>
-								- LLM
-								の学習データに基づくwebデザイン・コーディングは平均的で、振れ幅の大きい、標準ではないものであり、個人のマークアップ、スタイリングとかけ離れたものになる。
-								<br />-
-								事務作業のように決められた手順を実行させることで、vibeコーディングツールでは創造できないプロダクトを効率的に実装できる。
-							</div>
-						</details>
-						<details className="Toggle  font-normal mt-4">
-							<summary className="Eng">
-							<h3>Bounding Box On Design</h3></summary>
-							<div>
-								- LLM
-								の学習データに基づくwebデザイン・コーディングは平均的で、振れ幅の大きい、標準ではないものであり、個人のマークアップ、スタイリングとかけ離れたものになる。
-								<br />-
-								事務作業のように決められた手順を実行させることで、vibeコーディングツールでは創造できないプロダクトを効率的に実装できる。
-							</div>
-						</details>
-						<details className="Toggle  font-normal mt-4">
-							<summary className="Eng">
-							<h3>Grid Carousel</h3></summary>
-							<div>
-								- LLM
-								の学習データに基づくwebデザイン・コーディングは平均的で、振れ幅の大きい、標準ではないものであり、個人のマークアップ、スタイリングとかけ離れたものになる。
-								<br />-
-								事務作業のように決められた手順を実行させることで、vibeコーディングツールでは創造できないプロダクトを効率的に実装できる。
-							</div>
-						</details>
-						<details className="Toggle  font-normal mt-4">
-							<summary className="Eng">
-							
-							<h3>Pages</h3></summary>
-							<div>
-								- LLM
-								の学習データに基づくwebデザイン・コーディングは平均的で、振れ幅の大きい、標準ではないものであり、個人のマークアップ、スタイリングとかけ離れたものになる。
-								<br />-
-								事務作業のように決められた手順を実行させることで、vibeコーディングツールでは創造できないプロダクトを効率的に実装できる。
-							</div>
-						</details>
-						<details className="Toggle  font-normal mt-4">
-							<summary className="Eng">
-							<h3 className="">Chat Canban</h3></summary>
-							<div>
-								- LLM
-								の学習データに基づくwebデザイン・コーディングは平均的で、振れ幅の大きい、標準ではないものであり、個人のマークアップ、スタイリングとかけ離れたものになる。
-								<br />-
-								事務作業のように決められた手順を実行させることで、vibeコーディングツールでは創造できないプロダクトを効率的に実装できる。
-							</div>
-						</details>
-					</ul>
 				</section> */}
 
 				{/* ADCMS */}

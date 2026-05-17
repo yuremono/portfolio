@@ -12,6 +12,19 @@ js/
 LOCAL.html
 public/images/oasiz
 
+# skills は基本 push しない
+.claude/skills
+.claude/skills/*
+.codex/skills
+.codex/skills/*
+
+.claude/output-styles
+.agent/*
+.gemini/*
+.mcp.json
+.cursor/
+
+
 # Vite pre-bundle cache (regenerated locally)
 .vite/
 
@@ -32,11 +45,7 @@ css/
 ._*
 
 # Claude Code settings
-.claude/output-styles
-.agent/*
-.gemini/*
-.mcp.json
-.cursor/
+
 
 
 

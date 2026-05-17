@@ -15,8 +15,23 @@ public/images/oasiz
 # skills は基本 push しない
 .claude/skills
 .claude/skills/*
-.codex/skills
 .codex/skills/*
+
+# ただし、運用対象のスキルだけ追跡する
+!.codex/skills/data-l/
+!.codex/skills/data-l/**
+!.codex/skills/recreate-module/
+!.codex/skills/recreate-module/**
+!.codex/skills/scroll-capture/
+!.codex/skills/scroll-capture/**
+!.codex/skills/task-large/
+!.codex/skills/task-large/**
+!.codex/skills/task-level-1/
+!.codex/skills/task-level-1/**
+!.codex/skills/task-level-2/
+!.codex/skills/task-level-2/**
+!.codex/skills/task-log/
+!.codex/skills/task-log/**
 
 .claude/output-styles
 .agent/*

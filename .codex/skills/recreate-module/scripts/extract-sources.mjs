@@ -373,6 +373,343 @@ function reportMarkdown({ startUrl, outDir, terms, resources }) {
   return `${lines.join("\n")}\n`;
 }
 
+function resourceLabel(resource) {
+  return resource.file || resource.href || "(inline)";
+}
+
+function resourceExt(resource) {
+  const candidates = [resource.file, resource.href].filter(Boolean);
+  for (const candidate of candidates) {
+    try {
+      const pathname = candidate.startsWith("http") ? new URL(candidate).pathname : candidate;
+      const extension = path.extname(pathname.replace(/\.gz$/, ""));
+      if (extension) return extension.toLowerCase();
+    } catch {
+      const extension = path.extname(candidate.replace(/\.gz$/, ""));
+      if (extension) return extension.toLowerCase();
+    }
+  }
+  return "";
+}
+
+function isCssResource(resource) {
+  return (
+    resource.kind === "inline-style" ||
+    resource.contentType.includes("text/css") ||
+    resourceExt(resource) === ".css"
+  );
+}
+
+function isJsResource(resource) {
+  const extension = resourceExt(resource);
+  return (
+    resource.kind === "inline-script" ||
+    resource.contentType.includes("javascript") ||
+    extension === ".js" ||
+    extension === ".mjs"
+  );
+}
+
+function topResources(resources, predicate, limit = 12) {
+  return resources
+    .filter((resource) => resource.text && predicate(resource))
+    .sort((a, b) => (b.matches?.length || 0) - (a.matches?.length || 0))
+    .slice(0, limit);
+}
+
+function formatMatchList(resource, limit = 12) {
+  const matches = resource.matches || [];
+  if (matches.length === 0) return ["  - No configured term matches."];
+  return matches.slice(0, limit).map((match) => `  - ${match.term} line ${match.line}: ${match.snippet}`);
+}
+
+function matchedSymbolsJson({ startUrl, terms, resources }) {
+  const byTerm = {};
+  for (const term of terms) {
+    const entries = [];
+    for (const resource of resources) {
+      const matches = (resource.matches || []).filter((match) => match.term === term);
+      if (matches.length === 0) continue;
+      entries.push({
+        file: resource.file,
+        href: resource.href,
+        kind: resource.kind,
+        sampleCount: matches.length,
+        lines: matches.slice(0, 20).map((match) => ({
+          line: match.line,
+          snippet: match.snippet,
+        })),
+      });
+    }
+    if (entries.length > 0) byTerm[term] = entries;
+  }
+
+  return `${JSON.stringify({
+    url: startUrl,
+    note: "sampleCount is capped by the extractor search limit per resource.",
+    terms: byTerm,
+  }, null, 2)}\n`;
+}
+
+function cssCandidatesMarkdown({ startUrl, outDir, resources }) {
+  const candidates = topResources(resources, isCssResource, 50);
+  const lines = [
+    `# CSS Candidates`,
+    ``,
+    `- URL: ${startUrl}`,
+    `- Output: ${outDir}`,
+    ``,
+    `Use this before implementation. Extract target ID/class rules, data attributes, CSS variables, keyframes, media queries, sizing, transforms, opacity, pointer-events, overflow, position, z-index, font, color, background, and border.`,
+    ``,
+  ];
+
+  if (candidates.length === 0) {
+    lines.push(`No CSS resources were fetched. Check runtime-injected styles in the browser and add more specific --contains values.`, ``);
+    return `${lines.join("\n")}\n`;
+  }
+
+  for (const resource of candidates) {
+    lines.push(`## ${resourceLabel(resource)}`);
+    lines.push(``);
+    lines.push(`- Source: ${resource.href}`);
+    lines.push(`- Kind: ${resource.kind}`);
+    lines.push(`- Matches: ${resource.matches?.length || 0}`);
+    lines.push(``);
+    lines.push(...formatMatchList(resource, 20));
+    lines.push(``);
+  }
+
+  return `${lines.join("\n")}\n`;
+}
+
+function sourceMapReferences(resource) {
+  const refs = [];
+  const text = resource.text || "";
+  for (const match of text.matchAll(/[#@]\s*sourceMappingURL=([^\s*]+)/g)) {
+    refs.push(match[1]);
+  }
+  for (const match of text.matchAll(/["']([^"']+\.map(?:\?[^"']*)?)["']/gi)) {
+    refs.push(match[1]);
+  }
+  return unique(refs);
+}
+
+function isSourceMapCandidate(resource) {
+  return (
+    resource.kind === "source-map" ||
+    resourceExt(resource) === ".map" ||
+    /sourceMappingURL|["'][^"']+\.map(?:\?[^"']*)?["']/i.test(resource.text || "")
+  );
+}
+
+function sourceMapCandidatesMarkdown({ startUrl, outDir, resources }) {
+  const candidates = topResources(resources, isSourceMapCandidate, 50);
+  const lines = [
+    `# Source Map Candidates`,
+    ``,
+    `- URL: ${startUrl}`,
+    `- Output: ${outDir}`,
+    ``,
+  ];
+
+  if (candidates.length === 0) {
+    lines.push(`No source map candidates were found. Still check .map, sourceMappingURL, .gz, CDN, and helper bundle URLs manually when minified code is important.`, ``);
+    return `${lines.join("\n")}\n`;
+  }
+
+  for (const resource of candidates) {
+    const refs = sourceMapReferences(resource);
+    lines.push(`## ${resourceLabel(resource)}`);
+    lines.push(``);
+    lines.push(`- Source: ${resource.href}`);
+    lines.push(`- Kind: ${resource.kind}`);
+    lines.push(`- Matches: ${resource.matches?.length || 0}`);
+    if (refs.length > 0) {
+      lines.push(`- References:`);
+      for (const ref of refs.slice(0, 20)) {
+        lines.push(`  - ${ref}`);
+      }
+    }
+    lines.push(``);
+    lines.push(...formatMatchList(resource, 12));
+    lines.push(``);
+  }
+
+  return `${lines.join("\n")}\n`;
+}
+
+function requiredNextStepsMarkdown({ startUrl, outDir, resources }) {
+  const jsCandidates = topResources(resources, isJsResource, 8);
+  const cssCandidates = topResources(resources, isCssResource, 8);
+  const sourceMapCandidates = topResources(resources, isSourceMapCandidate, 8);
+  const lines = [
+    `# Required Next Steps`,
+    ``,
+    `- URL: ${startUrl}`,
+    `- Output: ${outDir}`,
+    ``,
+    `Do not edit src files yet. Fill ${path.join(outDir, "analysis.md")} from ${path.join(outDir, "implementation-gate.md")} first.`,
+    ``,
+    `## Read First`,
+    ``,
+    `- ${path.join(outDir, "report.md")}`,
+    `- ${path.join(outDir, "matched-symbols.json")}`,
+    `- ${path.join(outDir, "css-candidates.md")}`,
+    `- ${path.join(outDir, "source-map-candidates.md")}`,
+    `- ${path.join(outDir, "implementation-gate.md")}`,
+    ``,
+    `## JS Candidates To Inspect`,
+    ``,
+  ];
+
+  if (jsCandidates.length === 0) {
+    lines.push(`No JS candidates matched. Add target selectors, text, constructor names, animation terms, and data attributes to --contains, then rerun.`, ``);
+  } else {
+    for (const resource of jsCandidates) {
+      lines.push(`- ${resourceLabel(resource)} (${resource.matches?.length || 0} matches)`);
+      lines.push(`  - ${resource.href}`);
+    }
+    lines.push(``);
+    lines.push(`Use snip-source around the target constructor, shader, geometry, event listener, and render loop symbols before implementation.`);
+    lines.push(``);
+  }
+
+  lines.push(`## CSS Candidates To Inspect`, ``);
+  if (cssCandidates.length === 0) {
+    lines.push(`No CSS candidates matched. Check runtime styles in the browser and rerun with target class/data/keyframe names.`, ``);
+  } else {
+    for (const resource of cssCandidates) {
+      lines.push(`- ${resourceLabel(resource)} (${resource.matches?.length || 0} matches)`);
+      lines.push(`  - ${resource.href}`);
+    }
+    lines.push(``);
+  }
+
+  lines.push(`## Source Map / Bundle Candidates`, ``);
+  if (sourceMapCandidates.length === 0) {
+    lines.push(`No source map candidates were detected. Manually check sourceMappingURL, .map, .gz, helper bundles, CDN, and S3 asset URLs if the relevant code is minified.`, ``);
+  } else {
+    for (const resource of sourceMapCandidates) {
+      lines.push(`- ${resourceLabel(resource)} (${resource.matches?.length || 0} matches)`);
+      lines.push(`  - ${resource.href}`);
+    }
+    lines.push(``);
+  }
+
+  lines.push(`## Gate`, ``);
+  lines.push(`Complete analysis.md with target DOM, adopted JS/CSS source files, symbol map, CSS rule map, JS-CSS connection map, migrated code list, exclusions, and literal-port notes before editing implementation files.`);
+  lines.push(``);
+
+  return `${lines.join("\n")}\n`;
+}
+
+function implementationGateMarkdown({ startUrl, outDir }) {
+  return `# Implementation Gate
+
+This file is a template. Fill every section, then save the completed content as:
+
+${path.join(outDir, "analysis.md")}
+
+Do not edit src files until analysis.md exists and has no empty required sections.
+
+## Target DOM Memo
+
+- Target URL: ${startUrl}
+- Target selector / ID / text:
+- Target behavior:
+- Required user operation:
+- Observed related DOM:
+- Related canvas / svg / fixed layer / portal:
+- Runtime-added attributes / inline styles / data attributes:
+
+## Source Candidate Files
+
+### JS Candidates
+
+- File:
+  - Source URL:
+  - Matched terms:
+  - Why it may contain the implementation:
+
+### CSS Candidates
+
+- File:
+  - Source URL:
+  - Matched terms:
+  - Why it may contain the implementation:
+
+### Source Map / Helper Bundle Candidates
+
+- File or URL:
+  - Why it matters:
+  - Followed / not followed:
+
+## Adopted Source Files
+
+### Adopted JS
+
+- File:
+- Source URL:
+- Reason:
+
+### Adopted CSS
+
+- File:
+- Source URL:
+- Reason:
+
+## Target Symbol Map
+
+| Minified symbol | Meaning / API | Evidence file | Notes |
+| --- | --- | --- | --- |
+|  |  |  |  |
+
+## CSS Rule Map
+
+| Target selector / key | Original declarations | Destination rule / class | Notes |
+| --- | --- | --- | --- |
+|  |  |  |  |
+
+## JS-CSS Connection Map
+
+| JS operation | CSS selector / variable / attribute | Effect | Notes |
+| --- | --- | --- | --- |
+|  |  |  |  |
+
+## Code To Port
+
+- Constructor / initialization:
+- Geometry / layout:
+- Shader strings / uniforms / attributes:
+- Event listeners:
+- Render loop / animation loop:
+- Resize / scroll / pointer handling:
+- Cleanup:
+
+## Excluded Code And Reasons
+
+- Original code:
+  - Reason:
+  - Visual / behavior impact:
+
+## Literal Port Notes
+
+- Original formulas kept:
+- Original uniform / attribute names kept:
+- Timing / scroll / mouse update logic kept:
+- Any necessary project adaptation:
+
+## Approximation Gate
+
+Only fill this if direct porting is impossible.
+
+- Unavailable or unusable original source:
+- Evidence:
+- Proposed approximation:
+- Expected difference:
+`;
+}
+
 async function main() {
   const args = parseArgs(process.argv.slice(2));
   const startUrl = new URL(args.url).href;
@@ -473,10 +810,36 @@ async function main() {
     terms: args.contains,
     resources,
   }));
+  await writeText(path.join(outDir, "required-next-steps.md"), requiredNextStepsMarkdown({
+    startUrl,
+    outDir,
+    resources,
+  }));
+  await writeText(path.join(outDir, "matched-symbols.json"), matchedSymbolsJson({
+    startUrl,
+    terms: args.contains,
+    resources,
+  }));
+  await writeText(path.join(outDir, "css-candidates.md"), cssCandidatesMarkdown({
+    startUrl,
+    outDir,
+    resources,
+  }));
+  await writeText(path.join(outDir, "source-map-candidates.md"), sourceMapCandidatesMarkdown({
+    startUrl,
+    outDir,
+    resources,
+  }));
+  await writeText(path.join(outDir, "implementation-gate.md"), implementationGateMarkdown({
+    startUrl,
+    outDir,
+  }));
 
   const matches = resources.reduce((total, resource) => total + (resource.matches?.length || 0), 0);
   console.log(`Fetched ${resources.length} resources with ${matches} match(es).`);
   console.log(`Report: ${path.join(outDir, "report.md")}`);
+  console.log(`Next steps: ${path.join(outDir, "required-next-steps.md")}`);
+  console.log(`Implementation gate: ${path.join(outDir, "implementation-gate.md")}`);
 }
 
 main().catch((error) => {

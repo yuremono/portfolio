@@ -7,6 +7,57 @@ description: 既存の公開URLから、Webサイトのセクション、視覚�
 
 既存公開サイトから特定のセクション、ホバー演出、canvas/WebGL、スクロール演出、UIモジュールを実装元のソースを特定して「推測による実装」ではなく、「実際のコード」を忠実に再現するスキル。
 
+## 最優先ルール
+
+このスキルの目的は「それっぽく作ること」ではなく、「元サイトの実装経路を特定し、実装元コードを根拠に再現すること」である。
+
+DOM構造、スクリーンショット、一般的な Three.js / GSAP / CSS 知識だけで近似実装してはいけない。実装前に必ず `tmp/recreate-module/<host>/analysis.md` を作成し、以下を埋める。
+
+- 対象DOM
+- 実装元JS候補
+- 実装元CSS候補
+- 採用した元ファイル
+- 対象シンボル対応表
+- CSS対象ルール対応表
+- JS-CSS接続表
+- 移植対象コード一覧
+- 除外理由
+- 直訳移植メモ
+
+`analysis.md` が未作成、または上記が空欄のままの場合、`src` 配下の実装ファイルを編集してはいけない。
+
+例外は、元サイト側に該当コードが取得不能、source mapなし、bundle難読化、外部API依存、ライセンス上の理由などで直訳移植できない場合だけ。その場合も、近似実装へ進む前に「取得不能・移植不能の根拠」を `analysis.md` に書く。
+
+## 実装前ゲート
+
+実装ファイルを編集する前に、必ず以下を `tmp/recreate-module/<host>/analysis.md` に作成する。
+
+- 対象DOMメモ
+- 実装元候補ファイル一覧
+- 採用した実装元ファイル
+- 採用理由
+- 対象シンボル対応表
+- CSS対象ルール対応表
+- JS-CSS接続表
+- 移植対象コード一覧
+- 除外コードと除外理由
+- 直訳移植メモ
+
+`extract-sources.mjs` が `implementation-gate.md` を生成する場合は、それをテンプレートとして使い、空欄を埋めた内容を `analysis.md` として保存してから実装へ進む。
+
+## 近似実装の禁止パターン
+
+以下は禁止。
+
+- 元コードを読まずに、見た目だけから React / CSS / Three.js を新規作成する
+- `requestAnimationFrame`、`mousemove`、`getBoundingClientRect()`、`ResizeObserver`、`IntersectionObserver` を見つけたのに、1回だけの測定や CSS transition に置き換える
+- shader文字列、uniform、attribute が見つかっているのに、別の簡易shaderへ差し替える
+- CSSの `data-*`、CSS変数、keyframes、responsive条件を確認せず、見た目のCSSだけを書く
+- ビルドが通ることを「再現できた」と扱う
+- スクリーンショット差分を見て、その場で手修正する
+
+これらを行う必要がある場合は、実装前に「なぜ元コードを使えないか」を `analysis.md` に書く。
+
 
 ## ワークフロー
 
@@ -43,6 +94,7 @@ description: 既存の公開URLから、Webサイトのセクション、視覚�
 
 5. 補助スクリプトで取得と検索をまとめる
    - `extract-sources.mjs` は、HTML、inline script/style、外部JS/CSS、CSS内URL、JS/CSS内の相対URL、`sourceMappingURL`、gzip済みテキストbundleを取得し、検索結果を `report.md` にまとめる。
+   - 併せて `required-next-steps.md`、`matched-symbols.json`、`css-candidates.md`、`source-map-candidates.md`、`implementation-gate.md` を生成する。
    - 静的に参照されているソースを探す作業の大半は、このスクリプトで完了する。
    - ただし、JS実行後にだけ発生するDOM変更、hover中だけ発生するNetwork、実際のcanvas/WebGL描画、カーソル移動時の歪みはこのスクリプトだけでは確認できない。ブラウザ観察と候補コードの読解は必ず行う。
 
@@ -58,6 +110,10 @@ rtk node .codex/skills/recreate-module/scripts/extract-sources.mjs "https://exam
 
 ```bash
 rtk sed -n '1,180p' tmp/recreate-module/example.com/report.md
+rtk sed -n '1,220p' tmp/recreate-module/example.com/required-next-steps.md
+rtk sed -n '1,220p' tmp/recreate-module/example.com/css-candidates.md
+rtk sed -n '1,220p' tmp/recreate-module/example.com/source-map-candidates.md
+rtk sed -n '1,260p' tmp/recreate-module/example.com/implementation-gate.md
 ```
 
 取得済みファイル全体を検索するコマンド:
@@ -123,6 +179,7 @@ CSS処理で必ず作るもの:
    - generated CSS: 対象class、Tailwind utility、arbitrary value、`@keyframes`、`@media`、CSS変数名、JSから参照される `data-*` セレクタ
 
 7. 移植する
+   - `analysis.md` の実装前ゲートが完了していない場合、`src` 配下のファイルを編集してはいけない。
    - 原則は、処理済みの minified bundle 該当コードを直訳移植する。該当箇所が多い、長い場合も、まず constructor / shader / geometry / render loop の中核を元コードの変数名・uniform名・attribute名に近い形で移植する。
    - 元コードをそのまま再現できない場合だけ縮約する。その場合も、縮約前に「どの元コードを捨てたか」「見た目にどう影響するか」を明記し、ユーザー確認なしに手書き近似へ切り替えない。
    - CSSは抽出済みの元ルールを先に移植し、その後にプロジェクト都合のスコープ化や変数差し替えを行う。ブラウザで見つけた差分を1個ずつ手修正する前に、元CSS/JSの取りこぼしを疑う。
@@ -149,7 +206,7 @@ rtk sed -n '1,220p' src/pages/PageName.tsx
    - canvas/WebGLの場合は、canvas数、opacity、サイズ、ピクセルが非空であることも確認する。
    - ブラウザ確認で差分が出たら、すぐに見た目を逐次手修正しない。まず「元JSの未移植処理」「元CSSの未抽出ルール」「JS-CSS接続の欠落」「DOM構造/属性の不一致」のどれかを再確認する。
    - ユーザーが「ブラウザで見つかった箇所を直す方式を避ける」と指示している場合、差分を見つけた時点で一旦停止し、取りこぼし候補と次の抽出方針を報告する。
-   - 最終報告では、参照した元ソースの場所と、再現したファイルを短く説明する。
+   - 最終報告では、下のフォーマットに沿って、参照した元ソースの場所と再現したファイルを短く説明する。
 
 検証コマンド:
 
@@ -172,8 +229,31 @@ rtk agent-browser eval '({canvasCount: document.querySelectorAll("canvas").lengt
 
 `PagePath` は実装先ルートに置き換える。canvas/WebGLの再現では、hover前後のスクリーンショットだけでなく、`canvasCount`、canvasサイズ、hover時のopacity、非空ピクセルも確認する。
 
+## 最終報告フォーマット
+
+最終報告では必ず以下を短く出す。
+
+1. 参照した元URL
+2. 採用した元JSファイル
+3. 採用した元CSSファイル
+4. 移植した中核処理
+   - constructor
+   - geometry
+   - shader
+   - event listener
+   - render loop
+   - cleanup
+5. 移植しなかった処理と理由
+6. 検証結果
+   - build
+   - browser確認
+   - hover / mousemove / scroll確認
+   - canvas数、canvasサイズ、非空ピクセル確認
+7. 近似した箇所がある場合、その理由
+
 ## チェックリスト
 
+[] `analysis.md` を作成し、実装前ゲートを空欄なしで埋めたか。
 [] 元サイトの表示DOM要素と構造が一致しているか
 [] inline scriptの初期化コードだけで止まらず、constructor本体がある外部bundleまで追ったか。
 [] minified bundle の該当コードを切り出し、短縮名の依存対応表を作り、利用可能な移植単位に処理したか。

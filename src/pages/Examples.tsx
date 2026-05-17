@@ -9,7 +9,7 @@ import { PathDraw } from "../components/PathDraw";
 import { LottieScroll } from "../components/LottieScroll";
 import { HoudiniGalleryCards } from "../components/HoudiniGalleryCards";
 import { useWaveHover } from "../components/WaveHover";
-// import { OasizThreeCanvas } from "../components/OasizThreeCanvas";
+import { OasizThreeCanvas } from "../components/OasizThreeCanvas";
 
 // Common
 import Header from "../components/Header";
@@ -42,7 +42,7 @@ function Examples() {
                                 
 
 				{/* OASIZ three.js canvas */}
-				{/* <OasizThreeCanvas className="out " /> */}
+				<OasizThreeCanvas className="out " />
 				{/* WaveHover */}
 				<div ref={waveHoverRef} className="WaveHover Wrap bg-GR/20 px-[--PX] md:px-0 mt-[100lvh]">
 					<ul>

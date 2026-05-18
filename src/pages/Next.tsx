@@ -121,10 +121,9 @@ function Next() {
 								Dependencies
 							</h2>
 							<div className="text-base mmPin mmStatic max-w-[calc(var(--wid)/2)]  experience_tx text-left San font-light   leading-[2em] static lg:absolute left-1/2 top-[--MY] z-10 p-4 bg-background/80">
-								Cursor / Codex / Claude Code を使用
-								<br />
-								↓ツール使用経験をまとめています。
-								<br />
+                                                        <h3 className="text-GR text-[1.25em] inline-block mr-4">
+										経験と依存性
+									</h3>
 								<button
 									type="button"
 									className="textlink  mt-6"
@@ -145,16 +144,17 @@ function Next() {
 								</button>
 								<br />
 								<div className="text-left">
-									<h3 className="text-GR mt-10 mb-4">
+									<h3 className="text-GR mt-10 mb-2">
 										About This Site
 									</h3>
 									<span className="budoux">
-										実務外で制作したページや自作ツールをまとめています。
-										<br />
-										このページはオリジナルCMSのトップページを移植しました。
-										以前の状態ですが、管理画面はこちらからご覧いただけます。
+										個人制作ページ、ツールをまとめています。
+                                                                                <br />
+                                                                                これまではNextJS CMS、AIチャット共有拡張機能、
+                                                                                <br />
+                                                                                AI前提のweb開発を行なってきました。
 									</span>
-									<br />
+									{/* <br />
 									<span className="mt-2 mr-6 font-medium">
 										閲覧pass: view
 									</span>
@@ -165,7 +165,7 @@ function Next() {
 									>
 										CMS Editor&nbsp;
 										<ArrowSquareOutIcon />
-									</Button>
+									</Button> */}
 								</div>
 							</div>
 
@@ -663,18 +663,15 @@ function Next() {
 						</div>
 						<div className="item content-center bg-background/80 p-4">
 							<div className=" leading-[2]">
-								<h3 className="text-GR ">AI Ready</h3>
-								<br />
+								<h3 className="text-GR mb-2">AI Ready</h3>
 								<b>DESIGN.md</b> , <b>画像生成デザイン</b>
 								を基点としたゼロからのページ作成の検証と、
 								<b>自然言語でUIパーツを再利用</b>
 								する為の環境構築を行っています。
-								<br />
-								<br />
-								<h3 className="text-GR ">
+								<h3 className="text-GR mt-10">
 									Burn Your Own Style
 								</h3>
-								<details className="Toggle IsSmall font-normal mt-4">
+								<details className="Toggle IsSmall font-normal mt-2">
 									<summary className="Eng">
 										Thinking...
 									</summary>

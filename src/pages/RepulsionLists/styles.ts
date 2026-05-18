@@ -5,19 +5,19 @@ export const repulsionListsStyles = `
 					--repulsion-list-dark: var(--TC);
 					--repulsion-list-text-light: var(--WH);
 				}
-				.repulsion-lists-module .repulsion-lists-lines {
+				.repulsion-lists-lines {
 					position: absolute;
 					inset: 0;
 					overflow: visible;
 					pointer-events: none;
                                         display:none;
 				}
-				.repulsion-lists-module .repulsion-lists-lines line {
+				.repulsion-lists-lines line {
 					stroke-width: 1;
 					stroke-opacity: .8;
 					transition: x1 300ms ease-out, y1 300ms ease-out, x2 300ms ease-out, y2 300ms ease-out;
 				}
-				.repulsion-lists-module .repulsion-lists-list {
+				.repulsion-lists-list {
 					display: flex;
 					flex-wrap: wrap;
 					justify-content: center;
@@ -28,13 +28,10 @@ export const repulsionListsStyles = `
 					list-style: none;
 
 				}
-				.repulsion-lists-module .repulsion-list-chip {
-					position: relative;
-					list-style: none;
-					transition: transform 400ms cubic-bezier(.34, 1.56, .64, 1);
-                                        background: var(--WH);
-				}
-				.repulsion-lists-module .repulsion-list-chip-control {
+				// .repulsion-list-chip {
+					// transition: transform 400ms cubic-bezier(.34, 1.56, .64, 1);
+				// }
+				.repulsion-list-chip-control {
 					display: block;
 					width: 100%;
                                         height:100%;
@@ -53,7 +50,7 @@ export const repulsionListsStyles = `
 					// transition: transform 500ms cubic-bezier(0, 1, 0.75, 1);
 					opacity: var(--repulsion-list-chip-dynamic-opacity, .5);
 				}
-				.repulsion-lists-module .repulsion-list-chip-control a {
+				.repulsion-list-chip-control a {
 					color: inherit;
 					text-decoration: none;
 				}
@@ -72,26 +69,14 @@ export const repulsionListsStyles = `
 					user-select: none;
 					transition: background-color 200ms ease-out, min-width 200ms ease-out;
 				}
-				@media (min-width: 58.75rem) {
-					.repulsion-list-chip-content {
-						font-size: clamp(2rem, 5vw, 5rem);
-					}
-				}
 				.repulsion-list-chip-content::before {
 					content: "";
 					position: absolute;
 					inset: -1.25rem;
 				}
-				.repulsion-lists-module .repulsion-list-chip-label {
-					display: block;
-					min-width: 0;
-					margin-inline: auto;
-					padding: 1rem;
-					white-space: nowrap;
-					text-align: center;
-					background: var(--repulsion-list-light);
-					transition: min-width 50ms ease-out, background-color 50ms ease-out, color 50ms ease-out;
-				}
+				// .repulsion-list-chip-label {
+				// 	transition: min-width 50ms ease-out, background-color 50ms ease-out, color 50ms ease-out;
+				// }
 				.repulsion-lists-module .emojis,
 				.repulsion-lists-module .counter {
 					position: absolute;

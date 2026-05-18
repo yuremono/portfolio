@@ -76,6 +76,7 @@ required children : class内で定義されているセレクタではなく、�
 | `.WaveHover` | `<WaveHover>` or `useWaveHover` | `.item` | true | - | ラッパー `.WaveHover` > 任意マークアップ（例: `ul` 無修飾） |
 | `.PathDraw` | Effect |  `path` in `svg` | true | `--PDS` `--PES` `--PVM`  | Wrapper > `.PathDraw>svg` + Container |
 | `.BorderDraw` | Effect | auto insert | false | `.IsDown` `--PVM` `--PDS` | `.Panel` > `.item.BorderDraw` |
+| `.BudouxFade` | Effect | auto insert `.BudouxFadePhrase` | false | `--BudouxFadeMin` `--BudouxFadeTrigger` `--BudouxFadeRange` | text block |
 | `.LottieScroll` | Effect | DotLottieReact | true | `IsDemo` `--canvasH` | `.Stick` > `.StickItem.LottieScroll` + `.StickScr` |
 | `.StickyStep` | Effect | direct children | false | `--top` `--step` | `.StickyStep` > span* (段階的にずれるsticky) |
 | `.DescList` | Container | `dl` > `dt` + `dd` | false | `.IsSimple` `.IsZebra` `.IsPlain` `.IsBorder` `.IsHead` `.IsFrame` `.IsColumn` `.IsTimeline` `.IsCenter`  | Wrapper > `.DescList` |

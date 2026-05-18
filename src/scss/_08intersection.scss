@@ -156,6 +156,21 @@
         }
 }
 
+.BudouxFade {
+        --BudouxFadeMin: 0.3;
+        --BudouxFadeTrigger: 0.68;
+        --BudouxFadeRange: 1;
+        word-break: keep-all;
+        overflow-wrap: anywhere;
+}
+
+.BudouxFadePhrase {
+        display: inline-block;
+        opacity: var(--BudouxFadeMin);
+        transition: none;
+        vertical-align: baseline;
+}
+
 
 
 // .JsbgFix{

@@ -8,6 +8,7 @@ import {
 	// ListPlusIcon,
 	// ArrowSquareOutIcon,
 } from "@phosphor-icons/react";
+import { initIntersectionShow } from "../lib/intersectionShow";
 
 interface BunmyakuTeaserSectionProps {
 	className?: string;
@@ -60,7 +61,7 @@ const COLOR_SCHEME_INTERSECTION = {
 	// IntersectionObserver の root。null は viewport を基準にします。
 	root: null,
 	// IntersectionObserver の rootMargin。例: "0px 0px -20% 0px" で下端の判定を上へ寄せます。
-	rootMargin: "0% 0px 75% 0px",
+	rootMargin: "0% 0px 50% 0px",
 	// threshold の分割数。多いほど細かく通知されます。
 	thresholdSteps: 10,
 	// セクションが viewport 高さに対してこの割合以上見えている間だけ配色を適用します。
@@ -468,6 +469,15 @@ export function BunmyakuTeaserSection({
 	useEffect(() => {
 		const root = rootRef.current;
 		if (!root) return;
+		const intersectionShow = initIntersectionShow(root);
+		return () => {
+			intersectionShow.disconnect();
+		};
+	}, []);
+
+	useEffect(() => {
+		const root = rootRef.current;
+		if (!root) return;
 
 		const previous = new Map<string, string>();
 		let active = false;
@@ -546,7 +556,7 @@ export function BunmyakuTeaserSection({
 
 	return (
 		<section ref={rootRef} data-l="BunmyakuTeaser" className={className}>
-			<div className="relative min-h-[112.5vw] [grid-area:1/1] max-w-[1620px] mx-auto">
+			<div className="relative min-h-[112.5vw] [grid-area:1/1] max-w-[1620px] w-full mx-auto">
 				<div className="sticky h-100lvh top-0 xl:top-[-30%]  grid  place-items-center ">
 					<canvas
 						ref={canvasRef}
@@ -555,21 +565,29 @@ export function BunmyakuTeaserSection({
 					/>
 				</div>
 			</div>
-			<div className="relative z-10  PX [grid-area:1/1] h3FZ [font-family:--HFF]">
-				<div className="[--LS:0.1em] w-fit max-w-[--wid] mx-auto py-[50lvh] ">
-					<h2 className=" h2FZ HFF BarAF ">## 文脈.app</h2>
-					<p className=" mx-auto my-[--MY]">
-                                                - SPEC.md, DESIGN.md, AGENTS.md をGUIで作成するツール
-						<br />
-						<br />
-						- プロンプト保存、SKILL保管機能を実装予定
-					</p>
-					<a href="/Bunmyaku" className="mt-6 BarBF  hover:text-AC">
+			<div className="WTS [--WTS:var(--tsw)_var(--BC50)] relative z-10  PX [grid-area:1/1]  [font-family:--Ship] max-w-[48em] mx-auto">
+				<div className="[--LS:0.1em]    py-[50lvh] ">
+					<h2 className=" h2FZ HFF BarAF JsRight">## 文脈.app</h2>
+					<p className="BudouxFade mx-auto my-[3rem] md:text-xl">
+                                                ### SPEC.md, DESIGN.md, AGENTS.md をGUIで作成するツール<br />
+                                                <br />
+                                                DESIGN.mdはフロントエンドの要件定義書と言えます。公開サイトURLから作成するツールが多く出回っており、一定の効率化につながりますが、Sticthの公式テンプレートの情報量でも不十分であり、結局テンプレート出力になります。<br />
+                                                <br />
+                                                一方ClaudeDesignでは詳細を問いかける設計が従来のAIビルダーとの差別化でありますが、最先端モデルのテンプレートであることに変わりはありません。<br />
+                                                <br />
+                                                このツールではClaudeやモデル性能に依存せずに仕様書を作成すること。GUIで認知コストを下げることでどこまで実用に耐えられるかを試すMVP未満のものです。実際には出力品質を担保するための質問を用意することが最先端モデルでも困難で、時間がかかります。<br />
+                                                <br />
+                                                AGENTS.md(CLAUDE.md)では文章量を少なくすることが推奨されており、定型的なデータを使う場合が多いので最低水準が低いように思いますが、頻繁に更新するものではありません。AIツールを使い始める人のため、またはプロンプト保存、SKILL保管庫の機能を統合することでチーム内ツールとして活用できる可能性はあります。
+                                                <br />またcodex app-serverなどでGUI上から文書をプロンプトとしてあらためてmdファイルの作成をリクエストするという実装も検討できます。
+                                        </p>
+                                        <div className="JsLeft">
+					<a href="/Bunmyaku" className="mt-6 BarBF md:text-xl hover:text-AC ">
 						Bunmyaku
 						<CaretRightIcon
 							className=" align-middle ml-0"
 						/>
 					</a>
+                                        </div>
 				</div>
 			</div>
 		</section>

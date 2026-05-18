@@ -132,7 +132,7 @@ export function RepulsionListChip({
 			data-state="idle"
 			data-jitter-x={jitter.x.toFixed(2)}
 			data-jitter-y={jitter.y.toFixed(2)}
-			className={["repulsion-list-chip", className].filter(Boolean).join(" ")}
+			className={["repulsion-list-chip relative list-none bg-WH", className].filter(Boolean).join(" ")}
 			style={
 				{
 					transform: `translate(${px(jitter.x * 10)}, ${px(jitter.y * 0)})`,
@@ -144,8 +144,8 @@ export function RepulsionListChip({
 			<div className="repulsion-list-chip-control">
 				{to ? (
 					<Link to={to} {...controlProps}>
-						<div className="repulsion-list-chip-content">
-							<span className="repulsion-list-chip-label">{title}</span>
+						<div className="repulsion-list-chip-content [font-size:clamp(2rem,_5vw,_5rem)] font-light">
+							<span className="repulsion-list-chip-label block mx-auto p-4 whitespace-nowrap text-center bg-[repultion-list-light]">{title}</span>
 						</div>
 					</Link>
 				) : href ? (
@@ -155,12 +155,12 @@ export function RepulsionListChip({
 						rel="noopener noreferrer"
 						{...controlProps}
 					>
-						<div className="repulsion-list-chip-content">
-							<span className="repulsion-list-chip-label ">{title}</span>
+						<div className="repulsion-list-chip-content [font-size:clamp(2rem,_5vw,_5rem)] font-light">
+							<span className="repulsion-list-chip-label block mx-auto p-4 whitespace-nowrap text-center bg-[repultion-list-light] ">{title}</span>
 						</div>
 					</a>
 				) : (
-                                                <span className=" font-thin   z-10 leading-[1.25em] [font-size:calc(var(--mmFZ)*4)]">{title}</span>
+                                                <span className=" font-thin  z-10 leading-[1.25em] [font-size:calc(var(--mmFZ)*4.5)]">{title}</span>
 				)}
 				<div ref={popupRef} className="repulsion-list-chip-popup">
 					{children}

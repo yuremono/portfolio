@@ -112,8 +112,29 @@ export function RepulsionLists({ className }: RepulsionListsProps) {
 						>
 							<RepulsionListChip
 								title="Other Works"
-								className="is-initial pointer-events-none mr-12 -mt-4"
-							/>
+								className="is-initial pointer-events-none mr-4 -mt-4 bg-transparent"
+                                                        />
+                                                        <RepulsionListChip
+								title="Random Generator"
+                                                                to="/rects"
+								className="mt-4 "
+							>
+							<p>
+								コントローラー付きのランダム図形配置ジェネレーター
+							</p>
+							<details className="Toggle IsSmall font-normal ">
+								<summary className="Eng">SVG...</summary>
+								<div>
+									セル数、コンテナを埋める方向性、図形の種類(正方形、三角形、星、十字)、角度などを調整。rect,circle等SVGタグのスニペットをコピペできる。
+								</div>
+							</details>
+							<details className="Toggle IsSmall font-normal ">
+								<summary className="Eng">Rects...</summary>
+								<div>
+									divタグの大きさ、個数、角丸、重なり可否などを指定。いいバランスの時にコピーして画像配置などでそのまま使う想定。SVG出力も可。
+								</div>
+							</details>
+						</RepulsionListChip>
 							<RepulsionListChip
 								title="Agent Driven CMS"
 								to="/donut"
@@ -138,27 +159,7 @@ export function RepulsionLists({ className }: RepulsionListsProps) {
 								</div>
 							</details>
 						</RepulsionListChip>
-							<RepulsionListChip
-								title="Random Generator"
-                                                                to="/rects"
-								className="mt-4"
-							>
-							<p>
-								コントローラー付きのランダム図形配置ジェネレーター
-							</p>
-							<details className="Toggle IsSmall font-normal ">
-								<summary className="Eng">SVG...</summary>
-								<div>
-									セル数、コンテナを埋める方向性、図形の種類(正方形、三角形、星、十字)、角度などを調整。rect,circle等SVGタグのスニペットをコピペできる。
-								</div>
-							</details>
-							<details className="Toggle IsSmall font-normal ">
-								<summary className="Eng">Rects...</summary>
-								<div>
-									divタグの大きさ、個数、角丸、重なり可否などを指定。いいバランスの時にコピーして画像配置などでそのまま使う想定。SVG出力も可。
-								</div>
-							</details>
-						</RepulsionListChip>
+							
 							<RepulsionListChip
 								title="Shuffle Divide"
 								to="/shuffleDivide"
@@ -198,7 +199,7 @@ export function RepulsionLists({ className }: RepulsionListsProps) {
 							<p>職務要約と活動記録を書いています。</p>
 						</RepulsionListChip>
 							<RepulsionListChip
-								title="Chat Canban.app"
+								title="Chat Canban"
                                                                 href="https://chat-kanban.vercel.app/"
                                                                 className="mb-4"
                                                                 
@@ -209,15 +210,14 @@ export function RepulsionLists({ className }: RepulsionListsProps) {
 								＊デモページ。当サイトに統合していません。
 							</p>
 						</RepulsionListChip>
-							{/* <RepulsionListChip
+							<RepulsionListChip
 								title="NextJs CMS"
-								href="https://cms0505.vercel.app/"
+								href="https://cms0505.vercel.app/editor"
 							>
 							<p>
-								Analyze the strongest product and suggest a
-								high-impact move.
+								AI駆動開発最初の制作物。実務で経験できないシステム設計、データ管理、React、TypeScriptを学ぶため、単一ページ専用CMSを作成。閲覧pass: view
 							</p>
-						</RepulsionListChip> */}
+						</RepulsionListChip>
 							{/* <RepulsionListChip
 								title="/Clone Modules"
                                                                 to="/examples"

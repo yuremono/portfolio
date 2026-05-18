@@ -4,6 +4,7 @@
 
 import { initBorderDraw } from "./effects/initBorderDraw";
 import { initBudoux } from "./budoux";
+import { initBudouxFade } from "./budouxFade";
 import { initHeader } from "./header";
 import { initHeaderTrans } from "./headerTrans";
 import { initIntersectionShow } from "./intersectionShow";
@@ -24,6 +25,7 @@ export function initClientRuntime(
 	const intersectionShow = initIntersectionShow(root);
 	const spanWrap = initSpanWrap(root);
 	const budoux = initBudoux(root);
+	const budouxFade = initBudouxFade(root);
 	const headerTrans = initHeaderTrans(root);
 	const video = initVideo(root);
 	const scrollX = initScrollX(root);
@@ -37,6 +39,7 @@ export function initClientRuntime(
 			intersectionShow.disconnect();
 			spanWrap.disconnect();
 			budoux.disconnect();
+			budouxFade.disconnect();
 			headerTrans.disconnect();
 			video.disconnect();
 			scrollX.disconnect();

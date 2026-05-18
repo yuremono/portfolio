@@ -79,7 +79,7 @@ function Next() {
 				<section className="out mindMap   text-center   font-thin">
 					{/* InitialLoadingOverlay の INITIAL_LOADING_LABEL_TEXT と文言を同期 */}
 					<p
-						className="mmPin about_p lg:w-[calc(var(--wid)/2)] text-[--GR] font-light text-center p-4 px-6 bg-background/80 right-1/2 top-1/2 lg:translateYH static lg:absolute"
+						className="mmPin about_p lg:w-[calc(var(--wid)/2)] text-[--GR] font-light text-center p-4 px-6  right-1/2 top-1/2 lg:translateYH static lg:absolute"
 						style={{ fontSize: "3em" }}
 					>
 						yuremono
@@ -169,27 +169,27 @@ function Next() {
 								</div>
 							</div>
 
-							<p className="hidden lg:inline-block" style={{ fontSize: "2em" }}>Cursor</p>
-							<p className="hidden lg:inline-block" style={{ fontSize: "1.5em" }}>Claude Code</p>
-							<p
+							<p className="hidden lg:inline-block" style={{ fontSize: "2.5em" }}>Cursor</p>
+							<p className="hidden lg:inline-block" style={{ fontSize: "2em" }}>Claude Code</p>
+							{/* <p
 								className="hidden lg:inline-block"
 								style={{ fontSize: "1em" }}
 							>
 								context/harness
 								<br />
 								engineering
-							</p>
-							<p className="hidden lg:inline-block" style={{ fontSize: "1.5em" }}>TailwindCSS</p>
+							</p> */}
+							<p className="hidden lg:inline-block" style={{ fontSize: "2.5em" }}>TailwindCSS</p>
 							<p
 								className="hidden lg:inline-block"
-								style={{ fontSize: "1.5em" }}
+								style={{ fontSize: "2em" }}
 							>
-								canvasAPI
+								WebGL
 							</p>
-							<p className="hidden lg:inline-block" style={{ fontSize: "2em" }}>Codex</p>
+							<p className="hidden lg:inline-block" style={{ fontSize: "2.5em" }}>Codex</p>
 							<p
 								className="hidden lg:inline-block"
-								style={{ fontSize: "1.5em" }}
+								style={{ fontSize: "2em" }}
 							>
 								Pencil.dev
 							</p>
@@ -219,10 +219,6 @@ function Next() {
 									</h2>
 									<p className="mt-2 leading-[--LH]">
 										経験とAI依存の詳細。
-										<span className="leading-[1.5] px-[1em] bg-AC/30">
-											&nbsp;&nbsp;
-										</span>{" "}
-										は特に注力しているもの。
 									</p>
 								</div>
 							</header>
@@ -523,7 +519,7 @@ function Next() {
 													</dt>
 													<dd>
 														<span className="px-2 bg-AC/30 font-medium">
-															6 M,AI 1 Y
+															6 Month,AI 1 Year
 														</span>
 													</dd>
 													<dt className="">
@@ -626,7 +622,7 @@ function Next() {
 									<h2 className="font-thin grid content-center md:h-[100lvh]">
 										<span
 											className="mindWobble text-left leading-[0.7em] tracking-[-0.0em]"
-											style={{ fontSize: "3em" }}
+											style={{ fontSize: "2.5em" }}
 										>
 											Vibe
 											<br />
@@ -634,13 +630,13 @@ function Next() {
 										</span>
 										<span
 											className="mindWobble text-center leading-[1em] mt-[-0.25em] tracking-[-0.0em] font-normal text-GR/10 "
-											style={{ fontSize: "8em" }}
+											style={{ fontSize: "6em" }}
 										>
 											or
 										</span>
 										<span
 											className="mindWobble text-right leading-[0.57em] tracking-[0.08em] "
-											style={{ fontSize: "3em" }}
+											style={{ fontSize: "2.5em" }}
 										>
 											Vault&nbsp;
 											<br />

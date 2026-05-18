@@ -29,10 +29,14 @@ function Examples() {
 
 	return (
 		<PageRoot ref={pageRootRef}>
-			<Header className="" />
+                        <Header className="" />
+                        
+                        {/* OASIZ three.js canvas */}
+				<OasizThreeCanvas className="out " />
 
-                        <main className="mt-[--head]">
-                        <div className="repulsion-lists-module mt-0 MY ">
+                        <main className="mt-[75lvh]">
+                                <div className="repulsion-lists-module mt-0 MY space-y-4">
+                                        <h1 className="h3FZ">このページはエージェント参照用兼 /recreate-module スキル実行用です。</h1>
 				<h2 className="">Repulsion lists</h2>
 				<p>
 					recreated from `https://www.shopify.com/editions/winter2026`
@@ -41,8 +45,7 @@ function Examples() {
 			</div>
                                 
 
-				{/* OASIZ three.js canvas */}
-				<OasizThreeCanvas className="out " />
+				
 				{/* WaveHover */}
 				<div ref={waveHoverRef} className="WaveHover Wrap bg-GR/20 px-[--PX] md:px-0 mt-[100lvh]">
 					<ul>

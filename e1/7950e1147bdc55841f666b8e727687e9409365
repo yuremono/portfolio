@@ -1,0 +1,56 @@
+CLASS.md
+  s_7e7f33d50c0276::t_439f0a00114bf6 79
+src/scss/_08intersection.scss
+  s_7e7f33d50c0276::t_48a5d633f22d61 159-160,163-164
+  s_7e7f33d50c0276::t_6117874830a21c 165,167-169,204
+  h_53dad1e32c3c71 161-162,166,172-173
+  s_7e7f33d50c0276::t_b3b919fdc03cca 170
+src/pages/Next.tsx
+  h_53dad1e32c3c71 82,172-174,181-182,185,187,189,192,522,625,633,639
+src/pages/RepulsionLists/styles.ts
+  h_53dad1e32c3c71 31-33,77-79
+src/pages/RepulsionLists/RepulsionListChip.tsx
+  h_53dad1e32c3c71 135,147-148,158-159,163
+src/lib/index.ts
+  s_7e7f33d50c0276::t_a6a195a3105aa1 6
+src/index.scss
+  h_53dad1e32c3c71 196-205
+src/lib/initClientRuntime.ts
+  s_7e7f33d50c0276::t_ef8cb7f371fe77 7,28,42
+src/pages/RepulsionLists/RepulsionLists.tsx
+  h_53dad1e32c3c71 115,117-137,162,202,215,218
+src/components/BunmyakuTeaserSection.tsx
+  s_7e7f33d50c0276::t_bf77af56ea1454 11,469-476
+  h_53dad1e32c3c71 64,568,570,575-577,579,581,583-584,590
+src/lib/budouxFade.ts
+  s_7e7f33d50c0276::t_6b2791a0022680 33,83-90,163-166
+  s_7e7f33d50c0276::t_d5657c2ba36bf6 190-197
+  s_7e7f33d50c0276::t_e8b18b1cf5c387 13,22,67-69,75,162,167-173,200,202,207,211
+  s_7e7f33d50c0276::t_2945a62218871b 1-7,10-11,14-20,23-31,34-54,56-59,66,70-73,76,79-82,92-100,103,105-109,111-116,118-131,133-139,152,155-158,174-182,184-189,198-199,201,203-206,208-210,212-235
+  s_7e7f33d50c0276::t_7eaae4433fd89a 8-9,91,101-102,104,110,117,132,140-151,153-154,159-160,183
+  s_7e7f33d50c0276::t_c7d5f3e78e7d7e 12,21,32,55,60-65,74,77-78,161
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.8",
+  "base_commit_sha": "e17950e1147bdc55841f666b8e727687e9409365",
+  "prompts": {},
+  "humans": {
+    "h_53dad1e32c3c71": {
+      "author": "yuremono <5alviaofficinali50@gmail.com>"
+    },
+    "h_5a56918e6ebef3": {
+      "author": "yuremono"
+    }
+  },
+  "sessions": {
+    "s_7e7f33d50c0276": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019e3a47-3f4e-7521-b83e-55966ba72388",
+        "model": "gpt-5.5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  }
+}

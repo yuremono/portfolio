@@ -1,1 +1,0 @@
-import{e as t,j as r,a as o,B as e}from"./maskMosaique-VSg3ctID.js";/* empty css                      */import s from"./ZzzScratch-ELpbdgDw.js";import"./useClientRuntime-dVENxAR3.js";import"./useHtmlRootClass-C0I0DQ6X.js";t.createRoot(document.getElementById("root")).render(r.jsx(o.StrictMode,{children:r.jsx(e,{children:r.jsx(s,{})})}));

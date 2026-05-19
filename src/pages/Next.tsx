@@ -95,8 +95,6 @@ function Next() {
 						works
 					</p>
 					<h1 className="JsLetter  text-lg font-normal budoux mmPin about_tx static lg:absolute lg:translateYH leading-[2em] left-1/2 top-1/2 z-10 text-left p-4 bg-background/80 ">
-						web制作会社で3.5年デザインとコーディングに従事
-						<br />
 						2025/05からAI駆動開発を開始
 						<br />
 						ヴィジュアル表現をAIでブーストし

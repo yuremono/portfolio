@@ -1,11 +1,8 @@
-import { lazy, Suspense, useRef } from "react";
+import { useRef } from "react";
 import { PageRoot } from "../components/PageRoot";
 import { getAssetPath } from "../lib/assetPath";
 import { useClientRuntime } from "../hooks/useClientRuntime";
 import { useHtmlRootClass } from "../hooks/useHtmlRootClass";
-
-// drei の Environment が HDRI をダウンロードするため、初期描画を重くしないよう遅延読み込みする。
-const BrassCompass = lazy(() => import("../components/three/BrassCompass"));
 
 /** 画像パスをまとめる。/images の直書きを避ける。 */
 const asset = (name: string) => getAssetPath(`/images/${name}`);
@@ -112,16 +109,12 @@ function Test8() {
 								<li>・PresentationControls でドラッグ回転、ContactShadows で接地影を付与。</li>
 							</ul>
 						</div>
-						<div className="relative mx-auto h-[min(82lvh,640px)] min-h-[28rem] w-full max-w-[28rem]">
-							<Suspense
-								fallback={
-									<div className="grid h-full w-full place-items-center text-sm opacity-70">
-										3D モデルを読み込み中...
-									</div>
-								}
-							>
-								<BrassCompass className="h-full w-full" />
-							</Suspense>
+						<div
+							className="relative mx-auto grid h-[min(82lvh,640px)] min-h-[28rem] w-full max-w-[28rem] place-items-center BorderXY bg-WH/40 px-[--PX] text-center text-sm opacity-70"
+							aria-hidden="true"
+						>
+							3D コンポーネントは private/components/three/BrassCompass.tsx
+							に退避済み
 						</div>
 					</div>
 				</section>

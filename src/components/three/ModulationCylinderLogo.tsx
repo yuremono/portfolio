@@ -38,7 +38,7 @@ const SIDE_TEXT = "MODULATION";
 
 const LOGO_CONFIG = {
 	// --- レンダリング（Canvas / WebGL）---
-	dpr: [1, 2],
+	dpr: [1, 2] satisfies [number, number],
 	antialias: false,
 	frameloop: "demand" as const,
 	powerPreference: "low-power" as WebGLPowerPreference,

@@ -9,17 +9,19 @@ import { RepulsionLists } from "./RepulsionLists/RepulsionLists";
 // import { Image } from "../components/Image";
 // import { getAssetPath } from "../lib/assetPath";
 
+
 import {
 	Moon,
 	Sun,
-	// CaretUpIcon,
+	CaretUpIcon,
 	// CaretDownIcon,
 	// XIcon,
 	ListPlusIcon,
 	ArrowSquareOutIcon,
 } from "@phosphor-icons/react";
 import { DialogFull } from "../components/DialogFull";
-import Header from "../components/Header";
+import HeaderCylinder from "../components/HeaderCylinder";
+// import Header from "../components/Header";
 import { Footer } from "../components/Footer";
 import { PageRoot } from "../components/PageRoot";
 import { BunmyakuTeaserSection } from "../components/BunmyakuTeaserSection";
@@ -58,10 +60,16 @@ function Next() {
 	return (
 		<PageRoot
 			ref={ref}
-			className="PageRoot [--innerPX:--PX] [--Eng:--Jost] [--San:--Zen] [--h3FZ:1.5em] [--dropBG:--WH] [--dropC:--TC] [--WTS:var(--tsw)_var(--TC30)]"
+			className="PageRoot [--innerPX:--PX] [--Eng:--Jost] [--San:--Zen] [--h3FZ:1.5em] [--dropBG:--WH] [--dropC:--TC] [--WTS:var(--tsw)_var(--TC30)] "
 		>
-			<Header className="NoLogo TopHidden mix-blend-difference text-WH" />
-
+                        <HeaderCylinder className=" " />
+			{/* <Header className="NavCircleLeft text-WH" /> */}
+			{/* <Header className="NoLogo TopHidden mix-blend-difference text-WH" /> */}
+                        <div className="HeaderPagetop mix-blend-difference text-WH  ">
+				<a href="#">
+					<CaretUpIcon className="" />
+				</a>
+			</div>
 			<button
 				type="button"
 				className="ThemeToggle mix-blend-difference text-WH"

@@ -763,7 +763,7 @@ function Rects() {
 								<button
 									type="button"
 									onClick={copyMarkupToClipboard}
-									className="btn min-w-0 inline-flex items-center justify-center text-xs px-2 py-0.5"
+									className="BorderXY min-w-0 inline-flex items-center justify-center text-xs px-2 py-0.5"
 									aria-label="クリップボードにコピー"
 								>
 									<CopyIcon
@@ -804,7 +804,7 @@ function Rects() {
 									<button
 										type="button"
 										onClick={refreshGridCopyMarkup}
-										className="btn min-w-0 inline-flex items-center justify-center gap-1 text-xs px-2 py-0.5"
+										className="BorderXY min-w-0 inline-flex items-center justify-center gap-1 text-xs px-2 py-0.5"
 										aria-label="コピー用コードを更新"
 									>
 										更新
@@ -816,7 +816,7 @@ function Rects() {
 									<button
 										type="button"
 										onClick={copyMarkupToClipboard}
-										className="btn min-w-0 text-xs px-2 py-0.5"
+										className="BorderXY min-w-0 text-xs px-2 py-0.5"
 										aria-label="クリップボードにコピー"
 									>
 										<CopyIcon

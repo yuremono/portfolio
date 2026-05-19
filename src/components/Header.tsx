@@ -1,4 +1,4 @@
-// import type { CSSProperties } from "react";
+import { lazy, Suspense, type MouseEvent, type PointerEvent } from "react";
 import { Link } from "react-router-dom";
 import {
 	CaretUpIcon,
@@ -6,7 +6,64 @@ import {
 	ArrowSquareOutIcon,
 } from "@phosphor-icons/react";
 
-function HeaderNav() {
+const ModulationCylinderLogo = lazy(
+	() => import("./three/ModulationCylinderLogo"),
+);
+
+function hasHeaderClass(className: string | undefined, target: string) {
+	return className?.split(/\s+/).includes(target) ?? false;
+}
+
+type HeaderNavVariant = "desktop" | "mobile";
+
+interface HeaderNavProps {
+	variant: HeaderNavVariant;
+}
+
+function showDropPopover(event: PointerEvent<HTMLLIElement>) {
+	const popover =
+		event.currentTarget.querySelector<HTMLUListElement>(".DropUl");
+	if (!popover || popover.matches(":popover-open")) return;
+	const source = event.currentTarget.querySelector<HTMLElement>(".DropA");
+	if (source) {
+		popover.showPopover({ source });
+		return;
+	}
+	popover.showPopover();
+}
+
+function hideDropPopover(event: PointerEvent<HTMLLIElement>) {
+	const relatedTarget = event.relatedTarget;
+	if (
+		relatedTarget instanceof Node &&
+		event.currentTarget.contains(relatedTarget)
+	) {
+		return;
+	}
+
+	const popover =
+		event.currentTarget.querySelector<HTMLUListElement>(".DropUl");
+	if (!popover || !popover.matches(":popover-open")) return;
+	popover.hidePopover();
+}
+
+function hideClickedPopover(event: MouseEvent<HTMLUListElement>) {
+	if (!(event.target instanceof Element) || !event.target.closest("a"))
+		return;
+	event.currentTarget.hidePopover();
+}
+
+function HeaderNav({ variant }: HeaderNavProps) {
+	const isDesktop = variant === "desktop";
+	const repositoriesPopoverId = `HeaderRepositoriesMenu-${variant}`;
+	const pagesPopoverId = `HeaderPagesMenu-${variant}`;
+	const dropHoverProps = isDesktop
+		? {
+				onPointerEnter: showDropPopover,
+				onPointerLeave: hideDropPopover,
+			}
+		: {};
+
 	return (
 		<ul className="NavUl">
 			<li className="NavLi">
@@ -18,17 +75,46 @@ function HeaderNav() {
 			<li className="NavLi [font-family:--Ship]">
 				<Link to="/bunmyaku">文脈</Link>
 			</li>
-			<li className="NavLi NavDrop" aria-expanded="false">
-				<a className="DropA DropToggle " tabIndex={-1}>
-					Repositories&nbsp;
-					<CaretDownIcon className="DropIcon" />
-				</a>
-				<button
-					type="button"
-					className="DropBtn DropToggle"
-					aria-label="サブメニューを開閉"
-				/>
-				<ul className="DropUl" aria-hidden="true" aria-label="close">
+			<li className="NavLi NavDrop" {...dropHoverProps}>
+				{isDesktop ? (
+					<button
+						type="button"
+						className="DropA DropToggle"
+						popoverTarget={repositoriesPopoverId}
+					>
+						Repositories&nbsp;
+						<CaretDownIcon className="DropIcon" />
+					</button>
+				) : (
+					<a className="DropA DropToggle " tabIndex={-1}>
+						Repositories&nbsp;
+						<CaretDownIcon className="DropIcon" />
+					</a>
+				)}
+				{isDesktop ? (
+					<button
+						type="button"
+						className="DropBtn DropToggle"
+						popoverTarget={repositoriesPopoverId}
+						aria-label="Toggle repositories submenu"
+					/>
+				) : (
+					<button
+						type="button"
+						className="DropBtn DropToggle"
+						aria-expanded="false"
+						aria-controls={repositoriesPopoverId}
+						aria-label="Toggle repositories submenu"
+					/>
+				)}
+				<ul
+					id={repositoriesPopoverId}
+					className="DropUl"
+					popover={isDesktop ? "auto" : undefined}
+					aria-hidden={isDesktop ? undefined : "true"}
+					aria-label={isDesktop ? "Repositories" : undefined}
+					onClick={isDesktop ? hideClickedPopover : undefined}
+				>
 					<li className="DropLi">
 						<a
 							href="https://github.com/yuremono/portfolio"
@@ -119,17 +205,46 @@ function HeaderNav() {
 					</li>
 				</ul>
 			</li>
-			<li className="NavLi NavDrop" aria-expanded="false">
-				<a className="DropA DropToggle " tabIndex={-1}>
-					Pages&nbsp;
-					<CaretDownIcon className="DropIcon" />
-				</a>
-				<button
-					type="button"
-					className="DropBtn DropToggle"
-					aria-label="サブメニューを開閉"
-				/>
-				<ul className="DropUl" aria-hidden="true" aria-label="close">
+			<li className="NavLi NavDrop" {...dropHoverProps}>
+				{isDesktop ? (
+					<button
+						type="button"
+						className="DropA DropToggle"
+						popoverTarget={pagesPopoverId}
+					>
+						Pages&nbsp;
+						<CaretDownIcon className="DropIcon" />
+					</button>
+				) : (
+					<a className="DropA DropToggle " tabIndex={-1}>
+						Pages&nbsp;
+						<CaretDownIcon className="DropIcon" />
+					</a>
+				)}
+				{isDesktop ? (
+					<button
+						type="button"
+						className="DropBtn DropToggle"
+						popoverTarget={pagesPopoverId}
+						aria-label="Toggle pages submenu"
+					/>
+				) : (
+					<button
+						type="button"
+						className="DropBtn DropToggle"
+						aria-expanded="false"
+						aria-controls={pagesPopoverId}
+						aria-label="Toggle pages submenu"
+					/>
+				)}
+				<ul
+					id={pagesPopoverId}
+					className="DropUl"
+					popover={isDesktop ? "auto" : undefined}
+					aria-hidden={isDesktop ? undefined : "true"}
+					aria-label={isDesktop ? "Pages" : undefined}
+					onClick={isDesktop ? hideClickedPopover : undefined}
+				>
 					<li className="DropLi">
 						<Link to="/preview">BurnYourOwnStyle</Link>
 					</li>
@@ -181,7 +296,7 @@ function HeaderNav() {
 							<ArrowSquareOutIcon size={16} />
 						</a>
 					</li>
-					<li className="DropLi opacity-30">
+					<li className="DropLi opacity-0">
 						<Link to="/examples">Examples</Link>
 					</li>
 				</ul>
@@ -219,6 +334,8 @@ type HeaderProps = {
  */
 // export default function AgentHeader() {
 export default function Header({ className }: HeaderProps) {
+	const usesModulationLogo = hasHeaderClass(className, "NavCircleLeft");
+
 	return (
 		<header
 			id="Header"
@@ -226,19 +343,39 @@ export default function Header({ className }: HeaderProps) {
 		>
 			<div className="HeaderInner ">
 				<div className="HeaderLogo ">
-					<Link className="HeaderLogoText Eng" to="/">
-						yuremono
-						<br />
-						works
+					<Link
+						className={
+							usesModulationLogo
+								? "LogoObject"
+								: "HeaderLogoText Eng"
+						}
+						to="/"
+						aria-label={usesModulationLogo ? "HOME" : undefined}
+					>
+						{usesModulationLogo ? (
+							<Suspense
+								fallback={<span className="LogoLoading" />}
+							>
+								<ModulationCylinderLogo
+									interactive={false}
+									autoSpin
+								/>
+							</Suspense>
+						) : (
+							<>
+								yuremono
+								<br />
+								works
+							</>
+						)}
 					</Link>
 				</div>
 				<button
 					type="button"
 					className="HeaderMenu MenuToggle IsDots"
 					aria-expanded="false"
-					aria-pressed="false"
-					aria-controls="nav"
-					aria-label="menu open"
+					aria-controls="HeaderNavMobile"
+					aria-label="Open menu"
 				>
 					<span className="span1" />
 					<span className="span2" />
@@ -251,7 +388,7 @@ export default function Header({ className }: HeaderProps) {
 					role="navigation"
 					aria-label="main navigation"
 				>
-					<HeaderNav />
+					<HeaderNav variant="desktop" />
 					<div className="FocusTrap MenuToggle" tabIndex={0} />
 				</nav>
 				<nav
@@ -261,7 +398,7 @@ export default function Header({ className }: HeaderProps) {
 					aria-label="main navigation (mobile overlay)"
 				>
 					<div className="NavInner">
-						<HeaderNav />
+						<HeaderNav variant="mobile" />
 					</div>
 				</nav>
 			</div>

@@ -49,12 +49,12 @@ const routes: PageTransitionRoute[] = [
 		transitionTitle: "LingoChat",
 	},
 	{
-		path: "/Bunmyaku",
+		path: "/bunmyaku",
 		element: <Bunmyaku />,
 		transitionTitle: "Bunmyaku",
 	},
 	{
-		path: "/ShuffleDivide",
+		path: "/shuffleDivide",
 		element: <ShuffleDivide />,
 		transitionTitle: "ShuffleDivide",
 	},

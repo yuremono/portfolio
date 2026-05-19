@@ -119,6 +119,7 @@ a {
         // padding-inline: 1em 2.5em;
         // box-shadow: inset 0 0 6px var(--bk30);
         border: var(--line);
+        border-color: var(--CC);
 
 }
 
@@ -529,6 +530,7 @@ p:has(>a) {
 .f_link,
 .pan1 a,
 .HeaderNav a:not(:has(>span)),
+.HeaderNav a:not(.HeaderCylinder *),
 .banner a // ,a.textlink:not([href*=tel],.__tel,span,.__grad)
 // ,.HeaderNav a:not(.drop a,.nopointer,:has(>span),:is(.logo *)) 
 ,
@@ -569,8 +571,8 @@ p:has(>a) {
 
 .f_btn // ,.HeaderNav .drop ul li
 // ,.drop ul li a
-,
-.btn:not([href*=tel], .__tel, span, .__grad) // ,.H-layer .veil
+// ,.btn:not([href*=tel], .__tel, span, .__grad) 
+// ,.H-layer .veil
 
 // ,.btn
 // ,.h_contact

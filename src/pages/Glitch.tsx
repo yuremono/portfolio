@@ -55,7 +55,7 @@ function Glitch() {
 	return (
 		<PageRoot
 			ref={pageRootRef}
-			className="glitch bg-black text-white isolate [--Eng:--Jost] [--innerPX:--PX] [--HFW:100] [--letter-delay:0.1s]"
+			className="glitch bg-black text-white isolate [--Eng:--Jost] [--innerPX:--PX] [--HFW:100] [--letter-delay:0.1s] "
 		>
 			<Header className="NoLogo TopHidden" />
 

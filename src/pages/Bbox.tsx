@@ -1227,7 +1227,7 @@ export default function Bbox() {
 			<main
 				data-l="EditorMain"
 				ref={mainRowRef}
-				className="flex min-h-0 min-w-0 flex-1 flex-row overflow-hidden px-0"
+				className="flex min-h-0 min-w-0  flex-1 flex-row overflow-hidden px-0"
 			>
 				<BboxStage
 					stageRef={stageRef}

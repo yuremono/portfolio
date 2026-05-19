@@ -581,7 +581,7 @@ export function BunmyakuTeaserSection({
                                                 <br />またcodex app-serverなどでGUI上から文書をプロンプトとしてあらためてmdファイルの作成をリクエストするという実装も検討できます。
                                         </p>
                                         <div className="JsLeft">
-					<a href="/Bunmyaku" className="mt-6 BarBF md:text-xl hover:text-AC ">
+					<a href="/bunmyaku" className="mt-6 BarBF md:text-xl hover:text-AC ">
 						Bunmyaku
 						<CaretRightIcon
 							className=" align-middle ml-0"

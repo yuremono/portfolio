@@ -19,7 +19,9 @@ export function initHeader(root: Document | Element = document): RuntimeDisconne
 	);
 	const contactLinks =
 		base.querySelectorAll<HTMLAnchorElement>(".HeaderItems a");
-	const dropToggles = base.querySelectorAll<HTMLElement>(".DropToggle");
+	const dropToggles = base.querySelectorAll<HTMLElement>(
+		".DropToggle:not([popovertarget])",
+	);
 	const header = doc.querySelector<HTMLElement>("#Header");
 	const focusTrap = base.querySelector<HTMLElement>(".FocusTrap");
 
@@ -31,15 +33,9 @@ export function initHeader(root: Document | Element = document): RuntimeDisconne
 		navPc.inert = !navPc.inert;
 		nSp.classList.toggle("show");
 		nUl.classList.toggle("show");
-		const pressed = menu.getAttribute("aria-pressed") === "true";
-		menu.setAttribute("aria-pressed", pressed ? "false" : "true");
-		menu.setAttribute("aria-expanded", pressed ? "false" : "true");
-		menu.setAttribute(
-			"aria-label",
-			menu.getAttribute("aria-label") === "menu open"
-				? "menu close"
-				: "menu open",
-		);
+		const expanded = menu.getAttribute("aria-expanded") === "true";
+		menu.setAttribute("aria-expanded", expanded ? "false" : "true");
+		menu.setAttribute("aria-label", expanded ? "Open menu" : "Close menu");
 		header.classList.toggle("active");
 		menu.classList.toggle("active");
 	};
@@ -62,12 +58,10 @@ export function initHeader(root: Document | Element = document): RuntimeDisconne
 		if (!parent || !target) return;
 		target.classList.toggle("show");
 		el.classList.toggle("active");
-		const exp = parent.getAttribute("aria-expanded") === "true";
-		parent.setAttribute("aria-expanded", exp ? "false" : "true");
+		const exp = el.getAttribute("aria-expanded") === "true";
+		el.setAttribute("aria-expanded", exp ? "false" : "true");
 		const hidden = target.getAttribute("aria-hidden") === "false";
 		target.setAttribute("aria-hidden", hidden ? "true" : "false");
-		const label = target.getAttribute("aria-label");
-		target.setAttribute("aria-label", label === "open" ? "close" : "open");
 	};
 
 	const onDropToggle = (el: HTMLElement) => () => dropDown(el);
@@ -75,7 +69,10 @@ export function initHeader(root: Document | Element = document): RuntimeDisconne
 	const onFocusTrap = () => menu.focus();
 
 	const onKeyUp = (event: KeyboardEvent) => {
-		if (event.key === "Escape" && menu.getAttribute("aria-pressed") === "true") {
+		if (
+			event.key === "Escape" &&
+			menu.getAttribute("aria-expanded") === "true"
+		) {
 			btnPress();
 		}
 	};

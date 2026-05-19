@@ -22,7 +22,7 @@ const DEFAULT_IMAGE_ALPHA = 1;
  * 縦位置の微調整（テキストのバウンディングボックス高さに対する %）。
  * DOM 矩形の縦中央を基準に、正の値で下へ・負の値で上へ。例: `2` = 高さの 2%。
  */
-const CANVAS_EFFECT_VERTICAL_NUDGE_PERCENT = 3.3;
+const CANVAS_EFFECT_VERTICAL_NUDGE_PERCENT = 4;
 
 type LetterSpacingCanvasContext = CanvasRenderingContext2D & {
 	letterSpacing?: string;

@@ -2,7 +2,8 @@
 
 
 
-.Header {//ヘッダー変形class、固有style 
+.Header {
+        //ヘッダー変形class、固有style 
 
 
 
@@ -14,41 +15,49 @@
 
         .btn {
                 min-width: unset;
+
                 &:after {
                         display: none;
                 }
         }
 
-                // *****************trans時色変更
-                // .HeaderInner:not(.trans *,.active *){color: var(--WH);}
-                // .HeaderInner:is(.trans *,.active *){color: var(--tx);}
-                // .HeaderNav:not(.trans *,.active *){color: var(--WH);}
-                // .HeaderNav:is(.trans *,.active *){color: var(--tx);}
-                // .HeaderMenu:not(.trans *,.active *){--menuC: var(--WH);}
-                // .HeaderMenu:is(.trans *,.active *){--menuC: var(--tx);}
-                // @media (max-width: 834px){
-                //     .HeaderInner:not(.trans *,.active *){color: var(--tx);}
-                //     .HeaderNav:not(.trans *,.active *){color: var(--tx);}
-                //     .HeaderMenu:not(.trans *,.active *){--menuC: var(--tx);}
-                // }
-                // *****************trans時色変更
+        // *****************trans時色変更
+        // .HeaderInner:not(.trans *,.active *){color: var(--WH);}
+        // .HeaderInner:is(.trans *,.active *){color: var(--tx);}
+        // .HeaderNav:not(.trans *,.active *){color: var(--WH);}
+        // .HeaderNav:is(.trans *,.active *){color: var(--tx);}
+        // .HeaderMenu:not(.trans *,.active *){--menuC: var(--WH);}
+        // .HeaderMenu:is(.trans *,.active *){--menuC: var(--tx);}
+        // @media (max-width: 834px){
+        //     .HeaderInner:not(.trans *,.active *){color: var(--tx);}
+        //     .HeaderNav:not(.trans *,.active *){color: var(--tx);}
+        //     .HeaderMenu:not(.trans *,.active *){--menuC: var(--tx);}
+        // }
+        // *****************trans時色変更
 
         // ******************未使用テンプレ完了時消去
-        &.UpInit {//js処理変更、上スクロールでinit(通常に戻るtrans外す)
+        &.UpInit {
+                //js処理変更、上スクロールでinit(通常に戻るtrans外す)
                 transition: var(--trans);
+
                 &.trans {
                         margin-top: var(--Nhead);
                 }
         }
-        &.EdgeRail {//初設定、余白調整有
+
+        &.EdgeRail {
+                //初設定、余白調整有
                 --menuH: calc(var(--head) + 2em);
+
                 .HeaderInner {
                         padding-right: unset;
                         background-color: unset;
                 }
+
                 .HeaderLogo {
                         line-height: 1;
                 }
+
                 .btn {
                         display: block;
                         --btnC: var(--tx);
@@ -57,10 +66,12 @@
                         min-height: var(--head);
                         border: unset;
                         background-color: unset;
+
                         &:after {
                                 display: none;
                         }
                 }
+
                 .HeaderItems {
                         display: block;
                         position: absolute;
@@ -69,13 +80,16 @@
                         background-color: var(--innerBG);
                         border-left: var(--line);
                         border-top: 1px solid transparent;
+
                         >* {
                                 border-bottom: var(--line);
                         }
+
                         @include menu {
                                 top: var(--menuH);
                         }
                 }
+
                 .HeaderNav {
                         background-color: var(--innerBG);
                         outline: var(--line);
@@ -83,18 +97,22 @@
                         align-content: center;
                         padding-right: var(--head);
                 }
+
                 .HeaderMenu {
                         background-color: var(--innerBG);
                         outline: var(--line);
                         margin: unset;
                         width: var(--head);
                 }
+
                 .NavInner>.NavUl {
                         padding-right: var(--head);
                 }
         }
 
-        &.InitColumn {//初設定、余白調整有
+        &.InitColumn {
+
+                //初設定、余白調整有
                 @include menuMin {
                         .HeaderInner {
                                 &:not(.trans *) {
@@ -218,6 +236,7 @@
                         display: block;
                         align-content: center;
                         height: 100%;
+
                         @include menu {
                                 position: unset;
                         }
@@ -227,6 +246,7 @@
                                 margin-top: var(--itemG);
                                 margin-top: calc(var(--bodyFZ)*0.125);
                         }
+
                         @media (max-width: 834px) {
                                 position: fixed;
                                 top: unset;
@@ -956,38 +976,48 @@
                 }
         }
 
-        &.LinkShadow{
-                a:not(.DropUl *){
-                        filter: var(--dswh) var(--dswh) var(--dswh) ;
+        &.LinkShadow {
+                a:not(.DropUl *) {
+                        filter: var(--dswh) var(--dswh) var(--dswh);
                 }
         }
-        &.Triangle{
 
-                svg path{
+        &.Triangle {
+
+                svg path {
                         fill: white;
                         stroke: var(--BK70);
                         stroke-width: 2em;
                 }
-                .NavLi{
+
+                .NavLi {
                         font-size: 1.25rem;
                 }
-                a:not(.HeaderLogo){ 
+
+                button:not(.HeaderLogo) ,
+                a:not(.HeaderLogo) {
                         color: var(--WH);
                         -webkit-text-stroke: .125em var(--BK70);
-                        paint-order:stroke;
+                        paint-order: stroke;
                 }
-                a:not(.DropUl *):hover{
-                                color: var(--AC);
+
+                button:not(.DropUl *):hover ,
+                a:not(.DropUl *):hover {
+                        color: var(--AC);
                 }
+
                 @apply h-full pointer-events-none;
-                .HeaderInner{
-                        @apply px-0  flex-col items-end justify-between h-full;
-                        >*{
+
+                .HeaderInner {
+                        @apply px-0 flex-col items-end justify-between h-full;
+
+                        >* {
                                 pointer-events: auto;
                         }
-                        
+
                 }
-                .HeaderLogo{
+
+                .HeaderLogo {
                         @apply absolute w-[var(--logoW)] top-1/2 left-0 translate-y-[-50%] pointer-events-auto h-auto;
                         background: url(/images/clip01.png) repeat center/20vw;
                         filter: grayscale(50%);
@@ -998,10 +1028,12 @@
                         aspect-ratio: 1/2;
                         transform-origin: 0 0%;
                         transition: var(--trans);
-                        &:hover{
+
+                        &:hover {
                                 scale: 1.06;
                         }
-                        a{
+
+                        a {
                                 font-size: 2vw;
                                 line-height: 1;
                                 padding-left: 0.5em;
@@ -1009,10 +1041,11 @@
                                 height: 100%;
                                 align-content: center;
                                 background-color: var(--WH);
-                                >span{
+
+                                >span {
                                         font-weight: 700;
                                         -webkit-text-stroke: .025em var(--BK50);
-                                        paint-order:stroke;
+                                        paint-order: stroke;
                                         background: url(/images/clip01.png) repeat 70% 50%/10vw;
                                         background-color: var(--WH);
                                         background-clip: text;
@@ -1020,263 +1053,628 @@
                                 }
                         }
                 }
-                .HeaderMenu{
+
+                .HeaderMenu {
                         @apply top-2 right-2;
                 }
 
                 .HeaderNav {
                         @apply h-[--head];
                 }
+
                 .HeaderUl {
                         @apply flex flex-wrap items-center justify-center gap-1 p-2;
                 }
+
                 .HeaderItems {
                         @apply flex flex-col items-end text-right p-2 gap-0;
+
                         @include menu {
                                 order: 3;
                         }
                 }
-                .HeaderItems > a {
-                        @apply  px-[--headG];
+
+                .HeaderItems>a {
+                        @apply px-[--headG];
                 }
+
                 .DropIcon {
                         @apply ml-1;
                 }
-                .NavInner ul a{
-                        display: block;text-align: right;
+
+                .NavInner ul a {
+                        display: block;
+                        text-align: right;
 
                 }
-                .HeaderNavMobile .NavInner .DropBtn{
+
+                .HeaderNavMobile .NavInner .DropBtn {
                         display: none;
                 }
         }
-        &.NavCircleLeft{
-                svg path{
+
+        &.NavCircleLeft {
+                svg path {
                         fill: white;
                         stroke: var(--BK70);
                         stroke-width: 2em;
                 }
-                li{
+
+                li {
                         font-size: 1.25rem;
                 }
-                a:not(.HeaderLogo){ 
+
+                a:not(.HeaderLogo) {
                         color: var(--WH);
                         -webkit-text-stroke: .125em var(--BK70);
-                        paint-order:stroke;
+                        paint-order: stroke;
                 }
-                a:not(.DropUl *):hover{
-                                color: var(--AC);
+
+                a:not(.DropUl *):hover {
+                        color: var(--AC);
                 }
+
                 @apply h-full pointer-events-none;
-                .HeaderInner{
-                        @apply px-0  flex-col items-end justify-between h-full;
-                        >*{
+
+                .HeaderInner {
+                        @apply px-0 flex-col items-end justify-between h-full;
+
+                        >* {
                                 pointer-events: auto;
                         }
-                        
-                }
-                .HeaderNav {
-                        @apply absolute  top-1/2 left-0 translate-y-[-50%] pointer-events-auto z-[100] w-[--logoW] aspect-[1/2];
 
-                        ul{@apply grid bg-MC/10;}
-                        li{
-                                @apply py-0  content-center   h-[unset];
-                                background: linear-gradient(var(--TC),var(--TC)) no-repeat center/100% 1px;
+                }
+
+                .HeaderNav {
+                        @apply absolute top-1/2 left-0 translate-y-[-50%] pointer-events-auto z-[100] w-[--logoW] aspect-[1/2];
+
+                        ul {
+                                @apply grid;
+                        }
+
+                        li {
+                                @apply py-0 content-center h-[unset];
+                                background: linear-gradient(var(--TC), var(--TC)) no-repeat center/100% 1px;
                                 background-color: var(--GR10);
                         }
-                        ul:has(li:nth-of-type(6):last-of-type){
-                            li:nth-of-type(1),li:nth-of-type(6){
-                                transform: translateX(44%);
-                            }
-                            li:nth-of-type(2),li:nth-of-type(5){
-                                transform: translateX(83%);
-                            }
-                            li:nth-of-type(3),li:nth-of-type(4){
-                                transform: translateX(98%);
-                            }
+
+                        ul:has(li:nth-of-type(6):last-of-type) {
+
+                                li:nth-of-type(1),
+                                li:nth-of-type(6) {
+                                        transform: translateX(44%);
+                                }
+
+                                li:nth-of-type(2),
+                                li:nth-of-type(5) {
+                                        transform: translateX(83%);
+                                }
+
+                                li:nth-of-type(3),
+                                li:nth-of-type(4) {
+                                        transform: translateX(98%);
+                                }
                         }
-                        ul:has(li:nth-of-type(5):last-of-type){
-                            li:nth-of-type(1),li:nth-of-type(5){
-                                transform: translateX(49%);
-                            }
-                            li:nth-of-type(2),li:nth-of-type(4){
-                                transform: translateX(89%);
-                            }
-                            li:nth-of-type(3){
-                                transform: translateX(100%);
-                            }
+
+                        ul:has(li:nth-of-type(5):last-of-type) {
+
+                                li:nth-of-type(1),
+                                li:nth-of-type(5) {
+                                        transform: translateX(49%);
+                                }
+
+                                li:nth-of-type(2),
+                                li:nth-of-type(4) {
+                                        transform: translateX(89%);
+                                }
+
+                                li:nth-of-type(3) {
+                                        transform: translateX(100%);
+                                }
                         }
-                        ul:has(li:nth-of-type(4):last-of-type){
-                            li:nth-of-type(1),li:nth-of-type(4){
-                                transform: translateX(58%);
-                            }
-                            li:nth-of-type(2),li:nth-of-type(3){
-                                transform: translateX(95.5%);
-                            }
+
+                        ul:has(li:nth-of-type(4):last-of-type) {
+
+                                li:nth-of-type(1),
+                                li:nth-of-type(4) {
+                                        transform: translateX(58%);
+                                }
+
+                                li:nth-of-type(2),
+                                li:nth-of-type(3) {
+                                        transform: translateX(95.5%);
+                                }
                         }
-                        ul:has(li:nth-of-type(3):last-of-type){
-                            li:nth-of-type(1),li:nth-of-type(3){
-                                transform: translateX(68%);
-                            }
-                            li:nth-of-type(2){
-                                transform: translateX(100%);
-                            }
+
+                        ul:has(li:nth-of-type(3):last-of-type) {
+
+                                li:nth-of-type(1),
+                                li:nth-of-type(3) {
+                                        transform: translateX(68%);
+                                }
+
+                                li:nth-of-type(2) {
+                                        transform: translateX(100%);
+                                }
                         }
-                        ul:has(li:nth-of-type(2):last-of-type){
-                            li:nth-of-type(1),li:nth-of-type(2){
-                                transform: translateX(83%);
-                            }
+
+                        ul:has(li:nth-of-type(2):last-of-type) {
+
+                                li:nth-of-type(1),
+                                li:nth-of-type(2) {
+                                        transform: translateX(83%);
+                                }
                         }
-                        ul:has(li:nth-of-type(1):last-of-type){
-                            li:nth-of-type(1){
-                                transform: translateX(100%);
-                            }
+
+                        ul:has(li:nth-of-type(1):last-of-type) {
+                                li:nth-of-type(1) {
+                                        transform: translateX(100%);
+                                }
                         }
                 }
-                .HeaderLogo{
-                        @apply absolute w-[var(--logoW)] top-1/2 left-0 translate-y-[-50%] pointer-events-auto h-auto;
-                        background: url(/images/clip01.png) repeat center/20vw;
-                        filter: grayscale(50%);
+
+                .HeaderLogo {
+                        @apply absolute w-[var(--logoW)] top-1/2 left-0 translate-y-[-50%] pointer-events-auto h-auto z-[1000];
                         border-radius: 0 999px 999px 0;
                         overflow: hidden;
-                        border: 10px solid var(--TR);
                         border-left: 0;
                         aspect-ratio: 1/2;
                         transform-origin: 0 0%;
                         transition: var(--trans);
-                        border: var(--line);
-                        &:hover{
-                                scale: 1.06;
-                        }
-                        a{
+
+                        // &:hover{
+                        //         scale: 1.06;
+                        // }
+                        a {
                                 font-size: 2vw;
                                 line-height: 1;
                                 padding-left: 0.5em;
                                 display: block;
                                 height: 100%;
                                 align-content: center;
-                                background-color: var(--WH);
-                                >span{
+
+                                >span {
                                         font-weight: 700;
                                         -webkit-text-stroke: .025em var(--BK50);
-                                        paint-order:stroke;
+                                        paint-order: stroke;
                                         background: url(/images/clip01.png) repeat 70% 50%/10vw;
                                         background-color: var(--WH);
                                         background-clip: text;
                                         color: var(--TR);
                                 }
                         }
+
+                        &:has(.LogoCylinder) {
+                                filter: none;
+                                overflow: hidden;
+                        }
+
+                        a.LogoObject {
+                                width: 100%;
+                                padding-left: 0;
+                                background: var(--TR);
+                                color: var(--TC);
+                        }
+
+                        .LogoCylinder {
+                                width: var(--logoW);
+                                height: calc(var(--logoW) * 2);
+                                display: block;
+                        }
+
+                        .LogoLoading {
+                                width: var(--logoW);
+                                height: calc(var(--logoW) * 2);
+                                border-radius: inherit;
+                        }
                 }
-                .HeaderMenu{
+
+                .HeaderMenu {
                         @apply top-2 right-2;
                 }
+
                 .HeaderItems {
                         @apply flex flex-col items-end text-right p-2 gap-0;
+
                         @include menu {
                                 order: 3;
                         }
                 }
-                .HeaderItems > a {
-                        @apply  px-[--headG];
+
+                .HeaderItems>a {
+                        @apply px-[--headG];
                 }
+
                 .DropIcon {
                         @apply ml-1;
                 }
-                .NavInner ul a{
-                        display: block;text-align: right;
+
+                .NavInner ul a {
+                        display: block;
+                        text-align: right;
 
                 }
-                .HeaderNavMobile .NavInner .DropBtn{
+
+                .HeaderNavMobile .NavInner .DropBtn {
                         display: none;
                 }
         }
-        &.NavCircleTop{
-                svg path{
+
+        &.HeaderCylinder {
+                --logoW:8rem;
+                @apply h-full pointer-events-none;
+
+                .HeaderInner {
+                        @apply px-0 flex-col items-end justify-between h-full;
+
+                        >* {
+                                pointer-events: auto;
+                        }
+                }
+
+                .HeaderCylinderLogo {
+                        @apply z-[1000] absolute w-[calc(var(--logoW)/3*2)] lg:w-[var(--logoW)] top-0 left-0 pointer-events-auto h-auto  p-0 border-0 lg:top-1/2 lg:translate-y-[-52.5%]  ;
+                        appearance: none;
+                        background: var(--TR);
+                        // border-radius: 0 999px 999px 0;
+                        // overflow: clip;
+                        border-left: 0;
+                        cursor: pointer;
+                        
+                        .LogoCylinder {
+                                @apply  w-[calc(var(--logoW)/3*2)] lg:w-[var(--logoW)]   ;
+                                aspect-ratio: 1;
+                                display: block;
+                        }
+                        
+                        .LogoLoading {
+                                @apply  w-[calc(var(--logoW)/3*2)] lg:w-[var(--logoW)]   ;
+                                border-radius: inherit;
+                        }
+                }
+                .HeaderAnotation{
+                        --annoteInterval: 1.5s;
+                        @apply absolute left-[0] top-0 text-xs py-2 lg:p-4 w-full  bottom-0  lg:top-[auto] grid font-medium whitespace-nowrap tracking-[-0em];
+                        >span{
+                                @apply [grid-area:1/1];
+                                animation: header_anotation_toggle calc(var(--annoteInterval) * 2) linear infinite;
+                                &:nth-child(2){
+                                        animation-delay: calc(var(--annoteInterval) * -1);
+                                }
+                        }
+                }
+                // &[data-nav-open=true] .HeaderAnotation{
+                //         visibility: hidden;
+                // }
+
+                .HeaderNav {
+                        @apply absolute top-1/2 left-0 translate-y-[-52.5%]  z-[100] w-full py-4 lg:py-0 lg:w-[--logoW]  justify-start  px-0 pointer-events-none ;
+
+                        @include menu {
+                                display: block;
+                        }
+
+                        .NavUl {
+                                @apply grid justify-start lg:justify-end;
+                        }
+
+                        .NavLi {
+                                --navX: 1;
+                                --navClosedY: 0%;
+                                @include max-lg {
+                                        --navX: 0.1;
+                                }
+                                @apply text-lg lg:text-base  px-2 py-0 my-[1.5lvh]  block content-center  h-[unset] ;
+                                // background: linear-gradient(var(--TC), var(--TC)) no-repeat center/100% 1px;
+                                background-color: var(--foreground);
+                                color: var(--background);
+                                transform: translate(0, var(--navClosedY));
+                                transition: var(--trans);
+                                opacity: 0;
+                                width: fit-content;
+
+                        }
+
+                        a,button {
+                                @apply align-top whitespace-nowrap;
+
+                        }
+
+                        ul:has(li:nth-of-type(6):last-of-type) {
+                                li:nth-of-type(1) {--navX: 0.44;--navClosedY: 250%;}
+                                li:nth-of-type(2) {--navX: 0.83;--navClosedY: 150%;}
+                                li:nth-of-type(3) {--navX: 0.98;--navClosedY: 50%;}
+                                li:nth-of-type(4) {--navX: 0.98;--navClosedY: -50%;}
+                                li:nth-of-type(5) {--navX: 0.83;--navClosedY: -150%;}
+                                li:nth-of-type(6) {--navX: 0.44;--navClosedY: -250%;}
+                        }
+                        ul:has(li:nth-of-type(5):last-of-type) {
+                                li:nth-of-type(1) {--navX: 0.49;--navClosedY: 200%;}
+                                li:nth-of-type(2) {--navX: 0.89;--navClosedY: 100%;}
+                                li:nth-of-type(3) {--navX: 1;--navClosedY: 0%;}
+                                li:nth-of-type(4) {--navX: 0.89;--navClosedY: -100%;}
+                                li:nth-of-type(5) {--navX: 0.49;--navClosedY: -200%;}
+                        }
+                        ul:has(li:nth-of-type(4):last-of-type) {
+                                li:nth-of-type(1) {--navX: 0.58;--navClosedY: 150%;}
+                                li:nth-of-type(2) {--navX: 0.955;--navClosedY: 50%;}
+                                li:nth-of-type(3) {--navX: 0.955;--navClosedY: -50%;}
+                                li:nth-of-type(4) {--navX: 0.58;--navClosedY: -150%;}
+                        }
+                        ul:has(li:nth-of-type(3):last-of-type) {
+                                li:nth-of-type(1) {--navX: 0.68;--navClosedY: 100%;}
+                                li:nth-of-type(2) {--navX: 1;--navClosedY: 0%;}
+                                li:nth-of-type(3) {--navX: 0.68;--navClosedY: -100%;}
+                        }
+                        ul:has(li:nth-of-type(2):last-of-type) {
+                                li:nth-of-type(1) {--navX: 0.83;--navClosedY: 50%;}
+                                li:nth-of-type(2) {--navX: 0.83;--navClosedY: -50%;}
+                        }
+                        ul:has(li:nth-of-type(1):last-of-type) {
+                                li:nth-of-type(1) {--navX: 1;--navClosedY: 0%;}
+                        }
+                        .NavDrop .DropUl {
+                                --ml: 0.5em;
+                                --liBG: var(--foreground);
+                                --dropC: var(--background);
+                                color: var(--background);
+                                background-color: unset;
+                                padding: unset;
+                                border: unset;
+                                min-width: unset;
+                                scale: 0 1;
+                                transform-origin: left;
+                                > li {
+                                        width: fit-content;background-color: var(--liBG);
+                                        padding-inline: 0.5em;
+                                        margin-block: 2lvh;
+                                }
+                                &:popover-open{
+                                        scale: 1 1;
+                                }
+
+                                &:has(> li:nth-child(2):last-child) {
+                                        > li:nth-child(1),> li:nth-child(2) {margin-left: 0;}
+                                }
+                                &:has(> li:nth-child(3):last-child) {
+                                        > li:nth-child(1),> li:nth-child(3) {margin-left: 0;}
+                                        > li:nth-child(2) {margin-left: calc(var(--ml) * 3);}
+                                }
+                                &:has(> li:nth-child(4):last-child) {
+                                        > li:nth-child(1),> li:nth-child(4) {margin-left: 0;}
+                                        > li:nth-child(2),> li:nth-child(3) {margin-left: calc(var(--ml) * 3);}
+                                }
+                                &:has(> li:nth-child(5):last-child) {
+                                        > li:nth-child(1),> li:nth-child(5) {margin-left: 0;}
+                                        > li:nth-child(2),> li:nth-child(4) {margin-left: calc(var(--ml) * 3);}
+                                        > li:nth-child(3) {margin-left: calc(var(--ml) * 4);}
+                                }
+                                &:has(> li:nth-child(6):last-child) {
+                                        > li:nth-child(1),> li:nth-child(6) {margin-left: 0;}
+                                        > li:nth-child(2),> li:nth-child(5) {margin-left: calc(var(--ml) * 3);}
+                                        > li:nth-child(3),> li:nth-child(4) {margin-left: calc(var(--ml) * 4);}
+                                }
+                                &:has(> li:nth-child(7):last-child) {
+                                        > li:nth-child(1),> li:nth-child(7) {margin-left: 0;}
+                                        > li:nth-child(2),> li:nth-child(6) {margin-left: calc(var(--ml) * 3);}
+                                        > li:nth-child(3),> li:nth-child(5) {margin-left: calc(var(--ml) * 4);}
+                                        > li:nth-child(4) {margin-left: calc(var(--ml) * 5);}
+                                }
+                                &:has(> li:nth-child(8):last-child) {
+                                        > li:nth-child(1),> li:nth-child(8) {margin-left: 0;}
+                                        > li:nth-child(2),> li:nth-child(7) {margin-left: calc(var(--ml) * 3);}
+                                        > li:nth-child(3),> li:nth-child(6) {margin-left: calc(var(--ml) * 4);}
+                                        > li:nth-child(4),> li:nth-child(5) {margin-left: calc(var(--ml) * 5);}
+                                }
+                                &:has(> li:nth-child(9):last-child) {
+                                        > li:nth-child(1),> li:nth-child(9) {margin-left: 0;}
+                                        > li:nth-child(2),> li:nth-child(8) {margin-left: calc(var(--ml) * 3);}
+                                        > li:nth-child(3),> li:nth-child(7) {margin-left: calc(var(--ml) * 4);}
+                                        > li:nth-child(4),> li:nth-child(6) {margin-left: calc(var(--ml) * 5);}
+                                        > li:nth-child(5) {margin-left: calc(var(--ml) * 6);}
+                                }
+                                &:has(> li:nth-child(10):last-child) {
+                                        > li:nth-child(1),> li:nth-child(10) {margin-left: 0;}
+                                        > li:nth-child(2),> li:nth-child(9) {margin-left: calc(var(--ml) * 3);}
+                                        > li:nth-child(3),> li:nth-child(8) {margin-left: calc(var(--ml) * 4);}
+                                        > li:nth-child(4),> li:nth-child(7) {margin-left: calc(var(--ml) * 5);}
+                                        > li:nth-child(5),> li:nth-child(6) {margin-left: calc(var(--ml) * 6);}
+                                }
+                                &:has(> li:nth-child(11):last-child) {
+                                        > li:nth-child(1),> li:nth-child(11) {margin-left: 0;}
+                                        > li:nth-child(2),> li:nth-child(10) {margin-left: calc(var(--ml) * 3);}
+                                        > li:nth-child(3),> li:nth-child(9) {margin-left: calc(var(--ml) * 4);}
+                                        > li:nth-child(4),> li:nth-child(8) {margin-left: calc(var(--ml) * 5);}
+                                        > li:nth-child(5),> li:nth-child(7) {margin-left: calc(var(--ml) * 6);}
+                                        > li:nth-child(6) {margin-left: calc(var(--ml) * 7);}
+                                }
+                                &:has(> li:nth-child(12):last-child) {
+                                        > li:nth-child(1),> li:nth-child(12) {margin-left: 0;}
+                                        > li:nth-child(2),> li:nth-child(11) {margin-left: calc(var(--ml) * 3);}
+                                        > li:nth-child(3),> li:nth-child(10) {margin-left: calc(var(--ml) * 4);}
+                                        > li:nth-child(4),> li:nth-child(9) {margin-left: calc(var(--ml) * 5);}
+                                        > li:nth-child(5),> li:nth-child(8) {margin-left: calc(var(--ml) * 6);}
+                                        > li:nth-child(6),> li:nth-child(7) {margin-left: calc(var(--ml) * 7);}
+                                }
+                                @supports (top: anchor(bottom)) {
+                                        inset: unset;
+                                        left: anchor(right);
+                                        align-self: anchor-center;
+                                }
+                        }
+                        .DropIcon{
+                                rotate: -90deg;
+                                vertical-align: text-top;
+                                &:is(.NavDrop:has(.DropUl:popover-open) *){
+                                        scale: 1 1;
+                                        margin: unset;
+                                        transform: translateY(0.25rem);
+                                }
+                        }
+                }
+
+                &[data-nav-open=true] {
+                        .HeaderNav {
+                                @apply bg-BC lg:bg-[--TR];
+                        }
+                        .HeaderNav .NavLi {
+                                opacity: 1;
+                                transform: translateX(calc(var(--navX) * var(--logoW)));
+                                @include max-lg {
+                                        transform: translateX(calc(var(--navX) * var(--logoW) / 3));
+                                        // &:hover{
+                                        //         transform: translateX(calc(var(--navX)*0 ));
+                                        // }
+                                }
+                                pointer-events: auto;
+                        }
+                }
+        }
+
+        @keyframes header_anotation_toggle {
+                0%, 49.999% {
+                        opacity: 1;
+                }
+                50%, 100% {
+                        opacity: 0;
+                }
+        }
+
+        &.NavCircleTop {
+                svg path {
                         fill: white;
                         stroke: var(--BK70);
                         stroke-width: 2em;
                 }
-                a:not(.HeaderLogo){ 
+
+                a:not(.HeaderLogo) {
                         color: var(--WH);
                         -webkit-text-stroke: .125em var(--BK70);
-                        paint-order:stroke;
+                        paint-order: stroke;
                 }
-                a:not(.DropUl *):hover{
+
+                a:not(.DropUl *):hover {
                         color: var(--AC);
                 }
+
                 @apply h-full pointer-events-none;
                 font-size: 1.25rem;
-                .HeaderInner{
-                        @apply px-0  flex-col items-end justify-between h-full;
-                        >*{
+
+                .HeaderInner {
+                        @apply px-0 flex-col items-end justify-between h-full;
+
+                        >* {
                                 pointer-events: auto;
                         }
-                        
+
                 }
+
                 .HeaderNav {
-                        @apply absolute  top-0 left-1/2 translate-x-[-50%] pointer-events-auto z-[100] h-[unset] ;
+                        @apply absolute top-0 left-1/2 translate-x-[-50%] pointer-events-auto z-[100] h-[unset];
 
                         --listH: 2.5em;
                         --listN: 3;
-                        ul{
-                                @apply block  bg-MC/90 aspect-[2/1];
+
+                        ul {
+                                @apply block bg-MC/90 aspect-[2/1];
                                 border-radius: 0 0 999px 999px;
-                                height: calc(var(--listH) * var(--listN) );
+                                height: calc(var(--listH) * var(--listN));
                         }
-                        li{
-                                @apply p-0 h-auto min-h-[--listH]  content-center   w-auto text-center;
-                                background: linear-gradient(var(--TC),var(--TC)) no-repeat center/ 1px 100%,linear-gradient(var(--TC),var(--TC)) no-repeat center/100% 1px  ;
+
+                        li {
+                                @apply p-0 h-auto min-h-[--listH] content-center w-auto text-center;
+                                background: linear-gradient(var(--TC), var(--TC)) no-repeat center/ 1px 100%, linear-gradient(var(--TC), var(--TC)) no-repeat center/100% 1px;
                                 background-color: var(--GR10);
                                 display: inline-block;
                                 width: 50%;
                         }
-                        ul:has(li:nth-of-type(6):last-of-type){//-??% は手動調整
-                            li:nth-of-type(1){transform: translateX(-49.5%);}
-                            li:nth-of-type(2){transform: translateX(49%);}
-                            li:nth-of-type(3){transform: translateX(-38%);}
-                            li:nth-of-type(4){transform: translateX(38%);}
-                            li:nth-of-type(5){transform: translateX(-7%);}
-                            li:nth-of-type(6){transform: translateX(7%);}
+
+                        ul:has(li:nth-of-type(6):last-of-type) {
+
+                                //-??% は手動調整
+                                li:nth-of-type(1) {
+                                        transform: translateX(-49.5%);
+                                }
+
+                                li:nth-of-type(2) {
+                                        transform: translateX(49%);
+                                }
+
+                                li:nth-of-type(3) {
+                                        transform: translateX(-38%);
+                                }
+
+                                li:nth-of-type(4) {
+                                        transform: translateX(38%);
+                                }
+
+                                li:nth-of-type(5) {
+                                        transform: translateX(-7%);
+                                }
+
+                                li:nth-of-type(6) {
+                                        transform: translateX(7%);
+                                }
                         }
-                        ul:has(li:nth-of-type(5):last-of-type){
-                            li:nth-of-type(1),li:nth-of-type(5){
-                                transform: translateY(49% - 80%);
-                            }
-                            li:nth-of-type(2),li:nth-of-type(4){
-                                transform: translateY(89% - 80%);
-                            }
-                            li:nth-of-type(3){
-                                transform: translateY(100% - 80%);
-                            }
+
+                        ul:has(li:nth-of-type(5):last-of-type) {
+
+                                li:nth-of-type(1),
+                                li:nth-of-type(5) {
+                                        transform: translateY(49% - 80%);
+                                }
+
+                                li:nth-of-type(2),
+                                li:nth-of-type(4) {
+                                        transform: translateY(89% - 80%);
+                                }
+
+                                li:nth-of-type(3) {
+                                        transform: translateY(100% - 80%);
+                                }
                         }
-                        ul:has(li:nth-of-type(4):last-of-type){
-                            li:nth-of-type(1),li:nth-of-type(4){
-                                transform: translateY(58% - 80%);
-                            }
-                            li:nth-of-type(2),li:nth-of-type(3){
-                                transform: translateY(95.5% - 80%);
-                            }
+
+                        ul:has(li:nth-of-type(4):last-of-type) {
+
+                                li:nth-of-type(1),
+                                li:nth-of-type(4) {
+                                        transform: translateY(58% - 80%);
+                                }
+
+                                li:nth-of-type(2),
+                                li:nth-of-type(3) {
+                                        transform: translateY(95.5% - 80%);
+                                }
                         }
-                        ul:has(li:nth-of-type(3):last-of-type){
-                            li:nth-of-type(1),li:nth-of-type(3){
-                                transform: translateY(68% - 80%);
-                            }
-                            li:nth-of-type(2){
-                                transform: translateY(100% - 80%);
-                            }
+
+                        ul:has(li:nth-of-type(3):last-of-type) {
+
+                                li:nth-of-type(1),
+                                li:nth-of-type(3) {
+                                        transform: translateY(68% - 80%);
+                                }
+
+                                li:nth-of-type(2) {
+                                        transform: translateY(100% - 80%);
+                                }
                         }
-                        ul:has(li:nth-of-type(2):last-of-type){
-                            li:nth-of-type(1),li:nth-of-type(2){
-                                transform: translateY(83% - 80%);
-                            }
+
+                        ul:has(li:nth-of-type(2):last-of-type) {
+
+                                li:nth-of-type(1),
+                                li:nth-of-type(2) {
+                                        transform: translateY(83% - 80%);
+                                }
                         }
-                        ul:has(li:nth-of-type(1):last-of-type){
-                            li:nth-of-type(1){
-                                transform: translateY(100% - 80%);
-                            }
+
+                        ul:has(li:nth-of-type(1):last-of-type) {
+                                li:nth-of-type(1) {
+                                        transform: translateY(100% - 80%);
+                                }
                         }
                 }
-                .HeaderLogo{
+
+                .HeaderLogo {
                         @apply absolute w-[var(--logoW)] top-1/2 left-0 translate-y-[-50%] pointer-events-auto h-auto;
                         background: url(/images/clip01.png) repeat center/20vw;
                         filter: grayscale(50%);
@@ -1288,10 +1686,12 @@
                         transform-origin: 0 0%;
                         transition: var(--trans);
                         border: var(--line);
-                        &:hover{
+
+                        &:hover {
                                 scale: 1.06;
                         }
-                        a{
+
+                        a {
                                 font-size: 2vw;
                                 line-height: 1;
                                 padding-left: 0.5em;
@@ -1299,10 +1699,11 @@
                                 height: 100%;
                                 align-content: center;
                                 background-color: var(--WH);
-                                >span{
+
+                                >span {
                                         font-weight: 700;
                                         -webkit-text-stroke: .025em var(--BK50);
-                                        paint-order:stroke;
+                                        paint-order: stroke;
                                         background: url(/images/clip01.png) repeat 70% 50%/10vw;
                                         background-color: var(--WH);
                                         background-clip: text;
@@ -1310,7 +1711,8 @@
                                 }
                         }
                 }
-                .HeaderMenu{
+
+                .HeaderMenu {
                         @apply top-2 right-2;
                 }
 
@@ -1318,55 +1720,67 @@
 
                 .HeaderItems {
                         @apply flex flex-col items-end text-right p-2 gap-0;
+
                         @include menu {
                                 order: 3;
                         }
                 }
-                .HeaderItems > a {
-                        @apply  px-[--headG];
+
+                .HeaderItems>a {
+                        @apply px-[--headG];
                 }
+
                 .DropIcon {
                         @apply ml-1;
                 }
-                .NavInner ul a{
-                        display: block;text-align: right;
+
+                .NavInner ul a {
+                        display: block;
+                        text-align: right;
 
                 }
-                .HeaderNavMobile .NavInner .DropBtn{
+
+                .HeaderNavMobile .NavInner .DropBtn {
                         display: none;
                 }
         }
 
         &.NoLogo .HeaderLogo {
-                        display: none;
+                display: none;
         }
 
         &.TopHidden {
                 transition: var(--trans);
                 opacity: 0;
-                
+
                 &:hover {
                         opacity: 1;
                 }
+
                 &.trans {
                         opacity: 1;
                 }
         }
+
         &.mix-blend-difference {
                 color: var(--WH);
                 --menuC: inherit;
+
                 @include menu {
                         color: inherit;
                         mix-blend-mode: unset;
                 }
-                &.active{
+
+                &.active {
                         mix-blend-mode: unset;
                 }
         }
 
 }
 
-.Header {//基本設定
+.Header {
+
+        //基本設定
         a {
                 text-decoration: none;
         }
@@ -1415,7 +1829,7 @@
                 }
 
                 @media (max-width : 1320px) {
-                        font-size: calc(var(--logoFZ)*0.75 );
+                        font-size: calc(var(--logoFZ)*0.75);
                 }
 
                 a {
@@ -1456,27 +1870,32 @@
         &Pagetop {
                 display: var(--PTdis);
                 position: fixed;
+                top: unset;
                 bottom: var(--PTbottom);
-                right: unset;
-                left: var(--PTbottom);
+                left: unset;
+                right: var(--PTbottom);
                 z-index: 1000;
                 opacity: 0;
                 transition: var(--trans);
-        
+
                 @inclute max-md {
                         right: unset;
                         left: var(--PTbottomTAB);
                 }
-        
 
+                &:is(html:has(.Header.trans) *) {
+                        opacity: 1;
+                        pointer-events: all;
+                }
                 &:is(.Header.trans *) {
                         opacity: 1;
                         pointer-events: all;
                 }
-               a {
+
+                a {
 
                         display: block;
-                
+
                         color: var(--PTC);
                         background-color: var(--PTBG);
                         width: var(--PTW);
@@ -1486,7 +1905,7 @@
                         border-color: var(--CC);
                         align-content: center;
                         text-align: center;
-                
+
                         svg {
                                 // 矢印アイコン（React コンポーネント）
                                 transition: 0.4s;
@@ -1499,10 +1918,12 @@
 
         }
 }
+
 .ThemeToggle {
         display: block;
         position: fixed;
-        bottom: var(--PTbottom);
+        bottom: unset;
+        top: var(--PTbottom);
         left: unset;
         right: var(--PTbottom);
         z-index: 1000;
@@ -1519,11 +1940,13 @@
                 left: unset;
                 right: var(--PTbottomTAB);
         }
+
         &:is(html:has(.Header.trans) *) {
                 opacity: 1;
                 pointer-events: all;
         }
-       svg {
+
+        svg {
                 display: inline-block;
                 color: var(--PTC);
                 width: var(--PTW);
@@ -1533,10 +1956,11 @@
                 border-color: var(--CC);
                 align-content: center;
                 text-align: center;
-        
+
                 width: 62.5%;
                 height: 62.5%;
                 margin-bottom: 2px;
+
                 svg {
                         // 矢印アイコン（React コンポーネント）
                         transition: 0.4s;
@@ -1546,7 +1970,8 @@
         }
 
 }
-.HasTheme .ThemeToggle{
+
+.HasTheme .ThemeToggle {
         display: block;
 }
 
@@ -1631,8 +2056,9 @@
                 flex-direction: column;
                 align-items: flex-end;
                 flex-wrap: wrap;
+
                 @include max-md {
-                        
+
                         width: 100%;
 
                         .__img {
@@ -1694,6 +2120,7 @@
                         .textlink {
                                 line-height: calc(var(--btnH)/2);
                         }
+
                         .textlink>* {
                                 display: block;
                         }
@@ -1763,10 +2190,11 @@
                         width: 100%;
                         padding: .25em var(--PX);
                         background-color: var(--innerBG);
-                        &:is(.trans *){
-                            transform: translateY(100%);
+
+                        &:is(.trans *) {
+                                transform: translateY(100%);
                         }
-                        
+
                         >* {
                                 flex: 1;
                                 min-width: unset;
@@ -1793,6 +2221,7 @@
                         gap: .0em;
                         --btnG: .0em;
                         background-color: var(--innerBG);
+
                         >* {
                                 flex: 1;
                                 min-width: unset;
@@ -1855,6 +2284,7 @@
                         color: var(--AC);
                 }
         }
+
         font-size: var(--navFZ);
         // line-height: var(--navLH);
         // color: var(--navC);
@@ -1884,12 +2314,14 @@
                 justify-content: flex-end;
                 height: 100%;
         }
+
         .NavLi {
                 height: 100%;
                 position: relative;
                 padding-inline: var(--headG);
                 padding-block: 0.5em;
                 align-content: center;
+
                 &:has(span) {
                         --liPY: calc(var(--headG)/2);
 
@@ -1913,7 +2345,8 @@
                         }
                 }
         }
-        a {
+
+        :is(a, .DropA) {
                 padding-inline: var(--aPY);
                 padding-block: var(--aPX);
 
@@ -1925,6 +2358,7 @@
         .FocusTrap {
                 display: none;
         }
+
         .NavDrop {
                 --size: 7.5px;
                 will-change: transform;
@@ -1933,37 +2367,76 @@
                         top: calc(100%);
                         background-color: currentColor;
                 }
-                &:last-of-type ul {
+
+                &:last-of-type .DropUl {
                         right: 0;
                         transform: unset;
+                        transform-origin: top right;
                 }
-                &:hover ul {
+
+                &:has(.DropUl:popover-open) ul {
                         pointer-events: auto;
                         scale: 1 1;
                         opacity: 1;
                 }
         }
+
+        .DropA {
+                appearance: none;
+                background: transparent;
+                border: 0;
+                color: inherit;
+                cursor: pointer;
+                font: inherit;
+        }
+
         .DropUl {
-                transition: var(--trans);
-                position: absolute;
-                top: calc(100%);
-                right: 50%;
-                transform: translateX(50%);
-                
+                transition: var(--trans) allow-discrete;
+                transition:
+                        opacity var(--trans),
+                        scale var(--trans),
+                        overlay var(--trans) allow-discrete,
+                        display var(--trans) allow-discrete;
                 min-width: 15em;
                 overflow: hidden;
                 pointer-events: none;
                 z-index: 1;
+                display: block;
                 scale: 1 0;
                 transform-origin: top;
                 opacity: 0;
                 background-color: var(--dropBG);
                 padding: 0.75em 1.5em;
 
+                &:popover-open {
+                        pointer-events: auto;
+                        scale: 1 1;
+                        opacity: 1;
+                        // @starting-style {
+                        //         scale: 1 0;
+                        //         opacity: 0;
+                        // }
+                }
+
+                @supports (top: anchor(bottom)) {
+                        inset: auto;
+                        top: anchor(bottom);
+                        justify-self: anchor-center;
+                        transform: unset;
+                }
 
         }
+
+        .NavDrop:last-of-type .DropUl {
+                @supports (top: anchor(bottom)) {
+                        right: anchor(right);
+                        justify-self: unset;
+                }
+        }
+
         .DropLi {
                 margin-top: 0.25em;
+
                 a {
                         width: 100%;
                         display: flex;
@@ -1973,22 +2446,21 @@
                         width: 100%;
                         height: 100%;
                         color: var(--dropC);
+
                         svg {
                                 margin-left: auto;
+                                fill: currentColor;
                         }
 
                 }
         }
 
-        .DropUl:hover {
-                pointer-events: auto;
-                scale: 1 1;
-        }
         .DropUl:has(a:focus) {
                 scale: 1 1;
                 opacity: 1;
         }
 }
+
 .DropBtn {
         display: none;
 }
@@ -1997,32 +2469,41 @@
         border-radius: 4px;
         border: var(--line);
 }
+
 // .Header:has(li.NavDrop:hover){
 //         mix-blend-mode: unset;
 //         color: var(--TC);
 // }
 
-.DropIcon {// 矢印アイコン（React コンポーネント）
+.DropIcon {
+        // 矢印アイコン（React コンポーネント）
         display: inline-block;
-        font-size: 1em;
+        // font-size: 1em;
         transition: var(--trans);
         vertical-align: middle;
-        width: 1em;
-        &:is(.HeaderNav .NavDrop:hover *) {
+        // width: 1em;
+        fill: currentColor;
+        stroke: currentColor;
+
+        &:is(.HeaderNav .NavDrop:has(.DropUl:popover-open) *) {
                 scale: 1 -1;
         }
-        &:is(.NavInner .NavDrop[aria-expanded=true] *) {
+
+        &:is(.NavInner .NavDrop:has(.DropBtn[aria-expanded=true]) *) {
                 scale: 1 -1;
         }
+        
 }
 
 // *******************************
 .HeaderMenu {
         display: none;
         --dotW: calc(var(--btnH) * .125);
+
         @include menu {
                 display: grid;
         }
+
         place-items: center;
         width: var(--menuH);
         height: var(--menuH);
@@ -2036,107 +2517,134 @@
         position: relative;
         aspect-ratio: 1;
         --btnBG:var(--MC);
-                    
-        &.IsBurger{
-                >span{//bar
-                transition: var(--trans);
-                grid-area: 1/1;
-                width: var(--spanW);
-                height: var(--spanH);
-                background-color: var(--menuC);
-                border-radius: var(--spanR);
+
+        &.IsBurger {
+                >span {
+                        //bar
+                        transition: var(--trans);
+                        grid-area: 1/1;
+                        width: var(--spanW);
+                        height: var(--spanH);
+                        background-color: var(--menuC);
+                        border-radius: var(--spanR);
                 }
-                .bar1{translate: 0 calc(-1 * var(--bargap));}
-                .bar3{translate: 0 var(--bargap);}
-                .bar2{
+
+                .bar1 {
+                        translate: 0 calc(-1 * var(--bargap));
+                }
+
+                .bar3 {
+                        translate: 0 var(--bargap);
+                }
+
+                .bar2 {
                         translate: 0 0px;
-                        &.tate{rotate: 90deg;}
+
+                        &.tate {
+                                rotate: 90deg;
+                        }
                 }
-        //     &:hover>span{scale: 1.03 }
-                &.active{
-                .bar2{
-                        scale: 1 1;
-                }
-                .bar2.tate{
-                        scale: 0 1;
-                }
-                .bar1{
-                        translate: 0 ;
-                        rotate: var(--deg);
-                }
-                .bar2{
-                        scale: 0;
-                }
-                .bar3{
-                        translate: 0 ;
-                        rotate: calc(var(--deg)*-1 );
-                }
+
+                //     &:hover>span{scale: 1.03 }
+                &.active {
+                        .bar2 {
+                                scale: 1 1;
+                        }
+
+                        .bar2.tate {
+                                scale: 0 1;
+                        }
+
+                        .bar1 {
+                                translate: 0;
+                                rotate: var(--deg);
+                        }
+
+                        .bar2 {
+                                scale: 0;
+                        }
+
+                        .bar3 {
+                                translate: 0;
+                                rotate: calc(var(--deg)*-1);
+                        }
                 }
         }
-        &.IsDots{
+
+        &.IsDots {
                 --trans: 200ms;
                 transition: var(--trans);
-                >span{//dot
-                        transition: width var(--trans)  linear, height var(--trans)  linear, translate 0  linear, opacity var(--trans) var(--trans);
+
+                >span {
+                        //dot
+                        transition: width var(--trans) linear, height var(--trans) linear, translate 0 linear, opacity var(--trans) var(--trans);
                         grid-area: 1/1;
                         width: var(--dotW);
                         height: var(--dotW);
                         background-color: var(--menuC);
-                        border-radius: calc(var(--dotW) );
+                        border-radius: calc(var(--dotW));
                         box-sizing: content-box;
-                        &:is(.Donuts *){
-                                border: 0.125rem solid  var(--BK);
+
+                        &:is(.Donuts *) {
+                                border: 0.125rem solid var(--BK);
                         }
 
-                &:is(:has(.char) *){
-                        transform: translateY(calc(var(--bargap)*-0.5));
+                        &:is(:has(.char) *) {
+                                transform: translateY(calc(var(--bargap)*-0.5));
+                        }
                 }
+
+                .char {
+                        width: var(--UN);
+                        aspect-ratio: unset;
+                        background-color: var(--UN);
+                        border-radius: unset;
+                        translate: 0 calc(var(--bargap)*1.5);
+                        font-family: var(--hff);
+                        font-size: 12px;
+                        color: var(--menuC);
                 }
-                .char{
-                width: var(--UN);
-                aspect-ratio: unset;
-                background-color: var(--UN);
-                border-radius: unset;
-                translate: 0 calc(var(--bargap)*1.5);
-                font-family: var(--hff);
-                font-size: 12px;
-                color: var(--menuC);
+
+                .span1 {
+                        translate: calc(var(--bargap)*-1) 0;
+                        transform-origin: left;
                 }
-                .span1{
-                translate: calc(var(--bargap)*-1) 0;
-                transform-origin: left;
-                }
-                .span2{
+
+                .span2 {
                         translate: 0 0px;
                 }
-                .span3{
+
+                .span3 {
                         translate: var(--bargap) 0;
                         transform-origin: right;
                 }
-                
-                &[aria-expanded="true"],
-                &:hover{
 
-                        .span1{
+                &[aria-expanded="true"],
+                &:hover {
+
+                        .span1 {
                                 translate: 0 0;
-                                width: calc(var(--dotW)*5 );
-                                transition: width var(--trans)  linear, translate 0s ;
+                                width: calc(var(--dotW)*5);
+                                transition: width var(--trans) linear, translate 0s;
                         }
-                        .span2{
-                                height: calc(var(--dotW)*5 );
-                                transition:  height var(--trans)   linear;
+
+                        .span2 {
+                                height: calc(var(--dotW)*5);
+                                transition: height var(--trans) linear;
                         }
-                        .span3{
+
+                        .span3 {
                                 opacity: 0;
                                 transition: opacity 0s;
                         }
                 }
-                &[aria-expanded="true"]{
-                rotate: 45deg;
+
+                &[aria-expanded="true"] {
+                        rotate: 45deg;
                 }
         }
-                        
-                    
+
+
 
         &:focus {
                 outline-color: transparent;
@@ -2217,6 +2725,7 @@
                         }
                 }
         }
+
         .NavInner {
                 &::-webkit-scrollbar {
                         width: 0px;
@@ -2234,8 +2743,9 @@
                         height: calc(100% + 0px);
                 }
 
-                
+
         }
+
         .NavUl {
                 &::-webkit-scrollbar {
                         width: 0px;
@@ -2267,8 +2777,9 @@
                         visibility: visible;
                 }
 
-                
+
         }
+
         .NavLi {
                 display: block;
                 height: fit-content;
@@ -2290,6 +2801,7 @@
                         }
 
                 }
+
                 .DropA {
                         flex: 1;
                 }
@@ -2298,6 +2810,7 @@
                         cursor: pointer;
                 }
         }
+
         .NavDrop {
                 display: flex;
                 flex-wrap: wrap;
@@ -2306,6 +2819,7 @@
                 &:has(.DropBtn) {
                         padding-right: var(--h);
                 }
+
                 // &::after {
                 //         content: "";
                 //         display: block;
@@ -2323,14 +2837,16 @@
                 //         display: none;
                 // }
 
-                
+
         }
+
         .DropUl {
                 width: 100%;
                 overflow: hidden;
                 padding-left: 1em;
 
         }
+
         .DropLi {
                 padding: unset;
                 scale: 1;
@@ -2348,7 +2864,9 @@
                         min-height: 0;
                         transition: var(--trans);
                 }
-
+                svg {
+                        @apply shrink-0;
+                }
                 &:is(ul.show>*) {
                         grid-template-rows: 1fr;
 
@@ -2357,6 +2875,7 @@
                         }
                 }
         }
+
         .dropbtn {
                 display: none;
         }

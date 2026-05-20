@@ -352,14 +352,13 @@ function Next() {
 													<dd>AI 4 Month</dd>
 													<dt>WordPress</dt>
 													<dd className="[--ddW:100%]">
-														`Local`で学習中&nbsp;
 														<a
 															href="https://github.com/yuremono/wp-local-demo"
 															className=" align-top leading-[1.8]"
 															target="_blank"
 															rel="noopener noreferrer"
 														>
-															wp-local-demo
+															`Local`でこのページを作成
 															<ArrowSquareOutIcon
 																size={16}
 															/>

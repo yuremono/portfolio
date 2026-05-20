@@ -1,0 +1,32 @@
+src/pages/Next.tsx
+  h_53dad1e32c3c71 361
+src/activity/0519HtmlDesign.md
+  h_53dad1e32c3c71 3,5,7,36-38
+  s_3af78b34b49263::t_5329be997a9ba1 10-11,15-18,20,22,32-34
+  s_3af78b34b49263::t_586f6bb7dd319f 12-14,19,21,23-24,27-31,39,41-43
+  s_3af78b34b49263::t_003871986d534a 1-2,4,6,8-9,25-26,35,40
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.10",
+  "base_commit_sha": "5b69c8c745e04f4f04d8c54a8506ec5c6da89d5f",
+  "prompts": {},
+  "humans": {
+    "h_53dad1e32c3c71": {
+      "author": "yuremono <5alviaofficinali50@gmail.com>"
+    },
+    "h_5a56918e6ebef3": {
+      "author": "yuremono"
+    }
+  },
+  "sessions": {
+    "s_3af78b34b49263": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019e40a0-40db-7363-b20e-b9d2fcdb8f93",
+        "model": "gpt-5.5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  }
+}

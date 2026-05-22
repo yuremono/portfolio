@@ -15,6 +15,7 @@
 | コマンド | 用途 |
 |---------|------|
 | `npm run dev` | 開発サーバー（ポート **3000**） |
+| `npm run dev -- --host 0.0.0.0` | スマホ確認 |
 | `npm run build` | プロダクションビルド |
 | `npm run preview` | ビルドのプレビュー |
 | `npm run lint` | ESLint |

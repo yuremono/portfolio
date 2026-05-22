@@ -1,0 +1,1 @@
+import{a as o}from"./maskMosaique-VSg3ctID.js";function n(s=""){o.useEffect(()=>{const t=s.trim().split(/\s+/).filter(Boolean);if(t.length===0)return;const e=document.documentElement;return e.classList.add(...t),()=>{e.classList.remove(...t)}},[s])}export{n as u};

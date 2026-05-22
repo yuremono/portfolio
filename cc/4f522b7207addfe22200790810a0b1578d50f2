@@ -1,0 +1,122 @@
+src/pages/Glitch.tsx
+  h_53dad1e32c3c71 60,171
+  s_905fd6499f78c3::t_3f0e8cc3f34d41 58
+src/pages/GridCarousel.tsx
+  s_276108b14b758f::t_143b3783a8db60 6,103,203-207,236-272,290,298-301
+  s_276108b14b758f::t_09774192115f37 293,359
+src/lib/index.ts
+  s_276108b14b758f::t_d2839c7466bd69 6-7
+src/pages/Preview.tsx
+  h_53dad1e32c3c71 125-127
+src/hooks/useHtmlRootClass.ts
+  s_276108b14b758f::t_8c81741ff7964f 9-10,12,14
+src/pages/Bunmyaku/FutureNotice.tsx
+  h_53dad1e32c3c71 18
+AGENTS.md
+  s_5806f10f91c52b::t_a024bbd99c1441 67
+src/pages/Bbox/BboxSidebar.tsx
+  s_5806f10f91c52b::t_623e1138b031f7 1,211-217
+src/pages/Activity.tsx
+  s_5806f10f91c52b::t_2b91dc9017feb9 142,156
+  s_5806f10f91c52b::t_342e794c035ce6 190
+  s_5806f10f91c52b::t_4f90f811191bd4 134
+src/pages/RepulsionLists/styles.ts
+  h_53dad1e32c3c71 212
+src/components/BunmyakuTeaserSection.tsx
+  s_276108b14b758f::t_d2839c7466bd69 571
+src/components/Header.tsx
+  h_53dad1e32c3c71 299-300
+src/pages/Bbox.tsx
+  s_5806f10f91c52b::t_fa1f15079e6808 142,1292-1330
+  s_5806f10f91c52b::t_09ed6d3d75c217 75-81,1174,1269
+  s_5806f10f91c52b::t_244a711cfff487 1239
+src/pages/Bunmyaku/SideNav.tsx
+  s_5806f10f91c52b::t_f33f5adfe71898 56
+src/scss/_03header.scss
+  s_276108b14b758f::t_d71dc3dd1a56c1 1325-1331,1338,3018
+  h_53dad1e32c3c71 1316,1344,2002-2004,2593-2595,2598,2632,2636,2641,2672
+  s_5806f10f91c52b::t_9ad02e26198f9b 1506-1510
+src/pages/Bunmyaku.tsx
+  s_5806f10f91c52b::t_896533f868d2aa 19
+  s_905fd6499f78c3::t_3f0e8cc3f34d41 63
+src/lib/budouxScroll.ts
+  s_276108b14b758f::t_d2839c7466bd69 1-235
+src/index.scss
+  h_53dad1e32c3c71 25-27
+src/lib/initClientRuntime.ts
+  s_276108b14b758f::t_d2839c7466bd69 7-8,29-30,44-45
+src/components/HeaderCylinder.tsx
+  s_276108b14b758f::t_640c79ddbc93f8 64
+  s_5806f10f91c52b::t_56a17e00d93bd6 34,76,85-95
+  h_53dad1e32c3c71 414
+  s_276108b14b758f::t_6fa0ed3648afa2 6,28,42,63,65-75,77-79,183-185,204,214,326,336
+src/pages/Donut/VideoRingOverlay.tsx
+  s_5806f10f91c52b::t_910cee7ee09ba5 117,227-232,628-630
+  s_5806f10f91c52b::t_0a42c95db06cd4 393,422-427,453-457,476,479
+src/lib/budouxShow.ts
+  s_276108b14b758f::t_1b7eab45beeea5 109,141,145
+  s_276108b14b758f::t_b3a3480afe6afe 11,29,33-37,49,52,55,57,72
+  h_53dad1e32c3c71 30
+  s_276108b14b758f::t_d2839c7466bd69 1-10,12-28,31-32,38-48,50-51,53-54,56,58-64,70-71,73-78,80-86,88-108,110-140,142-144,146-157
+  s_276108b14b758f::t_943e79b7660ae5 65-69,79,87
+src/pages/Bbox/BboxStage.tsx
+  s_5806f10f91c52b::t_55689b5263ddaf 66
+src/pages/Rects.tsx
+  h_53dad1e32c3c71 510,513
+src/pages/Next.tsx
+  h_53dad1e32c3c71 48,90,97-98,106,111,114
+  s_905fd6499f78c3::t_3f0e8cc3f34d41 63
+src/components/PageRoot.tsx
+  s_905fd6499f78c3::t_232f4a989a5160 15-18
+src/scss/_01variables.scss
+  h_53dad1e32c3c71 273-274,285-293
+src/components/three/ModulationCylinderLogo.tsx
+  s_276108b14b758f::t_1ba0d5e7ee496e 145
+  s_276108b14b758f::t_8894506068f492 140-144,146-166,168-180
+src/activity/0519HtmlDesign.md
+  h_53dad1e32c3c71 37
+src/scss/_08intersection.scss
+  s_276108b14b758f::t_4af3205961846b 183,185,187-188
+  h_53dad1e32c3c71 14-15,179,186,190
+  s_276108b14b758f::t_d2839c7466bd69 160-163,168,170,175-178,180-182,184,189
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.0",
+  "base_commit_sha": "cc4f522b7207addfe22200790810a0b1578d50f2",
+  "prompts": {},
+  "humans": {
+    "h_53dad1e32c3c71": {
+      "author": "yuremono <5alviaofficinali50@gmail.com>"
+    },
+    "h_5a56918e6ebef3": {
+      "author": "yuremono"
+    }
+  },
+  "sessions": {
+    "s_276108b14b758f": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019e4ec3-fd20-7630-b473-8baffb4bbfd0",
+        "model": "gpt-5.5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    },
+    "s_5806f10f91c52b": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019e4f71-2b25-7ca0-87c6-054b9508948d",
+        "model": "gpt-5.5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    },
+    "s_905fd6499f78c3": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019e4faf-a201-7121-a119-f5b20d5d7ce1",
+        "model": "gpt-5.5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  }
+}

@@ -45,7 +45,7 @@ const EXPERIENCE_DIALOG_KEY = "experience";
 function Next() {
 	const { ref, dark, toggleTheme } = usePage();
 	useClientRuntime({ rootRef: ref });
-	useHtmlRootClass("[--MC:--GR]");
+	useHtmlRootClass("[--MC:--GR] ");
 	const [formMessage, setFormMessage] = useState<string | null>(null);
 	const [activeDialogId, setActiveDialogId] = useState<string | null>(null);
 	const experienceDialogOpen = activeDialogId === EXPERIENCE_DIALOG_KEY;
@@ -60,7 +60,7 @@ function Next() {
 	return (
 		<PageRoot
 			ref={ref}
-			className="PageRoot [--innerPX:--PX] [--Eng:--Jost] [--San:--Zen] [--h3FZ:1.5em] [--dropBG:--WH] [--dropC:--TC] [--WTS:var(--tsw)_var(--TC30)] "
+			className="[--innerPX:--PX] [--Eng:--Jost] [--San:--Zen] [--h3FZ:1.5em] [--dropBG:--WH] [--dropC:--TC] [--WTS:var(--tsw)_var(--TC30)] "
 		>
                         <HeaderCylinder className=" " />
 			{/* <Header className="NavCircleLeft text-WH" /> */}
@@ -87,31 +87,32 @@ function Next() {
 				<section className="out mindMap   text-center   font-thin">
 					{/* InitialLoadingOverlay の INITIAL_LOADING_LABEL_TEXT と文言を同期 */}
 					<p
-						className="mmPin about_p lg:w-[calc(var(--wid)/2)] text-[--GR] font-light text-center p-4 px-6  right-1/2 top-1/2 lg:translateYH static lg:absolute"
+						className="hidden mmPin about_p lg:w-[calc(var(--wid)/2)] text-[--GR] font-light text-center p-4 px-6  right-1/2 top-1/2 lg:translateYH static lg:absolute"
 						style={{ fontSize: "3em" }}
 					>
 						yuremono
 						<br />
 						works
 					</p>
-					<h1 className="JsLetter  text-lg font-normal budoux mmPin about_tx static lg:absolute lg:translateYH leading-[2em] left-1/2 top-1/2 z-10 text-left p-4 bg-background/80 ">
+					{/* <h1 className="BudouxShow  text-lg font-normal budoux mmPin  static  lg:absolute lg:translateYH leading-[2em] left-1/2 top-1/2 z-10 text-left px-[--PX2] md:p-4 bg-background/80 "> */}
+					<h1 className="BudouxShow  text-xl font-normal budoux mmPin  static   leading-[2em] left-1/2 top-1/2 z-10 text-left px-[--PX2] md:p-4 bg-background/80 ">
 						2025/05からAI駆動開発を開始
 						<br />
 						ヴィジュアル表現をAIでブーストし
 						<br />
 						コンテキストエンジニアリングに注力しています
 					</h1>
-					<p className="mm2-2" style={{ fontSize: "4em" }}>
-						Context
-					</p>
-					<p className="mm9-6" style={{ fontSize: "4em" }}>
-						Development
-					</p>
 					<p
-						className="hidden lg:inline-block mm3-9"
+						className=" mm2-3"
 						style={{ fontSize: "5em" }}
 					>
 						Web
+					</p>
+					<p className="hidden lg:inline-block mm3-8" style={{ fontSize: "4em" }}>
+						Context
+					</p>
+					<p className="mm9-5" style={{ fontSize: "4em" }}>
+						Development
 					</p>
 				</section>
 

@@ -270,7 +270,8 @@
         --dropbtnBF: var(--CC);
 
         --bargap: calc(var(--btnH) * .25);
-        --menuC: var(--BK);
+        --menuC: var(--TC);
+        --menuActive: var(--TC);
         --spanH: 2px;
         --spanR: 000px;
         --deg: 150deg;
@@ -281,6 +282,15 @@
         --menuM: var(--headG) 0;
 
         --menuH: var(--btnH);
+
+        --SPnavPY: 0.75em;
+        --SPnavPX: .5em;
+        --SPnavBG: var(--WH);
+        --SPnavC: var(--IN);
+        --dropbtnH: calc(var(--SPnavFZ) + var(--SPnavPY)*2);
+        --spanC: var(--IN);
+        --spanFZ: var(--IN);
+        --spanFW: 700;
     
     
     

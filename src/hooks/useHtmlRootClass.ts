@@ -6,12 +6,12 @@ import { useEffect } from "react";
  */
 export function useHtmlRootClass(className = ""): void {
 	useEffect(() => {
-		const trimmed = className.trim();
-		if (!trimmed) return;
+		const classNames = className.trim().split(/\s+/).filter(Boolean);
+		if (classNames.length === 0) return;
 		const root = document.documentElement;
-		root.classList.add(trimmed);
+		root.classList.add(...classNames);
 		return () => {
-			root.classList.remove(trimmed);
+			root.classList.remove(...classNames);
 		};
 	}, [className]);
 }

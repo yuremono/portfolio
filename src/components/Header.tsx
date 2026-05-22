@@ -296,8 +296,8 @@ function HeaderNav({ variant }: HeaderNavProps) {
 							<ArrowSquareOutIcon size={16} />
 						</a>
 					</li>
-					<li className="DropLi opacity-0">
-						<Link to="/examples">Examples</Link>
+					<li className="DropLi ">
+						<Link to="/examples" className="opacity-10">Examples</Link>
 					</li>
 				</ul>
 			</li>

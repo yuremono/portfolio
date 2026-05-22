@@ -11,7 +11,8 @@
 // }
 :root {
         --first-delay: 0.6s;
-        --letter-delay: 0.025s;
+        --letter-delay: 0.25s;
+        --phrase-delay: 0.25s;
 }
 
 .JsLetter {
@@ -156,19 +157,35 @@
         }
 }
 
-.BudouxFade {
-        --BudouxFadeMin: 0.3;
-        --BudouxFadeTrigger: 0.68;
-        --BudouxFadeRange: 1;
+.BudouxScroll {
+        --BudouxScrollMin: 0.3;
+        --BudouxScrollTrigger: 0.68;
+        --BudouxScrollRange: 1;
         word-break: keep-all;
         overflow-wrap: anywhere;
 }
 
-.BudouxFadePhrase {
+.BudouxScrollPhrase {
         display: inline-block;
-        opacity: var(--BudouxFadeMin);
+        opacity: var(--BudouxScrollMin);
         transition: none;
         vertical-align: baseline;
+}
+
+.BudouxShow {
+        word-break: keep-all;
+        overflow-wrap: anywhere;
+}
+
+.BudouxShowPhrase {
+        display: inline-block;
+        opacity: 0;
+        transition: 0s;
+        vertical-align: baseline;
+}
+
+.BudouxShow.show .BudouxShowPhrase {
+        opacity: 1;
 }
 
 

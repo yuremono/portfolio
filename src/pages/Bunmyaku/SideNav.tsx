@@ -53,7 +53,7 @@ export function SideNav({ state: _state, className }: SideNavProps) {
 		<>
 			<header
 				data-l="MobileNav"
-				className="BorderB sticky top-0 z-30 mt-0 bg-MC/95 px-[--PX] py-2 text-WH backdrop-blur lg:hidden"
+				className="BorderB sticky -top-px z-30 mt-0 bg-MC/95 px-[--PX] py-2 text-WH backdrop-blur lg:hidden"
 			>
 				<div data-l="MobileNavInner" className="flex items-center gap-2 overflow-x-auto">
 					<Link

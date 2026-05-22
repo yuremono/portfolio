@@ -16,7 +16,7 @@ const pageRootClass =
 
 // main: SideNav と作業領域の外枠。main>* の既定スタイルを受けないよう直下で制御する。
 const mainClass =
-	"min-h-[100lvh] !max-w-none !w-full !px-0 grid grid-cols-1 overflow-y-auto lg:h-[100lvh] lg:min-h-0 lg:overflow-clip lg:grid-cols-[var(--sideW)_minmax(0,1fr)]";
+	"min-h-[100lvh] !max-w-none !w-full !px-0 grid grid-cols-1 lg:h-[100lvh] lg:min-h-0 lg:overflow-clip lg:grid-cols-[var(--sideW)_minmax(0,1fr)]";
 
 const workspaceClass =
 	"relative mt-0 grid min-h-0 grid-cols-1 lg:h-[100lvh] lg:grid-cols-[minmax(0,1fr)_clamp(var(--sideW),var(--outW),50%)] lg:overflow-hidden";
@@ -60,7 +60,7 @@ function Bunmyaku() {
 	const mainStyle = outputWidth ? ({ "--outW": outputWidth } as CSSProperties) : undefined;
 
 	return (
-		<PageRoot ref={pageRootRef} className={`PageRoot ${pageRootClass}`}>
+		<PageRoot ref={pageRootRef} className={pageRootClass}>
 			<main data-l="DocumentMain" className={mainClass} style={mainStyle}>
 				{/* 左カラム: プロンプトとパーツのナビゲーション */}
 				<SideNav className={sideNavClass} state={documentState} />

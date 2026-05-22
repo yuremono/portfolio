@@ -12,7 +12,10 @@ export interface PageRootProps {
 export const PageRoot = forwardRef<HTMLDivElement, PageRootProps>(
 	function PageRoot({ className, children }, ref) {
 		return (
-			<div ref={ref} className={className}>
+			<div
+				ref={ref}
+				className={["PageRoot", className].filter(Boolean).join(" ")}
+			>
 				{children}
 			</div>
 		);

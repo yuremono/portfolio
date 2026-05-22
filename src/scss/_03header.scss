@@ -1313,7 +1313,7 @@
                 }
 
                 .HeaderCylinderLogo {
-                        @apply z-[1000] absolute w-[calc(var(--logoW)/3*2)] lg:w-[var(--logoW)] top-0 left-0 pointer-events-auto h-auto  p-0 border-0 lg:top-1/2 lg:translate-y-[-52.5%]  ;
+                        @apply z-[1000] absolute w-[calc(var(--logoW)/3*2)] lg:w-[var(--logoW)] top-0 left-0 pointer-events-auto h-auto  p-0 border-0 lg:top-1/2 lg:translate-y-[-52.5%]  aspect-square lg:aspect-[1/2];
                         appearance: none;
                         background: var(--TR);
                         // border-radius: 0 999px 999px 0;
@@ -1322,19 +1322,26 @@
                         cursor: pointer;
                         
                         .LogoCylinder {
-                                @apply  w-[calc(var(--logoW)/3*2)] lg:w-[var(--logoW)]   ;
+                                @apply  w-[calc(var(--logoW)/3*2)] lg:w-[var(--logoW)] h-auto;
+                                aspect-ratio: 1;
+                                display: block;
+                        }
+
+                        .LogoCylinderCanvas {
+                                width: 100%;
                                 aspect-ratio: 1;
                                 display: block;
                         }
                         
                         .LogoLoading {
                                 @apply  w-[calc(var(--logoW)/3*2)] lg:w-[var(--logoW)]   ;
+                                aspect-ratio: 1/2;
                                 border-radius: inherit;
                         }
                 }
                 .HeaderAnotation{
                         --annoteInterval: 1.5s;
-                        @apply absolute left-[0] top-0 text-xs py-2 lg:p-4 w-full  bottom-0  lg:top-[auto] grid font-medium whitespace-nowrap tracking-[-0em];
+                        @apply absolute left-0 top-0 text-xs py-2 w-full  lg:top-1/2 lg:-translate-y-1/2 grid content-start lg:content-end font-medium whitespace-nowrap tracking-[-0em] aspect-square;
                         >span{
                                 @apply [grid-area:1/1];
                                 animation: header_anotation_toggle calc(var(--annoteInterval) * 2) linear infinite;
@@ -1496,11 +1503,11 @@
                                         > li:nth-child(5),> li:nth-child(8) {margin-left: calc(var(--ml) * 6);}
                                         > li:nth-child(6),> li:nth-child(7) {margin-left: calc(var(--ml) * 7);}
                                 }
-                                @supports (top: anchor(bottom)) {
-                                        inset: unset;
-                                        left: anchor(right);
-                                        align-self: anchor-center;
-                                }
+                                position: fixed;
+                                inset: auto;
+                                left: var(--dropPopoverLeft, 0);
+                                top: var(--dropPopoverTop, 0);
+                                transform: translateY(-50%);
                         }
                         .DropIcon{
                                 rotate: -90deg;
@@ -1992,9 +1999,9 @@
                 padding-inline: var(--PTbottomTAB);
                 gap: var(--PTbottomTAB);
 
-                &:is(.trans *) {
-                        padding-left: calc(var(--PTW) + var(--PTbottomTAB)*2);
-                }
+                // &:is(.trans *) {
+                //         padding-left: calc(var(--PTW) + var(--PTbottomTAB)*2);
+                // }
 
                 .imgBtn {
                         img {
@@ -2581,13 +2588,14 @@
                         grid-area: 1/1;
                         width: var(--dotW);
                         height: var(--dotW);
-                        background-color: var(--menuC);
                         border-radius: calc(var(--dotW));
                         box-sizing: content-box;
-
-                        &:is(.Donuts *) {
-                                border: 0.125rem solid var(--BK);
+                        background-color: var(--menuC);
+                        &:is(.active *){
+                                background-color: var(--menuActive);
                         }
+
+
 
                         &:is(:has(.char) *) {
                                 transform: translateY(calc(var(--bargap)*-0.5));
@@ -2621,15 +2629,16 @@
 
                 &[aria-expanded="true"],
                 &:hover {
+                        --dotW: calc(var(--btnH) * .1);
 
                         .span1 {
                                 translate: 0 0;
-                                width: calc(var(--dotW)*5);
+                                width: calc(var(--dotW)*6);
                                 transition: width var(--trans) linear, translate 0s;
                         }
 
                         .span2 {
-                                height: calc(var(--dotW)*5);
+                                height: calc(var(--dotW)*6);
                                 transition: height var(--trans) linear;
                         }
 
@@ -2660,13 +2669,7 @@
 
 :where(.HeaderNavMobile) {
         font-weight: 500;
-        --SPnavPY: 1.25em;
-        --SPnavPX: .5em;
-        --SPnavBG: var(--WH);
-        --dropbtnH: calc(var(--SPnavFZ) + var(--SPnavPY)*2);
-        --spanC: var(--IN);
-        --spanFZ: var(--IN);
-        --spanFW: 700;
+        color:  var(--SPnavC);
 
         position: fixed;
         top: 0;

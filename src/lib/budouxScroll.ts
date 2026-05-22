@@ -1,13 +1,13 @@
 import { loadDefaultJapaneseParser } from "budoux";
 
-const ATTR = "data-budoux-fade";
-const SELECTOR = ".BudouxFade";
-const PHRASE_CLASS = "BudouxFadePhrase";
+const ATTR = "data-budoux-scroll";
+const SELECTOR = ".BudouxScroll";
+const PHRASE_CLASS = "BudouxScrollPhrase";
 const ZWSP = "\u200B";
 
 type BudouxParser = ReturnType<typeof loadDefaultJapaneseParser>;
 
-export interface InitBudouxFadeOptions {
+export interface InitBudouxScrollOptions {
 	minOpacity?: number;
 	trigger?: number;
 	range?: number;
@@ -16,18 +16,18 @@ export interface InitBudouxFadeOptions {
 
 export type RuntimeDisconnect = { disconnect: () => void };
 
-interface BudouxFadeConfig {
+interface BudouxScrollConfig {
 	minOpacity: number;
 	trigger: number;
 	range: number;
 }
 
-interface BudouxFadeState {
+interface BudouxScrollState {
 	element: HTMLElement;
 	phrases: HTMLElement[];
 }
 
-const DEFAULT_CONFIG: BudouxFadeConfig = {
+const DEFAULT_CONFIG: BudouxScrollConfig = {
 	minOpacity: 0.3,
 	trigger: 0.5,
 	range: 1,
@@ -50,22 +50,22 @@ function readNumber(value: string, fallback: number) {
 	return Number.isFinite(parsed) ? parsed : fallback;
 }
 
-function readConfig(element: HTMLElement, options: InitBudouxFadeOptions) {
+function readConfig(element: HTMLElement, options: InitBudouxScrollOptions) {
 	const style = window.getComputedStyle(element);
 	const fallbackTrigger = options.trigger ?? options.focus ?? DEFAULT_CONFIG.trigger;
 	const minOpacity = readNumber(
-		style.getPropertyValue("--BudouxFadeMin"),
+		style.getPropertyValue("--BudouxScrollMin"),
 		options.minOpacity ?? DEFAULT_CONFIG.minOpacity,
 	);
 	const trigger = readNumber(
-		style.getPropertyValue("--BudouxFadeTrigger"),
+		style.getPropertyValue("--BudouxScrollTrigger"),
 		readNumber(
-			style.getPropertyValue("--BudouxFadeFocus"),
+			style.getPropertyValue("--BudouxScrollFocus"),
 			fallbackTrigger,
 		),
 	);
 	const range = readNumber(
-		style.getPropertyValue("--BudouxFadeRange"),
+		style.getPropertyValue("--BudouxScrollRange"),
 		options.range ?? DEFAULT_CONFIG.range,
 	);
 
@@ -154,7 +154,7 @@ function getTargets(base: Document | Element) {
 	return targets;
 }
 
-function updateState(state: BudouxFadeState, options: InitBudouxFadeOptions) {
+function updateState(state: BudouxScrollState, options: InitBudouxScrollOptions) {
 	const config = readConfig(state.element, options);
 	const viewportHeight =
 		window.innerHeight || document.documentElement.clientHeight;
@@ -174,9 +174,9 @@ function updateState(state: BudouxFadeState, options: InitBudouxFadeOptions) {
 	});
 }
 
-export function initBudouxFade(
+export function initBudouxScroll(
 	root: Document | Element = document,
-	options: InitBudouxFadeOptions = {},
+	options: InitBudouxScrollOptions = {},
 ): RuntimeDisconnect {
 	const base = root;
 	const parser = loadDefaultJapaneseParser();

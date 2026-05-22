@@ -72,6 +72,13 @@ const BBOX_SIDEBAR_W_DEFAULT = 340;
 const BBOX_SIDEBAR_W_MIN = 220;
 const BBOX_STAGE_COL_MIN_PX = 160;
 
+function bboxUsesResizableSidebar(): boolean {
+	return (
+		typeof window !== "undefined" &&
+		window.matchMedia("(min-width: 768px)").matches
+	);
+}
+
 /** メイン行幅に対するサイドバー上限（px）：50% と「ステージ最小幅」を確保できる幅の小さい方 */
 function bboxMaxSidebarPxForMainRow(mainRowWidthPx: number): number {
 	if (!Number.isFinite(mainRowWidthPx) || mainRowWidthPx <= 0) return BBOX_SIDEBAR_W_DEFAULT;
@@ -132,6 +139,7 @@ export default function Bbox() {
 	const [labelDraft, setLabelDraft] = useState("");
 	const [copyFlash, setCopyFlash] = useState(false);
 	const [editingGroupId, setEditingGroupId] = useState<string | null>(null);
+	const [smallViewportNoticeOpen, setSmallViewportNoticeOpen] = useState(true);
 	const [sidebarWidthPx, setSidebarWidthPx] = useState(
 		readInitialBboxSidebarWidthPx,
 	);
@@ -1163,6 +1171,7 @@ export default function Bbox() {
 	const onStageSidebarSeparatorPointerDown = useCallback(
 		(e: ReactPointerEvent<HTMLDivElement>) => {
 			e.preventDefault();
+			if (!bboxUsesResizableSidebar()) return;
 			sidebarResizeActiveRef.current = true;
 			sidebarResizeRef.current = {
 				startX: e.clientX,
@@ -1227,7 +1236,7 @@ export default function Bbox() {
 			<main
 				data-l="EditorMain"
 				ref={mainRowRef}
-				className="flex min-h-0 min-w-0  flex-1 flex-row overflow-hidden px-0"
+				className="flex min-h-0 min-w-0 flex-1 flex-col overflow-auto px-0 md:flex-row md:overflow-hidden"
 			>
 				<BboxStage
 					stageRef={stageRef}
@@ -1257,7 +1266,7 @@ export default function Bbox() {
 					aria-valuemin={sidebarAriaMin}
 					aria-valuemax={sidebarAriaMax}
 					aria-valuenow={sidebarWidthPx}
-					className="w-1 shrink-0 cursor-col-resize touch-none select-none bg-GR/35 hover:bg-accent/40 mt-0"
+					className="h-1 w-full shrink-0 touch-none select-none bg-GR/35 md:h-auto md:w-1 md:cursor-col-resize md:hover:bg-accent/40 mt-0"
 					onPointerDown={onStageSidebarSeparatorPointerDown}
 					onPointerMove={onStageSidebarSeparatorPointerMove}
 					onPointerUp={onStageSidebarSeparatorPointerUp}
@@ -1280,6 +1289,45 @@ export default function Bbox() {
 					onParentRegionScreenshot={handleParentRegionScreenshot}
 				/>
 			</main>
+			{smallViewportNoticeOpen && (
+				<div
+					className="fixed inset-0 z-[1000] flex bg-BK/70 p-[--PX] md:hidden"
+					role="dialog"
+					aria-modal="true"
+					aria-labelledby="bbox-small-viewport-notice-title"
+					aria-describedby="bbox-small-viewport-notice-body"
+				>
+					<div className="flex min-h-0 w-full flex-col justify-between overflow-auto BorderXY bg-background p-[--PX] BS">
+						<div className="space-y-4">
+							<p className="text-[10px] uppercase tracking-[0.18em] text-GR">
+								BBox Editor
+							</p>
+							<h2
+								id="bbox-small-viewport-notice-title"
+								className="text-xl leading-tight text-TC"
+							>
+								スマホ・タブレットでは使用できません
+							</h2>
+							<p
+								id="bbox-small-viewport-notice-body"
+								className="text-sm leading-relaxed text-third"
+							>
+								このツールはPCで画像をインポートし、マウス操作でバウンディングボックスを描くことを想定しています。小さい画面では画像やキャンバスが画面幅を超え、正確な編集が難しくなります。
+							</p>
+							<p className="text-xs leading-relaxed text-GR">
+								編集する場合は、PCのブラウザで開いてください。表示確認だけであれば、この案内を閉じて背面の画面を確認できます。
+							</p>
+						</div>
+						<button
+							type="button"
+							className="mt-8 w-full rounded BorderXY px-4 py-3 text-sm text-TC transition-colors hover:border-accent hover:text-accent"
+							onClick={() => setSmallViewportNoticeOpen(false)}
+						>
+							閉じる
+						</button>
+					</div>
+				</div>
+			)}
 		</PageRoot>
 	);
 }

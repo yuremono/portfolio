@@ -1,4 +1,4 @@
-import { type RefObject, useCallback, useState } from "react";
+import { type CSSProperties, type RefObject, useCallback, useState } from "react";
 import type { Dispatch, SetStateAction } from "react";
 import { CameraIcon, ChatCircleTextIcon } from "@phosphor-icons/react";
 import { findBoxById } from "../../lib/annotatorGeometry";
@@ -208,8 +208,13 @@ export default function BboxSidebar({
 			data-l="SidebarPanel"
 			aria-label="グループ一覧と出力"
 			lang="ja"
-			className="flex shrink-0 flex-col overflow-hidden BorderL bg-background/80 BS mt-0"
-			style={{ width: sidebarWidthPx, flexShrink: 0 }}
+			className="flex min-h-[18rem] w-full shrink-0 flex-col overflow-hidden BorderL bg-background/80 BS mt-0 md:min-h-0 md:w-[--bboxSidebarWidth]"
+			style={
+				{
+					"--bboxSidebarWidth": `${sidebarWidthPx}px`,
+					flexShrink: 0,
+				} as CSSProperties
+			}
 		>
 			<div
 				data-l="GroupsTitle"

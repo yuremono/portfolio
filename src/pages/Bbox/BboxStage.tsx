@@ -63,7 +63,7 @@ export default function BboxStage({
 		<section
 			data-l="StageCanvas"
 			aria-label="画像編集キャンバス"
-			className={`relative flex min-h-0 min-w-0 flex-1 justify-center overflow-auto bg-stage PX py-6 ${bboxScrollOverflowThumbClass}`}
+			className={`relative flex min-w-0 shrink-0 justify-center overflow-auto bg-stage PX py-6 md:min-h-0 md:flex-1 ${bboxScrollOverflowThumbClass}`}
 			onDragOver={handleCanvasSectionDragOver}
 			onDrop={handleCanvasSectionDrop}
 			onMouseDown={(e) => {

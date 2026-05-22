@@ -131,7 +131,7 @@ function Activity() {
 				className="min-h-screen pt-[--head] pb-[--MY] [--itemH:calc(100lvh-var(--head)-var(--PX))]"
 			>
 				<section className="out Stick bp-lg  [--scr:100%] [--shift:100%] PX  [--wid:clamp(36em,50%,720px)] ">
-					<div className="StickItem Cards col2 lg:[--gap:--wid] top-[--head] text-left lg:text-right lg:min-h-[--itemH]">
+					<div className="StickItem Cards col2 static lg:sticky lg:[--gap:--wid] top-[--head] text-left lg:text-right lg:min-h-[--itemH]">
 						<div
 							className="item p-[--PX] bg-[--WH] BorderXY rounded-[--btnRad] content-center"
 							aria-label="記事の切り替え"
@@ -139,7 +139,7 @@ function Activity() {
 							<h1 className="h3FZ mb-4">職務要約と活動記録</h1>
 							<nav className="italic  ">
 								{/* 1 つ目の UL（必ず上に表示。カテゴリは NAV_CATEGORIES_PRIMARY で設定） */}
-								<ul className="space-x-3">
+								<ul className="lg:space-x-3 max-lg:[&>li:not(:last-child)]:mr-3">
 									{primaryPosts.map((p) => (
 										<li className="inline-block" key={p.id}>
 											<a
@@ -153,7 +153,7 @@ function Activity() {
 									))}
 								</ul>
 								{/* 2 つ目の UL（下に表示。カテゴリは NAV_CATEGORIES_SECONDARY で設定） */}
-								<ul className="space-x-3">
+								<ul className="lg:space-x-3 max-lg:[&>li:not(:last-child)]:mr-3">
 									{secondaryPosts.map((p) => (
 										<li className="inline-block " key={p.id}>
 											<a
@@ -187,7 +187,7 @@ function Activity() {
 									className="   scroll-mt-[--head] BorderB lg:min-h-[--itemH]"
 									aria-labelledby={`tab-${post.id}`}
 								>
-									<header className="sticky top-[--head] z-10 px-8  py-8 rounded-t-[--btnRad] bg-[--BC80] backdrop-blur-sm">
+									<header className="static lg:sticky top-[--head] z-10 px-8  py-8 rounded-t-[--btnRad] bg-[--BC80] backdrop-blur-sm">
 										<p className="mb-2 text-sm sub">
 											<time dateTime={post.dateTime}>
 												{post.dateTime}

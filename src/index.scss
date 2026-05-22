@@ -22,9 +22,11 @@
         border-radius: var(--rad) 0 0 var(--rad) ;
         corner-shape: bevel;
 }
+html{
+        font-size: var(--FZ);
+}
 :where(.PageRoot),
 :where(#root)>div {//index.scss tailwind overwrite
-	font-size: var(--FZ);
 	overflow-x: clip;
 	font-family: var(--FF);
 	font-weight: var(--FW);

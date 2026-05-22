@@ -55,9 +55,9 @@ function Glitch() {
 	return (
 		<PageRoot
 			ref={pageRootRef}
-			className="glitch bg-black text-white isolate [--Eng:--Jost] [--innerPX:--PX] [--HFW:100] [--letter-delay:0.1s] "
+			className="glitch [--background:--BK] [--foreground:--WH]  isolate [--Eng:--Jost] [--innerPX:--PX] [--HFW:100] [--letter-delay:0.1s] "
 		>
-			<Header className="NoLogo TopHidden" />
+			<Header className="NoLogo TopHidden  [--menuC:--WH] [--SPnavC:--BK]" />
 
 			<main aria-label="Glitch page" className="[--MY:0px] ">
 				<section className=" bgLayer out">
@@ -168,7 +168,7 @@ function Glitch() {
 					className="part_rect out js-bgTrigger grid min-h-[75lvh] content-center gap-[var(--gap)]"
 					aria-label="Service overview"
 				>
-					<div className=" ml-0 spPX10p w-1/2 text-right max-sm:w-full">
+					<div className=" ml-0 px-[--PX] sm:px-0 w-1/2 text-right max-sm:w-full">
 						<h1 className="ml-0 mb-12 [font-family:var(--Eng)] text-[var(--h3FZ)] italic leading-[1.1] [text-shadow:0_1rem_4rem_var(--BK80)]">
                                                 わたしたちの
 							<br />

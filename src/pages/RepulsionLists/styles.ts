@@ -209,7 +209,7 @@ export const repulsionListsStyles = `
 					.repulsion-lists-module #repulsion-lists-card-container {
 						width: 1000px;
 						// height: 500px;
-						margin-inline: 100px;
+						// margin-inline: 100px;
 					}
 				}
 				@media (prefers-reduced-motion: reduce) {

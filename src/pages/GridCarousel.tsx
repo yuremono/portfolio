@@ -3,6 +3,7 @@ import {
 	cloneElement,
 	isValidElement,
 	type CSSProperties,
+	type PointerEvent,
 	type ReactElement,
 	type ReactNode,
 	useEffect,
@@ -99,6 +100,7 @@ const LAYOUTS = {
 } as const satisfies Record<Breakpoint, Layout>;
 
 const SCROLL_SENSITIVITY = 300;
+const SWIPE_SENSITIVITY = 160;
 
 type CellStyle = {
 	row: number;
@@ -198,6 +200,11 @@ type CarouselProps = { children?: ReactNode };
 
 function Carousel({ children }: CarouselProps) {
 	const sectionRef = useRef<HTMLElement>(null);
+	const pointerRef = useRef<{
+		id: number;
+		x: number;
+		y: number;
+	} | null>(null);
 	const [step, setStep] = useState(0);
 	const breakpoint = useBreakpoint();
 	const layout = LAYOUTS[breakpoint];
@@ -226,6 +233,43 @@ function Carousel({ children }: CarouselProps) {
 		return () => el.removeEventListener("wheel", onWheel);
 	}, [cellCount]);
 
+	const handlePointerDown = (event: PointerEvent<HTMLElement>) => {
+		if (event.pointerType === "mouse") return;
+		pointerRef.current = {
+			id: event.pointerId,
+			x: event.clientX,
+			y: event.clientY,
+		};
+		event.currentTarget.setPointerCapture(event.pointerId);
+	};
+
+	const handlePointerMove = (event: PointerEvent<HTMLElement>) => {
+		const pointer = pointerRef.current;
+		if (!pointer || pointer.id !== event.pointerId || cellCount === 0) return;
+		event.preventDefault();
+
+		const dx = event.clientX - pointer.x;
+		const dy = event.clientY - pointer.y;
+		const primaryDelta = Math.abs(dx) >= Math.abs(dy) ? -dx : dy;
+		if (primaryDelta === 0) return;
+
+		pointerRef.current = {
+			...pointer,
+			x: event.clientX,
+			y: event.clientY,
+		};
+		setStep((prev) => wrap(prev + primaryDelta / SWIPE_SENSITIVITY, cellCount));
+	};
+
+	const handlePointerEnd = (event: PointerEvent<HTMLElement>) => {
+		const pointer = pointerRef.current;
+		if (!pointer || pointer.id !== event.pointerId) return;
+		pointerRef.current = null;
+		if (event.currentTarget.hasPointerCapture(event.pointerId)) {
+			event.currentTarget.releasePointerCapture(event.pointerId);
+		}
+	};
+
 	const mergedCellStyle: CSSProperties = {
 		top: "calc(var(--gap) + (var(--ch) + var(--gap)) * 1)",
 		left: `calc(var(--gap) + 1 * (var(--cw) + var(--gap)))`,
@@ -243,13 +287,18 @@ function Carousel({ children }: CarouselProps) {
 			ref={sectionRef}
 			className="
 				relative h-full w-full p-[--gap] out
+				touch-none select-none
 				[--cols:2] md:[--cols:3] lg:[--cols:4]
 				[--cw:calc((100vw-var(--gap)*(var(--cols)+1))/var(--cols))]
-				[--ch:calc((100lvh-var(--gap)*4)/3)]
+				[--ch:calc((100svh-var(--gap)*4)/3)]
 				[--rad:0.5rem]
 				[--gap:1em]
 				[--mascBG:--background]
 			"
+			onPointerDown={handlePointerDown}
+			onPointerMove={handlePointerMove}
+			onPointerUp={handlePointerEnd}
+			onPointerCancel={handlePointerEnd}
 		>
 			{others.map((child, index) => {
 				if (!isValidElement(child) || index !== mergedCellIndex) {
@@ -307,7 +356,7 @@ function GridCarousel() {
 		<PageRoot ref={pageRootRef}>
 			<Header className="LinkShadow  " />
 
-			<main className="h-[100lvh] overflow-hidden">
+			<main className="h-[100svh] overflow-hidden">
 				<Carousel>
 					{/* 中央結合セル（固定・回転対象外） */}
 					<div className="absolute z-[4] rounded-[--rad]  flex items-center justify-center text-center p-[--gap]">

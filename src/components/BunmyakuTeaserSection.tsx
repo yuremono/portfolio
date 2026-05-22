@@ -568,7 +568,7 @@ export function BunmyakuTeaserSection({
 			<div className="WTS [--WTS:var(--tsw)_var(--BC50)] relative z-10  PX [grid-area:1/1]  [font-family:--Ship] max-w-[48em] mx-auto">
 				<div className="[--LS:0.1em]    py-[50lvh] ">
 					<h2 className=" h2FZ HFF BarAF JsRight">## 文脈.app</h2>
-					<p className="BudouxFade mx-auto my-[3rem] md:text-xl">
+					<p className="BudouxScroll mx-auto my-[3rem] md:text-xl">
                                                 ### SPEC.md, DESIGN.md, AGENTS.md をGUIで作成するツール<br />
                                                 <br />
                                                 DESIGN.mdはフロントエンドの要件定義書と言えます。公開サイトURLから作成するツールが多く出回っており、一定の効率化につながりますが、Sticthの公式テンプレートの情報量でも不十分であり、結局テンプレート出力になります。<br />

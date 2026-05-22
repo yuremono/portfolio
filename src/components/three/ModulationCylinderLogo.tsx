@@ -137,41 +137,47 @@ export default function ModulationCylinderLogo({
 	const rootClassName = ["LogoCylinder", className].filter(Boolean).join(" ");
 
 	return (
-		<Canvas
-			className={rootClassName}
-			role="img"
-			aria-label="上面に「ゆ」、側面にMODULATIONを配した円柱ロゴ"
-			frameloop={LOGO_CONFIG.frameloop}
-			dpr={LOGO_CONFIG.dpr}
-			camera={{ position: LOGO_CONFIG.cameraPosition, fov: LOGO_CONFIG.cameraFov }}
-			gl={{
-				alpha: true,
-				antialias: LOGO_CONFIG.antialias,
-				powerPreference: LOGO_CONFIG.powerPreference,
-			}}
-			onCreated={({ camera, gl }) => {
-				camera.lookAt(0, 0, 0);
-				camera.updateProjectionMatrix();
-				setPalette(readPalette(gl.domElement));
-			}}
-		>
-			<LogoModel
-				palette={palette}
-				autoSpin={autoSpin}
-				fontReadyToken={fontReadyToken}
-			/>
-			{interactive ? (
-				<OrbitControls
-					enablePan
-					enableRotate
-					enableZoom
-					makeDefault
-					minDistance={2.7}
-					maxDistance={7}
-					target={[0, 0, 0]}
+		<div className={rootClassName}>
+			<Canvas
+				className="LogoCylinderCanvas"
+				role="img"
+				aria-label="上面に「ゆ」、側面にMODULATIONを配した円柱ロゴ"
+				style={{ width: "100%", height: "auto", aspectRatio: "1 / 1" }}
+				frameloop={LOGO_CONFIG.frameloop}
+				dpr={LOGO_CONFIG.dpr}
+				camera={{
+					position: LOGO_CONFIG.cameraPosition,
+					fov: LOGO_CONFIG.cameraFov,
+				}}
+				gl={{
+					alpha: true,
+					antialias: LOGO_CONFIG.antialias,
+					powerPreference: LOGO_CONFIG.powerPreference,
+				}}
+				onCreated={({ camera, gl }) => {
+					camera.lookAt(0, 0, 0);
+					camera.updateProjectionMatrix();
+					setPalette(readPalette(gl.domElement));
+				}}
+			>
+				<LogoModel
+					palette={palette}
+					autoSpin={autoSpin}
+					fontReadyToken={fontReadyToken}
 				/>
-			) : null}
-		</Canvas>
+				{interactive ? (
+					<OrbitControls
+						enablePan
+						enableRotate
+						enableZoom
+						makeDefault
+						minDistance={2.7}
+						maxDistance={7}
+						target={[0, 0, 0]}
+					/>
+				) : null}
+			</Canvas>
+		</div>
 	);
 }
 

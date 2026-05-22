@@ -114,6 +114,7 @@ const VideoRingOverlay = forwardRef<VideoRingOverlayHandle, VideoRingOverlayProp
 		ref,
 	) {
 		const maskPathRefs = useRef<Array<SVGPathElement | null>>([]);
+		const sectorRefs = useRef<Array<HTMLDivElement | null>>([]);
 		const loaderStrokePathRefs = useRef<Array<SVGPathElement | null>>([]);
 		const geometryRef = useRef<RingGeometry | null>(null);
 		const openingPhaseRef = useRef<OpeningPhase>("loading");
@@ -223,6 +224,12 @@ const VideoRingOverlay = forwardRef<VideoRingOverlayHandle, VideoRingOverlayProp
 					endAngle,
 				);
 				maskPathRefs.current[i]?.setAttribute("d", dMask);
+				const sector = sectorRefs.current[i];
+				if (sector) {
+					const clipPath = `path("${dMask}")`;
+					sector.style.clipPath = clipPath;
+					sector.style.setProperty("-webkit-clip-path", clipPath);
+				}
 
 				const dStroke = getRingSectorSvgPathD(
 					ringCenter.cx,
@@ -383,6 +390,7 @@ const VideoRingOverlay = forwardRef<VideoRingOverlayHandle, VideoRingOverlayProp
 			stopRelocateAnimation,
 			updateMaskAndLoaderPaths,
 		]);
+		const resetLoadStateRef = useRef(resetLoadState);
 
 		useImperativeHandle(
 			ref,
@@ -411,8 +419,12 @@ const VideoRingOverlay = forwardRef<VideoRingOverlayHandle, VideoRingOverlayProp
 		);
 
 		useEffect(() => {
-			resetLoadState();
-		}, [mediaSrcKey, ringSegmentCount, resetLoadState]);
+			resetLoadStateRef.current = resetLoadState;
+		}, [resetLoadState]);
+
+		useEffect(() => {
+			resetLoadStateRef.current();
+		}, [mediaSrcKey, ringSegmentCount]);
 
 		useEffect(() => {
 			setMounted(true);
@@ -438,6 +450,11 @@ const VideoRingOverlay = forwardRef<VideoRingOverlayHandle, VideoRingOverlayProp
 				}
 			}
 		}, [commitLoadProgress, markSectorReady, mediaItems, mediaCount, ringSegmentCount]);
+		const syncCachedMediaReadyRef = useRef(syncCachedMediaReady);
+
+		useEffect(() => {
+			syncCachedMediaReadyRef.current = syncCachedMediaReady;
+		}, [syncCachedMediaReady]);
 
 		useEffect(() => {
 			return () => {
@@ -456,10 +473,10 @@ const VideoRingOverlay = forwardRef<VideoRingOverlayHandle, VideoRingOverlayProp
 				}
 			});
 			const id = requestEveryOtherAnimationFrame(() => {
-				syncCachedMediaReady();
+				syncCachedMediaReadyRef.current();
 			});
 			return () => cancelEveryOtherAnimationFrame(id);
-		}, [ringSegmentCount, mediaSrcKey, syncCachedMediaReady]);
+		}, [ringSegmentCount, mediaSrcKey]);
 
 		useEffect(() => {
 			if (!viewportWidth || !viewportHeight) return;
@@ -608,6 +625,9 @@ const VideoRingOverlay = forwardRef<VideoRingOverlayHandle, VideoRingOverlayProp
 									data-l={`MediaSector${sectorIndex + 1}`}
 									key={`sector-${sectorIndex}`}
 									className="pointer-events-none fixed inset-0"
+									ref={(node) => {
+										sectorRefs.current[sectorIndex] = node;
+									}}
 									style={{
 										height: "100vh",
 										maskImage: maskRef,

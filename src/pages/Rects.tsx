@@ -507,10 +507,10 @@ function Rects() {
 					<div className="HeaderLogo Eng [--logoW:180px] dswh min-h-[--head] pointer-events-auto">
 						<Link to="/">yuremono<br/>works</Link>
 					</div>
-					<div className="HeaderItems fix-tab pointer-events-auto">
+					<div className="HeaderItems fix-tab pointer-events-auto max-w-[65%]">
 						<div
 							ref={tweakpaneContainerRef}
-							className=" max-md:text-xs max-w-1/2 [&_.tp-dfwv]:max-w-full max-h-[100lvh] overflow-y-auto"
+							className=" max-md:text-xs  [&_.tp-dfwv]:max-w-full max-h-[100lvh] overflow-y-auto"
 						/>
 					</div>
 				</div>

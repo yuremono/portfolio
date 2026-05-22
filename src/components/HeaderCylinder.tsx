@@ -3,6 +3,7 @@ import {
 	Suspense,
 	useCallback,
 	useEffect,
+	useId,
 	useRef,
 	useState,
 	type MouseEvent,
@@ -24,11 +25,13 @@ interface HeaderCylinderProps {
 }
 
 function showDropPopover(event: PointerEvent<HTMLLIElement>) {
+	if (event.pointerType !== "mouse") return;
 	const popover =
 		event.currentTarget.querySelector<HTMLUListElement>(".DropUl");
 	if (!popover || popover.matches(":popover-open")) return;
 	const source = event.currentTarget.querySelector<HTMLElement>(".DropA");
 	if (source) {
+		positionDropPopover(popover, source);
 		popover.showPopover({ source });
 		return;
 	}
@@ -36,6 +39,7 @@ function showDropPopover(event: PointerEvent<HTMLLIElement>) {
 }
 
 function hideDropPopover(event: PointerEvent<HTMLLIElement>) {
+	if (event.pointerType !== "mouse") return;
 	const relatedTarget = event.relatedTarget;
 	if (
 		relatedTarget instanceof Node &&
@@ -56,10 +60,39 @@ function hideClickedPopover(event: MouseEvent<HTMLUListElement>) {
 	event.currentTarget.hidePopover();
 }
 
+function toggleDropPopover(event: MouseEvent<HTMLButtonElement>) {
+	event.preventDefault();
+	const button = event.currentTarget;
+	const popoverId = button.getAttribute("popovertarget");
+	const popover = popoverId
+		? document.getElementById(popoverId)
+		: button.parentElement?.querySelector(".DropUl");
+	if (!(popover instanceof HTMLUListElement)) return;
+
+	if (popover.matches(":popover-open")) {
+		popover.hidePopover();
+		return;
+	}
+	positionDropPopover(popover, button);
+	popover.showPopover({ source: button });
+}
+
 const dropHoverProps = {
 	onPointerEnter: showDropPopover,
 	onPointerLeave: hideDropPopover,
 };
+
+function positionDropPopover(popover: HTMLUListElement, source: HTMLElement) {
+	const rect = source.getBoundingClientRect();
+	const viewport = window.visualViewport;
+	const viewportLeft = viewport?.offsetLeft ?? 0;
+	const viewportTop = viewport?.offsetTop ?? 0;
+	popover.style.setProperty("--dropPopoverLeft", `${viewportLeft + rect.right}px`);
+	popover.style.setProperty(
+		"--dropPopoverTop",
+		`${viewportTop + rect.top + rect.height / 2}px`,
+	);
+}
 
 export default function HeaderCylinder({ className }: HeaderCylinderProps) {
 	const [open, setOpen] = useState(false);
@@ -147,8 +180,9 @@ interface HeaderCylinderNavProps {
 }
 
 function HeaderCylinderNav({ onNavigate }: HeaderCylinderNavProps) {
-	const repositoriesPopoverId = "HeaderRepositoriesMenu-cylinder";
-	const pagesPopoverId = "HeaderPagesMenu-cylinder";
+	const idPrefix = useId();
+	const repositoriesPopoverId = `${idPrefix}-repositories`;
+	const pagesPopoverId = `${idPrefix}-pages`;
 
 	return (
 		<ul className="NavUl">
@@ -167,6 +201,7 @@ function HeaderCylinderNav({ onNavigate }: HeaderCylinderNavProps) {
 					type="button"
 					className="DropA DropToggle"
 					popoverTarget={repositoriesPopoverId}
+					onClick={toggleDropPopover}
 				>
 					Repositories
 					<CaretDownIcon size={20}  className="DropIcon" />
@@ -176,6 +211,7 @@ function HeaderCylinderNav({ onNavigate }: HeaderCylinderNavProps) {
 					className="DropBtn DropToggle"
 					popoverTarget={repositoriesPopoverId}
 					aria-label="Toggle repositories submenu"
+					onClick={toggleDropPopover}
 				/>
 				<ul
 					id={repositoriesPopoverId}
@@ -287,6 +323,7 @@ function HeaderCylinderNav({ onNavigate }: HeaderCylinderNavProps) {
 					type="button"
 					className="DropA DropToggle"
 					popoverTarget={pagesPopoverId}
+					onClick={toggleDropPopover}
 				>
 					Pages
 					<CaretDownIcon  size={20}  className="DropIcon" />
@@ -296,6 +333,7 @@ function HeaderCylinderNav({ onNavigate }: HeaderCylinderNavProps) {
 					className="DropBtn DropToggle"
 					popoverTarget={pagesPopoverId}
 					aria-label="Toggle pages submenu"
+					onClick={toggleDropPopover}
 				/>
 				<ul
 					id={pagesPopoverId}
@@ -373,7 +411,7 @@ function HeaderCylinderNav({ onNavigate }: HeaderCylinderNavProps) {
 							<ArrowSquareOutIcon size={16} />
 						</a>
 					</li>
-					<li className="DropLi opacity-0">
+					<li className="DropLi opacity-10">
 						<Link to="/examples" onClick={onNavigate}>
 							Examples
 						</Link>

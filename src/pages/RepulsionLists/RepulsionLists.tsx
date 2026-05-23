@@ -36,7 +36,8 @@ function RepulsionListItems({
 	onClose,
 }: RepulsionListItemsProps) {
 	return Children.map(children, (child, index) => {
-		if (!isValidElement<RepulsionListItemInjectedProps>(child)) return child;
+		if (!isValidElement<RepulsionListItemInjectedProps>(child))
+			return child;
 		const id = `repulsion-list-item-${index}`;
 		return cloneElement(child, {
 			index,
@@ -71,11 +72,7 @@ export function RepulsionLists({ className }: RepulsionListsProps) {
 	}, []);
 
 	return (
-		<section
-			className={["", className]
-				.filter(Boolean)
-				.join(" ")}
-		>
+		<section className={["", className].filter(Boolean).join(" ")}>
 			<style>{repulsionListsStyles}</style>
 			<div
 				ref={touchRef}
@@ -113,111 +110,117 @@ export function RepulsionLists({ className }: RepulsionListsProps) {
 							<RepulsionListChip
 								title="Other Works"
 								className="is-initial pointer-events-none mr-4 -mt-4 bg-transparent"
-                                                        />
-                                                        <RepulsionListChip
+							/>
+							<RepulsionListChip
 								title="Random Generator"
-                                                                to="/rects"
+								to="/rects"
 								className="mt-4 "
 							>
-							<p>
-								コントローラー付きのランダム図形配置ジェネレーター
-							</p>
-							<details className="Toggle IsSmall font-normal ">
-								<summary className="Eng">SVG...</summary>
-								<div>
-									セル数、コンテナを埋める方向性、図形の種類(正方形、三角形、星、十字)、角度などを調整。rect,circle等SVGタグのスニペットをコピペできる。
-								</div>
-							</details>
-							<details className="Toggle IsSmall font-normal ">
-								<summary className="Eng">Rects...</summary>
-								<div>
-									divタグの大きさ、個数、角丸、重なり可否などを指定。いいバランスの時にコピーして画像配置などでそのまま使う想定。SVG出力も可。
-								</div>
-							</details>
-						</RepulsionListChip>
+								<p>
+									コントローラー付きのランダム図形配置ジェネレーター
+								</p>
+								<details className="Toggle IsSmall font-normal ">
+									<summary className="Eng">SVG...</summary>
+									<div>
+										セル数、コンテナを埋める方向性、図形の種類(正方形、三角形、星、十字)、角度などを調整。rect,circle等SVGタグのスニペットをコピペできる。
+									</div>
+								</details>
+								<details className="Toggle IsSmall font-normal ">
+									<summary className="Eng">Rects...</summary>
+									<div>
+										divタグの大きさ、個数、角丸、重なり可否などを指定。いいバランスの時にコピーして画像配置などでそのまま使う想定。SVG出力も可。
+									</div>
+								</details>
+							</RepulsionListChip>
 							<RepulsionListChip
 								title="Agent Driven CMS"
 								to="/donut"
 								className=""
 							>
-							<p>
-								Codex または Claude Code を Next.js Node
-								runtimeで中継。ローカルブラウザでエージェントに直接ソースコードを編集させるCMS
-							</p>
-							<details className="Toggle IsSmall font-normal ">
-								<summary className="Eng">Detail...</summary>
-								<div>
-									- AI時代では
-									「チャットで編集できるwebサイト」が求められると仮定する
-									<br />
-									- ローカル完結ならモデル性能依存を解消できる
-									<br />
-									- フロントエンド以外は全て仕様駆動。
-									<br />
-									考察：
-									リテラシーの高いクライアント＆十分な初期サポートという条件は必須と考えていたし、体験としては有意義であるが、エージェントの行動への責任は「サポート」ではカバーできないことを実感した。ここまでやるならCursor、Codex等の使い方自体をサポートした方が無難。と考えました。
-								</div>
-							</details>
-						</RepulsionListChip>
-							
+								<p>
+									Codex または Claude Code を Next.js Node
+									runtimeで中継。ローカルブラウザでエージェントに直接ソースコードを編集させるCMS
+								</p>
+								<details className="Toggle IsSmall font-normal ">
+									<summary className="Eng">Detail...</summary>
+									<div>
+										- AI時代では
+										「チャットで編集できるwebサイト」が求められると仮定する
+										<br />
+										-
+										ローカル完結ならモデル性能依存を解消できる
+										<br />
+										- フロントエンド以外は全て仕様駆動。
+										<br />
+										考察：
+										リテラシーの高いクライアント＆十分な初期サポートという条件は必須と考えていたし、体験としては有意義であるが、エージェントの行動への責任は「サポート」ではカバーできないことを実感した。ここまでやるならCursor、Codex等の使い方自体をサポートした方が無難。と考えました。
+									</div>
+								</details>
+							</RepulsionListChip>
+
 							<RepulsionListChip
 								title="Shuffle Divide"
 								to="/shuffleDivide"
 							>
-							<p>
-								制作サイトの部分再現です。
-							</p>
-						</RepulsionListChip>
-							<RepulsionListChip
-								title="Glitch"
-								to="/glitch"
-							>
-							<p>
-                                                        制作サイトの部分再現です。
-							</p>
-						</RepulsionListChip>
+								<p>制作サイトの部分再現です。</p>
+							</RepulsionListChip>
+							<RepulsionListChip title="Glitch" to="/glitch">
+								<p>制作サイトの部分再現です。</p>
+							</RepulsionListChip>
 							<RepulsionListChip
 								title="Grid Carousel"
-								to="/grid-carousel"
+                                                                to="/grid-carousel"
+                                                                className="mt-4"
 							>
-							<p>グリッドカルーセルです。</p>
-						</RepulsionListChip>
+								<p>グリッドカルーセルです。</p>
+							</RepulsionListChip>
 							<RepulsionListChip
 								title="Bounding Box On Design"
-                                                                to="/bbox"
-                                                                className="-mb-4"
-                                                                
+								to="/bbox"
+								className=""
 							>
-							<p>
-								AI生成のLPデザインにバウンディングボックスを配置し、画像+構造化データをエージェントに渡すツールです。
-							</p>
-						</RepulsionListChip>
-							<RepulsionListChip
-								title="Activity"
-								to="/activity"
-							>
-							<p>職務要約と活動記録を書いています。</p>
-						</RepulsionListChip>
+								<p>
+									AI生成のLPデザインにバウンディングボックスを配置し、画像+構造化データをエージェントに渡すツールです。
+								</p>
+							</RepulsionListChip>
+                                                        <RepulsionListChip title="Activity" to="/activity"
+                                                                className=""
+                                                        
+                                                        >
+								<p>職務要約と活動記録を書いています。</p>
+							</RepulsionListChip>
 							<RepulsionListChip
 								title="Chat Canban"
-                                                                href="https://chat-kanban.vercel.app/"
-                                                                className="mb-4"
-                                                                
+								href="https://chat-kanban.vercel.app/"
+								className="-mt-8"
 							>
-							<p>
-								ローカル環境の特定ブラウザ(Chromium系)に拡張機能をインストールし、ChatGPTやGeminiにチャット履歴を送信するためのUIを設置。特定のurlでまとめて閲覧。ムーバブルサイドバー機能付き。
-								<br />
-								＊デモページ。当サイトに統合していません。
-							</p>
-						</RepulsionListChip>
+								<p>
+									ローカル環境の特定ブラウザ(Chromium系)に拡張機能をインストールし、ChatGPTやGeminiにチャット履歴を送信するためのUIを設置。特定のurlでまとめて閲覧。ムーバブルサイドバー機能付き。
+									<br />
+									＊デモページ。当サイトに統合していません。
+								</p>
+							</RepulsionListChip>
 							<RepulsionListChip
 								title="NextJs CMS"
-								href="https://cms0505.vercel.app/editor"
+                                                                href="https://cms0505.vercel.app/editor"
+                                                                className="mt-4"
+                                                                
 							>
-							<p>
-								AI駆動開発最初の制作物。実務で経験できないシステム設計、データ管理、React、TypeScriptを学ぶため、単一ページ専用CMSを作成。閲覧pass: view
-							</p>
-						</RepulsionListChip>
+								<p>
+									AI駆動開発最初の制作物。実務で経験できないシステム設計、データ管理、React、TypeScriptを学ぶため、単一ページ専用CMSを作成。閲覧pass:
+									view
+								</p>
+							</RepulsionListChip>
+							<RepulsionListChip
+								title="PortfolioWP"
+                                                                href="https://yuremono.com/"
+                                                                className="-mt-4"
+							>
+								<p>
+                                                                        このページ (ReactSPA) をwordpressに移植しています。 
+                                                                        実務で使用経験がないので概念を学びながら可能な限りエージェントに実装させています。
+								</p>
+							</RepulsionListChip>
 							{/* <RepulsionListChip
 								title="/Clone Modules"
                                                                 to="/examples"

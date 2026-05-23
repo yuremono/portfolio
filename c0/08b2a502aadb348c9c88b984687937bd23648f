@@ -1,0 +1,61 @@
+src/components/Header.tsx
+  h_53dad1e32c3c71 131,136,279,284
+src/components/Footer.tsx
+  h_53dad1e32c3c71 78-88
+src/components/HeaderCylinder.tsx
+  h_53dad1e32c3c71 237,243,390-399
+src/components/InitialLoadingOverlay.tsx
+  s_daf80a19a4840b::t_39eb26b5529700 161,184,201-202
+  s_daf80a19a4840b::t_2dde8a42a554a2 183
+  s_cc6f045a63e89d::t_2cb7a12c9acadb 1,15,144-155
+  s_daf80a19a4840b::t_c3cffcf0bdcdbd 185-188,194
+  s_daf80a19a4840b::t_8cb65eddf17020 166,190,192-193
+src/pages/Next.tsx
+  h_53dad1e32c3c71 212-216,378,383
+src/scss/_08intersection.scss
+  h_53dad1e32c3c71 13-15,183
+src/components/InitialLoadingOverlay.test.tsx
+  s_daf80a19a4840b::t_c56ae545139633 98-101
+  s_daf80a19a4840b::t_24d3bc73f9b313 130
+  s_daf80a19a4840b::t_2e40e8b0d96436 139
+  s_daf80a19a4840b::t_9c2ad6d091a779 92-97
+src/index.scss
+  s_cc6f045a63e89d::t_070f7e91b3b552 99-107
+src/scss/_03header.scss
+  h_53dad1e32c3c71 1316,1321-1324,1327-1328,1348,1362,1512-1516,1521-1525,1546-1549
+  s_daf80a19a4840b::t_f242ad0d42dd4d 1510-1511,1517-1520,1526-1527
+src/scss/_09hover.scss
+  h_53dad1e32c3c71 562-564
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.0",
+  "base_commit_sha": "c008b2a502aadb348c9c88b984687937bd23648f",
+  "prompts": {},
+  "humans": {
+    "h_53dad1e32c3c71": {
+      "author": "yuremono <5alviaofficinali50@gmail.com>"
+    },
+    "h_5a56918e6ebef3": {
+      "author": "yuremono"
+    }
+  },
+  "sessions": {
+    "s_cc6f045a63e89d": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019e5461-8a88-7d92-be18-c877aa055c3f",
+        "model": "gpt-5.4-mini"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    },
+    "s_daf80a19a4840b": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019e541b-a0c4-7291-ab99-675129a94914",
+        "model": "gpt-5.4-mini"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  }
+}

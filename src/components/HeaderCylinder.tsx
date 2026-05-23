@@ -204,7 +204,7 @@ function HeaderCylinderNav({ onNavigate }: HeaderCylinderNavProps) {
 					onClick={toggleDropPopover}
 				>
 					Repositories
-					<CaretDownIcon size={20}  className="DropIcon" />
+					<CaretDownIcon size={20} className="DropIcon" />
 				</button>
 				<button
 					type="button"
@@ -234,13 +234,13 @@ function HeaderCylinderNav({ onNavigate }: HeaderCylinderNavProps) {
 					</li>
 					<li className="DropLi">
 						<a
-							href="https://github.com/yuremono/wp-local-demo"
+							href="https://github.com/yuremono/portfolio-wp"
 							className=" "
 							target="_blank"
 							rel="noopener noreferrer"
 							onClick={onNavigate}
 						>
-							wp-local-demo
+							Portfolio-wp
 							<ArrowSquareOutIcon size={16} />
 						</a>
 					</li>
@@ -326,7 +326,7 @@ function HeaderCylinderNav({ onNavigate }: HeaderCylinderNavProps) {
 					onClick={toggleDropPopover}
 				>
 					Pages
-					<CaretDownIcon  size={20}  className="DropIcon" />
+					<CaretDownIcon size={20} className="DropIcon" />
 				</button>
 				<button
 					type="button"
@@ -386,6 +386,17 @@ function HeaderCylinderNav({ onNavigate }: HeaderCylinderNavProps) {
 						<Link to="/activity" onClick={onNavigate}>
 							Activity
 						</Link>
+                                        </li>
+                                        <li className="DropLi">
+						<a
+							href="https://yuremono.com/"
+							className=" "
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							Portfolio-wp
+							<ArrowSquareOutIcon size={16} />
+						</a>
 					</li>
 					<li className="DropLi">
 						<a

@@ -89,6 +89,17 @@ describe("InitialLoadingOverlay", () => {
 		expect(playPageTransitionMosaiqueMock).not.toHaveBeenCalled();
 
 		act(() => {
+			vi.advanceTimersByTime(250);
+		});
+		await act(async () => {
+			await Promise.resolve();
+		});
+		expect(playPageTransitionMosaiqueMock).not.toHaveBeenCalled();
+		expect(document.body.classList.contains("SiteTransitionPending")).toBe(
+			false,
+		);
+
+		act(() => {
 			vi.advanceTimersByTime(1000);
 		});
 		expect(playPageTransitionMosaiqueMock).toHaveBeenCalledWith(
@@ -116,7 +127,7 @@ describe("InitialLoadingOverlay", () => {
 		unmount(root);
 	});
 
-	it("表示済みなら初期状態でdoneになる", () => {
+	it("表示済みでもデバッグ設定では初期状態で表示される", () => {
 		window.sessionStorage.setItem("InitialLoadingTest", "1");
 		const { container, root } = renderInitialLoading();
 
@@ -125,7 +136,7 @@ describe("InitialLoadingOverlay", () => {
 			container
 				.querySelector(".InitialLoading")
 				?.classList.contains("InitialLoadingDone"),
-		).toBe(true);
+		).toBe(false);
 		expect(playPageTransitionMosaiqueMock).not.toHaveBeenCalled();
 
 		unmount(root);

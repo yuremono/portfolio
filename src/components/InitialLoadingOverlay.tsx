@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 
 import {
 	drawPageTransitionLabel,
@@ -12,6 +12,7 @@ import {
 import { LoadingLayer } from "./LoadingLayer";
 
 const InitialLoadingStorageKey = "InitialLoadingViewed";
+const BODY_PENDING_CLASS = "SiteTransitionPending";
 
 /** TOP `.mindMap .about_p` と同じ文言に手動で揃える。 */
 export const INITIAL_LOADING_LABEL_TEXT = "yuremono\nworks";
@@ -140,22 +141,33 @@ export function InitialLoadingOverlay({
 	const rootRef = useRef<HTMLDivElement | null>(null);
 	const textStyleRef = useRef<HTMLParagraphElement | null>(null);
 
+	useLayoutEffect(() => {
+		if (typeof document === "undefined") return;
+		if (!active) {
+			document.body.classList.remove(BODY_PENDING_CLASS);
+			return;
+		}
+
+		document.body.classList.add(BODY_PENDING_CLASS);
+		return () => {
+			document.body.classList.remove(BODY_PENDING_CLASS);
+		};
+	}, [active]);
+
 	useEffect(() => {
 		if (!active) return;
 
 		let alive = true;
+		let minimumTimeoutId: number | null = null;
 		const root = rootRef.current ?? document.documentElement;
 		const canvas = canvasRef.current;
 
 		if (!canvas) {
-			if (!InitialLoadingAlwaysShow) {
-				setSessionViewed(storageKey);
-			}
+			setSessionViewed(storageKey);
 			const fallbackTimeoutId = window.setTimeout(() => setActive(false), 0);
 			return () => window.clearTimeout(fallbackTimeoutId);
 		}
 
-		let timeoutId: number | null = null;
 		void waitForPreferredAnchor().then((anchor) => {
 			if (!alive) return;
 			if (anchor) {
@@ -168,22 +180,26 @@ export function InitialLoadingOverlay({
 			void waitForPageTransitionCanvasFont(options.label).then(() => {
 				if (!alive) return;
 				fillCanvas(canvas, options.color, options.label);
-				timeoutId = window.setTimeout(() => {
-					void playPageTransitionMosaique(canvas, "reveal", options).then(() => {
+				document.body.classList.remove(BODY_PENDING_CLASS);
+				minimumTimeoutId = window.setTimeout(() => {
+					window.setTimeout(() => {
 						if (!alive) return;
-						if (!InitialLoadingAlwaysShow) {
-							setSessionViewed(storageKey);
-						}
+						void playPageTransitionMosaique(canvas, "reveal", options).then(
+							() => {
+						if (!alive) return;
+						setSessionViewed(storageKey);
 						setActive(false);
-					});
+					},
+				);
+					}, 0);
 				}, options.minimumMs);
 			});
 		});
 
 		return () => {
 			alive = false;
-			if (timeoutId != null) {
-				window.clearTimeout(timeoutId);
+			if (minimumTimeoutId != null) {
+				window.clearTimeout(minimumTimeoutId);
 			}
 		};
 	}, [storageKey, active]);

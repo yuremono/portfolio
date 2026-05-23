@@ -128,12 +128,12 @@ function HeaderNav({ variant }: HeaderNavProps) {
 					</li>
 					<li className="DropLi">
 						<a
-							href="https://github.com/yuremono/wp-local-demo"
+							href="https://github.com/yuremono/portfolio-wp"
 							className=" "
 							target="_blank"
 							rel="noopener noreferrer"
 						>
-							wp-local-demo
+							portfolio-wp
 							<ArrowSquareOutIcon size={16} />
 						</a>
 					</li>
@@ -276,6 +276,17 @@ function HeaderNav({ variant }: HeaderNavProps) {
 					</li>
 					<li className="DropLi">
 						<a
+							href="https://yuremono.com/"
+							className=" "
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							Portfolio-wp
+							<ArrowSquareOutIcon size={16} />
+						</a>
+					</li>
+					<li className="DropLi">
+						<a
 							href="https://chat-kanban.vercel.app/"
 							className=" "
 							target="_blank"
@@ -297,7 +308,9 @@ function HeaderNav({ variant }: HeaderNavProps) {
 						</a>
 					</li>
 					<li className="DropLi ">
-						<Link to="/examples" className="opacity-10">Examples</Link>
+						<Link to="/examples" className="opacity-10">
+							Examples
+						</Link>
 					</li>
 				</ul>
 			</li>

@@ -75,6 +75,17 @@ export function Footer({ className }: FooterProps) {
 					</li>
 					<li className="">
 						<Link to="/activity">Activity</Link>
+                                        </li>
+                                        <li className="DropLi">
+						<a
+							href="https://yuremono.com/"
+							className=" "
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							Portfolio-wp
+							<ArrowSquareOutIcon size={16} />
+						</a>
 					</li>
 					<li className="">
 						<a

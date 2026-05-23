@@ -10,9 +10,9 @@
 // 	}
 // }
 :root {
-        --first-delay: 0.6s;
-        --letter-delay: 0.25s;
-        --phrase-delay: 0.25s;
+        --first-delay: 1s;
+        --letter-delay: 0.025s;
+        --phrase-delay: 0.15s;
 }
 
 .JsLetter {
@@ -180,7 +180,7 @@
 .BudouxShowPhrase {
         display: inline-block;
         opacity: 0;
-        transition: 0s;
+        transition-duration: 0s;
         vertical-align: baseline;
 }
 

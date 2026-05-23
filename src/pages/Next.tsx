@@ -62,10 +62,10 @@ function Next() {
 			ref={ref}
 			className="[--innerPX:--PX] [--Eng:--Jost] [--San:--Zen] [--h3FZ:1.5em] [--dropBG:--WH] [--dropC:--TC] [--WTS:var(--tsw)_var(--TC30)] "
 		>
-                        <HeaderCylinder className=" " />
+			<HeaderCylinder className=" " />
 			{/* <Header className="NavCircleLeft text-WH" /> */}
 			{/* <Header className="NoLogo TopHidden mix-blend-difference text-WH" /> */}
-                        <div className="HeaderPagetop mix-blend-difference text-WH  ">
+			<div className="HeaderPagetop mix-blend-difference text-WH  ">
 				<a href="#">
 					<CaretUpIcon className="" />
 				</a>
@@ -102,13 +102,13 @@ function Next() {
 						<br />
 						コンテキストエンジニアリングに注力しています
 					</h1>
-					<p
-						className=" mm2-3"
-						style={{ fontSize: "5em" }}
-					>
+					<p className=" mm2-3" style={{ fontSize: "5em" }}>
 						Web
 					</p>
-					<p className="hidden lg:inline-block mm3-8" style={{ fontSize: "4em" }}>
+					<p
+						className="hidden lg:inline-block mm3-8"
+						style={{ fontSize: "4em" }}
+					>
 						Context
 					</p>
 					<p className="mm9-5" style={{ fontSize: "4em" }}>
@@ -128,9 +128,9 @@ function Next() {
 								Dependencies
 							</h2>
 							<div className="text-base mmPin mmStatic max-w-[calc(var(--wid)/2)]  experience_tx text-left San font-light   leading-[2em] static lg:absolute left-1/2 top-[--MY] z-10 p-4 bg-background/80">
-                                                        <h3 className="text-GR text-[1.25em] inline-block mr-4">
-										経験と依存性
-									</h3>
+								<h3 className="text-GR text-[1.25em] inline-block mr-4">
+									経験と依存性
+								</h3>
 								<button
 									type="button"
 									className="textlink  mt-6"
@@ -156,10 +156,11 @@ function Next() {
 									</h3>
 									<span className="budoux">
 										個人制作ページ、ツールをまとめています。
-                                                                                <br />
-                                                                                これまではNextJS CMS、AIチャット共有拡張機能、
-                                                                                <br />
-                                                                                AI前提のweb開発を行なってきました。
+										<br />
+										これまではNextJS
+										CMS、AIチャット共有拡張機能、
+										<br />
+										AI前提のweb開発を行なってきました。
 									</span>
 									{/* <br />
 									<span className="mt-2 mr-6 font-medium">
@@ -176,8 +177,18 @@ function Next() {
 								</div>
 							</div>
 
-							<p className="hidden lg:inline-block" style={{ fontSize: "2.5em" }}>Cursor</p>
-							<p className="hidden lg:inline-block" style={{ fontSize: "2em" }}>Claude Code</p>
+							<p
+								className="hidden lg:inline-block"
+								style={{ fontSize: "2.5em" }}
+							>
+								Cursor
+							</p>
+							<p
+								className="hidden lg:inline-block"
+								style={{ fontSize: "2em" }}
+							>
+								Claude Code
+							</p>
 							{/* <p
 								className="hidden lg:inline-block"
 								style={{ fontSize: "1em" }}
@@ -186,14 +197,24 @@ function Next() {
 								<br />
 								engineering
 							</p> */}
-							<p className="hidden lg:inline-block" style={{ fontSize: "2.5em" }}>TailwindCSS</p>
+							<p
+								className="hidden lg:inline-block"
+								style={{ fontSize: "2.5em" }}
+							>
+								TailwindCSS
+							</p>
 							<p
 								className="hidden lg:inline-block"
 								style={{ fontSize: "2em" }}
 							>
 								WebGL
 							</p>
-							<p className="hidden lg:inline-block" style={{ fontSize: "2.5em" }}>Codex</p>
+							<p
+								className="hidden lg:inline-block"
+								style={{ fontSize: "2.5em" }}
+							>
+								Codex
+							</p>
 							<p
 								className="hidden lg:inline-block"
 								style={{ fontSize: "2em" }}
@@ -354,12 +375,12 @@ function Next() {
 													<dt>WordPress</dt>
 													<dd className="[--ddW:100%]">
 														<a
-															href="https://github.com/yuremono/wp-local-demo"
+															href="https://github.com/yuremono/portfolio-wp"
 															className=" align-top leading-[1.8]"
 															target="_blank"
 															rel="noopener noreferrer"
 														>
-															`Local`でこのページを作成
+															portfolio-wp
 															<ArrowSquareOutIcon
 																size={16}
 															/>

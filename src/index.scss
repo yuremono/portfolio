@@ -96,6 +96,15 @@ html.PageTransitionScrollInstant {
 	pointer-events: none;
 }
 
+body.SiteTransitionPending #root > :not(.InitialLoading) {
+	visibility: hidden;
+}
+
+body.SiteTransitionPending #root > .InitialLoading {
+	display: block !important;
+	visibility: visible;
+}
+
 .PageTransitionCanvas {
 	display: block;
 	width: 100vw;

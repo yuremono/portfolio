@@ -1313,15 +1313,19 @@
                 }
 
                 .HeaderCylinderLogo {
-                        @apply z-[1000] absolute w-[calc(var(--logoW)/3*2)] lg:w-[var(--logoW)] top-0 left-0 pointer-events-auto h-auto  p-0 border-0 lg:top-1/2 lg:translate-y-[-52.5%]  aspect-square lg:aspect-[1/2];
+                        @apply z-[10] absolute w-[calc(var(--logoW)/3*2)] lg:w-[var(--logoW)] top-0 left-0 pointer-events-auto h-auto  p-0 border-0 lg:top-1/2 lg:translate-y-[-52.5%]  aspect-square lg:aspect-[1/2];
                         appearance: none;
                         background: var(--TR);
-                        // border-radius: 0 999px 999px 0;
+                        border-radius: 0 999px 999px 0;
                         // overflow: clip;
-                        border-left: 0;
-                        cursor: pointer;
+                        pointer-events: none;
+                        border: var(--line);
+                        border-color: var(--TR);
+                        border-left: none;
                         
                         .LogoCylinder {
+                                pointer-events: auto;
+                                cursor: pointer;
                                 @apply  w-[calc(var(--logoW)/3*2)] lg:w-[var(--logoW)] h-auto;
                                 aspect-ratio: 1;
                                 display: block;
@@ -1341,7 +1345,7 @@
                 }
                 .HeaderAnotation{
                         --annoteInterval: 1.5s;
-                        @apply absolute left-0 top-0 text-xs py-2 w-full  lg:top-1/2 lg:-translate-y-1/2 grid content-start lg:content-end font-medium whitespace-nowrap tracking-[-0em] aspect-square;
+                        @apply absolute left-0 top-0 text-xs pt-2 pb-4 w-full  lg:top-1/2 lg:-translate-y-1/2 grid content-start lg:content-end font-medium whitespace-nowrap tracking-[-0em] aspect-square;
                         >span{
                                 @apply [grid-area:1/1];
                                 animation: header_anotation_toggle calc(var(--annoteInterval) * 2) linear infinite;
@@ -1355,7 +1359,7 @@
                 // }
 
                 .HeaderNav {
-                        @apply absolute top-1/2 left-0 translate-y-[-52.5%]  z-[100] w-full py-4 lg:py-0 lg:w-[--logoW]  justify-start  px-0 pointer-events-none ;
+                        @apply absolute top-1/2 left-0 translate-y-[-52.5%]  z-[1] w-full py-4 lg:py-0 lg:w-[--logoW]  justify-start  px-0 pointer-events-none ;
 
                         @include menu {
                                 display: block;
@@ -1503,6 +1507,24 @@
                                         > li:nth-child(5),> li:nth-child(8) {margin-left: calc(var(--ml) * 6);}
                                         > li:nth-child(6),> li:nth-child(7) {margin-left: calc(var(--ml) * 7);}
                                 }
+                                &:has(> li:nth-child(13):last-child) {
+                                        > li:nth-child(1),> li:nth-child(13) {margin-left: 0;}
+                                        > li:nth-child(2),> li:nth-child(12) {margin-left: calc(var(--ml) * 4);}
+                                        > li:nth-child(3),> li:nth-child(11) {margin-left: calc(var(--ml) * 5);}
+                                        > li:nth-child(4),> li:nth-child(10) {margin-left: calc(var(--ml) * 6);}
+                                        > li:nth-child(5),> li:nth-child(9) {margin-left: calc(var(--ml) * 7);}
+                                        > li:nth-child(6),> li:nth-child(8) {margin-left: calc(var(--ml) * 8);}
+                                        > li:nth-child(7) {margin-left: calc(var(--ml) * 8);}
+                                }
+                                &:has(> li:nth-child(14):last-child) {
+                                        > li:nth-child(1),> li:nth-child(14) {margin-left: 0;}
+                                        > li:nth-child(2),> li:nth-child(13) {margin-left: calc(var(--ml) * 4);}
+                                        > li:nth-child(3),> li:nth-child(12) {margin-left: calc(var(--ml) * 5);}
+                                        > li:nth-child(4),> li:nth-child(11) {margin-left: calc(var(--ml) * 6);}
+                                        > li:nth-child(5),> li:nth-child(10) {margin-left: calc(var(--ml) * 7);}
+                                        > li:nth-child(6),> li:nth-child(9) {margin-left: calc(var(--ml) * 8);}
+                                        > li:nth-child(7),> li:nth-child(8) {margin-left: calc(var(--ml) * 8);}
+                                }
                                 position: fixed;
                                 inset: auto;
                                 left: var(--dropPopoverLeft, 0);
@@ -1521,8 +1543,12 @@
                 }
 
                 &[data-nav-open=true] {
+                        .HeaderCylinderLogo {
+                                background-color: var(--background);
+                                border-color: var(--CC) ;
+                        }
                         .HeaderNav {
-                                @apply bg-BC lg:bg-[--TR];
+                                @apply bg-BC lg:bg-[--TR] ;
                         }
                         .HeaderNav .NavLi {
                                 opacity: 1;

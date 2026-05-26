@@ -4,7 +4,7 @@ label: AI駆動WordPress構築
 category: 作業ログ
 title: WordPressをAI駆動で構築する
 dateTime: 2026-05-26
-image: /images/common/ai-driven-wp/cover.webp
+image: /images/common/ai-driven-wp-cover.webp
 ---
 
 <p class="text-sm opacity-70">作成: ChatGPT / GPT-5.5 / reasoning effort: low</p>

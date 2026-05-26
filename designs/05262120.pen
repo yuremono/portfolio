@@ -1,0 +1,2608 @@
+{
+  "version": "2.11",
+  "children": [
+    {
+      "type": "frame",
+      "id": "ImSRH",
+      "x": 0,
+      "y": 0,
+      "name": "Frame",
+      "clip": true,
+      "width": 1920,
+      "height": 7800,
+      "fill": "#F7F0DE",
+      "layout": "none",
+      "children": [
+        {
+          "type": "frame",
+          "id": "q5bwep",
+          "x": 0,
+          "y": 0,
+          "name": "Background",
+          "width": 1920,
+          "height": 980,
+          "fill": {
+            "type": "gradient",
+            "gradientType": "linear",
+            "enabled": true,
+            "rotation": 130,
+            "size": {
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "#1F1A16",
+                "position": 0
+              },
+              {
+                "color": "#6B4B31",
+                "position": 0.48
+              },
+              {
+                "color": "#E0A75C",
+                "position": 1
+              }
+            ]
+          },
+          "layout": "none",
+          "children": [
+            {
+              "type": "frame",
+              "id": "TxpNc",
+              "x": 0,
+              "y": 0,
+              "name": "Effect",
+              "width": 1920,
+              "height": 980,
+              "fill": "#00000066",
+              "layout": "none"
+            },
+            {
+              "type": "frame",
+              "id": "fVjHG",
+              "x": 740,
+              "y": 300,
+              "name": "Media",
+              "opacity": 0.86,
+              "width": 940,
+              "height": 620,
+              "fill": {
+                "type": "gradient",
+                "gradientType": "linear",
+                "enabled": true,
+                "rotation": 90,
+                "size": {
+                  "height": 1
+                },
+                "colors": [
+                  {
+                    "color": "#3E3B34",
+                    "position": 0
+                  },
+                  {
+                    "color": "#D8BD83",
+                    "position": 0.35
+                  },
+                  {
+                    "color": "#665E51",
+                    "position": 1
+                  }
+                ]
+              },
+              "cornerRadius": [
+                420,
+                420,
+                0,
+                0
+              ],
+              "layout": "none"
+            },
+            {
+              "type": "frame",
+              "id": "wratC",
+              "x": 650,
+              "y": 100,
+              "name": "Effect",
+              "rotation": -12.000000000000002,
+              "width": 150,
+              "height": 760,
+              "fill": "#FFFFFF12",
+              "cornerRadius": 80,
+              "layout": "none"
+            },
+            {
+              "type": "frame",
+              "id": "t5TfR",
+              "x": 765,
+              "y": 108,
+              "name": "Effect",
+              "rotation": -12.000000000000002,
+              "width": 150,
+              "height": 760,
+              "fill": "#FFFFFF12",
+              "cornerRadius": 80,
+              "layout": "none"
+            },
+            {
+              "type": "frame",
+              "id": "U9iHBw",
+              "x": 880,
+              "y": 116,
+              "name": "Effect",
+              "rotation": -12.000000000000002,
+              "width": 150,
+              "height": 760,
+              "fill": "#FFFFFF12",
+              "cornerRadius": 80,
+              "layout": "none"
+            },
+            {
+              "type": "frame",
+              "id": "jwgAr",
+              "x": 995,
+              "y": 124,
+              "name": "Effect",
+              "rotation": -12.000000000000002,
+              "width": 150,
+              "height": 760,
+              "fill": "#FFFFFF12",
+              "cornerRadius": 80,
+              "layout": "none"
+            },
+            {
+              "type": "frame",
+              "id": "spyEz",
+              "x": 1110,
+              "y": 132,
+              "name": "Effect",
+              "rotation": -12.000000000000002,
+              "width": 150,
+              "height": 760,
+              "fill": "#FFFFFF12",
+              "cornerRadius": 80,
+              "layout": "none"
+            },
+            {
+              "type": "frame",
+              "id": "VWl2M",
+              "x": 1225,
+              "y": 140,
+              "name": "Effect",
+              "rotation": -12.000000000000002,
+              "width": 150,
+              "height": 760,
+              "fill": "#FFFFFF12",
+              "cornerRadius": 80,
+              "layout": "none"
+            },
+            {
+              "type": "frame",
+              "id": "EwK2T",
+              "x": 1340,
+              "y": 148,
+              "name": "Effect",
+              "rotation": -12.000000000000002,
+              "width": 150,
+              "height": 760,
+              "fill": "#FFFFFF12",
+              "cornerRadius": 80,
+              "layout": "none"
+            },
+            {
+              "type": "frame",
+              "id": "w4DNV",
+              "x": 1455,
+              "y": 156,
+              "name": "Effect",
+              "rotation": -12.000000000000002,
+              "width": 150,
+              "height": 760,
+              "fill": "#FFFFFF12",
+              "cornerRadius": 80,
+              "layout": "none"
+            },
+            {
+              "type": "text",
+              "id": "n0ZOx",
+              "x": 92,
+              "y": 64,
+              "name": "Title",
+              "fill": "#111111",
+              "textGrowth": "fixed-width",
+              "width": 230,
+              "content": "感動の\n肉と米",
+              "lineHeight": 0.86,
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 68,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "w3CAc",
+              "x": 118,
+              "y": 186,
+              "name": "Subtitle",
+              "fill": "#111111",
+              "textGrowth": "fixed-width",
+              "width": 180,
+              "content": "NIKU&KOME",
+              "lineHeight": 1,
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 20,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "n1EY7",
+              "x": 1818,
+              "y": 78,
+              "name": "Action",
+              "width": 68,
+              "height": 86,
+              "fill": "#FFFFFF00",
+              "layout": "none",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "QQDvD",
+                  "x": 0,
+                  "y": 0,
+                  "name": "Effect",
+                  "width": 48,
+                  "height": 4,
+                  "fill": "#FFFFFF",
+                  "layout": "none"
+                },
+                {
+                  "type": "frame",
+                  "id": "gnAFF",
+                  "x": 0,
+                  "y": 20,
+                  "name": "Effect",
+                  "width": 48,
+                  "height": 4,
+                  "fill": "#FFFFFF",
+                  "layout": "none"
+                },
+                {
+                  "type": "frame",
+                  "id": "d0fdZ",
+                  "x": 0,
+                  "y": 40,
+                  "name": "Effect",
+                  "width": 48,
+                  "height": 4,
+                  "fill": "#FFFFFF",
+                  "layout": "none"
+                },
+                {
+                  "type": "text",
+                  "id": "y1WZkD",
+                  "x": -8,
+                  "y": 58,
+                  "name": "Text",
+                  "fill": "#FFFFFF",
+                  "textGrowth": "fixed-width",
+                  "width": 80,
+                  "content": "MENU",
+                  "lineHeight": 1,
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 18,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "vt8Nb",
+              "x": 1774,
+              "y": 360,
+              "name": "Action",
+              "width": 112,
+              "height": 112,
+              "fill": "#D71920",
+              "cornerRadius": 56,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "ioKpn",
+                  "x": 13,
+                  "y": 31,
+                  "name": "Text",
+                  "fill": "#FFFFFF",
+                  "textGrowth": "fixed-width",
+                  "width": 86,
+                  "content": "採用情報は\nこちら",
+                  "lineHeight": 1.25,
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 18,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "krhXq",
+              "x": 1774,
+              "y": 500,
+              "name": "Action",
+              "width": 112,
+              "height": 112,
+              "fill": "#050505",
+              "cornerRadius": 56,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "yRBOB",
+                  "x": 13,
+                  "y": 31,
+                  "name": "Text",
+                  "fill": "#FFFFFF",
+                  "textGrowth": "fixed-width",
+                  "width": 86,
+                  "content": "近くの店舗を\n探す",
+                  "lineHeight": 1.25,
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 18,
+                  "fontWeight": "700"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "DE23l",
+          "x": 0,
+          "y": 980,
+          "name": "Section",
+          "width": 1920,
+          "height": 520,
+          "fill": "#F7F0DE",
+          "layout": "none",
+          "children": [
+            {
+              "type": "text",
+              "id": "NLPLw",
+              "x": 420,
+              "y": 120,
+              "name": "Title",
+              "fill": "#111111",
+              "textGrowth": "fixed-width",
+              "width": 1080,
+              "content": "爆速1分いただきます。\n感動のステーキを\n召し上がれ。",
+              "lineHeight": 1.18,
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 72,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "b56UnX",
+              "x": 880,
+              "y": 386,
+              "name": "Effect",
+              "width": 160,
+              "height": 10,
+              "fill": "#D71920",
+              "layout": "none"
+            },
+            {
+              "type": "text",
+              "id": "KtlhP",
+              "x": 530,
+              "y": 418,
+              "name": "Text",
+              "fill": "#2A211A",
+              "textGrowth": "fixed-width",
+              "width": 860,
+              "content": "肉の旨みを最大限に引き出す為に熟練の技術で、店舗へ毎日直送する肉。品種、精米、食感、美味しさに徹底的にこだわり、羽釜でふっくらと炊き立てを心がける米。食から得られる幸せを、爆速で体感いただける感動がここにあります。",
+              "lineHeight": 1.75,
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 22,
+              "fontWeight": "500"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "wayWg",
+          "x": 0,
+          "y": 1500,
+          "name": "Background",
+          "width": 1920,
+          "height": 1480,
+          "fill": "#B5161B",
+          "layout": "none",
+          "children": [
+            {
+              "type": "frame",
+              "id": "ElNny",
+              "x": 0,
+              "y": 0,
+              "name": "Effect",
+              "width": 1920,
+              "height": 260,
+              "fill": "#6B0B0F",
+              "layout": "none"
+            },
+            {
+              "type": "text",
+              "id": "cVNMx",
+              "x": 0,
+              "y": 84,
+              "name": "Title",
+              "fill": "#FFFFFF",
+              "textGrowth": "fixed-width",
+              "width": 1920,
+              "content": "メニュー一覧",
+              "lineHeight": 1,
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 72,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "uFMwf",
+              "x": 0,
+              "y": 176,
+              "name": "Subtitle",
+              "fill": "#FFF4D8",
+              "textGrowth": "fixed-width",
+              "width": 1920,
+              "content": "お一人様 1セット / 店舗エリア情報をご確認ください",
+              "lineHeight": 1,
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 25,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "qUIGP",
+              "x": 250,
+              "y": 320,
+              "name": "CardGroup",
+              "width": 1420,
+              "height": 980,
+              "fill": "#00000000",
+              "layout": "none",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "WKxKG",
+                  "x": 0,
+                  "y": 0,
+                  "name": "Frame",
+                  "width": 250,
+                  "height": 410,
+                  "fill": "#F7F0DE",
+                  "cornerRadius": 18,
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "yuBKv",
+                      "x": 20,
+                      "y": 20,
+                      "name": "Media",
+                      "width": 210,
+                      "height": 230,
+                      "fill": {
+                        "type": "gradient",
+                        "gradientType": "linear",
+                        "enabled": true,
+                        "rotation": 140,
+                        "size": {
+                          "height": 1
+                        },
+                        "colors": [
+                          {
+                            "color": "#4D1D12",
+                            "position": 0
+                          },
+                          {
+                            "color": "#D4612A",
+                            "position": 0.5
+                          },
+                          {
+                            "color": "#2D130D",
+                            "position": 1
+                          }
+                        ]
+                      },
+                      "cornerRadius": 14,
+                      "layout": "none"
+                    },
+                    {
+                      "type": "text",
+                      "id": "ZiiYA",
+                      "x": 20,
+                      "y": 284,
+                      "name": "Title",
+                      "fill": "#111111",
+                      "textGrowth": "fixed-width",
+                      "width": 210,
+                      "content": "ロースステーキ",
+                      "lineHeight": 1.2,
+                      "textAlign": "center",
+                      "fontFamily": "Inter",
+                      "fontSize": 28,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "e5eXwR",
+                      "x": 70,
+                      "y": 356,
+                      "name": "Effect",
+                      "width": 110,
+                      "height": 8,
+                      "fill": "#D71920",
+                      "layout": "none"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "c6F8SC",
+                  "x": 284,
+                  "y": 0,
+                  "name": "Frame",
+                  "width": 250,
+                  "height": 410,
+                  "fill": "#F7F0DE",
+                  "cornerRadius": 18,
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "gH44R",
+                      "x": 20,
+                      "y": 20,
+                      "name": "Media",
+                      "width": 210,
+                      "height": 230,
+                      "fill": {
+                        "type": "gradient",
+                        "gradientType": "linear",
+                        "enabled": true,
+                        "rotation": 140,
+                        "size": {
+                          "height": 1
+                        },
+                        "colors": [
+                          {
+                            "color": "#4D1D12",
+                            "position": 0
+                          },
+                          {
+                            "color": "#D4612A",
+                            "position": 0.5
+                          },
+                          {
+                            "color": "#2D130D",
+                            "position": 1
+                          }
+                        ]
+                      },
+                      "cornerRadius": 14,
+                      "layout": "none"
+                    },
+                    {
+                      "type": "text",
+                      "id": "D9zJz",
+                      "x": 20,
+                      "y": 284,
+                      "name": "Title",
+                      "fill": "#111111",
+                      "textGrowth": "fixed-width",
+                      "width": 210,
+                      "content": "ハラミステーキ",
+                      "lineHeight": 1.2,
+                      "textAlign": "center",
+                      "fontFamily": "Inter",
+                      "fontSize": 28,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "sQiy6",
+                      "x": 70,
+                      "y": 356,
+                      "name": "Effect",
+                      "width": 110,
+                      "height": 8,
+                      "fill": "#D71920",
+                      "layout": "none"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "tJx8f",
+                  "x": 568,
+                  "y": 0,
+                  "name": "Frame",
+                  "width": 250,
+                  "height": 410,
+                  "fill": "#F7F0DE",
+                  "cornerRadius": 18,
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "g3Joyv",
+                      "x": 20,
+                      "y": 20,
+                      "name": "Media",
+                      "width": 210,
+                      "height": 230,
+                      "fill": {
+                        "type": "gradient",
+                        "gradientType": "linear",
+                        "enabled": true,
+                        "rotation": 140,
+                        "size": {
+                          "height": 1
+                        },
+                        "colors": [
+                          {
+                            "color": "#4D1D12",
+                            "position": 0
+                          },
+                          {
+                            "color": "#D4612A",
+                            "position": 0.5
+                          },
+                          {
+                            "color": "#2D130D",
+                            "position": 1
+                          }
+                        ]
+                      },
+                      "cornerRadius": 14,
+                      "layout": "none"
+                    },
+                    {
+                      "type": "text",
+                      "id": "uVvPD",
+                      "x": 20,
+                      "y": 284,
+                      "name": "Title",
+                      "fill": "#111111",
+                      "textGrowth": "fixed-width",
+                      "width": 210,
+                      "content": "ハンバーグ",
+                      "lineHeight": 1.2,
+                      "textAlign": "center",
+                      "fontFamily": "Inter",
+                      "fontSize": 28,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Snuj8",
+                      "x": 70,
+                      "y": 356,
+                      "name": "Effect",
+                      "width": 110,
+                      "height": 8,
+                      "fill": "#D71920",
+                      "layout": "none"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "L5kxrc",
+                  "x": 852,
+                  "y": 0,
+                  "name": "Frame",
+                  "width": 250,
+                  "height": 410,
+                  "fill": "#F7F0DE",
+                  "cornerRadius": 18,
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "xilDV",
+                      "x": 20,
+                      "y": 20,
+                      "name": "Media",
+                      "width": 210,
+                      "height": 230,
+                      "fill": {
+                        "type": "gradient",
+                        "gradientType": "linear",
+                        "enabled": true,
+                        "rotation": 140,
+                        "size": {
+                          "height": 1
+                        },
+                        "colors": [
+                          {
+                            "color": "#4D1D12",
+                            "position": 0
+                          },
+                          {
+                            "color": "#D4612A",
+                            "position": 0.5
+                          },
+                          {
+                            "color": "#2D130D",
+                            "position": 1
+                          }
+                        ]
+                      },
+                      "cornerRadius": 14,
+                      "layout": "none"
+                    },
+                    {
+                      "type": "text",
+                      "id": "jYyAY",
+                      "x": 20,
+                      "y": 284,
+                      "name": "Title",
+                      "fill": "#111111",
+                      "textGrowth": "fixed-width",
+                      "width": 210,
+                      "content": "赤身カットステーキ",
+                      "lineHeight": 1.2,
+                      "textAlign": "center",
+                      "fontFamily": "Inter",
+                      "fontSize": 28,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "TVRQB",
+                      "x": 70,
+                      "y": 356,
+                      "name": "Effect",
+                      "width": 110,
+                      "height": 8,
+                      "fill": "#D71920",
+                      "layout": "none"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "L6y2hC",
+                  "x": 1136,
+                  "y": 0,
+                  "name": "Frame",
+                  "width": 250,
+                  "height": 410,
+                  "fill": "#F7F0DE",
+                  "cornerRadius": 18,
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "q0tIE",
+                      "x": 20,
+                      "y": 20,
+                      "name": "Media",
+                      "width": 210,
+                      "height": 230,
+                      "fill": {
+                        "type": "gradient",
+                        "gradientType": "linear",
+                        "enabled": true,
+                        "rotation": 140,
+                        "size": {
+                          "height": 1
+                        },
+                        "colors": [
+                          {
+                            "color": "#4D1D12",
+                            "position": 0
+                          },
+                          {
+                            "color": "#D4612A",
+                            "position": 0.5
+                          },
+                          {
+                            "color": "#2D130D",
+                            "position": 1
+                          }
+                        ]
+                      },
+                      "cornerRadius": 14,
+                      "layout": "none"
+                    },
+                    {
+                      "type": "text",
+                      "id": "x39zRg",
+                      "x": 20,
+                      "y": 284,
+                      "name": "Title",
+                      "fill": "#111111",
+                      "textGrowth": "fixed-width",
+                      "width": 210,
+                      "content": "ヴォルケーノカルビ",
+                      "lineHeight": 1.2,
+                      "textAlign": "center",
+                      "fontFamily": "Inter",
+                      "fontSize": 28,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "d0ykDD",
+                      "x": 70,
+                      "y": 356,
+                      "name": "Effect",
+                      "width": 110,
+                      "height": 8,
+                      "fill": "#D71920",
+                      "layout": "none"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "yoYjS",
+                  "x": 0,
+                  "y": 470,
+                  "name": "Frame",
+                  "width": 250,
+                  "height": 410,
+                  "fill": "#F7F0DE",
+                  "cornerRadius": 18,
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "R0ZfX",
+                      "x": 20,
+                      "y": 20,
+                      "name": "Media",
+                      "width": 210,
+                      "height": 230,
+                      "fill": {
+                        "type": "gradient",
+                        "gradientType": "linear",
+                        "enabled": true,
+                        "rotation": 140,
+                        "size": {
+                          "height": 1
+                        },
+                        "colors": [
+                          {
+                            "color": "#4D1D12",
+                            "position": 0
+                          },
+                          {
+                            "color": "#D4612A",
+                            "position": 0.5
+                          },
+                          {
+                            "color": "#2D130D",
+                            "position": 1
+                          }
+                        ]
+                      },
+                      "cornerRadius": 14,
+                      "layout": "none"
+                    },
+                    {
+                      "type": "text",
+                      "id": "s8Dgy0",
+                      "x": 20,
+                      "y": 284,
+                      "name": "Title",
+                      "fill": "#111111",
+                      "textGrowth": "fixed-width",
+                      "width": 210,
+                      "content": "チキンステーキ",
+                      "lineHeight": 1.2,
+                      "textAlign": "center",
+                      "fontFamily": "Inter",
+                      "fontSize": 28,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "RbnT8",
+                      "x": 70,
+                      "y": 356,
+                      "name": "Effect",
+                      "width": 110,
+                      "height": 8,
+                      "fill": "#D71920",
+                      "layout": "none"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "gEQzU",
+                  "x": 284,
+                  "y": 470,
+                  "name": "Frame",
+                  "width": 250,
+                  "height": 410,
+                  "fill": "#F7F0DE",
+                  "cornerRadius": 18,
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "pgQce",
+                      "x": 20,
+                      "y": 20,
+                      "name": "Media",
+                      "width": 210,
+                      "height": 230,
+                      "fill": {
+                        "type": "gradient",
+                        "gradientType": "linear",
+                        "enabled": true,
+                        "rotation": 140,
+                        "size": {
+                          "height": 1
+                        },
+                        "colors": [
+                          {
+                            "color": "#4D1D12",
+                            "position": 0
+                          },
+                          {
+                            "color": "#D4612A",
+                            "position": 0.5
+                          },
+                          {
+                            "color": "#2D130D",
+                            "position": 1
+                          }
+                        ]
+                      },
+                      "cornerRadius": 14,
+                      "layout": "none"
+                    },
+                    {
+                      "type": "text",
+                      "id": "aB4Y2",
+                      "x": 20,
+                      "y": 284,
+                      "name": "Title",
+                      "fill": "#111111",
+                      "textGrowth": "fixed-width",
+                      "width": 210,
+                      "content": "すたみなブタミンステーキ",
+                      "lineHeight": 1.2,
+                      "textAlign": "center",
+                      "fontFamily": "Inter",
+                      "fontSize": 28,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Vd2Gm",
+                      "x": 70,
+                      "y": 356,
+                      "name": "Effect",
+                      "width": 110,
+                      "height": 8,
+                      "fill": "#D71920",
+                      "layout": "none"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "e1WRc",
+                  "x": 568,
+                  "y": 470,
+                  "name": "Frame",
+                  "width": 250,
+                  "height": 410,
+                  "fill": "#F7F0DE",
+                  "cornerRadius": 18,
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "u6RGA",
+                      "x": 20,
+                      "y": 20,
+                      "name": "Media",
+                      "width": 210,
+                      "height": 230,
+                      "fill": {
+                        "type": "gradient",
+                        "gradientType": "linear",
+                        "enabled": true,
+                        "rotation": 140,
+                        "size": {
+                          "height": 1
+                        },
+                        "colors": [
+                          {
+                            "color": "#4D1D12",
+                            "position": 0
+                          },
+                          {
+                            "color": "#D4612A",
+                            "position": 0.5
+                          },
+                          {
+                            "color": "#2D130D",
+                            "position": 1
+                          }
+                        ]
+                      },
+                      "cornerRadius": 14,
+                      "layout": "none"
+                    },
+                    {
+                      "type": "text",
+                      "id": "A0h94X",
+                      "x": 20,
+                      "y": 284,
+                      "name": "Title",
+                      "fill": "#111111",
+                      "textGrowth": "fixed-width",
+                      "width": 210,
+                      "content": "中落ちステーキ",
+                      "lineHeight": 1.2,
+                      "textAlign": "center",
+                      "fontFamily": "Inter",
+                      "fontSize": 28,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "SgmK8",
+                      "x": 70,
+                      "y": 356,
+                      "name": "Effect",
+                      "width": 110,
+                      "height": 8,
+                      "fill": "#D71920",
+                      "layout": "none"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "OGbmd",
+                  "x": 852,
+                  "y": 470,
+                  "name": "Frame",
+                  "width": 250,
+                  "height": 410,
+                  "fill": "#F7F0DE",
+                  "cornerRadius": 18,
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "eDHGf",
+                      "x": 20,
+                      "y": 20,
+                      "name": "Media",
+                      "width": 210,
+                      "height": 230,
+                      "fill": {
+                        "type": "gradient",
+                        "gradientType": "linear",
+                        "enabled": true,
+                        "rotation": 140,
+                        "size": {
+                          "height": 1
+                        },
+                        "colors": [
+                          {
+                            "color": "#4D1D12",
+                            "position": 0
+                          },
+                          {
+                            "color": "#D4612A",
+                            "position": 0.5
+                          },
+                          {
+                            "color": "#2D130D",
+                            "position": 1
+                          }
+                        ]
+                      },
+                      "cornerRadius": 14,
+                      "layout": "none"
+                    },
+                    {
+                      "type": "text",
+                      "id": "jxo0O",
+                      "x": 20,
+                      "y": 284,
+                      "name": "Title",
+                      "fill": "#111111",
+                      "textGrowth": "fixed-width",
+                      "width": 210,
+                      "content": "ワイルドカルビステーキ",
+                      "lineHeight": 1.2,
+                      "textAlign": "center",
+                      "fontFamily": "Inter",
+                      "fontSize": 28,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "GPpBQ",
+                      "x": 70,
+                      "y": 356,
+                      "name": "Effect",
+                      "width": 110,
+                      "height": 8,
+                      "fill": "#D71920",
+                      "layout": "none"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Joyzy",
+                  "x": 1136,
+                  "y": 470,
+                  "name": "Frame",
+                  "width": 250,
+                  "height": 410,
+                  "fill": "#F7F0DE",
+                  "cornerRadius": 18,
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "w3FNC",
+                      "x": 20,
+                      "y": 20,
+                      "name": "Media",
+                      "width": 210,
+                      "height": 230,
+                      "fill": {
+                        "type": "gradient",
+                        "gradientType": "linear",
+                        "enabled": true,
+                        "rotation": 140,
+                        "size": {
+                          "height": 1
+                        },
+                        "colors": [
+                          {
+                            "color": "#4D1D12",
+                            "position": 0
+                          },
+                          {
+                            "color": "#D4612A",
+                            "position": 0.5
+                          },
+                          {
+                            "color": "#2D130D",
+                            "position": 1
+                          }
+                        ]
+                      },
+                      "cornerRadius": 14,
+                      "layout": "none"
+                    },
+                    {
+                      "type": "text",
+                      "id": "m9cv4a",
+                      "x": 20,
+                      "y": 284,
+                      "name": "Title",
+                      "fill": "#111111",
+                      "textGrowth": "fixed-width",
+                      "width": 210,
+                      "content": "ハンバーグコンボ",
+                      "lineHeight": 1.2,
+                      "textAlign": "center",
+                      "fontFamily": "Inter",
+                      "fontSize": 28,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "coBHA",
+                      "x": 70,
+                      "y": 356,
+                      "name": "Effect",
+                      "width": 110,
+                      "height": 8,
+                      "fill": "#D71920",
+                      "layout": "none"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "K0X3H",
+          "x": 0,
+          "y": 2980,
+          "name": "Background",
+          "width": 1920,
+          "height": 760,
+          "fill": "#F7F0DE",
+          "layout": "none",
+          "children": [
+            {
+              "type": "frame",
+              "id": "qA7rw",
+              "x": 260,
+              "y": 90,
+              "name": "HorizontalGroup",
+              "width": 1400,
+              "height": 580,
+              "fill": "#00000000",
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "Z8NVp",
+                  "x": 0,
+                  "y": 20,
+                  "name": "Subtitle",
+                  "fill": "#D71920",
+                  "textGrowth": "fixed-width",
+                  "width": 360,
+                  "content": "イベント",
+                  "lineHeight": 1,
+                  "fontFamily": "Inter",
+                  "fontSize": 34,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "w5SSe",
+                  "x": 0,
+                  "y": 88,
+                  "name": "Title",
+                  "fill": "#111111",
+                  "textGrowth": "fixed-width",
+                  "width": 580,
+                  "content": "限定イベント到来！",
+                  "lineHeight": 1.15,
+                  "fontFamily": "Inter",
+                  "fontSize": 60,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "frame",
+                  "id": "u6YbyQ",
+                  "x": 0,
+                  "y": 176,
+                  "name": "Effect",
+                  "width": 120,
+                  "height": 10,
+                  "fill": "#D71920",
+                  "layout": "none"
+                },
+                {
+                  "type": "text",
+                  "id": "Nsjco",
+                  "x": 0,
+                  "y": 230,
+                  "name": "Text",
+                  "fill": "#2A211A",
+                  "textGrowth": "fixed-width",
+                  "width": 540,
+                  "content": "当店では限定イベントを定期開催しております。当日のみプレミアムなご飯のお供が食べ放題。時にはお肉増量祭も行っておりますので、イベントスケジュールをチェックしてください。",
+                  "lineHeight": 1.7,
+                  "fontFamily": "Inter",
+                  "fontSize": 25,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "frame",
+                  "id": "cZgoM",
+                  "x": 0,
+                  "y": 475,
+                  "name": "Action",
+                  "width": 260,
+                  "height": 70,
+                  "fill": "#111111",
+                  "cornerRadius": 35,
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "ckRL0",
+                      "x": 38,
+                      "y": 22,
+                      "name": "Text",
+                      "fill": "#FFFFFF",
+                      "textGrowth": "fixed-width",
+                      "width": 160,
+                      "content": "詳細はこちら",
+                      "lineHeight": 1,
+                      "fontFamily": "Inter",
+                      "fontSize": 22,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "S8SEU",
+                      "x": 180,
+                      "y": 36,
+                      "name": "Effect",
+                      "width": 74,
+                      "height": 3,
+                      "fill": "#FFFFFF",
+                      "layout": "none"
+                    },
+                    {
+                      "type": "path",
+                      "id": "i9rEPG",
+                      "x": 236,
+                      "y": 28,
+                      "name": "Effect",
+                      "geometry": "M1 2l15 7-15 7",
+                      "viewBox": [
+                        0,
+                        0,
+                        18,
+                        18
+                      ],
+                      "fill": "#00000000",
+                      "width": 18,
+                      "height": 18,
+                      "stroke": {
+                        "thickness": 3,
+                        "fill": "#FFFFFF"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "JBT91",
+                  "x": 700,
+                  "y": 0,
+                  "name": "Media",
+                  "width": 700,
+                  "height": 580,
+                  "fill": {
+                    "type": "gradient",
+                    "gradientType": "linear",
+                    "enabled": true,
+                    "rotation": 130,
+                    "size": {
+                      "height": 1
+                    },
+                    "colors": [
+                      {
+                        "color": "#2B3E17",
+                        "position": 0
+                      },
+                      {
+                        "color": "#CBB85D",
+                        "position": 0.55
+                      },
+                      {
+                        "color": "#512E16",
+                        "position": 1
+                      }
+                    ]
+                  },
+                  "cornerRadius": 28,
+                  "layout": "none"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "bCRRS",
+          "x": 0,
+          "y": 3740,
+          "name": "Background",
+          "width": 1920,
+          "height": 760,
+          "fill": "#20150E",
+          "layout": "none",
+          "children": [
+            {
+              "type": "frame",
+              "id": "tDc5K",
+              "x": 260,
+              "y": 90,
+              "name": "Media",
+              "width": 700,
+              "height": 580,
+              "fill": {
+                "type": "gradient",
+                "gradientType": "linear",
+                "enabled": true,
+                "rotation": 110,
+                "size": {
+                  "height": 1
+                },
+                "colors": [
+                  {
+                    "color": "#E5CF9A",
+                    "position": 0
+                  },
+                  {
+                    "color": "#7A2717",
+                    "position": 0.55
+                  },
+                  {
+                    "color": "#1B0D08",
+                    "position": 1
+                  }
+                ]
+              },
+              "cornerRadius": 28,
+              "layout": "none"
+            },
+            {
+              "type": "text",
+              "id": "kMvlD",
+              "x": 1100,
+              "y": 120,
+              "name": "Subtitle",
+              "fill": "#D71920",
+              "textGrowth": "fixed-width",
+              "width": 360,
+              "content": "テイクアウト",
+              "lineHeight": 1,
+              "fontFamily": "Inter",
+              "fontSize": 34,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "v4VltM",
+              "x": 1100,
+              "y": 188,
+              "name": "Title",
+              "fill": "#FFFFFF",
+              "textGrowth": "fixed-width",
+              "width": 520,
+              "content": "お持ち帰りでも\n感動を！",
+              "lineHeight": 1.18,
+              "fontFamily": "Inter",
+              "fontSize": 60,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "n84wl",
+              "x": 1100,
+              "y": 340,
+              "name": "Effect",
+              "width": 120,
+              "height": 10,
+              "fill": "#D71920",
+              "layout": "none"
+            },
+            {
+              "type": "text",
+              "id": "k3lp4c",
+              "x": 1100,
+              "y": 395,
+              "name": "Text",
+              "fill": "#F7F0DE",
+              "textGrowth": "fixed-width",
+              "width": 540,
+              "content": "ご家族へのお土産、レジャーやご友人との集まりにも、感動をお届け。当店自慢のステーキやご飯をいろんな場所で楽しむことができます。",
+              "lineHeight": 1.7,
+              "fontFamily": "Inter",
+              "fontSize": 25,
+              "fontWeight": "500"
+            },
+            {
+              "type": "frame",
+              "id": "iyUuV",
+              "x": 1100,
+              "y": 600,
+              "name": "Action",
+              "width": 260,
+              "height": 70,
+              "fill": "#D71920",
+              "cornerRadius": 35,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "u9Du2",
+                  "x": 38,
+                  "y": 22,
+                  "name": "Text",
+                  "fill": "#FFFFFF",
+                  "textGrowth": "fixed-width",
+                  "width": 170,
+                  "content": "ご予約はこちら",
+                  "lineHeight": 1,
+                  "fontFamily": "Inter",
+                  "fontSize": 22,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "frame",
+                  "id": "yHKtO",
+                  "x": 180,
+                  "y": 36,
+                  "name": "Effect",
+                  "width": 74,
+                  "height": 3,
+                  "fill": "#FFFFFF",
+                  "layout": "none"
+                },
+                {
+                  "type": "path",
+                  "id": "SKRs1",
+                  "x": 236,
+                  "y": 28,
+                  "name": "Effect",
+                  "geometry": "M1 2l15 7-15 7",
+                  "viewBox": [
+                    0,
+                    0,
+                    18,
+                    18
+                  ],
+                  "fill": "#00000000",
+                  "width": 18,
+                  "height": 18,
+                  "stroke": {
+                    "thickness": 3,
+                    "fill": "#FFFFFF"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "K7PzZ9",
+          "x": 0,
+          "y": 4500,
+          "name": "Section",
+          "width": 1920,
+          "height": 840,
+          "fill": "#F7F0DE",
+          "layout": "none",
+          "children": [
+            {
+              "type": "text",
+              "id": "HQOTY",
+              "x": 260,
+              "y": 95,
+              "name": "Subtitle",
+              "fill": "#D71920",
+              "textGrowth": "fixed-width",
+              "width": 360,
+              "content": "はじめての方へ",
+              "lineHeight": 1,
+              "fontFamily": "Inter",
+              "fontSize": 34,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "vlHVZ",
+              "x": 260,
+              "y": 160,
+              "name": "Title",
+              "fill": "#111111",
+              "textGrowth": "fixed-width",
+              "width": 520,
+              "content": "システム紹介",
+              "lineHeight": 1,
+              "fontFamily": "Inter",
+              "fontSize": 62,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "pCtNx",
+              "x": 260,
+              "y": 260,
+              "name": "Text",
+              "fill": "#2A211A",
+              "textGrowth": "fixed-width",
+              "width": 500,
+              "content": "はじめてご利用される方へ、セルフサービススタイルのステーキハウスのシステムを紹介しています。",
+              "lineHeight": 1.7,
+              "fontFamily": "Inter",
+              "fontSize": 25,
+              "fontWeight": "500"
+            },
+            {
+              "type": "frame",
+              "id": "kNXiY",
+              "x": 820,
+              "y": 90,
+              "name": "Media",
+              "width": 840,
+              "height": 500,
+              "fill": "#161616",
+              "cornerRadius": 24,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "EeP8w",
+                  "x": 360,
+                  "y": 180,
+                  "name": "Effect",
+                  "width": 120,
+                  "height": 120,
+                  "fill": "#D71920",
+                  "cornerRadius": 60,
+                  "layout": "none"
+                },
+                {
+                  "type": "path",
+                  "id": "EVlGv",
+                  "x": 408,
+                  "y": 212,
+                  "name": "Effect",
+                  "geometry": "M0 0l52 28-52 28z",
+                  "viewBox": [
+                    0,
+                    0,
+                    52,
+                    56
+                  ],
+                  "fill": "#FFFFFF",
+                  "width": 52,
+                  "height": 56
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "NZdEH",
+              "x": 260,
+              "y": 650,
+              "name": "Background",
+              "width": 1400,
+              "height": 170,
+              "fill": "#B5161B",
+              "cornerRadius": 28,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "D37gv",
+                  "x": 48,
+                  "y": 48,
+                  "name": "Title",
+                  "fill": "#FFFFFF",
+                  "textGrowth": "fixed-width",
+                  "width": 520,
+                  "content": "仲間募集 / Recruit",
+                  "lineHeight": 1,
+                  "fontFamily": "Inter",
+                  "fontSize": 42,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "MwvAV",
+                  "x": 610,
+                  "y": 55,
+                  "name": "Text",
+                  "fill": "#FFFFFF",
+                  "textGrowth": "fixed-width",
+                  "width": 610,
+                  "content": "幅広い年代の仲間を募集しています。チームワーク抜群のグループで一緒に成長しませんか？",
+                  "lineHeight": 1.5,
+                  "fontFamily": "Inter",
+                  "fontSize": 24,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "frame",
+                  "id": "Q1bUOc",
+                  "x": 1260,
+                  "y": 86,
+                  "name": "Effect",
+                  "width": 74,
+                  "height": 3,
+                  "fill": "#FFFFFF",
+                  "layout": "none"
+                },
+                {
+                  "type": "path",
+                  "id": "O6xr2a",
+                  "x": 1316,
+                  "y": 78,
+                  "name": "Effect",
+                  "geometry": "M1 2l15 7-15 7",
+                  "viewBox": [
+                    0,
+                    0,
+                    18,
+                    18
+                  ],
+                  "fill": "#00000000",
+                  "width": 18,
+                  "height": 18,
+                  "stroke": {
+                    "thickness": 3,
+                    "fill": "#FFFFFF"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "xQdIE",
+          "x": 0,
+          "y": 5340,
+          "name": "Background",
+          "width": 1920,
+          "height": 900,
+          "fill": "#B5161B",
+          "layout": "none",
+          "children": [
+            {
+              "type": "text",
+              "id": "S0h9WR",
+              "x": 260,
+              "y": 92,
+              "name": "Subtitle",
+              "fill": "#FFFFFF",
+              "textGrowth": "fixed-width",
+              "width": 260,
+              "content": "こだわり",
+              "lineHeight": 1,
+              "fontFamily": "Inter",
+              "fontSize": 34,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "x2nFLN",
+              "x": 260,
+              "y": 156,
+              "name": "Title",
+              "fill": "#FFFFFF",
+              "textGrowth": "fixed-width",
+              "width": 720,
+              "content": "当店のこだわりを凝縮！",
+              "lineHeight": 1,
+              "fontFamily": "Inter",
+              "fontSize": 62,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "s8sV3p",
+              "x": 260,
+              "y": 248,
+              "name": "Effect",
+              "width": 120,
+              "height": 10,
+              "fill": "#111111",
+              "layout": "none"
+            },
+            {
+              "type": "text",
+              "id": "pG8Bm",
+              "x": 260,
+              "y": 300,
+              "name": "Text",
+              "fill": "#FFF4D8",
+              "textGrowth": "fixed-width",
+              "width": 600,
+              "content": "コスパに感動。米に感動。提供速度に感動。3つのこだわりを大切にして、お客様へ感動して頂くサービスをお届けしています。",
+              "lineHeight": 1.7,
+              "fontFamily": "Inter",
+              "fontSize": 25,
+              "fontWeight": "500"
+            },
+            {
+              "type": "frame",
+              "id": "XdOma",
+              "x": 1010,
+              "y": 90,
+              "name": "Media",
+              "width": 650,
+              "height": 390,
+              "fill": {
+                "type": "gradient",
+                "gradientType": "linear",
+                "enabled": true,
+                "rotation": 140,
+                "size": {
+                  "height": 1
+                },
+                "colors": [
+                  {
+                    "color": "#F4D08C",
+                    "position": 0
+                  },
+                  {
+                    "color": "#8B2A17",
+                    "position": 0.5
+                  },
+                  {
+                    "color": "#28100A",
+                    "position": 1
+                  }
+                ]
+              },
+              "cornerRadius": 28,
+              "layout": "none"
+            },
+            {
+              "type": "frame",
+              "id": "ewmwx",
+              "x": 260,
+              "y": 570,
+              "name": "CardGroup",
+              "width": 1400,
+              "height": 240,
+              "fill": "#00000000",
+              "layout": "none",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "EqdEc",
+                  "x": 0,
+                  "y": 0,
+                  "name": "Media",
+                  "width": 330,
+                  "height": 220,
+                  "fill": "#1A1A1A",
+                  "cornerRadius": 20,
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "Zfw4T",
+                      "x": 135,
+                      "y": 70,
+                      "name": "Effect",
+                      "width": 60,
+                      "height": 60,
+                      "fill": "#D71920",
+                      "cornerRadius": 30,
+                      "layout": "none"
+                    },
+                    {
+                      "type": "path",
+                      "id": "d2CdQ",
+                      "x": 158,
+                      "y": 86,
+                      "name": "Effect",
+                      "geometry": "M0 0l28 15-28 15z",
+                      "viewBox": [
+                        0,
+                        0,
+                        28,
+                        30
+                      ],
+                      "fill": "#FFFFFF",
+                      "width": 28,
+                      "height": 30
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "NOn1O",
+                  "x": 365,
+                  "y": 0,
+                  "name": "Media",
+                  "width": 330,
+                  "height": 220,
+                  "fill": "#1A1A1A",
+                  "cornerRadius": 20,
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "ntUC4",
+                      "x": 135,
+                      "y": 70,
+                      "name": "Effect",
+                      "width": 60,
+                      "height": 60,
+                      "fill": "#D71920",
+                      "cornerRadius": 30,
+                      "layout": "none"
+                    },
+                    {
+                      "type": "path",
+                      "id": "p6nGW",
+                      "x": 158,
+                      "y": 86,
+                      "name": "Effect",
+                      "geometry": "M0 0l28 15-28 15z",
+                      "viewBox": [
+                        0,
+                        0,
+                        28,
+                        30
+                      ],
+                      "fill": "#FFFFFF",
+                      "width": 28,
+                      "height": 30
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "pU2id",
+                  "x": 730,
+                  "y": 0,
+                  "name": "Media",
+                  "width": 330,
+                  "height": 220,
+                  "fill": "#1A1A1A",
+                  "cornerRadius": 20,
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "fKmHh",
+                      "x": 135,
+                      "y": 70,
+                      "name": "Effect",
+                      "width": 60,
+                      "height": 60,
+                      "fill": "#D71920",
+                      "cornerRadius": 30,
+                      "layout": "none"
+                    },
+                    {
+                      "type": "path",
+                      "id": "pkI9l",
+                      "x": 158,
+                      "y": 86,
+                      "name": "Effect",
+                      "geometry": "M0 0l28 15-28 15z",
+                      "viewBox": [
+                        0,
+                        0,
+                        28,
+                        30
+                      ],
+                      "fill": "#FFFFFF",
+                      "width": 28,
+                      "height": 30
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "dmV5o",
+                  "x": 1095,
+                  "y": 0,
+                  "name": "Media",
+                  "width": 330,
+                  "height": 220,
+                  "fill": "#1A1A1A",
+                  "cornerRadius": 20,
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "FKSuz",
+                      "x": 135,
+                      "y": 70,
+                      "name": "Effect",
+                      "width": 60,
+                      "height": 60,
+                      "fill": "#D71920",
+                      "cornerRadius": 30,
+                      "layout": "none"
+                    },
+                    {
+                      "type": "path",
+                      "id": "OPwVb",
+                      "x": 158,
+                      "y": 86,
+                      "name": "Effect",
+                      "geometry": "M0 0l28 15-28 15z",
+                      "viewBox": [
+                        0,
+                        0,
+                        28,
+                        30
+                      ],
+                      "fill": "#FFFFFF",
+                      "width": 28,
+                      "height": 30
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "R28aqe",
+          "x": 0,
+          "y": 6240,
+          "name": "Section",
+          "width": 1920,
+          "height": 620,
+          "fill": "#F7F0DE",
+          "layout": "none",
+          "children": [
+            {
+              "type": "text",
+              "id": "McNvA",
+              "x": 260,
+              "y": 86,
+              "name": "Subtitle",
+              "fill": "#D71920",
+              "textGrowth": "fixed-width",
+              "width": 260,
+              "content": "アプリ",
+              "lineHeight": 1,
+              "fontFamily": "Inter",
+              "fontSize": 34,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "zc2GI",
+              "x": 260,
+              "y": 150,
+              "name": "Title",
+              "fill": "#111111",
+              "textGrowth": "fixed-width",
+              "width": 780,
+              "content": "あみやき亭グループの\n「感動の肉と米」\n公式アプリダウンロード",
+              "lineHeight": 1.18,
+              "fontFamily": "Inter",
+              "fontSize": 58,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "YbIkw",
+              "x": 260,
+              "y": 420,
+              "name": "Action",
+              "width": 230,
+              "height": 72,
+              "fill": "#111111",
+              "cornerRadius": 14,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "WC9Kp",
+                  "x": 34,
+                  "y": 22,
+                  "name": "Text",
+                  "fill": "#FFFFFF",
+                  "textGrowth": "fixed-width",
+                  "width": 160,
+                  "content": "App Store",
+                  "lineHeight": 1,
+                  "fontFamily": "Inter",
+                  "fontSize": 25,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "k0Mxo",
+              "x": 520,
+              "y": 420,
+              "name": "Action",
+              "width": 230,
+              "height": 72,
+              "fill": "#111111",
+              "cornerRadius": 14,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "Jciup",
+                  "x": 30,
+                  "y": 22,
+                  "name": "Text",
+                  "fill": "#FFFFFF",
+                  "textGrowth": "fixed-width",
+                  "width": 170,
+                  "content": "Google play",
+                  "lineHeight": 1,
+                  "fontFamily": "Inter",
+                  "fontSize": 25,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Mhyh1",
+              "x": 1160,
+              "y": 70,
+              "name": "Media",
+              "width": 440,
+              "height": 480,
+              "fill": {
+                "type": "gradient",
+                "gradientType": "linear",
+                "enabled": true,
+                "rotation": 180,
+                "size": {
+                  "height": 1
+                },
+                "colors": [
+                  {
+                    "color": "#2A2A2A",
+                    "position": 0
+                  },
+                  {
+                    "color": "#FFFFFF",
+                    "position": 0.45
+                  },
+                  {
+                    "color": "#D71920",
+                    "position": 1
+                  }
+                ]
+              },
+              "cornerRadius": 42,
+              "layout": "none"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "yaDEn",
+          "x": 0,
+          "y": 6860,
+          "name": "Background",
+          "width": 1920,
+          "height": 360,
+          "fill": "#20150E",
+          "layout": "none",
+          "children": [
+            {
+              "type": "text",
+              "id": "uHQMk",
+              "x": 260,
+              "y": 70,
+              "name": "Subtitle",
+              "fill": "#D71920",
+              "textGrowth": "fixed-width",
+              "width": 300,
+              "content": "店舗用地募集",
+              "lineHeight": 1,
+              "fontFamily": "Inter",
+              "fontSize": 32,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "YpZlK",
+              "x": 260,
+              "y": 126,
+              "name": "Title",
+              "fill": "#FFFFFF",
+              "textGrowth": "fixed-width",
+              "width": 600,
+              "content": "店舗用地募集のご案内",
+              "lineHeight": 1.15,
+              "fontFamily": "Inter",
+              "fontSize": 52,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "Zt50K",
+              "x": 260,
+              "y": 228,
+              "name": "Text",
+              "fill": "#F7F0DE",
+              "textGrowth": "fixed-width",
+              "width": 650,
+              "content": "新規店舗出店に向けて幅広く店舗情報を募っています。",
+              "lineHeight": 1.6,
+              "fontFamily": "Inter",
+              "fontSize": 25,
+              "fontWeight": "500"
+            },
+            {
+              "type": "frame",
+              "id": "CajXD",
+              "x": 1040,
+              "y": 60,
+              "name": "Media",
+              "width": 620,
+              "height": 240,
+              "fill": "#6C5542",
+              "cornerRadius": 24,
+              "layout": "none"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "Zfi7C",
+          "x": 0,
+          "y": 7220,
+          "name": "Section",
+          "width": 1920,
+          "height": 420,
+          "fill": "#F7F0DE",
+          "layout": "none",
+          "children": [
+            {
+              "type": "text",
+              "id": "pfvGL",
+              "x": 260,
+              "y": 72,
+              "name": "Subtitle",
+              "fill": "#D71920",
+              "textGrowth": "fixed-width",
+              "width": 260,
+              "content": "お知らせ",
+              "lineHeight": 1,
+              "fontFamily": "Inter",
+              "fontSize": 34,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "XB0ym",
+              "x": 260,
+              "y": 132,
+              "name": "Title",
+              "fill": "#111111",
+              "textGrowth": "fixed-width",
+              "width": 300,
+              "content": "News",
+              "lineHeight": 1,
+              "fontFamily": "Inter",
+              "fontSize": 60,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "emPOU",
+              "x": 640,
+              "y": 65,
+              "name": "CardGroup",
+              "width": 1020,
+              "height": 270,
+              "fill": "#00000000",
+              "layout": "none",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "T7OEi5",
+                  "x": 0,
+                  "y": 0,
+                  "name": "Frame",
+                  "width": 310,
+                  "height": 260,
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 18,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#E0D4BD"
+                  },
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "TSLhr",
+                      "x": 18,
+                      "y": 18,
+                      "name": "Media",
+                      "width": 274,
+                      "height": 125,
+                      "fill": {
+                        "type": "gradient",
+                        "gradientType": "linear",
+                        "enabled": true,
+                        "rotation": 150,
+                        "size": {
+                          "height": 1
+                        },
+                        "colors": [
+                          {
+                            "color": "#4B1D12",
+                            "position": 0
+                          },
+                          {
+                            "color": "#D7602A",
+                            "position": 0.55
+                          },
+                          {
+                            "color": "#22110B",
+                            "position": 1
+                          }
+                        ]
+                      },
+                      "cornerRadius": 12,
+                      "layout": "none"
+                    },
+                    {
+                      "type": "text",
+                      "id": "g7NyUM",
+                      "x": 18,
+                      "y": 160,
+                      "name": "Text",
+                      "fill": "#D71920",
+                      "textGrowth": "fixed-width",
+                      "width": 90,
+                      "content": "新商品",
+                      "lineHeight": 1,
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "HnJAH",
+                      "x": 18,
+                      "y": 190,
+                      "name": "Title",
+                      "fill": "#111111",
+                      "textGrowth": "fixed-width",
+                      "width": 270,
+                      "content": "期間限定メニュー好評販売中",
+                      "lineHeight": 1.25,
+                      "fontFamily": "Inter",
+                      "fontSize": 23,
+                      "fontWeight": "700"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "iZGQL",
+                  "x": 340,
+                  "y": 0,
+                  "name": "Frame",
+                  "width": 310,
+                  "height": 260,
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 18,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#E0D4BD"
+                  },
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "P5aTIo",
+                      "x": 18,
+                      "y": 18,
+                      "name": "Media",
+                      "width": 274,
+                      "height": 125,
+                      "fill": {
+                        "type": "gradient",
+                        "gradientType": "linear",
+                        "enabled": true,
+                        "rotation": 150,
+                        "size": {
+                          "height": 1
+                        },
+                        "colors": [
+                          {
+                            "color": "#4B1D12",
+                            "position": 0
+                          },
+                          {
+                            "color": "#D7602A",
+                            "position": 0.55
+                          },
+                          {
+                            "color": "#22110B",
+                            "position": 1
+                          }
+                        ]
+                      },
+                      "cornerRadius": 12,
+                      "layout": "none"
+                    },
+                    {
+                      "type": "text",
+                      "id": "MFMUn",
+                      "x": 18,
+                      "y": 160,
+                      "name": "Text",
+                      "fill": "#D71920",
+                      "textGrowth": "fixed-width",
+                      "width": 90,
+                      "content": "新商品",
+                      "lineHeight": 1,
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "W7rxV",
+                      "x": 18,
+                      "y": 190,
+                      "name": "Title",
+                      "fill": "#111111",
+                      "textGrowth": "fixed-width",
+                      "width": 270,
+                      "content": "一部店舗の価格改定について",
+                      "lineHeight": 1.25,
+                      "fontFamily": "Inter",
+                      "fontSize": 23,
+                      "fontWeight": "700"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "XsZaW",
+                  "x": 680,
+                  "y": 0,
+                  "name": "Frame",
+                  "width": 310,
+                  "height": 260,
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 18,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": "#E0D4BD"
+                  },
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "Em5ku",
+                      "x": 18,
+                      "y": 18,
+                      "name": "Media",
+                      "width": 274,
+                      "height": 125,
+                      "fill": {
+                        "type": "gradient",
+                        "gradientType": "linear",
+                        "enabled": true,
+                        "rotation": 150,
+                        "size": {
+                          "height": 1
+                        },
+                        "colors": [
+                          {
+                            "color": "#4B1D12",
+                            "position": 0
+                          },
+                          {
+                            "color": "#D7602A",
+                            "position": 0.55
+                          },
+                          {
+                            "color": "#22110B",
+                            "position": 1
+                          }
+                        ]
+                      },
+                      "cornerRadius": 12,
+                      "layout": "none"
+                    },
+                    {
+                      "type": "text",
+                      "id": "CWozx",
+                      "x": 18,
+                      "y": 160,
+                      "name": "Text",
+                      "fill": "#D71920",
+                      "textGrowth": "fixed-width",
+                      "width": 90,
+                      "content": "新商品",
+                      "lineHeight": 1,
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "yEXLu",
+                      "x": 18,
+                      "y": 190,
+                      "name": "Title",
+                      "fill": "#111111",
+                      "textGrowth": "fixed-width",
+                      "width": 270,
+                      "content": "イベント開催スケジュール",
+                      "lineHeight": 1.25,
+                      "fontFamily": "Inter",
+                      "fontSize": 23,
+                      "fontWeight": "700"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "DNKHi",
+          "x": 0,
+          "y": 7640,
+          "name": "Footer",
+          "width": 1920,
+          "height": 160,
+          "fill": "#111111",
+          "layout": "none",
+          "children": [
+            {
+              "type": "text",
+              "id": "kcS6X",
+              "x": 260,
+              "y": 40,
+              "name": "Title",
+              "fill": "#FFFFFF",
+              "textGrowth": "fixed-width",
+              "width": 260,
+              "content": "感動の肉と米",
+              "lineHeight": 1,
+              "fontFamily": "Inter",
+              "fontSize": 38,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "FM17v",
+              "x": 650,
+              "y": 50,
+              "name": "Text",
+              "fill": "#FFFFFF",
+              "textGrowth": "fixed-width",
+              "width": 900,
+              "content": "TOP　おしらせ　会社情報　採用情報　はじめての方へ　こだわり　公式アプリ紹介　店舗検索",
+              "lineHeight": 1.5,
+              "fontFamily": "Inter",
+              "fontSize": 18,
+              "fontWeight": "500"
+            },
+            {
+              "type": "text",
+              "id": "wIcOH",
+              "x": 650,
+              "y": 105,
+              "name": "Text",
+              "fill": "#BBBBBB",
+              "textGrowth": "fixed-width",
+              "width": 560,
+              "content": "Copyright AMIYAKI TEI CO., LTD. All Rights Reserved.",
+              "lineHeight": 1,
+              "fontFamily": "Inter",
+              "fontSize": 14
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

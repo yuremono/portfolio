@@ -1,0 +1,1767 @@
+{
+  "version": "2.11",
+  "children": [
+    {
+      "type": "frame",
+      "id": "root05261809",
+      "x": 0,
+      "y": 0,
+      "name": "05261809",
+      "width": 1920,
+      "height": 4700,
+      "fill": "#FFFFFF",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "header05261809",
+          "name": "Header",
+          "width": "fill_container",
+          "height": 120,
+          "fill": "#FFFFFF",
+          "layout": "none",
+          "children": [
+            {
+              "type": "frame",
+              "id": "headerBar05261809",
+              "x": 300,
+              "y": 18,
+              "name": "Header Bar",
+              "width": 1320,
+              "height": 84,
+              "layout": "horizontal",
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "logoGroup05261809",
+                  "name": "Logo Group",
+                  "width": 200,
+                  "gap": 12,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "id": "logoMark05261809",
+                      "name": "Image",
+                      "fill": "#CFCFCF",
+                      "width": 42,
+                      "height": 42
+                    },
+                    {
+                      "type": "text",
+                      "id": "logoText05261809",
+                      "name": "Title",
+                      "fill": "#000000",
+                      "content": "Brand",
+                      "fontFamily": "Noto Sans JP",
+                      "fontSize": 20,
+                      "fontWeight": "700"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "navGroup05261809",
+                  "name": "Nav Group",
+                  "width": 700,
+                  "gap": 24,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "navItem105261809",
+                      "name": "Label",
+                      "fill": "#000000",
+                      "content": "Item",
+                      "fontFamily": "Noto Sans JP",
+                      "fontSize": 12,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "navItem205261809",
+                      "name": "Label",
+                      "fill": "#000000",
+                      "content": "Item",
+                      "fontFamily": "Noto Sans JP",
+                      "fontSize": 12,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "navItem305261809",
+                      "name": "Label",
+                      "fill": "#000000",
+                      "content": "Item",
+                      "fontFamily": "Noto Sans JP",
+                      "fontSize": 12,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "navItem405261809",
+                      "name": "Label",
+                      "fill": "#000000",
+                      "content": "Item",
+                      "fontFamily": "Noto Sans JP",
+                      "fontSize": 12,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "navItem505261809",
+                      "name": "Label",
+                      "fill": "#000000",
+                      "content": "Item",
+                      "fontFamily": "Noto Sans JP",
+                      "fontSize": 12,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "utilityGroup05261809",
+                  "name": "Utility Group",
+                  "width": 260,
+                  "gap": 12,
+                  "justifyContent": "end",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "utilityLabel05261809",
+                      "name": "Label",
+                      "fill": "#000000",
+                      "content": "Item",
+                      "fontFamily": "Noto Sans JP",
+                      "fontSize": 11,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "utilityButton05261809",
+                      "name": "Button",
+                      "width": 150,
+                      "height": 40,
+                      "fill": "#E6E6E6",
+                      "stroke": {
+                        "align": "inside",
+                        "fill": "#CFCFCF",
+                        "thickness": 1
+                      },
+                      "layout": "horizontal",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "utilityButtonText05261809",
+                          "name": "Label",
+                          "fill": "#000000",
+                          "content": "Button",
+                          "fontFamily": "Noto Sans JP",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "hero05261809",
+          "name": "Hero",
+          "width": "fill_container",
+          "height": 760,
+          "fill": "#FFFFFF",
+          "layout": "none",
+          "clip": true,
+          "children": [
+            {
+              "type": "rectangle",
+              "id": "heroBackground05261809",
+              "x": 70,
+              "y": 24,
+              "name": "Background",
+              "fill": "#DDDDDD",
+              "width": 1780,
+              "height": 690
+            },
+            {
+              "type": "ellipse",
+              "id": "heroImage05261809",
+              "x": 980,
+              "y": 70,
+              "name": "Image",
+              "fill": "#CFCFCF",
+              "width": 820,
+              "height": 550
+            },
+            {
+              "type": "frame",
+              "id": "heroTextGroup05261809",
+              "x": 300,
+              "y": 230,
+              "name": "Text Group",
+              "width": 680,
+              "gap": 18,
+              "layout": "vertical",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "heroTitle05261809",
+                  "name": "Title",
+                  "fill": "#000000",
+                  "textGrowth": "fixed-width",
+                  "width": 620,
+                  "content": "Heading\nHeading",
+                  "fontFamily": "Noto Sans JP",
+                  "fontSize": 58,
+                  "fontWeight": "700",
+                  "lineHeight": 1.1
+                },
+                {
+                  "type": "text",
+                  "id": "heroBody05261809",
+                  "name": "Body",
+                  "fill": "#000000",
+                  "textGrowth": "fixed-width",
+                  "width": 520,
+                  "content": "Body copy body copy body copy body copy.",
+                  "fontFamily": "Noto Sans JP",
+                  "fontSize": 18,
+                  "fontWeight": "400",
+                  "lineHeight": 1.8
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "about05261809",
+          "name": "Card Group",
+          "width": "fill_container",
+          "height": 680,
+          "fill": "#FFFFFF",
+          "layout": "none",
+          "children": [
+            {
+              "type": "frame",
+              "id": "aboutContent05261809",
+              "x": 300,
+              "y": 70,
+              "name": "Section Content",
+              "width": 1320,
+              "height": 540,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "aboutSectionHead05261809",
+                  "name": "Section Head",
+                  "width": 1320,
+                  "height": 90,
+                  "layout": "horizontal",
+                  "justifyContent": "space_between",
+                  "alignItems": "end",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "aboutHeading05261809",
+                      "name": "Title",
+                      "fill": "#000000",
+                      "content": "Heading",
+                      "fontFamily": "Noto Sans JP",
+                      "fontSize": 54,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "aboutLabel05261809",
+                      "name": "Label",
+                      "fill": "#000000",
+                      "content": "Label",
+                      "fontFamily": "Noto Sans JP",
+                      "fontSize": 14,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "aboutBody05261809",
+                  "name": "Body",
+                  "fill": "#000000",
+                  "x": 0,
+                  "y": 110,
+                  "textGrowth": "fixed-width",
+                  "width": 820,
+                  "content": "Body copy body copy body copy body copy body copy.",
+                  "fontFamily": "Noto Sans JP",
+                  "fontSize": 18,
+                  "fontWeight": "400",
+                  "lineHeight": 1.8
+                },
+                {
+                  "type": "frame",
+                  "id": "aboutCardGroup05261809",
+                  "name": "Card Group",
+                  "x": 0,
+                  "y": 230,
+                  "width": 1320,
+                  "height": 290,
+                  "layout": "horizontal",
+                  "gap": 20,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "aboutCard105261809",
+                      "name": "Card",
+                      "width": 426,
+                      "height": 290,
+                      "fill": "#FFFFFF",
+                      "stroke": {
+                        "align": "inside",
+                        "fill": "#D0D0D0",
+                        "thickness": 1
+                      },
+                      "layout": "vertical",
+                      "gap": 12,
+                      "children": [
+                        {
+                          "type": "rectangle",
+                          "id": "aboutCardImage105261809",
+                          "name": "Image",
+                          "fill": "#D9D9D9",
+                          "width": 426,
+                          "height": 120
+                        },
+                        {
+                          "type": "frame",
+                          "id": "aboutCardText105261809",
+                          "name": "Text Group",
+                          "width": 426,
+                          "gap": 10,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "aboutCardTitle105261809",
+                              "name": "Card title",
+                              "fill": "#000000",
+                              "content": "Card title",
+                              "fontFamily": "Noto Sans JP",
+                              "fontSize": 16,
+                              "fontWeight": "700"
+                            },
+                            {
+                              "type": "text",
+                              "id": "aboutCardBody105261809",
+                              "name": "Card body",
+                              "fill": "#000000",
+                              "textGrowth": "fixed-width",
+                              "width": 382,
+                              "content": "Body copy body copy body copy.",
+                              "fontFamily": "Noto Sans JP",
+                              "fontSize": 13,
+                              "fontWeight": "400",
+                              "lineHeight": 1.7
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "aboutCard205261809",
+                      "name": "Card",
+                      "width": 426,
+                      "height": 290,
+                      "fill": "#FFFFFF",
+                      "stroke": {
+                        "align": "inside",
+                        "fill": "#D0D0D0",
+                        "thickness": 1
+                      },
+                      "layout": "vertical",
+                      "gap": 12,
+                      "children": [
+                        {
+                          "type": "rectangle",
+                          "id": "aboutCardImage205261809",
+                          "name": "Image",
+                          "fill": "#D9D9D9",
+                          "width": 426,
+                          "height": 120
+                        },
+                        {
+                          "type": "frame",
+                          "id": "aboutCardText205261809",
+                          "name": "Text Group",
+                          "width": 426,
+                          "gap": 10,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "aboutCardTitle205261809",
+                              "name": "Card title",
+                              "fill": "#000000",
+                              "content": "Card title",
+                              "fontFamily": "Noto Sans JP",
+                              "fontSize": 16,
+                              "fontWeight": "700"
+                            },
+                            {
+                              "type": "text",
+                              "id": "aboutCardBody205261809",
+                              "name": "Card body",
+                              "fill": "#000000",
+                              "textGrowth": "fixed-width",
+                              "width": 382,
+                              "content": "Body copy body copy body copy.",
+                              "fontFamily": "Noto Sans JP",
+                              "fontSize": 13,
+                              "fontWeight": "400",
+                              "lineHeight": 1.7
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "aboutCard305261809",
+                      "name": "Card",
+                      "width": 426,
+                      "height": 290,
+                      "fill": "#FFFFFF",
+                      "stroke": {
+                        "align": "inside",
+                        "fill": "#D0D0D0",
+                        "thickness": 1
+                      },
+                      "layout": "vertical",
+                      "gap": 12,
+                      "children": [
+                        {
+                          "type": "rectangle",
+                          "id": "aboutCardImage305261809",
+                          "name": "Image",
+                          "fill": "#D9D9D9",
+                          "width": 426,
+                          "height": 120
+                        },
+                        {
+                          "type": "frame",
+                          "id": "aboutCardText305261809",
+                          "name": "Text Group",
+                          "width": 426,
+                          "gap": 10,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "aboutCardTitle305261809",
+                              "name": "Card title",
+                              "fill": "#000000",
+                              "content": "Card title",
+                              "fontFamily": "Noto Sans JP",
+                              "fontSize": 16,
+                              "fontWeight": "700"
+                            },
+                            {
+                              "type": "text",
+                              "id": "aboutCardBody305261809",
+                              "name": "Card body",
+                              "fill": "#000000",
+                              "textGrowth": "fixed-width",
+                              "width": 382,
+                              "content": "Body copy body copy body copy.",
+                              "fontFamily": "Noto Sans JP",
+                              "fontSize": 13,
+                              "fontWeight": "400",
+                              "lineHeight": 1.7
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "glass05261809",
+          "name": "Image Text",
+          "width": "fill_container",
+          "height": 600,
+          "fill": "#FFFFFF",
+          "layout": "none",
+          "children": [
+            {
+              "type": "frame",
+              "id": "glassContent05261809",
+              "x": 300,
+              "y": 70,
+              "name": "Section Content",
+              "width": 1320,
+              "height": 460,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "ellipse",
+                  "id": "glassImage05261809",
+                  "x": -70,
+                  "y": 40,
+                  "name": "Image",
+                  "fill": "#D8D8D8",
+                  "width": 720,
+                  "height": 420
+                },
+                {
+                  "type": "frame",
+                  "id": "glassText05261809",
+                  "x": 760,
+                  "y": 120,
+                  "name": "Text Group",
+                  "width": 560,
+                  "gap": 18,
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "glassSectionHead05261809",
+                      "name": "Section Head",
+                      "width": 560,
+                      "gap": 8,
+                      "layout": "vertical",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "glassHeading05261809",
+                          "name": "Title",
+                          "fill": "#000000",
+                          "content": "Heading",
+                          "fontFamily": "Noto Sans JP",
+                          "fontSize": 48,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "glassLabel05261809",
+                          "name": "Label",
+                          "fill": "#000000",
+                          "content": "Label",
+                          "fontFamily": "Noto Sans JP",
+                          "fontSize": 14,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "glassBody05261809",
+                      "name": "Body",
+                      "fill": "#000000",
+                      "textGrowth": "fixed-width",
+                      "width": 520,
+                      "content": "Body copy body copy body copy body copy body copy.",
+                      "fontFamily": "Noto Sans JP",
+                      "fontSize": 18,
+                      "fontWeight": "400",
+                      "lineHeight": 1.8
+                    },
+                    {
+                      "type": "frame",
+                      "id": "glassLink05261809",
+                      "name": "Button",
+                      "width": 240,
+                      "height": 42,
+                      "fill": "#E6E6E6",
+                      "stroke": {
+                        "align": "inside",
+                        "fill": "#D0D0D0",
+                        "thickness": 1
+                      },
+                      "layout": "horizontal",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "glassLinkText05261809",
+                          "name": "Label",
+                          "fill": "#000000",
+                          "content": "Link",
+                          "fontFamily": "Noto Sans JP",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "business05261809",
+          "name": "Card Group",
+          "width": "fill_container",
+          "height": 500,
+          "fill": "#FFFFFF",
+          "layout": "none",
+          "children": [
+            {
+              "type": "frame",
+              "id": "businessContent05261809",
+              "x": 300,
+              "y": 60,
+              "name": "Section Content",
+              "width": 1320,
+              "height": 380,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "businessSectionHead05261809",
+                  "name": "Section Head",
+                  "width": 1320,
+                  "height": 84,
+                  "layout": "horizontal",
+                  "justifyContent": "space_between",
+                  "alignItems": "end",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "businessHeading05261809",
+                      "name": "Title",
+                      "fill": "#000000",
+                      "content": "Heading",
+                      "fontFamily": "Noto Sans JP",
+                      "fontSize": 54,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "businessLabel05261809",
+                      "name": "Label",
+                      "fill": "#000000",
+                      "content": "Label",
+                      "fontFamily": "Noto Sans JP",
+                      "fontSize": 14,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "businessCardGroup05261809",
+                  "name": "Card Group",
+                  "x": 0,
+                  "y": 150,
+                  "width": 1320,
+                  "height": 210,
+                  "layout": "horizontal",
+                  "gap": 20,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "businessCard105261809",
+                      "name": "Card",
+                      "width": 426,
+                      "height": 210,
+                      "fill": "#FFFFFF",
+                      "stroke": {
+                        "align": "inside",
+                        "fill": "#D0D0D0",
+                        "thickness": 1
+                      },
+                      "layout": "vertical",
+                      "gap": 12,
+                      "children": [
+                        {
+                          "type": "rectangle",
+                          "id": "businessCardImage105261809",
+                          "name": "Image",
+                          "fill": "#D9D9D9",
+                          "width": 426,
+                          "height": 90
+                        },
+                        {
+                          "type": "text",
+                          "id": "businessCardTitle105261809",
+                          "name": "Card title",
+                          "fill": "#000000",
+                          "content": "Card title",
+                          "fontFamily": "Noto Sans JP",
+                          "fontSize": 16,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "businessCard205261809",
+                      "name": "Card",
+                      "width": 426,
+                      "height": 210,
+                      "fill": "#FFFFFF",
+                      "stroke": {
+                        "align": "inside",
+                        "fill": "#D0D0D0",
+                        "thickness": 1
+                      },
+                      "layout": "vertical",
+                      "gap": 12,
+                      "children": [
+                        {
+                          "type": "rectangle",
+                          "id": "businessCardImage205261809",
+                          "name": "Image",
+                          "fill": "#D9D9D9",
+                          "width": 426,
+                          "height": 90
+                        },
+                        {
+                          "type": "text",
+                          "id": "businessCardTitle205261809",
+                          "name": "Card title",
+                          "fill": "#000000",
+                          "content": "Card title",
+                          "fontFamily": "Noto Sans JP",
+                          "fontSize": 16,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "businessCard305261809",
+                      "name": "Card",
+                      "width": 426,
+                      "height": 210,
+                      "fill": "#FFFFFF",
+                      "stroke": {
+                        "align": "inside",
+                        "fill": "#D0D0D0",
+                        "thickness": 1
+                      },
+                      "layout": "vertical",
+                      "gap": 12,
+                      "children": [
+                        {
+                          "type": "rectangle",
+                          "id": "businessCardImage305261809",
+                          "name": "Image",
+                          "fill": "#D9D9D9",
+                          "width": 426,
+                          "height": 90
+                        },
+                        {
+                          "type": "text",
+                          "id": "businessCardTitle305261809",
+                          "name": "Card title",
+                          "fill": "#000000",
+                          "content": "Card title",
+                          "fontFamily": "Noto Sans JP",
+                          "fontSize": 16,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "recruit05261809",
+          "name": "Recruit",
+          "width": "fill_container",
+          "height": 900,
+          "fill": "#F0F0F0",
+          "layout": "none",
+          "clip": true,
+          "children": [
+            {
+              "type": "rectangle",
+              "id": "recruitBackground05261809",
+              "x": 0,
+              "y": 0,
+              "name": "Background",
+              "fill": "#D4D4D4",
+              "width": 1920,
+              "height": 900
+            },
+            {
+              "type": "frame",
+              "id": "recruitMosaic05261809",
+              "x": 40,
+              "y": 42,
+              "name": "Tile Row",
+              "width": 1840,
+              "height": 140,
+              "layout": "horizontal",
+              "gap": 16,
+              "children": [
+                {
+                  "type": "rectangle",
+                  "id": "recruitMosaic105261809",
+                  "name": "Tile",
+                  "fill": "#C8C8C8",
+                  "width": 282,
+                  "height": 140
+                },
+                {
+                  "type": "rectangle",
+                  "id": "recruitMosaic205261809",
+                  "name": "Tile",
+                  "fill": "#C8C8C8",
+                  "width": 282,
+                  "height": 140
+                },
+                {
+                  "type": "rectangle",
+                  "id": "recruitMosaic305261809",
+                  "name": "Tile",
+                  "fill": "#C8C8C8",
+                  "width": 282,
+                  "height": 140
+                },
+                {
+                  "type": "rectangle",
+                  "id": "recruitMosaic405261809",
+                  "name": "Tile",
+                  "fill": "#C8C8C8",
+                  "width": 282,
+                  "height": 140
+                },
+                {
+                  "type": "rectangle",
+                  "id": "recruitMosaic505261809",
+                  "name": "Tile",
+                  "fill": "#C8C8C8",
+                  "width": 282,
+                  "height": 140
+                },
+                {
+                  "type": "rectangle",
+                  "id": "recruitMosaic605261809",
+                  "name": "Tile",
+                  "fill": "#C8C8C8",
+                  "width": 282,
+                  "height": 140
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "recruitContent05261809",
+              "x": 300,
+              "y": 180,
+              "name": "Section Content",
+              "width": 1320,
+              "height": 360,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "recruitText05261809",
+                  "name": "Text Group",
+                  "x": 0,
+                  "y": 20,
+                  "width": 600,
+                  "gap": 18,
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "recruitSectionHead05261809",
+                      "name": "Section Head",
+                      "width": 600,
+                      "gap": 8,
+                      "layout": "vertical",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "recruitHeading05261809",
+                          "name": "Title",
+                          "fill": "#000000",
+                          "content": "Heading",
+                          "fontFamily": "Noto Sans JP",
+                          "fontSize": 54,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "recruitLabel05261809",
+                          "name": "Label",
+                          "fill": "#000000",
+                          "content": "Label",
+                          "fontFamily": "Noto Sans JP",
+                          "fontSize": 14,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "recruitBody05261809",
+                      "name": "Body",
+                      "fill": "#000000",
+                      "textGrowth": "fixed-width",
+                      "width": 540,
+                      "content": "Body copy body copy body copy body copy body copy.",
+                      "fontFamily": "Noto Sans JP",
+                      "fontSize": 18,
+                      "fontWeight": "400",
+                      "lineHeight": 1.8
+                    }
+                  ]
+                },
+                {
+                  "type": "ellipse",
+                  "id": "recruitImage05261809",
+                  "x": 930,
+                  "y": 0,
+                  "name": "Image",
+                  "fill": "#CFCFCF",
+                  "width": 390,
+                  "height": 390
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "recruitCardGroup05261809",
+              "name": "Card Group",
+              "x": 300,
+              "y": 560,
+              "width": 1320,
+              "height": 210,
+              "layout": "horizontal",
+              "gap": 20,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "recruitCard105261809",
+                  "name": "Card",
+                  "width": 426,
+                  "height": 210,
+                  "fill": "#FFFFFF",
+                  "stroke": {
+                    "align": "inside",
+                    "fill": "#D0D0D0",
+                    "thickness": 1
+                  },
+                  "layout": "vertical",
+                  "gap": 12,
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "id": "recruitCardImage105261809",
+                      "name": "Image",
+                      "fill": "#D9D9D9",
+                      "width": 426,
+                      "height": 90
+                    },
+                    {
+                      "type": "text",
+                      "id": "recruitCardTitle105261809",
+                      "name": "Card title",
+                      "fill": "#000000",
+                      "content": "Card title",
+                      "fontFamily": "Noto Sans JP",
+                      "fontSize": 16,
+                      "fontWeight": "700"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "recruitCard205261809",
+                  "name": "Card",
+                  "width": 426,
+                  "height": 210,
+                  "fill": "#FFFFFF",
+                  "stroke": {
+                    "align": "inside",
+                    "fill": "#D0D0D0",
+                    "thickness": 1
+                  },
+                  "layout": "vertical",
+                  "gap": 12,
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "id": "recruitCardImage205261809",
+                      "name": "Image",
+                      "fill": "#D9D9D9",
+                      "width": 426,
+                      "height": 90
+                    },
+                    {
+                      "type": "text",
+                      "id": "recruitCardTitle205261809",
+                      "name": "Card title",
+                      "fill": "#000000",
+                      "content": "Card title",
+                      "fontFamily": "Noto Sans JP",
+                      "fontSize": 16,
+                      "fontWeight": "700"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "recruitCard305261809",
+                  "name": "Card",
+                  "width": 426,
+                  "height": 210,
+                  "fill": "#FFFFFF",
+                  "stroke": {
+                    "align": "inside",
+                    "fill": "#D0D0D0",
+                    "thickness": 1
+                  },
+                  "layout": "vertical",
+                  "gap": 12,
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "id": "recruitCardImage305261809",
+                      "name": "Image",
+                      "fill": "#D9D9D9",
+                      "width": 426,
+                      "height": 90
+                    },
+                    {
+                      "type": "text",
+                      "id": "recruitCardTitle305261809",
+                      "name": "Card title",
+                      "fill": "#000000",
+                      "content": "Card title",
+                      "fontFamily": "Noto Sans JP",
+                      "fontSize": 16,
+                      "fontWeight": "700"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "news05261809",
+          "name": "News Strip",
+          "width": "fill_container",
+          "height": 260,
+          "fill": "#FFFFFF",
+          "layout": "none",
+          "children": [
+            {
+              "type": "frame",
+              "id": "newsContent05261809",
+              "x": 300,
+              "y": 60,
+              "name": "Section Content",
+              "width": 1320,
+              "height": 150,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "newsSectionHead05261809",
+                  "name": "Section Head",
+                  "width": 1320,
+                  "height": 80,
+                  "layout": "horizontal",
+                  "justifyContent": "space_between",
+                  "alignItems": "end",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "newsHeading05261809",
+                      "name": "Title",
+                      "fill": "#000000",
+                      "content": "Heading",
+                      "fontFamily": "Noto Sans JP",
+                      "fontSize": 54,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "newsLabel05261809",
+                      "name": "Label",
+                      "fill": "#000000",
+                      "content": "Label",
+                      "fontFamily": "Noto Sans JP",
+                      "fontSize": 14,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "newsItem05261809",
+                  "name": "List Item",
+                  "x": 0,
+                  "y": 96,
+                  "width": 1320,
+                  "height": 54,
+                  "layout": "horizontal",
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "stroke": {
+                    "align": "inside",
+                    "fill": "#D0D0D0",
+                    "thickness": {
+                      "bottom": 1
+                    }
+                  },
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "newsItemMeta05261809",
+                      "name": "Text Group",
+                      "width": 380,
+                      "gap": 16,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "newsDate05261809",
+                          "name": "Label",
+                          "fill": "#000000",
+                          "content": "Date",
+                          "fontFamily": "Noto Sans JP",
+                          "fontSize": 12,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "type": "rectangle",
+                          "id": "newsTag05261809",
+                          "name": "Label",
+                          "fill": "#E6E6E6",
+                          "width": 60,
+                          "height": 22
+                        },
+                        {
+                          "type": "text",
+                          "id": "newsTitle05261809",
+                          "name": "Label",
+                          "fill": "#000000",
+                          "content": "List item title",
+                          "fontFamily": "Noto Sans JP",
+                          "fontSize": 14,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "newsArrow05261809",
+                      "name": "Link",
+                      "fill": "#000000",
+                      "content": "→",
+                      "fontFamily": "Noto Sans JP",
+                      "fontSize": 18,
+                      "fontWeight": "700"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "contact05261809",
+          "name": "Footer Top",
+          "width": "fill_container",
+          "height": 420,
+          "fill": "#DADADA",
+          "layout": "none",
+          "children": [
+            {
+              "type": "frame",
+              "id": "contactContent05261809",
+              "x": 300,
+              "y": 48,
+              "name": "Section Content",
+              "width": 1320,
+              "height": 300,
+              "layout": "none",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "contactSectionHead05261809",
+                  "name": "Section Head",
+                  "width": 1320,
+                  "height": 90,
+                  "layout": "horizontal",
+                  "justifyContent": "space_between",
+                  "alignItems": "end",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "contactHeading05261809",
+                      "name": "Title",
+                      "fill": "#000000",
+                      "content": "Heading",
+                      "fontFamily": "Noto Sans JP",
+                      "fontSize": 54,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "contactLabel05261809",
+                      "name": "Label",
+                      "fill": "#000000",
+                      "content": "Label",
+                      "fontFamily": "Noto Sans JP",
+                      "fontSize": 14,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "contactBody05261809",
+                  "name": "Text Group",
+                  "x": 0,
+                  "y": 110,
+                  "width": 560,
+                  "gap": 16,
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "contactBodyText05261809",
+                      "name": "Body",
+                      "fill": "#000000",
+                      "textGrowth": "fixed-width",
+                      "width": 520,
+                      "content": "Body copy body copy body copy body copy.",
+                      "fontFamily": "Noto Sans JP",
+                      "fontSize": 16,
+                      "fontWeight": "400",
+                      "lineHeight": 1.8
+                    },
+                    {
+                      "type": "frame",
+                      "id": "contactButtonGroup05261809",
+                      "name": "Button Group",
+                      "width": 560,
+                      "gap": 12,
+                      "layout": "vertical",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "contactButton105261809",
+                          "name": "Button",
+                          "width": 560,
+                          "height": 44,
+                          "fill": "#FFFFFF",
+                          "stroke": {
+                            "align": "inside",
+                            "fill": "#CFCFCF",
+                            "thickness": 1
+                          },
+                          "layout": "horizontal",
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "contactButtonText105261809",
+                              "name": "Label",
+                              "fill": "#000000",
+                              "content": "Button",
+                              "fontFamily": "Noto Sans JP",
+                              "fontSize": 14,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "text",
+                              "id": "contactButtonArrow105261809",
+                              "name": "Link",
+                              "fill": "#000000",
+                              "content": "→",
+                              "fontFamily": "Noto Sans JP",
+                              "fontSize": 16,
+                              "fontWeight": "700"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "contactButton205261809",
+                          "name": "Button",
+                          "width": 560,
+                          "height": 44,
+                          "fill": "#FFFFFF",
+                          "stroke": {
+                            "align": "inside",
+                            "fill": "#CFCFCF",
+                            "thickness": 1
+                          },
+                          "layout": "horizontal",
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "contactButtonText205261809",
+                              "name": "Label",
+                              "fill": "#000000",
+                              "content": "Button",
+                              "fontFamily": "Noto Sans JP",
+                              "fontSize": 14,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "text",
+                              "id": "contactButtonArrow205261809",
+                              "name": "Link",
+                              "fill": "#000000",
+                              "content": "→",
+                              "fontFamily": "Noto Sans JP",
+                              "fontSize": 16,
+                              "fontWeight": "700"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "contactTileRow05261809",
+                  "name": "Tile Row",
+                  "x": 620,
+                  "y": 110,
+                  "width": 700,
+                  "height": 150,
+                  "layout": "horizontal",
+                  "gap": 20,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "contactTile105261809",
+                      "name": "Tile",
+                      "width": 220,
+                      "height": 150,
+                      "fill": "#FFFFFF",
+                      "stroke": {
+                        "align": "inside",
+                        "fill": "#CFCFCF",
+                        "thickness": 1
+                      },
+                      "layout": "vertical",
+                      "gap": 12,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "contactTileTitle105261809",
+                          "name": "Label",
+                          "fill": "#000000",
+                          "content": "Tile",
+                          "fontFamily": "Noto Sans JP",
+                          "fontSize": 14,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "contactTileBody105261809",
+                          "name": "Label",
+                          "fill": "#000000",
+                          "textGrowth": "fixed-width",
+                          "width": 190,
+                          "content": "Body copy body copy.",
+                          "fontFamily": "Noto Sans JP",
+                          "fontSize": 12,
+                          "fontWeight": "400",
+                          "lineHeight": 1.6
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "contactTile205261809",
+                      "name": "Tile",
+                      "width": 220,
+                      "height": 150,
+                      "fill": "#FFFFFF",
+                      "stroke": {
+                        "align": "inside",
+                        "fill": "#CFCFCF",
+                        "thickness": 1
+                      },
+                      "layout": "vertical",
+                      "gap": 12,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "contactTileTitle205261809",
+                          "name": "Label",
+                          "fill": "#000000",
+                          "content": "Tile",
+                          "fontFamily": "Noto Sans JP",
+                          "fontSize": 14,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "contactTileBody205261809",
+                          "name": "Label",
+                          "fill": "#000000",
+                          "textGrowth": "fixed-width",
+                          "width": 190,
+                          "content": "Body copy body copy.",
+                          "fontFamily": "Noto Sans JP",
+                          "fontSize": 12,
+                          "fontWeight": "400",
+                          "lineHeight": 1.6
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "contactTile305261809",
+                      "name": "Tile",
+                      "width": 220,
+                      "height": 150,
+                      "fill": "#FFFFFF",
+                      "stroke": {
+                        "align": "inside",
+                        "fill": "#CFCFCF",
+                        "thickness": 1
+                      },
+                      "layout": "vertical",
+                      "gap": 12,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "contactTileTitle305261809",
+                          "name": "Label",
+                          "fill": "#000000",
+                          "content": "Tile",
+                          "fontFamily": "Noto Sans JP",
+                          "fontSize": 14,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "contactTileBody305261809",
+                          "name": "Label",
+                          "fill": "#000000",
+                          "textGrowth": "fixed-width",
+                          "width": 190,
+                          "content": "Body copy body copy.",
+                          "fontFamily": "Noto Sans JP",
+                          "fontSize": 12,
+                          "fontWeight": "400",
+                          "lineHeight": 1.6
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "footer05261809",
+          "name": "Footer",
+          "width": "fill_container",
+          "height": 560,
+          "fill": "#FFFFFF",
+          "layout": "none",
+          "children": [
+            {
+              "type": "frame",
+              "id": "footerContent05261809",
+              "x": 300,
+              "y": 50,
+              "name": "Footer Top",
+              "width": 1320,
+              "height": 460,
+              "layout": "vertical",
+              "gap": 28,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "footerBrand05261809",
+                  "name": "Logo Group",
+                  "width": 220,
+                  "gap": 12,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "id": "footerLogoMark05261809",
+                      "name": "Image",
+                      "fill": "#CFCFCF",
+                      "width": 42,
+                      "height": 42
+                    },
+                    {
+                      "type": "text",
+                      "id": "footerLogoText05261809",
+                      "name": "Title",
+                      "fill": "#000000",
+                      "content": "Brand",
+                      "fontFamily": "Noto Sans JP",
+                      "fontSize": 20,
+                      "fontWeight": "700"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "footerLinkColumns05261809",
+                  "name": "Link Group",
+                  "width": 1320,
+                  "layout": "horizontal",
+                  "gap": 40,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "footerColumn105261809",
+                      "name": "Link Group",
+                      "width": 300,
+                      "gap": 10,
+                      "layout": "vertical",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "footerColumnTitle105261809",
+                          "name": "Label",
+                          "fill": "#000000",
+                          "content": "Heading",
+                          "fontFamily": "Noto Sans JP",
+                          "fontSize": 14,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "footerColumnLink105261809",
+                          "name": "Link",
+                          "fill": "#000000",
+                          "content": "Link",
+                          "fontFamily": "Noto Sans JP",
+                          "fontSize": 12,
+                          "fontWeight": "400"
+                        },
+                        {
+                          "type": "text",
+                          "id": "footerColumnLink205261809",
+                          "name": "Link",
+                          "fill": "#000000",
+                          "content": "Link",
+                          "fontFamily": "Noto Sans JP",
+                          "fontSize": 12,
+                          "fontWeight": "400"
+                        },
+                        {
+                          "type": "text",
+                          "id": "footerColumnLink305261809",
+                          "name": "Link",
+                          "fill": "#000000",
+                          "content": "Link",
+                          "fontFamily": "Noto Sans JP",
+                          "fontSize": 12,
+                          "fontWeight": "400"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "footerColumn205261809",
+                      "name": "Link Group",
+                      "width": 300,
+                      "gap": 10,
+                      "layout": "vertical",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "footerColumnTitle205261809",
+                          "name": "Label",
+                          "fill": "#000000",
+                          "content": "Heading",
+                          "fontFamily": "Noto Sans JP",
+                          "fontSize": 14,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "footerColumnLink405261809",
+                          "name": "Link",
+                          "fill": "#000000",
+                          "content": "Link",
+                          "fontFamily": "Noto Sans JP",
+                          "fontSize": 12,
+                          "fontWeight": "400"
+                        },
+                        {
+                          "type": "text",
+                          "id": "footerColumnLink505261809",
+                          "name": "Link",
+                          "fill": "#000000",
+                          "content": "Link",
+                          "fontFamily": "Noto Sans JP",
+                          "fontSize": 12,
+                          "fontWeight": "400"
+                        },
+                        {
+                          "type": "text",
+                          "id": "footerColumnLink605261809",
+                          "name": "Link",
+                          "fill": "#000000",
+                          "content": "Link",
+                          "fontFamily": "Noto Sans JP",
+                          "fontSize": 12,
+                          "fontWeight": "400"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "footerColumn305261809",
+                      "name": "Link Group",
+                      "width": 300,
+                      "gap": 10,
+                      "layout": "vertical",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "footerColumnTitle305261809",
+                          "name": "Label",
+                          "fill": "#000000",
+                          "content": "Heading",
+                          "fontFamily": "Noto Sans JP",
+                          "fontSize": 14,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "footerColumnLink705261809",
+                          "name": "Link",
+                          "fill": "#000000",
+                          "content": "Link",
+                          "fontFamily": "Noto Sans JP",
+                          "fontSize": 12,
+                          "fontWeight": "400"
+                        },
+                        {
+                          "type": "text",
+                          "id": "footerColumnLink805261809",
+                          "name": "Link",
+                          "fill": "#000000",
+                          "content": "Link",
+                          "fontFamily": "Noto Sans JP",
+                          "fontSize": 12,
+                          "fontWeight": "400"
+                        },
+                        {
+                          "type": "text",
+                          "id": "footerColumnLink905261809",
+                          "name": "Link",
+                          "fill": "#000000",
+                          "content": "Link",
+                          "fontFamily": "Noto Sans JP",
+                          "fontSize": 12,
+                          "fontWeight": "400"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "footerColumn405261809",
+                      "name": "Link Group",
+                      "width": 300,
+                      "gap": 10,
+                      "layout": "vertical",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "footerColumnTitle405261809",
+                          "name": "Label",
+                          "fill": "#000000",
+                          "content": "Heading",
+                          "fontFamily": "Noto Sans JP",
+                          "fontSize": 14,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "footerColumnLink1005261809",
+                          "name": "Link",
+                          "fill": "#000000",
+                          "content": "Link",
+                          "fontFamily": "Noto Sans JP",
+                          "fontSize": 12,
+                          "fontWeight": "400"
+                        },
+                        {
+                          "type": "text",
+                          "id": "footerColumnLink1105261809",
+                          "name": "Link",
+                          "fill": "#000000",
+                          "content": "Link",
+                          "fontFamily": "Noto Sans JP",
+                          "fontSize": 12,
+                          "fontWeight": "400"
+                        },
+                        {
+                          "type": "text",
+                          "id": "footerColumnLink1205261809",
+                          "name": "Link",
+                          "fill": "#000000",
+                          "content": "Link",
+                          "fontFamily": "Noto Sans JP",
+                          "fontSize": 12,
+                          "fontWeight": "400"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "footerNote05261809",
+                  "name": "Label",
+                  "fill": "#000000",
+                  "content": "Footer note",
+                  "fontFamily": "Noto Sans JP",
+                  "fontSize": 11,
+                  "fontWeight": "400"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

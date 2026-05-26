@@ -1,0 +1,1513 @@
+{
+  "version": "2.11",
+  "children": [
+    {
+      "type": "frame",
+      "id": "E04RRV",
+      "x": 0,
+      "y": 0,
+      "name": "1553CANVAS",
+      "width": 1920,
+      "height": 4300,
+      "fill": "#F2F2F2",
+      "layout": "none"
+    },
+    {
+      "type": "frame",
+      "id": "sDENk",
+      "x": 8160,
+      "y": 0,
+      "name": "1553CANVAS_SCRATCH",
+      "clip": true,
+      "width": 1920,
+      "height": 4300,
+      "fill": "#F2F2F2",
+      "layout": "none",
+      "children": [
+        {
+          "type": "frame",
+          "id": "Ci9Kd",
+          "x": 0,
+          "y": 0,
+          "name": "Header / Logo + Nav + CTA Header",
+          "width": 1920,
+          "height": 120,
+          "fill": "#F2F2F2",
+          "layout": "none",
+          "children": [
+            {
+              "type": "frame",
+              "id": "i9WcC",
+              "x": 60,
+              "y": 28,
+              "name": "Text Group",
+              "gap": 10,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "rectangle",
+                  "id": "gBQk2",
+                  "name": "Image",
+                  "fill": "#D0D0D0",
+                  "width": 54,
+                  "height": 20
+                },
+                {
+                  "type": "text",
+                  "id": "aucpi",
+                  "name": "Title",
+                  "fill": "#000000",
+                  "content": "JTM",
+                  "fontFamily": "Inter",
+                  "fontSize": 24,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "kA1aR",
+              "x": 1100,
+              "y": 28,
+              "name": "Horizontal Content",
+              "gap": 28,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "sTjgW",
+                  "name": "Label",
+                  "fill": "#000000",
+                  "content": "TOP",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "aQBnA",
+                  "name": "Label",
+                  "fill": "#000000",
+                  "content": "COMPANY",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "s9s9XG",
+                  "name": "Label",
+                  "fill": "#000000",
+                  "content": "SERVICE",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "GJrHW",
+                  "name": "Label",
+                  "fill": "#000000",
+                  "content": "NEWS",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "GtcTO",
+                  "name": "Label",
+                  "fill": "#000000",
+                  "content": "RECRUIT",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "erON4",
+              "x": 1610,
+              "y": 20,
+              "width": 250,
+              "height": 40,
+              "fill": "#D0D0D0",
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "PgY0f",
+                  "fill": "#000000",
+                  "content": "お問い合わせ",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "600"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "lH4ys",
+          "x": 0,
+          "y": 120,
+          "name": "Background + Text Group",
+          "width": 1920,
+          "height": 620,
+          "fill": "#F2F2F2",
+          "layout": "none",
+          "children": [
+            {
+              "type": "rectangle",
+              "id": "VVzg8",
+              "x": 0,
+              "y": 0,
+              "name": "Background",
+              "fill": "#D0D0D0",
+              "width": 1920,
+              "height": 620
+            },
+            {
+              "type": "frame",
+              "id": "KnlKD",
+              "x": 230,
+              "y": 120,
+              "name": "Text Group",
+              "width": 760,
+              "layout": "vertical",
+              "gap": 20,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "lf0S3",
+                  "name": "Title",
+                  "fill": "#000000",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Rebuilding Human\nCapital Platform\nwith Optimal Logic.",
+                  "fontFamily": "Inter",
+                  "fontSize": 46,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "cH2cD",
+                  "name": "Body",
+                  "fill": "#000000",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "最適化された手法で、人材インフラを再構築する。",
+                  "fontFamily": "Inter",
+                  "fontSize": 18,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "LiuFA",
+          "x": 0,
+          "y": 740,
+          "name": "Image Text",
+          "width": 1920,
+          "height": 700,
+          "fill": "#F2F2F2",
+          "layout": "none",
+          "children": [
+            {
+              "type": "frame",
+              "id": "D8IBe8",
+              "x": 300,
+              "y": 100,
+              "name": "Text Group",
+              "width": 470,
+              "layout": "vertical",
+              "gap": 18,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "Gpo93",
+                  "name": "Title",
+                  "fill": "#000000",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "COMPANY",
+                  "fontFamily": "Inter",
+                  "fontSize": 52,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "qyJpG",
+                  "name": "Label",
+                  "fill": "#000000",
+                  "content": "会社情報",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "o6c5J",
+                  "name": "Title",
+                  "fill": "#000000",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "「次世代人材インフラ」の\n一翼を担う企業へ。",
+                  "fontFamily": "Inter",
+                  "fontSize": 26,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "M9JUQ",
+                  "name": "Body",
+                  "fill": "#000000",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "人材インフラを再定義するための取り組みを、事業と組織の両面から進める。",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "BY5Wc",
+                  "width": 220,
+                  "height": 40,
+                  "fill": "#D0D0D0",
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "w4m8T",
+                      "fill": "#000000",
+                      "content": "会社情報を見る",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "rectangle",
+              "id": "wZ7IR",
+              "x": 900,
+              "y": 150,
+              "name": "Image",
+              "fill": "#D0D0D0",
+              "width": 720,
+              "height": 430
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "ezfPU",
+          "x": 0,
+          "y": 1440,
+          "name": "Background + Text Group + Vertical Content + Horizontal Content + Card Layout",
+          "width": 1920,
+          "height": 1040,
+          "fill": "#F2F2F2",
+          "layout": "none",
+          "children": [
+            {
+              "type": "frame",
+              "id": "WmT1M",
+              "x": 300,
+              "y": 80,
+              "name": "Text Group",
+              "width": 1320,
+              "layout": "vertical",
+              "gap": 12,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "jhiav",
+                  "name": "Title",
+                  "fill": "#000000",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "SERVICE",
+                  "fontFamily": "Inter",
+                  "fontSize": 52,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "rHH2n",
+                  "name": "Label",
+                  "fill": "#000000",
+                  "content": "事業内容",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "RQcX4",
+              "x": 300,
+              "y": 200,
+              "name": "Vertical Content",
+              "width": 1320,
+              "layout": "vertical",
+              "gap": 64,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "HHLKp",
+                  "name": "Vertical Content",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 24,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "B7ETBE",
+                      "name": "Horizontal Content",
+                      "width": "fill_container",
+                      "gap": 12,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "rectangle",
+                          "id": "vadhi",
+                          "name": "Image",
+                          "fill": "#D0D0D0",
+                          "width": 42,
+                          "height": 34
+                        },
+                        {
+                          "type": "text",
+                          "id": "ieL8e",
+                          "name": "Label",
+                          "fill": "#000000",
+                          "content": "01",
+                          "fontFamily": "Inter",
+                          "fontSize": 16,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "qxvmb",
+                          "name": "Title",
+                          "fill": "#000000",
+                          "content": "インフラ事業",
+                          "fontFamily": "Inter",
+                          "fontSize": 22,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "zDnFp",
+                      "name": "Vertical Content",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 28,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "lMQ7Z",
+                          "name": "Horizontal Content",
+                          "width": "fill_container",
+                          "gap": 40,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "rectangle",
+                              "id": "yjW0N",
+                              "name": "Image",
+                              "fill": "#D0D0D0",
+                              "width": 430,
+                              "height": 250
+                            },
+                            {
+                              "type": "frame",
+                              "id": "kbnL1",
+                              "name": "Text Group",
+                              "width": "fill_container",
+                              "layout": "vertical",
+                              "gap": 12,
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "eprAD",
+                                  "name": "Title",
+                                  "fill": "#000000",
+                                  "textGrowth": "fixed-width",
+                                  "width": "fill_container",
+                                  "content": "採用支援事業",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 22,
+                                  "fontWeight": "600"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "a1kQl",
+                                  "name": "Body",
+                                  "fill": "#000000",
+                                  "textGrowth": "fixed-width",
+                                  "width": "fill_container",
+                                  "content": "説明文が入る領域。要点を短く並べる。",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 14,
+                                  "fontWeight": "normal"
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "A0gCG0",
+                                  "width": 220,
+                                  "height": 40,
+                                  "fill": "#D0D0D0",
+                                  "justifyContent": "center",
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "id": "wVeOC",
+                                      "fill": "#000000",
+                                      "content": "詳細を見る",
+                                      "fontFamily": "Inter",
+                                      "fontSize": 13,
+                                      "fontWeight": "600"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "PLH3s",
+                          "name": "Horizontal Content",
+                          "width": "fill_container",
+                          "gap": 40,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "NkpnT",
+                              "name": "Text Group",
+                              "width": "fill_container",
+                              "layout": "vertical",
+                              "gap": 12,
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "G2Ik1",
+                                  "name": "Title",
+                                  "fill": "#000000",
+                                  "textGrowth": "fixed-width",
+                                  "width": "fill_container",
+                                  "content": "パーキングホスピタリティ事業",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 22,
+                                  "fontWeight": "600"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "HIDrl",
+                                  "name": "Body",
+                                  "fill": "#000000",
+                                  "textGrowth": "fixed-width",
+                                  "width": "fill_container",
+                                  "content": "説明文が入る領域。要点を短く並べる。",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 14,
+                                  "fontWeight": "normal"
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "dhQwc",
+                                  "width": 220,
+                                  "height": 40,
+                                  "fill": "#D0D0D0",
+                                  "justifyContent": "center",
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "id": "nUvh8",
+                                      "fill": "#000000",
+                                      "content": "詳細を見る",
+                                      "fontFamily": "Inter",
+                                      "fontSize": 13,
+                                      "fontWeight": "600"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "rectangle",
+                              "id": "E01Vr",
+                              "name": "Image",
+                              "fill": "#D0D0D0",
+                              "width": 430,
+                              "height": 250
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "uNMks",
+                  "name": "Vertical Content",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 24,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "Qvsbx",
+                      "name": "Horizontal Content",
+                      "width": "fill_container",
+                      "gap": 12,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "rectangle",
+                          "id": "lCn2k",
+                          "name": "Image",
+                          "fill": "#D0D0D0",
+                          "width": 42,
+                          "height": 34
+                        },
+                        {
+                          "type": "text",
+                          "id": "FxUtL",
+                          "name": "Label",
+                          "fill": "#000000",
+                          "content": "02",
+                          "fontFamily": "Inter",
+                          "fontSize": 16,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "tp0cc",
+                          "name": "Title",
+                          "fill": "#000000",
+                          "content": "社会貢献事業",
+                          "fontFamily": "Inter",
+                          "fontSize": 22,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "E7fC6",
+                      "name": "Vertical Content",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 28,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "M2XED",
+                          "name": "Horizontal Content",
+                          "width": "fill_container",
+                          "gap": 40,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "rectangle",
+                              "id": "bzlr9",
+                              "name": "Image",
+                              "fill": "#D0D0D0",
+                              "width": 430,
+                              "height": 250
+                            },
+                            {
+                              "type": "frame",
+                              "id": "GhZE8",
+                              "name": "Text Group",
+                              "width": "fill_container",
+                              "layout": "vertical",
+                              "gap": 12,
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "bCtRU",
+                                  "name": "Title",
+                                  "fill": "#000000",
+                                  "textGrowth": "fixed-width",
+                                  "width": "fill_container",
+                                  "content": "リユース事業",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 22,
+                                  "fontWeight": "600"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "IXdhU",
+                                  "name": "Body",
+                                  "fill": "#000000",
+                                  "textGrowth": "fixed-width",
+                                  "width": "fill_container",
+                                  "content": "説明文が入る領域。要点を短く並べる。",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 14,
+                                  "fontWeight": "normal"
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "F8Xtf",
+                                  "width": 220,
+                                  "height": 40,
+                                  "fill": "#D0D0D0",
+                                  "justifyContent": "center",
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "id": "Ma9h7",
+                                      "fill": "#000000",
+                                      "content": "詳細を見る",
+                                      "fontFamily": "Inter",
+                                      "fontSize": 13,
+                                      "fontWeight": "600"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "g2CMa",
+                          "name": "Horizontal Content",
+                          "width": "fill_container",
+                          "gap": 40,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "J6gkJ",
+                              "name": "Text Group",
+                              "width": "fill_container",
+                              "layout": "vertical",
+                              "gap": 12,
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "S0A0a4",
+                                  "name": "Title",
+                                  "fill": "#000000",
+                                  "textGrowth": "fixed-width",
+                                  "width": "fill_container",
+                                  "content": "途上国産業育成事業",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 22,
+                                  "fontWeight": "600"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "IWQGu",
+                                  "name": "Body",
+                                  "fill": "#000000",
+                                  "textGrowth": "fixed-width",
+                                  "width": "fill_container",
+                                  "content": "説明文が入る領域。要点を短く並べる。",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 14,
+                                  "fontWeight": "normal"
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "iEps4",
+                                  "width": 220,
+                                  "height": 40,
+                                  "fill": "#D0D0D0",
+                                  "justifyContent": "center",
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "id": "v40F1a",
+                                      "fill": "#000000",
+                                      "content": "詳細を見る",
+                                      "fontFamily": "Inter",
+                                      "fontSize": 13,
+                                      "fontWeight": "600"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "rectangle",
+                              "id": "DIklV",
+                              "name": "Image",
+                              "fill": "#D0D0D0",
+                              "width": 430,
+                              "height": 250
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "xGgmE",
+          "x": 0,
+          "y": 2580,
+          "name": "Text Group + List Content",
+          "width": 1920,
+          "height": 430,
+          "fill": "#F2F2F2",
+          "layout": "none",
+          "children": [
+            {
+              "type": "frame",
+              "id": "y0OK2",
+              "x": 300,
+              "y": 70,
+              "name": "Horizontal Content",
+              "width": 1320,
+              "justifyContent": "space_between",
+              "alignItems": "end",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "c7s8Or",
+                  "name": "Text Group",
+                  "width": 420,
+                  "layout": "vertical",
+                  "gap": 10,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "tNdw3",
+                      "name": "Title",
+                      "fill": "#000000",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "NEWS",
+                      "fontFamily": "Inter",
+                      "fontSize": 52,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "olZuN",
+                      "name": "Label",
+                      "fill": "#000000",
+                      "content": "お知らせ",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "qkgtN",
+                  "width": 200,
+                  "height": 40,
+                  "fill": "#D0D0D0",
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "H8NLdY",
+                      "fill": "#000000",
+                      "content": "お知らせを見る",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "sH6b7",
+              "x": 300,
+              "y": 180,
+              "name": "List Content",
+              "width": 1320,
+              "layout": "vertical",
+              "gap": 16,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "us8By",
+                  "name": "Horizontal Content",
+                  "width": "fill_container",
+                  "gap": 18,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "SpDrT",
+                      "name": "Label",
+                      "fill": "#000000",
+                      "content": "2023.04.17",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "AzM6X",
+                      "name": "Card Layout",
+                      "width": 70,
+                      "height": 24,
+                      "fill": "#D0D0D0",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "Yjr0o",
+                          "name": "Label",
+                          "fill": "#000000",
+                          "content": "NEWS",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "vcaco",
+                      "name": "Title",
+                      "fill": "#000000",
+                      "textGrowth": "fixed-width",
+                      "width": 1050,
+                      "content": "管理職育成施策に関するお知らせ",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "tzKCS",
+                  "name": "Horizontal Content",
+                  "width": "fill_container",
+                  "gap": 18,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "ebRz4",
+                      "name": "Label",
+                      "fill": "#000000",
+                      "content": "2023.04.17",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "OQtXx",
+                      "name": "Card Layout",
+                      "width": 70,
+                      "height": 24,
+                      "fill": "#D0D0D0",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "zZZO3",
+                          "name": "Label",
+                          "fill": "#000000",
+                          "content": "NEWS",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "I94r56",
+                      "name": "Title",
+                      "fill": "#000000",
+                      "textGrowth": "fixed-width",
+                      "width": 1050,
+                      "content": "情報セキュリティマネジメントシステムの国際規格認証に関するお知らせ",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "dLgzY",
+                  "name": "Horizontal Content",
+                  "width": "fill_container",
+                  "gap": 18,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "nWyt7",
+                      "name": "Label",
+                      "fill": "#000000",
+                      "content": "2023.04.17",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "gImlY",
+                      "name": "Card Layout",
+                      "width": 70,
+                      "height": 24,
+                      "fill": "#D0D0D0",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "rg4Zf",
+                          "name": "Label",
+                          "fill": "#000000",
+                          "content": "NEWS",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "xZdlr",
+                      "name": "Title",
+                      "fill": "#000000",
+                      "textGrowth": "fixed-width",
+                      "width": 1050,
+                      "content": "サイトリニューアルのお知らせ",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "yf6fD",
+          "x": 0,
+          "y": 3060,
+          "name": "Image Text",
+          "width": 1920,
+          "height": 540,
+          "fill": "#F2F2F2",
+          "layout": "none",
+          "children": [
+            {
+              "type": "rectangle",
+              "id": "DRyPP",
+              "x": 0,
+              "y": 0,
+              "name": "Image",
+              "fill": "#D0D0D0",
+              "width": 920,
+              "height": 540
+            },
+            {
+              "type": "frame",
+              "id": "S6t20E",
+              "x": 980,
+              "y": 110,
+              "name": "Text Group",
+              "width": 520,
+              "layout": "vertical",
+              "gap": 16,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "ydzAI",
+                  "name": "Title",
+                  "fill": "#000000",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "RECRUIT",
+                  "fontFamily": "Inter",
+                  "fontSize": 52,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "s5BkFN",
+                  "name": "Label",
+                  "fill": "#000000",
+                  "content": "採用情報",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "Qleh6",
+                  "name": "Title",
+                  "fill": "#000000",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "急成長中の会社で\n一緒に成長しませんか?",
+                  "fontFamily": "Inter",
+                  "fontSize": 26,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "n93BcS",
+                  "name": "Body",
+                  "fill": "#000000",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "採用に関する説明文が入る領域。役割や働き方を短く示す。",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "qgFs1",
+                  "name": "Horizontal Content",
+                  "width": "fill_container",
+                  "gap": 14,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "CW3I0",
+                      "width": 220,
+                      "height": 40,
+                      "fill": "#D0D0D0",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "uBlAw",
+                          "fill": "#000000",
+                          "content": "キャリア採用情報を見る",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "H4dIv",
+                      "width": 220,
+                      "height": 40,
+                      "fill": "#D0D0D0",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "nzhf0",
+                          "fill": "#000000",
+                          "content": "アルバイト採用情報を見る",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "dSXCJ",
+          "x": 0,
+          "y": 3640,
+          "name": "Background + Text Group + Horizontal Content",
+          "width": 1920,
+          "height": 280,
+          "fill": "#D0D0D0",
+          "layout": "none",
+          "children": [
+            {
+              "type": "frame",
+              "id": "O2DCOz",
+              "x": 300,
+              "y": 70,
+              "name": "Text Group",
+              "width": 820,
+              "layout": "vertical",
+              "gap": 14,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "KbbUm",
+                  "name": "Title",
+                  "fill": "#000000",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "CONTACT",
+                  "fontFamily": "Inter",
+                  "fontSize": 46,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "K6ZKI",
+                  "name": "Label",
+                  "fill": "#000000",
+                  "content": "お問い合わせ",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "T1EDa",
+                  "name": "Body",
+                  "fill": "#000000",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "各種ご相談や採用に関するお問い合わせはこちらからご連絡ください。",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "o2neo",
+              "x": 0,
+              "y": 0,
+              "width": 240,
+              "height": 40,
+              "fill": "#D0D0D0",
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "fseJO",
+                  "fill": "#000000",
+                  "content": "お問い合わせをする",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "600"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "hOkiY",
+          "x": 0,
+          "y": 3920,
+          "name": "Background + Text Group + Horizontal Content",
+          "width": 1920,
+          "height": 380,
+          "fill": "#B8B8B8",
+          "layout": "none",
+          "children": [
+            {
+              "type": "frame",
+              "id": "QYuVr",
+              "x": 880,
+              "y": 34,
+              "name": "Text Group",
+              "width": 160,
+              "layout": "vertical",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "rectangle",
+                  "id": "bVNvs",
+                  "name": "Image",
+                  "fill": "#F2F2F2",
+                  "width": 70,
+                  "height": 24
+                },
+                {
+                  "type": "text",
+                  "id": "HjRB5",
+                  "name": "Label",
+                  "fill": "#000000",
+                  "content": "JTM",
+                  "fontFamily": "Inter",
+                  "fontSize": 22,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "og6Zt",
+              "x": 300,
+              "y": 110,
+              "name": "Horizontal Content",
+              "width": 1320,
+              "gap": 72,
+              "justifyContent": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "nTJlJ",
+                  "name": "Text Group",
+                  "width": 140,
+                  "layout": "vertical",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "IzIdZ",
+                      "name": "Label",
+                      "fill": "#000000",
+                      "content": "TOP",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "AnBdp",
+                      "name": "Body",
+                      "fill": "#000000",
+                      "content": "リンク",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "OBWaq",
+                  "name": "Text Group",
+                  "width": 140,
+                  "layout": "vertical",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "kIHpc",
+                      "name": "Label",
+                      "fill": "#000000",
+                      "content": "COMPANY",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "WItfR",
+                      "name": "Body",
+                      "fill": "#000000",
+                      "content": "リンク",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "hYQwa",
+                  "name": "Text Group",
+                  "width": 140,
+                  "layout": "vertical",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "C7nA7E",
+                      "name": "Label",
+                      "fill": "#000000",
+                      "content": "SERVICE",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "IxyST",
+                      "name": "Body",
+                      "fill": "#000000",
+                      "content": "リンク",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "nzmGG",
+                  "name": "Text Group",
+                  "width": 140,
+                  "layout": "vertical",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "z9Q7ln",
+                      "name": "Label",
+                      "fill": "#000000",
+                      "content": "NEWS",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "gXbLj",
+                      "name": "Body",
+                      "fill": "#000000",
+                      "content": "リンク",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "y4Vit",
+                  "name": "Text Group",
+                  "width": 140,
+                  "layout": "vertical",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "J3g3G",
+                      "name": "Label",
+                      "fill": "#000000",
+                      "content": "RECRUIT",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "a4Zt5P",
+                      "name": "Body",
+                      "fill": "#000000",
+                      "content": "リンク",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "ikaAJ",
+                  "name": "Text Group",
+                  "width": 140,
+                  "layout": "vertical",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "OslWX",
+                      "name": "Label",
+                      "fill": "#000000",
+                      "content": "CONTACT",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "BtiDi",
+                      "name": "Body",
+                      "fill": "#000000",
+                      "content": "リンク",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "gktwT",
+              "x": 760,
+              "y": 300,
+              "name": "Text Group",
+              "width": 400,
+              "layout": "vertical",
+              "gap": 4,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "goEY2",
+                  "name": "Body",
+                  "fill": "#000000",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Privacy Policy / Site Policy",
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "nUkcQ",
+                  "name": "Body",
+                  "fill": "#000000",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Copyright JTM Human Management Group. All rights reserved.",
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -50,68 +50,68 @@ pencil MCPツールを使用して、.penファイルを作成するためのワ
 
 ---
 
-## 基本ワークフロー（初回のみ、２回目以降は### step6へ）
+## 基本ワークフロー
 
-新しい.penファイルを作成する際は、以下の手順を**必ず**実行する。
+新しい.penファイルを作成する際は、以下の手順を**基本**とする。
 
 ### Step 1: ファイル名の決定
-```bash
-# 現在時刻を取得（HHMM形式）
-date +"%H%M"
-# → {TIMESTAMP}
-```
+`MMDDHHmm` 形式の 8 桁にする。既存ファイルがあるならそれを起点にする。
 
 ### Step 2: 空ファイル作成
-```bash
-touch designs/{TIMESTAMP}.pen
-```
+必要なら空ファイルを作成する。
 
 ### Step 3: pencilでファイルを開く
-
-```
-open_document("designs/{TIMESTAMP}.pen")
-```
+同じファイルを続けて扱うなら、まず `batch_get` / `batch_design` を `filePath` 付きで使う。`open_document` は、編集対象を切り替える必要があるときだけ使う。
 
 ### Step 4: 変数をインポート
 
-`src/scss/_01variables.scss` の変数を**全て**同期する。
-
-```例
-set_variables({
-  mc: { type: "color", value: "#2db542" },
-  sc: { type: "color", value: "#3194c9" },
-  ac: { type: "color", value: "#512db5" },
-  ...
-})
-```
+必要な変数だけを同期する。既存の変数で足りるなら追加しない。
 
 ### Step 5: コンポーネントをインポート
 
-必要なCustomClassコンポーネントを定義する。詳細は「Components（コンポーネント）運用」を参照。
+必要なCustomClassコンポーネントだけを定義する。再利用しないものは無理に reusable にしない。
 
-### Step 6: キャンバス作成
+### Step 6: 土台を作る
 
-キャンバスサイズの幅は**1920px固定**とする。
+最初にトップレベルフレームを作る。既存の土台がある場合はそれを起点にする。
 
-```javascript
-batch_design:
-  canvas = I(document, {
-    type: "frame",
-    name: "{TIMESTAMP}",
-    width: 1920,
-    height: 3000,
-    fill: "$background",
-    layout: "none"
-  })
-```
+### Step 7: 構造を生成する
+
+`batch_design` は小分けにして使う。手で1個ずつ積むより、共通関数、配列、繰り返し処理で構造を組む。
+
+### Step 8: 配置を整える
+
+画面全体に対する最大幅、中央寄せかどうか、セクション間の間隔を先に決める。余計な要素や装飾は足さない。
+
+### Step 9: 仕上げる
+
+作成後は `batch_get` や `snapshot_layout` でまず構造を確認する。`snapshot_layout` で足りるならそこで止め、見た目の確認が必要なときだけ `get_screenshot` か `export_nodes` を使う。必要なら位置とサイズだけ修正する。
 
 ---
 
-## 要素作成・ 基本ワークフロー（２回目以降）
+## レイヤー命名ルール
 
-### Step 6 要素を作成する
+ワイヤーフレームやレイアウト検討用の `.pen` を作る場合、レイヤー名は内容名ではなく構造名にする。
 
-フレームサイズはCustomClassクラス、コンポーネントの計算式に従う
+- 決められた言葉に無理に寄せない。既存語で粒度が合わない場合は、構造を表す新しい名前を使う。
+- `Card Layout` は原則使わず、カードの集合には `Card Group` を使う。既存資料との対応で `Card Layout` を使う場合も、同じ幅や同じ役割のカードが2つ以上並ぶ集合レイアウトに限定する。
+- カード単体には `Card` を使う。小さな画像付きリンクやカテゴリ項目は `Card` ではなく、`Tile Grid`、`Tile Row`、`Tile` を使う。
+- ボタン単体には `Button`、ボタンのまとまりには `Button Group` を使う。
+- 小さなリンク単体には `Link`、複数リンクのまとまりには `Link Group` を使う。
+- `Card Layout` や `Card Group` を、カード単体、ボタン単体、タグ、ラベル、小さなリンク要素に使わない。
+- `Horizontal Content` は原則使わず、横並びの役割が分かる名前へ落とす。例: `Header Bar`、`Section Head`、`News Strip`、`Footer Top`、`Nav Group`、`Utility Group`。
+- `Horizontal Content` と `Card Layout` / `Card Group` は、同じ階層で選択する類似カテゴリとして扱う。`Horizontal Content` の中に `Card Layout` / `Card Group` を入れない。
+- `Horizontal Content` の中にさらに `Horizontal Content` を入れない。
+- リストの1行は `List Item`、見出しとボタンの横並びは `Section Head`、ニュースの細い横帯は `News Strip` とする。
+- `Tile Grid` や `Card Group` の中に行分けが必要な場合は、行を `Tile Row` または `Row`、各要素を `Tile` または `Card` とする。
+
+---
+
+## 要素作成の基本
+
+### Step 1: 要素を作成する
+
+フレームサイズはCustomClassクラス、コンポーネントの計算式に従う。
 指定がない限り全てのプロパティは変数で指定する。
 
 ---
@@ -258,36 +258,6 @@ instance = I(canvas, {
   ref: "ImgText",
   // オーバーライド可能
 })
-```
-
----
-
-## 実装例（1520）
-
-> 以下は実際に作成した例です。
-
-### 実行コマンド
-
-```bash
-# 1. 現在時刻取得
-date +"%H%M"
-# → 1520
-
-# 2. 空ファイル作成
-touch designs/1520.pen
-```
-
-```
-# 3. pencilでファイルを開く
-open_document("designs/1520.pen")
-
-# 4. 変数をインポート
-set_variables({ MC: {...}, sc: {...}, ... })
-
-# 5. キャンバス作成
-batch_design:
-  canvas = I(document, {type:"frame", name:"1520", width:1920, height:3000, fill:"$BC", layout:"none"})
-  rect = I(canvas, {type:"rectangle", name:"Yellow Rectangle", x:360, y:120, width:1200, height:600, fill:"$SC"})
 ```
 
 ---

@@ -1,0 +1,27 @@
+src/activity/0526AiDrivenWordPress.md
+  s_510b49e9e060ac::t_274cf557284714 7,60
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.2",
+  "base_commit_sha": "c70c05d24d1bcbeee272524093b269e45fe41ee4",
+  "prompts": {},
+  "humans": {
+    "h_53dad1e32c3c71": {
+      "author": "yuremono <5alviaofficinali50@gmail.com>"
+    },
+    "h_5a56918e6ebef3": {
+      "author": "yuremono"
+    }
+  },
+  "sessions": {
+    "s_510b49e9e060ac": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019e6412-3a22-7c90-b481-2da2b0da54eb",
+        "model": "gpt-5.5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  }
+}

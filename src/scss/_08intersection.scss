@@ -10,24 +10,12 @@
 // 	}
 // }
 :root {
-        --first-delay: 1s;
-        --letter-delay: 0.025s;
+        --first-delay: 0.8s;
+        --letter-delay: 0.0375s;
         --phrase-delay: 0.15s;
 }
+// .JsLetter index.scss移動
 
-.JsLetter {
-
-        >span {
-                display: inline-block;
-                opacity: 0;
-                rotate: none;
-                transition: 0s;
-        }
-
-        &.show>span {
-                opacity: 1;
-        }
-}
 
 [class*=Js],
 [class*=JsCh]>* {
@@ -159,10 +147,13 @@
 
 .BudouxScroll {
         --BudouxScrollMin: 0.3;
-        --BudouxScrollTrigger: 0.68;
+        --BudouxScrollTrigger: 0.75;
         --BudouxScrollRange: 1;
         word-break: keep-all;
         overflow-wrap: anywhere;
+        a{
+        -webkit-text-stroke-color: var(--BK);
+        }
 }
 
 .BudouxScrollPhrase {
@@ -170,6 +161,9 @@
         opacity: var(--BudouxScrollMin);
         transition: none;
         vertical-align: baseline;
+        &:is(.btn *){
+            opacity: 1!important;
+        }
 }
 
 .BudouxShow {

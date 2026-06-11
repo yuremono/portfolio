@@ -36,6 +36,14 @@
 
         --TR: transparent; 
         --MC: oklch(0.1 0.1 75); 
+        --navy: oklch(0.1 0.25 265); 
+        --navyLT: oklch(0.4 0.25 265); 
+        --wine: oklch(0.3 0.4 50); 
+        --wineLT: oklch(0.6 0.4 50); 
+        --brown: oklch(0.65 0.4 105); 
+        --brownLT: oklch(0.9 0.4 105); 
+        --forest: oklch(0.3 0.4 150); 
+        --forestLT: oklch(0.6 0.4 150); 
         --SC: oklch(0.50 0.125 265); 
         --AC: oklch(0.8 0.1 75); 
         --BC: oklch(99% 0.005 60); 
@@ -77,6 +85,7 @@
 .dark {
 	--background: var(--TC);
 	--foreground: var(--WH);
+	--btnC: var(--TC);
 	// --border: #fff;
         // --BK: #fff;
         // --TC: #fff;
@@ -95,6 +104,10 @@
                 --GR#{$i}0: color-mix(in srgb, transparent, var(--GR) #{$i}0%);
                 --WH#{$i}0: color-mix(in srgb, transparent, var(--WH) #{$i}0%);
                 --BK#{$i}0: color-mix(in srgb, transparent, var(--BK) #{$i}0%);
+                --background#{$i}0: color-mix(in srgb, transparent, var(--background) #{$i}0%);
+                --foreground#{$i}0: color-mix(in srgb, transparent, var(--foreground) #{$i}0%);
+                --navy#{$i}0: color-mix(in srgb, transparent, var(--navy) #{$i}0%);
+                --wine#{$i}0: color-mix(in srgb, transparent, var(--wine) #{$i}0%);
         }
 }
 
@@ -203,7 +216,7 @@
 }
 :root{//header props
 
-        --transH: 100px;
+        --transH: 32px;
         --trans: 400ms;
         --tw-duration: var(--trans);
         --default-transition-timing-function: var(--trans);
@@ -337,17 +350,17 @@
         --TLOff:.25em;
         --TLG :.25em;
         // --btnHover:brightness(1.2) saturate(1.2);
-        --btnBG:var(--MC);
-        --btnC:var(--WH);
-        --hoverBG: var(--MC);
-        --hoverC: var(--AC);
+        --btnBG:var(--foreground);
+        --btnC:var(--background);
+        --hoverBG: var(--background);
+        --hoverC: var(--foreground);
         --hoverFL: invert(0%) brightness(100%) saturate(100%);
         --btnFZ:1rem;
         --btnFF:var(--Eng);
         --btnLH:1.125;
         --btnFW: 700; 
         --btnLS:0.025em; 
-        --btnW:300px;
+        --btnW:256px;
         --btnW48:100%;
         // @media (max-width : 480px){
         //     --btnW:100%;
@@ -360,7 +373,7 @@
         --btnPX:1.25em ;
         --btnPY: 0.25em;
         --btnG:.5em;
-        --btnTR:.6s ; 
+        --btnTR:var(--trans) ; 
         --btnTRT: ease-out; 
         // --btnTR:var(--trt);
         // --btnRad:var(--rad);

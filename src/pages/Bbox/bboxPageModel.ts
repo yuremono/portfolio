@@ -1,5 +1,5 @@
-import { MIN_BOX } from "../../lib/annotatorConstants";
-import { cloneGroupsFromSnapshot } from "../../lib/annotatorSnapshot";
+import { MIN_BOX } from "./bboxConstants";
+import { cloneGroupsFromSnapshot } from "./bboxSnapshot";
 import type {
 	AnnotatorGroup,
 	AnnotatorRect,
@@ -9,7 +9,7 @@ import type {
 	InteractionMode,
 	OutputFormat,
 	ResizeHandle,
-} from "../../lib/annotatorTypes";
+} from "./bboxTypes";
 
 /** ファイル入力とドロップの受け付け MIME（`accept` と揃える）。 */
 export const IMAGE_INPUT_ACCEPT = "image/*";

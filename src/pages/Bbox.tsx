@@ -13,8 +13,8 @@ import {
 	redrawAnnotatorCanvas,
 	resolveAnnotatorCanvasColors,
 	syncAnnotatorCanvasLayout,
-} from "../lib/annotatorCanvas";
-import { HISTORY_MAX, MIN_BOX } from "../lib/annotatorConstants";
+} from "./Bbox/bboxCanvas";
+import { HISTORY_MAX, MIN_BOX } from "./Bbox/bboxConstants";
 import {
 	clampAllChildren,
 	clampBox,
@@ -31,12 +31,12 @@ import {
 	parentAbsRect,
 	pointInParent,
 	snapVal,
-} from "../lib/annotatorGeometry";
-import { formatOutputText } from "../lib/annotatorOutput";
+} from "./Bbox/bboxGeometry";
+import { formatOutputText } from "./Bbox/bboxOutput";
 import {
 	takeAnnotatorSnapshot,
-} from "../lib/annotatorSnapshot";
-import type { AnnotatorGroup, AnnotatorRect } from "../lib/annotatorTypes";
+} from "./Bbox/bboxSnapshot";
+import type { AnnotatorGroup, AnnotatorRect } from "./Bbox/bboxTypes";
 import BboxSidebar from "./Bbox/BboxSidebar";
 import BboxStage from "./Bbox/BboxStage";
 import BboxToolbar from "./Bbox/BboxToolbar";

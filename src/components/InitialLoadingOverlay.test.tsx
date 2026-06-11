@@ -34,7 +34,7 @@ function renderInitialLoading(storageKey = "InitialLoadingTest") {
 /** アンカー待ちが即終了するよう、実ページ相当の段落を載せる（文言はキャンバス既定と揃える）。 */
 function appendMindMapAboutAnchor(html = "yuremono<br>works") {
 	const mindMap = document.createElement("section");
-	mindMap.className = "mindMap";
+	mindMap.className = "MindMap";
 	const about = document.createElement("p");
 	about.className = "about_p";
 	about.innerHTML = html;

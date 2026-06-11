@@ -1,10 +1,10 @@
 /** アノテータ状態のスナップショット取得と復元（undo/redo 用の履歴要素）。 */
-import { ensureParentBounds } from "./annotatorGeometry";
+import { ensureParentBounds } from "./bboxGeometry";
 import type {
 	AnnotatorGroup,
 	AnnotatorSnapshot,
 	InteractionMode,
-} from "./annotatorTypes";
+} from "./bboxTypes";
 
 /** 現在の groups と UI 関連をスナップショット化（ID カウンタ含む）。 */
 export function takeAnnotatorSnapshot(

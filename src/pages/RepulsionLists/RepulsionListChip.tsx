@@ -160,7 +160,7 @@ export function RepulsionListChip({
 						</div>
 					</a>
 				) : (
-                                                <span className=" font-thin  z-10 leading-[1.25em] [font-size:calc(var(--mmFZ)*4.5)]">{title}</span>
+                                                <span className=" font-thin  z-10 leading-[1.25em] [font-size:calc(var(--mmFZ)*4)]">{title}</span>
 				)}
 				<div ref={popupRef} className="repulsion-list-chip-popup">
 					{children}

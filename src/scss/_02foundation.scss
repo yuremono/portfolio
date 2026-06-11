@@ -182,9 +182,7 @@ h5,h4{
     height: auto!important;
 }
 #contents .slick-list{width: 100%;}
-:target,[id]{//アンカーリンク用 ヘッダー幅を確保
-	scroll-margin-top: calc(var(--head) * 1.5);
-}
+
 .box:has(iframe){
     :is(article>div,iframe){
         height: 100%;

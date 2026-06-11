@@ -9,7 +9,6 @@ import { RepulsionLists } from "./RepulsionLists/RepulsionLists";
 // import { Image } from "../components/Image";
 // import { getAssetPath } from "../lib/assetPath";
 
-
 import {
 	Moon,
 	Sun,
@@ -24,7 +23,7 @@ import HeaderCylinder from "../components/HeaderCylinder";
 // import Header from "../components/Header";
 import { Footer } from "../components/Footer";
 import { PageRoot } from "../components/PageRoot";
-import { BunmyakuTeaserSection } from "../components/BunmyakuTeaserSection";
+import { BunmyakuTeaserSection } from "./Top/BunmyakuTeaserSection";
 import { ScrollXSection } from "../components/ScrollXSection";
 import { useClientRuntime } from "../hooks/useClientRuntime";
 import { useHtmlRootClass } from "../hooks/useHtmlRootClass";
@@ -84,7 +83,7 @@ function Next() {
 			</button>
 
 			<main className=" min-h-screen ">
-				<section className="out mindMap   text-center   font-thin">
+				<section className="out MindMap   text-center   font-thin">
 					{/* InitialLoadingOverlay の INITIAL_LOADING_LABEL_TEXT と文言を同期 */}
 					<p
 						className="hidden mmPin about_p lg:w-[calc(var(--wid)/2)] text-[--GR] font-light text-center p-4 px-6  right-1/2 top-1/2 lg:translateYH static lg:absolute"
@@ -118,7 +117,7 @@ function Next() {
 
 				<ScrollXSection className="relative mt-0">
 					<div className="DialogWrapper">
-						<div className=" mindMap  text-center experience   font-thin ">
+						<div className=" MindMap  text-center experience   font-thin ">
 							<h2
 								className="mm1-3 text-[--GR] font-light text-left tracking-[-0.025em]"
 								style={{ fontSize: "3em" }}
@@ -648,7 +647,7 @@ function Next() {
 								<div className=" ">
 									<h2 className="font-thin grid content-center md:h-[100lvh]">
 										<span
-											className="mindWobble text-left leading-[0.7em] tracking-[-0.0em]"
+											className="MindWobble text-left leading-[0.7em] tracking-[-0.0em]"
 											style={{ fontSize: "2.5em" }}
 										>
 											Vibe
@@ -656,13 +655,13 @@ function Next() {
 											&nbsp;&nbsp;Design
 										</span>
 										<span
-											className="mindWobble text-center leading-[1em] mt-[-0.25em] tracking-[-0.0em] font-normal text-GR/10 "
+											className="MindWobble text-center leading-[1em] mt-[-0.25em] tracking-[-0.0em] font-normal text-GR/10 "
 											style={{ fontSize: "6em" }}
 										>
 											or
 										</span>
 										<span
-											className="mindWobble text-right leading-[0.57em] tracking-[0.08em] "
+											className="MindWobble text-right leading-[0.57em] tracking-[0.08em] "
 											style={{ fontSize: "2.5em" }}
 										>
 											Vault&nbsp;
@@ -671,7 +670,7 @@ function Next() {
 										</span>
 									</h2>
 								</div>
-								{/* <h2 className="mindWobble font-thin text-left leading-[0.875em] tracking-[0.0em]">
+								{/* <h2 className="MindWobble font-thin text-left leading-[0.875em] tracking-[0.0em]">
 									<span style={{ fontSize: "1.125em" }}>
 										Burn
 										<br />
@@ -742,7 +741,7 @@ function Next() {
 
 				{/* OtherWorks */}
 				{/* <section className="pb-[--MY]  text-center mt-[-25lvh]">
-					<h2 className="mindWobble font-thin">Other Works</h2>
+					<h2 className="MindWobble font-thin">Other Works</h2>
 					<Cards className="mt-0 col3 [--gap:0px] bp-lg text-left [--btnW:50%] md:[--btnH:3em] leading-[1.75em] BorderT BorderL">
 						<CardsItem
 							className={`${otherWorksClasses.item} w-2/3`}
@@ -964,7 +963,7 @@ function Next() {
 					</div>
 					<div className="item content-center">
 						<div className="">
-							<h2 className="mindWobble font-thin text-center leading-[0.6em]">
+							<h2 className="MindWobble font-thin text-center leading-[0.6em]">
 								<span style={{ fontSize: "0.625em" }}>
 									Agent Driven
 									<br />
@@ -995,7 +994,7 @@ function Next() {
 				{/* CreativeDemos */}
 				{/* <section className=" out text-center creative font-thin">
 					<div id="Demos" />
-					<h2 className="mindWobble font-thin ">
+					<h2 className="MindWobble font-thin ">
 						<span style={{ fontSize: "0.75em" }}>
 							Creative Demos
 						</span>
@@ -1023,7 +1022,7 @@ function Next() {
 				{/* <section className="Cards col2">
 					<div className="item">
 						<div className="text-center">
-							<h2 className="mindWobble font-thin">
+							<h2 className="MindWobble font-thin">
 								Chat
 								<br />
 								Kanban
@@ -1072,7 +1071,7 @@ function Next() {
 				{/* <section className="Cards col2 rtl hidden">
 					<div className="item">
 						<div className="text-center">
-							<h2 className="mindWobble font-thin">
+							<h2 className="MindWobble font-thin">
 								Chat
 								<br />
 								Kanban
@@ -1121,7 +1120,7 @@ function Next() {
 				{/* <section className="Cards col2  rtl hidden">
 					<div className="item content-center">
 						<div className="budoux text-center">
-							<h2 className="mindWobble font-thin text-left">
+							<h2 className="MindWobble font-thin text-left">
 								<span style={{ fontSize: "0.75em" }}>
 									CSS Talk
 								</span>

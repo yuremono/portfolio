@@ -33,6 +33,25 @@ describe("initSpanWrap", () => {
 		);
 	});
 
+	it("許可したインラインタグ内の文字も分割し、直下の文字から連番を継続する", () => {
+		document.body.innerHTML =
+			'<div><p class="JsLetter">make<span>Web</span><strong>site</strong></p></div>';
+		initSpanWrap(document.body);
+
+		const letters = document.querySelectorAll(".JsLetter span[style]");
+		expect(Array.from(letters, (letter) => letter.textContent).join("")).toBe(
+			"makeWebsite",
+		);
+		expect(letters[4]?.textContent).toBe("W");
+		expect(letters[4]?.getAttribute("style")).toBe(
+			"transition-delay:calc(var(--first-delay) + 4 * var(--letter-delay))",
+		);
+		expect(letters[7]?.textContent).toBe("s");
+		expect(letters[7]?.getAttribute("style")).toBe(
+			"transition-delay:calc(var(--first-delay) + 7 * var(--letter-delay))",
+		);
+	});
+
 	it("ディレイカウンタは段落ごとに0から始まる", () => {
 		document.body.innerHTML =
 			'<div><p class="JsLetter">ab</p><p class="JsLetter">cd</p></div>';

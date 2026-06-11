@@ -35,7 +35,7 @@ import {
 	rectToSvgPathD,
 	RECT_ITEM_ROUNDED_100_CLASS,
 	SVG_RANDOM_RECTS_WRAP_CLASS,
-} from "../lib/generator/rectsPageMarkup";
+} from "./Rects/rectsPageMarkup";
 import {
 	gridShapePathD,
 	gridShapeUsesPath,
@@ -43,8 +43,8 @@ import {
 	gridViewBoxHeightForSquareCells,
 	type GridRandomMode,
 	type GridShapeId,
-} from "../lib/generator/randomGrid";
-import type { Rect } from "../lib/generator/rects";
+} from "./Rects/randomGrid";
+import type { Rect } from "./Rects/rects";
 import {
 	clampGridShapeRotationDeg,
 	clampWrapperHeightPct,
@@ -52,7 +52,7 @@ import {
 	normalizeTweakParamsInPlace,
 	saveTweakParams,
 	type RectsTweakParams,
-} from "../lib/generator/rectsTweakParams";
+} from "./Rects/rectsTweakParams";
 
 /** Tweakpane の連続操作時に localStorage への同期書き込みをまとめる（メインスレッドの負荷軽減） */
 const PERSIST_DEBOUNCE_MS = 280;
@@ -125,7 +125,7 @@ function Rects() {
 	const [initialParams] = useState<RectsTweakParams>(() => {
 		return {
 			...loadTweakParams(),
-			// 初回表示の Generator は常に Grid から開始する
+			// 初回表示のジェネレーターは常に Grid から開始する
 			generatorMode: "grid",
 		};
 	});

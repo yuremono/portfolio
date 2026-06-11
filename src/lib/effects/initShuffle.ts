@@ -1,4 +1,4 @@
-import type { RuntimeDisconnect } from "../lib/initClientRuntime";
+import type { RuntimeDisconnect } from "../initClientRuntime";
 
 type ShuffleElement = HTMLElement & {
 	dataset: HTMLElement["dataset"] & {

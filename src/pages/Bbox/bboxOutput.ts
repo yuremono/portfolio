@@ -1,6 +1,6 @@
 /** グループ・親子矩形を JSON / Markdown テキストに整形（丸めは HTML 版と同じ）。Markdown は全グループを1表にまとめ親子行＋区切り行。 */
 
-import type { AnnotatorGroup, OutputFormat } from "./annotatorTypes";
+import type { AnnotatorGroup, OutputFormat } from "./bboxTypes";
 
 /** 「123px / 12.5%」形式の軸ごとの書き出し文字列。 */
 export interface StageDims {

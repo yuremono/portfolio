@@ -5,11 +5,7 @@ import {
 	type Dispatch,
 	type SetStateAction,
 } from "react";
-import {
-	findBoxById,
-	hitTestChildAbs,
-	snapVal,
-} from "../../lib/annotatorGeometry";
+import { findBoxById, hitTestChildAbs, snapVal } from "./bboxGeometry";
 import type { MutableState } from "./bboxPageModel";
 import { bboxScrollOverflowThumbClass } from "./bboxRootClasses";
 

@@ -6,17 +6,17 @@ import {
 	VAR_ANN_DRAFT_STROKE,
 	VAR_ANN_GUIDE,
 	VAR_ANN_HANDLE_FILL,
-} from "./annotatorConstants";
+} from "./bboxConstants";
 import {
 	childAbs,
 	getPrimarySelectedChildAbs,
 	parentAbsRect,
-} from "./annotatorGeometry";
+} from "./bboxGeometry";
 import type {
 	AnnotatorGroup,
 	AnnotatorRect,
 	InteractionMode,
-} from "./annotatorTypes";
+} from "./bboxTypes";
 
 /** getComputedStyle で解決したキャンバス用色（値は CSS 変数由来）。 */
 export interface AnnotatorCanvasColors {

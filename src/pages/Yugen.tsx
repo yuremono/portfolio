@@ -4,7 +4,7 @@ import Header from "../components/Header";
 import { Footer } from "../components/Footer";
 import { PageRoot } from "../components/PageRoot";
 // import { initGlitch } from "../features/glitch/initGlitch";
-import { initBgTrigger } from "../lib/initBgTrigger";
+import { initBgTrigger } from "../lib/effects/initBgTrigger";
 import { useClientRuntime } from "../hooks/useClientRuntime";
 import { useHtmlRootClass } from "../hooks/useHtmlRootClass";
 import { getAssetPath } from "../lib/assetPath";

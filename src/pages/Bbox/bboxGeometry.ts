@@ -9,7 +9,7 @@
  *   `clampAllChildren`, `nextChildLabel`
  */
 
-import { MIN_BOX, HANDLE } from "./annotatorConstants";
+import { MIN_BOX, HANDLE } from "./bboxConstants";
 import type {
 	AnnotatorBox,
 	AnnotatorGroup,
@@ -18,7 +18,7 @@ import type {
 	InteractionMode,
 	PrimarySelectedChild,
 	ResizeHandle,
-} from "./annotatorTypes";
+} from "./bboxTypes";
 
 const RESIZE_HANDLE_ORDER: readonly ResizeHandle[] = [
 	"nw",

@@ -8,13 +8,13 @@ import {
 	readPageTransitionCanvasLabel,
 	resolveCssColorOnElement,
 	waitForPageTransitionCanvasFont,
-} from "../lib/pageTransitionCanvasLabel";
+} from "../lib/effects/pageTransitionCanvasLabel";
 import { LoadingLayer } from "./LoadingLayer";
 
 const InitialLoadingStorageKey = "InitialLoadingViewed";
 const BODY_PENDING_CLASS = "SiteTransitionPending";
 
-/** TOP `.mindMap .about_p` と同じ文言に手動で揃える。 */
+/** TOP `.MindMap .about_p` と同じ文言に手動で揃える。 */
 export const INITIAL_LOADING_LABEL_TEXT = "yuremono\nworks";
 
 // デバッグ時は true にすると、sessionStorage を無視してリロードごとに表示します。
@@ -50,7 +50,7 @@ function setSessionViewed(storageKey: string) {
 
 /** lazy 済みレイアウトのアンカー。テキスト内容は読まず、タイミング用とスタイルプローブ用のみ。 */
 function findPreferredAnchor(): Element | null {
-	const anchor = document.querySelector<HTMLElement>(".mindMap .about_p");
+	const anchor = document.querySelector<HTMLElement>(".MindMap .about_p");
 	if (anchor?.textContent?.trim()) {
 		return anchor;
 	}

@@ -1,8 +1,8 @@
 /** 初回表示用: デモ画像＋親1（全面）・子3（設計座標から実寸へスケール）。 */
 
 import { getAssetPath } from "../../lib/assetPath";
-import { clampChildTranslateInParent } from "../../lib/annotatorGeometry";
-import type { AnnotatorGroup } from "../../lib/annotatorTypes";
+import { clampChildTranslateInParent } from "./bboxGeometry";
+import type { AnnotatorGroup } from "./bboxTypes";
 import { initialParentHeightPx, type MutableState } from "./bboxPageModel";
 
 /** `public/images/bbox_demo.jpg`（実寸がステージ論理ピクセル。設計基準は下定数）。 */

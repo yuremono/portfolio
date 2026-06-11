@@ -1302,6 +1302,9 @@
 
         &.HeaderCylinder {
                 --logoW:8rem;
+                --BC: oklch(99% 0.005 60);
+                --background: var(--BC);
+                --foreground: var(--TC);
                 @apply h-full pointer-events-none;
 
                 .HeaderInner {
@@ -1315,7 +1318,7 @@
                 .HeaderCylinderLogo {
                         @apply z-[10] absolute w-[calc(var(--logoW)/3*2)] lg:w-[var(--logoW)] top-0 left-0 pointer-events-auto h-auto  p-0 border-0 lg:top-1/2 lg:translate-y-[-52.5%]  aspect-square lg:aspect-[1/2];
                         appearance: none;
-                        background: var(--TR);
+                        background: var(--BC);
                         border-radius: 0 999px 999px 0;
                         // overflow: clip;
                         pointer-events: none;
@@ -1378,7 +1381,7 @@
                                 @apply text-lg lg:text-base  px-2 py-0 my-[1.5lvh]  block content-center  h-[unset] ;
                                 // background: linear-gradient(var(--TC), var(--TC)) no-repeat center/100% 1px;
                                 background-color: var(--foreground);
-                                color: var(--background);
+                                color: var(--WH);
                                 transform: translate(0, var(--navClosedY));
                                 transition: var(--trans);
                                 opacity: 0;
@@ -1388,7 +1391,6 @@
 
                         a,button {
                                 @apply align-top whitespace-nowrap;
-
                         }
 
                         ul:has(li:nth-of-type(6):last-of-type) {
@@ -1425,20 +1427,31 @@
                                 li:nth-of-type(1) {--navX: 1;--navClosedY: 0%;}
                         }
                         .NavDrop .DropUl {
-                                --ml: 0.5em;
+                                // --ml: 0.5em;
+                                --ml: 0em;
                                 --liBG: var(--foreground);
-                                --dropC: var(--background);
-                                color: var(--background);
+                                --dropC: var(--WH);
+                                color: var(--WH);
                                 background-color: unset;
                                 padding: unset;
                                 border: unset;
                                 min-width: unset;
                                 scale: 0 1;
                                 transform-origin: left;
+
+                                position: fixed;
+                                inset: auto;
+                                // left: var(--dropPopoverLeft, 0);
+                                left: calc(var(--dropPopoverLeft) + 0.5rem);
+                                top: var(--dropPopoverTop, 0);
+                                transform: translateY(-50%);
                                 > li {
                                         width: fit-content;background-color: var(--liBG);
                                         padding-inline: 0.5em;
                                         margin-block: 2lvh;
+                                }
+                                > li svg{
+                                        margin-left: 0.25em;
                                 }
                                 &:popover-open{
                                         scale: 1 1;
@@ -1525,11 +1538,7 @@
                                         > li:nth-child(6),> li:nth-child(9) {margin-left: calc(var(--ml) * 8);}
                                         > li:nth-child(7),> li:nth-child(8) {margin-left: calc(var(--ml) * 8);}
                                 }
-                                position: fixed;
-                                inset: auto;
-                                left: var(--dropPopoverLeft, 0);
-                                top: var(--dropPopoverTop, 0);
-                                transform: translateY(-50%);
+
                         }
                         .DropIcon{
                                 rotate: -90deg;
@@ -1544,7 +1553,6 @@
 
                 &[data-nav-open=true] {
                         .HeaderCylinderLogo {
-                                background-color: var(--background);
                                 border-color: var(--TC30) ;
                         }
                         .HeaderNav {
@@ -1553,6 +1561,7 @@
                         .HeaderNav .NavLi {
                                 opacity: 1;
                                 transform: translateX(calc(var(--navX) * var(--logoW)));
+                                // transform: translateX(calc(var(--navX) * var(--logoW)));
                                 @include max-lg {
                                         transform: translateX(calc(var(--navX) * var(--logoW) / 3));
                                         // &:hover{
@@ -2354,6 +2363,7 @@
                 padding-inline: var(--headG);
                 padding-block: 0.5em;
                 align-content: center;
+                
 
                 &:has(span) {
                         --liPY: calc(var(--headG)/2);

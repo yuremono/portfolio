@@ -1,4 +1,4 @@
-import type { PageTransitionMosaiqueLabel } from "./effects/maskMosaique";
+import type { PageTransitionMosaiqueLabel } from "./maskMosaique";
 
 function readNumber(value: string, fallback: number) {
 	const parsed = Number.parseFloat(value.trim());

@@ -8,7 +8,7 @@ import { initBudouxScroll } from "./budouxScroll";
 import { initBudouxShow } from "./budouxShow";
 import { initHeader } from "./header";
 import { initHeaderTrans } from "./headerTrans";
-import { initIntersectionShow } from "./intersectionShow";
+import { initIntersectionShow } from "./effects/intersectionShow";
 import { initScrollX } from "./scrollX";
 import { initSpanWrap } from "./spanWrap";
 import { initVideo } from "./video";

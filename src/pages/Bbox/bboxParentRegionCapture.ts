@@ -1,6 +1,6 @@
 /** 親BBox矩形で画像と注釈キャンバスを合成した PNG Blob（スクショボタン・ローカル一括生成）。 */
 
-import type { AnnotatorGroup } from "../../lib/annotatorTypes";
+import type { AnnotatorGroup } from "./bboxTypes";
 
 /**
  * `imgEl` と `canvasEl` は画像・キャンバス論理座標が一致している前提。

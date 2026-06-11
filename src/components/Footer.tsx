@@ -9,7 +9,7 @@ export function Footer({ className }: FooterProps) {
 	return (
 		<footer
 			className={[
-				" Eng Wrap into   bg-[--foreground] text-[--background] bg-no-repeat bg-contain bg-left-bottom",
+				" Eng Wrap into min-h-[100lvh] content-center bg-[--foreground] text-[--background] bg-no-repeat bg-contain bg-left-bottom",
 				className,
 			]
 				.filter(Boolean)
@@ -76,14 +76,17 @@ export function Footer({ className }: FooterProps) {
 					<li className="">
 						<Link to="/activity">Activity</Link>
                                         </li>
-                                        <li className="DropLi">
+                                        
+				</ul>
+				<ul className="flex flex-wrap gap md:justify-center mt-6">
+                                        <li className="">
 						<a
-							href="https://yuremono.com/"
+							href="https://github.com/yuremono?tab=repositories"
 							className=" "
 							target="_blank"
 							rel="noopener noreferrer"
 						>
-							Portfolio-wp
+							Repositories
 							<ArrowSquareOutIcon size={16} />
 						</a>
 					</li>

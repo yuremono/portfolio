@@ -9,15 +9,13 @@
       "name": "Frame",
       "clip": true,
       "width": 1440,
-      "height": 5436,
+      "height": 8694,
       "fill": "#FFFFFF",
-      "layout": "none",
+      "layout": "vertical",
       "children": [
         {
           "type": "frame",
           "id": "sLm8E",
-          "x": 0,
-          "y": 0,
           "name": "Header",
           "width": 1440,
           "height": 100,
@@ -431,8 +429,6 @@
         {
           "type": "frame",
           "id": "K5Hhm",
-          "x": 0,
-          "y": 100,
           "name": "Section",
           "width": 1440,
           "height": 898,
@@ -702,240 +698,7 @@
         },
         {
           "type": "frame",
-          "id": "DkF0i",
-          "x": 0,
-          "y": 998,
-          "name": "Section",
-          "width": 1440,
-          "height": 934,
-          "fill": "#FFFFFF",
-          "layout": "none",
-          "children": [
-            {
-              "type": "text",
-              "id": "otWRb",
-              "x": 0,
-              "y": 142,
-              "name": "Effect",
-              "fill": "#F2F3FA",
-              "textGrowth": "fixed-width",
-              "width": 760,
-              "content": "SERVICE",
-              "lineHeight": 1,
-              "fontFamily": "Inter",
-              "fontSize": 150,
-              "fontWeight": "700",
-              "letterSpacing": 4
-            },
-            {
-              "type": "text",
-              "id": "i77HG",
-              "x": 170,
-              "y": 190,
-              "name": "Title",
-              "fill": "#1A2B80",
-              "textGrowth": "fixed-width",
-              "width": 574,
-              "content": "SERVICE",
-              "lineHeight": 1,
-              "fontFamily": "Inter",
-              "fontSize": 60,
-              "fontWeight": "700"
-            },
-            {
-              "type": "frame",
-              "id": "ccVX5",
-              "x": 170,
-              "y": 276,
-              "name": "Effect",
-              "width": 58,
-              "height": 8,
-              "fill": "#E51F14",
-              "layout": "none"
-            },
-            {
-              "type": "text",
-              "id": "b17Bry",
-              "x": 242,
-              "y": 273,
-              "name": "Subtitle",
-              "fill": "#111111",
-              "textGrowth": "fixed-width",
-              "width": 180,
-              "content": "事業を知る",
-              "lineHeight": 1,
-              "fontFamily": "Inter",
-              "fontSize": 16,
-              "fontWeight": "700"
-            },
-            {
-              "type": "text",
-              "id": "f7R4Z",
-              "x": 170,
-              "y": 380,
-              "name": "Text",
-              "fill": "#222222",
-              "textGrowth": "fixed-width",
-              "width": 520,
-              "content": "一般貨物自動車運送の事業を行っています。\n商業品や工業製品、食品、家具など、あらゆる貨物を安全にお届けいたします。",
-              "lineHeight": 1.7,
-              "fontFamily": "Inter",
-              "fontSize": 30,
-              "fontWeight": "700"
-            },
-            {
-              "type": "frame",
-              "id": "jBKDA",
-              "x": 819,
-              "y": 195,
-              "name": "Media",
-              "width": 451,
-              "height": 501,
-              "fill": "#D8E2F0",
-              "stroke": {
-                "thickness": 1,
-                "fill": "#C7D2E0"
-              },
-              "layout": "none"
-            },
-            {
-              "type": "text",
-              "id": "uD1QC",
-              "x": 819,
-              "y": 405,
-              "name": "Text",
-              "fill": "#8190A8",
-              "textGrowth": "fixed-width",
-              "width": 451,
-              "content": "MEDIA",
-              "lineHeight": 1,
-              "textAlign": "center",
-              "fontFamily": "Inter",
-              "fontSize": 24,
-              "fontWeight": "700"
-            },
-            {
-              "type": "frame",
-              "id": "MY2AH",
-              "x": 170,
-              "y": 633,
-              "name": "Action",
-              "width": 153,
-              "height": 34,
-              "fill": "#FFFFFF",
-              "layout": "none",
-              "children": [
-                {
-                  "type": "text",
-                  "id": "pdFsQ",
-                  "x": 0,
-                  "y": 5,
-                  "name": "Text",
-                  "fill": "#333333",
-                  "textGrowth": "fixed-width",
-                  "width": 110,
-                  "content": "事業を知る",
-                  "lineHeight": 1,
-                  "fontFamily": "Inter",
-                  "fontSize": 15,
-                  "fontWeight": "700"
-                },
-                {
-                  "type": "frame",
-                  "id": "DjCjA",
-                  "x": 83,
-                  "y": 16,
-                  "name": "Effect",
-                  "width": 70,
-                  "height": 2,
-                  "fill": "#333333",
-                  "layout": "none"
-                },
-                {
-                  "type": "path",
-                  "id": "kLl3z",
-                  "x": 137,
-                  "y": 8,
-                  "name": "Effect",
-                  "geometry": "M0 2l16 7-16 7",
-                  "viewBox": [
-                    0,
-                    0,
-                    18,
-                    18
-                  ],
-                  "fill": "#00000000",
-                  "width": 18,
-                  "height": 18,
-                  "stroke": {
-                    "thickness": 2,
-                    "fill": "#333333"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "frame",
-              "id": "LNPAW",
-              "x": 0,
-              "y": 612,
-              "name": "Media",
-              "width": 1080,
-              "height": 325,
-              "fill": {
-                "type": "gradient",
-                "gradientType": "linear",
-                "enabled": true,
-                "rotation": 180,
-                "size": {
-                  "height": 1
-                },
-                "colors": [
-                  {
-                    "color": "#5F78A4",
-                    "position": 0
-                  },
-                  {
-                    "color": "#1A2B80",
-                    "position": 1
-                  }
-                ]
-              },
-              "layout": "none"
-            },
-            {
-              "type": "frame",
-              "id": "hlSek",
-              "x": 0,
-              "y": 612,
-              "name": "Effect",
-              "width": 1080,
-              "height": 325,
-              "fill": "#1A2B80AA",
-              "layout": "none"
-            },
-            {
-              "type": "text",
-              "id": "A43Wch",
-              "x": 170,
-              "y": 760,
-              "name": "Text",
-              "fill": "#FFFFFF",
-              "textGrowth": "fixed-width",
-              "width": 820,
-              "content": "一般貨物自動車運送事業は、トラックを使ってさまざまな荷物を運ぶサービスです。\n商業品や工業製品、食品、家具など、あらゆる貨物を安全にお届けいたします。\nお客様のニーズに合わせた柔軟な配送が可能で、法令を遵守し信頼性の高いサービスを提供いたします。",
-              "lineHeight": 1.85,
-              "fontFamily": "Inter",
-              "fontSize": 15,
-              "fontWeight": "700"
-            }
-          ]
-        },
-        {
-          "type": "frame",
           "id": "mkC5v",
-          "x": 0,
-          "y": 1932,
           "name": "Section",
           "width": 1440,
           "height": 650,
@@ -1158,8 +921,6 @@
         {
           "type": "frame",
           "id": "ig7Vj",
-          "x": 0,
-          "y": 2582,
           "name": "Section",
           "width": 1440,
           "height": 1021,
@@ -1391,8 +1152,6 @@
         {
           "type": "frame",
           "id": "doOFE",
-          "x": 0,
-          "y": 3603,
           "name": "Section",
           "width": 1440,
           "height": 350,
@@ -1517,8 +1276,6 @@
         {
           "type": "frame",
           "id": "WgnZs",
-          "x": 0,
-          "y": 3953,
           "name": "Section",
           "width": 1440,
           "height": 531,
@@ -1700,8 +1457,6 @@
         {
           "type": "frame",
           "id": "Pj5oq",
-          "x": 0,
-          "y": 4484,
           "name": "Section",
           "width": 1440,
           "height": 470,
@@ -1873,8 +1628,6 @@
         {
           "type": "frame",
           "id": "jEvG6",
-          "x": 0,
-          "y": 4954,
           "name": "Footer",
           "width": 1440,
           "height": 482,
@@ -1934,7 +1687,8 @@
               "content": "〒262-0011\n千葉県千葉市花見川区大日町1523-2\nTEL. 043-310-3033\nFAX. 043-310-3433",
               "lineHeight": 1.6,
               "fontFamily": "Inter",
-              "fontSize": 15
+              "fontSize": 15,
+              "fontWeight": "normal"
             },
             {
               "type": "text",
@@ -2079,7 +1833,8 @@
                   "content": "プライバシーポリシー｜サイトマップ",
                   "lineHeight": 1,
                   "fontFamily": "Inter",
-                  "fontSize": 14
+                  "fontSize": 14,
+                  "fontWeight": "normal"
                 },
                 {
                   "type": "text",
@@ -2094,9 +1849,2387 @@
                   "lineHeight": 1,
                   "textAlign": "right",
                   "fontFamily": "Inter",
-                  "fontSize": 12
+                  "fontSize": 12,
+                  "fontWeight": "normal"
                 }
               ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "wlzqd",
+      "x": -1559,
+      "y": 0,
+      "name": "Frame",
+      "clip": true,
+      "width": 1440,
+      "height": 8694,
+      "fill": "#FFFFFF",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "JaXvF",
+          "name": "Header",
+          "width": 1440,
+          "height": 100,
+          "fill": "#FFFFFF",
+          "layout": "none",
+          "children": [
+            {
+              "type": "frame",
+              "id": "CV4Tq",
+              "x": 20,
+              "y": 0,
+              "name": "Media",
+              "width": 218,
+              "height": 100,
+              "fill": "#F4F6FA",
+              "stroke": {
+                "thickness": 1,
+                "fill": "#D9E0EA"
+              },
+              "layout": "none"
+            },
+            {
+              "type": "text",
+              "id": "cl2Qf",
+              "x": 38,
+              "y": 9,
+              "name": "Title",
+              "fill": "#1A2B80",
+              "textGrowth": "fixed-width",
+              "width": 170,
+              "content": "Good\nness",
+              "lineHeight": 0.78,
+              "textAlign": "center",
+              "fontFamily": "Arial",
+              "fontSize": 34,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "JSTXd",
+              "x": 40,
+              "y": 76,
+              "name": "Effect",
+              "width": 156,
+              "height": 10,
+              "fill": "#E51F14",
+              "layout": "none"
+            },
+            {
+              "type": "frame",
+              "id": "lJhdM",
+              "x": 442,
+              "y": 0,
+              "name": "Action",
+              "width": 70,
+              "height": 100,
+              "fill": "#FFFFFF",
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "wSGQq",
+                  "x": 0,
+                  "y": 28,
+                  "name": "Text",
+                  "fill": "#222222",
+                  "textGrowth": "fixed-width",
+                  "width": 70,
+                  "content": "Home",
+                  "lineHeight": 1,
+                  "textAlign": "center",
+                  "fontFamily": "Arial",
+                  "fontSize": 12,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "MbZsz",
+                  "x": 0,
+                  "y": 54,
+                  "name": "Text",
+                  "fill": "#222222",
+                  "textGrowth": "fixed-width",
+                  "width": 70,
+                  "content": "ホーム",
+                  "lineHeight": 1,
+                  "textAlign": "center",
+                  "fontFamily": "Arial",
+                  "fontSize": 11,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "J44fL",
+              "x": 535,
+              "y": 0,
+              "name": "Action",
+              "width": 105,
+              "height": 100,
+              "fill": "#FFFFFF",
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "UEU6p",
+                  "x": 0,
+                  "y": 28,
+                  "name": "Text",
+                  "fill": "#222222",
+                  "textGrowth": "fixed-width",
+                  "width": 105,
+                  "content": "Company",
+                  "lineHeight": 1,
+                  "textAlign": "center",
+                  "fontFamily": "Arial",
+                  "fontSize": 12,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "qH49i",
+                  "x": 0,
+                  "y": 54,
+                  "name": "Text",
+                  "fill": "#222222",
+                  "textGrowth": "fixed-width",
+                  "width": 105,
+                  "content": "会社を知る",
+                  "lineHeight": 1,
+                  "textAlign": "center",
+                  "fontFamily": "Arial",
+                  "fontSize": 11,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "S7BkyV",
+              "x": 660,
+              "y": 0,
+              "name": "Action",
+              "width": 105,
+              "height": 100,
+              "fill": "#FFFFFF",
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "oHqxN",
+                  "x": 0,
+                  "y": 28,
+                  "name": "Text",
+                  "fill": "#222222",
+                  "textGrowth": "fixed-width",
+                  "width": 105,
+                  "content": "Service",
+                  "lineHeight": 1,
+                  "textAlign": "center",
+                  "fontFamily": "Arial",
+                  "fontSize": 12,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "YFvaQ",
+                  "x": 0,
+                  "y": 54,
+                  "name": "Text",
+                  "fill": "#222222",
+                  "textGrowth": "fixed-width",
+                  "width": 105,
+                  "content": "事業を知る",
+                  "lineHeight": 1,
+                  "textAlign": "center",
+                  "fontFamily": "Arial",
+                  "fontSize": 11,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "VePzO",
+              "x": 785,
+              "y": 0,
+              "name": "Action",
+              "width": 110,
+              "height": 100,
+              "fill": "#FFFFFF",
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "MbCaC",
+                  "x": 0,
+                  "y": 28,
+                  "name": "Text",
+                  "fill": "#222222",
+                  "textGrowth": "fixed-width",
+                  "width": 110,
+                  "content": "Recruiting",
+                  "lineHeight": 1,
+                  "textAlign": "center",
+                  "fontFamily": "Arial",
+                  "fontSize": 12,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "aZjcS",
+                  "x": 0,
+                  "y": 54,
+                  "name": "Text",
+                  "fill": "#222222",
+                  "textGrowth": "fixed-width",
+                  "width": 110,
+                  "content": "募集要項",
+                  "lineHeight": 1,
+                  "textAlign": "center",
+                  "fontFamily": "Arial",
+                  "fontSize": 11,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "of3Dg",
+              "x": 915,
+              "y": 0,
+              "name": "Action",
+              "width": 105,
+              "height": 100,
+              "fill": "#FFFFFF",
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "fh42k",
+                  "x": 0,
+                  "y": 28,
+                  "name": "Text",
+                  "fill": "#222222",
+                  "textGrowth": "fixed-width",
+                  "width": 105,
+                  "content": "Numbers",
+                  "lineHeight": 1,
+                  "textAlign": "center",
+                  "fontFamily": "Arial",
+                  "fontSize": 12,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "B4B5sT",
+                  "x": 0,
+                  "y": 54,
+                  "name": "Text",
+                  "fill": "#222222",
+                  "textGrowth": "fixed-width",
+                  "width": 105,
+                  "content": "数字で見る",
+                  "lineHeight": 1,
+                  "textAlign": "center",
+                  "fontFamily": "Arial",
+                  "fontSize": 11,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "HTMsF",
+              "x": 1040,
+              "y": 0,
+              "name": "Action",
+              "width": 122,
+              "height": 100,
+              "fill": "#FFFFFF",
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "UCk9a",
+                  "x": 0,
+                  "y": 28,
+                  "name": "Text",
+                  "fill": "#222222",
+                  "textGrowth": "fixed-width",
+                  "width": 122,
+                  "content": "Staff",
+                  "lineHeight": 1,
+                  "textAlign": "center",
+                  "fontFamily": "Arial",
+                  "fontSize": 12,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "UDv2k",
+                  "x": 0,
+                  "y": 54,
+                  "name": "Text",
+                  "fill": "#222222",
+                  "textGrowth": "fixed-width",
+                  "width": 122,
+                  "content": "先輩社員の声",
+                  "lineHeight": 1,
+                  "textAlign": "center",
+                  "fontFamily": "Arial",
+                  "fontSize": 11,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "E1rh6",
+              "x": 1182,
+              "y": 0,
+              "name": "Action",
+              "width": 88,
+              "height": 100,
+              "fill": "#FFFFFF",
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "oc0US",
+                  "x": 0,
+                  "y": 28,
+                  "name": "Text",
+                  "fill": "#222222",
+                  "textGrowth": "fixed-width",
+                  "width": 88,
+                  "content": "News",
+                  "lineHeight": 1,
+                  "textAlign": "center",
+                  "fontFamily": "Arial",
+                  "fontSize": 12,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "SLvGq",
+                  "x": 0,
+                  "y": 54,
+                  "name": "Text",
+                  "fill": "#222222",
+                  "textGrowth": "fixed-width",
+                  "width": 88,
+                  "content": "お知らせ",
+                  "lineHeight": 1,
+                  "textAlign": "center",
+                  "fontFamily": "Arial",
+                  "fontSize": 11,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "jeyZ8",
+              "x": 1290,
+              "y": 0,
+              "name": "Action",
+              "width": 140,
+              "height": 100,
+              "fill": "#1A2B80",
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "CwGNd",
+                  "x": 0,
+                  "y": 28,
+                  "name": "Text",
+                  "fill": "#FFFFFF",
+                  "textGrowth": "fixed-width",
+                  "width": 140,
+                  "content": "Entry",
+                  "lineHeight": 1,
+                  "textAlign": "center",
+                  "fontFamily": "Arial",
+                  "fontSize": 12,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "OuEOB",
+                  "x": 0,
+                  "y": 54,
+                  "name": "Text",
+                  "fill": "#FFFFFF",
+                  "textGrowth": "fixed-width",
+                  "width": 140,
+                  "content": "エントリー",
+                  "lineHeight": 1,
+                  "textAlign": "center",
+                  "fontFamily": "Arial",
+                  "fontSize": 11,
+                  "fontWeight": "700"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "LGgEL",
+          "name": "Section",
+          "width": 1440,
+          "height": 898,
+          "fill": "#FFFFFF",
+          "layout": "none",
+          "children": [
+            {
+              "type": "frame",
+              "id": "TpJSH",
+              "x": 0,
+              "y": 0,
+              "name": "Media",
+              "width": 1440,
+              "height": 800,
+              "fill": {
+                "type": "gradient",
+                "gradientType": "linear",
+                "enabled": true,
+                "rotation": 180,
+                "size": {
+                  "height": 1
+                },
+                "colors": [
+                  {
+                    "color": "#BFD0E9",
+                    "position": 0
+                  },
+                  {
+                    "color": "#7F9BC5",
+                    "position": 1
+                  }
+                ]
+              },
+              "layout": "none"
+            },
+            {
+              "type": "frame",
+              "id": "RVT44",
+              "x": 0,
+              "y": 0,
+              "name": "Effect",
+              "width": 1440,
+              "height": 800,
+              "fill": "#1A2B8055",
+              "layout": "none"
+            },
+            {
+              "type": "frame",
+              "id": "mwoM3",
+              "x": 0,
+              "y": 560,
+              "name": "Frame",
+              "width": 260,
+              "height": 180,
+              "fill": "#DEE6F2AA",
+              "cornerRadius": 8,
+              "layout": "none"
+            },
+            {
+              "type": "frame",
+              "id": "UAigP",
+              "x": 40,
+              "y": 522,
+              "name": "Frame",
+              "width": 165,
+              "height": 55,
+              "fill": "#E9EEF5AA",
+              "cornerRadius": 6,
+              "layout": "none"
+            },
+            {
+              "type": "frame",
+              "id": "urkUu",
+              "x": 288,
+              "y": 560,
+              "name": "Frame",
+              "width": 260,
+              "height": 180,
+              "fill": "#DEE6F2AA",
+              "cornerRadius": 8,
+              "layout": "none"
+            },
+            {
+              "type": "frame",
+              "id": "qG4DZ",
+              "x": 328,
+              "y": 522,
+              "name": "Frame",
+              "width": 165,
+              "height": 55,
+              "fill": "#E9EEF5AA",
+              "cornerRadius": 6,
+              "layout": "none"
+            },
+            {
+              "type": "frame",
+              "id": "IBqgE",
+              "x": 576,
+              "y": 560,
+              "name": "Frame",
+              "width": 260,
+              "height": 180,
+              "fill": "#DEE6F2AA",
+              "cornerRadius": 8,
+              "layout": "none"
+            },
+            {
+              "type": "frame",
+              "id": "ebDVO",
+              "x": 616,
+              "y": 522,
+              "name": "Frame",
+              "width": 165,
+              "height": 55,
+              "fill": "#E9EEF5AA",
+              "cornerRadius": 6,
+              "layout": "none"
+            },
+            {
+              "type": "frame",
+              "id": "fbqC9",
+              "x": 864,
+              "y": 560,
+              "name": "Frame",
+              "width": 260,
+              "height": 180,
+              "fill": "#DEE6F2AA",
+              "cornerRadius": 8,
+              "layout": "none"
+            },
+            {
+              "type": "frame",
+              "id": "ZnshK",
+              "x": 904,
+              "y": 522,
+              "name": "Frame",
+              "width": 165,
+              "height": 55,
+              "fill": "#E9EEF5AA",
+              "cornerRadius": 6,
+              "layout": "none"
+            },
+            {
+              "type": "frame",
+              "id": "cB5W1",
+              "x": 1152,
+              "y": 560,
+              "name": "Frame",
+              "width": 260,
+              "height": 180,
+              "fill": "#DEE6F2AA",
+              "cornerRadius": 8,
+              "layout": "none"
+            },
+            {
+              "type": "frame",
+              "id": "hFGCD",
+              "x": 1192,
+              "y": 522,
+              "name": "Frame",
+              "width": 165,
+              "height": 55,
+              "fill": "#E9EEF5AA",
+              "cornerRadius": 6,
+              "layout": "none"
+            },
+            {
+              "type": "text",
+              "id": "UgTM1",
+              "x": 170,
+              "y": 309,
+              "name": "Title",
+              "fill": "#FFFFFF",
+              "textGrowth": "fixed-width",
+              "width": 847,
+              "content": "株式会社グッドネスは千葉県を拠点とし、\n様々な商品を全国へお届けする会社です。",
+              "lineHeight": 1.55,
+              "fontFamily": "Arial",
+              "fontSize": 40,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "JoN4C",
+              "x": 170,
+              "y": 471,
+              "name": "Text",
+              "fill": "#FFFFFF",
+              "textGrowth": "fixed-width",
+              "width": 820,
+              "content": "運送とは、私たちの生活に必要な衣食住を支え、生活や産業の大事なパイプの一つである。\nそのため、安心・安全・信頼を大切にしなければならない。\nその想いから、私たちは商品の一つ一つに真心を込めてお届けしていきたいと考えております。",
+              "lineHeight": 1.9,
+              "fontFamily": "Arial",
+              "fontSize": 13,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "pO6uB",
+              "x": 858,
+              "y": 700,
+              "name": "Frame",
+              "width": 582,
+              "height": 160,
+              "fill": "#FFFFFF",
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "hFakM",
+                  "x": 36,
+                  "y": 34,
+                  "name": "Title",
+                  "fill": "#1A2B80",
+                  "textGrowth": "fixed-width",
+                  "width": 90,
+                  "content": "NEWS",
+                  "lineHeight": 1,
+                  "fontFamily": "Arial",
+                  "fontSize": 40,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "NWI6f",
+                  "x": 36,
+                  "y": 87,
+                  "name": "Subtitle",
+                  "fill": "#111111",
+                  "textGrowth": "fixed-width",
+                  "width": 90,
+                  "content": "お知らせ",
+                  "lineHeight": 1,
+                  "fontFamily": "Arial",
+                  "fontSize": 15,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "rebxf",
+                  "x": 153,
+                  "y": 41,
+                  "name": "Text",
+                  "fill": "#333333",
+                  "textGrowth": "fixed-width",
+                  "width": 385,
+                  "content": "2024/01/07\nWebサイトをリニューアルいたしました。",
+                  "lineHeight": 1.5,
+                  "fontFamily": "Arial",
+                  "fontSize": 14,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "frame",
+                  "id": "ctEC4",
+                  "x": 0,
+                  "y": 139,
+                  "name": "Effect",
+                  "width": 582,
+                  "height": 18,
+                  "fill": "#E51F14",
+                  "layout": "none"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "O6emV",
+          "name": "Section",
+          "width": 1440,
+          "height": 934,
+          "fill": "#FFFFFF",
+          "layout": "none",
+          "children": [
+            {
+              "type": "text",
+              "id": "r9dxb3",
+              "x": 0,
+              "y": 142,
+              "name": "Effect",
+              "fill": "#F2F3FA",
+              "textGrowth": "fixed-width",
+              "width": 760,
+              "content": "SERVICE",
+              "lineHeight": 1,
+              "fontFamily": "Inter",
+              "fontSize": 150,
+              "fontWeight": "700",
+              "letterSpacing": 4
+            },
+            {
+              "type": "text",
+              "id": "HxjsE",
+              "x": 170,
+              "y": 190,
+              "name": "Title",
+              "fill": "#1A2B80",
+              "textGrowth": "fixed-width",
+              "width": 574,
+              "content": "SERVICE",
+              "lineHeight": 1,
+              "fontFamily": "Inter",
+              "fontSize": 60,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "ZkPMX",
+              "x": 170,
+              "y": 276,
+              "name": "Effect",
+              "width": 58,
+              "height": 8,
+              "fill": "#E51F14",
+              "layout": "none"
+            },
+            {
+              "type": "text",
+              "id": "IuKKN",
+              "x": 242,
+              "y": 273,
+              "name": "Subtitle",
+              "fill": "#111111",
+              "textGrowth": "fixed-width",
+              "width": 180,
+              "content": "事業を知る",
+              "lineHeight": 1,
+              "fontFamily": "Inter",
+              "fontSize": 16,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "lgTzM",
+              "x": 170,
+              "y": 380,
+              "name": "Text",
+              "fill": "#222222",
+              "textGrowth": "fixed-width",
+              "width": 520,
+              "content": "一般貨物自動車運送の事業を行っています。\n商業品や工業製品、食品、家具など、あらゆる貨物を安全にお届けいたします。",
+              "lineHeight": 1.7,
+              "fontFamily": "Inter",
+              "fontSize": 30,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "SXTJT",
+              "x": 819,
+              "y": 195,
+              "name": "Media",
+              "width": 451,
+              "height": 501,
+              "fill": "#D8E2F0",
+              "stroke": {
+                "thickness": 1,
+                "fill": "#C7D2E0"
+              },
+              "layout": "none"
+            },
+            {
+              "type": "text",
+              "id": "VVg5T",
+              "x": 819,
+              "y": 405,
+              "name": "Text",
+              "fill": "#8190A8",
+              "textGrowth": "fixed-width",
+              "width": 451,
+              "content": "MEDIA",
+              "lineHeight": 1,
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 24,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "XK7xq",
+              "x": 170,
+              "y": 633,
+              "name": "Action",
+              "width": 153,
+              "height": 34,
+              "fill": "#FFFFFF",
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "gMQDW",
+                  "x": 0,
+                  "y": 5,
+                  "name": "Text",
+                  "fill": "#333333",
+                  "textGrowth": "fixed-width",
+                  "width": 110,
+                  "content": "事業を知る",
+                  "lineHeight": 1,
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "frame",
+                  "id": "WQTXR",
+                  "x": 83,
+                  "y": 16,
+                  "name": "Effect",
+                  "width": 70,
+                  "height": 2,
+                  "fill": "#333333",
+                  "layout": "none"
+                },
+                {
+                  "type": "path",
+                  "id": "bMU0I",
+                  "x": 137,
+                  "y": 8,
+                  "name": "Effect",
+                  "geometry": "M0 2l16 7-16 7",
+                  "viewBox": [
+                    0,
+                    0,
+                    18,
+                    18
+                  ],
+                  "fill": "#00000000",
+                  "width": 18,
+                  "height": 18,
+                  "stroke": {
+                    "thickness": 2,
+                    "fill": "#333333"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "kVfjC",
+              "x": 0,
+              "y": 612,
+              "name": "Media",
+              "width": 1080,
+              "height": 325,
+              "fill": {
+                "type": "gradient",
+                "gradientType": "linear",
+                "enabled": true,
+                "rotation": 180,
+                "size": {
+                  "height": 1
+                },
+                "colors": [
+                  {
+                    "color": "#5F78A4",
+                    "position": 0
+                  },
+                  {
+                    "color": "#1A2B80",
+                    "position": 1
+                  }
+                ]
+              },
+              "layout": "none"
+            },
+            {
+              "type": "frame",
+              "id": "e4RMa",
+              "x": 0,
+              "y": 612,
+              "name": "Effect",
+              "width": 1080,
+              "height": 325,
+              "fill": "#1A2B80AA",
+              "layout": "none"
+            },
+            {
+              "type": "text",
+              "id": "ni221",
+              "x": 170,
+              "y": 760,
+              "name": "Text",
+              "fill": "#FFFFFF",
+              "textGrowth": "fixed-width",
+              "width": 820,
+              "content": "一般貨物自動車運送事業は、トラックを使ってさまざまな荷物を運ぶサービスです。\n商業品や工業製品、食品、家具など、あらゆる貨物を安全にお届けいたします。\nお客様のニーズに合わせた柔軟な配送が可能で、法令を遵守し信頼性の高いサービスを提供いたします。",
+              "lineHeight": 1.85,
+              "fontFamily": "Inter",
+              "fontSize": 15,
+              "fontWeight": "700"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "gU8ng",
+          "name": "Section",
+          "width": 1440,
+          "height": 650,
+          "fill": "#FFFFFF",
+          "layout": "none",
+          "children": [
+            {
+              "type": "frame",
+              "id": "mTvrQ",
+              "x": 170,
+              "y": 120,
+              "name": "CardGroup",
+              "width": 1100,
+              "height": 530,
+              "fill": "#FFFFFF",
+              "gap": 16,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "h29s2",
+                  "name": "Frame",
+                  "width": "fill_container",
+                  "height": 530,
+                  "fill": "#9EA5AF",
+                  "layout": "vertical",
+                  "justifyContent": "space_around",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "RxahB",
+                      "name": "Title",
+                      "fill": "#FFFFFF",
+                      "textGrowth": "fixed-width",
+                      "width": 528,
+                      "content": "RECRUITING",
+                      "lineHeight": 1,
+                      "textAlign": "center",
+                      "fontFamily": "Inter",
+                      "fontSize": 60,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "ZsCyf",
+                      "name": "Subtitle",
+                      "fill": "#FFFFFF",
+                      "textGrowth": "fixed-width",
+                      "width": 528,
+                      "content": "募集要項",
+                      "lineHeight": 1,
+                      "textAlign": "center",
+                      "fontFamily": "Inter",
+                      "fontSize": 18,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "w2ORTI",
+                      "name": "Effect",
+                      "width": 58,
+                      "height": 8,
+                      "fill": "#E51F14",
+                      "layout": "none"
+                    },
+                    {
+                      "type": "group",
+                      "id": "q5Jav9",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "FeOuX",
+                          "x": 0,
+                          "y": 8,
+                          "name": "Effect",
+                          "width": 70,
+                          "height": 2,
+                          "fill": "#FFFFFF",
+                          "layout": "none"
+                        },
+                        {
+                          "type": "path",
+                          "id": "w9Y3kM",
+                          "x": 54,
+                          "y": 0,
+                          "name": "Effect",
+                          "geometry": "M0 2l16 7-16 7",
+                          "viewBox": [
+                            0,
+                            0,
+                            18,
+                            18
+                          ],
+                          "fill": "#00000000",
+                          "width": 18,
+                          "height": 18,
+                          "stroke": {
+                            "thickness": 2,
+                            "fill": "#FFFFFF"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "PvKPT",
+                  "name": "Frame",
+                  "width": "fill_container",
+                  "height": 530,
+                  "fill": "#B7BBC2",
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "q3vNIu",
+                      "x": 0,
+                      "y": 190,
+                      "name": "Title",
+                      "fill": "#FFFFFF",
+                      "textGrowth": "fixed-width",
+                      "width": 528,
+                      "content": "NUMBERS",
+                      "lineHeight": 1,
+                      "textAlign": "center",
+                      "fontFamily": "Inter",
+                      "fontSize": 60,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "wywdK",
+                      "x": 0,
+                      "y": 268,
+                      "name": "Subtitle",
+                      "fill": "#FFFFFF",
+                      "textGrowth": "fixed-width",
+                      "width": 528,
+                      "content": "数字で見る",
+                      "lineHeight": 1,
+                      "textAlign": "center",
+                      "fontFamily": "Inter",
+                      "fontSize": 18,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "O77Nn",
+                      "x": 235,
+                      "y": 304,
+                      "name": "Effect",
+                      "width": 58,
+                      "height": 8,
+                      "fill": "#E51F14",
+                      "layout": "none"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "CebqF",
+                      "x": 235,
+                      "y": 408,
+                      "name": "Effect",
+                      "width": 70,
+                      "height": 2,
+                      "fill": "#FFFFFF",
+                      "layout": "none"
+                    },
+                    {
+                      "type": "path",
+                      "id": "fDRP2",
+                      "x": 289,
+                      "y": 400,
+                      "name": "Effect",
+                      "geometry": "M0 2l16 7-16 7",
+                      "viewBox": [
+                        0,
+                        0,
+                        18,
+                        18
+                      ],
+                      "fill": "#00000000",
+                      "width": 18,
+                      "height": 18,
+                      "stroke": {
+                        "thickness": 2,
+                        "fill": "#FFFFFF"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "tTjO5",
+                  "name": "Frame",
+                  "width": "fill_container",
+                  "height": 530,
+                  "fill": "#B7BBC2",
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "B1l02e",
+                      "x": 0,
+                      "y": 190,
+                      "name": "Title",
+                      "fill": "#FFFFFF",
+                      "textGrowth": "fixed-width",
+                      "width": 528,
+                      "content": "NUMBERS",
+                      "lineHeight": 1,
+                      "textAlign": "center",
+                      "fontFamily": "Inter",
+                      "fontSize": 60,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "FCOgZ",
+                      "x": 0,
+                      "y": 268,
+                      "name": "Subtitle",
+                      "fill": "#FFFFFF",
+                      "textGrowth": "fixed-width",
+                      "width": 528,
+                      "content": "数字で見る",
+                      "lineHeight": 1,
+                      "textAlign": "center",
+                      "fontFamily": "Inter",
+                      "fontSize": 18,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "hKONi",
+                      "x": 235,
+                      "y": 304,
+                      "name": "Effect",
+                      "width": 58,
+                      "height": 8,
+                      "fill": "#E51F14",
+                      "layout": "none"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "NRMZI",
+                      "x": 235,
+                      "y": 408,
+                      "name": "Effect",
+                      "width": 70,
+                      "height": 2,
+                      "fill": "#FFFFFF",
+                      "layout": "none"
+                    },
+                    {
+                      "type": "path",
+                      "id": "pCIoX",
+                      "x": 289,
+                      "y": 400,
+                      "name": "Effect",
+                      "geometry": "M0 2l16 7-16 7",
+                      "viewBox": [
+                        0,
+                        0,
+                        18,
+                        18
+                      ],
+                      "fill": "#00000000",
+                      "width": 18,
+                      "height": 18,
+                      "stroke": {
+                        "thickness": 2,
+                        "fill": "#FFFFFF"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "eDrID",
+          "name": "Section",
+          "width": 1440,
+          "height": 1021,
+          "fill": "#FFFFFF",
+          "layout": "none",
+          "children": [
+            {
+              "type": "text",
+              "id": "fjx3J",
+              "x": 470,
+              "y": 90,
+              "name": "Effect",
+              "fill": "#F2F3FA",
+              "textGrowth": "fixed-width",
+              "width": 930,
+              "content": "COMPANY",
+              "lineHeight": 1,
+              "textAlign": "right",
+              "fontFamily": "Inter",
+              "fontSize": 150,
+              "fontWeight": "700",
+              "letterSpacing": 4
+            },
+            {
+              "type": "frame",
+              "id": "o4cmc",
+              "x": 170,
+              "y": 195,
+              "name": "Media",
+              "width": 450,
+              "height": 500,
+              "fill": "#D8E2F0",
+              "stroke": {
+                "thickness": 1,
+                "fill": "#C7D2E0"
+              },
+              "layout": "none"
+            },
+            {
+              "type": "text",
+              "id": "Nnaoi",
+              "x": 170,
+              "y": 405,
+              "name": "Text",
+              "fill": "#8190A8",
+              "textGrowth": "fixed-width",
+              "width": 450,
+              "content": "MEDIA",
+              "lineHeight": 1,
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 24,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "E5fZO",
+              "x": 696,
+              "y": 195,
+              "name": "Title",
+              "fill": "#1A2B80",
+              "textGrowth": "fixed-width",
+              "width": 574,
+              "content": "COMPANY",
+              "lineHeight": 1,
+              "fontFamily": "Inter",
+              "fontSize": 60,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "ISxQJ",
+              "x": 696,
+              "y": 280,
+              "name": "Effect",
+              "width": 58,
+              "height": 8,
+              "fill": "#E51F14",
+              "layout": "none"
+            },
+            {
+              "type": "text",
+              "id": "Wia5E",
+              "x": 768,
+              "y": 277,
+              "name": "Subtitle",
+              "fill": "#111111",
+              "textGrowth": "fixed-width",
+              "width": 180,
+              "content": "会社を知る",
+              "lineHeight": 1,
+              "fontFamily": "Inter",
+              "fontSize": 16,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "vBVhu",
+              "x": 696,
+              "y": 390,
+              "name": "Text",
+              "fill": "#222222",
+              "textGrowth": "fixed-width",
+              "width": 420,
+              "content": "荷物にやさしく\n人にやさしく\n従業員にもやさしく",
+              "lineHeight": 1.75,
+              "fontFamily": "Inter",
+              "fontSize": 30,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "qlRN8",
+              "x": 1117,
+              "y": 573,
+              "name": "Action",
+              "width": 153,
+              "height": 34,
+              "fill": "#FFFFFF",
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "JHdyP",
+                  "x": 0,
+                  "y": 5,
+                  "name": "Text",
+                  "fill": "#333333",
+                  "textGrowth": "fixed-width",
+                  "width": 110,
+                  "content": "会社を知る",
+                  "lineHeight": 1,
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "frame",
+                  "id": "e2nqh1",
+                  "x": 83,
+                  "y": 16,
+                  "name": "Effect",
+                  "width": 70,
+                  "height": 2,
+                  "fill": "#333333",
+                  "layout": "none"
+                },
+                {
+                  "type": "path",
+                  "id": "Mp2QP",
+                  "x": 137,
+                  "y": 8,
+                  "name": "Effect",
+                  "geometry": "M0 2l16 7-16 7",
+                  "viewBox": [
+                    0,
+                    0,
+                    18,
+                    18
+                  ],
+                  "fill": "#00000000",
+                  "width": 18,
+                  "height": 18,
+                  "stroke": {
+                    "thickness": 2,
+                    "fill": "#333333"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "EJf8m",
+              "x": 360,
+              "y": 630,
+              "name": "Media",
+              "width": 1080,
+              "height": 260,
+              "fill": {
+                "type": "gradient",
+                "gradientType": "linear",
+                "enabled": true,
+                "rotation": 180,
+                "size": {
+                  "height": 1
+                },
+                "colors": [
+                  {
+                    "color": "#83A6CF",
+                    "position": 0
+                  },
+                  {
+                    "color": "#1A2B80",
+                    "position": 1
+                  }
+                ]
+              },
+              "layout": "none"
+            },
+            {
+              "type": "frame",
+              "id": "QogTO",
+              "x": 360,
+              "y": 630,
+              "name": "Effect",
+              "width": 1080,
+              "height": 260,
+              "fill": "#1A2B8099",
+              "layout": "none"
+            },
+            {
+              "type": "text",
+              "id": "i6ZzZs",
+              "x": 620,
+              "y": 752,
+              "name": "Text",
+              "fill": "#FFFFFF",
+              "textGrowth": "fixed-width",
+              "width": 620,
+              "content": "企業理念、会社概要、代表挨拶はこちらからご覧いただけます。",
+              "lineHeight": 1.6,
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 16,
+              "fontWeight": "700"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "rgajv",
+          "name": "Section",
+          "width": 1440,
+          "height": 350,
+          "fill": "#FFFFFF",
+          "layout": "none",
+          "children": [
+            {
+              "type": "frame",
+              "id": "WihpG",
+              "x": 170,
+              "y": 0,
+              "name": "Action",
+              "width": 1100,
+              "height": 350,
+              "fill": "#AEB6C2",
+              "layout": "none",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "RkYoD",
+                  "x": 0,
+                  "y": 0,
+                  "name": "Effect",
+                  "width": 1100,
+                  "height": 350,
+                  "fill": "#00000055",
+                  "layout": "none"
+                },
+                {
+                  "type": "text",
+                  "id": "ROd9D",
+                  "x": 620,
+                  "y": 46,
+                  "name": "Effect",
+                  "fill": "#FFFFFF44",
+                  "textGrowth": "fixed-width",
+                  "width": 420,
+                  "content": "STAFF",
+                  "lineHeight": 1,
+                  "fontFamily": "Inter",
+                  "fontSize": 128,
+                  "fontWeight": "700",
+                  "letterSpacing": 4
+                },
+                {
+                  "type": "text",
+                  "id": "g630gp",
+                  "x": 110,
+                  "y": 125,
+                  "name": "Title",
+                  "fill": "#FFFFFF",
+                  "textGrowth": "fixed-width",
+                  "width": 190,
+                  "content": "STAFF",
+                  "lineHeight": 1,
+                  "fontFamily": "Inter",
+                  "fontSize": 60,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "frame",
+                  "id": "b9svJC",
+                  "x": 110,
+                  "y": 202,
+                  "name": "Effect",
+                  "width": 58,
+                  "height": 8,
+                  "fill": "#E51F14",
+                  "layout": "none"
+                },
+                {
+                  "type": "text",
+                  "id": "FXaNb",
+                  "x": 182,
+                  "y": 198,
+                  "name": "Subtitle",
+                  "fill": "#FFFFFF",
+                  "textGrowth": "fixed-width",
+                  "width": 220,
+                  "content": "先輩社員の声",
+                  "lineHeight": 1,
+                  "fontFamily": "Inter",
+                  "fontSize": 18,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "frame",
+                  "id": "xCIkO",
+                  "x": 860,
+                  "y": 164,
+                  "name": "Effect",
+                  "width": 70,
+                  "height": 2,
+                  "fill": "#FFFFFF",
+                  "layout": "none"
+                },
+                {
+                  "type": "path",
+                  "id": "JWl8o",
+                  "x": 914,
+                  "y": 156,
+                  "name": "Effect",
+                  "geometry": "M0 2l16 7-16 7",
+                  "viewBox": [
+                    0,
+                    0,
+                    18,
+                    18
+                  ],
+                  "fill": "#00000000",
+                  "width": 18,
+                  "height": 18,
+                  "stroke": {
+                    "thickness": 2,
+                    "fill": "#FFFFFF"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "nZuO3",
+          "name": "Section",
+          "width": 1440,
+          "height": 531,
+          "fill": "#FFFFFF",
+          "layout": "none",
+          "children": [
+            {
+              "type": "text",
+              "id": "ApH0Y",
+              "x": 170,
+              "y": 120,
+              "name": "Title",
+              "fill": "#1A2B80",
+              "textGrowth": "fixed-width",
+              "width": 260,
+              "content": "NEWS",
+              "lineHeight": 1,
+              "fontFamily": "Inter",
+              "fontSize": 60,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "pIqsJ",
+              "x": 170,
+              "y": 205,
+              "name": "Effect",
+              "width": 58,
+              "height": 8,
+              "fill": "#E51F14",
+              "layout": "none"
+            },
+            {
+              "type": "text",
+              "id": "sFqR0",
+              "x": 242,
+              "y": 202,
+              "name": "Subtitle",
+              "fill": "#111111",
+              "textGrowth": "fixed-width",
+              "width": 160,
+              "content": "お知らせ",
+              "lineHeight": 1,
+              "fontFamily": "Inter",
+              "fontSize": 16,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "Bhc9R",
+              "x": 170,
+              "y": 285,
+              "name": "Text",
+              "fill": "#333333",
+              "textGrowth": "fixed-width",
+              "width": 250,
+              "content": "株式会社グッドネスの\n最新のお知らせを掲載しています。",
+              "lineHeight": 1.8,
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "Vgp1T",
+              "x": 170,
+              "y": 377,
+              "name": "Action",
+              "width": 217,
+              "height": 34,
+              "fill": "#FFFFFF",
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "h6U7NP",
+                  "x": 0,
+                  "y": 5,
+                  "name": "Text",
+                  "fill": "#333333",
+                  "textGrowth": "fixed-width",
+                  "width": 150,
+                  "content": "お知らせ一覧を見る",
+                  "lineHeight": 1,
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "frame",
+                  "id": "nO5sO",
+                  "x": 140,
+                  "y": 16,
+                  "name": "Effect",
+                  "width": 70,
+                  "height": 2,
+                  "fill": "#333333",
+                  "layout": "none"
+                },
+                {
+                  "type": "path",
+                  "id": "E7o0y",
+                  "x": 194,
+                  "y": 8,
+                  "name": "Effect",
+                  "geometry": "M0 2l16 7-16 7",
+                  "viewBox": [
+                    0,
+                    0,
+                    18,
+                    18
+                  ],
+                  "fill": "#00000000",
+                  "width": 18,
+                  "height": 18,
+                  "stroke": {
+                    "thickness": 2,
+                    "fill": "#333333"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "sBFar",
+              "x": 455,
+              "y": 120,
+              "name": "ListGroup",
+              "width": 815,
+              "height": 176,
+              "fill": "#FFFFFF",
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "kE73g",
+                  "x": 0,
+                  "y": 0,
+                  "name": "Text",
+                  "fill": "#333333",
+                  "textGrowth": "fixed-width",
+                  "width": 150,
+                  "content": "2024/01/07",
+                  "lineHeight": 1,
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "Q75lnM",
+                  "x": 150,
+                  "y": 0,
+                  "name": "Text",
+                  "fill": "#333333",
+                  "textGrowth": "fixed-width",
+                  "width": 520,
+                  "content": "Webサイトをリニューアルいたしました。",
+                  "lineHeight": 1,
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "frame",
+                  "id": "DSF8o",
+                  "x": 0,
+                  "y": 88,
+                  "name": "Effect",
+                  "width": 815,
+                  "height": 1,
+                  "fill": "#E5E5E5",
+                  "layout": "none"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "e2XHw",
+          "name": "Section",
+          "width": 1440,
+          "height": 470,
+          "fill": "#FFFFFF",
+          "layout": "none",
+          "children": [
+            {
+              "type": "frame",
+              "id": "p7Ynpq",
+              "x": 0,
+              "y": 0,
+              "name": "Media",
+              "width": 1440,
+              "height": 470,
+              "fill": {
+                "type": "gradient",
+                "gradientType": "linear",
+                "enabled": true,
+                "rotation": 180,
+                "size": {
+                  "height": 1
+                },
+                "colors": [
+                  {
+                    "color": "#9BAEC8",
+                    "position": 0
+                  },
+                  {
+                    "color": "#5A6F9F",
+                    "position": 1
+                  }
+                ]
+              },
+              "layout": "none"
+            },
+            {
+              "type": "frame",
+              "id": "RFnFg",
+              "x": 0,
+              "y": 0,
+              "name": "Effect",
+              "width": 1440,
+              "height": 470,
+              "fill": "#1A2B80AA",
+              "layout": "none"
+            },
+            {
+              "type": "text",
+              "id": "vB5tM",
+              "x": 475,
+              "y": 48,
+              "name": "Effect",
+              "fill": "#FFFFFF33",
+              "textGrowth": "fixed-width",
+              "width": 560,
+              "content": "ENTRY",
+              "lineHeight": 1,
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 145,
+              "fontWeight": "700",
+              "letterSpacing": 4
+            },
+            {
+              "type": "text",
+              "id": "dMWOs",
+              "x": 0,
+              "y": 110,
+              "name": "Title",
+              "fill": "#FFFFFF",
+              "textGrowth": "fixed-width",
+              "width": 1440,
+              "content": "ENTRY",
+              "lineHeight": 1,
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 60,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "OHzSR",
+              "x": 691,
+              "y": 190,
+              "name": "Effect",
+              "width": 58,
+              "height": 8,
+              "fill": "#E51F14",
+              "layout": "none"
+            },
+            {
+              "type": "text",
+              "id": "B4i3s",
+              "x": 0,
+              "y": 186,
+              "name": "Subtitle",
+              "fill": "#FFFFFF",
+              "textGrowth": "fixed-width",
+              "width": 1440,
+              "content": "エントリー",
+              "lineHeight": 1,
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 18,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "CqR13",
+              "x": 470,
+              "y": 263,
+              "name": "Action",
+              "width": 500,
+              "height": 130,
+              "fill": "#1A2B80",
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "PdE4O",
+                  "x": 65,
+                  "y": 53,
+                  "name": "Text",
+                  "fill": "#FFFFFF",
+                  "textGrowth": "fixed-width",
+                  "width": 340,
+                  "content": "エントリー、お問い合わせはこちら",
+                  "lineHeight": 1,
+                  "fontFamily": "Inter",
+                  "fontSize": 20,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "frame",
+                  "id": "Ouse5",
+                  "x": 400,
+                  "y": 66,
+                  "name": "Effect",
+                  "width": 70,
+                  "height": 2,
+                  "fill": "#FFFFFF",
+                  "layout": "none"
+                },
+                {
+                  "type": "path",
+                  "id": "gtI4a",
+                  "x": 454,
+                  "y": 58,
+                  "name": "Effect",
+                  "geometry": "M0 2l16 7-16 7",
+                  "viewBox": [
+                    0,
+                    0,
+                    18,
+                    18
+                  ],
+                  "fill": "#00000000",
+                  "width": 18,
+                  "height": 18,
+                  "stroke": {
+                    "thickness": 2,
+                    "fill": "#FFFFFF"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "J3L3m",
+          "name": "Footer",
+          "width": 1440,
+          "height": 482,
+          "fill": "#FFFFFF",
+          "layout": "none",
+          "children": [
+            {
+              "type": "frame",
+              "id": "UNiw1",
+              "x": 170,
+              "y": 89,
+              "name": "Media",
+              "width": 338,
+              "height": 60,
+              "fill": "#FFFFFF",
+              "layout": "none"
+            },
+            {
+              "type": "text",
+              "id": "weraT",
+              "x": 170,
+              "y": 66,
+              "name": "Title",
+              "fill": "#111111",
+              "textGrowth": "fixed-width",
+              "width": 338,
+              "content": "GOOD NESS",
+              "lineHeight": 1,
+              "fontFamily": "Inter",
+              "fontSize": 42,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "SEiF0",
+              "x": 174,
+              "y": 110,
+              "name": "Subtitle",
+              "fill": "#111111",
+              "textGrowth": "fixed-width",
+              "width": 338,
+              "content": "TRANSPORTATION CHIBA JAPAN",
+              "lineHeight": 1,
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "NSZmo",
+              "x": 170,
+              "y": 164,
+              "name": "Text",
+              "fill": "#333333",
+              "textGrowth": "fixed-width",
+              "width": 360,
+              "content": "〒262-0011\n千葉県千葉市花見川区大日町1523-2\nTEL. 043-310-3033\nFAX. 043-310-3433",
+              "lineHeight": 1.6,
+              "fontFamily": "Inter",
+              "fontSize": 15,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "STMKS",
+              "x": 690,
+              "y": 159,
+              "name": "Action",
+              "fill": "#222222",
+              "textGrowth": "fixed-width",
+              "width": 128,
+              "content": "Home\nホーム",
+              "lineHeight": 1.75,
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "kZean",
+              "x": 838,
+              "y": 159,
+              "name": "Action",
+              "fill": "#222222",
+              "textGrowth": "fixed-width",
+              "width": 128,
+              "content": "Company\n会社を知る",
+              "lineHeight": 1.75,
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "r8qTgc",
+              "x": 985,
+              "y": 159,
+              "name": "Action",
+              "fill": "#222222",
+              "textGrowth": "fixed-width",
+              "width": 128,
+              "content": "Service\n事業を知る",
+              "lineHeight": 1.75,
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "HtV7Z",
+              "x": 1133,
+              "y": 159,
+              "name": "Action",
+              "fill": "#222222",
+              "textGrowth": "fixed-width",
+              "width": 128,
+              "content": "Recruiting\n募集要項",
+              "lineHeight": 1.75,
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "JCjwj",
+              "x": 690,
+              "y": 230,
+              "name": "Action",
+              "fill": "#222222",
+              "textGrowth": "fixed-width",
+              "width": 128,
+              "content": "Numbers\n数字で見る",
+              "lineHeight": 1.75,
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "OzGNN",
+              "x": 838,
+              "y": 230,
+              "name": "Action",
+              "fill": "#222222",
+              "textGrowth": "fixed-width",
+              "width": 128,
+              "content": "Staff\n先輩社員の声",
+              "lineHeight": 1.75,
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "uQD7y",
+              "x": 985,
+              "y": 230,
+              "name": "Action",
+              "fill": "#222222",
+              "textGrowth": "fixed-width",
+              "width": 128,
+              "content": "News\nお知らせ",
+              "lineHeight": 1.75,
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "dVABX",
+              "x": 1133,
+              "y": 230,
+              "name": "Action",
+              "fill": "#222222",
+              "textGrowth": "fixed-width",
+              "width": 128,
+              "content": "Entry\nエントリー",
+              "lineHeight": 1.75,
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "KAR5t",
+              "x": 0,
+              "y": 382,
+              "name": "Background",
+              "width": 1440,
+              "height": 100,
+              "fill": "#1A2B80",
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "BJC2a",
+                  "x": 160,
+                  "y": 39,
+                  "name": "Text",
+                  "fill": "#FFFFFF",
+                  "textGrowth": "fixed-width",
+                  "width": 310,
+                  "content": "プライバシーポリシー｜サイトマップ",
+                  "lineHeight": 1,
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "ghsz1",
+                  "x": 1070,
+                  "y": 39,
+                  "name": "Text",
+                  "fill": "#FFFFFF",
+                  "textGrowth": "fixed-width",
+                  "width": 260,
+                  "content": "Copyright©goodness,All rights reserved.",
+                  "lineHeight": 1,
+                  "textAlign": "right",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "DkF0i",
+          "name": "Section",
+          "width": 1440,
+          "height": 934,
+          "fill": "#FFFFFF",
+          "layout": "none",
+          "children": [
+            {
+              "type": "text",
+              "id": "otWRb",
+              "x": 0,
+              "y": 142,
+              "name": "Effect",
+              "fill": "#F2F3FA",
+              "textGrowth": "fixed-width",
+              "width": 760,
+              "content": "SERVICE",
+              "lineHeight": 1,
+              "fontFamily": "Inter",
+              "fontSize": 150,
+              "fontWeight": "700",
+              "letterSpacing": 4
+            },
+            {
+              "type": "text",
+              "id": "i77HG",
+              "x": 170,
+              "y": 190,
+              "name": "Title",
+              "fill": "#1A2B80",
+              "textGrowth": "fixed-width",
+              "width": 574,
+              "content": "SERVICE",
+              "lineHeight": 1,
+              "fontFamily": "Inter",
+              "fontSize": 60,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "ccVX5",
+              "x": 170,
+              "y": 276,
+              "name": "Effect",
+              "width": 58,
+              "height": 8,
+              "fill": "#E51F14",
+              "layout": "none"
+            },
+            {
+              "type": "text",
+              "id": "b17Bry",
+              "x": 242,
+              "y": 273,
+              "name": "Subtitle",
+              "fill": "#111111",
+              "textGrowth": "fixed-width",
+              "width": 180,
+              "content": "事業を知る",
+              "lineHeight": 1,
+              "fontFamily": "Inter",
+              "fontSize": 16,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "f7R4Z",
+              "x": 170,
+              "y": 380,
+              "name": "Text",
+              "fill": "#222222",
+              "textGrowth": "fixed-width",
+              "width": 520,
+              "content": "一般貨物自動車運送の事業を行っています。\n商業品や工業製品、食品、家具など、あらゆる貨物を安全にお届けいたします。",
+              "lineHeight": 1.7,
+              "fontFamily": "Inter",
+              "fontSize": 30,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "jBKDA",
+              "x": 819,
+              "y": 195,
+              "name": "Media",
+              "width": 451,
+              "height": 501,
+              "fill": "#D8E2F0",
+              "stroke": {
+                "thickness": 1,
+                "fill": "#C7D2E0"
+              },
+              "layout": "none"
+            },
+            {
+              "type": "text",
+              "id": "uD1QC",
+              "x": 819,
+              "y": 405,
+              "name": "Text",
+              "fill": "#8190A8",
+              "textGrowth": "fixed-width",
+              "width": 451,
+              "content": "MEDIA",
+              "lineHeight": 1,
+              "textAlign": "center",
+              "fontFamily": "Inter",
+              "fontSize": 24,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "MY2AH",
+              "x": 170,
+              "y": 633,
+              "name": "Action",
+              "width": 153,
+              "height": 34,
+              "fill": "#FFFFFF",
+              "layout": "none",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "pdFsQ",
+                  "x": 0,
+                  "y": 5,
+                  "name": "Text",
+                  "fill": "#333333",
+                  "textGrowth": "fixed-width",
+                  "width": 110,
+                  "content": "事業を知る",
+                  "lineHeight": 1,
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "frame",
+                  "id": "DjCjA",
+                  "x": 83,
+                  "y": 16,
+                  "name": "Effect",
+                  "width": 70,
+                  "height": 2,
+                  "fill": "#333333",
+                  "layout": "none"
+                },
+                {
+                  "type": "path",
+                  "id": "kLl3z",
+                  "x": 137,
+                  "y": 8,
+                  "name": "Effect",
+                  "geometry": "M0 2l16 7-16 7",
+                  "viewBox": [
+                    0,
+                    0,
+                    18,
+                    18
+                  ],
+                  "fill": "#00000000",
+                  "width": 18,
+                  "height": 18,
+                  "stroke": {
+                    "thickness": 2,
+                    "fill": "#333333"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "LNPAW",
+              "x": 0,
+              "y": 612,
+              "name": "Media",
+              "width": 1080,
+              "height": 325,
+              "fill": {
+                "type": "gradient",
+                "gradientType": "linear",
+                "enabled": true,
+                "rotation": 180,
+                "size": {
+                  "height": 1
+                },
+                "colors": [
+                  {
+                    "color": "#5F78A4",
+                    "position": 0
+                  },
+                  {
+                    "color": "#1A2B80",
+                    "position": 1
+                  }
+                ]
+              },
+              "layout": "none"
+            },
+            {
+              "type": "frame",
+              "id": "hlSek",
+              "x": 0,
+              "y": 612,
+              "name": "Effect",
+              "width": 1080,
+              "height": 325,
+              "fill": "#1A2B80AA",
+              "layout": "none"
+            },
+            {
+              "type": "text",
+              "id": "A43Wch",
+              "x": 170,
+              "y": 760,
+              "name": "Text",
+              "fill": "#FFFFFF",
+              "textGrowth": "fixed-width",
+              "width": 820,
+              "content": "一般貨物自動車運送事業は、トラックを使ってさまざまな荷物を運ぶサービスです。\n商業品や工業製品、食品、家具など、あらゆる貨物を安全にお届けいたします。\nお客様のニーズに合わせた柔軟な配送が可能で、法令を遵守し信頼性の高いサービスを提供いたします。",
+              "lineHeight": 1.85,
+              "fontFamily": "Inter",
+              "fontSize": 15,
+              "fontWeight": "700"
             }
           ]
         }

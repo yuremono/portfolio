@@ -123,13 +123,11 @@ describe("PageTransitionRoutes", () => {
 				await Promise.resolve();
 			});
 
-			expect(container.querySelector("[data-testid='home']")).not.toBeNull();
+		expect(container.querySelector("[data-testid='home']")).not.toBeNull();
 		expect(container.querySelector("[data-testid='about']")).toBeNull();
 		expect(container.querySelector(".PageTransitionOverlay")).not.toBeNull();
 		expect(
-			document.documentElement.classList.contains(
-				"PageTransitionScrollInstant",
-			),
+			document.documentElement.classList.contains("ScrollAuto"),
 		).toBe(true);
 
 		await act(async () => {
@@ -164,7 +162,7 @@ describe("PageTransitionRoutes", () => {
 		expect(container.querySelector("[data-testid='about']")).not.toBeNull();
 		expect(container.querySelector(".PageTransitionOverlay")).toBeNull();
 		expect(
-			document.documentElement.classList.contains("PageTransitionScrollSmooth"),
+			document.documentElement.classList.contains("ScrollSmooth"),
 		).toBe(true);
 
 		unmount(root);

@@ -7,6 +7,15 @@ import { escapeHtmlTextChar } from "./escapeHtmlText";
 
 const ATTR_DONE = "data-span-wrap";
 const SELECTOR = ".JsLetter";
+const INLINE_TEXT_TAGS = new Set([
+	"SPAN",
+	"STRONG",
+	"EM",
+	"B",
+	"I",
+	"MARK",
+	"SMALL",
+]);
 
 export type RuntimeDisconnect = { disconnect: () => void };
 
@@ -30,6 +39,12 @@ function wrapText(text: string, index: { count: number }) {
 }
 
 function wrapElement(element: HTMLElement, index: { count: number }) {
+	if (INLINE_TEXT_TAGS.has(element.tagName)) {
+		const inlineElement = element.cloneNode(false) as HTMLElement;
+		inlineElement.innerHTML = wrapText(element.textContent ?? "", index);
+		return inlineElement.outerHTML;
+	}
+
 	const span = `<span style="${delayStyle(index.count)}">${element.outerHTML}</span>`;
 	index.count += 1;
 	return span;

@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
-import { createGlitchLayers } from "../lib/initGlitch";
-import { initBgTrigger } from "../lib/initBgTrigger";
+import { createGlitchLayers } from "../lib/effects/initGlitch";
+import { initBgTrigger } from "../lib/effects/initBgTrigger";
 import { useClientRuntime } from "../hooks/useClientRuntime";
 import { useHtmlRootClass } from "../hooks/useHtmlRootClass";
 import { getAssetPath } from "../lib/assetPath";

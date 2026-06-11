@@ -1,36 +1,44 @@
 import { useCallback, useEffect, useRef } from "react";
-import {
-	// Moon,
-	// Sun,
-	CaretRightIcon,
-	// CaretDownIcon,
-	// XIcon,
-	// ListPlusIcon,
-	// ArrowSquareOutIcon,
-} from "@phosphor-icons/react";
-import { initIntersectionShow } from "../lib/intersectionShow";
+import { initIntersectionShow } from "../../lib/effects/intersectionShow";
 
-interface BunmyakuTeaserSectionProps {
-	className?: string;
+interface SectionCanvasConfig {
+	text: string;
+	fontSize: number;
+	detailed: boolean;
+	fillOpacity: number;
 }
 
-const COLOR_SCHEME = {
+const SIMPLE_COLOR_SCHEME = {
+	// "--background": "oklch(0.16 0.055 255)",
+	// "--foreground": "oklch(0.8 0.02 235)",
+	// "--MC": "oklch(0.16 0.055 255)",
+	// "--SC": "oklch(0.22 0.9 188)",
+	// "--AC": "oklch(0.45 0.9 188)",
+	// "--BC": "oklch(0.115 0.035 255)",
+	// "--TC": "oklch(0.8 0.02 255)",
+	// "--GR": "oklch(0.62 0.025 255)",
+} as const;
+
+const DETAILED_COLOR_SCHEME = {
 	"--background": "oklch(0.16 0.055 255)",
 	"--foreground": "oklch(0.8 0.02 235)",
 	"--MC": "oklch(0.16 0.055 255)",
 	"--SC": "oklch(0.22 0.9 188)",
 	"--AC": "oklch(0.45 0.9 188)",
 	"--BC": "oklch(0.115 0.035 255)",
-	"--TC": "oklch(0.8 0.02 255)",
+	// "--TC": "oklch(0.8 0.02 255)",
 	"--GR": "oklch(0.62 0.025 255)",
-	"--Eng": "var(--Ship)",
-	"--HFF": "var(--Ship)",
 } as const;
 
-const CANVAS_COLOR = {
+const SIMPLE_CANVAS_COLOR = {
 	// 通常時の canvas 色。既存変数は参照せず、--BC と同じベージュ寄りの色を直接指定します。
-	base: "oklch(80% 0.005 60)",
+	base: "oklch(1 0.0 235)",
 	// COLOR_SCHEME が有効な間だけ使う canvas 色。以前の --foreground と同じ色です。
+	active: "oklch(1 0.0 235)",
+} as const;
+
+const DETAILED_CANVAS_COLOR = {
+	base: "oklch(80% 0.005 60)",
 	active: "oklch(0.9 0.02 235)",
 } as const;
 const VIEWBOX = 1000;
@@ -38,17 +46,17 @@ const FRAGMENT_STEP = 2;
 const CANVAS_MAX_DPR = 2;
 const FRAGMENT_SKIP_WHEN_FILL_OPACITY = 0.82;
 
-const TIMELINE = {
+const SIMPLE_TIMELINE = {
 	// 断片を見せ始める位置。0 より大きくすると、セクションに入った直後は何も出ません。
 	fragmentIntroStart: 0.02,
 	// 断片が見え始めてから本来の濃さになるまでの長さ。
 	fragmentIntroLength: 0.52,
 	// 断片がアウトラインへ戻り切る位置。小さいほど早く集合します。
-	gatherEnd: 0.35,
+	gatherEnd: 0.55,
 	// 断片収束のカーブ。1 は直線、2〜3 は後半で加速、4 以上はかなり極端です。
 	gatherPower: 2,
 	// fill の開始位置。終了位置は 1.0 固定なので、小さいほど長く満たされます。
-	fillStart: 0.325,
+	fillStart: 0.25,
 	// fill が見え始めてから不透明になるまでの長さ。短いほど早く濃くなります。
 	fillFadeLength: 1,
 	// 断片アウトラインを薄くし始める位置。fill と重ねて見せるため後半寄りにしています。
@@ -57,15 +65,26 @@ const TIMELINE = {
 	fragmentFinalOpacity: 0.0,
 } as const;
 
-const COLOR_SCHEME_INTERSECTION = {
+const DETAILED_TIMELINE = {
+	...SIMPLE_TIMELINE,
+	gatherEnd: 0.35,
+	fillStart: 0.325,
+} as const;
+
+const SIMPLE_COLOR_SCHEME_INTERSECTION = {
 	// IntersectionObserver の root。null は viewport を基準にします。
 	root: null,
 	// IntersectionObserver の rootMargin。例: "0px 0px -20% 0px" で下端の判定を上へ寄せます。
-	rootMargin: "0% 0px 50% 0px",
+	rootMargin: "0% 0px 0% 0px",
 	// threshold の分割数。多いほど細かく通知されます。
 	thresholdSteps: 10,
 	// セクションが viewport 高さに対してこの割合以上見えている間だけ配色を適用します。
 	activeBoundary: 0.5,
+} as const;
+
+const DETAILED_COLOR_SCHEME_INTERSECTION = {
+	...SIMPLE_COLOR_SCHEME_INTERSECTION,
+	rootMargin: "0% 0px 50% 0px",
 } as const;
 
 interface InkBlob {
@@ -135,24 +154,35 @@ function resolveShipFont() {
 // 	);
 // }
 
-function createParticleField(font: string): ParticleField {
+function createParticleField(
+	font: string,
+	text: string,
+	fontSize: number,
+	lineWidth: number,
+): ParticleField {
 	const mask = document.createElement("canvas");
 	mask.width = VIEWBOX;
 	mask.height = VIEWBOX;
 
 	const maskCtx = mask.getContext("2d", { willReadFrequently: true });
 	if (!maskCtx) {
-		return { font, mask, coloredMasks: new Map(), fragments: [], inkBlobs: [] };
+		return {
+			font,
+			mask,
+			coloredMasks: new Map(),
+			fragments: [],
+			inkBlobs: [],
+		};
 	}
 
 	maskCtx.clearRect(0, 0, VIEWBOX, VIEWBOX);
-	maskCtx.font = `940px ${font}`;
-	maskCtx.lineWidth = 1.25;
+	maskCtx.font = `${fontSize}px ${font}`;
+	maskCtx.lineWidth = lineWidth;
 	maskCtx.miterLimit = 2;
 	maskCtx.strokeStyle = "#000";
 	maskCtx.textAlign = "center";
 	maskCtx.textBaseline = "middle";
-	maskCtx.strokeText("文", VIEWBOX / 2, VIEWBOX / 2 + 48);
+	maskCtx.strokeText(text, VIEWBOX / 2, VIEWBOX / 2 + 48);
 
 	const data = maskCtx.getImageData(0, 0, VIEWBOX, VIEWBOX).data;
 	const fragments: OutlineFragment[] = [];
@@ -242,6 +272,8 @@ function drawInkFill(
 	inkBlobs: InkBlob[],
 	progress: number,
 	opacity: number,
+	text: string,
+	fontSize: number,
 ) {
 	const inkCanvas = document.createElement("canvas");
 	inkCanvas.width = width;
@@ -276,11 +308,11 @@ function drawInkFill(
 
 	inkCtx.globalCompositeOperation = "destination-in";
 	inkCtx.filter = "none";
-	inkCtx.font = `940px ${font}`;
+	inkCtx.font = `${fontSize}px ${font}`;
 	inkCtx.textAlign = "center";
 	inkCtx.textBaseline = "middle";
 	inkCtx.fillStyle = "#000";
-	inkCtx.fillText("文", VIEWBOX / 2, VIEWBOX / 2 + 48);
+	inkCtx.fillText(text, VIEWBOX / 2, VIEWBOX / 2 + 48);
 
 	ctx.save();
 	ctx.globalAlpha = opacity;
@@ -288,14 +320,27 @@ function drawInkFill(
 	ctx.restore();
 }
 
-export function BunmyakuTeaserSection({
-	className,
-}: BunmyakuTeaserSectionProps) {
+export function useSectionCanvas({
+	text,
+	fontSize,
+	detailed,
+	fillOpacity: fillOpacityLimit,
+}: SectionCanvasConfig) {
 	const rootRef = useRef<HTMLElement | null>(null);
 	const canvasRef = useRef<HTMLCanvasElement | null>(null);
 	const rafRef = useRef<number | null>(null);
 	const particleFieldRef = useRef<ParticleField | null>(null);
 	const colorSchemeActiveRef = useRef(false);
+	const colorScheme = detailed
+		? DETAILED_COLOR_SCHEME
+		: SIMPLE_COLOR_SCHEME;
+	const canvasColorScheme = detailed
+		? DETAILED_CANVAS_COLOR
+		: SIMPLE_CANVAS_COLOR;
+	const timeline = detailed ? DETAILED_TIMELINE : SIMPLE_TIMELINE;
+	const colorSchemeIntersection = detailed
+		? DETAILED_COLOR_SCHEME_INTERSECTION
+		: SIMPLE_COLOR_SCHEME_INTERSECTION;
 
 	const render = useCallback(() => {
 		const canvas = canvasRef.current;
@@ -327,64 +372,86 @@ export function BunmyakuTeaserSection({
 						(viewportHeight + rootRect.height),
 				)
 			: 0;
-		const gatherProgress = easeInPower(
-			progressBetween(
-				scrollProgress,
-				TIMELINE.fragmentIntroStart,
-				TIMELINE.gatherEnd,
-			),
-			TIMELINE.gatherPower,
-		);
-		const fragmentIntroOpacity = easeOutCubic(
-			progressBetween(
-				scrollProgress,
-				TIMELINE.fragmentIntroStart,
-				TIMELINE.fragmentIntroStart + TIMELINE.fragmentIntroLength,
-			),
-		);
 		const fillProgress = easeOutCubic(
-			progressBetween(scrollProgress, TIMELINE.fillStart, 1),
+			progressBetween(scrollProgress, timeline.fillStart, 1),
 		);
 		const fillOpacity = easeOutCubic(
 			progressBetween(
 				scrollProgress,
-				TIMELINE.fillStart,
-				TIMELINE.fillStart + TIMELINE.fillFadeLength,
+				timeline.fillStart,
+				timeline.fillStart + timeline.fillFadeLength,
 			),
 		);
-		const fragmentFadeProgress = easeOutCubic(
-			progressBetween(scrollProgress, TIMELINE.fragmentFadeStart, 1),
-		);
-		const fragmentOpacity =
-			fragmentIntroOpacity *
-			(1 - fragmentFadeProgress * (1 - TIMELINE.fragmentFinalOpacity));
 		const font = resolveShipFont();
 		const canvasColor = colorSchemeActiveRef.current
-			? CANVAS_COLOR.active
-			: CANVAS_COLOR.base;
+			? canvasColorScheme.active
+			: canvasColorScheme.base;
 
-		if (particleFieldRef.current?.font !== font) {
-			particleFieldRef.current = createParticleField(font);
+		if (detailed && particleFieldRef.current?.font !== font) {
+			particleFieldRef.current = createParticleField(
+				font,
+				text,
+				fontSize,
+				1.25,
+			);
 		}
 
 		ctx.setTransform(1, 0, 0, 1, 0, 0);
 		ctx.clearRect(0, 0, width, height);
 
 		if (fillProgress > 0) {
-			drawInkFill(
-				ctx,
-				width,
-				height,
-				scale,
-				tx,
-				ty,
-				font,
-				canvasColor,
-				particleFieldRef.current?.inkBlobs ?? [],
-				fillProgress,
-				fillOpacity,
-			);
+			if (detailed) {
+				drawInkFill(
+					ctx,
+					width,
+					height,
+					scale,
+					tx,
+					ty,
+					font,
+					canvasColor,
+					particleFieldRef.current?.inkBlobs ?? [],
+					fillProgress,
+					fillOpacity * clamp01(fillOpacityLimit),
+					text,
+					fontSize,
+				);
+			} else {
+				ctx.save();
+				ctx.setTransform(scale, 0, 0, scale, tx, ty);
+				ctx.globalAlpha = fillOpacity * clamp01(fillOpacityLimit);
+				ctx.font = `${fontSize}px ${font}`;
+				ctx.textAlign = "center";
+				ctx.textBaseline = "middle";
+				ctx.fillStyle = canvasColor;
+				ctx.fillText(text, VIEWBOX / 2, VIEWBOX / 2 + 48);
+				ctx.restore();
+			}
 		}
+
+		if (!detailed) return;
+
+		const gatherProgress = easeInPower(
+			progressBetween(
+				scrollProgress,
+				timeline.fragmentIntroStart,
+				timeline.gatherEnd,
+			),
+			timeline.gatherPower,
+		);
+		const fragmentIntroOpacity = easeOutCubic(
+			progressBetween(
+				scrollProgress,
+				timeline.fragmentIntroStart,
+				timeline.fragmentIntroStart + timeline.fragmentIntroLength,
+			),
+		);
+		const fragmentFadeProgress = easeOutCubic(
+			progressBetween(scrollProgress, timeline.fragmentFadeStart, 1),
+		);
+		const fragmentOpacity =
+			fragmentIntroOpacity *
+			(1 - fragmentFadeProgress * (1 - timeline.fragmentFinalOpacity));
 
 		ctx.setTransform(scale, 0, 0, scale, tx, ty);
 
@@ -404,7 +471,7 @@ export function BunmyakuTeaserSection({
 				);
 				const easedFragmentProgress = easeInPower(
 					fragmentProgress,
-					TIMELINE.gatherPower,
+					timeline.gatherPower,
 				);
 				const x =
 					fragment.startX +
@@ -433,7 +500,15 @@ export function BunmyakuTeaserSection({
 			}
 		}
 		ctx.globalAlpha = 1;
-	}, []);
+	}, [
+		canvasColorScheme.active,
+		canvasColorScheme.base,
+		detailed,
+		fillOpacityLimit,
+		fontSize,
+		text,
+		timeline,
+	]);
 
 	const scheduleRender = useCallback(() => {
 		if (rafRef.current !== null) return;
@@ -486,8 +561,8 @@ export function BunmyakuTeaserSection({
 			if (active) return;
 			active = true;
 			colorSchemeActiveRef.current = true;
-			for (const key of Object.keys(COLOR_SCHEME) as Array<
-				keyof typeof COLOR_SCHEME
+			for (const key of Object.keys(colorScheme) as Array<
+				keyof typeof colorScheme
 			>) {
 				previous.set(
 					key,
@@ -495,7 +570,7 @@ export function BunmyakuTeaserSection({
 				);
 				document.documentElement.style.setProperty(
 					key,
-					COLOR_SCHEME[key],
+					colorScheme[key],
 				);
 			}
 			scheduleRender();
@@ -505,8 +580,8 @@ export function BunmyakuTeaserSection({
 			if (!active) return;
 			active = false;
 			colorSchemeActiveRef.current = false;
-			for (const key of Object.keys(COLOR_SCHEME) as Array<
-				keyof typeof COLOR_SCHEME
+			for (const key of Object.keys(colorScheme) as Array<
+				keyof typeof colorScheme
 			>) {
 				const value = previous.get(key);
 				if (value) {
@@ -528,7 +603,7 @@ export function BunmyakuTeaserSection({
 
 				if (
 					entry.isIntersecting &&
-					visible >= COLOR_SCHEME_INTERSECTION.activeBoundary
+					visible >= colorSchemeIntersection.activeBoundary
 				) {
 					applyScheme();
 				} else {
@@ -536,12 +611,12 @@ export function BunmyakuTeaserSection({
 				}
 			},
 			{
-				root: COLOR_SCHEME_INTERSECTION.root,
-				rootMargin: COLOR_SCHEME_INTERSECTION.rootMargin,
+				root: colorSchemeIntersection.root,
+				rootMargin: colorSchemeIntersection.rootMargin,
 				threshold: Array.from(
-					{ length: COLOR_SCHEME_INTERSECTION.thresholdSteps + 1 },
+					{ length: colorSchemeIntersection.thresholdSteps + 1 },
 					(_, index) =>
-						index / COLOR_SCHEME_INTERSECTION.thresholdSteps,
+						index / colorSchemeIntersection.thresholdSteps,
 				),
 			},
 		);
@@ -552,44 +627,7 @@ export function BunmyakuTeaserSection({
 			observer.disconnect();
 			restoreScheme();
 		};
-	}, [scheduleRender]);
+	}, [colorScheme, colorSchemeIntersection, scheduleRender]);
 
-	return (
-		<section ref={rootRef} data-l="BunmyakuTeaser" className={className}>
-			<div className="relative min-h-[112.5vw] [grid-area:1/1] max-w-[1620px] w-full mx-auto">
-				<div className="sticky h-100lvh top-0 xl:top-[-30%]  grid  place-items-center ">
-					<canvas
-						ref={canvasRef}
-						className="block  w-full aspect-square"
-						aria-hidden
-					/>
-				</div>
-			</div>
-			<div className="WTS [--WTS:var(--tsw)_var(--BC50)] relative z-10  PX [grid-area:1/1]  [font-family:--Ship] max-w-[48em] mx-auto">
-				<div className="[--LS:0.1em]    py-[50lvh] ">
-					<h2 className=" h2FZ HFF BarAF JsRight">## 文脈.app</h2>
-					<p className="BudouxScroll mx-auto my-[3rem] md:text-xl">
-                                                ### SPEC.md, DESIGN.md, AGENTS.md をGUIで作成するツール<br />
-                                                <br />
-                                                DESIGN.mdはフロントエンドの要件定義書と言えます。公開サイトURLから作成するツールが多く出回っており、一定の効率化につながりますが、Sticthの公式テンプレートの情報量でも不十分であり、結局テンプレート出力になります。<br />
-                                                <br />
-                                                一方ClaudeDesignでは詳細を問いかける設計が従来のAIビルダーとの差別化でありますが、最先端モデルのテンプレートであることに変わりはありません。<br />
-                                                <br />
-                                                このツールではClaudeやモデル性能に依存せずに仕様書を作成すること。GUIで認知コストを下げることでどこまで実用に耐えられるかを試すMVP未満のものです。実際には出力品質を担保するための質問を用意することが最先端モデルでも困難で、時間がかかります。<br />
-                                                <br />
-                                                AGENTS.md(CLAUDE.md)では文章量を少なくすることが推奨されており、定型的なデータを使う場合が多いので最低水準が低いように思いますが、頻繁に更新するものではありません。AIツールを使い始める人のため、またはプロンプト保存、SKILL保管庫の機能を統合することでチーム内ツールとして活用できる可能性はあります。
-                                                <br />またcodex app-serverなどでGUI上から文書をプロンプトとしてあらためてmdファイルの作成をリクエストするという実装も検討できます。
-                                        </p>
-                                        <div className="JsLeft">
-					<a href="/bunmyaku" className="mt-6 BarBF md:text-xl hover:text-AC ">
-						Bunmyaku
-						<CaretRightIcon
-							className=" align-middle ml-0"
-						/>
-					</a>
-                                        </div>
-				</div>
-			</div>
-		</section>
-	);
+	return { rootRef, canvasRef };
 }

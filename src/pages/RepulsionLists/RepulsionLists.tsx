@@ -108,7 +108,7 @@ export function RepulsionLists({ className }: RepulsionListsProps) {
 							onClose={closeRepulsionItem}
 						>
 							<RepulsionListChip
-								title="Other Works"
+								title="Pages and Tools"
 								className="is-initial pointer-events-none mr-4 -mt-4 bg-transparent"
 							/>
 							<RepulsionListChip
@@ -142,18 +142,16 @@ export function RepulsionLists({ className }: RepulsionListsProps) {
 									runtimeで中継。ローカルブラウザでエージェントに直接ソースコードを編集させるCMS
 								</p>
 								<details className="Toggle IsSmall font-normal ">
-									<summary className="Eng">Detail...</summary>
+									<summary className="Eng">Thinking...</summary>
 									<div>
-										- AI時代では
-										「チャットで編集できるwebサイト」が求められると仮定する
+										- 「チャットで編集できるCMS」より先に「ブラウザ直接操作」ができるようになっている
 										<br />
-										-
-										ローカル完結ならモデル性能依存を解消できる
+										- それが現実的になる前の実験プロジェクト
 										<br />
 										- フロントエンド以外は全て仕様駆動。
 										<br />
 										考察：
-										リテラシーの高いクライアント＆十分な初期サポートという条件は必須と考えていたし、体験としては有意義であるが、エージェントの行動への責任は「サポート」ではカバーできないことを実感した。ここまでやるならCursor、Codex等の使い方自体をサポートした方が無難。と考えました。
+										リテラシーの高いクライアント＆十分な初期サポートという条件は必須と考えていたし、体験としては面白いが、エージェントの行動への責任は「サポート」ではカバーできないことを実感した。ここまでやるならCursor、Codex等の使い方自体をサポートした方が現実的。と考えました。
 									</div>
 								</details>
 							</RepulsionListChip>
@@ -212,27 +210,16 @@ export function RepulsionLists({ className }: RepulsionListsProps) {
 								</p>
 							</RepulsionListChip>
 							<RepulsionListChip
-								title="PortfolioWP"
-                                                                href="https://yuremono.com/"
+								title="WP-Izakaya"
+                                                                href="https://yuremono.com/izakaya"
                                                                 className="-mt-4"
 							>
-								<p>
-                                                                        このページ (ReactSPA) をwordpressに移植しています。 
-                                                                        実務で使用経験がないので概念を学びながら可能な限りエージェントに実装させています。
+                                                                <p>
+                                                                        過去に構築した居酒屋サイトの静的htmlからWordPressテーマを作成。
+                                                                        全肯定をSKILL化しつつ、wpの概念と作法を学びました。
 								</p>
 							</RepulsionListChip>
-							{/* <RepulsionListChip
-								title="/Clone Modules"
-                                                                to="/examples"
-                                                                className="mb-4"
-
-							>
-							<p>
-                                                                `ai-website-cloner`では再現できないサイトを部分的に忠実に再現するスキルを使用します。
-                                                                最先端モデルでも(こそ)言うこと聞かないので大抵2ターン以上かかります。
-                                                                新規ページのExampleページと併用している為散らかってますがおまけページです。
-							</p>
-							</RepulsionListChip> */}
+							
 						</RepulsionListItems>
 					</ul>
 				</div>

@@ -10,9 +10,9 @@ import { Footer } from "../components/Footer";
 
 import { PageRoot } from "../components/PageRoot";
 
-import { initCanvasDivide } from "../lib/initCanvasDivide";
+import { initCanvasDivide } from "../lib/effects/initCanvasDivide";
 
-import { initShuffle } from "../lib/initShuffle";
+import { initShuffle } from "../lib/effects/initShuffle";
 
 import { getAssetPath } from "../lib/assetPath";
 

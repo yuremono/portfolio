@@ -1,8 +1,8 @@
 import { type CSSProperties, type RefObject, useCallback, useState } from "react";
 import type { Dispatch, SetStateAction } from "react";
 import { CameraIcon, ChatCircleTextIcon } from "@phosphor-icons/react";
-import { findBoxById } from "../../lib/annotatorGeometry";
-import type { AnnotatorGroup } from "../../lib/annotatorTypes";
+import { findBoxById } from "./bboxGeometry";
+import type { AnnotatorGroup } from "./bboxTypes";
 import type { MutableState } from "./bboxPageModel";
 import { setPendingParentDraftStorage } from "./bboxPendingParentDraft";
 import { bboxScrollOverflowThumbClass } from "./bboxRootClasses";

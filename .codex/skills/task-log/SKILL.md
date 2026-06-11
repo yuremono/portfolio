@@ -1,6 +1,7 @@
 ---
 name: task-log
 description: task-level-2以上のtaskで実行
+disable-model-invocation: true
 ---
 
 `$ARGUMENTS` を実行。

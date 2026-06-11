@@ -21,13 +21,13 @@ import {
 	readPageTransitionCanvasLabel,
 	resolveCssColorOnElement,
 	waitForPageTransitionCanvasFont,
-} from "../lib/pageTransitionCanvasLabel";
+} from "../lib/effects/pageTransitionCanvasLabel";
 import { INITIAL_LOADING_LABEL_TEXT } from "./InitialLoadingOverlay";
 import { ScrollToTop } from "./ScrollToTop";
 import { playPageTransitionMosaique } from "../lib/effects/maskMosaique";
 
-const ScrollSmoothClass = "PageTransitionScrollSmooth";
-const ScrollInstantClass = "PageTransitionScrollInstant";
+const ScrollSmoothClass = "ScrollSmooth";
+const ScrollAutoClass = "ScrollAuto";
 
 /**
  * 試験用: `true` のとき cover 完了後〜reveal 開始前のキャンバス全面塗りつぶしをスキップする。
@@ -139,9 +139,9 @@ function readTransitionMosaicOptions(
 	};
 }
 
-function setDocumentScrollMode(mode: "smooth" | "instant") {
+function setDocumentScrollMode(mode: "smooth" | "auto") {
 	document.documentElement.classList.toggle(ScrollSmoothClass, mode === "smooth");
-	document.documentElement.classList.toggle(ScrollInstantClass, mode === "instant");
+	document.documentElement.classList.toggle(ScrollAutoClass, mode === "auto");
 }
 
 function fillCanvas(canvas: HTMLCanvasElement, color: string) {
@@ -339,7 +339,7 @@ export function PageTransitionRoutes({ routes }: {
 		return () => {
 			document.documentElement.classList.remove(
 				ScrollSmoothClass,
-				ScrollInstantClass,
+				ScrollAutoClass,
 			);
 		};
 	}, []);
@@ -367,7 +367,7 @@ export function PageTransitionRoutes({ routes }: {
 		transitionRunningRef.current = true;
 		pendingTargetRef.current = target;
 
-		setDocumentScrollMode("instant");
+		setDocumentScrollMode("auto");
 		setOverlayVisible(true);
 		await new Promise((resolve) => window.setTimeout(resolve, 0));
 
@@ -453,13 +453,11 @@ export function PageTransitionRoutes({ routes }: {
 		>
 			{/* 一時停止中。戻す場合は disabled を外し、上の直接 scrollTo を削除する。 */}
 			<ScrollToTop disabled />
-			<div className="PageTransitionActive">
-				<AnimatedRouteSet
-					location={location}
-					onCommit={handleRouteCommit}
-					routes={routes}
-				/>
-			</div>
+			<AnimatedRouteSet
+				location={location}
+				onCommit={handleRouteCommit}
+				routes={routes}
+			/>
 			{overlayVisible ? (
 				<div className="PageTransitionOverlay" aria-hidden="true">
 					<p

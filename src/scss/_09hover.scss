@@ -120,6 +120,8 @@ a {
         // box-shadow: inset 0 0 6px var(--bk30);
         border: var(--line);
         border-color: var(--CC);
+        -webkit-text-stroke: 2px var(--TR);
+        paint-order:stroke;
 
 }
 
@@ -530,18 +532,13 @@ p:has(>a) {
 .f_link,
 .pan1 a,
 .HeaderNav a:not(:has(>span)),
-.HeaderNav a:not(.HeaderCylinder *),
-.banner a // ,a.textlink:not([href*=tel],.__tel,span,.__grad)
+.banner a ,
+// ,a.textlink:not([href*=tel],.__tel,span,.__grad)
 // ,.HeaderNav a:not(.drop a,.nopointer,:has(>span),:is(.logo *)) 
-,
 .nav a:not(.drop ul li a),
 .f_nav ul a // ,.f_nav-column a
 ,
-.blog_text h3 span,
-.rss-title // ,div.items > article a.name
-
-// ,.btn
-// ,.policy-trigger
+.blog_text h3 span
         {
         // ホバー下線
         @extend %r-grow;
@@ -561,6 +558,7 @@ p:has(>a) {
 }
 .HeaderCylinder .HeaderNav a{
         background-image: unset;
+        transition: 0s;
 }
 
 .nav a:not(.drop ul li a) {

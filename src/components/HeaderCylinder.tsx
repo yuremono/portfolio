@@ -196,7 +196,7 @@ function HeaderCylinderNav({ onNavigate }: HeaderCylinderNavProps) {
 					文脈
 				</Link>
 			</li>
-			<li className="NavLi NavDrop" {...dropHoverProps}>
+			<li className="NavLi NavDrop w-max" {...dropHoverProps}>
 				<button
 					type="button"
 					className="DropA DropToggle"
@@ -219,7 +219,18 @@ function HeaderCylinderNav({ onNavigate }: HeaderCylinderNavProps) {
 					popover="auto"
 					aria-label="Repositories"
 					onClick={hideClickedPopover}
-				>
+                                >
+                                        <li className="">
+						<a
+							href="https://github.com/yuremono?tab=repositories"
+							className=" "
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							All
+							<ArrowSquareOutIcon size={16} />
+						</a>
+					</li>
 					<li className="DropLi">
 						<a
 							href="https://github.com/yuremono/portfolio"
@@ -234,13 +245,13 @@ function HeaderCylinderNav({ onNavigate }: HeaderCylinderNavProps) {
 					</li>
 					<li className="DropLi">
 						<a
-							href="https://github.com/yuremono/portfolio-wp"
+							href="https://github.com/yuremono/wp-izakaya"
 							className=" "
 							target="_blank"
 							rel="noopener noreferrer"
 							onClick={onNavigate}
 						>
-							Portfolio-wp
+							wp-izakaya
 							<ArrowSquareOutIcon size={16} />
 						</a>
 					</li>
@@ -277,18 +288,6 @@ function HeaderCylinderNav({ onNavigate }: HeaderCylinderNavProps) {
 							onClick={onNavigate}
 						>
 							AgentRelay
-							<ArrowSquareOutIcon size={16} />
-						</a>
-					</li>
-					<li className="DropLi">
-						<a
-							href="https://github.com/yuremono/creative-demos"
-							className=" "
-							target="_blank"
-							rel="noopener noreferrer"
-							onClick={onNavigate}
-						>
-							CreativeDemos
 							<ArrowSquareOutIcon size={16} />
 						</a>
 					</li>
@@ -389,12 +388,12 @@ function HeaderCylinderNav({ onNavigate }: HeaderCylinderNavProps) {
                                         </li>
                                         <li className="DropLi">
 						<a
-							href="https://yuremono.com/"
+							href="https://yuremono.com/izakaya"
 							className=" "
 							target="_blank"
 							rel="noopener noreferrer"
 						>
-							Portfolio-wp
+							wp-izakaya
 							<ArrowSquareOutIcon size={16} />
 						</a>
 					</li>
@@ -422,11 +421,11 @@ function HeaderCylinderNav({ onNavigate }: HeaderCylinderNavProps) {
 							<ArrowSquareOutIcon size={16} />
 						</a>
 					</li>
-					<li className="DropLi opacity-10">
+					{/* <li className="DropLi opacity-10">
 						<Link to="/examples" onClick={onNavigate}>
 							Examples
 						</Link>
-					</li>
+					</li> */}
 				</ul>
 			</li>
 			<li className="NavLi">

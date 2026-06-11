@@ -114,7 +114,18 @@ function HeaderNav({ variant }: HeaderNavProps) {
 					aria-hidden={isDesktop ? undefined : "true"}
 					aria-label={isDesktop ? "Repositories" : undefined}
 					onClick={isDesktop ? hideClickedPopover : undefined}
-				>
+                                >
+                                        <li className="">
+						<a
+							href="https://github.com/yuremono?tab=repositories"
+							className=" "
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							All
+							<ArrowSquareOutIcon size={16} />
+						</a>
+					</li>
 					<li className="DropLi">
 						<a
 							href="https://github.com/yuremono/portfolio"
@@ -128,12 +139,12 @@ function HeaderNav({ variant }: HeaderNavProps) {
 					</li>
 					<li className="DropLi">
 						<a
-							href="https://github.com/yuremono/portfolio-wp"
+							href="https://github.com/yuremono/wp-izakaya"
 							className=" "
 							target="_blank"
 							rel="noopener noreferrer"
 						>
-							portfolio-wp
+							wp-izakaya
 							<ArrowSquareOutIcon size={16} />
 						</a>
 					</li>
@@ -167,17 +178,6 @@ function HeaderNav({ variant }: HeaderNavProps) {
 							rel="noopener noreferrer"
 						>
 							AgentRelay
-							<ArrowSquareOutIcon size={16} />
-						</a>
-					</li>
-					<li className="DropLi">
-						<a
-							href="https://github.com/yuremono/creative-demos"
-							className=" "
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							CreativeDemos
 							<ArrowSquareOutIcon size={16} />
 						</a>
 					</li>
@@ -276,12 +276,12 @@ function HeaderNav({ variant }: HeaderNavProps) {
 					</li>
 					<li className="DropLi">
 						<a
-							href="https://yuremono.com/"
+							href="https://yuremono.com/izakaya"
 							className=" "
 							target="_blank"
 							rel="noopener noreferrer"
 						>
-							Portfolio-wp
+							wp-izakaya
 							<ArrowSquareOutIcon size={16} />
 						</a>
 					</li>
@@ -307,11 +307,11 @@ function HeaderNav({ variant }: HeaderNavProps) {
 							<ArrowSquareOutIcon size={16} />
 						</a>
 					</li>
-					<li className="DropLi ">
+					{/* <li className="DropLi ">
 						<Link to="/examples" className="opacity-10">
 							Examples
 						</Link>
-					</li>
+					</li> */}
 				</ul>
 			</li>
 		</ul>

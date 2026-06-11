@@ -402,7 +402,7 @@ class GlitchCanvas {
 
 /**
  * `.bgItem.__glitch` 内の `img.bgGlitch` 向け Canvas グリッチ。
- * スクロール連携は `initBgTrigger`（`lib/initBgTrigger.ts`）の
+* スクロール連携は `initBgTrigger`（`lib/effects/initBgTrigger.ts`）の
  * `onAfterActivate` から `syncActiveItem` を呼び出す。
  */
 export function createGlitchLayers(root: HTMLElement): GlitchLayersRuntime {

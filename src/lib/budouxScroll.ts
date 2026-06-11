@@ -53,10 +53,12 @@ function readNumber(value: string, fallback: number) {
 function readConfig(element: HTMLElement, options: InitBudouxScrollOptions) {
 	const style = window.getComputedStyle(element);
 	const fallbackTrigger = options.trigger ?? options.focus ?? DEFAULT_CONFIG.trigger;
+	// 未表示文節の透明度
 	const minOpacity = readNumber(
 		style.getPropertyValue("--BudouxScrollMin"),
 		options.minOpacity ?? DEFAULT_CONFIG.minOpacity,
 	);
+	// 各行の表示を始める画面内の高さ
 	const trigger = readNumber(
 		style.getPropertyValue("--BudouxScrollTrigger"),
 		readNumber(
@@ -64,6 +66,7 @@ function readConfig(element: HTMLElement, options: InitBudouxScrollOptions) {
 			fallbackTrigger,
 		),
 	);
+	// 1行を左から右へ表示するスクロール距離
 	const range = readNumber(
 		style.getPropertyValue("--BudouxScrollRange"),
 		options.range ?? DEFAULT_CONFIG.range,
@@ -82,10 +85,9 @@ function resolveViewportValue(value: number, viewportHeight: number) {
 
 function resolveRangeValue(
 	value: number,
-	viewportHeight: number,
-	elementHeight: number,
+	lineHeight: number,
 ) {
-	return value <= 1 ? Math.max(viewportHeight, elementHeight) * value : value;
+	return value <= 1 ? lineHeight * value : value;
 }
 
 function wrapTextNode(textNode: Text, parser: BudouxParser) {
@@ -124,6 +126,7 @@ function wrapElement(element: HTMLElement, parser: BudouxParser) {
 		if (node instanceof HTMLBRElement) return;
 
 		if (node instanceof HTMLElement) {
+			if (node instanceof HTMLDivElement) return;
 			wrapElement(node, parser);
 		}
 	});
@@ -159,18 +162,33 @@ function updateState(state: BudouxScrollState, options: InitBudouxScrollOptions)
 	const viewportHeight =
 		window.innerHeight || document.documentElement.clientHeight;
 	const triggerY = resolveViewportValue(config.trigger, viewportHeight);
-	const rect = state.element.getBoundingClientRect();
-	const range = Math.max(
-		1,
-		resolveRangeValue(config.range, viewportHeight, rect.height),
-	);
-	const progress = clamp((triggerY - rect.top) / range, 0, 1);
-	const activeCount = progress <= 0
-		? 0
-		: Math.ceil(progress * state.phrases.length);
 
-	state.phrases.forEach((phrase, index) => {
-		phrase.style.opacity = index < activeCount ? "1" : String(config.minOpacity);
+	const lines: Array<Array<{ phrase: HTMLElement; rect: DOMRect }>> = [];
+	state.phrases.forEach((phrase) => {
+		const rect = phrase.getBoundingClientRect();
+		const currentLine = lines.at(-1);
+		const lineTop = currentLine?.[0]?.rect.top;
+
+		if (!currentLine || lineTop === undefined || Math.abs(rect.top - lineTop) > 2) {
+			lines.push([{ phrase, rect }]);
+			return;
+		}
+
+		currentLine.push({ phrase, rect });
+	});
+
+	lines.forEach((line) => {
+		const lineTop = Math.min(...line.map(({ rect }) => rect.top));
+		const lineHeight = Math.max(...line.map(({ rect }) => rect.height));
+		const range = Math.max(1, resolveRangeValue(config.range, lineHeight));
+		const progress = clamp((triggerY - lineTop) / range, 0, 1);
+		const activeCount =
+			lineTop > triggerY ? 0 : Math.max(1, Math.ceil(progress * line.length));
+
+		line.forEach(({ phrase }, index) => {
+			phrase.style.opacity =
+				index < activeCount ? "1" : String(config.minOpacity);
+		});
 	});
 }
 

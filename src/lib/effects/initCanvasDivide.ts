@@ -1,4 +1,4 @@
-import type { RuntimeDisconnect } from "../lib/initClientRuntime";
+import type { RuntimeDisconnect } from "../initClientRuntime";
 
 const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
 

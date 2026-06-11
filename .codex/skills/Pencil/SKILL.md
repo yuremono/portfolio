@@ -48,6 +48,10 @@ pencil MCPツールを使用して、.penファイルを作成するためのワ
 - MCP編集後は `export_nodes` または `get_screenshot` で必ずレンダー確認する。画像生成 `G()` は `pencil:pending-image-*` になることがあるため、少し待って再取得・再エクスポートする。
 - `G(nodeId, "stock", "...")` は検索語が具体的すぎると Unsplash 側で失敗し、同じ `batch_design` ブロック全体がロールバックされる。画像配置は1件ずつ、または短い検索語で実行する。
 
+### Tips
+
+- セクションを別トップレイヤーや別フレームへ移し、同時にレイヤーパネル上の順番も変えたい場合は `M(nodeId, parentId, index)` を使う。GUIでは「移動先の親レイヤーへ入れる操作」と「順番変更」が別操作に見えるが、Pencil API の `M()` は親変更と兄弟内インデックス変更を1回で行える。例: `M("sectionId", "targetTopLayerId", 2)` は `sectionId` を `targetTopLayerId` の3番目の子に移す。座標だけを `U()` で変えると見た目だけの移動になり、レイヤーパネル上の所属は変わらないので注意する。
+
 ---
 
 ## 基本ワークフロー

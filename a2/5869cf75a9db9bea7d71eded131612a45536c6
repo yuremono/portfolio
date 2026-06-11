@@ -1,0 +1,285 @@
+src/pages/Bbox/BboxSidebar.tsx
+  s_b395649aa26a5e::t_7d9e5f72219d0a 4-5
+src/pages/Top/useSectionCanvas.ts
+  s_905bce4bbddd84::t_ca8fc2407b0864 2-6,12-21,35,37,55,59,72-73,78,157-160,162,169-175,179,185,275-276,311,315,323-325,328,455,631-632
+  h_53dad1e32c3c71 29
+  s_f81d257339d67e::t_82943975b5f291 390,395,403-429,432
+  s_f81d257339d67e::t_23f606ccf23b78 433-454
+  s_905bce4bbddd84::t_6dabfa019ff171 7-8,11,22,33,38-41,49,68-71,74,85-89,161,180,326-327,334-343,376,381-382,387-388,391-394,396,474,503-511,564-565,573,583-584,606,614-615,617,619,630
+src/components/Footer.tsx
+  h_53dad1e32c3c71 12,79,81-82,84,89
+.codex/skills/Pencil/SKILL.md
+  s_79fc54ba860c1c::t_2960a0c6f96ae3 51-54
+src/lib/effects/mindMapScene.ts
+  s_8991ed09fe316b::t_de2ddb695bcb83 790-794,800-808,822-826,836,838,844-846,894
+  s_905bce4bbddd84::t_4a23d0e04a967d 43,460,646-647,649-657,659-660,980
+  h_53dad1e32c3c71 471-472,645,661-662,664-681,837,855,857,943-944
+  s_8991ed09fe316b::t_91926cb915e735 579-583,586-587,599-601,604-613,895-896
+  s_905bce4bbddd84::t_20c42739db56b5 591-595,642-643
+  s_8991ed09fe316b::t_d72d4269f2ea14 789,809-819,829-833
+  s_8991ed09fe316b::t_89c596f6904516 827
+  s_d3d0d28f93c7d4::t_0e168abb76f548 854,945
+  s_d3d0d28f93c7d4::t_0cb5f11224eab8 54-57,490,497-509
+  s_d3d0d28f93c7d4::t_b00e73993c2573 459,510-517,639-640,644
+  s_8991ed09fe316b::t_cd43ae36c7d893 663
+  s_d3d0d28f93c7d4::t_127a970175380a 461-467
+  s_8991ed09fe316b::t_182a71d2d89b22 58-64,474-488,495,518-520,575-578,588-590,596-598,614-616,619-624,641,798-799,842-843,847
+  s_d387352f6ab989::t_75e73bb21dca79 1-42,44-50,52-53,65-88,90-107,126-202,205-458,682-787,795-797,820-821,834,840-841,848-853,858,867-889,897-942,946-951,961-963,965,969-979,981-984
+  s_d3d0d28f93c7d4::t_72bfc90cc9e83b 51,108-125,473,489,494,625-629,631-635,637-638,859-862,864-866
+  s_905bce4bbddd84::t_17579f0695da7d 203-204,890-893,952-960,964
+  s_f81d257339d67e::t_846fa4d4506f4b 468-470,496,521-574,602-603,617-618,630,636,648,658
+  s_d3d0d28f93c7d4::t_125b876869c4fe 89
+  s_d3d0d28f93c7d4::t_502190bd18c51b 491-493
+  s_8991ed09fe316b::t_9096542df6c591 835,839
+  s_f81d257339d67e::t_a10fbee761c871 584-585
+  s_f81d257339d67e::t_060d7007374bbe 856,863,966-968
+  s_8991ed09fe316b::t_299d67c6244f01 788,828
+src/scss/_08intersection.scss
+  h_53dad1e32c3c71 13-14,17,150,154-156,164-166
+src/lib/effects/initGlitch.ts
+  s_b395649aa26a5e::t_b08916318f1e11 1-443
+src/pages/Bbox/BboxStage.tsx
+  s_b395649aa26a5e::t_7d9e5f72219d0a 8
+src/lib/effects/mindWobbleRuntime.ts
+  s_d387352f6ab989::t_aec1e1dd0ab8e7 1-157
+src/pages/Rects.tsx
+  s_b395649aa26a5e::t_b08916318f1e11 128
+  s_b395649aa26a5e::t_c24cc6234e773d 38,46-47,55
+src/pages/Bbox/bboxPageModel.ts
+  s_b395649aa26a5e::t_7d9e5f72219d0a 1-2,12
+src/components/InitialLoadingOverlay.tsx
+  s_b395649aa26a5e::t_bd291d5513cb1b 11
+src/pages/Top/FrontEndSection.tsx
+  h_53dad1e32c3c71 2-4,7-11,17,19-23,25-119
+  s_8991ed09fe316b::t_1da53c9422f31b 12,24
+  s_905bce4bbddd84::t_6dabfa019ff171 16
+  s_905bce4bbddd84::t_ed578d7327be6d 1,5-6,13-15,18
+src/lib/spanWrap.ts
+  s_3742b583574026::t_d85e287ecd698e 46-47
+  s_3742b583574026::t_dbf36e05640fb2 10-18,42-45
+src/lib/spanWrap.test.ts
+  s_3742b583574026::t_d85e287ecd698e 37,39-54
+  s_3742b583574026::t_dbf36e05640fb2 36,38
+src/pages/Top/BunmyakuTeaserSection.tsx
+  s_905bce4bbddd84::t_948cf8e5f1f6ab 1-2,11-16,19-24,37-39,41-42,44-45,47-48,50-51,53-62
+  h_53dad1e32c3c71 3-10,17-18,25-36,40,43,46,49,52,63-67
+src/pages/Bbox/bboxParentRegionCapture.ts
+  s_b395649aa26a5e::t_7d9e5f72219d0a 3
+src/pages/Yugen.tsx
+  s_b395649aa26a5e::t_bd291d5513cb1b 7
+src/lib/effects/mindMapRuntime.ts
+  s_d3d0d28f93c7d4::t_4b6b545d529158 128-129,132
+  s_905bce4bbddd84::t_20c42739db56b5 131
+  s_905bce4bbddd84::t_4a23d0e04a967d 127
+  s_d3d0d28f93c7d4::t_088df3bfd763c4 144,147,150
+  s_8991ed09fe316b::t_89c596f6904516 133-135
+  s_d3d0d28f93c7d4::t_677fa2c21a580a 153-157,159
+  s_d387352f6ab989::t_5769f83049c07a 2,5-15,28,30-36,39,54,71-74,77,79,84,91,98,101-104,114,138,141-143,145,151-152,161
+  s_8991ed09fe316b::t_6e5a85104e1b88 130
+src/lib/effects/pageTransitionCanvasLabel.ts
+  s_b395649aa26a5e::t_0ee3f9a1e123d4 1-58
+src/scss/_03header.scss
+  h_53dad1e32c3c71 1305-1307,1321,1384,1430-1431,1433-1434,1441-1447,1453-1455,1541,1564,2366
+src/App.tsx
+  s_759a9ca7559d06::t_ba1bfbcd4f9cb9 10
+  h_53dad1e32c3c71 23-32,35-36,47,49-59
+src/pages/Bbox/bboxGeometry.ts
+  s_b395649aa26a5e::t_7d9e5f72219d0a 1-248
+src/pages/ShuffleDivide.tsx
+  s_b395649aa26a5e::t_bd291d5513cb1b 13,15
+src/pages/Top.tsx
+  s_905bce4bbddd84::t_826db0714fc843 87-92,97-102,107-112
+  s_d3d0d28f93c7d4::t_37b38699b322bd 82,93,114,143
+  s_d3d0d28f93c7d4::t_90f35d421c3c28 121,139
+  s_8991ed09fe316b::t_1da53c9422f31b 811,815,817,819-820,826-827,830,832,837-838,844-845,850-851
+  s_d3d0d28f93c7d4::t_0799bb905c4e43 79
+  s_8991ed09fe316b::t_41eef703f4df83 852
+  s_8991ed09fe316b::t_c6fd86d17e11f3 116-117,124-126,133-135,142,144,809,824,842
+  h_53dad1e32c3c71 1-78,80-81,83-86,94-96,103-106,113,115,118-120,122-123,127-132,136-138,140-141,145-808,810,812-814,816,818,821-823,825,828-829,831,833-836,839-841,843,846-849,853-860
+src/components/InitialLoadingOverlay.test.tsx
+  s_759a9ca7559d06::t_4aaafc366fc8c6 37
+src/pages/RepulsionLists/RepulsionListChip.tsx
+  h_53dad1e32c3c71 163
+src/pages/Bbox.tsx
+  s_b395649aa26a5e::t_7d9e5f72219d0a 17,34-35,38-39
+  s_b395649aa26a5e::t_201b6aa03cf95f 16
+src/index.css
+  s_f7961550efbb82::t_e5788e87128fb1 692-696
+  s_f7961550efbb82::t_7fc8df572ae1e7 819
+  s_759a9ca7559d06::t_d5abc5b52cd9c1 517-533,728-765
+src/pages/Next.tsx
+  h_53dad1e32c3c71 26,650,658,664,673,744,966,997,1025,1074,1123
+  s_759a9ca7559d06::t_74ddd322ecc595 86,120
+src/pages/Bbox/bboxCanvas.ts
+  s_b395649aa26a5e::t_7d9e5f72219d0a 1-255
+src/lib/effects/initShuffle.ts
+  s_b395649aa26a5e::t_0ee3f9a1e123d4 1,3-7,10,12-15,17-19,21-22,24-31,33-36,38-46,48-59,62-66,68-71,73-78,81-109,111-112,114-164,166-167,172-181,183
+src/lib/initClientRuntime.ts
+  s_b395649aa26a5e::t_9f21b339d7f902 11
+src/hooks/useRectsTweakpane.ts
+  s_b395649aa26a5e::t_43166741449544 14-15,20,29
+src/pages/Top/CodingSection.tsx
+  s_905bce4bbddd84::t_ca8fc2407b0864 1,4,11-13,16
+  s_905bce4bbddd84::t_6dabfa019ff171 14
+  s_3742b583574026::t_a22e66a6d69559 34,74
+  s_8991ed09fe316b::t_1da53c9422f31b 10,19
+  h_53dad1e32c3c71 2-3,5-9,15,17-18,20-33,35-73,75-79
+src/pages/Bbox/bboxSnapshot.ts
+  s_b395649aa26a5e::t_7d9e5f72219d0a 1-63
+src/pages/Bbox/bboxOutput.ts
+  s_b395649aa26a5e::t_7d9e5f72219d0a 1-161
+src/lib/effects/initCanvasDivide.ts
+  s_b395649aa26a5e::t_0ee3f9a1e123d4 1-236
+src/lib/index.ts
+  s_b395649aa26a5e::t_9f21b339d7f902 10
+src/pages/Bbox/bboxDemoSeed.ts
+  s_b395649aa26a5e::t_7d9e5f72219d0a 4-5
+src/components/PageTransitionRoutes.tsx
+  h_53dad1e32c3c71 29-30,142,144,342,370
+  s_759a9ca7559d06::t_b6d187a346367b 456-460
+  s_b395649aa26a5e::t_bd291d5513cb1b 24
+tailwind.config.js
+  h_53dad1e32c3c71 58-61
+AGENTS.md
+  h_53dad1e32c3c71 39,89
+src/components/PageTransitionRoutes.test.tsx
+  s_759a9ca7559d06::t_18f2e95711415c 126
+  s_759a9ca7559d06::t_305864980e9122 130,165
+src/lib/budouxScroll.ts
+  s_3742b583574026::t_d968a2c195b79b 56,61,69,88,90,166-185,187-191
+  s_3742b583574026::t_a22e66a6d69559 129
+  s_3742b583574026::t_f5e4cf34144b77 186
+src/scss/_02foundation.scss
+  h_53dad1e32c3c71 185
+src/index.scss
+  s_d387352f6ab989::t_cecc500e5f970e 761-762,772-775
+  s_ecf4fcf877e94b::t_e58d7a9b8d81e3 520,731
+  s_d3d0d28f93c7d4::t_ac314901393c4c 591-596
+  h_53dad1e32c3c71 27,29-32,369-502,505-508,510-511,517,519,521-567,569-577,579-582,584-589,597-671,674-712,714-730,732-753,755,757
+  s_d3d0d28f93c7d4::t_9fd9be101cf2a6 578,583,590
+  s_759a9ca7559d06::t_d5abc5b52cd9c1 503,509,514,756,760,794
+  s_759a9ca7559d06::t_395d3bc5339d3c 758-759
+  s_905bce4bbddd84::t_17579f0695da7d 754
+  s_d3d0d28f93c7d4::t_0ad9edd59f921f 568
+src/components/HeaderCylinder.tsx
+  h_53dad1e32c3c71 199,223,225,230,248,254,391,396,424,428
+src/pages/RepulsionLists/RepulsionLists.tsx
+  h_53dad1e32c3c71 111,145,147,149,154,213-214,218-219,222
+src/pages/Glitch.tsx
+  s_b395649aa26a5e::t_bd291d5513cb1b 2-3
+src/scss/_01variables.scss
+  h_53dad1e32c3c71 39-46,88,107-110,219,353-356,363,376
+src/scss/_09hover.scss
+  h_53dad1e32c3c71 123-124,535,561
+src/pages/Top/DesignSection.tsx
+  h_53dad1e32c3c71 2-4,7-11,17,19-23,25-97
+  s_8991ed09fe316b::t_1da53c9422f31b 12,24
+  s_905bce4bbddd84::t_ed578d7327be6d 1,5-6,13-15,18
+  s_905bce4bbddd84::t_6dabfa019ff171 16
+src/components/Header.tsx
+  h_53dad1e32c3c71 118,120,125,142,147,279,284,310,314
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "a25869cf75a9db9bea7d71eded131612a45536c6",
+  "prompts": {},
+  "humans": {
+    "h_53dad1e32c3c71": {
+      "author": "yuremono <5alviaofficinali50@gmail.com>"
+    },
+    "h_5a56918e6ebef3": {
+      "author": "yuremono"
+    }
+  },
+  "sessions": {
+    "s_3742b583574026": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019eb535-a921-7421-8ba7-61e3067ad548",
+        "model": "gpt-5.5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    },
+    "s_759a9ca7559d06": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019ea1d1-d3d7-7370-852a-fd1e3134f748",
+        "model": "gpt-5.4-mini"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    },
+    "s_79fc54ba860c1c": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019e6532-e4d6-7671-bcb9-989fc555208f",
+        "model": "gpt-5.4-mini"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    },
+    "s_8991ed09fe316b": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019eab17-83f9-7c51-80d2-567fd0b8d119",
+        "model": "gpt-5.5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    },
+    "s_905bce4bbddd84": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019eabbf-306a-71c0-add1-a1dee78394d4",
+        "model": "gpt-5.5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    },
+    "s_b395649aa26a5e": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019ea257-4495-7911-a48a-413bac0bfd02",
+        "model": "gpt-5.4-mini"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    },
+    "s_d387352f6ab989": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019ea22a-39d8-73e3-a85f-d41713999644",
+        "model": "gpt-5.4-mini"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    },
+    "s_d3d0d28f93c7d4": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019ea78c-ad64-7cf2-87c8-bd43ae7f5e4c",
+        "model": "gpt-5.4-mini"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    },
+    "s_ecf4fcf877e94b": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019ea265-9e4f-7071-ac8b-b4bfb9422ec2",
+        "model": "gpt-5.4-mini"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    },
+    "s_f7961550efbb82": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019ea681-c8e2-7cd0-9de1-2a277a547b5e",
+        "model": "gpt-5.4-mini"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    },
+    "s_f81d257339d67e": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019eb672-2553-7b22-86b9-932943235348",
+        "model": "gpt-5.4-mini"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  }
+}

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, type MutableRefObject } from "react";
 import { OrbitControls } from "@react-three/drei";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import {
@@ -11,6 +11,7 @@ import {
 	SRGBColorSpace,
 	type Group,
 } from "three";
+import { subscribeDocumentVisibility } from "../../lib/pageVisibility";
 
 interface ModulationCylinderLogoProps {
 	className?: string;
@@ -191,6 +192,9 @@ function LogoModel({
 	fontReadyToken: number;
 }) {
 	const scrollRef = useRef<Group>(null);
+	const isPageVisibleRef = useRef(
+		typeof document === "undefined" ? true : !document.hidden,
+	);
 	const invalidate = useThree((state) => state.invalidate);
 
 	useEffect(() => {
@@ -198,13 +202,24 @@ function LogoModel({
 			if (!scrollRef.current) return;
 
 			scrollRef.current.rotation.x = -window.scrollY * SCROLL_TURN_FACTOR;
-			invalidate();
+			if (isPageVisibleRef.current) {
+				invalidate();
+			}
 		};
 
 		updateScrollRotation();
 		window.addEventListener("scroll", updateScrollRotation, { passive: true });
+		const disconnectVisibility = subscribeDocumentVisibility((visible) => {
+			isPageVisibleRef.current = visible;
+			if (visible) {
+				invalidate();
+			}
+		});
 
-		return () => window.removeEventListener("scroll", updateScrollRotation);
+		return () => {
+			window.removeEventListener("scroll", updateScrollRotation);
+			disconnectVisibility();
+		};
 	}, [invalidate]);
 
 	return (
@@ -214,6 +229,7 @@ function LogoModel({
 				<SideLetters
 					palette={palette}
 					autoSpin={autoSpin}
+					isPageVisibleRef={isPageVisibleRef}
 					fontReadyToken={fontReadyToken}
 					invalidate={invalidate}
 				/>
@@ -275,11 +291,13 @@ function CylinderBody({
 function SideLetters({
 	palette,
 	autoSpin,
+	isPageVisibleRef,
 	fontReadyToken,
 	invalidate,
 }: {
 	palette: Palette;
 	autoSpin: boolean;
+	isPageVisibleRef: MutableRefObject<boolean>;
 	fontReadyToken: number;
 	invalidate: () => void;
 }) {
@@ -287,6 +305,7 @@ function SideLetters({
 
 	useFrame(({ clock }) => {
 		if (!sideRef.current) return;
+		if (!isPageVisibleRef.current) return;
 
 		const autoRotation = autoSpin
 			? -clock.elapsedTime * LOGO_CONFIG.sideSpinSpeed

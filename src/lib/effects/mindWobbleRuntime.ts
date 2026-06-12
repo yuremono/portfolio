@@ -1,6 +1,7 @@
 import type { MindMapRuntimeContext } from "./mindMapScene";
 
 export type MindWobbleRuntime = {
+	pause: () => void;
 	resume: () => void;
 	disconnect: () => void;
 };
@@ -93,6 +94,7 @@ export function initMindWobbleRuntime(
 	if (prefersReduced) {
 		for (const it of items) it.el.style.transform = "none";
 		return {
+			pause: () => {},
 			resume: () => {},
 			disconnect: () => io.disconnect(),
 		};
@@ -101,15 +103,28 @@ export function initMindWobbleRuntime(
 	let rafId = 0;
 	let stopped = false;
 
+	const pause = () => {
+		if (rafId === 0) return;
+		cancelAnimationFrame(rafId);
+		rafId = 0;
+	};
+
 	const resume = () => {
-		if (stopped || rafId !== 0 || context.isDisposed()) return;
+		if (
+			stopped ||
+			rafId !== 0 ||
+			context.isDisposed() ||
+			!context.isPageVisible()
+		) {
+			return;
+		}
 		rafId = requestAnimationFrame(tick);
 	};
 
 	const tick = (now: number) => {
 		if (stopped || context.isDisposed()) return;
-		if (context.getIsScrolling()) {
-			rafId = 0;
+		if (context.getIsScrolling() || !context.isPageVisible()) {
+			pause();
 			return;
 		}
 
@@ -144,10 +159,11 @@ export function initMindWobbleRuntime(
 	resume();
 
 	return {
+		pause,
 		resume,
 		disconnect: () => {
 			stopped = true;
-			cancelAnimationFrame(rafId);
+			pause();
 			io.disconnect();
 			for (const it of items) {
 				it.el.style.transform = "none";

@@ -47,15 +47,6 @@
 ユーザーが`カスタムクラス`を使うと言ったら`STYLE.md`,`CLASS.md`を読む。
 - 構造（section / Wrapper / コンポーネント相当）は **CustomClass** で組み、Tailwind v3 は装飾・微調整に使う。
 
-## task Levels
-
-セッション開始時、言われなければ `level 0`、言われたら以降継続する上書き式。
-
-- Level 0: 最短でユーザーの要望をシンプルに解決する。最低限必要な情報のみを読み、複雑化しない。
-- Level 1: `task-level-1` スキルを実行する。テストやタスクログの実行は禁止。
-- Level 2: `task-level-2`,`task-log` スキルを実行する。
-- Level 3: `task-level-2`,`task-large` スキルを実行する。
-
 ## Execution rules
 
 - あなたが実行した行動をユーザーに**誤った行動**だと指摘されたら、意図を論理的に整理して `tasks/learning.yaml` に追記する

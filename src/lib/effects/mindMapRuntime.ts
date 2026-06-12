@@ -11,6 +11,10 @@ import {
 	type MindWobbleRuntime,
 	initMindWobbleRuntime,
 } from "./mindWobbleRuntime";
+import {
+	isDocumentVisible,
+	subscribeDocumentVisibility,
+} from "../pageVisibility";
 
 /** 最後の scroll からこの ms 経過したらスクロール終了とみなす */
 const SCROLL_SETTLE_MS = 100;
@@ -28,10 +32,12 @@ export function initMindMapRuntime(
 	let disposed = false;
 	const mindMapStates: MindMapContainerState[] = [];
 	let wobbleRuntime: MindWobbleRuntime | null = null;
+	let isPageVisible = isDocumentVisible();
 
 	const context: MindMapRuntimeContext = {
 		getIsScrolling: () => isScrolling,
 		getLastResumeTime: () => lastResumeTime,
+		isPageVisible: () => isPageVisible,
 		isDisposed: () => disposed,
 	};
 
@@ -46,12 +52,35 @@ export function initMindMapRuntime(
 
 	function resumeScrollEffects() {
 		scrollTimer = null;
+		if (!isPageVisible) return;
 		isScrolling = false;
 		lastResumeTime = performance.now();
 		for (const st of mindMapStates) {
 			st.sim.restart();
 		}
 		wobbleRuntime?.resume();
+	}
+
+	function syncPageVisibility(nextVisible: boolean) {
+		isPageVisible = nextVisible;
+		for (const st of mindMapStates) {
+			st.setPageVisible(nextVisible);
+		}
+		if (!nextVisible) {
+			isScrolling = false;
+			if (scrollTimer !== null) clearTimeout(scrollTimer);
+			scrollTimer = null;
+			wobbleRuntime?.pause();
+			pauseMindMapSimsOnce();
+			return;
+		}
+		lastResumeTime = performance.now();
+		wobbleRuntime?.resume();
+		for (const st of mindMapStates) {
+			if (!isScrolling) {
+				st.sim.restart();
+			}
+		}
 	}
 
 	const onScrollActivity = () => {
@@ -66,6 +95,7 @@ export function initMindMapRuntime(
 		passive: true,
 		capture: true,
 	});
+	const disconnectVisibility = subscribeDocumentVisibility(syncPageVisibility);
 
 	const queryRoot = getQueryRoot(rootDocument);
 	const htmlElement =
@@ -91,6 +121,7 @@ export function initMindMapRuntime(
 				const state = await initMindMapScene(c, context);
 				if (disposed || !state) continue;
 				mindMapStates.push(state);
+				state.setPageVisible(isPageVisible);
 				if (isScrolling) {
 					state.sim.stop();
 				}
@@ -110,6 +141,7 @@ export function initMindMapRuntime(
 
 		window.removeEventListener("scroll", onScrollActivity);
 		document.removeEventListener("scroll", onScrollActivity, { capture: true });
+		disconnectVisibility();
 		if (scrollTimer !== null) clearTimeout(scrollTimer);
 		wobbleRuntime?.disconnect();
 

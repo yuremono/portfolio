@@ -3,6 +3,7 @@ import * as d3 from "d3";
 export type MindMapRuntimeContext = {
 	getIsScrolling: () => boolean;
 	getLastResumeTime: () => number;
+	isPageVisible: () => boolean;
 	isDisposed: () => boolean;
 };
 
@@ -36,6 +37,7 @@ export type MindMapNode = {
 export type MindMapContainerState = {
 	sim: d3.Simulation<MindMapNode, undefined>;
 	io: IntersectionObserver;
+	setPageVisible: (visible: boolean) => void;
 	onMouseEnter: (ev: MouseEvent) => void;
 	onMouseMove: (ev: MouseEvent) => void;
 	onMouseLeave: () => void;
@@ -494,6 +496,7 @@ export async function initMindMapScene(
 	let maskTransitionLockUntil = 0;
 	let activeNavIndex = -1;
 	let isMindMapSimRunning = true;
+	let isPageVisible = context.isPageVisible();
 
 	function applyHtmlClassOverride(rawValue: string | null) {
 		const previousTokens = htmlElement._mmHtmlClassTokens ?? [];
@@ -526,14 +529,24 @@ export async function initMindMapScene(
 		);
 		const activeVideoIndex =
 			nextIndex === -1 ? videoClasses.length - 1 : nextIndex;
+		const shouldPlay = isPageVisible && !prefersReduced;
 
 		for (const [index, video] of maskVideos.entries()) {
-			if (index === activeVideoIndex) {
-				if (video.paused) {
-					void video.play().catch(() => {});
+			const isActiveVideo = index === activeVideoIndex;
+			video.preload =
+				shouldPlay && isActiveVideo
+					? "auto"
+					: isPageVisible && prefersReduced && isActiveVideo
+						? "metadata"
+						: "none";
+			if (!shouldPlay || !isActiveVideo) {
+				if (!video.paused) {
+					video.pause();
 				}
-			} else if (!video.paused) {
-				video.pause();
+				continue;
+			}
+			if (video.paused) {
+				void video.play().catch(() => {});
 			}
 		}
 	}
@@ -556,9 +569,28 @@ export async function initMindMapScene(
 		setMindMapVideoClass(activeItem?.maskIndex ?? null);
 	}
 
+	function setPageVisible(visible: boolean) {
+		const changed = visible !== isPageVisible;
+		isPageVisible = visible;
+		if (!isPageVisible) {
+			isMindMapSimRunning = false;
+			sim.stop();
+			syncMindMapVideoPlayback();
+			return;
+		}
+		if (!changed && isMindMapSimRunning && !context.getIsScrolling()) {
+			syncMindMapVideoPlayback();
+			return;
+		}
+		syncMindMapVideoPlayback();
+		refreshMindMapSimulation();
+	}
+
 	function refreshMindMapSimulation() {
 		const shouldRun =
 			!context.isDisposed() &&
+			!context.getIsScrolling() &&
+			isPageVisible &&
 			isVisible &&
 			activeNavIndex === -1 &&
 			performance.now() >= maskTransitionLockUntil;
@@ -841,6 +873,7 @@ export async function initMindMapScene(
 					? Math.min(...intersectingNavIndexes)
 					: -1,
 			);
+			refreshMindMapSimulation();
 		},
 		{
 		root: null, // 交差判定の基準。null はブラウザのビューポート。
@@ -869,6 +902,7 @@ export async function initMindMapScene(
 		if (
 			context.isDisposed() ||
 			context.getIsScrolling() ||
+			!isPageVisible ||
 			!isVisible ||
 			activeNavIndex !== -1 ||
 			(performance.now() < maskTransitionLockUntil)
@@ -979,10 +1013,12 @@ export async function initMindMapScene(
 		}, 150);
 	};
 	window.addEventListener("resize", onResize);
+	refreshMindMapSimulation();
 
 	return {
 		sim,
 		io,
+		setPageVisible,
 		onMouseEnter,
 		onMouseMove,
 		onMouseLeave,

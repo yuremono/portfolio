@@ -84,31 +84,28 @@ function Top() {
 					<video
 						className="MindMapVideo h-full w-full object-cover Video1"
 						src={getAssetPath("/video/coding.mp4")}
-						autoPlay
 						loop
 						muted
 						playsInline
-						preload="metadata"
+						preload="none"
 						aria-hidden="true"
 					/>
 					<video
 						className="MindMapVideo h-full w-full object-cover Video2 contrast-75"
 						src={getAssetPath("/video/design.mp4")}
-						autoPlay
 						loop
 						muted
 						playsInline
-						preload="metadata"
+						preload="none"
 						aria-hidden="true"
 					/>
 					<video
 						className="MindMapVideo h-full w-full object-cover Video3 contrast-100"
 						src={getAssetPath("/video/frontend.mp4")}
-						autoPlay
 						loop
 						muted
 						playsInline
-						preload="metadata"
+						preload="none"
 						aria-hidden="true"
 					/>
 				</div>
@@ -165,7 +162,7 @@ function Top() {
 							<span>エフェクター</span>
 						</h1>
 					</section>
-					<ScrollXSection className=" relative mt-0 bg-background/70 ">
+					<ScrollXSection className=" relative mt-0 backdrop-blur-sm">
 						<div className="DialogWrapper">
 							<div className=" MindMap  text-center experience   font-thin ">
 								<h2

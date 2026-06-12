@@ -1,5 +1,9 @@
 import { useEffect, type RefObject } from "react";
 import { fixed, px } from "./utils";
+import {
+	isDocumentVisible,
+	subscribeDocumentVisibility,
+} from "../../lib/pageVisibility";
 
 interface RepulsionListsPoint {
 	id: string;
@@ -345,6 +349,8 @@ export const useRepulsionListsLayout = (
 		let lastTouchLayout = 0;
 		let stableFrames = 0;
 		let settleTicks = 0;
+		let isNearViewport = false;
+		let isPageVisible = isDocumentVisible();
 
 		const measure = () => {
 			const rect = card.getBoundingClientRect();
@@ -491,11 +497,29 @@ export const useRepulsionListsLayout = (
 			settleTicks = 0;
 		};
 
+		const stopMotion = () => {
+			if (moveFrame !== null) {
+				cancelAnimationFrame(moveFrame);
+				moveFrame = null;
+			}
+			stopSettle();
+		};
+
+		const maybeStartSettle = (finalize = true) => {
+			if (!isNearViewport || !isPageVisible) return;
+			runSettle(finalize);
+		};
+
 		const runSettle = (finalize = true) => {
+			if (!isNearViewport || !isPageVisible) return;
 			stopSettle();
 			measure();
 			const startedAt = performance.now();
 			const step = () => {
+				if (!isNearViewport || !isPageVisible) {
+					stopSettle();
+					return;
+				}
 				if (performance.now() - startedAt > REPULSION_LISTS_SETTLE_TIMEOUT) {
 					if (finalize) settleOnce();
 					stopSettle();
@@ -565,7 +589,11 @@ export const useRepulsionListsLayout = (
 			if (window.innerWidth !== cachedWindowWidth) {
 				currentTranslate = 0;
 				card.style.transform = "";
-				runSettle(true);
+				if (isNearViewport && isPageVisible) {
+					runSettle(true);
+				} else {
+					stopSettle();
+				}
 			}
 		};
 		const handleTouchStart = (event: TouchEvent) => {
@@ -613,7 +641,46 @@ export const useRepulsionListsLayout = (
 			applyLayout({ x: cachedWindowWidth / 2, y: rect.top + rect.height / 2 }, { x: 0, y: 0 });
 		};
 
-		const initialFrame = requestAnimationFrame(() => runSettle(true));
+		const viewportMargin = "60% 0px 60% 0px";
+		const viewportObserver =
+			typeof IntersectionObserver === "undefined"
+				? null
+				: new IntersectionObserver(
+						(entries) => {
+							const entry = entries[0];
+							const nextNearViewport =
+								entry.isIntersecting || entry.intersectionRatio > 0;
+							isNearViewport = nextNearViewport;
+							if (nextNearViewport && isPageVisible) {
+								maybeStartSettle(true);
+								return;
+							}
+							stopMotion();
+						},
+						{
+							root: null,
+							rootMargin: viewportMargin,
+							threshold: 0,
+						},
+					);
+		viewportObserver?.observe(card);
+		if (!viewportObserver) {
+			isNearViewport = true;
+		}
+		if (isNearViewport && isPageVisible) {
+			maybeStartSettle(true);
+		}
+		const disconnectVisibility = subscribeDocumentVisibility((visible) => {
+			isPageVisible = visible;
+			if (!visible) {
+				stopMotion();
+				return;
+			}
+			if (isNearViewport) {
+				maybeStartSettle(true);
+			}
+		});
+
 		card.addEventListener("repulsion-list-chip:focus", handleRepulsionListChipFocus);
 		card.addEventListener("repulsion-list-chip:activate", handleRepulsionListChipActivate);
 		card.addEventListener("mouseenter", stopSettle);
@@ -634,9 +701,9 @@ export const useRepulsionListsLayout = (
 		});
 
 		return () => {
-			cancelAnimationFrame(initialFrame);
-			if (moveFrame !== null) cancelAnimationFrame(moveFrame);
-			if (settleFrame !== null) cancelAnimationFrame(settleFrame);
+			disconnectVisibility();
+			viewportObserver?.disconnect();
+			stopMotion();
 			card.removeEventListener("mousemove", handleMove);
 			card.removeEventListener("mouseleave", handleLeave);
 			card.removeEventListener("mouseenter", stopSettle);

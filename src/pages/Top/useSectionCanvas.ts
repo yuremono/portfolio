@@ -1,5 +1,9 @@
 import { useCallback, useEffect, useRef } from "react";
 import { initIntersectionShow } from "../../lib/effects/intersectionShow";
+import {
+	isDocumentVisible,
+	subscribeDocumentVisibility,
+} from "../../lib/pageVisibility";
 
 interface SectionCanvasConfig {
 	text: string;
@@ -330,6 +334,8 @@ export function useSectionCanvas({
 	const canvasRef = useRef<HTMLCanvasElement | null>(null);
 	const rafRef = useRef<number | null>(null);
 	const particleFieldRef = useRef<ParticleField | null>(null);
+	const isNearViewportRef = useRef(false);
+	const isPageVisibleRef = useRef(isDocumentVisible());
 	const colorSchemeActiveRef = useRef(false);
 	const colorScheme = detailed
 		? DETAILED_COLOR_SCHEME
@@ -346,6 +352,8 @@ export function useSectionCanvas({
 		const canvas = canvasRef.current;
 		const root = rootRef.current;
 		if (!canvas) return;
+		if (!root) return;
+		if (!isNearViewportRef.current || !isPageVisibleRef.current) return;
 
 		const ctx = canvas.getContext("2d");
 		if (!ctx) return;
@@ -511,6 +519,7 @@ export function useSectionCanvas({
 	]);
 
 	const scheduleRender = useCallback(() => {
+		if (!isNearViewportRef.current || !isPageVisibleRef.current) return;
 		if (rafRef.current !== null) return;
 		rafRef.current = window.requestAnimationFrame(() => {
 			rafRef.current = null;
@@ -519,27 +528,84 @@ export function useSectionCanvas({
 	}, [render]);
 
 	useEffect(() => {
-		render();
+		const root = rootRef.current;
+		if (!root) return;
+		let disposed = false;
+
 		window.addEventListener("scroll", scheduleRender, { passive: true });
 		window.addEventListener("resize", scheduleRender, { passive: true });
 
-		const resizeObserver = new ResizeObserver(scheduleRender);
-		if (canvasRef.current) resizeObserver.observe(canvasRef.current);
+		const rootMargin = detailed ? "60% 0px 60% 0px" : "45% 0px 45% 0px";
+		const viewportObserver =
+			typeof IntersectionObserver === "undefined"
+				? null
+				: new IntersectionObserver(
+					(entries) => {
+							if (disposed) return;
+							const entry = entries[0];
+							const nextNearViewport =
+								entry.isIntersecting || entry.intersectionRatio > 0;
+							isNearViewportRef.current = nextNearViewport;
+							if (nextNearViewport) {
+								scheduleRender();
+								return;
+							}
+							if (rafRef.current !== null) {
+								window.cancelAnimationFrame(rafRef.current);
+								rafRef.current = null;
+							}
+						},
+						{
+							root: null,
+							rootMargin,
+							threshold: 0,
+						},
+					);
+		viewportObserver?.observe(root);
+		if (!viewportObserver) {
+			isNearViewportRef.current = true;
+			scheduleRender();
+		}
 
-		document.fonts?.ready.then(() => {
-			particleFieldRef.current = null;
+		const resizeObserver =
+			typeof ResizeObserver === "undefined"
+				? null
+				: new ResizeObserver(scheduleRender);
+		if (canvasRef.current) resizeObserver?.observe(canvasRef.current);
+
+		const disconnectVisibility = subscribeDocumentVisibility((visible) => {
+			if (disposed) return;
+			isPageVisibleRef.current = visible;
+			if (!visible) {
+				if (rafRef.current !== null) {
+					window.cancelAnimationFrame(rafRef.current);
+					rafRef.current = null;
+				}
+				return;
+			}
 			scheduleRender();
 		});
 
+		document.fonts?.ready.then(() => {
+			if (disposed) return;
+			particleFieldRef.current = null;
+			if (isNearViewportRef.current && isPageVisibleRef.current) {
+				scheduleRender();
+			}
+		});
+
 		return () => {
+			disposed = true;
 			window.removeEventListener("scroll", scheduleRender);
 			window.removeEventListener("resize", scheduleRender);
-			resizeObserver.disconnect();
+			resizeObserver?.disconnect();
+			viewportObserver?.disconnect();
+			disconnectVisibility();
 			if (rafRef.current !== null) {
 				window.cancelAnimationFrame(rafRef.current);
 			}
 		};
-	}, [render, scheduleRender]);
+	}, [detailed, scheduleRender]);
 
 	useEffect(() => {
 		const root = rootRef.current;

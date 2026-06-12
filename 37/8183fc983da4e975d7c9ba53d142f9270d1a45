@@ -1,0 +1,87 @@
+src/lib/effects/mindMapRuntime.test.ts
+  s_9e64cdeeb5df6e::t_ec7661199f5164 1-25,28-116,118-119,122-124,126-127
+  s_9e64cdeeb5df6e::t_68538c814b53a5 120-121,125
+  s_9e64cdeeb5df6e::t_98064643bf4404 117
+  s_9e64cdeeb5df6e::t_45571898263712 26-27
+src/pages/Top/useSectionCanvas.ts
+  s_9e64cdeeb5df6e::t_43d7cf06f9a888 567
+  s_9e64cdeeb5df6e::t_7baa1c5beee8dd 355-356
+  s_9e64cdeeb5df6e::t_27c79c50ded6b2 3-6
+  s_9e64cdeeb5df6e::t_92e86bba5eae73 539-542,545-566,568-574,601-602
+  s_9e64cdeeb5df6e::t_3f3c51d100a1ef 522
+  s_9e64cdeeb5df6e::t_c2290659f3ccfc 531-532,534,538,575-576,578-587,592-594,603,608
+  s_9e64cdeeb5df6e::t_de1e19b845578c 337-338
+  s_9e64cdeeb5df6e::t_badd43198b922c 533,543-544,577,590,598
+src/pages/Top.tsx
+  s_9e64cdeeb5df6e::t_ad588fd8e1bbc0 90,99,108
+  h_53dad1e32c3c71 165
+src/lib/video.test.ts
+  s_9e64cdeeb5df6e::t_66cf7a267991d9 41,57-62,65-73
+  s_9e64cdeeb5df6e::t_1c39f66a568917 1-40,42-56,63-64,74-125
+src/lib/video.ts
+  s_9e64cdeeb5df6e::t_821f39c1629382 41-52
+  s_9e64cdeeb5df6e::t_12bd7dadba7bf6 6-10,21-40,54-72,74-75,83-85,89,94-98,104,107-108,111,116-122
+  s_9e64cdeeb5df6e::t_c63ca1c311edef 53
+  s_9e64cdeeb5df6e::t_162180d502d5f0 73
+src/pages/Top/useSectionCanvas.test.tsx
+  s_9e64cdeeb5df6e::t_969631a3a1916b 154-155
+  s_9e64cdeeb5df6e::t_348c11b6e0de13 165-167,170,178
+  s_9e64cdeeb5df6e::t_e14ab174af49a1 1-153,156-164,168-169,171-177,179-197
+src/lib/pageVisibility.ts
+  s_9e64cdeeb5df6e::t_0c48e7bc15dedd 1-21
+src/lib/effects/mindMapScene.ts
+  s_9e64cdeeb5df6e::t_59d6224701cad1 1021
+  s_9e64cdeeb5df6e::t_2d412b2491d399 6,40
+  s_9e64cdeeb5df6e::t_2bd1ff696f1fa7 499
+  s_9e64cdeeb5df6e::t_6283c288494614 532,535-544,546-549
+  s_9e64cdeeb5df6e::t_3ba4ce8939260d 572,574-577,582-588,593
+  s_9e64cdeeb5df6e::t_c06e26cdc278f0 592
+  s_9e64cdeeb5df6e::t_3b3f30eea23e3a 905
+  s_9e64cdeeb5df6e::t_b439edec893d9c 876
+  s_9e64cdeeb5df6e::t_bb73d1f080126f 573,578-581
+  s_9e64cdeeb5df6e::t_f957ae41b02081 1016
+src/lib/effects/mindWobbleRuntime.ts
+  s_9e64cdeeb5df6e::t_3c9252af2ee247 4,97,106-111,113-120,126-127,162,166
+src/lib/effects/mindMapRuntime.ts
+  s_9e64cdeeb5df6e::t_5674edda7bac0d 55,71-72
+  s_9e64cdeeb5df6e::t_d54483d53873ec 14-17,40,64-69,73-76,78-85,98,124,144
+  s_9e64cdeeb5df6e::t_ae3579de9a2b7b 35
+  s_9e64cdeeb5df6e::t_4cf01e4109df01 70,77
+src/pages/RepulsionLists/layout.ts
+  s_9e64cdeeb5df6e::t_0f95eec83ac351 514,519-522
+  s_9e64cdeeb5df6e::t_6316758c7f39d3 592-596
+  s_9e64cdeeb5df6e::t_991a26c4dd8d65 644-683
+  s_9e64cdeeb5df6e::t_a8ddf7cf3cf97c 704-706
+  s_9e64cdeeb5df6e::t_b8b0f1668f897d 3-6
+  s_9e64cdeeb5df6e::t_c5c5f932ff8764 500-512
+  s_9e64cdeeb5df6e::t_5270e090353581 352-353
+src/components/three/ModulationCylinderLogo.tsx
+  s_9e64cdeeb5df6e::t_20fab48f2d9e55 1,232,294,300
+  s_9e64cdeeb5df6e::t_ef2bcf3a46e768 219-222
+  s_9e64cdeeb5df6e::t_f1905b21b6e967 14
+  s_9e64cdeeb5df6e::t_8577e0525edd88 195-197,205-207,212-217,308
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "378183fc983da4e975d7c9ba53d142f9270d1a45",
+  "prompts": {},
+  "humans": {
+    "h_53dad1e32c3c71": {
+      "author": "yuremono <5alviaofficinali50@gmail.com>"
+    },
+    "h_5a56918e6ebef3": {
+      "author": "yuremono"
+    }
+  },
+  "sessions": {
+    "s_9e64cdeeb5df6e": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019ebbb1-8e2d-7050-bb01-f1548675e158",
+        "model": "gpt-5.5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  }
+}

@@ -1,0 +1,46 @@
+src/lib/effects/mindMapRuntime.test.ts
+  s_9e64cdeeb5df6e::t_19480fd8ac6ac6 3-4,23
+src/pages/Top/useSectionCanvas.ts
+  s_9e64cdeeb5df6e::t_19480fd8ac6ac6 584,669
+  s_9e64cdeeb5df6e::t_d37097e770e02c 122-129,153,157-158,291,293-299,303-307,356,358,421,429-433,448,558-583,585-589,605,623,648,651,665-668,670-671,673
+src/scss/_03header.scss
+  s_9e64cdeeb5df6e::t_d4fc3708f2b354 1341-1345
+src/pages/Top/useSectionCanvas.test.tsx
+  s_9e64cdeeb5df6e::t_19480fd8ac6ac6 2
+src/components/three/ModulationCylinderLogo.tsx
+  s_9e64cdeeb5df6e::t_4b892bcb562667 1-8,147,157,185,207,212,242,255,340-349,362-369
+  s_9e64cdeeb5df6e::t_d4fc3708f2b354 145-146,148-154,178,615,618,622-632,639
+  s_9e64cdeeb5df6e::t_b871884cff6edd 234
+  s_9e64cdeeb5df6e::t_d2598621104edb 596-598
+  s_9e64cdeeb5df6e::t_d37097e770e02c 76,218,233,235-241,252,265,328,335,354-355,358
+src/pages/Top.tsx
+  s_9e64cdeeb5df6e::t_d37097e770e02c 55,188,256,704
+src/components/PageTransitionRoutes.tsx
+  s_9e64cdeeb5df6e::t_59d3b4932c8f10 147-152,376
+src/components/PageTransitionRoutes.test.tsx
+  s_9e64cdeeb5df6e::t_d36f4f12bd81c5 171-202
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "2e158571a005e7e6a8d4a3f72f125827f243ab1e",
+  "prompts": {},
+  "humans": {
+    "h_53dad1e32c3c71": {
+      "author": "yuremono <5alviaofficinali50@gmail.com>"
+    },
+    "h_5a56918e6ebef3": {
+      "author": "yuremono"
+    }
+  },
+  "sessions": {
+    "s_9e64cdeeb5df6e": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019ebbb1-8e2d-7050-bb01-f1548675e158",
+        "model": "gpt-5.5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  }
+}

@@ -1,0 +1,50 @@
+src/lib/index.ts
+  s_e5c21a9a0c413e::t_541312415cf1c0 6
+src/lib/budouxScroll.ts
+  s_e5c21a9a0c413e::t_ea0c6707003e53 52-53,56-57,61,178
+  s_e5c21a9a0c413e::t_4534a0c66951a7 10,18,23,28,50,149,185
+src/pages/Top.tsx
+  h_53dad1e32c3c71 119,128,137,158,804,821,823-824,833,843-846,855,866,871
+src/scss/globals.css
+  s_e5c21a9a0c413e::t_be022208f3ce88 3619,3621,3628,3636-3638,5580
+  s_e5c21a9a0c413e::t_6d52bf00b7091d 3620
+src/index.scss
+  h_53dad1e32c3c71 354-356,359,363,366,530,684-685,708,734,737,766-770
+src/pages/Top/DesignSection.tsx
+  h_53dad1e32c3c71 67,72,76,79,86
+src/pages/Top/FrontEndSection.tsx
+  h_53dad1e32c3c71 47,58,72,80,86,94,100,106
+src/pages/Top/BunmyakuTeaserSection.tsx
+  h_53dad1e32c3c71 57
+src/lib/effects/mindWobbleRuntime.ts
+  h_53dad1e32c3c71 45
+src/scss/_08intersection.scss
+  h_53dad1e32c3c71 154,156-157,172,175-177,179-181
+src/lib/effects/mindMapScene.ts
+  s_e5c21a9a0c413e::t_3ac2f89ce052c8 655-657,659-660,664,666
+  s_e5c21a9a0c413e::t_4bd227e6c14724 554-558,607,668
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "46870311d6cb631e20e05b27fd4e55bc9bf79ef3",
+  "prompts": {},
+  "humans": {
+    "h_53dad1e32c3c71": {
+      "author": "yuremono <5alviaofficinali50@gmail.com>"
+    },
+    "h_5a56918e6ebef3": {
+      "author": "yuremono"
+    }
+  },
+  "sessions": {
+    "s_e5c21a9a0c413e": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019ebb79-24cd-75b3-9b17-7a78b0cea5e9",
+        "model": "gpt-5.4-mini"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  }
+}

@@ -64,26 +64,26 @@ export function DesignSection({ className }: DesignSectionProps) {
 						<div className="flex justify-end gap flex-wrap JsChL">
 							<a
 								href="https://github.com/yuremono/portfolio"
-                                                                className="inline-block md:text-xl hover:text-AC "
+                                                                className="inline-block md:text-xl hover:invert "
                                                                 target="_blank"
 							rel="noopener noreferrer"
 							>
 								Portfolio リポジトリにSKILLをまとめています
-                                                                <ArrowSquareOutIcon />
+                                                                <ArrowSquareOutIcon className=" align-middle ml-1 mb-1" />
 
 							</a>
 						</div>
-						<div className="flex justify-end gap flex-wrap JsChL">
+						<div className="mt-4 flex justify-end gap flex-wrap JsChL">
 							<a
 								href="/activity#panel-0425"
-								className=" md:text-xl hover:text-AC "
+								className=" md:text-xl hover:invert "
 							>
 								GPT Image レポート
 								<CaretRightIcon className=" align-middle ml-0 mb-1" />
 							</a>
 							<a
 								href="/lumaport"
-								className=" md:text-xl hover:text-AC "
+								className=" md:text-xl hover:invert "
 							>
 								GPT Image 作成ページ
 								<CaretRightIcon className=" align-middle ml-0 mb-1" />

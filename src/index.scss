@@ -351,19 +351,19 @@ div.tp-lblv_v:has(.tp-radgridv) {
 @layer base {
         :root {
 	--mmFZ: 2rem;
-	--mmWobbleAmp: 32;
-	--mmWobbleAmpX: 32;
-	--mmWobbleAmpY: 32;
+	--mmWobbleAmp: 16;
+	--mmWobbleAmpX: 16;
+	--mmWobbleAmpY: 16;
 	// --mmWobbleFreqX: 0.00024;
 	// --mmWobbleFreqY: 0.00014;
-	--mmWobbleFreqX: 0.0005;
+	--mmWobbleFreqX: 0.0006;
 	--mmWobbleFreqY: 0.0003;
 
                 @media (max-width: 1560px) {
-                        --mmFZ: 1.25rem;
+                        --mmFZ: 1.75rem;
                 }
                 @media (max-width: 640px) {
-                        --mmFZ: 0.875rem;
+                        --mmFZ: 1.25rem;
                 }
         }
        :is(.SwapTarget, .AnchorTarget){
@@ -527,8 +527,7 @@ div.tp-lblv_v:has(.tp-radgridv) {
                 /* touch-action:none は縦スクロール等を阻害し得る */
                 touch-action: pan-x pan-y;
 
-                padding-block: 0.25em;
-                padding-inline: 0.5em;
+                
                 line-height: 1; 
         }
 
@@ -682,6 +681,8 @@ div.tp-lblv_v:has(.tp-radgridv) {
                 border: var(--line);
                 border-color: var(--CC);
                 transition:  var(--trans);
+                padding-block: 0.2em;
+                padding-inline: 0.4em;
                 // font-weight: 200;
 
                 >span{
@@ -704,7 +705,7 @@ div.tp-lblv_v:has(.tp-radgridv) {
                 }
                 
                 @media (min-width: 1024px) {
-                        --bdw: 0.5em;
+                        --bdw: 0.4em;
                         &[aria-current="location"]>span {
                                 scale: 10 30;
                                 transition: 1s cubic-bezier(0.7, 0, 0.3, 1);
@@ -730,10 +731,10 @@ div.tp-lblv_v:has(.tp-radgridv) {
                 
         }
         .MindMap:has(.MindMapBtn[aria-current="location"]) .MindMapBtn>span{
-                background-color: var(--background30);
+                background-color: var(--background20);
         }
         .MindMap:has(.MindMapBtn[aria-current="location"]) .MindMapBtn[aria-current="location"]>span{
-                background-color: var(--background70);
+                background-color: var(--background40);
         }
         @media (max-width: 1023px) {
                 .MindMap.IsLayer .MindMapBtn {
@@ -762,11 +763,11 @@ div.tp-lblv_v:has(.tp-radgridv) {
                 will-change: transform;
                 @apply relative text-[length:--mmFZ]  font-[family-name:--Eng] z-10 leading-[0.8em];
                 font-size: calc(var(--mmFZ) * 5.5);
-                --mmWobbleAmp: 15;
-                --mmWobbleAmpX: 32;
-                --mmWobbleAmpY: 32;
-                --mmWobbleFreqX: 0.0005;
-                --mmWobbleFreqY: 0.0003;
+                // --mmWobbleAmp: 16;
+                // --mmWobbleAmpX: 16;
+                // --mmWobbleAmpY: 16;
+                // --mmWobbleFreqX: 0.0006;
+                // --mmWobbleFreqY: 0.0003;
         }
 
         @media (prefers-reduced-motion: reduce) {

@@ -3616,22 +3616,25 @@ main {
 }
 
 .BudouxScroll {
-  --BudouxScrollMin: 0.3;
-  --BudouxScrollTrigger: 0.68;
-  --BudouxScrollRange: 1;
+  --ScrollMin: 0.3;
+  --ScrollTrigger: 0.75;
+  --ScrollRange: 1;
   word-break: keep-all;
   overflow-wrap: anywhere;
 }
 
 .BudouxScrollPhrase {
   display: inline-block;
-  opacity: var(--BudouxScrollMin);
+  opacity: var(--ScrollMin);
   -webkit-transition: none;
   transition: none;
   vertical-align: baseline;
 }
 .BudouxScrollPhrase:is(.btn *) {
   opacity: 1 !important;
+}
+.BudouxScrollPhrase.IsShow {
+  opacity: 1;
 }
 
 .BudouxShow {

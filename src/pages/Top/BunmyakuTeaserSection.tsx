@@ -54,7 +54,7 @@ export function BunmyakuTeaserSection({
 					<div className="JsLeft">
 						<a
 							href="/bunmyaku"
-							className="mt-6 BarBF md:text-xl hover:text-AC "
+							className="mt-6 BarBF md:text-xl hover:scale-105 "
 						>
 							Bunmyaku
 							<CaretRightIcon className=" align-middle ml-0" />

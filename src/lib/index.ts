@@ -3,7 +3,7 @@ export {
 	type InitBorderDrawOptions,
 } from "./effects/initBorderDraw";
 export { initBudoux } from "./budoux";
-export { initBudouxScroll, type InitBudouxScrollOptions } from "./budouxScroll";
+export { initBudouxScroll, type InitScrollOptions } from "./budouxScroll";
 export { initBudouxShow, type InitBudouxShowOptions } from "./budouxShow";
 export { initHeader } from "./header";
 export { initHeaderTrans } from "./headerTrans";

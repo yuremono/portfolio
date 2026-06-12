@@ -551,6 +551,11 @@ export async function initMindMapScene(
 		syncMindMapVideoPlayback();
 	}
 
+	function syncMindMapVideoToActiveNav() {
+		const activeItem = navItems[activeNavIndex];
+		setMindMapVideoClass(activeItem?.maskIndex ?? null);
+	}
+
 	function refreshMindMapSimulation() {
 		const shouldRun =
 			!context.isDisposed() &&
@@ -599,7 +604,7 @@ export async function initMindMapScene(
 		if (!activeItem) {
 			applyHtmlClassOverride(null);
 			setMindMapMaskClass(-1);
-			setMindMapVideoClass(null);
+			syncMindMapVideoToActiveNav();
 			refreshMindMapSimulation();
 			return;
 		}
@@ -647,15 +652,20 @@ export async function initMindMapScene(
 		const onMouseEnter = () => {
 			setMindMapVideoClass(index);
 		};
+		const onMouseLeave = () => {
+			syncMindMapVideoToActiveNav();
+		};
 		button.addEventListener("mouseenter", onMouseEnter);
-		return { button, onMouseEnter };
+		button.addEventListener("mouseleave", onMouseLeave);
+		return { button, onMouseEnter, onMouseLeave };
 	});
 
 	function removeVideoHoverListeners() {
-		for (const { button, onMouseEnter } of videoHoverListeners) {
+		for (const { button, onMouseEnter, onMouseLeave } of videoHoverListeners) {
 			button.removeEventListener("mouseenter", onMouseEnter);
+			button.removeEventListener("mouseleave", onMouseLeave);
 		}
-		setMindMapVideoClass(null);
+		syncMindMapVideoToActiveNav();
 	}
 
 	function syncMindMapMask() {

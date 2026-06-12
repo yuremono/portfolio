@@ -146,26 +146,40 @@
 }
 
 .BudouxScroll {
-        --BudouxScrollMin: 0.3;
-        --BudouxScrollTrigger: 0.75;
-        --BudouxScrollRange: 1;
+        --ScrollMin: 0.3;
+        --ScrollTrigger: 0.75;
+        --ScrollRange: 1;
         word-break: keep-all;
         overflow-wrap: anywhere;
-        a{
-        -webkit-text-stroke-color: var(--BK);
+        a:not(.btn){
+        -webkit-text-stroke-color: var(--background);
+        padding-inline: 0.25rem;
+        line-height: 1.25;
+        }
+        .btn{
+        -webkit-text-stroke-color: var(--TR);
         }
 }
 
 .BudouxScrollPhrase {
         display: inline-block;
-        opacity: var(--BudouxScrollMin);
+        opacity: var(--ScrollMin);
         transition: none;
         vertical-align: baseline;
         &:is(.btn *){
             opacity: 1!important;
         }
+        &.IsShow{
+            opacity: 1;
+        }
+        &.IsShow{
+            opacity: 1;
+        }
 }
-
+a:not(.btn) .BudouxScrollPhrase{
+        border-bottom: var(--line);
+        border-color: var(--CC);
+}
 .BudouxShow {
         word-break: keep-all;
         overflow-wrap: anywhere;

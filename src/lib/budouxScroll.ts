@@ -7,8 +7,7 @@ const ZWSP = "\u200B";
 
 type BudouxParser = ReturnType<typeof loadDefaultJapaneseParser>;
 
-export interface InitBudouxScrollOptions {
-	minOpacity?: number;
+export interface InitScrollOptions {
 	trigger?: number;
 	range?: number;
 	focus?: number;
@@ -16,19 +15,17 @@ export interface InitBudouxScrollOptions {
 
 export type RuntimeDisconnect = { disconnect: () => void };
 
-interface BudouxScrollConfig {
-	minOpacity: number;
+interface ScrollConfig {
 	trigger: number;
 	range: number;
 }
 
-interface BudouxScrollState {
+interface ScrollState {
 	element: HTMLElement;
 	phrases: HTMLElement[];
 }
 
-const DEFAULT_CONFIG: BudouxScrollConfig = {
-	minOpacity: 0.3,
+const DEFAULT_CONFIG: ScrollConfig = {
 	trigger: 0.5,
 	range: 1,
 };
@@ -50,30 +47,22 @@ function readNumber(value: string, fallback: number) {
 	return Number.isFinite(parsed) ? parsed : fallback;
 }
 
-function readConfig(element: HTMLElement, options: InitBudouxScrollOptions) {
+function readConfig(element: HTMLElement, options: InitScrollOptions) {
 	const style = window.getComputedStyle(element);
-	const fallbackTrigger = options.trigger ?? options.focus ?? DEFAULT_CONFIG.trigger;
-	// 未表示文節の透明度
-	const minOpacity = readNumber(
-		style.getPropertyValue("--BudouxScrollMin"),
-		options.minOpacity ?? DEFAULT_CONFIG.minOpacity,
-	);
+	const fallbackTrigger =
+		options.trigger ?? options.focus ?? DEFAULT_CONFIG.trigger;
 	// 各行の表示を始める画面内の高さ
 	const trigger = readNumber(
-		style.getPropertyValue("--BudouxScrollTrigger"),
-		readNumber(
-			style.getPropertyValue("--BudouxScrollFocus"),
-			fallbackTrigger,
-		),
+		style.getPropertyValue("--ScrollTrigger"),
+		readNumber(style.getPropertyValue("--ScrollFocus"), fallbackTrigger),
 	);
 	// 1行を左から右へ表示するスクロール距離
 	const range = readNumber(
-		style.getPropertyValue("--BudouxScrollRange"),
+		style.getPropertyValue("--ScrollRange"),
 		options.range ?? DEFAULT_CONFIG.range,
 	);
 
 	return {
-		minOpacity: clamp(minOpacity, 0, 1),
 		trigger,
 		range,
 	};
@@ -157,7 +146,7 @@ function getTargets(base: Document | Element) {
 	return targets;
 }
 
-function updateState(state: BudouxScrollState, options: InitBudouxScrollOptions) {
+function updateState(state: ScrollState, options: InitScrollOptions) {
 	const config = readConfig(state.element, options);
 	const viewportHeight =
 		window.innerHeight || document.documentElement.clientHeight;
@@ -186,15 +175,14 @@ function updateState(state: BudouxScrollState, options: InitBudouxScrollOptions)
 			lineTop > triggerY ? 0 : Math.max(1, Math.ceil(progress * line.length));
 
 		line.forEach(({ phrase }, index) => {
-			phrase.style.opacity =
-				index < activeCount ? "1" : String(config.minOpacity);
+			phrase.classList.toggle("IsShow", index < activeCount);
 		});
 	});
 }
 
 export function initBudouxScroll(
 	root: Document | Element = document,
-	options: InitBudouxScrollOptions = {},
+	options: InitScrollOptions = {},
 ): RuntimeDisconnect {
 	const base = root;
 	const parser = loadDefaultJapaneseParser();

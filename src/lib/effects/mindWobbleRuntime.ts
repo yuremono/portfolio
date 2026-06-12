@@ -42,7 +42,7 @@ export function initMindWobbleRuntime(
 		window.matchMedia &&
 		window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-	const all = Array.from(queryRoot.querySelectorAll<HTMLElement>(".mindWobble"));
+	const all = Array.from(queryRoot.querySelectorAll<HTMLElement>(".MindWobble"));
 	if (all.length === 0) return null;
 
 	const els = all.filter((el) => !el.closest(".MindMap"));

@@ -18,7 +18,7 @@ import {
 	// XIcon,
 	ListPlusIcon,
 	ArrowSquareOutIcon,
-        // SpadeIcon,
+	// SpadeIcon,
 } from "@phosphor-icons/react";
 import { DialogFull } from "../components/DialogFull";
 import HeaderCylinder from "../components/HeaderCylinder";
@@ -116,7 +116,7 @@ function Top() {
 					<a
 						href="#coding"
 						className="mm1-3 MindMapBtn  MMBtn1 [--WTSC:--wine]"
-						style={{ fontSize: "4em" }}
+						style={{ fontSize: "3em" }}
 						data-html-class="[--background:--wine] [--hoverC:--WH]"
 					>
 						<span className="bg-wine/50"></span>
@@ -125,7 +125,7 @@ function Top() {
 					<a
 						href="#design"
 						className="mm9-6 MindMapBtn  MMBtn2"
-						style={{ fontSize: "4em" }}
+						style={{ fontSize: "3em" }}
 						data-html-class="[--background:--brown] [--hoverC:--WH]"
 					>
 						<span className="bg-brown/50"></span>
@@ -134,7 +134,7 @@ function Top() {
 					<a
 						href="#frontend"
 						className=" mm3-8 MindMapBtn  MMBtn3"
-						style={{ fontSize: "4em" }}
+						style={{ fontSize: "3em" }}
 						data-html-class="[--background:--forest] [--hoverC:--WH]"
 					>
 						<span className="bg-forest/50"></span>
@@ -155,11 +155,14 @@ function Top() {
 						</p>
 						{/* <h1 className="JsLetter IsDeco text-lg font-normal budoux mmPin  static  lg:absolute lg:translateYH leading-[2em] left-1/2 top-1/2 z-10 text-left px-[--PX2] md:p-4 bg-background/50 "> */}
 						<h1 className="JsLetter IsDeco text-xl font-normal budoux mmPin  static   leading-[2em] left-1/2 top-1/2 z-10 text-left px-[--PX2] md:p-4 bg-background/50 ">
-							<strong>Web</strong>デザイナー兼コーダー歴 <b>3.5年</b>
+							<strong>Web</strong>デザイナー兼コーダー歴{" "}
+							<b>3.5年</b>
 							<br />
 							<b>2025/05</b>から<strong>AI駆動開発</strong>を開始
 							<br />
-							<span>ゆれもの=</span><b className="lsMinus">モジュレーション</b><span>エフェクター</span>
+							<span>ゆれもの=</span>
+							<b className="lsMinus">モジュレーション</b>
+							<span>エフェクター</span>
 						</h1>
 					</section>
 					<ScrollXSection className=" relative mt-0 bg-background/70 ">
@@ -775,7 +778,6 @@ function Top() {
 											Repository&nbsp;
 											<ArrowSquareOutIcon />
 										</a>
-										<br />
 										<a
 											className="btn  [--btnW:45%]"
 											href="/preview"
@@ -799,7 +801,7 @@ function Top() {
 						</section>
 					</ScrollXSection>
 
-					<BunmyakuTeaserSection className="MMBhide out relative mt-0    grid" />
+					<BunmyakuTeaserSection className="MMBhide out py-[--MY] relative mt-0  backdrop-blur-sm    grid" />
 
 					<div className="MMBhide repulsion-lists-module  mt-[-25lvh] z-10">
 						<RepulsionLists className="out px-[calc(var(--into)/3*2)] mt-[--MY] Eng font-light " />
@@ -811,45 +813,62 @@ function Top() {
 				>
 					<div className=" MindMap   text-center   font-thin    ">
 						<h2 className="JsLetter IsDeco2 text-xl font-normal budoux mmPin  static   leading-[2em] left-1/2 top-1/2 z-10 text-left px-[--PX2] md:p-4 ">
-							累計 <strong>300案件</strong>を担当<span className="italic text-WH/50">（自社CMSでのマークアップ）</span>
+							累計 <strong>300案件</strong>を担当
+							<span className="italic text-WH/50">
+								（自社CMSでのマークアップ）
+							</span>
 							<br />
-							<b>SCSS</b> <strong>JavaScript</strong> <b className="italic text-base md:text-lg "> jQuery </b>のコーディング
+							<b>SCSS</b> <strong>JavaScript</strong>{" "}
+							<b className="italic text-base md:text-lg ">
+								{" "}
+								jQuery{" "}
+							</b>
+							のコーディング
 							<br />
-                                                        <b>効率</b>と <b>品質</b>の両立、AIの書く<strong className="lsMinus">構造とスタイル</strong><span>の制御に取り組んでいます。</span>
+							<b>効率</b>と <b>品質</b>の両立、AIの書く
+							<strong className="lsMinus">構造とスタイル</strong>
+							<span>の制御に取り組んでいます。</span>
 						</h2>
 					</div>
-					<CodingSection className="out relative mt-0    grid " />
+					<CodingSection className="out py-[--MY] relative mt-0  backdrop-blur-sm    grid " />
 				</section>
 				<section
 					id="design"
 					className="AnchorTarget  out mt-0 relative isolate  text-WH  [--deco:--brown]"
 				>
 					<div className=" MindMap   text-center   font-thin     ">
-                                                <h2 className="JsLetter IsDeco2 text-xl font-normal budoux mmPin  static   leading-[2em] left-1/2 top-1/2 z-10 text-left px-[--PX2] md:p-4 ">
+						<h2 className="JsLetter IsDeco2 text-xl font-normal budoux mmPin  static   leading-[2em] left-1/2 top-1/2 z-10 text-left px-[--PX2] md:p-4 ">
 							<strong>Photoshop</strong>で約 <b>250案件</b>を担当
 							<br />
-							<b>Illustrator</b> <strong>Figma</strong> を補助利用<span className="italic text-WH/50">（html to design など）</span>
-                                                        <br />
-                                                        <strong>アニメーション</strong>を求められる案件を多く担当してきました。
-                                                        {/* <span className="my-2">個人制作では、PSDからのFigmaデータ再構築、</span>
+							<b>Illustrator</b> <strong>Figma</strong> を補助利用
+							<span className="italic text-WH/50">
+								（html to design など）
+							</span>
+							<br />
+							<strong>アニメーション</strong>
+							を求められる案件を多く担当してきました。
+							{/* <span className="my-2">個人制作では、PSDからのFigmaデータ再構築、</span>
 							<br />
                                                         FigmaMCP 、Pencil.dev の <b>Agent SKILLS</b>作成等を行なっています。 */}
 						</h2>
 					</div>
-					<DesignSection className="out relative mt-0    grid " />
+					<DesignSection className="out py-[--MY] relative mt-0  backdrop-blur-sm    grid " />
 				</section>
 				<section
 					id="frontend"
 					className="AnchorTarget out mt-0 relative isolate  text-WH  [--deco:--forest]"
 				>
 					<div className=" MindMap   text-center   font-thin     ">
-                                                <h2 className="JsLetter IsDeco2 text-xl font-normal budoux mmPin  static   leading-[2em] left-1/2 top-1/2 z-10 text-left px-[--PX2] md:p-4 ">
-							個人制作で <strong>React</strong> <b>TypeScript</b>を主に使用し
-                                                        <br />
-                                                        様々な観点から <strong className="!mr-0">Web制作</strong><b >効率化ツール</b>を試作しています。
+						<h2 className="JsLetter IsDeco2 text-xl font-normal budoux mmPin  static   leading-[2em] left-1/2 top-1/2 z-10 text-left px-[--PX2] md:p-4 ">
+							個人制作で <strong>React</strong> <b>TypeScript</b>
+							を主に使用し
+							<br />
+							様々な観点から{" "}
+							<strong className="!mr-0">Web制作</strong>
+							<b>効率化ツール</b>を試作しています。
 						</h2>
 					</div>
-					<FrontEndSection className="out relative mt-0    grid pointer-events-auto" />
+					<FrontEndSection className="out py-[--MY] relative mt-0  backdrop-blur-sm    grid pointer-events-auto" />
 				</section>
 			</main>
 			<Footer />

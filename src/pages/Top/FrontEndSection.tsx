@@ -44,7 +44,7 @@ export function FrontEndSection({ className }: FrontEndSectionProps) {
                                                 Cursor使用開始時に
 							<a
 								href="https://github.com/yuremono/next.js.cms"
-                                                        className=" md:text-xl hover:text-AC border-b border-b-current leading-none px-1"
+                                                        className=" md:text-xl hover:invert "
                                                         target="_blank" rel="noopener noreferrer"
 							>
 								Next.Js でCMS
@@ -55,7 +55,7 @@ export function FrontEndSection({ className }: FrontEndSectionProps) {
                                                 web AI 統合chrome拡張機能
 							<a
 								href="https://github.com/yuremono/chatKanban"
-                                                        className=" md:text-xl hover:text-AC border-b border-b-current leading-none px-1"
+                                                        className=" md:text-xl hover:invert "
                                                         target="_blank" rel="noopener noreferrer"
                                                         
 							>
@@ -69,7 +69,7 @@ export function FrontEndSection({ className }: FrontEndSectionProps) {
                                                 その他には
 							<a
 								href="https://github.com/yuremono/agent-relay"
-                                                        className=" md:text-xl hover:text-AC border-b border-b-current leading-none px-1"
+                                                        className=" md:text-xl hover:invert "
                                                         target="_blank" rel="noopener noreferrer"
 							>
 								VScode ターミナル間連絡ツール
@@ -77,13 +77,13 @@ export function FrontEndSection({ className }: FrontEndSectionProps) {
                                                 </a>
 							<a
 								href="/bbox"
-								className=" md:text-xl hover:text-AC border-b border-b-current leading-none px-1"
+								className=" md:text-xl hover:invert "
 							>
 								デザインの座標とサイズを抽出するUI
                                                 </a>
 							<a
 								href="https://github.com/yuremono/agent-driven-CMS"
-                                                        className=" md:text-xl hover:text-AC border-b border-b-current leading-none px-1"
+                                                        className=" md:text-xl hover:invert "
                                                         target="_blank" rel="noopener noreferrer"
 							>
 								Codex/ClaudeCodeの権限をブラウザ上で表示
@@ -91,19 +91,19 @@ export function FrontEndSection({ className }: FrontEndSectionProps) {
                                                 </a>
 							<a
 								href="/rects"
-								className=" md:text-xl hover:text-AC border-b border-b-current leading-none px-1"
+								className=" md:text-xl hover:invert "
 							>
 								図形をもとにインラインSVGを作成するツール
                                                 </a>
 							<a
 								href="/bunmyaku"
-								className=" md:text-xl hover:text-AC border-b border-b-current leading-none px-1"
+								className=" md:text-xl hover:invert "
 							>
 								エージェント用ドキュメント作成UI
                                                 </a>
 							<a
 								href="https://github.com/yuremono/headless-CMS"
-                                                        className=" md:text-xl hover:text-AC border-b border-b-current leading-none px-1"
+                                                        className=" md:text-xl hover:invert "
                                                         target="_blank" rel="noopener noreferrer"
 							>
 								JSONデータをWEBやアプリで呼び出すヘッドレスCMS

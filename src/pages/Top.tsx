@@ -52,6 +52,7 @@ function Top() {
 	useClientRuntime({ rootRef: ref });
 	useHtmlRootClass("[--MC:--GR] ");
 	const [activeDialogId, setActiveDialogId] = useState<string | null>(null);
+	const [experienceDialogMounted, setExperienceDialogMounted] = useState(false);
 	const experienceDialogOpen = activeDialogId === EXPERIENCE_DIALOG_KEY;
 
 	return (
@@ -184,6 +185,7 @@ function Top() {
 										aria-controls="experience-dialog"
 										aria-expanded={experienceDialogOpen}
 										onClick={() => {
+											setExperienceDialogMounted(true);
 											setActiveDialogId(
 												EXPERIENCE_DIALOG_KEY,
 											);
@@ -251,7 +253,7 @@ function Top() {
 									GSAP
 								</p>
 							</div>
-							<DialogFull
+							{experienceDialogMounted ? <DialogFull
 								id="experience-dialog"
 								open={experienceDialogOpen}
 								dialogAriaLabel="Experience and Dependencies"
@@ -699,7 +701,7 @@ function Top() {
 										<CardsItem></CardsItem>
 									</Cards>
 								</section>
-							</DialogFull>
+							</DialogFull> : null}
 						</div>
 						<section className="MMBhide Cards col2 relative items-center into [--gap:0px]">
 							<div className="item PX">

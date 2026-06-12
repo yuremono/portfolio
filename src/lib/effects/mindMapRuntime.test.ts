@@ -1,5 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
+// `vi.mock` の hoist 前後で同じ binding を使うため var が必要。
+// eslint-disable-next-line no-var
 var mockSceneState: {
 	sim: {
 		on: ReturnType<typeof vi.fn>;
@@ -18,6 +20,7 @@ var mockSceneState: {
 	container: HTMLElement;
 	nodes: [];
 };
+// eslint-disable-next-line no-var
 var mockWobbleRuntime: {
 	pause: ReturnType<typeof vi.fn>;
 	resume: ReturnType<typeof vi.fn>;

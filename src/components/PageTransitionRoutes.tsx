@@ -144,6 +144,12 @@ function setDocumentScrollMode(mode: "smooth" | "auto") {
 	document.documentElement.classList.toggle(ScrollAutoClass, mode === "auto");
 }
 
+function hideOpenPopovers() {
+	document
+		.querySelectorAll<HTMLElement>(":popover-open")
+		.forEach((popover) => popover.hidePopover());
+}
+
 function fillCanvas(canvas: HTMLCanvasElement, color: string) {
 	const ctx = canvas.getContext("2d");
 	if (!ctx) return;
@@ -367,6 +373,7 @@ export function PageTransitionRoutes({ routes }: {
 		transitionRunningRef.current = true;
 		pendingTargetRef.current = target;
 
+		hideOpenPopovers();
 		setDocumentScrollMode("auto");
 		setOverlayVisible(true);
 		await new Promise((resolve) => window.setTimeout(resolve, 0));

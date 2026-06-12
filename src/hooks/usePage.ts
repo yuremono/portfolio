@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { initBudoux } from "../lib/budoux";
 import { initMindMapRuntime } from "../lib/effects/mindMapRuntime";
 
 const STORAGE_KEY = "theme-mode";
@@ -37,10 +36,8 @@ export function usePage() {
 	useEffect(() => {
 		const el = ref.current;
 		if (!el) return;
-		const budoux = initBudoux(el);
 		const disconnectMind = initMindMapRuntime(el);
 		return () => {
-			budoux.disconnect();
 			disconnectMind();
 		};
 	}, []);

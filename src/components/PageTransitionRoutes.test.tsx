@@ -168,6 +168,38 @@ describe("PageTransitionRoutes", () => {
 		unmount(root);
 	});
 
+	it("遷移開始時に開いているpopoverを閉じる", () => {
+		const hidePopover = vi.fn();
+		const popover = document.createElement("div");
+		popover.hidePopover = hidePopover;
+		document.body.appendChild(popover);
+		vi.spyOn(document, "querySelectorAll").mockImplementation((selector) => {
+			if (selector === ":popover-open") {
+				return [popover] as unknown as NodeListOf<Element>;
+			}
+			return document.createDocumentFragment().querySelectorAll(selector);
+		});
+
+		const { container, root } = renderRoutes(baseRoutes);
+		const link = Array.from(
+			container.querySelectorAll<HTMLAnchorElement>("a"),
+		).find((anchor) => anchor.textContent === "Raw About");
+
+		act(() => {
+			link?.dispatchEvent(
+				new MouseEvent("click", {
+					bubbles: true,
+					cancelable: true,
+					button: 0,
+				}),
+			);
+		});
+
+		expect(hidePopover).toHaveBeenCalledOnce();
+
+		unmount(root);
+	});
+
 	it("pageTransition=false のルートでは即時切り替えする", () => {
 		const { container, root } = renderRoutes([
 			baseRoutes[0],

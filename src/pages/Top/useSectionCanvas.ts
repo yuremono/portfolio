@@ -119,6 +119,14 @@ interface ParticleField {
 	inkBlobs: InkBlob[];
 }
 
+interface InkCanvasCache {
+	canvas: HTMLCanvasElement;
+	width: number;
+	height: number;
+}
+
+let cachedShipFont: string | null = null;
+
 function clamp01(value: number) {
 	return Math.min(1, Math.max(0, value));
 }
@@ -142,10 +150,12 @@ function randomFromIndex(index: number) {
 
 function resolveShipFont() {
 	if (typeof window === "undefined") return "serif";
+	if (cachedShipFont) return cachedShipFont;
 
 	const rootStyle = getComputedStyle(document.documentElement);
 	const ship = rootStyle.getPropertyValue("--Ship").trim();
-	return ship || '"Shippori Mincho", serif';
+	cachedShipFont = ship || '"Shippori Mincho", serif';
+	return cachedShipFont;
 }
 
 // function resolveForegroundColor() {
@@ -278,13 +288,23 @@ function drawInkFill(
 	opacity: number,
 	text: string,
 	fontSize: number,
+	inkCanvasCache: InkCanvasCache,
 ) {
-	const inkCanvas = document.createElement("canvas");
-	inkCanvas.width = width;
-	inkCanvas.height = height;
+	const inkCanvas = inkCanvasCache.canvas;
+	if (inkCanvasCache.width !== width || inkCanvasCache.height !== height) {
+		inkCanvas.width = width;
+		inkCanvas.height = height;
+		inkCanvasCache.width = width;
+		inkCanvasCache.height = height;
+	}
 
 	const inkCtx = inkCanvas.getContext("2d");
 	if (!inkCtx) return;
+	inkCtx.setTransform(1, 0, 0, 1, 0, 0);
+	inkCtx.globalAlpha = 1;
+	inkCtx.globalCompositeOperation = "source-over";
+	inkCtx.filter = "none";
+	inkCtx.clearRect(0, 0, width, height);
 
 	inkCtx.setTransform(scale, 0, 0, scale, tx, ty);
 	inkCtx.fillStyle = foreground;
@@ -333,7 +353,9 @@ export function useSectionCanvas({
 	const rootRef = useRef<HTMLElement | null>(null);
 	const canvasRef = useRef<HTMLCanvasElement | null>(null);
 	const rafRef = useRef<number | null>(null);
+	const idleRef = useRef<number | null>(null);
 	const particleFieldRef = useRef<ParticleField | null>(null);
+	const inkCanvasRef = useRef<InkCanvasCache | null>(null);
 	const isNearViewportRef = useRef(false);
 	const isPageVisibleRef = useRef(isDocumentVisible());
 	const colorSchemeActiveRef = useRef(false);
@@ -396,12 +418,7 @@ export function useSectionCanvas({
 			: canvasColorScheme.base;
 
 		if (detailed && particleFieldRef.current?.font !== font) {
-			particleFieldRef.current = createParticleField(
-				font,
-				text,
-				fontSize,
-				1.25,
-			);
+			return;
 		}
 
 		ctx.setTransform(1, 0, 0, 1, 0, 0);
@@ -409,6 +426,11 @@ export function useSectionCanvas({
 
 		if (fillProgress > 0) {
 			if (detailed) {
+				inkCanvasRef.current ??= {
+					canvas: document.createElement("canvas"),
+					width: 0,
+					height: 0,
+				};
 				drawInkFill(
 					ctx,
 					width,
@@ -423,6 +445,7 @@ export function useSectionCanvas({
 					fillOpacity * clamp01(fillOpacityLimit),
 					text,
 					fontSize,
+					inkCanvasRef.current,
 				);
 			} else {
 				ctx.save();
@@ -532,6 +555,38 @@ export function useSectionCanvas({
 		if (!root) return;
 		let disposed = false;
 
+		const prepareParticleField = () => {
+			if (!detailed || particleFieldRef.current) return;
+			const font = resolveShipFont();
+			particleFieldRef.current = createParticleField(
+				font,
+				text,
+				fontSize,
+				1.25,
+			);
+			scheduleRender();
+		};
+
+		const scheduleParticleField = () => {
+			if (!detailed || particleFieldRef.current || idleRef.current !== null) {
+				return;
+			}
+			if ("requestIdleCallback" in window) {
+				idleRef.current = window.requestIdleCallback(
+					() => {
+						idleRef.current = null;
+						if (!disposed) prepareParticleField();
+					},
+					{ timeout: 500 },
+				);
+				return;
+			}
+			idleRef.current = globalThis.setTimeout(() => {
+				idleRef.current = null;
+				if (!disposed) prepareParticleField();
+			}, 0);
+		};
+
 		window.addEventListener("scroll", scheduleRender, { passive: true });
 		window.addEventListener("resize", scheduleRender, { passive: true });
 
@@ -547,6 +602,7 @@ export function useSectionCanvas({
 								entry.isIntersecting || entry.intersectionRatio > 0;
 							isNearViewportRef.current = nextNearViewport;
 							if (nextNearViewport) {
+								scheduleParticleField();
 								scheduleRender();
 								return;
 							}
@@ -564,6 +620,7 @@ export function useSectionCanvas({
 		viewportObserver?.observe(root);
 		if (!viewportObserver) {
 			isNearViewportRef.current = true;
+			scheduleParticleField();
 			scheduleRender();
 		}
 
@@ -588,9 +645,10 @@ export function useSectionCanvas({
 
 		document.fonts?.ready.then(() => {
 			if (disposed) return;
+			cachedShipFont = null;
 			particleFieldRef.current = null;
 			if (isNearViewportRef.current && isPageVisibleRef.current) {
-				scheduleRender();
+				scheduleParticleField();
 			}
 		});
 
@@ -604,8 +662,15 @@ export function useSectionCanvas({
 			if (rafRef.current !== null) {
 				window.cancelAnimationFrame(rafRef.current);
 			}
+			if (idleRef.current !== null) {
+				if ("cancelIdleCallback" in window) {
+					window.cancelIdleCallback(idleRef.current);
+				} else {
+					globalThis.clearTimeout(idleRef.current);
+				}
+			}
 		};
-	}, [detailed, scheduleRender]);
+	}, [detailed, fontSize, scheduleRender, text]);
 
 	useEffect(() => {
 		const root = rootRef.current;

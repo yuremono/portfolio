@@ -1338,6 +1338,11 @@
                                 width: 100%;
                                 aspect-ratio: 1;
                                 display: block;
+                                opacity: 0;
+                                transition: var(--trans);
+                                &:is(.LogoCylinder.IsReady *) {
+                                        opacity: 1;
+                                }
                         }
                         
                         .LogoLoading {

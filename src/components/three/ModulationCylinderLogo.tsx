@@ -1,4 +1,11 @@
-import { useEffect, useMemo, useRef, useState, type MutableRefObject } from "react";
+import {
+	useEffect,
+	useMemo,
+	useRef,
+	useState,
+	type MutableRefObject,
+	type RefObject,
+} from "react";
 import { OrbitControls } from "@react-three/drei";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import {
@@ -66,6 +73,7 @@ const LOGO_CONFIG = {
 	// --- スクロール / 回転 ---
 	scrollTurnRange: 2400,
 	sideSpinSpeed: 0.2,
+	spinFps: 30,
 
 	// --- 断面（ひらがな）---
 	capRotationZ: -0.625,
@@ -134,11 +142,19 @@ export default function ModulationCylinderLogo({
 	autoSpin = true,
 }: ModulationCylinderLogoProps) {
 	const [palette, setPalette] = useState<Palette>(FALLBACK_PALETTE);
-	const fontReadyToken = useCanvasFontReady();
-	const rootClassName = ["LogoCylinder", className].filter(Boolean).join(" ");
+	const [canvasReady, setCanvasReady] = useState(false);
+	const { ready: fontsReady, token: fontReadyToken } = useCanvasFontReady();
+	const rootRef = useRef<HTMLDivElement>(null);
+	const rootClassName = [
+		"LogoCylinder",
+		canvasReady && fontsReady ? "IsReady" : null,
+		className,
+	]
+		.filter(Boolean)
+		.join(" ");
 
 	return (
-		<div className={rootClassName}>
+		<div ref={rootRef} className={rootClassName}>
 			<Canvas
 				className="LogoCylinderCanvas"
 				role="img"
@@ -159,12 +175,14 @@ export default function ModulationCylinderLogo({
 					camera.lookAt(0, 0, 0);
 					camera.updateProjectionMatrix();
 					setPalette(readPalette(gl.domElement));
+					setCanvasReady(true);
 				}}
 			>
 				<LogoModel
 					palette={palette}
 					autoSpin={autoSpin}
 					fontReadyToken={fontReadyToken}
+					rootRef={rootRef}
 				/>
 				{interactive ? (
 					<OrbitControls
@@ -186,15 +204,18 @@ function LogoModel({
 	palette,
 	autoSpin,
 	fontReadyToken,
+	rootRef,
 }: {
 	palette: Palette;
 	autoSpin: boolean;
 	fontReadyToken: number;
+	rootRef: RefObject<HTMLDivElement | null>;
 }) {
 	const scrollRef = useRef<Group>(null);
 	const isPageVisibleRef = useRef(
 		typeof document === "undefined" ? true : !document.hidden,
 	);
+	const isLogoVisibleRef = useRef(true);
 	const invalidate = useThree((state) => state.invalidate);
 
 	useEffect(() => {
@@ -209,6 +230,16 @@ function LogoModel({
 
 		updateScrollRotation();
 		window.addEventListener("scroll", updateScrollRotation, { passive: true });
+		const observer =
+			typeof IntersectionObserver !== "undefined"
+				? new IntersectionObserver(([entry]) => {
+					isLogoVisibleRef.current = entry.isIntersecting;
+					if (entry.isIntersecting && isPageVisibleRef.current) {
+						invalidate();
+					}
+				})
+				: null;
+		if (rootRef.current) observer?.observe(rootRef.current);
 		const disconnectVisibility = subscribeDocumentVisibility((visible) => {
 			isPageVisibleRef.current = visible;
 			if (visible) {
@@ -218,9 +249,10 @@ function LogoModel({
 
 		return () => {
 			window.removeEventListener("scroll", updateScrollRotation);
+			observer?.disconnect();
 			disconnectVisibility();
 		};
-	}, [invalidate]);
+	}, [invalidate, rootRef]);
 
 	return (
 		<group ref={scrollRef} scale={LOGO_CONFIG.modelScale}>
@@ -230,6 +262,7 @@ function LogoModel({
 					palette={palette}
 					autoSpin={autoSpin}
 					isPageVisibleRef={isPageVisibleRef}
+					isLogoVisibleRef={isLogoVisibleRef}
 					fontReadyToken={fontReadyToken}
 					invalidate={invalidate}
 				/>
@@ -292,27 +325,48 @@ function SideLetters({
 	palette,
 	autoSpin,
 	isPageVisibleRef,
+	isLogoVisibleRef,
 	fontReadyToken,
 	invalidate,
 }: {
 	palette: Palette;
 	autoSpin: boolean;
 	isPageVisibleRef: MutableRefObject<boolean>;
+	isLogoVisibleRef: MutableRefObject<boolean>;
 	fontReadyToken: number;
 	invalidate: () => void;
 }) {
 	const sideRef = useRef<Group>(null);
+	const nextFrameTimerRef = useRef<number | null>(null);
+
+	useEffect(
+		() => () => {
+			if (nextFrameTimerRef.current !== null) {
+				window.clearTimeout(nextFrameTimerRef.current);
+			}
+		},
+		[],
+	);
 
 	useFrame(({ clock }) => {
 		if (!sideRef.current) return;
 		if (!isPageVisibleRef.current) return;
+		if (!isLogoVisibleRef.current) return;
+		const elapsed = clock.elapsedTime;
 
 		const autoRotation = autoSpin
-			? -clock.elapsedTime * LOGO_CONFIG.sideSpinSpeed
+			? -elapsed * LOGO_CONFIG.sideSpinSpeed
 			: 0;
 		sideRef.current.rotation.y = SIDE_BASE_ROTATION + autoRotation;
 
-		if (autoSpin) invalidate();
+		if (autoSpin && nextFrameTimerRef.current === null) {
+			nextFrameTimerRef.current = window.setTimeout(() => {
+				nextFrameTimerRef.current = null;
+				if (isPageVisibleRef.current && isLogoVisibleRef.current) {
+					invalidate();
+				}
+			}, 1000 / LOGO_CONFIG.spinFps);
+		}
 	});
 
 	return (
@@ -539,6 +593,9 @@ function createTexture(canvas: HTMLCanvasElement, cacheKey: string) {
 
 function useCanvasFontReady() {
 	const [token, setToken] = useState(0);
+	const [ready, setReady] = useState(
+		() => typeof document === "undefined" || !("fonts" in document),
+	);
 
 	useEffect(() => {
 		if (typeof document === "undefined" || !("fonts" in document)) {
@@ -555,22 +612,31 @@ function useCanvasFontReady() {
 		};
 		const requestFont = (font: string) => {
 			try {
-				void fonts.load(font).then(markReady, markReady);
+				return fonts.load(font).then(markReady, markReady);
 			} catch {
 				markReady();
+				return Promise.resolve();
 			}
 		};
 
-		requestFont(`${LOGO_CONFIG.capFontWeight} 160px ${LOGO_CONFIG.capFontFamily}`);
-		requestFont(`${LOGO_CONFIG.sideFontWeight} 160px ${LOGO_CONFIG.sideFontFamily}`);
-		void fonts.ready.then(markReady, markReady);
+		void Promise.all([
+			requestFont(
+				`${LOGO_CONFIG.capFontWeight} 160px ${LOGO_CONFIG.capFontFamily}`,
+			),
+			requestFont(
+				`${LOGO_CONFIG.sideFontWeight} 160px ${LOGO_CONFIG.sideFontFamily}`,
+			),
+			fonts.ready.then(markReady, markReady),
+		]).then(() => {
+			if (active) setReady(true);
+		});
 
 		return () => {
 			active = false;
 		};
 	}, []);
 
-	return token;
+	return { ready, token };
 }
 
 function readPalette(element: HTMLElement | null): Palette {

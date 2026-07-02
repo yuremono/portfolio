@@ -1,0 +1,39 @@
+src/pages/Top/FrontEndSection.tsx
+  h_53dad1e32c3c71 24
+src/components/conversion/CnvSignCanvas.tsx
+  h_53dad1e32c3c71 268
+AGENTS.md
+  h_53dad1e32c3c71 61
+src/components/HoudiniPaint.tsx
+  h_53dad1e32c3c71 110
+src/pages/Top/CodingSection.tsx
+  h_53dad1e32c3c71 22-23
+src/components/FigureSvg.tsx
+  h_53dad1e32c3c71 57,59,62
+src/components/Toggle.tsx
+  h_53dad1e32c3c71 37
+src/pages/Aozora.tsx
+  h_53dad1e32c3c71 450,488,534,561,657,789,821,848
+src/pages/Test6.tsx
+  h_53dad1e32c3c71 118,150
+src/pages/Top/DesignSection.tsx
+  h_53dad1e32c3c71 24
+src/components/btn.tsx
+  h_53dad1e32c3c71 35,43
+src/components/Image.tsx
+  h_53dad1e32c3c71 104,108
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.8",
+  "base_commit_sha": "c96113d65420eecd43f3e679afe71fae06c7c8ec",
+  "prompts": {},
+  "humans": {
+    "h_53dad1e32c3c71": {
+      "author": "yuremono <5alviaofficinali50@gmail.com>"
+    },
+    "h_5a56918e6ebef3": {
+      "author": "yuremono"
+    }
+  }
+}

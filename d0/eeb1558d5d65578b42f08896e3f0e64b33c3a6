@@ -1,0 +1,31 @@
+.claude/hooks/protect_files.py
+  s_b99c5299fc68fa::t_9b724fcdb0f121 13-16
+AGENTS.md
+  s_b99c5299fc68fa::t_fa6fe4fa6fbdba 87-106
+  s_b99c5299fc68fa::t_942d4088afa264 15-16,26-37
+  s_b99c5299fc68fa::t_db4d9aa4494af1 38
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.9",
+  "base_commit_sha": "d0eeb1558d5d65578b42f08896e3f0e64b33c3a6",
+  "prompts": {},
+  "humans": {
+    "h_53dad1e32c3c71": {
+      "author": "yuremono <5alviaofficinali50@gmail.com>"
+    },
+    "h_5a56918e6ebef3": {
+      "author": "yuremono"
+    }
+  },
+  "sessions": {
+    "s_b99c5299fc68fa": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "9973359c-8e75-43c9-ace3-1c99009928cf",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  }
+}

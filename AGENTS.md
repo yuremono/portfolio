@@ -12,6 +12,8 @@
 
 ## コマンド
 
+### 開発
+
 | コマンド | 用途 |
 |---------|------|
 | `npm run dev` | 開発サーバー（ポート **3000**） |
@@ -20,6 +22,19 @@
 | `npm run preview` | ビルドのプレビュー |
 | `npm run lint` | ESLint |
 | `npm test` | Vitest 一回実行 |
+
+### デプロイ
+
+| コマンド | 用途 | 対象を変更した後に使う |
+|---------|------|------|
+| `npm run deploy` | GitHub Pages(`base:/portfolio/`固定) | フロントのコード/CSS(現行本番) |
+| `npm run deploy:aws:frontend` | S3 sync + CloudFront invalidation | フロントのコード/CSS(AWS版) |
+| `npm run deploy:aws:backend` | Docker build → ECR push → App Runner deploy(OrbStack自動起動、終了は手動) | `rag-backend/app/*.py`、または`build_db.py`でDB再構築した後 |
+| `npm run deploy:aws:all` | 上記frontend→backendを連続実行 | 両方を変更したとき |
+| (npmスクリプト無し)`aws apprunner update-service` | 環境変数のみ更新、Dockerビルド不要 | レート制限値・CORS許可先(ALLOWED_ORIGIN)等のみ変更したとき。コマンド例は`portfolio-rag-progress.md`参照 |
+
+RAGデータ(`~/rag-data/portfolio-rag/entries/`)を更新した場合は、`deploy:aws:backend`の前に
+`rag-backend/build/build_db.py`でDB再構築が必要(詳細は`portfolio-rag-progress.md`)。
 
 ## 主要ディレクトリ・ファイル
 
@@ -69,18 +84,26 @@
 
 ## RAGチャット(バックエンド `rag-backend/`)
 
-- バックエンド本体は `rag-backend/`(このプロジェクト直下、`.gitignore`済み・GitHubには絶対にpushしない方針)。別Gitリポジトリとして独立管理している。
-- RAGソースデータ・ビルド済みDBは `~/rag-data/portfolio-rag/`(Git管理外のただのディレクトリ)。
-- **デプロイは変更対象で4パターン**(詳細はREADME.md「デプロイ」節、コマンドは `scripts/deploy-aws.sh` / `npm run deploy:aws:*`):
-  1. フロントのみ変更 → `npm run deploy:aws:frontend`
-  2. バックエンドのコードのみ変更 → `npm run deploy:aws:backend`
-  3. RAGデータ(`~/rag-data/...`)を変更 → 先に `rag-backend/build/build_db.py` でDB再構築してから2と同じ手順(DBはコンテナに焼き込み式のため、コード変更なしでもビルド・デプロイをやり直す必要がある)
-  4. 環境変数のみ(レート制限・CORS許可先等) → `aws apprunner update-service` を直接実行、Dockerビルド不要
-- `rag-backend` のDockerビルド・pushが必要な時だけ、直前に `open -a OrbStack` でOrbStackを自動起動する。
-- ビルド・push・デプロイ確認が完了したら、OrbStackを閉じる(`osascript -e 'quit app "OrbStack"'` 等)。開発中や通常のフロント編集では起動しない、常時起動もしない。
-- **シェルのcwdに注意**: `rag-backend/` はそれ自体が独立したGitリポジトリ(`.git`あり)。cwdをそこに移動したままファイル編集を行うと、プロジェクトルート基準のhook(`.claude/hooks/`)がパス解決に失敗し編集がブロックされることがある。編集系の操作前は必ずプロジェクトルート(`0413portfolio/`直下)にcwdを戻すこと。
-- システムプロンプト・プロンプトインジェクション対策・確定トリガー(キーワード検知でGitHub最新情報を自動注入する仕組み)は `rag-backend/app/bedrock.py` / `app/tools.py` / `app/injection.py` を参照。本人名は「制作者」表記に統一している。
-- 詳細な手順・AWSリソースの実値は `portfolio-rag-progress.md` を参照(実パス・AWSアカウントIDを含むため`.gitignore`対象、リポジトリには含まれない)。
+### 場所と管理方針
+
+| 何 | 場所 | 備考 |
+|---|---|---|
+| バックエンド本体 | `rag-backend/`(このプロジェクト直下) | `.gitignore`済み・別Gitリポジトリとして独立管理。**GitHubには絶対にpushしない方針** |
+| RAGソースデータ・ビルド済みDB | `~/rag-data/portfolio-rag/` | Git管理外のただのディレクトリ(意図的) |
+
+デプロイコマンドは上の「## コマンド」→「デプロイ」表に統合済み。OrbStackは`deploy:aws:backend`実行時に自動起動されるので、完了確認後は手動で閉じる(`osascript -e 'quit app "OrbStack"'`)。開発中や通常のフロント編集では起動しない。
+
+### コードの場所
+
+| やりたいこと | 見るファイル |
+|---|---|
+| システムプロンプトを直す | `rag-backend/app/bedrock.py` |
+| 外部URL取得ツール・確定トリガー(キーワード検知でGitHub最新情報を自動注入)を直す | `rag-backend/app/tools.py` |
+| プロンプトインジェクションの一次フィルタパターンを直す | `rag-backend/app/injection.py` |
+
+本人名の直書きは「制作者」表記に統一している。
+
+詳細な運用手順・AWSリソースの実値は `portfolio-rag-progress.md` を参照(実パス・AWSアカウントIDを含むため`.gitignore`対象、リポジトリには含まれない)。
 
 ## 禁止事項
 

@@ -9,6 +9,7 @@
 - ルーティング: react-router-dom
 - テスト: Vitest（happy-dom）
 - 状態管理: React 組み込み + React Router
+- RAGチャットのバックエンド(`rag-backend/`): Python 3.12 + FastAPI、AWS Bedrock（生成: Claude、埋め込み: Titan）、sqlite-vec、AWS App Runner / S3 / CloudFront
 
 ## コマンド
 
@@ -88,10 +89,10 @@ RAGデータ(`~/rag-data/portfolio-rag/entries/`)を更新した場合は、`dep
 
 | 何 | 場所 | 備考 |
 |---|---|---|
-| バックエンド本体 | `rag-backend/`(このプロジェクト直下) | `.gitignore`済み・別Gitリポジトリとして独立管理。**GitHubには絶対にpushしない方針** |
-| RAGソースデータ・ビルド済みDB | `~/rag-data/portfolio-rag/` | Git管理外のただのディレクトリ(意図的) |
+| バックエンド本体 | `rag-backend/` | `.gitignore` 別Gitリポジトリとして独立管理。**GitHubには絶対にpushしない方針** |
+| RAGソースデータ・ビルド済みDB | `~/rag-data/portfolio-rag/` | - |
 
-OrbStackは`deploy:aws:backend`実行時に自動起動されるので、完了確認後は手動で閉じる(`osascript -e 'quit app "OrbStack"'`)。開発中や通常のフロント編集では起動しない。
+OrbStackは`deploy:aws:backend`実行時に自動起動されるので、完了確認後は手動で閉じる(`osascript -e 'quit app "OrbStack"'`)。
 
 ### コードの場所
 
@@ -101,9 +102,7 @@ OrbStackは`deploy:aws:backend`実行時に自動起動されるので、完了�
 | 外部URL取得ツール・確定トリガー(キーワード検知でGitHub最新情報を自動注入)を直す | `rag-backend/app/tools.py` |
 | プロンプトインジェクションの一次フィルタパターンを直す | `rag-backend/app/injection.py` |
 
-本人名の直書きは「制作者」表記に統一している。
-
-詳細な運用手順・AWSリソースの実値は `portfolio-rag-progress.md` を参照(実パス・AWSアカウントIDを含むため`.gitignore`対象、リポジトリには含まれない)。
+詳細な運用手順・AWSリソースの実値は `portfolio-rag-progress.md` を参照
 
 ## 禁止事項
 
@@ -111,9 +110,9 @@ OrbStackは`deploy:aws:backend`実行時に自動起動されるので、完了�
 - 調査・検討段階で作業を始めない（ユーザーの口調で判断）  
 - いかなる識別子にもプロジェクト名を使用しない 
 - 秘密情報やファイルパスのユーザー名を公開されるファイルに書かない
-- AGENTS.md・README・仕様系ドキュメントには「今の状態」だけを書く。「どこから移動した」
-  「〜に統合済み」等の編集履歴・経緯のメモは書かない（読む人が後から知る必要がない）。
-  経緯を残す必要がある場合は進捗ドキュメント（例: `portfolio-rag-progress.md`）にのみ書く。
+- 仕様系ドキュメントには「今の状態」だけを書く。「どこから移動した」
+  「〜に統合済み」等の編集履歴・経緯のメモは残しておく必要がない。
+  進捗ドキュメントは例外。
 </important>
 
 <important if="overwriting, deleting, or resetting">

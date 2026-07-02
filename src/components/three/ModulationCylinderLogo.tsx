@@ -126,12 +126,16 @@ const SIDE_PLANE_GEOMETRY = new PlaneGeometry(
 	LOGO_CONFIG.sideLetterHeight,
 );
 
+const FALLBACK_COLOR =
+	typeof document === "undefined"
+		? "oklch(99% 0.005 60)"
+		: cssColorToRgb("oklch(99% 0.005 60)", "oklch(99% 0.005 60)");
 const FALLBACK_PALETTE: Palette = {
-	body: "oklch(99% 0.005 60)",
-	ink: "oklch(99% 0.005 60)",
-	light: "oklch(99% 0.005 60)",
-	shadow: "oklch(99% 0.005 60)",
-	partition: "oklch(99% 0.005 60)",
+	body: FALLBACK_COLOR,
+	ink: FALLBACK_COLOR,
+	light: FALLBACK_COLOR,
+	shadow: FALLBACK_COLOR,
+	partition: FALLBACK_COLOR,
 };
 
 const TEXT_TEXTURE_CACHE = new Map<string, CanvasTexture>();
@@ -280,7 +284,7 @@ function CylinderBody({
 }) {
 	const bodyMaterial = useMemo(
 		() => ({
-			color: palette.body,
+			color: palette.body === "transparent" ? "#000000" : palette.body,
 			toneMapped: LOGO_CONFIG.bodyToneMapped,
 		}),
 		[palette.body],

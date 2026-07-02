@@ -9,7 +9,9 @@
 - ルーティング: react-router-dom
 - テスト: Vitest（happy-dom）
 - 状態管理: React 組み込み + React Router
-- RAGチャットのバックエンド(`rag-backend/`): Python 3.12 + FastAPI、AWS Bedrock（生成: Claude、埋め込み: Titan）、sqlite-vec、AWS App Runner / S3 / CloudFront
+- RAGチャットバックエンド(`rag-backend/`): Python 3.12 + FastAPI
+- RAGチャットのAI: AWS Bedrock（生成: Claude Sonnet、埋め込み: Titan Embeddings）+ sqlite-vec
+- ホスティング: フロント= S3 + CloudFront、RAGチャットバックエンド= AWS App Runner
 
 ## コマンド
 

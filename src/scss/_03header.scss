@@ -3147,8 +3147,6 @@
 
 // 以下は参考実装 0406agent-driven-CMS/app/globals.css の editor* ルールを流用
 .editorOverlayInner {
-
-
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
@@ -3233,11 +3231,6 @@
         background: var(--WH50);
 }
 
-.editorTranscriptBubbleError {
-        background: var(--AC20);
-        color: var(--MC);
-}
-
 .editorTranscriptSources {
         display: flex;
         flex-direction: column;
@@ -3245,7 +3238,7 @@
         margin-top: 0.25rem;
         padding: 0 0.5rem;
         font-size: 0.75rem;
-        color: var(--SC);
+        color: var(--GR);
 
         a {
                 text-decoration: underline;

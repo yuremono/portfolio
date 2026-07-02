@@ -67,11 +67,20 @@
 - ブラウザでの見た目確認やスクリーンショット比較が必要なときは、`agent-browser` スキルまたは`computer-use`を実行する。
 - スクリーンショットはプロジェクト内の `tmp/browser-checks/` を既定の保存先とする。
 
-## RAGバックエンドのデプロイ(Docker/OrbStack)
+## RAGチャット(バックエンド `rag-backend/`)
 
-- `portfolio-rag-backend` のDockerビルド・pushが必要な時だけ、直前に `open -a OrbStack` でOrbStackを自動起動する。
+- バックエンド本体は `rag-backend/`(このプロジェクト直下、`.gitignore`済み・GitHubには絶対にpushしない方針)。別Gitリポジトリとして独立管理している。
+- RAGソースデータ・ビルド済みDBは `~/rag-data/portfolio-rag/`(Git管理外のただのディレクトリ)。
+- **デプロイは変更対象で4パターン**(詳細はREADME.md「デプロイ」節、コマンドは `scripts/deploy-aws.sh` / `npm run deploy:aws:*`):
+  1. フロントのみ変更 → `npm run deploy:aws:frontend`
+  2. バックエンドのコードのみ変更 → `npm run deploy:aws:backend`
+  3. RAGデータ(`~/rag-data/...`)を変更 → 先に `rag-backend/build/build_db.py` でDB再構築してから2と同じ手順(DBはコンテナに焼き込み式のため、コード変更なしでもビルド・デプロイをやり直す必要がある)
+  4. 環境変数のみ(レート制限・CORS許可先等) → `aws apprunner update-service` を直接実行、Dockerビルド不要
+- `rag-backend` のDockerビルド・pushが必要な時だけ、直前に `open -a OrbStack` でOrbStackを自動起動する。
 - ビルド・push・デプロイ確認が完了したら、OrbStackを閉じる(`osascript -e 'quit app "OrbStack"'` 等)。開発中や通常のフロント編集では起動しない、常時起動もしない。
-- 詳細な手順は `portfolio-rag-progress.md` §7 を参照。
+- **シェルのcwdに注意**: `rag-backend/` はそれ自体が独立したGitリポジトリ(`.git`あり)。cwdをそこに移動したままファイル編集を行うと、プロジェクトルート基準のhook(`.claude/hooks/`)がパス解決に失敗し編集がブロックされることがある。編集系の操作前は必ずプロジェクトルート(`0413portfolio/`直下)にcwdを戻すこと。
+- システムプロンプト・プロンプトインジェクション対策・確定トリガー(キーワード検知でGitHub最新情報を自動注入する仕組み)は `rag-backend/app/bedrock.py` / `app/tools.py` / `app/injection.py` を参照。本人名は「制作者」表記に統一している。
+- 詳細な手順・AWSリソースの実値は `portfolio-rag-progress.md` を参照(実パス・AWSアカウントIDを含むため`.gitignore`対象、リポジトリには含まれない)。
 
 ## 禁止事項
 

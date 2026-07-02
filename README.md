@@ -211,19 +211,23 @@ https://yuremono.github.io/BurnYourOwnStyle/
 
 `npm run deploy` を実行するだけで公開される(`predeploy` が自動で `npm run build` を実行し `dist/404.html` を生成、続けて `gh-pages -d dist` で `gh-pages` ブランチへpushする)。`vite.config.ts` の `base` はこの構成に合わせて `/portfolio/` 固定。
 
-### AWS S3 + CloudFront(新規)
+### AWS S3 + CloudFront + App Runner(新規)
 
-自分についてのRAGチャットボット機能を含む本番環境向けの配信先。バックエンド(FastAPI on AWS App Runner + Bedrock)と組み合わせて動作し、CloudFront経由で配信される。
+自分についてのRAGチャットボット機能を含む本番環境向けの配信先。フロント(S3+CloudFront)とバックエンド(`rag-backend/`, FastAPI on AWS App Runner + Bedrock)の2つで構成される。
 
 **注意**: `vite.config.ts`(13行目)の `base` はGitHub Pages向けに `/portfolio/` 固定のため、AWS向けにビルドする際は `--base=/` を明示的に上書きする必要がある(そのままだとJS/CSSが `/portfolio/assets/...` を探しに行き404→白画面になる)。
 
-```bash
-npx tsc -b && npx vite build --base=/
-aws s3 sync dist/ s3://portfolio-rag-static-yuremono/ --delete
-aws cloudfront create-invalidation --distribution-id E2D4R9WB46DR05 --paths "/*"
-```
+デプロイは変更対象によって4パターンある。`scripts/deploy-aws.sh`(npm scriptからも呼べる)でまとめて実行できる。
 
-AWSリソースの詳細構成・バックエンドの再ビルド手順・トラブルシューティングは [portfolio-rag-progress.md](portfolio-rag-progress.md) を参照。
+| 変更対象 | コマンド | 補足 |
+|---|---|---|
+| フロントのコード/CSS | `npm run deploy:aws:frontend` | ビルド→S3 sync→CloudFront invalidation |
+| バックエンドのコード(`rag-backend/app/*.py`) | `npm run deploy:aws:backend` | Docker build→ECR push→App Runner deploy。OrbStackの起動は自動、終了確認後は手動で閉じる |
+| RAGデータ(`~/rag-data/...`の内容) | 事前に `rag-backend/build/build_db.py` でDB再構築 → `npm run deploy:aws:backend` | DBはコンテナに焼き込み式のため、コード変更と同じ手順が必要 |
+| 両方まとめて | `npm run deploy:aws:all` | frontend→backendの順で実行 |
+| 環境変数のみ(レート制限値・CORS許可先など) | `aws apprunner update-service` を直接実行 | Dockerビルド不要。詳細は [portfolio-rag-progress.md](portfolio-rag-progress.md) 参照 |
+
+AWSリソースの詳細構成・トラブルシューティングは [portfolio-rag-progress.md](portfolio-rag-progress.md) を参照(このファイルは実パス・AWSアカウントID等を含むため`.gitignore`対象で、リポジトリには含まれない)。
 
 ## テンプレート開発に基づく考察
 - `pencil.dev` でのデザイン作成は思ったより簡単に意思伝達が可能だが、デザイン作成自体が特殊な作業であり**注意事項**が膨れ上がりコンテキストは多く消費する。

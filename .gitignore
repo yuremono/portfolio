@@ -114,3 +114,9 @@ coverage/
 
 # TypeScript cache
 *.tsbuildinfo
+
+# RAGバックエンド(別Gitリポジトリ、絶対にpushしない方針。rag-backend/README.md参照)
+/rag-backend/
+
+# 実パス・AWSアカウントID等の運用詳細を含む引き継ぎドキュメント(公開しない)
+/portfolio-rag-progress.md

@@ -2,7 +2,7 @@
 
 > **このファイル単体で完結する。** `portfolio-rag-spec.md` は「なぜその設計にしたか」という
 > 背景・意思決定の理由を知りたいときだけ読めばよく、現在の状態把握や次の作業には不要。
-> 以下は全て2026-07-02時点で実機確認済みの事実。
+> 以下は全て2026-07-03時点で実機確認済みの事実。
 
 ---
 
@@ -11,12 +11,16 @@
 個人ポートフォリオサイト(GitHub Pages公開中)に、自分についてのRAGチャットボットを追加する
 プロジェクト。バックエンド(FastAPI on AWS App Runner)・埋め込み検索(sqlite-vec)・生成
 (Bedrock Claude)は**完成し、実際に動いている**。フロントのチャットUIも実装済みでCloudFront
-ステージング環境で動作確認済み。**残っているのは主にRAGに入れるデータの拡充と、本番切り替えの判断。**
+本番URL(独自ドメイン `https://portfolio.yuremono.com/`)で動作確認済み(最新のUI/文言も反映済み)。
+フロント・バックエンドとも未コミット変更はコミット済み(`feat/rag-chat-aws`ブランチ、§3参照)。
+
+**残っているのは主にRAGに入れるデータの拡充。独自ドメイン設定は完了した。**
 
 **次にやるべきこと最優先3つ**:
-1. `portfolio-rag-backend` の未コミット変更(Dockerfile, config.py, main.py)をコミットする(§3)
-2. 想定Q&A(`~/rag-data/portfolio-rag/entries/qa/`)が0件なので追加する(§4)
-3. 本番DNS切り替え(GitHub Pages → CloudFront)をするかどうかユーザーに確認する(§4)
+1. 想定Q&A(`~/rag-data/portfolio-rag/entries/qa/`)が0件なので追加する(§4)
+2. ユーザーによる本番動作テスト(`https://portfolio.yuremono.com/` でのチャット往復)。
+   ただし直近の動作確認curlでレート制限(2問/2日)をほぼ消費済みの可能性あり(§8-2参照)
+3. `main`ブランチへのマージ判断(現在`feat/rag-chat-aws`で作業中、§3参照)
 
 ---
 
@@ -27,6 +31,7 @@
 |---|---|
 | 本番(現行, 無変更) | https://yuremono.github.io/portfolio/ |
 | AWS移行先(ステージング, 動作確認済み) | https://d23red0h7e9403.cloudfront.net/ |
+| AWS独自ドメイン(**設定完了・動作確認済み**) | https://portfolio.yuremono.com/ |
 | バックエンドAPI | https://dhw9kinbuf.ap-northeast-1.awsapprunner.com (`/health`, `/ask`) |
 
 ### AWSアカウント/認証
@@ -48,6 +53,7 @@
 | S3バケット(フロント静的ファイル) | `portfolio-rag-static-yuremono`(ap-northeast-1、パブリックアクセス全ブロック) |
 | CloudFrontディストリビューション | ID `E2D4R9WB46DR05` |
 | CloudFront OAC | ID `E2VWBGNQF5V48B` |
+| ACM証明書(独自ドメイン用、**us-east-1固定**) | ARN `arn:aws:acm:us-east-1:883423420089:certificate/e3e1b2a8-a0c0-4301-aff6-884db93fc09f`(ドメイン `portfolio.yuremono.com`、DNS検証待ち。§8参照) |
 | AWS Budget | 名前 `portfolio-rag-monthly`、月$20上限、50/80/100%で `5alvia0fficinali50@gmail.com` に通知 |
 | CloudWatchロググループ | `/aws/apprunner/portfolio-rag/215329688cda4db0becb96a20aa25d6f/application`(アプリログ) |
 
@@ -88,20 +94,13 @@
 
 ---
 
-## 3. 未コミットの変更(次のセッションで最初に確認すること)
+## 3. ブランチ運用とコミット状況(2026-07-03時点)
 
-`portfolio-rag-backend` に以下の未コミット変更がある(`git status --short`で確認可能):
-
-```
- M Dockerfile       # data/portfolio.db をCOPYする行を追加(デプロイ用)
- M app/config.py    # ALLOWED_ORIGIN → ALLOWED_ORIGINS(カンマ区切り複数対応)に変更
- M app/main.py      # _origin_allowed() を複数オリジン対応に変更
-```
-
-理由: GitHub PagesとCloudFrontステージングを同時に許可するため。**動作は確認済み・本番稼働中の
-コードと一致している**が、コミットされていない。次にこのリポジトリを触るセッションは、まず
-`cd /Users/yanoseiji/projects/portfolio-rag-backend && git add -A && git commit` するか、
-ユーザーに確認してから進めること。
+- フロントエンド(`0413portfolio`): `main`はAWS移行前(GitHub Pages版)の状態を維持。RAGチャット
+  UI一式・ドキュメント類は`feat/rag-chat-aws`ブランチにコミット済み(`main`へのマージは未実施、
+  ユーザー判断待ち)。
+- バックエンド(`portfolio-rag-backend`): 未コミットだった`Dockerfile`/`app/config.py`/
+  `app/main.py`(複数オリジン許可対応)はコミット済み。リモート未設定・push禁止方針は継続。
 
 ---
 
@@ -114,8 +113,10 @@
       関心、5年後の展望、チーム/後輩指導から得た学び、苦手なこと・伸ばしたいこと。
 - [ ] **MCPサーバー化が未着手。** Claude Codeから同じ検索処理を呼べるようにする部分。現状は
       エージェントが `~/rag-data/portfolio-rag/entries/` を直接Read/grepする代替運用。
-- [ ] **本番DNS切り替えが未実施。** GitHub Pagesが本番のまま。CloudFrontへの切り替え判断は
-      ユーザー確認待ち。
+- [x] **独自ドメイン`portfolio.yuremono.com`のCloudFront割り当て完了(2026-07-03)。** ACM証明書
+      発行・CloudFront Alternate Domain Name設定・App RunnerのALLOWED_ORIGIN追加まで完了。§8参照。
+- [ ] **本番DNS切り替え(GitHub Pages→AWS)は未実施・未決定。** GitHub Pagesは現状のまま本番として
+      維持する方針。AWS側は独自ドメイン設定後、ユーザーが動作テストを行った上で判断する。
 - [ ] **WAFは未導入**(任意項目、レート制限強化用)。
 - [ ] **プロンプトインジェクション対策の実攻撃的入力での検証が未実施。**
 - [ ] **GitHub由来のprojectsチャンク(21件)が自動生成のまま本人未レビュー。**
@@ -226,3 +227,72 @@ curl -s -X POST https://dhw9kinbuf.ap-northeast-1.awsapprunner.com/ask \
 rtk proxy aws logs tail "/aws/apprunner/portfolio-rag/215329688cda4db0becb96a20aa25d6f/application" \
   --region ap-northeast-1 --since 10m --format short
 ```
+
+---
+
+## 8. 独自ドメイン設定(進行中)
+
+CloudFrontのデフォルトドメイン(`d23red0h7e9403.cloudfront.net`)はAWSが自動割当するランダムIDで
+任意の文字列に変更できないため、ユーザー所有の`yuremono.com`(Xサーバー管理)のサブドメイン
+`portfolio.yuremono.com`をCloudFrontに割り当てる作業を進めている。
+
+### 手順と現状
+1. **(完了)** ACM証明書を`us-east-1`(CloudFrontはこのリージョン固定)でリクエスト済み。
+   ARN: `arn:aws:acm:us-east-1:883423420089:certificate/e3e1b2a8-a0c0-4301-aff6-884db93fc09f`
+2. **(ユーザー対応待ち)** 以下のCNAMEレコードをXサーバーのDNS管理画面に追加する必要がある
+   (証明書のドメイン所有権検証用):
+   - ホスト名: `_2923cef77288360f3d6350f5ebe3ff39.portfolio.yuremono.com.`
+   - 値: `_662d69940322b3b5423dbcb1280292b6.jkddzztszm.acm-validations.aws.`
+   - 検証状況確認コマンド:
+     ```bash
+     rtk proxy aws acm describe-certificate --region us-east-1 \
+       --certificate-arn arn:aws:acm:us-east-1:883423420089:certificate/e3e1b2a8-a0c0-4301-aff6-884db93fc09f \
+       --query "Certificate.Status" --output text
+     ```
+     `ISSUED`になれば検証完了。
+3. **(未着手・検証完了後に実施)** CloudFrontディストリビューション(`E2D4R9WB46DR05`)に
+   Alternate Domain Name(`portfolio.yuremono.com`)と発行済みACM証明書を設定する
+   (`aws cloudfront update-distribution` でDistributionConfigの`Aliases`と`ViewerCertificate`を更新)。
+4. **(未着手・手順3完了後にユーザー対応)** 最終的な公開用CNAMEレコードをXサーバーに追加する:
+   - ホスト名: `portfolio.yuremono.com`
+   - 値: `d23red0h7e9403.cloudfront.net`(CloudFrontの実ドメイン。手順3実施後も変わらない)
+5. 反映確認後、`README.md`・本ドキュメント§0/§1の「設定進行中」表記を確定URLに更新する。
+
+**(完了・2026-07-03)** 上記1〜4すべて完了。App RunnerのALLOWED_ORIGIN環境変数にも`https://portfolio.yuremono.com`を追加し、`aws apprunner update-service`で反映済み。
+
+### 8-1. 動作確認中に見つかったBedrock Marketplace契約失効(解消済み)
+
+独自ドメイン設定後の最終疎通確認で、`bedrock:InvokeModel`が
+`AccessDeniedException: ... AWS Marketplace subscription for this model cannot be completed`
+で失敗する問題が見つかった。IAMポリシー(§省略)は問題なく、
+`aws bedrock get-foundation-model-availability`で`agreementAvailability.status: NOT_AVAILABLE`
+になっていたことから、アカウントのMarketplace利用契約自体が外れていたと判明(原因不明、既存の
+IAM権限やコードの変更とは無関係)。
+
+復旧手順:
+```bash
+# 1. 契約オファーのトークンを取得
+aws bedrock list-foundation-model-agreement-offers \
+  --model-id anthropic.claude-sonnet-4-6 --region ap-northeast-1
+
+# 2. offers[0].offerToken を使って契約を再承諾
+aws bedrock create-foundation-model-agreement \
+  --region ap-northeast-1 --model-id anthropic.claude-sonnet-4-6 \
+  --offer-token "<offerToken>"
+
+# 3. 復旧確認(ap-northeast-1 / ap-northeast-3 両方でAVAILABLEになればOK。
+#    推論プロファイルが東京/大阪をまたぐため契約は両リージョンで確認すること)
+aws bedrock get-foundation-model-availability --region ap-northeast-1 --model-id anthropic.claude-sonnet-4-6
+aws bedrock get-foundation-model-availability --region ap-northeast-3 --model-id anthropic.claude-sonnet-4-6
+```
+料金体系(on-demand課金)は契約失効前と変わらず、再承諾で追加コストは発生しない。
+今後同じ症状(`/ask`が原因不明の500エラーを返す)が出た場合、まずこれを疑うこと。
+
+### 8-2. 注意: 動作確認のcurl実行がレート制限を消費している
+
+本ドキュメントの§7「疎通確認」やユーザーの動作テストは同一ネットワーク(自宅IP)から行うため、
+今回の作業中のcurlでの動作確認だけで訪問者レート制限(2問/2日)の大半〜全部を消費した可能性が高い。
+ユーザーが実際にブラウザからチャットを試す際に即座に「質問の上限に達しました」と表示される場合、
+バグではなくこれが原因。対応が必要な場合は`portfolio-rag-backend/app/config.py`の
+`RATE_LIMIT_MAX`を一時的に増やしてApp Runnerへ反映するか、モバイル回線等の別ネットワークから
+テストする。

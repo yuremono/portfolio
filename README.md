@@ -199,6 +199,32 @@ Tailwindのarbitrary value構文を使用：
 
 https://yuremono.github.io/BurnYourOwnStyle/
 
+---
+
+## デプロイ
+
+本番環境として GitHub Pages(既存)と AWS S3 + CloudFront(新規)の2つが併存する。
+
+### GitHub Pages(既存)
+
+公開URL: https://yuremono.github.io/portfolio/
+
+`npm run deploy` を実行するだけで公開される(`predeploy` が自動で `npm run build` を実行し `dist/404.html` を生成、続けて `gh-pages -d dist` で `gh-pages` ブランチへpushする)。`vite.config.ts` の `base` はこの構成に合わせて `/portfolio/` 固定。
+
+### AWS S3 + CloudFront(新規)
+
+自分についてのRAGチャットボット機能を含む本番環境向けの配信先。バックエンド(FastAPI on AWS App Runner + Bedrock)と組み合わせて動作し、CloudFront経由で配信される。
+
+**注意**: `vite.config.ts`(13行目)の `base` はGitHub Pages向けに `/portfolio/` 固定のため、AWS向けにビルドする際は `--base=/` を明示的に上書きする必要がある(そのままだとJS/CSSが `/portfolio/assets/...` を探しに行き404→白画面になる)。
+
+```bash
+npx tsc -b && npx vite build --base=/
+aws s3 sync dist/ s3://portfolio-rag-static-yuremono/ --delete
+aws cloudfront create-invalidation --distribution-id E2D4R9WB46DR05 --paths "/*"
+```
+
+AWSリソースの詳細構成・バックエンドの再ビルド手順・トラブルシューティングは [portfolio-rag-progress.md](portfolio-rag-progress.md) を参照。
+
 ## テンプレート開発に基づく考察
 - `pencil.dev` でのデザイン作成は思ったより簡単に意思伝達が可能だが、デザイン作成自体が特殊な作業であり**注意事項**が膨れ上がりコンテキストは多く消費する。
 - 「構造化データ」を作るという意味で本番用コンポーネントのプロトタイピングをすることと変わらないと考え。デザイン作成、再現は保留。

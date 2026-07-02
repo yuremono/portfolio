@@ -1,0 +1,29 @@
+src/components/three/ModulationCylinderLogo.tsx
+  s_b99c5299fc68fa::t_c040e83e7b3b52 129-132
+  s_b99c5299fc68fa::t_914d4a5dd756cf 134-138
+  s_b99c5299fc68fa::t_129706543b45cb 287
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.8",
+  "base_commit_sha": "751890602fb5485e655d7df4d6c836909243e3fd",
+  "prompts": {},
+  "humans": {
+    "h_53dad1e32c3c71": {
+      "author": "yuremono <5alviaofficinali50@gmail.com>"
+    },
+    "h_5a56918e6ebef3": {
+      "author": "yuremono"
+    }
+  },
+  "sessions": {
+    "s_b99c5299fc68fa": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "9973359c-8e75-43c9-ace3-1c99009928cf",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  }
+}

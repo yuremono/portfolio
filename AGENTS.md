@@ -91,7 +91,7 @@ RAGデータ(`~/rag-data/portfolio-rag/entries/`)を更新した場合は、`dep
 | バックエンド本体 | `rag-backend/`(このプロジェクト直下) | `.gitignore`済み・別Gitリポジトリとして独立管理。**GitHubには絶対にpushしない方針** |
 | RAGソースデータ・ビルド済みDB | `~/rag-data/portfolio-rag/` | Git管理外のただのディレクトリ(意図的) |
 
-デプロイコマンドは上の「## コマンド」→「デプロイ」表に統合済み。OrbStackは`deploy:aws:backend`実行時に自動起動されるので、完了確認後は手動で閉じる(`osascript -e 'quit app "OrbStack"'`)。開発中や通常のフロント編集では起動しない。
+OrbStackは`deploy:aws:backend`実行時に自動起動されるので、完了確認後は手動で閉じる(`osascript -e 'quit app "OrbStack"'`)。開発中や通常のフロント編集では起動しない。
 
 ### コードの場所
 
@@ -111,6 +111,9 @@ RAGデータ(`~/rag-data/portfolio-rag/entries/`)を更新した場合は、`dep
 - 調査・検討段階で作業を始めない（ユーザーの口調で判断）  
 - いかなる識別子にもプロジェクト名を使用しない 
 - 秘密情報やファイルパスのユーザー名を公開されるファイルに書かない
+- AGENTS.md・README・仕様系ドキュメントには「今の状態」だけを書く。「どこから移動した」
+  「〜に統合済み」等の編集履歴・経緯のメモは書かない（読む人が後から知る必要がない）。
+  経緯を残す必要がある場合は進捗ドキュメント（例: `portfolio-rag-progress.md`）にのみ書く。
 </important>
 
 <important if="overwriting, deleting, or resetting">

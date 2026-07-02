@@ -22,6 +22,7 @@ import {
 } from "@phosphor-icons/react";
 import { DialogFull } from "../components/DialogFull";
 import HeaderCylinder from "../components/HeaderCylinder";
+import RagChatLauncher from "../components/RagChatLauncher";
 // import Header from "../components/Header";
 import { Footer } from "../components/Footer";
 import { PageRoot } from "../components/PageRoot";
@@ -61,6 +62,7 @@ function Top() {
 			className="[--innerPX:--PX] [--Eng:--Jost] [--San:--Zen] [--h3FZ:1.5em] [--dropBG:--WH] [--dropC:--TC] [--WTS:var(--tsw)_var(--TC30)] "
 		>
 			<HeaderCylinder className=" " />
+			<RagChatLauncher className=""/>
 			{/* <Header className="NoLogo TopHidden mix-blend-difference text-WH" /> */}
 			<div className="HeaderPagetop mix-blend-difference text-WH  ">
 				<a href="#">

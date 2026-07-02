@@ -154,10 +154,15 @@ CREATE TABLE rate_limits (
 ```python
 # ※ 未検証の擬似コード。実装時に boto3 の呼び出し形式やエラー処理を確定する。
 
+ALLOWED_ORIGIN = "https://<自分のポートフォリオドメイン>"
+
 @app.post("/ask")
 def ask(question: str, request: Request):
-    visitor = make_visitor_key(request)          # IP + Cookie 等から識別子生成
-    if not within_rate_limit(visitor):           # 2問/2日を超えていたら拒否
+    if request.headers.get("origin") != ALLOWED_ORIGIN:  # フロント以外からの直接叩きを弾く
+        return {"error": "invalid origin"}
+
+    visitor = make_visitor_key(request)           # IP + Cookie 等から識別子生成
+    if not try_consume_quota(visitor):             # 2問/2日をアトミックにチェック+消費(§6)
         return {"error": "質問の上限(2問/2日)に達しました。また後日お試しください。"}
 
     if looks_like_injection(question):           # 明らかな攻撃入力を弾く(§7)
@@ -167,18 +172,24 @@ def ask(question: str, request: Request):
     hits  = search_vectors(q_vec, k=5)           # ② sqlite-vec で近傍検索
     answer = bedrock_generate(question, hits)    # ③ Sonnet で回答生成(出典つき)
 
-    increment_count(visitor)
     return {"answer": answer, "sources": [h.source_url for h in hits]}
 ```
+
+> Origin/Refererチェックは完全な防御ではない(偽装可能)が、コストゼロで直接叩きの大半を防げるため
+> 最低限の一段として入れる。
 
 ---
 
 ## 6. レート制限(2問 / 2日)
 
 - 訪問者識別: IP + 軽量Cookie から `visitor_key` を生成。
-  ※IPは共有・変動があり完全ではない。厳密化するなら CloudFront + WAF のレート制限を
-    インフラ層に重ねる(WAFは別料金だが経験として語れる)。
+  ※IPは共有・変動があり完全ではない。WAF等の追加インフラ層は導入せず、
+    アプリ層(IP+Cookie)のみで許容する(バイパスの余地は残るが、コストと実装量を優先)。
 - `rate_limits` テーブルで window_start から2日経過していたら count をリセット。
+- **チェックと加算はアトミックに行う**(例: `UPDATE rate_limits SET count = count + 1
+  WHERE visitor_key = ? AND count < 2` のような条件付き更新で1クエリ内に完結させる)。
+  check→処理→incrementの3段構成にすると、並行リクエストで上限を超えて通ってしまう
+  (race condition)ため避ける。
 - UIには保守的な注釈を明示(遅延がある場合は目安時間も表示)。
 
 ---
@@ -226,6 +237,11 @@ MCPサーバーの形(ドラフト): `search(query, k)` という1つのツー�
 2. **ビルドスクリプト**: MacBookで、チャンクを Bedrock 埋め込み → sqlite-vec DB を生成。
 3. **バックエンド**: FastAPI で /ask を実装。ローカルで動作確認。
 4. **コンテナ化 → App Runner デプロイ**: DBファイルを同梱。
+   - 現状は「DBファイルをコンテナに焼き込む」方式を採用する(更新頻度が低い前提のため、
+     再ビルド→再デプロイのサイクルで許容する)。
+   - ただし将来的にDB更新頻度が上がった場合に備え、**DBファイルをS3に置いて起動時に
+     取得する方式へ切り替えられる余地は残す**(FastAPI側でDBパスを環境変数化しておく等、
+     コンテナ焼き込み前提の実装に固定しすぎない)。今すぐの実装対象ではない。
 5. **フロント**: チャットUIを作り、S3+CloudFront で配信。既存ポートフォリオに設置。
 6. **ガードレール**: レート制限・インジェクション対策・WAF(任意)・Budgets のコスト上限。
 7. **MCPサーバー化**: 同じ検索処理を Claude Code から使えるようにする。

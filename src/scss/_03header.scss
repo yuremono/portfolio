@@ -3057,3 +3057,199 @@
         font-size: .75em;
         margin-right: .25em;
 }
+
+.RagChatLauncher {
+        --logoW: 8rem;
+        --BC: oklch(99% 0.005 60); 
+
+        width: var(--logoW) ;
+        line-height: 1;
+        aspect-ratio: 1;
+        display: grid;
+        place-content: center;
+        position: fixed;
+        top: 50%;
+        z-index: 1000000;
+        @apply  w-[calc(var(--logoW)/3*2)] lg:w-[var(--logoW)] top-0 right-0 pointer-events-auto h-auto  p-0 border-0 lg:top-1/2 lg:translate-y-[-52.5%]  aspect-square lg:aspect-[1/2];
+        background: var(--BC);
+        border-radius: 999px 0  0 999px;
+        // overflow: clip;
+        border: var(--line);
+        border-color: var(--TR);
+        border-left: none;
+
+        &Btn {// アイコン + 注釈を縦積み。クリック領域に文字も含める
+                display: grid;
+                justify-items: center;
+                gap: 0.25em;
+                transition: var(--trans);
+
+        }
+
+        &Icon {// ヘッダーロゴのキャンバスと同等サイズ（≒ --head, 従来の約3倍）
+                width: 3rem;
+                height: 3rem;
+                color: var(--TC);
+                @apply lg:w-[4rem] lg:h-[4rem];
+        }
+
+        &Annotation {// HeaderAnotation と対を成す英字注釈
+                --annoteInterval: 1.5s;
+                @apply absolute left-0 top-0 text-xs pt-2 pb-3 w-full  lg:top-1/2 lg:-translate-y-1/2 grid content-start lg:content-end font-medium whitespace-nowrap tracking-[-0em] aspect-square;
+                >span{
+                        @apply [grid-area:1/1];
+                        animation: header_anotation_toggle calc(var(--annoteInterval) * 2) linear infinite;
+                        &:nth-child(2){
+                                animation-delay: calc(var(--annoteInterval) * -1);
+                        }
+                }
+        }
+}
+
+// 参考実装: 0406agent-driven-CMS の DevEditorOverlay（下部ドック＋トランスクリプト）
+.RagChatPanel {
+        --BC: oklch(99% 0.005 60); 
+        --TC: oklch(20% 0.00 270); 
+        color: var(--TC);
+        
+        z-index: 10000;
+        position: fixed;
+        inset: unset;
+        left: 50%;
+        translate: -50% 0;
+        margin: 0;
+        width: min(var(--wid), calc(100vw - var(--PX)));
+        max-width: none;
+        max-height: calc(100dvh - var(--PX) * 2);
+        padding: 0;
+        border: 0;
+        @apply bottom-[calc(var(--head)+var(--PX))] lg:bottom-[--PX];
+        
+        overflow: visible;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+
+        opacity: 0;
+        pointer-events: none;
+        transition: var(--trans);
+
+        &.IsOpen {
+                opacity: 1;
+                pointer-events: auto;
+        }
+
+        &Body {
+                flex: 1;
+                min-height: 0;
+        }
+}
+
+// 以下は参考実装 0406agent-driven-CMS/app/globals.css の editor* ルールを流用
+.editorOverlayInner {
+
+
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        gap: 0.75rem;
+        min-height: 0;
+        height: 100%;
+}
+
+.editorTranscriptRail:not(:empty) {
+        flex: 1;
+        min-height: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        border: 1px solid var(--TC10);
+        border-radius: 2rem;
+
+        box-shadow: 0 1rem 4rem var(--TC10);
+        backdrop-filter: blur(1.5rem);
+        padding: 1em;
+}
+
+.editorTranscript {
+        min-height: 0;
+        width: 100%;
+        overflow-y: auto;
+        padding-right: 0.5em;
+        height: 100%;
+
+        &::-webkit-scrollbar {
+                background-color: transparent;
+                width: 8px;
+                height: 0;
+        }
+
+        &::-webkit-scrollbar-thumb {
+                background-color: var(--GR);
+                border-radius: 100px;
+        }
+}
+
+.editorTranscriptList {
+        display: grid;
+        gap: 1rem;
+}
+
+.editorTranscriptItem {
+        display: grid;
+        gap: 0.375rem;
+}
+
+.editorTranscriptItemUser {
+        justify-items: end;
+}
+
+.editorTranscriptItemAssistant {
+        justify-items: start;
+}
+
+.editorTranscriptLabel {
+        margin: 0;
+        font-size: 0.625rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        color: var(--SC);
+}
+
+.editorTranscriptBubble {
+        border: 1px solid var(--TC10);
+        border-radius: 1.5rem;
+        padding: 1rem;
+        white-space: pre-wrap;
+        line-height: 1.75;
+        white-space: pre-line;
+}
+
+.editorTranscriptBubbleUser {
+        background: var(--WH80);
+}
+
+.editorTranscriptBubbleAssistant {
+        background: var(--WH50);
+}
+
+.editorTranscriptBubbleError {
+        background: var(--AC20);
+        color: var(--MC);
+}
+
+.editorTranscriptSources {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        margin-top: 0.25rem;
+        padding: 0 0.5rem;
+        font-size: 0.75rem;
+        color: var(--SC);
+
+        a {
+                text-decoration: underline;
+        }
+}
+
+

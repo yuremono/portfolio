@@ -67,6 +67,12 @@
 - ブラウザでの見た目確認やスクリーンショット比較が必要なときは、`agent-browser` スキルまたは`computer-use`を実行する。
 - スクリーンショットはプロジェクト内の `tmp/browser-checks/` を既定の保存先とする。
 
+## RAGバックエンドのデプロイ(Docker/OrbStack)
+
+- `portfolio-rag-backend` のDockerビルド・pushが必要な時だけ、直前に `open -a OrbStack` でOrbStackを自動起動する。
+- ビルド・push・デプロイ確認が完了したら、OrbStackを閉じる(`osascript -e 'quit app "OrbStack"'` 等)。開発中や通常のフロント編集では起動しない、常時起動もしない。
+- 詳細な手順は `portfolio-rag-progress.md` §7 を参照。
+
 ## 禁止事項
 
 <important if="creating or editing files">

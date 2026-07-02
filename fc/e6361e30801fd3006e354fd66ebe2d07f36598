@@ -1,0 +1,87 @@
+src/components/RagChat.tsx
+  s_57bef754fb105c::t_d3d283d36a2a01 263
+  s_57bef754fb105c::t_777c525aff640f 2,107-108,110-116,121-122,124-128,143-144,146-150,155,158-160,169,172,174-175,187,215,226,228,231,233,235-236,240,242-243,246-247,251,264-265,267-270,275,277-279
+  s_57bef754fb105c::t_2f9e9d934bfe56 9,12,17,19-20,22-24,26-36,38-68,70,72,76,78-79,81-84,88-93,106,109,120,123,132,135,142,145,154,156-157,161-168,170-171,173,176-177,179,186,190-214,216-217,225,227,229-230,232,234,237,241,244,248-250,252-256,262,272-274,276
+  s_c06b8aca7adcb1::t_9aa8dd4c1b0a4e 3-8,10-11,13-16,37,69,73,75,80,85-87,94-105,117-119,129-131,133-134,136-141,151-153,178,188,218-219,280-284
+  s_c06b8aca7adcb1::t_57bdd6a9bfb833 77,180-185
+  s_57bef754fb105c::t_0ab5db660ca7b9 1
+  h_53dad1e32c3c71 18,21,25,71,189,238-239,245,257,259-261,266,271
+  s_57bef754fb105c::t_7807656795a278 220-224
+  s_57bef754fb105c::t_166d8ec9999a82 74
+src/scss/_03header.scss
+  s_57bef754fb105c::t_c02bbd3f7209a5 3166
+  s_57bef754fb105c::t_86d7935232269f 3080-3081,3083-3084,3087-3089,3096
+  s_57bef754fb105c::t_fa5cb31d457683 3220,3229,3233,3237-3238
+  h_53dad1e32c3c71 3062-3079,3090-3093,3097-3105,3111-3115,3126-3127,3132,3150-3151,3167-3170,3195,3200,3213,3215,3221,3224-3225,3247,3255
+  s_57bef754fb105c::t_1875a0f17a99c0 3109,3119,3121,3123-3125,3128,3142,3144-3147,3152-3156,3182,3252-3254
+  s_c06b8aca7adcb1::t_c17b16ec1a3cf0 3136
+  s_c06b8aca7adcb1::t_8e5a0e6e2ae4f1 3117-3118,3120
+  s_c06b8aca7adcb1::t_d57b736143acf4 3122
+  s_57bef754fb105c::t_13e207b6100b9d 3129-3131,3133-3135,3137-3139
+  s_57bef754fb105c::t_15eece0d17cd7e 3143
+  s_57bef754fb105c::t_c332983d01f93a 3148-3149,3157-3165,3171-3181,3183-3194,3196-3199,3201-3212,3214,3216-3219,3222-3223,3226-3228,3230-3232,3234-3236,3239-3246,3248-3251
+  s_c06b8aca7adcb1::t_a39f9286e53364 3107,3110,3116
+  s_c06b8aca7adcb1::t_b91c35da7323a3 3060-3061,3082,3085-3086,3106,3108,3140-3141
+  s_57bef754fb105c::t_874ac7aa45e8cc 3094-3095
+AGENTS.md
+  s_c06b8aca7adcb1::t_fc20695c3e7dfa 70-75
+src/pages/Top.tsx
+  s_c06b8aca7adcb1::t_0590755dabe9a0 25
+  h_53dad1e32c3c71 65
+portfolio-rag-spec.md
+  s_c06b8aca7adcb1::t_ac2df11e3e8b34 157-158,161-165,178-179
+  s_c06b8aca7adcb1::t_01c09918c4e50d 186-187,189-192
+  s_c06b8aca7adcb1::t_eef7a0e99c9ce5 240-244
+  s_c06b8aca7adcb1::t_d2681e4bc7c626 180
+portfolio-rag-progress.md
+  s_c06b8aca7adcb1::t_2ecda49df1e644 180-183,185-187,201-203
+  s_c06b8aca7adcb1::t_f7afdbcce72d9c 1-41,43-179,184,188-200,204-228
+  s_c06b8aca7adcb1::t_f586178ca8ceb5 42
+src/components/RagChatLauncher.tsx
+  s_57bef754fb105c::t_d6d61b34e318f0 17-18
+  s_57bef754fb105c::t_e21a4020fc5f70 20-22,24-32,34-41,50
+  s_c06b8aca7adcb1::t_55fae220ba2a96 3-8,11,14-15,19,23,42-43,45,47-49,51-52
+  s_57bef754fb105c::t_e2d15845c5704f 2,12,16,46
+  s_1f6f9c73b47778::t_a25b60b53cc3b7 1,9-10,13
+  h_53dad1e32c3c71 33,44
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.8",
+  "base_commit_sha": "fce6361e30801fd3006e354fd66ebe2d07f36598",
+  "prompts": {},
+  "humans": {
+    "h_53dad1e32c3c71": {
+      "author": "yuremono <5alviaofficinali50@gmail.com>"
+    },
+    "h_5a56918e6ebef3": {
+      "author": "yuremono"
+    }
+  },
+  "sessions": {
+    "s_1f6f9c73b47778": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "0bfca860-440c-444f-8605-b86c2e13bfc0",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    },
+    "s_57bef754fb105c": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "ef42fd99-60b2-4656-a1f5-f019238a7687",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    },
+    "s_c06b8aca7adcb1": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "3d58c6c8-5525-49f1-af52-7181ba5eeb4f",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  }
+}

@@ -34,7 +34,7 @@ interface ToggleBodyProps {
 }
 
 const ToggleBody = ({ children, className = "" }: ToggleBodyProps) => {
-	return <div className={className}>{children}</div>;
+	return <div className={` ${className ?? ""}`}>{children}</div>;
 };
 
 export { Toggle, ToggleSummary, ToggleBody };

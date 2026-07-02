@@ -101,11 +101,11 @@ const ImageSvg = ({ svg, style, className = "" }: ImageSvgProps) => {
 	if (!svgContent) return null
 	return (
 		<figure
-			className={className}
+			className={` ${className ?? ""}`}
 			style={style}
 			dangerouslySetInnerHTML={{ __html: svgContent }}
 		/>
-	)
+	);
 }
 
 export { Image, ImageSvg }

@@ -444,14 +444,31 @@ function Aozora() {
 /** 方眼と中心線の背景。 */
 function GridPattern({ className = "" }: SvgClassProps) {
 	return (
-		<svg viewBox="0 0 1000 1000" preserveAspectRatio="none" className={className} aria-hidden="true">
+		<svg
+			viewBox="0 0 1000 1000"
+			preserveAspectRatio="none"
+			className={` ${className ?? ""}`}
+			aria-hidden="true"
+		>
 			<rect width="1000" height="1000" className="fill-BC" />
 			<g className="stroke-MC/15 [stroke-dasharray:18_6] [stroke-width:1]">
 				{gridLines.map((line) => (
-					<line key={`x-${line}`} x1={line} y1="0" x2={line} y2="1000" />
+					<line
+						key={`x-${line}`}
+						x1={line}
+						y1="0"
+						x2={line}
+						y2="1000"
+					/>
 				))}
 				{gridLines.map((line) => (
-					<line key={`y-${line}`} x1="0" y1={line} x2="1000" y2={line} />
+					<line
+						key={`y-${line}`}
+						x1="0"
+						y1={line}
+						x2="1000"
+						y2={line}
+					/>
 				))}
 			</g>
 			<g className="stroke-MC/25 [stroke-dasharray:28_12] [stroke-width:2]">
@@ -465,10 +482,20 @@ function GridPattern({ className = "" }: SvgClassProps) {
 /** 数学的な丸、線、軌道を重ねる補助線。 */
 function GeometryLayer({ className = "" }: SvgClassProps) {
 	return (
-		<svg viewBox="0 0 100 100" preserveAspectRatio="none" className={className} aria-hidden="true">
+		<svg
+			viewBox="0 0 100 100"
+			preserveAspectRatio="none"
+			className={` ${className ?? ""}`}
+			aria-hidden="true"
+		>
 			<g className="fill-none stroke-MC/30 [stroke-linecap:round] [stroke-linejoin:round] [stroke-width:0.5]">
 				<circle cx="16" cy="18" r="10" />
-				<circle cx="16" cy="18" r="18" className="[stroke-dasharray:1_2]" />
+				<circle
+					cx="16"
+					cy="18"
+					r="18"
+					className="[stroke-dasharray:1_2]"
+				/>
 				<circle cx="76" cy="28" r="12" />
 				<circle cx="76" cy="28" r="22" />
 				<path d="M6 74C23 50 39 78 55 56S82 45 94 28" />
@@ -487,8 +514,12 @@ function GeometryLayer({ className = "" }: SvgClassProps) {
 				<circle cx="76" cy="28" r="2" />
 			</g>
 			<g className="[font-family:Yomogi,cursive] text-[4px] fill-MC/55">
-				<text x="9" y="69" transform="rotate(-8 9 69)">field note</text>
-				<text x="61" y="52" transform="rotate(7 61 52)">hypothesis</text>
+				<text x="9" y="69" transform="rotate(-8 9 69)">
+					field note
+				</text>
+				<text x="61" y="52" transform="rotate(7 61 52)">
+					hypothesis
+				</text>
 			</g>
 		</svg>
 	);
@@ -497,7 +528,12 @@ function GeometryLayer({ className = "" }: SvgClassProps) {
 /** 紙質風の粒子と繊維線。 */
 function PaperTexture({ className = "" }: SvgClassProps) {
 	return (
-		<svg viewBox="0 0 100 100" preserveAspectRatio="none" className={className} aria-hidden="true">
+		<svg
+			viewBox="0 0 100 100"
+			preserveAspectRatio="none"
+			className={` ${className ?? ""}`}
+			aria-hidden="true"
+		>
 			<g className="fill-MC/10">
 				{noiseDots.map((dot) => (
 					<circle key={dot.id} cx={dot.cx} cy={dot.cy} r={dot.r} />
@@ -520,12 +556,33 @@ function PaperTexture({ className = "" }: SvgClassProps) {
 /** 青空インスティチュートの大きな英字SVGワードマーク。 */
 function InstituteWordmark({ className = "" }: SvgClassProps) {
 	return (
-		<svg viewBox="0 0 900 230" className={className} role="img" aria-label="AOZORA INSTITUTE">
+		<svg
+			viewBox="0 0 900 230"
+			className={` ${className ?? ""}`}
+			role="img"
+			aria-label="AOZORA INSTITUTE"
+		>
 			<title>AOZORA INSTITUTE</title>
 			<defs>
-				<filter id="wordmark-roughen" x="-4%" y="-8%" width="108%" height="116%">
-					<feTurbulence type="fractalNoise" baseFrequency="0.125" numOctaves="2" seed="8" result="noise" />
-					<feDisplacementMap in="SourceGraphic" in2="noise" scale="0.5" />
+				<filter
+					id="wordmark-roughen"
+					x="-4%"
+					y="-8%"
+					width="108%"
+					height="116%"
+				>
+					<feTurbulence
+						type="fractalNoise"
+						baseFrequency="0.125"
+						numOctaves="2"
+						seed="8"
+						result="noise"
+					/>
+					<feDisplacementMap
+						in="SourceGraphic"
+						in2="noise"
+						scale="0.5"
+					/>
 				</filter>
 			</defs>
 			<g filter="url(#wordmark-roughen)">
@@ -555,12 +612,24 @@ function InstituteWordmark({ className = "" }: SvgClassProps) {
 				</text>
 				<g className="stroke-BC/75 [stroke-linecap:round] [stroke-width:4]">
 					{wordmarkScuffs.map((line) => (
-						<line key={line.id} x1={line.x1} y1={line.y1} x2={line.x2} y2={line.y2} />
+						<line
+							key={line.id}
+							x1={line.x1}
+							y1={line.y1}
+							x2={line.x2}
+							y2={line.y2}
+						/>
 					))}
 				</g>
 			</g>
-			<path d="M82 140C210 132 324 146 450 139S675 130 818 142" className="fill-none stroke-AC/70 [stroke-linecap:round] [stroke-width:4]" />
-			<path d="M94 152C236 147 356 158 506 151S706 146 806 154" className="fill-none stroke-MC/35 [stroke-dasharray:8_8] [stroke-linecap:round] [stroke-width:2]" />
+			<path
+				d="M82 140C210 132 324 146 450 139S675 130 818 142"
+				className="fill-none stroke-AC/70 [stroke-linecap:round] [stroke-width:4]"
+			/>
+			<path
+				d="M94 152C236 147 356 158 506 151S706 146 806 154"
+				className="fill-none stroke-MC/35 [stroke-dasharray:8_8] [stroke-linecap:round] [stroke-width:2]"
+			/>
 			<text
 				x="450"
 				y="190"
@@ -569,7 +638,12 @@ function InstituteWordmark({ className = "" }: SvgClassProps) {
 			>
 				INSTITUTE
 			</text>
-			<text x="450" y="218" textAnchor="middle" className="[font-family:Yomogi,cursive] fill-MC/65 text-[18px] tracking-[0.125em]">
+			<text
+				x="450"
+				y="218"
+				textAnchor="middle"
+				className="[font-family:Yomogi,cursive] fill-MC/65 text-[18px] tracking-[0.125em]"
+			>
 				Socratic inquiry school
 			</text>
 		</svg>
@@ -580,7 +654,7 @@ function InstituteWordmark({ className = "" }: SvgClassProps) {
 function BrassCompassLottie({ className = "" }: SvgClassProps) {
 	return (
 		<DotLottieReact
-			className={className}
+			className={` ${className ?? ""}`}
 			src={getAssetPath("/lottie/brass-compass.json")}
 			autoplay
 			loop
@@ -710,11 +784,31 @@ function CompassScene({ colors }: CompassSceneProps) {
 /** 下層セクションで使う小型コンパスローズ。 */
 function CompassRoseMotif({ className = "" }: SvgClassProps) {
 	return (
-		<svg viewBox="0 0 80 80" className={className} aria-hidden="true">
-			<circle cx="40" cy="40" r="34" className="fill-AC/10 stroke-AC/60 [stroke-width:2]" />
-			<path d="M40 6L48 40L40 74L32 40Z" className="fill-AC/40 stroke-AC [stroke-linejoin:round] [stroke-width:2]" />
-			<path d="M6 40L40 32L74 40L40 48Z" className="fill-WH/55 stroke-MC/50 [stroke-linejoin:round] [stroke-width:2]" />
-			<circle cx="40" cy="40" r="6" className="fill-BC stroke-AC [stroke-width:2]" />
+		<svg
+			viewBox="0 0 80 80"
+			className={` ${className ?? ""}`}
+			aria-hidden="true"
+		>
+			<circle
+				cx="40"
+				cy="40"
+				r="34"
+				className="fill-AC/10 stroke-AC/60 [stroke-width:2]"
+			/>
+			<path
+				d="M40 6L48 40L40 74L32 40Z"
+				className="fill-AC/40 stroke-AC [stroke-linejoin:round] [stroke-width:2]"
+			/>
+			<path
+				d="M6 40L40 32L74 40L40 48Z"
+				className="fill-WH/55 stroke-MC/50 [stroke-linejoin:round] [stroke-width:2]"
+			/>
+			<circle
+				cx="40"
+				cy="40"
+				r="6"
+				className="fill-BC stroke-AC [stroke-width:2]"
+			/>
 		</svg>
 	);
 }
@@ -722,10 +816,25 @@ function CompassRoseMotif({ className = "" }: SvgClassProps) {
 /** 左上・右下で使う抽象ロゴマーク。 */
 function LogoMark({ className = "" }: SvgClassProps) {
 	return (
-		<svg viewBox="0 0 64 64" className={className} aria-hidden="true">
-			<circle cx="32" cy="32" r="29" className="fill-WH/70 stroke-MC [stroke-width:2]" />
-			<path d="M14 38C23 23 39 23 50 38" className="fill-none stroke-MC [stroke-width:4]" />
-			<path d="M18 43H46" className="stroke-AC [stroke-linecap:round] [stroke-width:4]" />
+		<svg
+			viewBox="0 0 64 64"
+			className={` ${className ?? ""}`}
+			aria-hidden="true"
+		>
+			<circle
+				cx="32"
+				cy="32"
+				r="29"
+				className="fill-WH/70 stroke-MC [stroke-width:2]"
+			/>
+			<path
+				d="M14 38C23 23 39 23 50 38"
+				className="fill-none stroke-MC [stroke-width:4]"
+			/>
+			<path
+				d="M18 43H46"
+				className="stroke-AC [stroke-linecap:round] [stroke-width:4]"
+			/>
 			<circle cx="32" cy="27" r="5" className="fill-AC" />
 		</svg>
 	);
@@ -734,15 +843,37 @@ function LogoMark({ className = "" }: SvgClassProps) {
 /** 右下で使う学校名入りロゴ。 */
 function InstituteSeal({ className = "" }: SvgClassProps) {
 	return (
-		<svg viewBox="0 0 160 120" className={className} role="img" aria-label="青空インスティチュート ロゴ">
-			<path d="M36 22L12 68H32L42 48L54 68H76Z" className="fill-current" />
-			<path d="M76 22V68H118L98 46L120 22Z" className="fill-current opacity-60" />
+		<svg
+			viewBox="0 0 160 120"
+			className={` ${className ?? ""}`}
+			role="img"
+			aria-label="青空インスティチュート ロゴ"
+		>
+			<path
+				d="M36 22L12 68H32L42 48L54 68H76Z"
+				className="fill-current"
+			/>
+			<path
+				d="M76 22V68H118L98 46L120 22Z"
+				className="fill-current opacity-60"
+			/>
 			<circle cx="130" cy="27" r="6" className="fill-AC" />
-			<path d="M42 67L58 39L76 67" className="fill-none stroke-WH/80 [stroke-linecap:round] [stroke-linejoin:round] [stroke-width:5]" />
-			<text x="12" y="92" className="fill-current text-[20px] font-bold tracking-[0.125em]">
+			<path
+				d="M42 67L58 39L76 67"
+				className="fill-none stroke-WH/80 [stroke-linecap:round] [stroke-linejoin:round] [stroke-width:5]"
+			/>
+			<text
+				x="12"
+				y="92"
+				className="fill-current text-[20px] font-bold tracking-[0.125em]"
+			>
 				AOZORA
 			</text>
-			<text x="12" y="112" className="fill-TC  text-[14px] font-bold tracking-[0.125em]">
+			<text
+				x="12"
+				y="112"
+				className="fill-TC  text-[14px] font-bold tracking-[0.125em]"
+			>
 				INSTITUTE
 			</text>
 		</svg>

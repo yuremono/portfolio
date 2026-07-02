@@ -107,7 +107,7 @@ export function HoudiniPaint({
 
 	return (
 		<div
-			className={className}
+			className={` ${className ?? ""}`}
 			data-houdini-status={status}
 			style={mergedStyle}
 		>

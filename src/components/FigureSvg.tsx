@@ -54,7 +54,12 @@ const FigureSvg = ({ src, className = "" }: FigureSvgProps) => {
 	}, [src])
 
 	if (!svg) return null
-	return <figure className={className} dangerouslySetInnerHTML={{ __html: svg }} />
+	return (
+		<figure
+			className={` ${className ?? ""}`}
+			dangerouslySetInnerHTML={{ __html: svg }}
+		/>
+	);
 }
 
 export { FigureSvg }

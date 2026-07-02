@@ -265,7 +265,7 @@ const CnvSignCanvas = ({ className = "" }: CnvSignCanvasProps) => {
 	return (
 		<canvas
 			ref={canvasRef}
-			className={className}
+			className={` ${className ?? ""}`}
 			aria-hidden="true"
 			role="presentation"
 			style={{

@@ -32,14 +32,18 @@ const Button = ({
 
 	if (shouldUseRouterLink(href, external)) {
 		return (
-			<StyledRouterLink className={className} to={href}>
+			<StyledRouterLink className={` ${className ?? ""}`} to={href}>
 				<span>{children}</span>
 			</StyledRouterLink>
 		);
 	}
 
 	return (
-		<StyledAnchor className={className} href={href} {...externalAttrs}>
+		<StyledAnchor
+			className={` ${className ?? ""}`}
+			href={href}
+			{...externalAttrs}
+		>
 			<span>{children}</span>
 		</StyledAnchor>
 	);

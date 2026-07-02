@@ -115,13 +115,23 @@ function CrosshairMark({
 		<svg
 			aria-hidden="true"
 			viewBox="0 0 64 64"
-			className={className}
+			className={` ${className ?? ""}`}
 			fill="none"
 			style={{ color }}
 		>
-			<circle cx="32" cy="32" r="13" stroke="currentColor" strokeWidth="1.5" />
+			<circle
+				cx="32"
+				cy="32"
+				r="13"
+				stroke="currentColor"
+				strokeWidth="1.5"
+			/>
 			<circle cx="32" cy="32" r="4.5" fill="currentColor" />
-			<path d="M32 6v12M32 46v12M6 32h12M46 32h12" stroke="currentColor" strokeWidth="1.5" />
+			<path
+				d="M32 6v12M32 46v12M6 32h12M46 32h12"
+				stroke="currentColor"
+				strokeWidth="1.5"
+			/>
 		</svg>
 	);
 }
@@ -137,12 +147,25 @@ function OrbitalMark({
 		<svg
 			aria-hidden="true"
 			viewBox="0 0 120 120"
-			className={className}
+			className={` ${className ?? ""}`}
 			fill="none"
 			style={{ color }}
 		>
-			<circle cx="60" cy="60" r="18" stroke="currentColor" strokeWidth="2" />
-			<ellipse cx="60" cy="60" rx="42" ry="14" stroke="currentColor" strokeWidth="2" />
+			<circle
+				cx="60"
+				cy="60"
+				r="18"
+				stroke="currentColor"
+				strokeWidth="2"
+			/>
+			<ellipse
+				cx="60"
+				cy="60"
+				rx="42"
+				ry="14"
+				stroke="currentColor"
+				strokeWidth="2"
+			/>
 			<ellipse
 				cx="60"
 				cy="60"

@@ -16,7 +16,11 @@ export function CodingSection({ className }: CodingSectionProps) {
 	});
 
 	return (
-		<section ref={rootRef} data-l="CodingSection" className={className}>
+		<section
+			ref={rootRef}
+			data-l="CodingSection"
+			className={` ${className ?? ""}`}
+		>
 			<div className="relative  [grid-area:1/1]  w-full mx-auto">
 				<div className="sticky  top-0   grid  place-items-center ">
 					<canvas
@@ -56,8 +60,7 @@ export function CodingSection({ className }: CodingSectionProps) {
 								rel="noopener noreferrer"
 							>
 								Izakaya Theme
-                                                                <ArrowSquareOutIcon />
-
+								<ArrowSquareOutIcon />
 							</a>
 							<a
 								href="https://github.com/yuremono/wp-izakaya"
@@ -66,11 +69,9 @@ export function CodingSection({ className }: CodingSectionProps) {
 								rel="noopener noreferrer"
 							>
 								Repository
-                                                                <ArrowSquareOutIcon />
-
+								<ArrowSquareOutIcon />
 							</a>
 						</div>
-						
 					</div>
 				</div>
 			</div>

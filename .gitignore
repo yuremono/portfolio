@@ -120,3 +120,9 @@ coverage/
 
 # 実パス・AWSアカウントID等の運用詳細を含む引き継ぎドキュメント(公開しない)
 /portfolio-rag-progress.md
+
+# 実在サイトから抽出した学習用素材(公開ページでは未使用)
+/public/extracted/kawamura-zeiri-com/
+
+# AWSリソース識別子(アカウントID・ARN等)を定義するデプロイ用環境変数(公開しない)
+/scripts/deploy-aws.env

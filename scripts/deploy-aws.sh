@@ -20,10 +20,16 @@ if [[ "$MODE" != "frontend" && "$MODE" != "backend" && "$MODE" != "all" ]]; then
 fi
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-S3_BUCKET="portfolio-rag-static-yuremono"
-CLOUDFRONT_DIST_ID="E2D4R9WB46DR05"
-ECR_REPO="883423420089.dkr.ecr.ap-northeast-1.amazonaws.com/portfolio-rag"
-APPRUNNER_SERVICE_ARN="arn:aws:apprunner:ap-northeast-1:883423420089:service/portfolio-rag/215329688cda4db0becb96a20aa25d6f"
+
+# AWSリソース識別子はgit管理外の env ファイルから読み込む(公開リポジトリに含めない)
+ENV_FILE="$ROOT_DIR/scripts/deploy-aws.env"
+if [[ ! -f "$ENV_FILE" ]]; then
+	echo "scripts/deploy-aws.env が見つかりません。S3_BUCKET / CLOUDFRONT_DIST_ID / ECR_REPO / APPRUNNER_SERVICE_ARN を定義してください。" >&2
+	exit 1
+fi
+# shellcheck source=/dev/null
+source "$ENV_FILE"
+: "${S3_BUCKET:?}" "${CLOUDFRONT_DIST_ID:?}" "${ECR_REPO:?}" "${APPRUNNER_SERVICE_ARN:?}"
 
 deploy_frontend() {
 	echo "== フロントエンド: ビルド =="

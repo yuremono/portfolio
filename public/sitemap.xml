@@ -1,46 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://yuremono.github.io/portfolio/</loc>
+    <loc>https://portfolio.yuremono.com/</loc>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://yuremono.github.io/portfolio/next</loc>
+    <loc>https://portfolio.yuremono.com/next</loc>
   </url>
   <url>
-    <loc>https://yuremono.github.io/portfolio/bunmyaku</loc>
+    <loc>https://portfolio.yuremono.com/bunmyaku</loc>
   </url>
   <url>
-    <loc>https://yuremono.github.io/portfolio/aozora</loc>
+    <loc>https://portfolio.yuremono.com/aozora</loc>
   </url>
   <url>
-    <loc>https://yuremono.github.io/portfolio/lumaport</loc>
+    <loc>https://portfolio.yuremono.com/lumaport</loc>
   </url>
   <url>
-    <loc>https://yuremono.github.io/portfolio/examples</loc>
+    <loc>https://portfolio.yuremono.com/examples</loc>
   </url>
   <url>
-    <loc>https://yuremono.github.io/portfolio/preview</loc>
+    <loc>https://portfolio.yuremono.com/preview</loc>
   </url>
   <url>
-    <loc>https://yuremono.github.io/portfolio/donut</loc>
+    <loc>https://portfolio.yuremono.com/donut</loc>
   </url>
   <url>
-    <loc>https://yuremono.github.io/portfolio/rects</loc>
+    <loc>https://portfolio.yuremono.com/rects</loc>
   </url>
   <url>
-    <loc>https://yuremono.github.io/portfolio/shuffleDivide</loc>
+    <loc>https://portfolio.yuremono.com/shuffleDivide</loc>
   </url>
   <url>
-    <loc>https://yuremono.github.io/portfolio/glitch</loc>
+    <loc>https://portfolio.yuremono.com/glitch</loc>
   </url>
   <url>
-    <loc>https://yuremono.github.io/portfolio/grid-carousel</loc>
+    <loc>https://portfolio.yuremono.com/grid-carousel</loc>
   </url>
   <url>
-    <loc>https://yuremono.github.io/portfolio/bbox</loc>
+    <loc>https://portfolio.yuremono.com/bbox</loc>
   </url>
   <url>
-    <loc>https://yuremono.github.io/portfolio/activity</loc>
+    <loc>https://portfolio.yuremono.com/activity</loc>
   </url>
 </urlset>

@@ -37,7 +37,7 @@ const PAGE_TRANSITION_SKIP_SOLID_FILL_BETWEEN_PHASES = true;
 const PAGE_TRANSITION_READY_TIMEOUT_MS = 1400;
 
 const SITE_TITLE = "yuremono works";
-const CANONICAL_BASE = "https://yuremono.github.io/portfolio";
+const CANONICAL_BASE = "https://portfolio.yuremono.com";
 
 export interface PageTransitionRoute {
 	path: string;

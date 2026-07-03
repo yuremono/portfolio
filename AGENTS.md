@@ -28,10 +28,13 @@
 
 ### デプロイ
 
+**重要: GitHub Pages(`npm run deploy`)は今後デプロイしない。** 本番はAWSに移行済みで、
+GitHub Pagesは移行前の状態のまま凍結して保持する方針(誤って実行したら旧コミットへ force push で戻す)。
+
 | コマンド | 用途 | 対象を変更した後に使う |
 |---------|------|------|
-| `npm run deploy` | GitHub Pages(`base:/portfolio/`固定) | フロントのコード/CSS(現行本番) |
-| `npm run deploy:aws:frontend` | S3 sync + CloudFront invalidation | フロントのコード/CSS(AWS版) |
+| ~~`npm run deploy`~~ | GitHub Pages(**使用禁止・凍結中**) | 使わない(上記の重要事項参照) |
+| `npm run deploy:aws:frontend` | S3 sync + CloudFront invalidation | フロントのコード/CSS(現行本番) |
 | `npm run deploy:aws:backend` | Docker build → ECR push → App Runner deploy(OrbStack自動起動、終了は手動) | `rag-backend/app/*.py`、または`build_db.py`でDB再構築した後 |
 | `npm run deploy:aws:all` | 上記frontend→backendを連続実行 | 両方を変更したとき |
 | (npmスクリプト無し)`aws apprunner update-service` | 環境変数のみ更新、Dockerビルド不要 | レート制限値・CORS許可先(ALLOWED_ORIGIN)等のみ変更したとき。コマンド例は`portfolio-rag-progress.md`参照 |

@@ -202,15 +202,15 @@ https://yuremono.github.io/BurnYourOwnStyle/
 
 ## デプロイ
 
-本番環境として GitHub Pages(既存)と AWS S3 + CloudFront(新規)の2つが併存する。
+本番環境は AWS S3 + CloudFront。GitHub Pages は移行前の状態のまま凍結して保持する。
 
-### GitHub Pages(既存)
+### GitHub Pages(凍結・デプロイ禁止)
 
 公開URL: https://yuremono.github.io/portfolio/
 
-`npm run deploy` を実行するだけで公開される(`predeploy` が自動で `npm run build` を実行し `dist/404.html` を生成、続けて `gh-pages -d dist` で `gh-pages` ブランチへpushする)。`vite.config.ts` の `base` はこの構成に合わせて `/portfolio/` 固定。
+移行前の状態を保持しており、**今後 `npm run deploy` は実行しない**(実行すると現行コードで上書きされてしまう)。`vite.config.ts` の `base` はこの構成に合わせて `/portfolio/` 固定のまま残している。
 
-### AWS S3 + CloudFront + App Runner(新規)
+### AWS S3 + CloudFront + App Runner(本番)
 
 公開URL: https://portfolio.yuremono.com/
 

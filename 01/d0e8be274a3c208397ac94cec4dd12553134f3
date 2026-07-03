@@ -1,0 +1,38 @@
+index.html
+  s_79d56ce9c32abe::t_8ee739b2960b2e 34
+  s_79d56ce9c32abe::t_f64ccf7514aae0 24-25
+  s_79d56ce9c32abe::t_f6f4f2ad3725f4 46
+  s_79d56ce9c32abe::t_989f46c881cd27 53
+  s_79d56ce9c32abe::t_4aee25cc7a57f6 16
+public/robots.txt
+  s_79d56ce9c32abe::t_9e3eab1feee611 4
+README.md
+  s_79d56ce9c32abe::t_afa240c6d6a699 205,207,211,213
+public/sitemap.xml
+  s_79d56ce9c32abe::t_0d4a3a8af286d0 4,8,11,14,17,20,23,26,29,32,35,38,41,44
+src/components/PageTransitionRoutes.tsx
+  s_79d56ce9c32abe::t_585690cc347cdb 40
+AGENTS.md
+  s_79d56ce9c32abe::t_c8fdde9094e06d 31-33,36-37
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.9",
+  "base_commit_sha": "01d0e8be274a3c208397ac94cec4dd12553134f3",
+  "prompts": {},
+  "humans": {
+    "h_53dad1e32c3c71": {
+      "author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_79d56ce9c32abe": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "caf8bf90-4c5b-4123-af78-a04a5b661466",
+        "model": "claude-fable-5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  }
+}

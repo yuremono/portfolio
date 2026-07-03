@@ -1,0 +1,14 @@
+README.md
+  h_53dad1e32c3c71 5-7,215-216
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.9",
+  "base_commit_sha": "aef3247f022d4a5c9e4117c13cfb72372f03e8f6",
+  "prompts": {},
+  "humans": {
+    "h_53dad1e32c3c71": {
+      "author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  }
+}

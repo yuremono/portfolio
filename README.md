@@ -2,7 +2,9 @@
 
 BurnYourOwnStyleをベースにした制作物をまとめるプロジェクト。
 
-https://yuremono.github.io/portfolio/
+製作者に関する質問に答えるRAGチャットを導入し**AWS S3 + CloudFront**に移行しました。
+
+公開URL: https://portfolio.yuremono.com/
 
 **プロジェクト固有のCSSクラス=CustomClassと呼称します**
 
@@ -209,6 +211,8 @@ https://yuremono.github.io/BurnYourOwnStyle/
 `npm run deploy` を実行するだけで公開される(`predeploy` が自動で `npm run build` を実行し `dist/404.html` を生成、続けて `gh-pages -d dist` で `gh-pages` ブランチへpushする)。`vite.config.ts` の `base` はこの構成に合わせて `/portfolio/` 固定。
 
 ### AWS S3 + CloudFront + App Runner(新規)
+
+公開URL: https://portfolio.yuremono.com/
 
 自分についてのRAGチャットボット機能を含む本番環境向けの配信先。フロント(S3+CloudFront)とバックエンド(`rag-backend/`, FastAPI on AWS App Runner + Bedrock)の2つで構成される。
 

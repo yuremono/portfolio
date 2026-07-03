@@ -30,7 +30,7 @@ const INTRO_MESSAGE: ChatMessage = {
 	role: "assistant",
 	text: (
 		<>
-			私は製作者のRAGチャット秘書です。<br/>
+			私は制作者のRAGチャット秘書です。<br/>
 			経歴・考え方・制作物についてご質問にお答えします。<br/>
 			AWS上の生成AIとRAG(検索拡張生成)を使って回答する、実験的な機能です。<br/>
 			用意している情報の範囲を超えるご質問には、十分にお答えできない場合がございます。<br/>
@@ -247,7 +247,7 @@ const RagPanel = ({ className }: RagPanelProps) => {
 						/>
 						{showComposerHint ? (
 							<div className="w-full text-GR pointer-events-none absolute left-1 top-0 h-full flex flex-wrap items-center gap-1 px-1 leading-7">
-								<span>製作者について質問できます&nbsp;</span>
+								<span>制作者について質問できます&nbsp;</span>
 							</div>
 						) : null}
 					</div>

@@ -37,7 +37,7 @@ const routes: PageTransitionRoute[] = [
 	{ path: "/preview", element: <Preview />, transitionTitle: "BYOS" },
 	{ path: "/donut", element: <Donut />, transitionTitle: "Donut" },
 	{ path: "/aozora", element: <Aozora />, transitionTitle: "Aozora" },
-	{ path: "/Lumaport", element: <Lumaport />, transitionTitle: "Lumaport" },
+	{ path: "/lumaport", element: <Lumaport />, transitionTitle: "Lumaport" },
 	{path: "/bunmyaku",element: <Bunmyaku />,transitionTitle: "Bunmyaku",},
 	{path: "/shuffleDivide",element: <ShuffleDivide />,transitionTitle: "ShuffleDivide",},
 	{ path: "/glitch", element: <Glitch />, transitionTitle: "Glitch" },

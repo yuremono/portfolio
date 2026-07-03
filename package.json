@@ -1,7 +1,8 @@
 {
-  "name": "preview",
+  "name": "yuremono-works",
+  "description": "Web制作とAI駆動開発のポートフォリオサイト",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "homepage": "https://yuremono.github.io/portfolio",
   "scripts": {

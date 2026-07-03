@@ -36,6 +36,9 @@ const ScrollAutoClass = "ScrollAuto";
 const PAGE_TRANSITION_SKIP_SOLID_FILL_BETWEEN_PHASES = true;
 const PAGE_TRANSITION_READY_TIMEOUT_MS = 1400;
 
+const SITE_TITLE = "yuremono works";
+const CANONICAL_BASE = "https://yuremono.github.io/portfolio";
+
 export interface PageTransitionRoute {
 	path: string;
 	element: ReactNode;
@@ -338,6 +341,24 @@ export function PageTransitionRoutes({ routes }: {
 	useEffect(() => {
 		currentLocationRef.current = location;
 	}, [location]);
+
+	useEffect(() => {// ルートごとに document.title と canonical を更新(SEO)
+		const pathname = location.pathname.replace(/\/+$/, "") || "/";
+		document.title =
+			pathname === "/"
+				? SITE_TITLE
+				: `${resolveRouteTransitionTitle(routes, pathname)} | ${SITE_TITLE}`;
+
+		const canonical = document.querySelector<HTMLLinkElement>(
+			'link[rel="canonical"]',
+		);
+		if (canonical) {
+			canonical.href =
+				pathname === "/"
+					? `${CANONICAL_BASE}/`
+					: `${CANONICAL_BASE}${pathname}`;
+		}
+	}, [location, routes]);
 
 	useEffect(() => {
 		setDocumentScrollMode("smooth");

@@ -35,8 +35,34 @@
 
     <title>yuremono works</title>
 
+    <!-- 構造化データ (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "name": "yuremono works",
+          "url": "https://yuremono.github.io/portfolio/",
+          "description": "Web制作とAI駆動開発のポートフォリオ。ヴィジュアル表現とコンテキストエンジニアリングに注力。",
+          "inLanguage": "ja"
+        },
+        {
+          "@type": "Person",
+          "name": "yuremono",
+          "url": "https://yuremono.github.io/portfolio/",
+          "jobTitle": "Web Developer",
+          "sameAs": [
+            "https://github.com/yuremono",
+            "https://yuremono.com"
+          ]
+        }
+      ]
+    }
+    </script>
+
     <!-- favicon -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" href="/apple-touch-icon.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
   </head>

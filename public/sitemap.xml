@@ -5,7 +5,19 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://yuremono.github.io/portfolio/next</loc>
+  </url>
+  <url>
     <loc>https://yuremono.github.io/portfolio/bunmyaku</loc>
+  </url>
+  <url>
+    <loc>https://yuremono.github.io/portfolio/aozora</loc>
+  </url>
+  <url>
+    <loc>https://yuremono.github.io/portfolio/lumaport</loc>
+  </url>
+  <url>
+    <loc>https://yuremono.github.io/portfolio/examples</loc>
   </url>
   <url>
     <loc>https://yuremono.github.io/portfolio/preview</loc>

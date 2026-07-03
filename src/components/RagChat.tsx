@@ -42,6 +42,7 @@ export default function RagChat({ className }: RagChatProps) {
 				className={`RagPanel  [--wid:960px] ${open ? "IsOpen" : ""}`}
 				aria-label="本人について質問できるチャット"
 				aria-hidden={!open}
+				inert={!open}
 			>
 				<RagPanel className="RagPanelBody" />
 			</div>

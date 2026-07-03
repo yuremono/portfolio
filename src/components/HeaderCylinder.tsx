@@ -96,6 +96,7 @@ function positionDropPopover(popover: HTMLUListElement, source: HTMLElement) {
 
 export default function HeaderCylinder({ className }: HeaderCylinderProps) {
 	const [open, setOpen] = useState(false);
+	const [logoReady, setLogoReady] = useState(false);
 	const navRef = useRef<HTMLElement>(null);
 
 	const hideOpenDropPopovers = useCallback(() => {
@@ -143,14 +144,23 @@ export default function HeaderCylinder({ className }: HeaderCylinderProps) {
 			<div className="HeaderInner ">
 				<button
 					type="button"
-					className="HeaderLogo HeaderCylinderLogo"
+					className={[
+						"HeaderLogo HeaderCylinderLogo",
+						logoReady ? "IsReady" : null,
+					]
+						.filter(Boolean)
+						.join(" ")}
 					aria-expanded={open}
 					aria-controls="HeaderNav"
 					aria-label={open ? "Close menu" : "Open menu"}
 					onClick={toggleOpen}
 				>
 					<Suspense fallback={<span className="LogoLoading" />}>
-						<ModulationCylinderLogo interactive={false} autoSpin />
+						<ModulationCylinderLogo
+							interactive={false}
+							autoSpin
+							onReadyChange={setLogoReady}
+						/>
                                         </Suspense>
                                         <span className="HeaderAnotation WTS text-[--BC] ">
                                                 <span>Tap or Click</span>

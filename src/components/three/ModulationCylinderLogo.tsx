@@ -24,6 +24,7 @@ interface ModulationCylinderLogoProps {
 	className?: string;
 	interactive?: boolean;
 	autoSpin?: boolean;
+	onReadyChange?: (ready: boolean) => void;
 }
 
 interface Palette {
@@ -144,18 +145,17 @@ export default function ModulationCylinderLogo({
 	className,
 	interactive = true,
 	autoSpin = true,
+	onReadyChange,
 }: ModulationCylinderLogoProps) {
 	const [palette, setPalette] = useState<Palette>(FALLBACK_PALETTE);
 	const [canvasReady, setCanvasReady] = useState(false);
 	const { ready: fontsReady, token: fontReadyToken } = useCanvasFontReady();
 	const rootRef = useRef<HTMLDivElement>(null);
-	const rootClassName = [
-		"LogoCylinder",
-		canvasReady && fontsReady ? "IsReady" : null,
-		className,
-	]
-		.filter(Boolean)
-		.join(" ");
+	const rootClassName = ["LogoCylinder", className].filter(Boolean).join(" ");
+
+	useEffect(() => {
+		onReadyChange?.(canvasReady && fontsReady);
+	}, [canvasReady, fontsReady, onReadyChange]);
 
 	return (
 		<div ref={rootRef} className={rootClassName}>

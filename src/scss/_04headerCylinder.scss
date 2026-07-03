@@ -1,0 +1,475 @@
+@use "mixin"as *;
+
+
+.Header.HeaderCylinder {
+        --logoW:8rem;
+        --BC: oklch(99% 0.005 60);
+        --background: var(--BC);
+        --foreground: var(--TC);
+        @apply h-full pointer-events-none;
+
+        .HeaderInner {
+                @apply px-0 flex-col items-end justify-between h-full;
+
+                >* {
+                        pointer-events: auto;
+                }
+        }
+
+        .HeaderCylinderLogo {
+                @apply z-[10] absolute w-[calc(var(--logoW)/3*2)] lg:w-[var(--logoW)] top-0 left-0 pointer-events-auto h-auto  p-0 border-0 lg:top-1/2 lg:translate-y-[-52.5%]  aspect-square lg:aspect-[1/2] [border-radius:0_0_999px_999px] lg:[border-radius:0_999px_999px_0];
+                appearance: none;
+                background: var(--BC);
+                // overflow: clip;
+                pointer-events: none;
+                border: var(--line);
+                border-color: var(--TR);
+                border-left: none;
+
+                opacity: 0;
+                transition: var(--trans);
+                &.IsReady {
+                        opacity: 1;
+                }
+                
+                .LogoCylinder {
+                        pointer-events: auto;
+                        cursor: pointer;
+                        @apply  w-[calc(var(--logoW)/3*2)] lg:w-[var(--logoW)] h-auto;
+                        aspect-ratio: 1;
+                        display: block;
+                }
+
+                .LogoCylinderCanvas {
+                        width: 100%;
+                        aspect-ratio: 1;
+                        display: block;
+
+                }
+                
+                .LogoLoading {
+                        @apply  w-[calc(var(--logoW)/3*2)] lg:w-[var(--logoW)]   ;
+                        aspect-ratio: 1/2;
+                        border-radius: inherit;
+                }
+        }
+        .HeaderAnotation{
+                --annoteInterval: 1.5s;
+                @apply absolute left-0 top-0 text-xs pt-2 pb-4 w-full  lg:top-1/2 lg:-translate-y-1/2 grid content-start lg:content-end font-medium whitespace-nowrap tracking-[-0em] aspect-square;
+                >span{
+                        @apply [grid-area:1/1];
+                        animation: header_anotation_toggle calc(var(--annoteInterval) * 2) linear infinite;
+                        &:nth-child(2){
+                                animation-delay: calc(var(--annoteInterval) * -1);
+                        }
+                }
+        }
+        // &[data-nav-open=true] .HeaderAnotation{
+        //         visibility: hidden;
+        // }
+
+        .HeaderNav {
+                @apply absolute top-1/2 left-0 translate-y-[-52.5%]  z-[1] w-full py-4 lg:py-0 lg:w-[--logoW]  justify-start  px-0 pointer-events-none ;
+
+                @include menu {
+                        display: block;
+                }
+
+                .NavUl {
+                        @apply grid justify-start lg:justify-end;
+                }
+
+                .NavLi {
+                        --navX: 1;
+                        --navClosedY: 0%;
+                        @include max-lg {
+                                --navX: 0.1;
+                        }
+                        @apply text-lg lg:text-base  px-2 py-0 my-[1.5lvh]  block content-center  h-[unset] ;
+                        // background: linear-gradient(var(--TC), var(--TC)) no-repeat center/100% 1px;
+                        background-color: var(--foreground);
+                        color: var(--WH);
+                        transform: translate(0, var(--navClosedY));
+                        transition: var(--trans);
+                        opacity: 0;
+                        width: fit-content;
+
+                }
+
+                a,button {
+                        @apply align-top whitespace-nowrap;
+                }
+
+                ul:has(li:nth-of-type(6):last-of-type) {
+                        li:nth-of-type(1) {--navX: 0.44;--navClosedY: 250%;}
+                        li:nth-of-type(2) {--navX: 0.83;--navClosedY: 150%;}
+                        li:nth-of-type(3) {--navX: 0.98;--navClosedY: 50%;}
+                        li:nth-of-type(4) {--navX: 0.98;--navClosedY: -50%;}
+                        li:nth-of-type(5) {--navX: 0.83;--navClosedY: -150%;}
+                        li:nth-of-type(6) {--navX: 0.44;--navClosedY: -250%;}
+                }
+                ul:has(li:nth-of-type(5):last-of-type) {
+                        li:nth-of-type(1) {--navX: 0.49;--navClosedY: 200%;}
+                        li:nth-of-type(2) {--navX: 0.89;--navClosedY: 100%;}
+                        li:nth-of-type(3) {--navX: 1;--navClosedY: 0%;}
+                        li:nth-of-type(4) {--navX: 0.89;--navClosedY: -100%;}
+                        li:nth-of-type(5) {--navX: 0.49;--navClosedY: -200%;}
+                }
+                ul:has(li:nth-of-type(4):last-of-type) {
+                        li:nth-of-type(1) {--navX: 0.58;--navClosedY: 150%;}
+                        li:nth-of-type(2) {--navX: 0.955;--navClosedY: 50%;}
+                        li:nth-of-type(3) {--navX: 0.955;--navClosedY: -50%;}
+                        li:nth-of-type(4) {--navX: 0.58;--navClosedY: -150%;}
+                }
+                ul:has(li:nth-of-type(3):last-of-type) {
+                        li:nth-of-type(1) {--navX: 0.68;--navClosedY: 100%;}
+                        li:nth-of-type(2) {--navX: 1;--navClosedY: 0%;}
+                        li:nth-of-type(3) {--navX: 0.68;--navClosedY: -100%;}
+                }
+                ul:has(li:nth-of-type(2):last-of-type) {
+                        li:nth-of-type(1) {--navX: 0.83;--navClosedY: 50%;}
+                        li:nth-of-type(2) {--navX: 0.83;--navClosedY: -50%;}
+                }
+                ul:has(li:nth-of-type(1):last-of-type) {
+                        li:nth-of-type(1) {--navX: 1;--navClosedY: 0%;}
+                }
+                .NavDrop .DropUl {
+                        // --ml: 0.5em;
+                        --ml: 0em;
+                        --liBG: var(--foreground);
+                        --dropC: var(--WH);
+                        color: var(--WH);
+                        background-color: unset;
+                        padding: unset;
+                        border: unset;
+                        min-width: unset;
+                        scale: 0 1;
+                        transform-origin: left;
+
+                        position: fixed;
+                        inset: auto;
+                        // left: var(--dropPopoverLeft, 0);
+                        left: calc(var(--dropPopoverLeft) + 0.5rem);
+                        top: var(--dropPopoverTop, 0);
+                        transform: translateY(-50%);
+                        > li {
+                                width: fit-content;background-color: var(--liBG);
+                                padding-inline: 0.5em;
+                                margin-block: 2lvh;
+                        }
+                        > li svg{
+                                margin-left: 0.25em;
+                        }
+                        &:popover-open{
+                                scale: 1 1;
+                        }
+
+                        &:has(> li:nth-child(2):last-child) {
+                                > li:nth-child(1),> li:nth-child(2) {margin-left: 0;}
+                        }
+                        &:has(> li:nth-child(3):last-child) {
+                                > li:nth-child(1),> li:nth-child(3) {margin-left: 0;}
+                                > li:nth-child(2) {margin-left: calc(var(--ml) * 3);}
+                        }
+                        &:has(> li:nth-child(4):last-child) {
+                                > li:nth-child(1),> li:nth-child(4) {margin-left: 0;}
+                                > li:nth-child(2),> li:nth-child(3) {margin-left: calc(var(--ml) * 3);}
+                        }
+                        &:has(> li:nth-child(5):last-child) {
+                                > li:nth-child(1),> li:nth-child(5) {margin-left: 0;}
+                                > li:nth-child(2),> li:nth-child(4) {margin-left: calc(var(--ml) * 3);}
+                                > li:nth-child(3) {margin-left: calc(var(--ml) * 4);}
+                        }
+                        &:has(> li:nth-child(6):last-child) {
+                                > li:nth-child(1),> li:nth-child(6) {margin-left: 0;}
+                                > li:nth-child(2),> li:nth-child(5) {margin-left: calc(var(--ml) * 3);}
+                                > li:nth-child(3),> li:nth-child(4) {margin-left: calc(var(--ml) * 4);}
+                        }
+                        &:has(> li:nth-child(7):last-child) {
+                                > li:nth-child(1),> li:nth-child(7) {margin-left: 0;}
+                                > li:nth-child(2),> li:nth-child(6) {margin-left: calc(var(--ml) * 3);}
+                                > li:nth-child(3),> li:nth-child(5) {margin-left: calc(var(--ml) * 4);}
+                                > li:nth-child(4) {margin-left: calc(var(--ml) * 5);}
+                        }
+                        &:has(> li:nth-child(8):last-child) {
+                                > li:nth-child(1),> li:nth-child(8) {margin-left: 0;}
+                                > li:nth-child(2),> li:nth-child(7) {margin-left: calc(var(--ml) * 3);}
+                                > li:nth-child(3),> li:nth-child(6) {margin-left: calc(var(--ml) * 4);}
+                                > li:nth-child(4),> li:nth-child(5) {margin-left: calc(var(--ml) * 5);}
+                        }
+                        &:has(> li:nth-child(9):last-child) {
+                                > li:nth-child(1),> li:nth-child(9) {margin-left: 0;}
+                                > li:nth-child(2),> li:nth-child(8) {margin-left: calc(var(--ml) * 3);}
+                                > li:nth-child(3),> li:nth-child(7) {margin-left: calc(var(--ml) * 4);}
+                                > li:nth-child(4),> li:nth-child(6) {margin-left: calc(var(--ml) * 5);}
+                                > li:nth-child(5) {margin-left: calc(var(--ml) * 6);}
+                        }
+                        &:has(> li:nth-child(10):last-child) {
+                                > li:nth-child(1),> li:nth-child(10) {margin-left: 0;}
+                                > li:nth-child(2),> li:nth-child(9) {margin-left: calc(var(--ml) * 3);}
+                                > li:nth-child(3),> li:nth-child(8) {margin-left: calc(var(--ml) * 4);}
+                                > li:nth-child(4),> li:nth-child(7) {margin-left: calc(var(--ml) * 5);}
+                                > li:nth-child(5),> li:nth-child(6) {margin-left: calc(var(--ml) * 6);}
+                        }
+                        &:has(> li:nth-child(11):last-child) {
+                                > li:nth-child(1),> li:nth-child(11) {margin-left: 0;}
+                                > li:nth-child(2),> li:nth-child(10) {margin-left: calc(var(--ml) * 3);}
+                                > li:nth-child(3),> li:nth-child(9) {margin-left: calc(var(--ml) * 4);}
+                                > li:nth-child(4),> li:nth-child(8) {margin-left: calc(var(--ml) * 5);}
+                                > li:nth-child(5),> li:nth-child(7) {margin-left: calc(var(--ml) * 6);}
+                                > li:nth-child(6) {margin-left: calc(var(--ml) * 7);}
+                        }
+                        &:has(> li:nth-child(12):last-child) {
+                                > li:nth-child(1),> li:nth-child(12) {margin-left: 0;}
+                                > li:nth-child(2),> li:nth-child(11) {margin-left: calc(var(--ml) * 3);}
+                                > li:nth-child(3),> li:nth-child(10) {margin-left: calc(var(--ml) * 4);}
+                                > li:nth-child(4),> li:nth-child(9) {margin-left: calc(var(--ml) * 5);}
+                                > li:nth-child(5),> li:nth-child(8) {margin-left: calc(var(--ml) * 6);}
+                                > li:nth-child(6),> li:nth-child(7) {margin-left: calc(var(--ml) * 7);}
+                        }
+                        &:has(> li:nth-child(13):last-child) {
+                                > li:nth-child(1),> li:nth-child(13) {margin-left: 0;}
+                                > li:nth-child(2),> li:nth-child(12) {margin-left: calc(var(--ml) * 4);}
+                                > li:nth-child(3),> li:nth-child(11) {margin-left: calc(var(--ml) * 5);}
+                                > li:nth-child(4),> li:nth-child(10) {margin-left: calc(var(--ml) * 6);}
+                                > li:nth-child(5),> li:nth-child(9) {margin-left: calc(var(--ml) * 7);}
+                                > li:nth-child(6),> li:nth-child(8) {margin-left: calc(var(--ml) * 8);}
+                                > li:nth-child(7) {margin-left: calc(var(--ml) * 8);}
+                        }
+                        &:has(> li:nth-child(14):last-child) {
+                                > li:nth-child(1),> li:nth-child(14) {margin-left: 0;}
+                                > li:nth-child(2),> li:nth-child(13) {margin-left: calc(var(--ml) * 4);}
+                                > li:nth-child(3),> li:nth-child(12) {margin-left: calc(var(--ml) * 5);}
+                                > li:nth-child(4),> li:nth-child(11) {margin-left: calc(var(--ml) * 6);}
+                                > li:nth-child(5),> li:nth-child(10) {margin-left: calc(var(--ml) * 7);}
+                                > li:nth-child(6),> li:nth-child(9) {margin-left: calc(var(--ml) * 8);}
+                                > li:nth-child(7),> li:nth-child(8) {margin-left: calc(var(--ml) * 8);}
+                        }
+
+                }
+                .DropIcon{
+                        rotate: -90deg;
+                        vertical-align: text-top;
+                        &:is(.NavDrop:has(.DropUl:popover-open) *){
+                                scale: 1 1;
+                                margin: unset;
+                                transform: translateY(0.25rem);
+                        }
+                }
+        }
+
+        &[data-nav-open=true] {
+                .HeaderCylinderLogo {
+                        border-color: var(--TC30) ;
+                }
+                .HeaderNav {
+                        @apply bg-BC lg:bg-[--TR] ;
+                }
+                .HeaderNav .NavLi {
+                        opacity: 1;
+                        transform: translateX(calc(var(--navX) * var(--logoW)));
+                        // transform: translateX(calc(var(--navX) * var(--logoW)));
+                        @include max-lg {
+                                transform: translateX(calc(var(--navX) * var(--logoW) / 3));
+                                // &:hover{
+                                //         transform: translateX(calc(var(--navX)*0 ));
+                                // }
+                        }
+                        pointer-events: auto;
+                }
+        }
+}
+
+.RagLauncher {
+        --logoW: 8rem;
+        --BC: oklch(99% 0.005 60); 
+
+        width: var(--logoW) ;
+        line-height: 1;
+        aspect-ratio: 1;
+        display: grid;
+        place-content: center;
+        position: fixed;
+        top: 50%;
+        z-index: 1000000;
+        @apply  w-[calc(var(--logoW)/3*2)] lg:w-[var(--logoW)] top-0 right-0 pointer-events-auto h-auto  p-0 border-0 lg:top-1/2 lg:translate-y-[-52.5%]  aspect-square lg:aspect-[1/2] [border-radius:0_0_999px_999px] lg:[border-radius:999px_0_0_999px];
+        background: var(--BC);
+        // overflow: clip;
+        border: var(--line);
+        border-color: var(--TR);
+        border-left: none;
+        opacity: 0;
+        transition: var(--trans);
+        &:is(html:has(.HeaderCylinderLogo.IsReady) *) {
+                opacity: 1;
+        }
+
+        &Btn {// アイコン + 注釈を縦積み。クリック領域に文字も含める
+                display: grid;
+                justify-items: center;
+                gap: 0.25em;
+                transition: var(--trans);
+
+        }
+
+        &Icon {// ヘッダーロゴのキャンバスと同等サイズ（≒ --head, 従来の約3倍）
+                width: 3rem;
+                height: 3rem;
+                color: var(--TC);
+                @apply lg:w-[4rem] lg:h-[4rem];
+
+        }
+
+        &Annotation {// HeaderAnotation と対を成す英字注釈
+                --annoteInterval: 1.5s;
+                @apply absolute left-0 top-0 text-xs pt-2 pb-3 w-full  lg:top-1/2 lg:-translate-y-1/2 grid content-start lg:content-end font-medium whitespace-nowrap tracking-[-0em] aspect-square;
+                >span{
+                        @apply [grid-area:1/1];
+                        animation: header_anotation_toggle calc(var(--annoteInterval) * 2) linear infinite;
+                        &:nth-child(2){
+                                animation-delay: calc(var(--annoteInterval) * -1);
+                        }
+                }
+        }
+}
+
+// 参考実装: 0406agent-driven-CMS の DevEditorOverlay（下部ドック＋トランスクリプト）
+.RagPanel {
+        --BC: oklch(99% 0.005 60); 
+        --TC: oklch(20% 0.00 270); 
+        color: var(--TC);
+        
+        z-index: 10000;
+        position: fixed;
+        inset: unset;
+        left: 50%;
+        translate: -50% 0;
+        margin: 0;
+        width: min(var(--wid), calc(100vw - var(--PX)));
+        max-width: none;
+        max-height: calc(100svh - calc(var(--head)*2 + var(--PX)));
+        padding: 0;
+        border: 0;
+        @apply lg:max-h-[calc(100vh-var(--PX)*2)] bottom-[calc(var(--head)+var(--PX)/2)] lg:bottom-[--PX];
+        
+        overflow: visible;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+
+        opacity: 0;
+        pointer-events: none;
+        transition: var(--trans);
+
+        &.IsOpen {
+                opacity: 1;
+                pointer-events: auto;
+        }
+
+        &Body {
+                flex: 1;
+                min-height: 0;
+        }
+}
+
+// 以下は参考実装 0406agent-driven-CMS/app/globals.css のルールを流用(元のeditor*命名からRagPanel*名前空間に変更)
+.RagPanelInner {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        gap: 0.75rem;
+        min-height: 0;
+        height: 100%;
+}
+
+.RagPanelRail:not(:empty) {
+        flex: 1;
+        min-height: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        border: 1px solid var(--TC10);
+        border-radius: 2rem;
+
+        box-shadow: 0 1rem 4rem var(--TC10);
+        backdrop-filter: blur(1.5rem);
+        padding: 1em;
+}
+
+.RagPanelScroll {
+        min-height: 0;
+        width: 100%;
+        overflow-y: auto;
+        padding-right: 0.5em;
+        height: 100%;
+
+        &::-webkit-scrollbar {
+                background-color: transparent;
+                width: 8px;
+                height: 0;
+        }
+
+        &::-webkit-scrollbar-thumb {
+                background-color: var(--GR);
+                border-radius: 100px;
+        }
+}
+
+.RagPanelList {
+        display: grid;
+        gap: 1rem;
+}
+
+.RagPanelItem {
+        display: grid;
+        gap: 0.375rem;
+
+        &.IsUser {
+                justify-items: end;
+        }
+
+        &.IsAssistant {
+                justify-items: start;
+        }
+}
+
+.RagPanelLabel {
+        margin: 0;
+        font-size: 0.625rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        color: var(--GR);
+}
+
+.RagPanelBubble {
+        border: 1px solid var(--TC10);
+        border-radius: 1.5rem;
+        padding: 1rem;
+        white-space: pre-wrap;
+        line-height: 1.75;
+        white-space: pre-line;
+        display: flex;
+        flex-direction: column;
+
+        &.IsUser {
+                background: var(--WH80);
+        }
+
+        &.IsAssistant {
+                background: var(--WH50);
+        }
+}
+
+.RagPanelSources {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        margin-top: 0.25rem;
+        padding: 0 0.5rem;
+        font-size: 0.75rem;
+        color: var(--GR);
+
+        a {
+                text-decoration: underline;
+        }
+}

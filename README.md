@@ -1,11 +1,8 @@
 # ポートフォリオ
 
-BurnYourOwnStyleをベースに制作物をまとめています。
+BurnYourOwnStyleをベースにした制作物をまとめるプロジェクト。
 
 https://yuremono.github.io/portfolio/
-
-個人のスタイルシステム（クラス、変数、コンポーネント、jsモジュール）を、Claude Code・Cursor 等のエージェントに利用させ、Web 制作の全工程をAI前提で進める為の public template です。
-
 
 **プロジェクト固有のCSSクラス=CustomClassと呼称します**
 
@@ -229,6 +226,14 @@ https://yuremono.github.io/BurnYourOwnStyle/
 
 AWSリソースの詳細構成・トラブルシューティングは [portfolio-rag-progress.md](portfolio-rag-progress.md) を参照(このファイルは実パス・AWSアカウントID等を含むため`.gitignore`対象で、リポジトリには含まれない)。
 
+### RAGチャットのコンテキスト構造
+
+`/ask` へのリクエストは1件ごとに独立している(ステートレス)。会話履歴は保持されず、
+毎回「固定のシステムプロンプト + ベクトル検索で取得した資料 + 質問文」からコンテキストを
+組み立て直す。モデル自身の判断で外部情報を追加取得する仕組み(`fetch_url`ツール)もあるが、
+1リクエスト内で完結し次の質問には引き継がれない。詳細は
+[portfolio-rag-spec.md §10](portfolio-rag-spec.md#10-リクエスト単位のコンテキスト構造) を参照。
+
 ## テンプレート開発に基づく考察
 - `pencil.dev` でのデザイン作成は思ったより簡単に意思伝達が可能だが、デザイン作成自体が特殊な作業であり**注意事項**が膨れ上がりコンテキストは多く消費する。
 - 「構造化データ」を作るという意味で本番用コンポーネントのプロトタイピングをすることと変わらないと考え。デザイン作成、再現は保留。
@@ -243,6 +248,7 @@ AWSリソースの詳細構成・トラブルシューティングは [portfolio
 | [STYLE.md](STYLE.md) | 設計思想・変数設計・基本構造 |
 | [CLASS.md](CLASS.md) | CustomClassクラスリファレンス・詳細使用方法 |
 | [.claude/skills/Build/SKILL.md](.claude/skills/Build/SKILL.md)| `/Build` 明示的指示で読み込むプロンプト |
+| [portfolio-rag-spec.md](portfolio-rag-spec.md) | RAGチャットの設計・データ構造・コンテキスト構造の仕様 |
 
 ## ライセンス
 

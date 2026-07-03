@@ -11,9 +11,9 @@ import { getAssetPath } from "../lib/assetPath";
 // import { getAssetPath } from "../lib/assetPath";
 
 import {
-	Moon,
-	Sun,
-	CaretUpIcon,
+	// Moon,
+	// Sun,
+	// CaretUpIcon,
 	// CaretDownIcon,
 	// XIcon,
 	ListPlusIcon,
@@ -22,7 +22,7 @@ import {
 } from "@phosphor-icons/react";
 import { DialogFull } from "../components/DialogFull";
 import HeaderCylinder from "../components/HeaderCylinder";
-import RagChatLauncher from "../components/RagChatLauncher";
+import RagChat from "../components/RagChat";
 // import Header from "../components/Header";
 import { Footer } from "../components/Footer";
 import { PageRoot } from "../components/PageRoot";
@@ -49,7 +49,7 @@ const EXPERIENCE_DIALOG_KEY = "experience";
 // } as const;
 
 function Top() {
-	const { ref, dark, toggleTheme } = usePage();
+	const { ref /* , dark, toggleTheme */ } = usePage();
 	useClientRuntime({ rootRef: ref });
 	useHtmlRootClass("[--MC:--GR] ");
 	const [activeDialogId, setActiveDialogId] = useState<string | null>(null);
@@ -62,14 +62,14 @@ function Top() {
 			className="[--innerPX:--PX] [--Eng:--Jost] [--San:--Zen] [--h3FZ:1.5em] [--dropBG:--WH] [--dropC:--TC] [--WTS:var(--tsw)_var(--TC30)] "
 		>
 			<HeaderCylinder className=" " />
-			<RagChatLauncher className=""/>
+			<RagChat className=""/>
 			{/* <Header className="NoLogo TopHidden mix-blend-difference text-WH" /> */}
-			<div className="HeaderPagetop mix-blend-difference text-WH  ">
+			{/* <div className="HeaderPagetop mix-blend-difference text-WH  ">
 				<a href="#">
 					<CaretUpIcon className="" />
 				</a>
-			</div>
-			<button
+			</div> */}
+			{/* <button
 				type="button"
 				className="ThemeToggle mix-blend-difference text-WH"
 				aria-label="Toggle dark mode"
@@ -80,7 +80,7 @@ function Top() {
 				) : (
 					<Moon className="" weight="regular" aria-hidden />
 				)}
-			</button>
+			</button> */}
 
 			<main className=" min-h-[100lvh] ">
 				<div className="MindMapMask out fixed   mt-0 top-0 left-0 h-[100lvh] w-full contrast-75">
@@ -775,6 +775,8 @@ function Top() {
 										<a
 											className="btn [--btnW:45%]"
 											href="https://github.com/yuremono/BurnYourOwnStyle/tree/react"
+											target="_blank"
+											rel="noopener noreferrer"
 										>
 											Repository&nbsp;
 											<ArrowSquareOutIcon />

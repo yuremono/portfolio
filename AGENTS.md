@@ -39,6 +39,9 @@
 RAGデータ(`~/rag-data/portfolio-rag/entries/`)を更新した場合は、`deploy:aws:backend`の前に
 `rag-backend/build/build_db.py`でDB再構築が必要(詳細は`portfolio-rag-progress.md`)。
 
+`deploy:aws:*` 系は、AWSリソース識別子(S3バケット名・ARN等)を定義した
+`scripts/deploy-aws.env`(git管理外)が存在する前提で動く(無ければエラー終了)。
+
 ## 主要ディレクトリ・ファイル
 
 | パス | 役割 |

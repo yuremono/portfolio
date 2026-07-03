@@ -2,7 +2,7 @@
 
 BurnYourOwnStyleをベースにした制作物をまとめるプロジェクト。
 
-製作者に関する質問に答えるRAGチャットを導入し**AWS S3 + CloudFront**に移行しました。
+制作者に関する質問に答えるRAGチャットを導入し**AWS S3 + CloudFront**に移行しました。
 
 公開URL: https://portfolio.yuremono.com/
 
@@ -70,7 +70,7 @@ BurnYourOwnStyleをベースにした制作物をまとめるプロジェクト�
 
 ---
 
-## 製作者の開発環境
+## 制作者の開発環境
 
 環境構築には多くの時間がかかります。環境構築用スキル実装を検討しています。チーム内で共有する場合もメンバーが暗黙知を理解する必要があります。ここでは私の偏ったスタイルシステムでの例をご紹介します。
 
@@ -218,7 +218,7 @@ https://yuremono.github.io/BurnYourOwnStyle/
 
 **注意**: `vite.config.ts`(13行目)の `base` はGitHub Pages向けに `/portfolio/` 固定のため、AWS向けにビルドする際は `--base=/` を明示的に上書きする必要がある(そのままだとJS/CSSが `/portfolio/assets/...` を探しに行き404→白画面になる)。
 
-デプロイは変更対象によって4パターンある。`scripts/deploy-aws.sh`(npm scriptからも呼べる)でまとめて実行できる。
+デプロイは変更対象によって4パターンある。`scripts/deploy-aws.sh`(npm scriptからも呼べる)でまとめて実行できる。スクリプトはAWSリソース識別子(S3バケット名・ARN等)を `scripts/deploy-aws.env`(git管理外)から読み込むため、実行にはこのファイルが必要。
 
 | 変更対象 | コマンド | 補足 |
 |---|---|---|

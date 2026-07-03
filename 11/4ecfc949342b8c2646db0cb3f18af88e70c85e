@@ -1,0 +1,76 @@
+portfolio-rag-spec.md
+  s_1c21bea0798d3f::t_7a8cd34efd0194 253-286
+src/pages/Top.tsx
+  h_53dad1e32c3c71 67,71-72,83
+  s_d2be92a1251159::t_532f722bbf4a08 65
+  s_d2be92a1251159::t_53e91f3bbdebc9 52
+  s_1c21bea0798d3f::t_4a3c8cd38e9de0 778-779
+  s_d2be92a1251159::t_a7a7f03262370b 25
+  s_d2be92a1251159::t_135452c33bc21d 14-16
+README.md
+  s_1c21bea0798d3f::t_7d1a0ae08e9f65 229-236
+  h_53dad1e32c3c71 3
+  s_1c21bea0798d3f::t_dc0f93332d4c68 251
+src/components/three/ModulationCylinderLogo.tsx
+  s_d2be92a1251159::t_cc5bdbc5b9a030 27
+  s_d2be92a1251159::t_4256972d4ee6e6 148,154-158
+src/components/RagChat.tsx
+  s_d2be92a1251159::t_ec9f742d14c75e 20
+  s_d2be92a1251159::t_bd0cfd0bd6b489 40
+  s_d2be92a1251159::t_995bcda3fa5b75 46
+  s_d2be92a1251159::t_5bd1474568022c 3,9,11
+  s_d2be92a1251159::t_18475e5107e3d1 1-2
+  s_d2be92a1251159::t_8893c3e444129e 12-13
+  s_d2be92a1251159::t_0969089c6acf19 21-23
+  s_d2be92a1251159::t_1610d1b3ee6a5a 41-45
+  s_d2be92a1251159::t_12fe556d7775be 47-48
+  s_d2be92a1251159::t_9acf20d0c522e6 15-17,24-28,30-38,50
+src/scss/globals.scss
+  s_d2be92a1251159::t_d6a1359329c3de 7
+src/components/HeaderCylinder.tsx
+  s_d2be92a1251159::t_8deff75e1f3dc5 99
+  s_d2be92a1251159::t_ba48ef7808df66 147-152,159-163
+src/components/RagPanel.tsx
+  s_d2be92a1251159::t_f54f3b8ae333e2 33-36
+  h_53dad1e32c3c71 38
+  s_d2be92a1251159::t_60584eb4c928b2 10
+  s_d2be92a1251159::t_c376a3c6dd1862 80
+  s_d2be92a1251159::t_03e6a8c665eafc 295
+  s_d2be92a1251159::t_a88e50bd79c765 30-32
+  s_d2be92a1251159::t_e7626a5c56a335 79
+  s_d2be92a1251159::t_f09997fb4f1748 81-83,292-294
+src/scss/_04headerCylinder.scss
+  s_d2be92a1251159::t_ca64f06768e438 1-475
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.9",
+  "base_commit_sha": "114ecfc949342b8c2646db0cb3f18af88e70c85e",
+  "prompts": {},
+  "humans": {
+    "h_53dad1e32c3c71": {
+      "author": "yuremono <5alviaofficinali50@gmail.com>"
+    },
+    "h_5a56918e6ebef3": {
+      "author": "yuremono"
+    }
+  },
+  "sessions": {
+    "s_1c21bea0798d3f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f1c5c14a-7ab6-4dd9-bee6-1043c4b476d2",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    },
+    "s_d2be92a1251159": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b33f207a-5875-4d56-89f8-b338a4398745",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  }
+}

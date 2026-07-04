@@ -107,6 +107,7 @@ export function FrontEndSection({ className }: FrontEndSectionProps) {
 							JSONデータをWEBやアプリで呼び出すヘッドレスCMS
 							<ArrowSquareOutIcon className=" align-middle ml-1 mb-1" />
 						</a>
+						<br />
 						AWS上の生成AIとRAG(検索拡張生成)を使って回答するチャット
 						<br />
 						<br />

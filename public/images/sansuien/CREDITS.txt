@@ -1,0 +1,11 @@
+kaiseki.jpg: Wikimedia Commons "File:Jisaku Kaiseki Ryori 01.jpg" by ? (CC BY-SA 3.0) https://commons.wikimedia.org/wiki/File:Jisaku_Kaiseki_Ryori_01.jpg
+room1.jpg: "Room of Ryokan" by ThisParticularGreg (by-sa 2.0) https://www.flickr.com/photos/41084935@N00/3139439086
+room2.jpg: "Gora Asahi: Futon on Tatami" by jpellgen (@1179_jp) (by-nc-nd 2.0) https://www.flickr.com/photos/27917561@N00/378772633
+room3.jpg: "Room in Ryokan Kyo no Yado Shimaya" by Suviko (by-nc 2.0) https://www.flickr.com/photos/86122102@N00/205559146
+hero.jpg: Wikimedia Commons "File:青木湖 - panoramio (15).jpg" by くろふね (CC BY 3.0) https://commons.wikimedia.org/wiki/File:%E9%9D%92%E6%9C%A8%E6%B9%96_-_panoramio_(15).jpg
+lake2.jpg: Wikimedia Commons "File:Lake Kizaki from northwest - September 2014.jpg" by Suzumiya Haruka (CC BY 2.0) https://commons.wikimedia.org/wiki/File:Lake_Kizaki_from_northwest_-_September_2014.jpg
+breakfast.jpg: Wikimedia Commons "File:Breakfast at Tamahan Ryokan, Kyoto.jpg" by MichaelMaggs (CC BY-SA 3.0) https://commons.wikimedia.org/wiki/File:Breakfast_at_Tamahan_Ryokan,_Kyoto.jpg
+irori.jpg: Wikimedia Commons "File:Irori Hearth.jpg" by JosephCoston (CC BY-SA 4.0) https://commons.wikimedia.org/wiki/File:Irori_Hearth.jpg
+okami.jpg: Wikimedia Commons "File:A Japanese lady wearing a Kimono is sitting on the Engawa.jpg" by H.Hmoderato (CC BY-SA 4.0) https://commons.wikimedia.org/wiki/File:A_Japanese_lady_wearing_a_Kimono_is_sitting_on_the_Engawa.jpg
+chef.jpg: Wikimedia Commons "File:Teppanyaki chef cooking at a hibachi in a Japanese Steakhouse.jpg" by Dustin M. Ramsey (Attribution) https://commons.wikimedia.org/wiki/File:Teppanyaki_chef_cooking_at_a_hibachi_in_a_Japanese_Steakhouse.jpg
+bath.jpg: Wikimedia Commons "File:Ikaho open air bath.JPG" (CC BY-SA 3.0) https://commons.wikimedia.org/wiki/File:Ikaho_open_air_bath.JPG

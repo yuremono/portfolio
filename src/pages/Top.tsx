@@ -40,14 +40,6 @@ import "../scss/Next.scss";
 /** `activeDialogId` が指すフルスクリーンダイアログ（DOM の `id` とは別） */
 const EXPERIENCE_DIALOG_KEY = "experience";
 
-// const otherWorksClasses = {
-// 	item: " p-8 bg-WH text-TC BorderB BorderR",
-// 	body: " mt-2",
-// 	actions: "[--background:--WH] mt-4 flex flex-wrap",
-// 	button: "mt-[-1px]",
-// 	buttonInline: "mt-[-1px] ml-[-1px]",
-// } as const;
-
 function Top() {
 	const { ref /* , dark, toggleTheme */ } = usePage();
 	useClientRuntime({ rootRef: ref });
@@ -82,7 +74,8 @@ function Top() {
 				)}
 			</button> */}
 
-			<main className=" min-h-[100lvh] ">
+                        <main className=" min-h-[100lvh] ">
+                                {/* MindMapMask FV */}
 				<div className="MindMapMask out fixed   mt-0 top-0 left-0 h-[100lvh] w-full contrast-75">
 					<video
 						className="MindMapVideo h-full w-full object-cover Video1"
@@ -111,7 +104,8 @@ function Top() {
 						preload="none"
 						aria-hidden="true"
 					/>
-				</div>
+                                </div>
+                                {/* Anchor */}
 				<div className="mt-0 out MindMap IsLayer  text-center  font-thin z-[0] text-WH">
 					<a
 						href="#coding"
@@ -134,14 +128,14 @@ function Top() {
 					<a
 						href="#frontend"
 						className=" mm3-8 MindMapBtn  MMBtn3"
-						style={{ fontSize: "3em" }}
+						style={{ fontSize: "2.5em" }}
 						data-html-class="[--background:--forest] [--hoverC:--WH]"
 					>
 						<span className="bg-forest/50"></span>
-						Frontend
+						Application
 					</a>
 				</div>
-
+                                {/* ScrollXSection BunmyakuTeaserSection RepulsionLists*/}
 				<div className="SwapTarget out mt-0 relative isolate ">
 					<section className=" MindMap   text-center   font-thin     ">
 						{/* InitialLoadingOverlay の INITIAL_LOADING_LABEL_TEXT と文言を同期 */}
@@ -323,7 +317,7 @@ function Top() {
 														</dt>
 														<dd>
 															<span className="px-2 bg-WH font-medium">
-																1 Year
+																Since 2025/05
 															</span>
 														</dd>
 													</dl>
@@ -343,31 +337,30 @@ function Top() {
 														</dt>
 														<dd>
 															<span className="px-2 bg-AC/30 font-medium">
-																1 Year
+                                                                                                                        Since 2025/05
 															</span>
 														</dd>
-														<dt className="">
-															Claude Code (GLM,
-															OpenRouter)
+														<dt className="[--dtW:100%]">
+															Claude Code / GLM, OpenRouter
 														</dt>
-														<dd>
-															<span className="">
-																4 Month
+														<dd className="[--ddW:100%]">
+                                                                                                                        <span className="">
+                                                                                                                         2026/06~ / 2026/01~
 															</span>
 														</dd>
 														<dt className="">
-															Codex / web
+															Codex
 														</dt>
 														<dd>
 															<span className="px-2 bg-AC/30 font-medium">
-																1 Month / 1 Year
+                                                                                                                        2026/04~
 															</span>
 														</dd>
 														<dt className="">
 															Gemini / NanoBanana
 														</dt>
 														<dd>
-															1 Year / 6 Month
+                                                                                                                        2025~
 														</dd>
 													</dl>
 												</div>
@@ -381,11 +374,11 @@ function Top() {
 												</h3>
 												<div className="DescList  [--dtW:50%] [--PY:0.25em] [--PX:0.25em]  mt-4 IsDdright">
 													<dl className="items-center">
-														<dt>
+														<dt className="[--dtW:100%]">
 															WEB
 															SCSS+JavaScript+HTML
 														</dt>
-														<dd>
+														<dd className="[--ddW:100%]">
 															<span className="px-2 bg-AC/30 font-medium">
 																4 Years
 															</span>
@@ -409,16 +402,17 @@ function Top() {
 														<dt>
 															vue/astro/svelte
 														</dt>
-														<dd>AI 4 Month</dd>
+														<dd>Sometimes...</dd>
 														<dt>WordPress</dt>
-														<dd className="[--ddW:100%]">
+                                                                                                                <dd className="[--ddW:100%]">
+                                                                                                                        ポートフォリオトップページ、自作案件をテーマ化
 															<a
-																href="https://github.com/yuremono/portfolio-wp"
+																href="http://yuremono.com/izakaya"
 																className=" align-top leading-[1.8]"
 																target="_blank"
 																rel="noopener noreferrer"
 															>
-																portfolio-wp
+																wp-izakaya
 																<ArrowSquareOutIcon
 																	size={16}
 																/>
@@ -454,18 +448,18 @@ function Top() {
 																4 Year
 															</span>
 														</dd>
-														<dt className="">
+														<dt className="[--dtW:100%] ">
 															Figma
 														</dt>
-														<dd>
-															HtmlToFigmaなど補助利用
+														<dd className="[--ddW:100%] ">
+															HtmlToFigmaなど補助利用、MCP試用
 														</dd>
 														<dt className="">
 															Pencil.dev
 														</dt>
 														<dd>
 															<span className="">
-																数回
+																試作、スキル作成
 															</span>
 														</dd>
 														<dt className="">
@@ -473,7 +467,7 @@ function Top() {
 														</dt>
 														<dd>
 															<span className="">
-																数回
+                                                                                                                        試用
 															</span>
 														</dd>
 														<dt className="[--dtW:100%] ">
@@ -484,13 +478,12 @@ function Top() {
 																LPデザイン・アセット作成の実運用を研究
 															</span>
 														</dd>
-
 														<dt className="">
 															Claude Design
 														</dt>
 														<dd>
 															<span className="">
-																情報収集
+																試用
 															</span>
 														</dd>
 													</dl>
@@ -535,7 +528,7 @@ function Top() {
 														</dt>
 														<dd className="[--ddW:100%]">
 															<span className="px-2 bg-AC/30 font-medium">
-																自作のtask系,memory系,実装系スキルを使用
+																task系,memory系,実装系スキルを作成
 															</span>
 														</dd>
 													</dl>
@@ -545,7 +538,7 @@ function Top() {
 												<h3 className="text-[1rem] BorderB pb-4 flex items-baseline justify-between gap-4 ">
 													インフラ / データベース
 													<span className="text-GR   tracking-[0.1em] ">
-														4 lists
+														5 lists
 													</span>
 												</h3>
 												<div className="DescList  [--dtW:50%] [--PY:0.25em] [--PX:0.25em]  mt-4 IsDdright">
@@ -555,7 +548,7 @@ function Top() {
 														</dt>
 														<dd>
 															<span className="px-2 bg-AC/30 font-medium">
-																AI 1 Year
+                                                                                                                        2025/05~
 															</span>
 														</dd>
 														<dt className="">
@@ -563,19 +556,27 @@ function Top() {
 														</dt>
 														<dd>
 															<span className="">
-																AI 1 Year
+                                                                                                                        2025/05~
 															</span>
 														</dd>
 														<dt className="">
 															Github
 														</dt>
-														<dd>AI 1 Year</dd>
+														<dd>2025/05~</dd>
 														<dt className="">
 															Xserver+MySQL
 														</dt>
 														<dd>
 															<span className="">
 																実務 4 Year
+															</span>
+														</dd>
+														<dt className="">
+															AWS S3 + Cloudfront
+														</dt>
+														<dd>
+															<span className="">
+																2026/07~
 															</span>
 														</dd>
 													</dl>
@@ -585,7 +586,7 @@ function Top() {
 										<CardsItem>
 											<article className="BorderXY  px-4 py-5 text-xs bg-WH/70">
 												<h3 className="text-[1rem] BorderB pb-4 flex items-baseline justify-between gap-4 ">
-													その他利用履歴
+													その他技術・利用履歴
 												</h3>
 												<div className="DescList  [--dtW:50%] [--PY:0.25em] [--PX:0.25em]  mt-4 IsDdright">
 													<dl className="items-center">
@@ -594,8 +595,7 @@ function Top() {
 														</dt>
 														<dd>
 															<span className="px-2 bg-AC/30 font-medium">
-																6 Month,AI 1
-																Year
+                                                                                                                        2025/05~
 															</span>
 														</dd>
 														<dt className="">
@@ -603,17 +603,17 @@ function Top() {
 														</dt>
 														<dd>
 															<span className="px-2 bg-AC/30 font-medium">
-																AI 1 Year
+																実務でも使用
 															</span>
 														</dd>
 														<dt className="">
 															Three.js
 														</dt>
-														<dd>AI 1 Year</dd>
-														<dt className="">
+														<dd>数回使用</dd>
+														<dt className="[--dtW:100%] ">
 															D3.js
 														</dt>
-														<dd>AI 6 Month</dd>
+														<dd className="[--ddW:100%] ">トップページ揺れる文字で使用</dd>
 														<dt className="">
 															GSAP
 														</dt>
@@ -624,24 +624,24 @@ function Top() {
 														</dt>
 														<dd>1~2回作成</dd>
 														<dt className="">
-															NanoBanana{" "}
+															NanoBanana
 														</dt>
 														<dd>
-															スキルで頻繁に利用
+															スキルで利用
 														</dd>
 														<dt className="">
 															Quiver.ai/arrow-1
 														</dt>
 														<dd className="[--ddW:100%]">
 															BYOS
-															demoのsvg生成で使用
+															demoのsvg生成で使用、注目
 														</dd>
 														<dt className="[--dtW:100%] ">
 															Recraft
 														</dt>
 														<dd className="[--ddW:100%]">
 															<span className="">
-																高度な画像生成、SVG作成
+																高度な画像、SVG生成で注目...
 															</span>
 														</dd>
 														<dt className="">
@@ -676,7 +676,7 @@ function Top() {
 															Open Router
 														</dt>
 														<dd className="">
-															モデル比較
+                                                                                                                Claude Codeで使用
 														</dd>
 														<dt className="">
 															Fal AI
@@ -685,7 +685,7 @@ function Top() {
 															動画生成で使用
 														</dd>
 														<dt className="">
-															OpenClaw
+															OpenClaw / hermes
 														</dt>
 														<dd className="">
 															試用
@@ -734,24 +734,13 @@ function Top() {
 											</span>
 										</h2>
 									</div>
-									{/* <h2 className="MindWobble font-thin text-left leading-[0.875em] tracking-[0.0em]">
-									<span style={{ fontSize: "1.125em" }}>
-										Burn
-										<br />
-										&nbsp;&nbsp;Your
-										<br />
-										&nbsp;Own
-										<br />
-										&nbsp;&nbsp;&nbsp;Style
-									</span>
-								</h2> */}
 								</div>
 							</div>
-							<div className="item content-center bg-background/50 p-4">
+							<div className="item content-center bg-background/50 PX PY sm:pr-8">
 								<div className=" leading-[2]">
 									<h3 className="text-GR mb-2">AI Ready</h3>
 									<b>DESIGN.md</b> , <b>画像生成デザイン</b>
-									を基点としたゼロからのページ作成の検証と、
+									を基点としたゼロからのページ作成の検証や、
 									<b>自然言語でUIパーツを再利用</b>
 									する為の環境構築を行っています。
 									<h3 className="text-GR mt-10">
@@ -770,7 +759,6 @@ function Top() {
 											考察：モデルのファインチューニングが民主化するまでは「完成品の再利用」を効率化する方が良い
 										</div>
 									</details>
-									{/* 個人のスタイルシステム（クラス、変数、jsモジュール）を元に開発する環境を整え、このサイトのベースに使用しています。 */}
 									<div className="flex flex-wrap mt-4 gap-2">
 										<a
 											className="btn [--btnW:45%]"
@@ -787,12 +775,6 @@ function Top() {
 										>
 											DemoPage
 										</a>
-										{/* <Button
-											className="mt-[-1px] ml-[-1px] [--btnW:50%]"
-											href="/preview"
-										>
-											Preview
-										</Button> */}
 										<br />
 									</div>
 								</div>
@@ -809,7 +791,8 @@ function Top() {
 					<div className="MMBhide repulsion-lists-module  mt-[-25lvh] z-10">
 						<RepulsionLists className="out px-[calc(var(--into)/3*2)] mt-[--MY] Eng font-light " />
 					</div>
-				</div>
+                                </div>
+                                {/* coding */}
 				<section
 					id="coding"
 					className="AnchorTarget out mt-0 relative isolate  text-WH  [--deco:--wine]"
@@ -834,7 +817,8 @@ function Top() {
 						</h2>
 					</div>
 					<CodingSection className="out py-[--MY] relative mt-0  backdrop-blur-sm    grid " />
-				</section>
+                                </section>
+                                {/* design */}
 				<section
 					id="design"
 					className="AnchorTarget  out mt-0 relative isolate  text-WH  [--deco:--brown]"
@@ -850,13 +834,11 @@ function Top() {
 							<br />
 							<strong>アニメーション</strong>
 							を求められる案件を多く担当してきました。
-							{/* <span className="my-2">個人制作では、PSDからのFigmaデータ再構築、</span>
-							<br />
-                                                        FigmaMCP 、Pencil.dev の <b>Agent SKILLS</b>作成等を行なっています。 */}
 						</h2>
 					</div>
 					<DesignSection className="out py-[--MY] relative mt-0  backdrop-blur-sm    grid " />
-				</section>
+                                </section>
+                                {/* frontend */}
 				<section
 					id="frontend"
 					className="AnchorTarget out mt-0 relative isolate  text-WH  [--deco:--forest]"

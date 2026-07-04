@@ -13,6 +13,7 @@ private/
 js/
 LOCAL.html
 public/images/oasiz
+DESIGN.md
 
 # skills は基本 push しない
 .claude/skills

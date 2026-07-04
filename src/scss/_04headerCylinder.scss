@@ -2,7 +2,7 @@
 
 
 .Header.HeaderCylinder {
-        --logoW:8rem;
+        --logoW:7.5rem;
         --BC: oklch(99% 0.005 60);
         --background: var(--BC);
         --foreground: var(--TC);
@@ -17,7 +17,7 @@
         }
 
         .HeaderCylinderLogo {
-                @apply z-[10] absolute w-[calc(var(--logoW)/3*2)] lg:w-[var(--logoW)] top-0 left-0 pointer-events-auto h-auto  p-0 border-0 lg:top-1/2 lg:translate-y-[-52.5%]  aspect-square lg:aspect-[1/2] [border-radius:0_0_999px_999px] lg:[border-radius:0_999px_999px_0];
+                @apply z-[10] absolute w-[calc(var(--logoW)/3*2)] lg:w-[var(--logoW)] top-0 left-0 pointer-events-auto h-auto  p-0 border-0 lg:top-1/2 lg:translate-y-[-52.5%]  aspect-square lg:aspect-[1/2] [border-radius:0_0_calc(var(--head)/2)_0] lg:[border-radius:0_999px_999px_0];
                 appearance: none;
                 background: var(--BC);
                 // overflow: clip;
@@ -281,7 +281,7 @@
 }
 
 .RagLauncher {
-        --logoW: 8rem;
+        --logoW: 7.5rem;
         --BC: oklch(99% 0.005 60); 
 
         width: var(--logoW) ;
@@ -292,7 +292,7 @@
         position: fixed;
         top: 50%;
         z-index: 1000000;
-        @apply  w-[calc(var(--logoW)/3*2)] lg:w-[var(--logoW)] top-0 right-0 pointer-events-auto h-auto  p-0 border-0 lg:top-1/2 lg:translate-y-[-52.5%]  aspect-square lg:aspect-[1/2] [border-radius:0_0_999px_999px] lg:[border-radius:999px_0_0_999px];
+        @apply  w-[calc(var(--logoW)/3*2)] lg:w-[var(--logoW)] top-0 right-0 pointer-events-auto h-auto  p-0 border-0 lg:top-1/2 lg:translate-y-[-52.5%]  aspect-square lg:aspect-[1/2] [border-radius:0_0_0_calc(var(--head)/2)] lg:[border-radius:999px_0_0_999px];
         background: var(--BC);
         // overflow: clip;
         border: var(--line);
@@ -313,10 +313,10 @@
         }
 
         &Icon {// ヘッダーロゴのキャンバスと同等サイズ（≒ --head, 従来の約3倍）
-                width: 3rem;
-                height: 3rem;
+                width: 2.5rem;
+                height: 2.5rem;
                 color: var(--TC);
-                @apply lg:w-[4rem] lg:h-[4rem];
+                @apply lg:w-[3.5rem] lg:h-[3.5rem];
 
         }
 

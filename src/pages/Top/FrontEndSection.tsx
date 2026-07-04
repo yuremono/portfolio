@@ -11,8 +11,8 @@ interface FrontEndSectionProps {
 
 export function FrontEndSection({ className }: FrontEndSectionProps) {
 	const { rootRef, canvasRef } = useSectionCanvas({
-		text: "FrontEnd",
-		fontSize: 192,
+		text: "Application",
+		fontSize: 144,
 		detailed: false,
 		fillOpacity: 0.5,
 	});
@@ -35,7 +35,7 @@ export function FrontEndSection({ className }: FrontEndSectionProps) {
 			<div className="WTS [--WTS:var(--tsw)_var(--background)] relative z-10  PX [grid-area:1/1]  max-w-[48em] mx-auto">
 				<div className="[--LS:0.1em]   ">
 					<h2 className=" h2FZ JsRight font-normal">
-						## FrontEnd - Application Development
+						## Application Development
 					</h2>
 					<div className="BudouxScroll mx-auto my-[3rem] md:text-xl">
 						### React / TypeScript
@@ -44,7 +44,7 @@ export function FrontEndSection({ className }: FrontEndSectionProps) {
 						Cursor使用開始時に
 						<a
 							href="https://github.com/yuremono/next.js.cms"
-							className=" md:text-xl hover:invert "
+							className="italic hover:text-AC "
 							target="_blank"
 							rel="noopener noreferrer"
 						>
@@ -56,7 +56,7 @@ export function FrontEndSection({ className }: FrontEndSectionProps) {
 						web AI 統合chrome拡張機能
 						<a
 							href="https://github.com/yuremono/chatKanban"
-							className=" md:text-xl hover:invert "
+							className="italic hover:text-AC "
 							target="_blank"
 							rel="noopener noreferrer"
 						>
@@ -70,43 +70,45 @@ export function FrontEndSection({ className }: FrontEndSectionProps) {
 						その他には
 						<a
 							href="https://github.com/yuremono/agent-relay"
-							className=" md:text-xl hover:invert "
+							className="italic hover:text-AC "
 							target="_blank"
 							rel="noopener noreferrer"
 						>
-							VScode ターミナル間連絡ツール
+							VScode ターミナル間連絡パッケージ
 							<ArrowSquareOutIcon className=" align-middle ml-1 mb-1" />
 						</a>
-						<a href="/bbox" className=" md:text-xl hover:invert ">
-							デザインの座標とサイズを抽出するUI
+						<a href="/bbox" className="italic hover:text-AC ">
+							デザインの座標とサイズを抽出するツール
 						</a>
 						<a
 							href="https://github.com/yuremono/agent-driven-CMS"
-							className=" md:text-xl hover:invert "
+							className="italic hover:text-AC "
 							target="_blank"
 							rel="noopener noreferrer"
 						>
 							Codex/ClaudeCodeの権限をブラウザ上で表示
 							<ArrowSquareOutIcon className=" align-middle ml-1 mb-1" />
 						</a>
-						<a href="/rects" className=" md:text-xl hover:invert ">
+						<a href="/rects" className="italic hover:text-AC ">
 							図形をもとにインラインSVGを作成するツール
 						</a>
 						<a
 							href="/bunmyaku"
-							className=" md:text-xl hover:invert "
+							className="italic hover:text-AC "
 						>
-							エージェント用ドキュメント作成UI
+							エージェント用ドキュメント作成ツール
 						</a>
 						<a
 							href="https://github.com/yuremono/headless-CMS"
-							className=" md:text-xl hover:invert "
+							className="italic hover:text-AC "
 							target="_blank"
 							rel="noopener noreferrer"
 						>
 							JSONデータをWEBやアプリで呼び出すヘッドレスCMS
 							<ArrowSquareOutIcon className=" align-middle ml-1 mb-1" />
 						</a>
+						AWS上の生成AIとRAG(検索拡張生成)を使って回答するチャット
+						<br />
 						<br />
 						などを開発してきました。
 					</div>

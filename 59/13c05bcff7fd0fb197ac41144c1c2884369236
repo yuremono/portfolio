@@ -1,0 +1,52 @@
+src/scss/_04headerCylinder.scss
+  h_53dad1e32c3c71 5,20,284,295,316-317,319
+src/pages/Top/FrontEndSection.tsx
+  h_53dad1e32c3c71 14-15,47,59,73,77,80-81,85,92,97,99,103,110
+  s_79d56ce9c32abe::t_f376b5e4bb24e8 38,111
+src/pages/Top.tsx
+  h_53dad1e32c3c71 78,108,131,135,138,320,340,343-344,346,348,356,363,377,381,405,408,410,415,451,454-455,462,470,486,531,541,551,559,565,574-579,589,598,606,612-613,616,630,637,644,679,688,739,743,795,821,841
+  s_79d56ce9c32abe::t_81edc2646c711a 77,107,347,352,407,580-581,627,794,820,840
+public/images/sansuien/CREDITS.txt
+  s_12251f479ec230::t_2bcdae09e18ead 1-10
+  s_12251f479ec230::t_c1b5969aa55a6c 11
+.gitignore
+  h_53dad1e32c3c71 16
+PROJECT-REVIEW-2026-07-03.md
+  s_79d56ce9c32abe::t_9de821b82488d8 1-56,58-89
+  s_79d56ce9c32abe::t_e30b9280b70b17 57
+  h_53dad1e32c3c71 90,111
+  s_79d56ce9c32abe::t_e8ca96e9c668ed 91-110
+src/scss/_08intersection.scss
+  h_53dad1e32c3c71 181
+"Sansuien Website (standalone).html"
+  s_79d56ce9c32abe::t_75f51a2fe0e87e 1-181
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "5913c05bcff7fd0fb197ac41144c1c2884369236",
+  "prompts": {},
+  "humans": {
+    "h_53dad1e32c3c71": {
+      "author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_12251f479ec230": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "47cd1648-5c7b-45c0-956b-0cb2bb04a14f",
+        "model": "claude-fable-5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    },
+    "s_79d56ce9c32abe": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "caf8bf90-4c5b-4123-af78-a04a5b661466",
+        "model": "claude-fable-5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  }
+}

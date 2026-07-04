@@ -1,0 +1,29 @@
+public/images/sansuien/mountain2.svg
+  s_1fa26936ec43d5::t_b89747350d58b4 7-11
+  s_1fa26936ec43d5::t_024caa6f1a4c4e 1-6,12
+public/images/sansuien/mountain.svg
+  s_1fa26936ec43d5::t_09b3be8400e60e 7-11
+  s_1fa26936ec43d5::t_fa9577ba6e5a7d 3-6,12
+  s_1fa26936ec43d5::t_5e4723ebf18283 1-2
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "fb525b965c35d5cf72c10f2da5e61954f8faef27",
+  "prompts": {},
+  "humans": {
+    "h_53dad1e32c3c71": {
+      "author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_1fa26936ec43d5": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b03ad6a3-215c-4591-95a4-10c3a17a89cd",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  }
+}

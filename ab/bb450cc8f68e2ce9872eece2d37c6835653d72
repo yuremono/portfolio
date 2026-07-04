@@ -1,0 +1,21 @@
+404.html
+  s_7cbe3b3cf18865::t_84a13bab2d5d4f 5-10,13-17
+index.html
+  s_7cbe3b3cf18865::t_15415cfb707e1c 5-10,13-17
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "abbb450cc8f68e2ce9872eece2d37c6835653d72",
+  "prompts": {},
+  "sessions": {
+    "s_7cbe3b3cf18865": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "16ce44f1-dff9-4164-8c00-0c628af36481",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  }
+}

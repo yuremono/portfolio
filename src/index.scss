@@ -202,15 +202,30 @@ h1,h2,h3,h4,h5,h6,.largeFZ {
 :where(.BorderY) {border-block : var(--line);}
 :where(.BorderX) {border-inline: var(--line);} 
 :where(.BorderXY) {border: var(--line);} 
+:where(.OutlineXY) {outline: var(--line);outline-offset: 2px;} 
 :where(.BorderXY2) {border: var(--line2);} 
 :where(.BorderXY3) {border: var(--line3);} 
 .TS {text-shadow: var(--TS);}
 .DS {filter: drop-shadow(var(--DS));}
 .BS {box-shadow: var(--BS);}
 .WTS {-webkit-text-stroke: var(--WTS);paint-order: stroke;}
+.WTS svg{
+        stroke:var(--tsc);
+  stroke-width:var(--tsw);
+  paint-order:stroke;
+}
 .BGgrad {background: var(--BGgrad);}
-.TS2 {text-shadow: var(--TS2);}
-.DS2 {filter: drop-shadow(var(--DS2));}
+.TS2 {
+        --TS2:1px 1px var(--BK);
+        text-shadow: var(--TS2);
+
+}
+.DS2 {
+        --DS2: drop-shadow(1px 1px var(--BK)) drop-shadow(-1px -1px var(--BK)) drop-shadow(1px -1px var(--BK)) drop-shadow(1px -1px var(--BK))  ;
+        filter: drop-shadow(var(--DS2));
+        filter: drop-shadow(1px 1px var(--BK30)) drop-shadow(-1px -1px var(--BK30)) drop-shadow(1px -1px var(--BK30)) drop-shadow(1px -1px var(--BK30))  ;
+}
+
 .BS2 {box-shadow: var(--BS2);}
 .WTS2 {-webkit-text-stroke: var(--ST2);paint-order: stroke;}
 .BGgrad2 {background: var(--BGgrad2);}

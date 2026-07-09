@@ -700,7 +700,6 @@ function Top() {
 												</div>
 											</article>
 										</CardsItem>
-										<CardsItem></CardsItem>
 									</Cards>
 								</section>
 							</DialogFull> : null}

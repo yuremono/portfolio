@@ -43,7 +43,7 @@
 
 
         // --- 1. アイテム基本設定 (デフォルト: 1列 / Flex) ---
-        .item {
+        :where(.item) {
                 @apply w-[--itemW] mt-0;
 
                 img {
@@ -53,8 +53,8 @@
         }
 
         // --- 2. モディファイア: レイヤー重ね合わせ (IsLayer) ---
-        &.IsLayer {
-                .item {
+        &:where(.IsLayer) {
+                :where(.item) {
                         @apply grid;
 
                         >* {
@@ -152,13 +152,13 @@
                 }
         }
         @include max-md {
-                &:not(.bp-sm)>.item {
+                &:not(.bp-sm,.bp-none)>.item {
                         width: calc(50% - var(--gap)/2);
                         flex: unset;
                 }
         }
         @include max-sm {
-                &:not(.bp-sm)>.item {
+                &:not(.bp-sm,.bp-none)>.item {
                         width: 100%;
                         flex: unset;
                 }
@@ -1106,4 +1106,44 @@ $val in $imgW {
 }
 :is(.BarAF):before{
         display: none;
+}
+
+:where(.NodeStack){
+        --pathTrans: 3s;
+        --pathC: var(--WH50);
+        --fillC: var(--WH50);
+        --strokeC: var(--WH50);
+        :where(.Cards .item:nth-of-type(even)){margin-left: auto;}
+        :where(.item:has(img) img){
+                opacity: 0.7;
+                transition: var(--trans);
+        }
+        :where(.item:has(img):has(a:hover) img){
+                opacity: 1;
+        }
+        :where(.item:has(img) a){
+                opacity: 1;
+                filter: drop-shadow(1px 1px var(--BK30)) drop-shadow(-1px -1px var(--BK30)) drop-shadow(1px -1px var(--BK30)) drop-shadow(-1px 1px var(--BK30))  ;
+                @apply py-2 px-4 ;
+
+        }
+        // :where(.item:has(img) a:hover){
+        //         background: var(--background);
+        // }
+        // :where(.item:has(img) a::before){
+        :where(.item){position: relative;}
+        .item:before{
+                content:  '';
+                background: var(--background);
+                position: absolute;inset: 0;
+                display: block;
+                z-index: 10;
+                opacity: 0.1;
+                pointer-events: none;
+                mix-blend-mode: hue;
+                will-change: opacity;
+        }
+        .item:has(a:hover):before{
+                opacity: 1;
+        }
 }

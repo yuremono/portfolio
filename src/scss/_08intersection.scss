@@ -34,8 +34,17 @@
 
 .Js {
 
-        &Hide {
+        &Sheer {
                 filter: blur(var(--jsBlur));
+                opacity: 0.5;
+                transition: var(--trt);
+                &.show {
+                        opacity: 1;
+                        filter: unset;
+                }
+        }
+        &Hide {
+                // filter: blur(var(--jsBlur));
                 opacity: 0;
                 transition: var(--trt);
 

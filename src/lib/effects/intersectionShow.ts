@@ -19,7 +19,7 @@ function isBgItemLetterToggle(el: Element): boolean {
 	);
 }
 
-const ROOT_MARGIN_ONCE = "0% 0% -15% 0px";
+const ROOT_MARGIN_ONCE = "0% 0% -20% 0px";
 const THRESHOLD_ONCE = 0;
 
 const ROOT_MARGIN_TOGGLE = "-0% 0% -50% 0px";

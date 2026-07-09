@@ -334,7 +334,7 @@
         filter var(--dur) ,
         scale var(--dur) ,
         rotate var(--dur) ;
-        --jsBlur:0px; 
+        --jsBlur:0.25rem; 
         --transX: 6vmin;
         --transY: 6vmin;
 }

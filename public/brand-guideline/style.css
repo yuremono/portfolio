@@ -29,10 +29,10 @@
   /*  ユーザーの指示がなければ編集禁止*/
   color-scheme: light;
   --TR: transparent;
-  --MC: oklch(0.49 0.14 265.73);
-  --SC: oklch(0.49 0.14 265.73);
-  --AC: oklch(0.80 0.1 75);
-  --BC: oklch(99% 0.005 60);
+  --MC: oklch(80% 0.04 200);
+  --SC: oklch(50% 0.04 200);
+  --AC: oklch(70% 0.15 80);
+  --BC: oklch(99% 0.01 60);
   --TC: oklch(20% 0.00 270);
   --GR: oklch(73% 0.00 270);
   --BK: oklch(0% 0.00 60);
@@ -42,8 +42,8 @@
 
 :root {
   --second: var(--SC);
-  --third: oklch(0.92 0.1 169.85);
-  --fourth: oklch(0.97 0.2 109.29);
+  --third: oklch(92% 0.1 169.85);
+  --fourth: oklch(97% 0.2 109.29);
   --primary: var(--MC);
   --secondary: var(--SC);
   --accent: var(--AC);
@@ -151,8 +151,13 @@
 }
 
 :root {
+  --into: calc(50vw - clamp(0px, 50vw - var(--PX), (var(--wid) / 2)));
+  --out: calc(50% - 50vw);
+}
+
+:root {
   --LS: 0.025em;
-  --LH: 2;
+  --LH: 1.5;
   --FW: 300;
   --FZ: 100%;
 }
@@ -166,23 +171,23 @@
   --HFW: 500;
   --HLH: 1.375;
   --HLS: 0.00em;
-  --h1FZ: clamp(32px, 6.4vw, 64px);
-  --h2FZ: clamp(24px, 4vw, 40px);
-  --h3FZ: clamp(18px, 2.4vw, 24px);
+  --h1FZ: clamp(20px, 2.2vw, 24px);
+  --h2FZ: clamp(16px, 2vw, 20px);
+  --h3FZ: 1em;
 }
 
 :root {
   --MY: 6rem;
-  --PX: 1.5rem;
+  --PX: 1rem;
   --PX2: calc(var(--PX) * 2);
-  --gap: 1.5rem;
+  --gap: 1rem;
   --gapN: calc(var(--gap)*-1);
   --gapH: calc(var(--gap)/2);
 }
 @media (max-width: 1080px) {
   :root {
     --gap: 1rem;
-    --PX: 1.5rem;
+    --PX: 1rem;
   }
 }
 @media (max-width: 767px) {
@@ -192,6 +197,16 @@
 }
 
 :root {
+  --spaceXS: 0.25rem;
+  --spaceS: 0.5rem;
+  --spaceM: 1rem;
+  --spaceL: 1.5rem;
+  --spaceXL: 3rem;
+  --space2X: 6rem;
+}
+
+:root {
+  --trans: 0.4s;
   --bds: solid;
   --bdw: 1px;
   --bdc: var(--TC30);
@@ -257,6 +272,7 @@ a {
 
 svg {
   display: inline-block;
+  fill: currentColor;
 }
 
 b, strong {
@@ -436,4 +452,452 @@ h1, h2, h3, h4, h5, h6, .largeFZ {
 
 .BGgrad3 {
   background: var(--BGgrad3);
+}
+
+:root {
+  --wine: oklch(0.3 0.4 50);
+  --brown: oklch(0.65 0.4 105);
+  --forest: oklch(0.3 0.4 150);
+}
+
+/* 編集可能要素の表示。contenteditableはscript.jsが付与し書き出し時に除去する */
+[contenteditable]:hover {
+  outline: 1px dashed var(--GR);
+  outline-offset: 0px;
+}
+[contenteditable]:focus-visible {
+  outline: 2px solid var(--AC);
+  outline-offset: 0px;
+}
+
+/* layout — 装飾(色・フォント)は使わない */
+*, *::before, *::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+ul, ol, dl, dd, p {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: var(--spaceL);
+  max-width: 100%;
+  padding-inline: var(--into);
+}
+
+code {
+  display: block;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+h2 {
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 0.375em;
+  text-decoration-color: var(--MC);
+  margin-block: 1em;
+}
+
+h3 {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.25em;
+  text-decoration-color: var(--SC);
+  margin-block: 0 0em;
+}
+
+button {
+  -webkit-transition: var(--trans);
+  transition: var(--trans);
+}
+button:hover {
+  -webkit-filter: invert(1);
+          filter: invert(1);
+}
+
+/* セクション間の区切り。セマンティッククラスに直付けせず全セクション間で使い回す */
+.divider {
+  border-top: var(--line);
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding-block: var(--spaceM);
+  padding-inline: var(--into);
+  border-bottom: var(--line);
+  backdrop-filter: blur(10px);
+  rule: 1px dotted var(--GR);
+  gap: 3px;
+  z-index: 100;
+}
+
+.header_logo {
+  margin: unset;
+  margin-right: auto;
+}
+
+.header_actions {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-left: auto;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  border-radius: var(--spaceL);
+  overflow: clip;
+}
+
+.header_btn {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: unset;
+  padding: var(--spaceS);
+  cursor: pointer;
+}
+
+.ml-auto {
+  margin-left: auto;
+}
+
+.mt-0 {
+  margin-top: 0;
+}
+
+/* manual: 開閉はトップレイヤーを使わずopacity/visibility/pointer-eventsのトグルで行う。外側クリックで閉じる */
+.manual {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  backdrop-filter: blur(10px); /* ヘッダーと同じ */
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  -webkit-transition: var(--trans);
+  transition: var(--trans);
+  line-height: 1.75;
+}
+.manual.is_open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+.manual_inner {
+  position: relative;
+  width: var(--wid);
+  max-width: calc(100% - var(--PX2));
+  max-height: calc(100svh - var(--MY) * 2);
+  padding: var(--PX);
+  border: var(--line);
+  background: var(--BC);
+}
+.manual_dl {
+  display: grid;
+  grid-template-columns: 10rem 1fr;
+  gap: var(--gap);
+  rule: 5px dotted var(--GR); /* 行・列の罫線 一括指定 */
+  rule-width: 4px;
+  rule-style: dotted;
+  rule-color: var(--GR);
+  rule-break: intersection;
+  rule-inset: var(--spaceXS);
+}
+.manual_dl > :where(*) {
+  padding: var(--spaceS);
+}
+.manual_dl :where(dt) {
+  font-weight: var(--HFW);
+}
+.manual_close {
+  position: absolute;
+  top: var(--PX);
+  right: var(--PX);
+  line-height: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: var(--spaceXS) var(--spaceM);
+  padding-block: var(--spaceM);
+  padding-inline: var(--into);
+  border-top: var(--line);
+  margin-top: var(--MY);
+}
+
+/* var_group: 余白/色変数の一覧。swatchは共通クラス＋モディファイア（is_size/is_color）で出し分け */
+.variable_grid {
+  margin-top: var(--spaceM);
+}
+
+:root {
+  --swatch: 7.5rem;
+}
+
+.variable_item {
+  border: var(--line);
+  display: grid;
+  grid-template-columns: 1fr var(--swatch);
+  min-height: var(--swatch);
+  gap: 2px;
+  rule: 2px dotted var(--GR); /* 行・列の罫線 一括指定 */
+}
+.variable_item.is_full {
+  grid-template-columns: unset;
+  min-height: unset;
+  rule: unset;
+}
+.variable_item.is_add {
+  grid-template-columns: unset;
+  border-style: dashed;
+  place-items: center;
+  rule: unset;
+}
+
+/* add_btn: 各ブロック共通の「追加」トリガー */
+.add_btn {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: var(--spaceXS);
+  border: none;
+  font: inherit;
+  color: var(--GR);
+  cursor: pointer;
+}
+
+.variable_label {
+  display: grid;
+}
+.variable_label > :where(*) {
+  padding: var(--spaceXS) var(--spaceS);
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+.variable_label > :where(:first-child, h3) {
+  padding-block: var(--spaceS);
+}
+
+.variable_title {
+  padding-bottom: var(--spaceXS);
+  border-bottom: var(--line);
+}
+
+.child_inline {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.swatch {
+  display: inline-block;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  aspect-ratio: 1;
+  width: var(--swatch);
+  max-width: var(--swatch);
+  -ms-flex-item-align: center;
+      align-self: center;
+  justify-self: center;
+}
+.swatch.is_size {
+  background: var(--GR);
+}
+.swatch.is_full {
+  width: 100%;
+}
+
+.cards {
+  --col:1;
+  display: grid;
+  grid-template-columns: repeat(var(--col), 1fr);
+  gap: var(--gap);
+}
+
+.col2 {
+  --col: 2;
+}
+
+.col3 {
+  --col: 3;
+}
+
+@media (min-width: 640px) {
+  .sm\:col2 {
+    --col: 2;
+  }
+  .sm\:col3 {
+    --col: 3;
+  }
+}
+@media (min-width: 768px) {
+  .md\:col2 {
+    --col: 2;
+  }
+  .md\:col3 {
+    --col: 3;
+  }
+}
+@media (min-width: 1024px) {
+  .lg\:col2 {
+    --col: 2;
+  }
+  .lg\:col3 {
+    --col: 3;
+  }
+}
+.sections_grid {
+  counter-reset: section;
+}
+.sections_item {
+  list-style: none;
+  counter-increment: section;
+}
+.sections_item > :where(*) {
+  padding: var(--spaceS) var(--spaceM);
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+.sections_item > :where(:first-child, h3) {
+  padding-block: var(--spaceM);
+  border-bottom: var(--line);
+}
+.sections_item.is_add {
+  border-style: dashed;
+  display: grid;
+  place-items: center;
+  min-height: 5rem;
+}
+.sections_item.is_add > :where(:first-child, h3) {
+  border-bottom: unset;
+}
+.sections_title::before {
+  content: counter(section) ". ";
+}
+
+.text-GR {
+  color: var(--GR);
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.adjective_ul {
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: var(--spaceM);
+}
+
+.adjective_item {
+  border: var(--line);
+  padding: var(--spaceS) var(--spaceS);
+}
+.adjective_item.is_add {
+  border-style: dashed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: unset;
+}
+
+.design_dl {
+  --afterFZ: var(--spaceL);
+  gap: var(--spaceM) var(--spaceL);
+}
+.design_dd, .design_dt {
+  min-width: 0;
+  position: relative;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: var(--line);
+  background: var(--TC10);
+  padding: var(--spaceM);
+}
+.design_dt::after {
+  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="%23000000" viewBox="0 0 256 256"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg>');
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  width: var(--afterFZ);
+  height: var(--afterFZ);
+  -webkit-transform: translate(0%, -50%);
+          transform: translate(0%, -50%);
+}
+.design_add {
+  grid-column: 1/-1;
+  border: var(--line);
+  border-style: dashed;
+  display: grid;
+  place-items: center;
+  min-height: 5rem;
 }

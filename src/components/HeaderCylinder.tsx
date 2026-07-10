@@ -195,7 +195,7 @@ function HeaderCylinderNav({ onNavigate }: HeaderCylinderNavProps) {
 	const pagesPopoverId = `${idPrefix}-pages`;
 
 	return (
-		<ul className="NavUl">
+		<ul className="NavUl max-w-none !w-[115%]">
 			<li className="NavLi">
 				<Link to="/" onClick={onNavigate}>
 					HOME
@@ -206,7 +206,7 @@ function HeaderCylinderNav({ onNavigate }: HeaderCylinderNavProps) {
 					文脈
 				</Link>
 			</li>
-			<li className="NavLi NavDrop w-max" {...dropHoverProps}>
+			<li className="NavLi NavDrop " {...dropHoverProps}>
 				<button
 					type="button"
 					className="DropA DropToggle"
@@ -438,9 +438,9 @@ function HeaderCylinderNav({ onNavigate }: HeaderCylinderNavProps) {
 					</li> */}
 				</ul>
 			</li>
-			<li className="NavLi">
-				<Link to="/preview" onClick={onNavigate}>
-					BYOS
+			<li className="NavLi ">
+				<Link to="/brand-guideline/index.html" onClick={onNavigate}>
+					BrandGuideline
 				</Link>
 			</li>
 		</ul>

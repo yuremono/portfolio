@@ -57,9 +57,13 @@
   --TR: transparent;
   --MC: oklch(0.1 0.1 75);
   --navy: oklch(0.1 0.25 265);
-  --wine: oklch(0.5 0.4 50);
-  --brown: oklch(0.7 0.4 105);
-  --forest: oklch(0.5 0.5 150);
+  --navyLT: oklch(0.4 0.25 265);
+  --wine: oklch(0.3 0.4 50);
+  --wineLT: oklch(0.6 0.4 50);
+  --brown: oklch(0.65 0.4 105);
+  --brownLT: oklch(0.9 0.4 105);
+  --forest: oklch(0.3 0.4 150);
+  --forestLT: oklch(0.6 0.4 150);
   --SC: oklch(0.50 0.125 265);
   --AC: oklch(0.8 0.1 75);
   --BC: oklch(99% 0.005 60);
@@ -87,6 +91,7 @@
 .dark {
   --background: var(--TC);
   --foreground: var(--WH);
+  --btnC: var(--TC);
 }
 
 :root {
@@ -101,6 +106,8 @@
   --BK10: color-mix(in srgb, transparent, var(--BK) 10%);
   --background10: color-mix(in srgb, transparent, var(--background) 10%);
   --foreground10: color-mix(in srgb, transparent, var(--foreground) 10%);
+  --navy10: color-mix(in srgb, transparent, var(--navy) 10%);
+  --wine10: color-mix(in srgb, transparent, var(--wine) 10%);
   --MC20: color-mix(in srgb, transparent, var(--MC) 20%);
   --SC20: color-mix(in srgb, transparent, var(--SC) 20%);
   --AC20: color-mix(in srgb, transparent, var(--AC) 20%);
@@ -111,6 +118,8 @@
   --BK20: color-mix(in srgb, transparent, var(--BK) 20%);
   --background20: color-mix(in srgb, transparent, var(--background) 20%);
   --foreground20: color-mix(in srgb, transparent, var(--foreground) 20%);
+  --navy20: color-mix(in srgb, transparent, var(--navy) 20%);
+  --wine20: color-mix(in srgb, transparent, var(--wine) 20%);
   --MC30: color-mix(in srgb, transparent, var(--MC) 30%);
   --SC30: color-mix(in srgb, transparent, var(--SC) 30%);
   --AC30: color-mix(in srgb, transparent, var(--AC) 30%);
@@ -121,6 +130,8 @@
   --BK30: color-mix(in srgb, transparent, var(--BK) 30%);
   --background30: color-mix(in srgb, transparent, var(--background) 30%);
   --foreground30: color-mix(in srgb, transparent, var(--foreground) 30%);
+  --navy30: color-mix(in srgb, transparent, var(--navy) 30%);
+  --wine30: color-mix(in srgb, transparent, var(--wine) 30%);
   --MC40: color-mix(in srgb, transparent, var(--MC) 40%);
   --SC40: color-mix(in srgb, transparent, var(--SC) 40%);
   --AC40: color-mix(in srgb, transparent, var(--AC) 40%);
@@ -131,6 +142,8 @@
   --BK40: color-mix(in srgb, transparent, var(--BK) 40%);
   --background40: color-mix(in srgb, transparent, var(--background) 40%);
   --foreground40: color-mix(in srgb, transparent, var(--foreground) 40%);
+  --navy40: color-mix(in srgb, transparent, var(--navy) 40%);
+  --wine40: color-mix(in srgb, transparent, var(--wine) 40%);
   --MC50: color-mix(in srgb, transparent, var(--MC) 50%);
   --SC50: color-mix(in srgb, transparent, var(--SC) 50%);
   --AC50: color-mix(in srgb, transparent, var(--AC) 50%);
@@ -141,6 +154,8 @@
   --BK50: color-mix(in srgb, transparent, var(--BK) 50%);
   --background50: color-mix(in srgb, transparent, var(--background) 50%);
   --foreground50: color-mix(in srgb, transparent, var(--foreground) 50%);
+  --navy50: color-mix(in srgb, transparent, var(--navy) 50%);
+  --wine50: color-mix(in srgb, transparent, var(--wine) 50%);
   --MC60: color-mix(in srgb, transparent, var(--MC) 60%);
   --SC60: color-mix(in srgb, transparent, var(--SC) 60%);
   --AC60: color-mix(in srgb, transparent, var(--AC) 60%);
@@ -151,6 +166,8 @@
   --BK60: color-mix(in srgb, transparent, var(--BK) 60%);
   --background60: color-mix(in srgb, transparent, var(--background) 60%);
   --foreground60: color-mix(in srgb, transparent, var(--foreground) 60%);
+  --navy60: color-mix(in srgb, transparent, var(--navy) 60%);
+  --wine60: color-mix(in srgb, transparent, var(--wine) 60%);
   --MC70: color-mix(in srgb, transparent, var(--MC) 70%);
   --SC70: color-mix(in srgb, transparent, var(--SC) 70%);
   --AC70: color-mix(in srgb, transparent, var(--AC) 70%);
@@ -161,6 +178,8 @@
   --BK70: color-mix(in srgb, transparent, var(--BK) 70%);
   --background70: color-mix(in srgb, transparent, var(--background) 70%);
   --foreground70: color-mix(in srgb, transparent, var(--foreground) 70%);
+  --navy70: color-mix(in srgb, transparent, var(--navy) 70%);
+  --wine70: color-mix(in srgb, transparent, var(--wine) 70%);
   --MC80: color-mix(in srgb, transparent, var(--MC) 80%);
   --SC80: color-mix(in srgb, transparent, var(--SC) 80%);
   --AC80: color-mix(in srgb, transparent, var(--AC) 80%);
@@ -171,6 +190,8 @@
   --BK80: color-mix(in srgb, transparent, var(--BK) 80%);
   --background80: color-mix(in srgb, transparent, var(--background) 80%);
   --foreground80: color-mix(in srgb, transparent, var(--foreground) 80%);
+  --navy80: color-mix(in srgb, transparent, var(--navy) 80%);
+  --wine80: color-mix(in srgb, transparent, var(--wine) 80%);
   --MC90: color-mix(in srgb, transparent, var(--MC) 90%);
   --SC90: color-mix(in srgb, transparent, var(--SC) 90%);
   --AC90: color-mix(in srgb, transparent, var(--AC) 90%);
@@ -181,6 +202,8 @@
   --BK90: color-mix(in srgb, transparent, var(--BK) 90%);
   --background90: color-mix(in srgb, transparent, var(--background) 90%);
   --foreground90: color-mix(in srgb, transparent, var(--foreground) 90%);
+  --navy90: color-mix(in srgb, transparent, var(--navy) 90%);
+  --wine90: color-mix(in srgb, transparent, var(--wine) 90%);
 }
 
 :root {
@@ -401,7 +424,7 @@
   filter var(--dur) ,
   scale var(--dur) ,
   rotate var(--dur) ;
-  --jsBlur:0px;
+  --jsBlur:0.25rem;
   --transX: 6vmin;
   --transY: 6vmin;
 }
@@ -418,7 +441,7 @@
   --TLOff:.25em;
   --TLG:.25em;
   --btnBG:var(--foreground);
-  --btnC:var(--WH);
+  --btnC:var(--background);
   --hoverBG: var(--background);
   --hoverC: var(--foreground);
   --hoverFL: invert(0%) brightness(100%) saturate(100%);
@@ -427,7 +450,7 @@
   --btnLH:1.125;
   --btnFW: 700;
   --btnLS:0.025em;
-  --btnW:300px;
+  --btnW:256px;
   --btnW48:100%;
   --btnH:3.25rem;
   --btnPX:1.25em ;
@@ -1714,406 +1737,6 @@ main {
 }
 .Header.NavCircleLeft .HeaderNavMobile .NavInner .DropBtn {
   display: none;
-}
-.Header.HeaderCylinder {
-  --logoW:8rem;
-  @apply h-full pointer-events-none;
-}
-.Header.HeaderCylinder .HeaderInner {
-  @apply px-0 flex-col items-end justify-between h-full;
-}
-.Header.HeaderCylinder .HeaderInner > * {
-  pointer-events: auto;
-}
-.Header.HeaderCylinder .HeaderCylinderLogo {
-  @apply z-[10] absolute w-[calc(var(--logoW)/3*2)] lg:w-[var(--logoW)] top-0 left-0 pointer-events-auto h-auto p-0 border-0 lg:top-1/2 lg:translate-y-[-52.5%] aspect-square lg:aspect-[1/2];
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  background: var(--TR);
-  border-radius: 0 999px 999px 0;
-  pointer-events: none;
-  border: var(--line);
-  border-color: var(--TR);
-  border-left: none;
-}
-.Header.HeaderCylinder .HeaderCylinderLogo .LogoCylinder {
-  pointer-events: auto;
-  cursor: pointer;
-  @apply w-[calc(var(--logoW)/3*2)] lg:w-[var(--logoW)] h-auto;
-  aspect-ratio: 1;
-  display: block;
-}
-.Header.HeaderCylinder .HeaderCylinderLogo .LogoCylinderCanvas {
-  width: 100%;
-  aspect-ratio: 1;
-  display: block;
-}
-.Header.HeaderCylinder .HeaderCylinderLogo .LogoLoading {
-  @apply w-[calc(var(--logoW)/3*2)] lg:w-[var(--logoW)];
-  aspect-ratio: 1/2;
-  border-radius: inherit;
-}
-.Header.HeaderCylinder .HeaderAnotation {
-  --annoteInterval: 1.5s;
-  @apply absolute left-0 top-0 text-xs pt-2 pb-4 w-full lg:top-1/2 lg:-translate-y-1/2 grid content-start lg:content-end font-medium whitespace-nowrap tracking-[-0em] aspect-square;
-}
-.Header.HeaderCylinder .HeaderAnotation > span {
-  @apply [grid-area:1/1];
-  -webkit-animation: header_anotation_toggle calc(var(--annoteInterval) * 2) linear infinite;
-          animation: header_anotation_toggle calc(var(--annoteInterval) * 2) linear infinite;
-}
-.Header.HeaderCylinder .HeaderAnotation > span:nth-child(2) {
-  -webkit-animation-delay: calc(var(--annoteInterval) * -1);
-          animation-delay: calc(var(--annoteInterval) * -1);
-}
-.Header.HeaderCylinder .HeaderNav {
-  @apply absolute top-1/2 left-0 translate-y-[-52.5%] z-[1] w-full py-4 lg:py-0 lg:w-[--logoW] justify-start px-0 pointer-events-none;
-}
-@media (max-width: 960px) {
-  .Header.HeaderCylinder .HeaderNav {
-    display: block;
-  }
-}
-.Header.HeaderCylinder .HeaderNav .NavUl {
-  @apply grid justify-start lg:justify-end;
-}
-.Header.HeaderCylinder .HeaderNav .NavLi {
-  --navX: 1;
-  --navClosedY: 0%;
-}
-@media (max-width: 1023px) {
-  .Header.HeaderCylinder .HeaderNav .NavLi {
-    --navX: 0.1;
-  }
-}
-.Header.HeaderCylinder .HeaderNav .NavLi {
-  @apply text-lg lg:text-base px-2 py-0 my-[1.5lvh] block content-center h-[unset];
-  background-color: var(--foreground);
-  color: var(--background);
-  -webkit-transform: translate(0, var(--navClosedY));
-          transform: translate(0, var(--navClosedY));
-  -webkit-transition: var(--trans);
-  transition: var(--trans);
-  opacity: 0;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-}
-.Header.HeaderCylinder .HeaderNav a, .Header.HeaderCylinder .HeaderNav button {
-  @apply align-top whitespace-nowrap;
-}
-.Header.HeaderCylinder .HeaderNav ul:has(li:nth-of-type(6):last-of-type) li:nth-of-type(1) {
-  --navX: 0.44;
-  --navClosedY: 250%;
-}
-.Header.HeaderCylinder .HeaderNav ul:has(li:nth-of-type(6):last-of-type) li:nth-of-type(2) {
-  --navX: 0.83;
-  --navClosedY: 150%;
-}
-.Header.HeaderCylinder .HeaderNav ul:has(li:nth-of-type(6):last-of-type) li:nth-of-type(3) {
-  --navX: 0.98;
-  --navClosedY: 50%;
-}
-.Header.HeaderCylinder .HeaderNav ul:has(li:nth-of-type(6):last-of-type) li:nth-of-type(4) {
-  --navX: 0.98;
-  --navClosedY: -50%;
-}
-.Header.HeaderCylinder .HeaderNav ul:has(li:nth-of-type(6):last-of-type) li:nth-of-type(5) {
-  --navX: 0.83;
-  --navClosedY: -150%;
-}
-.Header.HeaderCylinder .HeaderNav ul:has(li:nth-of-type(6):last-of-type) li:nth-of-type(6) {
-  --navX: 0.44;
-  --navClosedY: -250%;
-}
-.Header.HeaderCylinder .HeaderNav ul:has(li:nth-of-type(5):last-of-type) li:nth-of-type(1) {
-  --navX: 0.49;
-  --navClosedY: 200%;
-}
-.Header.HeaderCylinder .HeaderNav ul:has(li:nth-of-type(5):last-of-type) li:nth-of-type(2) {
-  --navX: 0.89;
-  --navClosedY: 100%;
-}
-.Header.HeaderCylinder .HeaderNav ul:has(li:nth-of-type(5):last-of-type) li:nth-of-type(3) {
-  --navX: 1;
-  --navClosedY: 0%;
-}
-.Header.HeaderCylinder .HeaderNav ul:has(li:nth-of-type(5):last-of-type) li:nth-of-type(4) {
-  --navX: 0.89;
-  --navClosedY: -100%;
-}
-.Header.HeaderCylinder .HeaderNav ul:has(li:nth-of-type(5):last-of-type) li:nth-of-type(5) {
-  --navX: 0.49;
-  --navClosedY: -200%;
-}
-.Header.HeaderCylinder .HeaderNav ul:has(li:nth-of-type(4):last-of-type) li:nth-of-type(1) {
-  --navX: 0.58;
-  --navClosedY: 150%;
-}
-.Header.HeaderCylinder .HeaderNav ul:has(li:nth-of-type(4):last-of-type) li:nth-of-type(2) {
-  --navX: 0.955;
-  --navClosedY: 50%;
-}
-.Header.HeaderCylinder .HeaderNav ul:has(li:nth-of-type(4):last-of-type) li:nth-of-type(3) {
-  --navX: 0.955;
-  --navClosedY: -50%;
-}
-.Header.HeaderCylinder .HeaderNav ul:has(li:nth-of-type(4):last-of-type) li:nth-of-type(4) {
-  --navX: 0.58;
-  --navClosedY: -150%;
-}
-.Header.HeaderCylinder .HeaderNav ul:has(li:nth-of-type(3):last-of-type) li:nth-of-type(1) {
-  --navX: 0.68;
-  --navClosedY: 100%;
-}
-.Header.HeaderCylinder .HeaderNav ul:has(li:nth-of-type(3):last-of-type) li:nth-of-type(2) {
-  --navX: 1;
-  --navClosedY: 0%;
-}
-.Header.HeaderCylinder .HeaderNav ul:has(li:nth-of-type(3):last-of-type) li:nth-of-type(3) {
-  --navX: 0.68;
-  --navClosedY: -100%;
-}
-.Header.HeaderCylinder .HeaderNav ul:has(li:nth-of-type(2):last-of-type) li:nth-of-type(1) {
-  --navX: 0.83;
-  --navClosedY: 50%;
-}
-.Header.HeaderCylinder .HeaderNav ul:has(li:nth-of-type(2):last-of-type) li:nth-of-type(2) {
-  --navX: 0.83;
-  --navClosedY: -50%;
-}
-.Header.HeaderCylinder .HeaderNav ul:has(li:nth-of-type(1):last-of-type) li:nth-of-type(1) {
-  --navX: 1;
-  --navClosedY: 0%;
-}
-.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl {
-  --ml: 0.5em;
-  --liBG: var(--foreground);
-  --dropC: var(--background);
-  color: var(--background);
-  background-color: unset;
-  padding: unset;
-  border: unset;
-  min-width: unset;
-  scale: 0 1;
-  -webkit-transform-origin: left;
-          transform-origin: left;
-}
-.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl > li {
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  background-color: var(--liBG);
-  padding-inline: 0.5em;
-  margin-block: 2lvh;
-}
-.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:popover-open {
-  scale: 1 1;
-}
-.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(2):last-child) > li:nth-child(1), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(2):last-child) > li:nth-child(2) {
-  margin-left: 0;
-}
-.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(3):last-child) > li:nth-child(1), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(3):last-child) > li:nth-child(3) {
-  margin-left: 0;
-}
-.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(3):last-child) > li:nth-child(2) {
-  margin-left: calc(var(--ml) * 3);
-}
-.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(4):last-child) > li:nth-child(1), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(4):last-child) > li:nth-child(4) {
-  margin-left: 0;
-}
-.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(4):last-child) > li:nth-child(2), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(4):last-child) > li:nth-child(3) {
-  margin-left: calc(var(--ml) * 3);
-}
-.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(5):last-child) > li:nth-child(1), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(5):last-child) > li:nth-child(5) {
-  margin-left: 0;
-}
-.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(5):last-child) > li:nth-child(2), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(5):last-child) > li:nth-child(4) {
-  margin-left: calc(var(--ml) * 3);
-}
-.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(5):last-child) > li:nth-child(3) {
-  margin-left: calc(var(--ml) * 4);
-}
-.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(6):last-child) > li:nth-child(1), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(6):last-child) > li:nth-child(6) {
-  margin-left: 0;
-}
-.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(6):last-child) > li:nth-child(2), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(6):last-child) > li:nth-child(5) {
-  margin-left: calc(var(--ml) * 3);
-}
-.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(6):last-child) > li:nth-child(3), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(6):last-child) > li:nth-child(4) {
-  margin-left: calc(var(--ml) * 4);
-}
-.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(7):last-child) > li:nth-child(1), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(7):last-child) > li:nth-child(7) {
-  margin-left: 0;
-}
-.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(7):last-child) > li:nth-child(2), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(7):last-child) > li:nth-child(6) {
-  margin-left: calc(var(--ml) * 3);
-}
-.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(7):last-child) > li:nth-child(3), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(7):last-child) > li:nth-child(5) {
-  margin-left: calc(var(--ml) * 4);
-}
-.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(7):last-child) > li:nth-child(4) {
-  margin-left: calc(var(--ml) * 5);
-}
-.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(8):last-child) > li:nth-child(1), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(8):last-child) > li:nth-child(8) {
-  margin-left: 0;
-}
-.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(8):last-child) > li:nth-child(2), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(8):last-child) > li:nth-child(7) {
-  margin-left: calc(var(--ml) * 3);
-}
-.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(8):last-child) > li:nth-child(3), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(8):last-child) > li:nth-child(6) {
-  margin-left: calc(var(--ml) * 4);
-}
-.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(8):last-child) > li:nth-child(4), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(8):last-child) > li:nth-child(5) {
-  margin-left: calc(var(--ml) * 5);
-}
-.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(9):last-child) > li:nth-child(1), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(9):last-child) > li:nth-child(9) {
-  margin-left: 0;
-}
-.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(9):last-child) > li:nth-child(2), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(9):last-child) > li:nth-child(8) {
-  margin-left: calc(var(--ml) * 3);
-}
-.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(9):last-child) > li:nth-child(3), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(9):last-child) > li:nth-child(7) {
-  margin-left: calc(var(--ml) * 4);
-}
-.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(9):last-child) > li:nth-child(4), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(9):last-child) > li:nth-child(6) {
-  margin-left: calc(var(--ml) * 5);
-}
-.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(9):last-child) > li:nth-child(5) {
-  margin-left: calc(var(--ml) * 6);
-}
-.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(10):last-child) > li:nth-child(1), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(10):last-child) > li:nth-child(10) {
-  margin-left: 0;
-}
-.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(10):last-child) > li:nth-child(2), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(10):last-child) > li:nth-child(9) {
-  margin-left: calc(var(--ml) * 3);
-}
-.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(10):last-child) > li:nth-child(3), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(10):last-child) > li:nth-child(8) {
-  margin-left: calc(var(--ml) * 4);
-}
-.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(10):last-child) > li:nth-child(4), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(10):last-child) > li:nth-child(7) {
-  margin-left: calc(var(--ml) * 5);
-}
-.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(10):last-child) > li:nth-child(5), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(10):last-child) > li:nth-child(6) {
-  margin-left: calc(var(--ml) * 6);
-}
-.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(11):last-child) > li:nth-child(1), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(11):last-child) > li:nth-child(11) {
-  margin-left: 0;
-}
-.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(11):last-child) > li:nth-child(2), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(11):last-child) > li:nth-child(10) {
-  margin-left: calc(var(--ml) * 3);
-}
-.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(11):last-child) > li:nth-child(3), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(11):last-child) > li:nth-child(9) {
-  margin-left: calc(var(--ml) * 4);
-}
-.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(11):last-child) > li:nth-child(4), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(11):last-child) > li:nth-child(8) {
-  margin-left: calc(var(--ml) * 5);
-}
-.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(11):last-child) > li:nth-child(5), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(11):last-child) > li:nth-child(7) {
-  margin-left: calc(var(--ml) * 6);
-}
-.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(11):last-child) > li:nth-child(6) {
-  margin-left: calc(var(--ml) * 7);
-}
-.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(12):last-child) > li:nth-child(1), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(12):last-child) > li:nth-child(12) {
-  margin-left: 0;
-}
-.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(12):last-child) > li:nth-child(2), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(12):last-child) > li:nth-child(11) {
-  margin-left: calc(var(--ml) * 3);
-}
-.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(12):last-child) > li:nth-child(3), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(12):last-child) > li:nth-child(10) {
-  margin-left: calc(var(--ml) * 4);
-}
-.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(12):last-child) > li:nth-child(4), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(12):last-child) > li:nth-child(9) {
-  margin-left: calc(var(--ml) * 5);
-}
-.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(12):last-child) > li:nth-child(5), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(12):last-child) > li:nth-child(8) {
-  margin-left: calc(var(--ml) * 6);
-}
-.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(12):last-child) > li:nth-child(6), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(12):last-child) > li:nth-child(7) {
-  margin-left: calc(var(--ml) * 7);
-}
-.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(13):last-child) > li:nth-child(1), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(13):last-child) > li:nth-child(13) {
-  margin-left: 0;
-}
-.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(13):last-child) > li:nth-child(2), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(13):last-child) > li:nth-child(12) {
-  margin-left: calc(var(--ml) * 4);
-}
-.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(13):last-child) > li:nth-child(3), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(13):last-child) > li:nth-child(11) {
-  margin-left: calc(var(--ml) * 5);
-}
-.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(13):last-child) > li:nth-child(4), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(13):last-child) > li:nth-child(10) {
-  margin-left: calc(var(--ml) * 6);
-}
-.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(13):last-child) > li:nth-child(5), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(13):last-child) > li:nth-child(9) {
-  margin-left: calc(var(--ml) * 7);
-}
-.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(13):last-child) > li:nth-child(6), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(13):last-child) > li:nth-child(8) {
-  margin-left: calc(var(--ml) * 8);
-}
-.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(13):last-child) > li:nth-child(7) {
-  margin-left: calc(var(--ml) * 8);
-}
-.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(14):last-child) > li:nth-child(1), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(14):last-child) > li:nth-child(14) {
-  margin-left: 0;
-}
-.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(14):last-child) > li:nth-child(2), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(14):last-child) > li:nth-child(13) {
-  margin-left: calc(var(--ml) * 4);
-}
-.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(14):last-child) > li:nth-child(3), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(14):last-child) > li:nth-child(12) {
-  margin-left: calc(var(--ml) * 5);
-}
-.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(14):last-child) > li:nth-child(4), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(14):last-child) > li:nth-child(11) {
-  margin-left: calc(var(--ml) * 6);
-}
-.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(14):last-child) > li:nth-child(5), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(14):last-child) > li:nth-child(10) {
-  margin-left: calc(var(--ml) * 7);
-}
-.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(14):last-child) > li:nth-child(6), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(14):last-child) > li:nth-child(9) {
-  margin-left: calc(var(--ml) * 8);
-}
-.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(14):last-child) > li:nth-child(7), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(14):last-child) > li:nth-child(8) {
-  margin-left: calc(var(--ml) * 8);
-}
-.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl {
-  position: fixed;
-  inset: auto;
-  left: var(--dropPopoverLeft, 0);
-  top: var(--dropPopoverTop, 0);
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-}
-.Header.HeaderCylinder .HeaderNav .DropIcon {
-  rotate: -90deg;
-  vertical-align: text-top;
-}
-.Header.HeaderCylinder .HeaderNav .DropIcon:is(.NavDrop:has(.DropUl:popover-open) *) {
-  scale: 1 1;
-  margin: unset;
-  -webkit-transform: translateY(0.25rem);
-          transform: translateY(0.25rem);
-}
-.Header.HeaderCylinder[data-nav-open=true] .HeaderCylinderLogo {
-  background-color: var(--background);
-  border-color: var(--TC30);
-}
-.Header.HeaderCylinder[data-nav-open=true] .HeaderNav {
-  @apply bg-BC lg:bg-[--TR];
-}
-.Header.HeaderCylinder[data-nav-open=true] .HeaderNav .NavLi {
-  opacity: 1;
-  -webkit-transform: translateX(calc(var(--navX) * var(--logoW)));
-          transform: translateX(calc(var(--navX) * var(--logoW)));
-}
-@media (max-width: 1023px) {
-  .Header.HeaderCylinder[data-nav-open=true] .HeaderNav .NavLi {
-    -webkit-transform: translateX(calc(var(--navX) * var(--logoW) / 3));
-            transform: translateX(calc(var(--navX) * var(--logoW) / 3));
-  }
-}
-.Header.HeaderCylinder[data-nav-open=true] .HeaderNav .NavLi {
-  pointer-events: auto;
 }
 @-webkit-keyframes header_anotation_toggle {
   0%, 49.999% {
@@ -3417,21 +3040,632 @@ main {
   margin-right: 0.25em;
 }
 
-:root {
-  --first-delay: 1s;
-  --letter-delay: 0.025s;
-  --phrase-delay: 0.15s;
+.Header.HeaderCylinder {
+  --logoW:7.5rem;
+  --BC: oklch(99% 0.005 60);
+  --background: var(--BC);
+  --foreground: var(--TC);
+  @apply h-full pointer-events-none;
+}
+.Header.HeaderCylinder .HeaderInner {
+  @apply px-0 flex-col items-end justify-between h-full;
+}
+.Header.HeaderCylinder .HeaderInner > * {
+  pointer-events: auto;
+}
+.Header.HeaderCylinder .HeaderCylinderLogo {
+  @apply z-[10] absolute w-[calc(var(--logoW)/3*2)] lg:w-[var(--logoW)] top-0 left-0 pointer-events-auto h-auto p-0 border-0 lg:top-1/2 lg:translate-y-[-52.5%] aspect-square lg:aspect-[1/2] [border-radius:0_0_calc(var(--head)/2)_0] lg:[border-radius:0_999px_999px_0];
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background: var(--BC);
+  pointer-events: none;
+  border: var(--line);
+  border-color: var(--TR);
+  border-left: none;
+  opacity: 0;
+  -webkit-transition: var(--trans);
+  transition: var(--trans);
+}
+.Header.HeaderCylinder .HeaderCylinderLogo.IsReady {
+  opacity: 1;
+}
+.Header.HeaderCylinder .HeaderCylinderLogo .LogoCylinder {
+  pointer-events: auto;
+  cursor: pointer;
+  @apply w-[calc(var(--logoW)/3*2)] lg:w-[var(--logoW)] h-auto;
+  aspect-ratio: 1;
+  display: block;
+}
+.Header.HeaderCylinder .HeaderCylinderLogo .LogoCylinderCanvas {
+  width: 100%;
+  aspect-ratio: 1;
+  display: block;
+}
+.Header.HeaderCylinder .HeaderCylinderLogo .LogoLoading {
+  @apply w-[calc(var(--logoW)/3*2)] lg:w-[var(--logoW)];
+  aspect-ratio: 1/2;
+  border-radius: inherit;
+}
+.Header.HeaderCylinder .HeaderAnotation {
+  --annoteInterval: 1.5s;
+  @apply absolute left-0 top-0 text-xs pt-2 pb-4 w-full lg:top-1/2 lg:-translate-y-1/2 grid content-start lg:content-end font-medium whitespace-nowrap tracking-[-0em] aspect-square;
+}
+.Header.HeaderCylinder .HeaderAnotation > span {
+  @apply [grid-area:1/1];
+  -webkit-animation: header_anotation_toggle calc(var(--annoteInterval) * 2) linear infinite;
+          animation: header_anotation_toggle calc(var(--annoteInterval) * 2) linear infinite;
+}
+.Header.HeaderCylinder .HeaderAnotation > span:nth-child(2) {
+  -webkit-animation-delay: calc(var(--annoteInterval) * -1);
+          animation-delay: calc(var(--annoteInterval) * -1);
+}
+.Header.HeaderCylinder .HeaderNav {
+  @apply absolute top-1/2 left-0 translate-y-[-52.5%] z-[1] w-full py-4 lg:py-0 lg:w-[--logoW] justify-start px-0 pointer-events-none;
+}
+@media (max-width: 960px) {
+  .Header.HeaderCylinder .HeaderNav {
+    display: block;
+  }
+}
+.Header.HeaderCylinder .HeaderNav .NavUl {
+  @apply grid justify-start lg:justify-end;
+}
+.Header.HeaderCylinder .HeaderNav .NavLi {
+  --navX: 1;
+  --navClosedY: 0%;
+}
+@media (max-width: 1023px) {
+  .Header.HeaderCylinder .HeaderNav .NavLi {
+    --navX: 0.1;
+  }
+}
+.Header.HeaderCylinder .HeaderNav .NavLi {
+  @apply text-lg lg:text-base px-2 py-0 my-[1.5lvh] block content-center h-[unset];
+  background-color: var(--foreground);
+  color: var(--WH);
+  -webkit-transform: translate(0, var(--navClosedY));
+          transform: translate(0, var(--navClosedY));
+  -webkit-transition: var(--trans);
+  transition: var(--trans);
+  opacity: 0;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.Header.HeaderCylinder .HeaderNav a, .Header.HeaderCylinder .HeaderNav button {
+  @apply align-top whitespace-nowrap;
+}
+.Header.HeaderCylinder .HeaderNav ul:has(li:nth-of-type(6):last-of-type) li:nth-of-type(1) {
+  --navX: 0.44;
+  --navClosedY: 250%;
+}
+.Header.HeaderCylinder .HeaderNav ul:has(li:nth-of-type(6):last-of-type) li:nth-of-type(2) {
+  --navX: 0.83;
+  --navClosedY: 150%;
+}
+.Header.HeaderCylinder .HeaderNav ul:has(li:nth-of-type(6):last-of-type) li:nth-of-type(3) {
+  --navX: 0.98;
+  --navClosedY: 50%;
+}
+.Header.HeaderCylinder .HeaderNav ul:has(li:nth-of-type(6):last-of-type) li:nth-of-type(4) {
+  --navX: 0.98;
+  --navClosedY: -50%;
+}
+.Header.HeaderCylinder .HeaderNav ul:has(li:nth-of-type(6):last-of-type) li:nth-of-type(5) {
+  --navX: 0.83;
+  --navClosedY: -150%;
+}
+.Header.HeaderCylinder .HeaderNav ul:has(li:nth-of-type(6):last-of-type) li:nth-of-type(6) {
+  --navX: 0.44;
+  --navClosedY: -250%;
+}
+.Header.HeaderCylinder .HeaderNav ul:has(li:nth-of-type(5):last-of-type) li:nth-of-type(1) {
+  --navX: 0.4;
+  --navClosedY: 200%;
+}
+.Header.HeaderCylinder .HeaderNav ul:has(li:nth-of-type(5):last-of-type) li:nth-of-type(2) {
+  --navX: 0.86;
+  --navClosedY: 100%;
+}
+.Header.HeaderCylinder .HeaderNav ul:has(li:nth-of-type(5):last-of-type) li:nth-of-type(3) {
+  --navX: 0.98;
+  --navClosedY: 0%;
+}
+.Header.HeaderCylinder .HeaderNav ul:has(li:nth-of-type(5):last-of-type) li:nth-of-type(4) {
+  --navX: 0.86;
+  --navClosedY: -100%;
+}
+.Header.HeaderCylinder .HeaderNav ul:has(li:nth-of-type(5):last-of-type) li:nth-of-type(5) {
+  --navX: 0.4;
+  --navClosedY: -200%;
+}
+.Header.HeaderCylinder .HeaderNav ul:has(li:nth-of-type(4):last-of-type) li:nth-of-type(1) {
+  --navX: 0.58;
+  --navClosedY: 150%;
+}
+.Header.HeaderCylinder .HeaderNav ul:has(li:nth-of-type(4):last-of-type) li:nth-of-type(2) {
+  --navX: 0.955;
+  --navClosedY: 50%;
+}
+.Header.HeaderCylinder .HeaderNav ul:has(li:nth-of-type(4):last-of-type) li:nth-of-type(3) {
+  --navX: 0.955;
+  --navClosedY: -50%;
+}
+.Header.HeaderCylinder .HeaderNav ul:has(li:nth-of-type(4):last-of-type) li:nth-of-type(4) {
+  --navX: 0.58;
+  --navClosedY: -150%;
+}
+.Header.HeaderCylinder .HeaderNav ul:has(li:nth-of-type(3):last-of-type) li:nth-of-type(1) {
+  --navX: 0.68;
+  --navClosedY: 100%;
+}
+.Header.HeaderCylinder .HeaderNav ul:has(li:nth-of-type(3):last-of-type) li:nth-of-type(2) {
+  --navX: 1;
+  --navClosedY: 0%;
+}
+.Header.HeaderCylinder .HeaderNav ul:has(li:nth-of-type(3):last-of-type) li:nth-of-type(3) {
+  --navX: 0.68;
+  --navClosedY: -100%;
+}
+.Header.HeaderCylinder .HeaderNav ul:has(li:nth-of-type(2):last-of-type) li:nth-of-type(1) {
+  --navX: 0.83;
+  --navClosedY: 50%;
+}
+.Header.HeaderCylinder .HeaderNav ul:has(li:nth-of-type(2):last-of-type) li:nth-of-type(2) {
+  --navX: 0.83;
+  --navClosedY: -50%;
+}
+.Header.HeaderCylinder .HeaderNav ul:has(li:nth-of-type(1):last-of-type) li:nth-of-type(1) {
+  --navX: 1;
+  --navClosedY: 0%;
+}
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl {
+  --ml: 0em;
+  --liBG: var(--foreground);
+  --dropC: var(--WH);
+  color: var(--WH);
+  background-color: unset;
+  padding: unset;
+  border: unset;
+  min-width: unset;
+  scale: 0 1;
+  -webkit-transform-origin: left;
+          transform-origin: left;
+  position: fixed;
+  inset: auto;
+  left: calc(var(--dropPopoverLeft) + 0.5rem);
+  top: var(--dropPopoverTop, 0);
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl > li {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: var(--liBG);
+  padding-inline: 0.5em;
+  margin-block: 2lvh;
+}
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl > li svg {
+  margin-left: 0.25em;
+}
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:popover-open {
+  scale: 1 1;
+}
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(2):last-child) > li:nth-child(1), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(2):last-child) > li:nth-child(2) {
+  margin-left: 0;
+}
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(3):last-child) > li:nth-child(1), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(3):last-child) > li:nth-child(3) {
+  margin-left: 0;
+}
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(3):last-child) > li:nth-child(2) {
+  margin-left: calc(var(--ml) * 3);
+}
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(4):last-child) > li:nth-child(1), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(4):last-child) > li:nth-child(4) {
+  margin-left: 0;
+}
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(4):last-child) > li:nth-child(2), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(4):last-child) > li:nth-child(3) {
+  margin-left: calc(var(--ml) * 3);
+}
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(5):last-child) > li:nth-child(1), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(5):last-child) > li:nth-child(5) {
+  margin-left: 0;
+}
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(5):last-child) > li:nth-child(2), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(5):last-child) > li:nth-child(4) {
+  margin-left: calc(var(--ml) * 3);
+}
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(5):last-child) > li:nth-child(3) {
+  margin-left: calc(var(--ml) * 4);
+}
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(6):last-child) > li:nth-child(1), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(6):last-child) > li:nth-child(6) {
+  margin-left: 0;
+}
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(6):last-child) > li:nth-child(2), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(6):last-child) > li:nth-child(5) {
+  margin-left: calc(var(--ml) * 3);
+}
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(6):last-child) > li:nth-child(3), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(6):last-child) > li:nth-child(4) {
+  margin-left: calc(var(--ml) * 4);
+}
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(7):last-child) > li:nth-child(1), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(7):last-child) > li:nth-child(7) {
+  margin-left: 0;
+}
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(7):last-child) > li:nth-child(2), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(7):last-child) > li:nth-child(6) {
+  margin-left: calc(var(--ml) * 3);
+}
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(7):last-child) > li:nth-child(3), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(7):last-child) > li:nth-child(5) {
+  margin-left: calc(var(--ml) * 4);
+}
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(7):last-child) > li:nth-child(4) {
+  margin-left: calc(var(--ml) * 5);
+}
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(8):last-child) > li:nth-child(1), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(8):last-child) > li:nth-child(8) {
+  margin-left: 0;
+}
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(8):last-child) > li:nth-child(2), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(8):last-child) > li:nth-child(7) {
+  margin-left: calc(var(--ml) * 3);
+}
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(8):last-child) > li:nth-child(3), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(8):last-child) > li:nth-child(6) {
+  margin-left: calc(var(--ml) * 4);
+}
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(8):last-child) > li:nth-child(4), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(8):last-child) > li:nth-child(5) {
+  margin-left: calc(var(--ml) * 5);
+}
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(9):last-child) > li:nth-child(1), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(9):last-child) > li:nth-child(9) {
+  margin-left: 0;
+}
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(9):last-child) > li:nth-child(2), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(9):last-child) > li:nth-child(8) {
+  margin-left: calc(var(--ml) * 3);
+}
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(9):last-child) > li:nth-child(3), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(9):last-child) > li:nth-child(7) {
+  margin-left: calc(var(--ml) * 4);
+}
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(9):last-child) > li:nth-child(4), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(9):last-child) > li:nth-child(6) {
+  margin-left: calc(var(--ml) * 5);
+}
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(9):last-child) > li:nth-child(5) {
+  margin-left: calc(var(--ml) * 6);
+}
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(10):last-child) > li:nth-child(1), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(10):last-child) > li:nth-child(10) {
+  margin-left: 0;
+}
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(10):last-child) > li:nth-child(2), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(10):last-child) > li:nth-child(9) {
+  margin-left: calc(var(--ml) * 3);
+}
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(10):last-child) > li:nth-child(3), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(10):last-child) > li:nth-child(8) {
+  margin-left: calc(var(--ml) * 4);
+}
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(10):last-child) > li:nth-child(4), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(10):last-child) > li:nth-child(7) {
+  margin-left: calc(var(--ml) * 5);
+}
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(10):last-child) > li:nth-child(5), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(10):last-child) > li:nth-child(6) {
+  margin-left: calc(var(--ml) * 6);
+}
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(11):last-child) > li:nth-child(1), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(11):last-child) > li:nth-child(11) {
+  margin-left: 0;
+}
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(11):last-child) > li:nth-child(2), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(11):last-child) > li:nth-child(10) {
+  margin-left: calc(var(--ml) * 3);
+}
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(11):last-child) > li:nth-child(3), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(11):last-child) > li:nth-child(9) {
+  margin-left: calc(var(--ml) * 4);
+}
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(11):last-child) > li:nth-child(4), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(11):last-child) > li:nth-child(8) {
+  margin-left: calc(var(--ml) * 5);
+}
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(11):last-child) > li:nth-child(5), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(11):last-child) > li:nth-child(7) {
+  margin-left: calc(var(--ml) * 6);
+}
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(11):last-child) > li:nth-child(6) {
+  margin-left: calc(var(--ml) * 7);
+}
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(12):last-child) > li:nth-child(1), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(12):last-child) > li:nth-child(12) {
+  margin-left: 0;
+}
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(12):last-child) > li:nth-child(2), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(12):last-child) > li:nth-child(11) {
+  margin-left: calc(var(--ml) * 3);
+}
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(12):last-child) > li:nth-child(3), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(12):last-child) > li:nth-child(10) {
+  margin-left: calc(var(--ml) * 4);
+}
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(12):last-child) > li:nth-child(4), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(12):last-child) > li:nth-child(9) {
+  margin-left: calc(var(--ml) * 5);
+}
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(12):last-child) > li:nth-child(5), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(12):last-child) > li:nth-child(8) {
+  margin-left: calc(var(--ml) * 6);
+}
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(12):last-child) > li:nth-child(6), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(12):last-child) > li:nth-child(7) {
+  margin-left: calc(var(--ml) * 7);
+}
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(13):last-child) > li:nth-child(1), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(13):last-child) > li:nth-child(13) {
+  margin-left: 0;
+}
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(13):last-child) > li:nth-child(2), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(13):last-child) > li:nth-child(12) {
+  margin-left: calc(var(--ml) * 4);
+}
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(13):last-child) > li:nth-child(3), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(13):last-child) > li:nth-child(11) {
+  margin-left: calc(var(--ml) * 5);
+}
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(13):last-child) > li:nth-child(4), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(13):last-child) > li:nth-child(10) {
+  margin-left: calc(var(--ml) * 6);
+}
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(13):last-child) > li:nth-child(5), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(13):last-child) > li:nth-child(9) {
+  margin-left: calc(var(--ml) * 7);
+}
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(13):last-child) > li:nth-child(6), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(13):last-child) > li:nth-child(8) {
+  margin-left: calc(var(--ml) * 8);
+}
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(13):last-child) > li:nth-child(7) {
+  margin-left: calc(var(--ml) * 8);
+}
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(14):last-child) > li:nth-child(1), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(14):last-child) > li:nth-child(14) {
+  margin-left: 0;
+}
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(14):last-child) > li:nth-child(2), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(14):last-child) > li:nth-child(13) {
+  margin-left: calc(var(--ml) * 4);
+}
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(14):last-child) > li:nth-child(3), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(14):last-child) > li:nth-child(12) {
+  margin-left: calc(var(--ml) * 5);
+}
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(14):last-child) > li:nth-child(4), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(14):last-child) > li:nth-child(11) {
+  margin-left: calc(var(--ml) * 6);
+}
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(14):last-child) > li:nth-child(5), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(14):last-child) > li:nth-child(10) {
+  margin-left: calc(var(--ml) * 7);
+}
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(14):last-child) > li:nth-child(6), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(14):last-child) > li:nth-child(9) {
+  margin-left: calc(var(--ml) * 8);
+}
+.Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(14):last-child) > li:nth-child(7), .Header.HeaderCylinder .HeaderNav .NavDrop .DropUl:has(> li:nth-child(14):last-child) > li:nth-child(8) {
+  margin-left: calc(var(--ml) * 8);
+}
+.Header.HeaderCylinder .HeaderNav .DropIcon {
+  rotate: -90deg;
+  vertical-align: text-top;
+}
+.Header.HeaderCylinder .HeaderNav .DropIcon:is(.NavDrop:has(.DropUl:popover-open) *) {
+  scale: 1 1;
+  margin: unset;
+  -webkit-transform: translateY(0.25rem);
+          transform: translateY(0.25rem);
+}
+.Header.HeaderCylinder[data-nav-open=true] .HeaderCylinderLogo {
+  border-color: var(--TC30);
+}
+.Header.HeaderCylinder[data-nav-open=true] .HeaderNav {
+  @apply bg-BC lg:bg-[--TR];
+}
+.Header.HeaderCylinder[data-nav-open=true] .HeaderNav .NavLi {
+  opacity: 1;
+  -webkit-transform: translateX(calc(var(--navX) * var(--logoW)));
+          transform: translateX(calc(var(--navX) * var(--logoW)));
+}
+@media (max-width: 1023px) {
+  .Header.HeaderCylinder[data-nav-open=true] .HeaderNav .NavLi {
+    -webkit-transform: translateX(calc(var(--navX) * var(--logoW) / 3));
+            transform: translateX(calc(var(--navX) * var(--logoW) / 3));
+  }
+}
+.Header.HeaderCylinder[data-nav-open=true] .HeaderNav .NavLi {
+  pointer-events: auto;
 }
 
-.JsLetter > span {
-  display: inline-block;
+.RagLauncher {
+  --logoW: 7.5rem;
+  --BC: oklch(99% 0.005 60);
+  width: var(--logoW);
+  line-height: 1;
+  aspect-ratio: 1;
+  display: grid;
+  place-content: center;
+  position: fixed;
+  top: 50%;
+  z-index: 1000000;
+  @apply w-[calc(var(--logoW)/3*2)] lg:w-[var(--logoW)] top-0 right-0 pointer-events-auto h-auto p-0 border-0 lg:top-1/2 lg:translate-y-[-52.5%] aspect-square lg:aspect-[1/2] [border-radius:0_0_0_calc(var(--head)/2)] lg:[border-radius:999px_0_0_999px];
+  background: var(--BC);
+  border: var(--line);
+  border-color: var(--TR);
+  border-left: none;
   opacity: 0;
-  rotate: none;
-  -webkit-transition: 0s;
-  transition: 0s;
+  -webkit-transition: var(--trans);
+  transition: var(--trans);
 }
-.JsLetter.show > span {
+.RagLauncher:is(html:has(.HeaderCylinderLogo.IsReady) *) {
   opacity: 1;
+}
+.RagLauncherBtn {
+  display: grid;
+  justify-items: center;
+  gap: 0.25em;
+  -webkit-transition: var(--trans);
+  transition: var(--trans);
+}
+.RagLauncherIcon {
+  width: 2.5rem;
+  height: 2.5rem;
+  color: var(--TC);
+  @apply lg:w-[3.5rem] lg:h-[3.5rem];
+}
+.RagLauncherAnnotation {
+  --annoteInterval: 1.5s;
+  @apply absolute left-0 top-0 text-xs pt-2 pb-3 w-full lg:top-1/2 lg:-translate-y-1/2 grid content-start lg:content-end font-medium whitespace-nowrap tracking-[-0em] aspect-square;
+}
+.RagLauncherAnnotation > span {
+  @apply [grid-area:1/1];
+  -webkit-animation: header_anotation_toggle calc(var(--annoteInterval) * 2) linear infinite;
+          animation: header_anotation_toggle calc(var(--annoteInterval) * 2) linear infinite;
+}
+.RagLauncherAnnotation > span:nth-child(2) {
+  -webkit-animation-delay: calc(var(--annoteInterval) * -1);
+          animation-delay: calc(var(--annoteInterval) * -1);
+}
+
+.RagPanel {
+  --BC: oklch(99% 0.005 60);
+  --TC: oklch(20% 0.00 270);
+  color: var(--TC);
+  z-index: 10000;
+  position: fixed;
+  inset: unset;
+  left: 50%;
+  translate: -50% 0;
+  margin: 0;
+  width: min(var(--wid), 100vw - var(--PX));
+  max-width: none;
+  max-height: calc(100svh - (var(--head) * 2 + var(--PX)));
+  padding: 0;
+  border: 0;
+  @apply lg:max-h-[calc(100vh-var(--PX)*2)] bottom-[calc(var(--head)+var(--PX)/2)] lg:bottom-[--PX];
+  overflow: visible;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: var(--trans);
+  transition: var(--trans);
+}
+.RagPanel.IsOpen {
+  opacity: 1;
+  pointer-events: auto;
+}
+.RagPanelBody {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  min-height: 0;
+}
+
+.RagPanelInner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  gap: 0.75rem;
+  min-height: 0;
+  height: 100%;
+}
+
+.RagPanelRail:not(:empty) {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  min-height: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  border: 1px solid var(--TC10);
+  border-radius: 2rem;
+  -webkit-box-shadow: 0 1rem 4rem var(--TC10);
+          box-shadow: 0 1rem 4rem var(--TC10);
+  backdrop-filter: blur(1.5rem);
+  padding: 1em;
+}
+
+.RagPanelScroll {
+  min-height: 0;
+  width: 100%;
+  overflow-y: auto;
+  padding-right: 0.5em;
+  height: 100%;
+}
+.RagPanelScroll::-webkit-scrollbar {
+  background-color: transparent;
+  width: 8px;
+  height: 0;
+}
+.RagPanelScroll::-webkit-scrollbar-thumb {
+  background-color: var(--GR);
+  border-radius: 100px;
+}
+
+.RagPanelList {
+  display: grid;
+  gap: 1rem;
+}
+
+.RagPanelItem {
+  display: grid;
+  gap: 0.375rem;
+}
+.RagPanelItem.IsUser {
+  justify-items: end;
+}
+.RagPanelItem.IsAssistant {
+  justify-items: start;
+}
+
+.RagPanelLabel {
+  margin: 0;
+  font-size: 0.625rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--GR);
+}
+
+.RagPanelBubble {
+  border: 1px solid var(--TC10);
+  border-radius: 1.5rem;
+  padding: 1rem;
+  white-space: pre-wrap;
+  line-height: 1.75;
+  white-space: pre-line;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.RagPanelBubble.IsUser {
+  background: var(--WH80);
+}
+.RagPanelBubble.IsAssistant {
+  background: var(--WH50);
+}
+
+.RagPanelSources {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 0.25rem;
+  margin-top: 0.25rem;
+  padding: 0 0.5rem;
+  font-size: 0.75rem;
+  color: var(--GR);
+}
+.RagPanelSources a {
+  text-decoration: underline;
+}
+
+:root {
+  --first-delay: 0.8s;
+  --letter-delay: 0.0375s;
+  --phrase-delay: 0.15s;
 }
 
 [class*=Js].show:nth-child(1),
@@ -3525,9 +3759,19 @@ main {
           transition-delay: 0s;
 }
 
-.JsHide {
+.JsSheer {
   -webkit-filter: blur(var(--jsBlur));
           filter: blur(var(--jsBlur));
+  opacity: 0.5;
+  -webkit-transition: var(--trt);
+  transition: var(--trt);
+}
+.JsSheer.show {
+  opacity: 1;
+  -webkit-filter: unset;
+          filter: unset;
+}
+.JsHide {
   opacity: 0;
   -webkit-transition: var(--trt);
   transition: var(--trt);
@@ -3622,6 +3866,14 @@ main {
   word-break: keep-all;
   overflow-wrap: anywhere;
 }
+.BudouxScroll a:not(.btn) {
+  -webkit-text-stroke-color: var(--background);
+  padding-inline: 0.25rem;
+  line-height: 1.25;
+}
+.BudouxScroll .btn {
+  -webkit-text-stroke-color: var(--TR);
+}
 
 .BudouxScrollPhrase {
   display: inline-block;
@@ -3635,6 +3887,14 @@ main {
 }
 .BudouxScrollPhrase.IsShow {
   opacity: 1;
+}
+.BudouxScrollPhrase.IsShow {
+  opacity: 1;
+}
+
+a:not(.btn) .BudouxScrollPhrase {
+  border-bottom: var(--line);
+  border-color: var(--WH50);
 }
 
 .BudouxShow {
@@ -4069,12 +4329,10 @@ p:has(> a) .__anchor {
 .f_btn, .f_link,
 .pan1 a,
 .HeaderNav a:not(:has(> span)),
-.HeaderNav a:not(.HeaderCylinder *),
 .banner a,
 .nav a:not(.drop ul li a),
 .f_nav ul a,
-.blog_text h3 span,
-.rss-title {
+.blog_text h3 span {
   background-image: -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor));
   background-image: linear-gradient(currentColor, currentColor);
   -webkit-transition: var(--btnTR);
@@ -4087,12 +4345,10 @@ p:has(> a) .__anchor {
 .f_btn:hover, .f_link:hover,
 .pan1 a:hover,
 .HeaderNav a:hover:not(:has(> span)),
-.HeaderNav a:hover:not(.HeaderCylinder *),
 .banner a:hover,
 .nav a:hover:not(.drop ul li a),
 .f_nav ul a:hover,
-.blog_text h3 span:hover,
-.rss-title:hover {
+.blog_text h3 span:hover {
   -webkit-animation: rightgrow var(--btnTR);
           animation: rightgrow var(--btnTR);
   background-position-x: 50%;
@@ -4117,12 +4373,10 @@ p:has(> a) .__anchor {
 .f_link,
 .pan1 a,
 .HeaderNav a:not(:has(> span)),
-.HeaderNav a:not(.HeaderCylinder *),
 .banner a,
 .nav a:not(.drop ul li a),
 .f_nav ul a,
-.blog_text h3 span,
-.rss-title {
+.blog_text h3 span {
   background-position-x: -105%;
   background-size: 200% var(--bdw);
   background-image: -webkit-gradient(linear, left top, left bottom, from(var(--CC)), to(var(--CC)));
@@ -4131,6 +4385,8 @@ p:has(> a) .__anchor {
 
 .HeaderCylinder .HeaderNav a {
   background-image: unset;
+  -webkit-transition: 0s;
+  transition: 0s;
 }
 
 .nav a:not(.drop ul li a) {
@@ -4184,22 +4440,22 @@ p:has(> a) .__anchor {
 :where(.Cards) {
   @apply flex flex-wrap gap-[--gap];
 }
-:where(.Cards) .item {
+:where(.Cards) :where(.item) {
   @apply w-[--itemW] mt-0;
 }
-:where(.Cards) .item img {
+:where(.Cards) :where(.item) img {
   @apply w-full;
 }
-:where(.Cards).IsLayer .item {
+:where(.Cards):where(.IsLayer) :where(.item) {
   @apply grid;
 }
-:where(.Cards).IsLayer .item > * {
+:where(.Cards):where(.IsLayer) :where(.item) > * {
   @apply z-[1] [grid-area:1/1];
 }
-:where(.Cards).IsLayer .item figure {
+:where(.Cards):where(.IsLayer) :where(.item) figure {
   @apply w-full h-full m-0;
 }
-:where(.Cards).IsLayer .item figure img {
+:where(.Cards):where(.IsLayer) :where(.item) figure img {
   @apply h-full object-cover;
 }
 :where(.Cards).IsGrow .item {
@@ -4274,7 +4530,7 @@ p:has(> a) .__anchor {
   }
 }
 @media (max-width: 767px) {
-  :where(.Cards):not(.bp-sm) > .item {
+  :where(.Cards):not(.bp-sm, .bp-none) > .item {
     width: calc(50% - var(--gap) / 2);
     -webkit-box-flex: unset;
         -ms-flex: unset;
@@ -4282,7 +4538,7 @@ p:has(> a) .__anchor {
   }
 }
 @media (max-width: 639px) {
-  :where(.Cards):not(.bp-sm) > .item {
+  :where(.Cards):not(.bp-sm, .bp-none) > .item {
     width: 100%;
     -webkit-box-flex: unset;
         -ms-flex: unset;
@@ -5107,6 +5363,48 @@ p:has(> a) .__anchor {
 
 :is(.BarAF):before {
   display: none;
+}
+
+:where(.NodeStack) {
+  --pathTrans: 3s;
+  --pathC: var(--WH50);
+  --fillC: var(--WH50);
+  --strokeC: var(--WH50);
+}
+:where(.NodeStack) :where(.Cards .item:nth-of-type(even)) {
+  margin-left: auto;
+}
+:where(.NodeStack) :where(.item:has(img) img) {
+  opacity: 0.7;
+  -webkit-transition: var(--trans);
+  transition: var(--trans);
+}
+:where(.NodeStack) :where(.item:has(img):has(a:hover) img) {
+  opacity: 1;
+}
+:where(.NodeStack) :where(.item:has(img) a) {
+  opacity: 1;
+  -webkit-filter: drop-shadow(1px 1px var(--BK30)) drop-shadow(-1px -1px var(--BK30)) drop-shadow(1px -1px var(--BK30)) drop-shadow(-1px 1px var(--BK30));
+          filter: drop-shadow(1px 1px var(--BK30)) drop-shadow(-1px -1px var(--BK30)) drop-shadow(1px -1px var(--BK30)) drop-shadow(-1px 1px var(--BK30));
+  @apply py-2 px-4;
+}
+:where(.NodeStack) :where(.item) {
+  position: relative;
+}
+:where(.NodeStack) .item:before {
+  content: "";
+  background: var(--background);
+  position: absolute;
+  inset: 0;
+  display: block;
+  z-index: 10;
+  opacity: 0.1;
+  pointer-events: none;
+  mix-blend-mode: hue;
+  will-change: opacity;
+}
+:where(.NodeStack) .item:has(a:hover):before {
+  opacity: 1;
 }
 
 .DescList {

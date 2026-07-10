@@ -45,7 +45,7 @@ description: Capture viewport screenshots of a public website or local developme
  `config.iphone.json` と `config.tablet.json` は、画面サイズ別の再利用設定として扱う。
 スマホ表示、タブレット表示、レスポンシブ確認などが必要な場合は、該当する設定ファイルを `--config` で指定して実行する。
 
-特定のページで既定とは違う設定を複数回実行する必要がある場合は`config.json` を直接変更せず、別の設定ファイルを`scroll-capture/`に作成して `--config` で指定する。ユーザーに設定ファイルを作成したことを報告し、継続して使うかどうか確認する。
+新しい設定ファイルを作成するかどうかはユーザーの判断に委ねる。エージェントが自己判断で新規設定ファイルを作成しない。都度の調整（待機時間・endYなど）は常に `config.json` を直接編集する。
 
 ## Output
 

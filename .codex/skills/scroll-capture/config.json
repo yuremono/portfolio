@@ -5,12 +5,12 @@
   },
   "scroll": {
     "startY": 0,
-    "endY": 2400,
-    "step": 120,
-    "wheelIntervalMs": 200,
+    "endY": "auto",
+    "step": 320,
+    "wheelIntervalMs": 400,
     "initialWaitMs": 2500,
-    "waitMs": 200,
-    "maxShots": 50
+    "waitMs": 900,
+    "maxShots": 80
   },
   "capture": {
     "format": "jpeg",

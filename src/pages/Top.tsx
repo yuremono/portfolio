@@ -149,14 +149,11 @@ function Top() {
 						</p>
 						{/* <h1 className="JsLetter IsDeco text-lg font-normal budoux mmPin  static  lg:absolute lg:translateYH leading-[2em] left-1/2 top-1/2 z-10 text-left px-[--PX2] md:p-4 bg-background/50 "> */}
 						<h1 className="JsLetter IsDeco text-xl font-normal budoux mmPin  static   leading-[2em] left-1/2 top-1/2 z-10 text-left px-[--PX2] md:p-4 bg-background/50 ">
-							<strong>Web</strong>デザイナー兼コーダー歴{" "}
-							<b>3.5年</b>
+							<strong>3.5</strong> years as a <b>Web</b> Designer & <b>Coder</b>
 							<br />
-							<b>2025/05</b>から<strong>AI駆動開発</strong>を開始
+							<b>AI-driven</b> development since <strong>2025/05</strong>
 							<br />
-							<span>ゆれもの=</span>
-							<b className="lsMinus">モジュレーション</b>
-							<span>エフェクター</span>
+                                                        <b className="lsMinus">Yuremono</b>&nbsp;=&nbsp;Modulation&nbsp;<b className="lsMinus ml-2"> effectors</b>
 						</h1>
 					</section>
 					<ScrollXSection className=" relative mt-0 backdrop-blur-sm">

@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="ja"><head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="robots" content="noindex">
+	<title>Brand Guideline</title>
+	<link rel="stylesheet" href="./style.css">
+	<!-- 開発サーバー: python3 -m http.server 5173 --directory public/brand-guideline → http://localhost:5173/index.html -->
+</head>
+<body>
+	<header class="header">
+		<h1 class="header_logo">Brand Guideline</h1>
+                <button type="button" class="header_btn " data-action="toggle-manual" aria-expanded="false" aria-controls="manual"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#000000" viewBox="0 0 256 256"><path d="M140,180a12,12,0,1,1-12-12A12,12,0,0,1,140,180ZM128,72c-22.06,0-40,16.15-40,36v4a8,8,0,0,0,16,0v-4c0-11,10.77-20,24-20s24,9,24,20-10.77,20-24,20a8,8,0,0,0-8,8v8a8,8,0,0,0,16,0v-.72c18.24-3.35,32-17.9,32-35.28C168,88.15,150.06,72,128,72Zm104,56A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"></path></svg>&nbsp;マニュアル</button>
+                <button type="button" class="header_btn " data-action="save-source"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#000000" viewBox="0 0 256 256"><path d="M219.31,80,176,36.69A15.86,15.86,0,0,0,164.69,32H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V91.31A15.86,15.86,0,0,0,219.31,80ZM168,208H88V152h80Zm40,0H184V152a16,16,0,0,0-16-16H88a16,16,0,0,0-16,16v56H48V48H164.69L208,91.31ZM160,72a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h56A8,8,0,0,1,160,72Z"></path></svg>&nbsp;ソースに保存</button>
+                <button type="button" class="header_btn " data-action="copy-html"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#000000" viewBox="0 0 256 256"><path d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"></path></svg>&nbsp;HTMLをコピー</button>
+                <button type="button" class="header_btn " data-action="download-html"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#000000" viewBox="0 0 256 256"><path d="M224,144v64a8,8,0,0,1-8,8H40a8,8,0,0,1-8-8V144a8,8,0,0,1,16,0v56H208V144a8,8,0,0,1,16,0Zm-101.66,5.66a8,8,0,0,0,11.32,0l40-40a8,8,0,0,0-11.32-11.32L136,124.69V32a8,8,0,0,0-16,0v92.69L93.66,98.34a8,8,0,0,0-11.32,11.32Z"></path></svg>&nbsp;ZIPをダウンロード</button>
+		<!-- <div class="header_actions" id="header_actions" data-export-exclude="">
+		</div> -->
+	</header>
+
+	<section class="manual" id="manual" aria-label="マニュアル" data-export-exclude="">
+		<div class="manual_inner">
+			<button type="button" class="manual_close" data-action="toggle-manual" aria-label="閉じる">とじる<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#000000" viewBox="0 0 256 256"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg></button>
+			<h2 class="mt-0">Brand Guideline マニュアル</h2>
+			<div class="manual_text">
+                                将来的に、CSSスタイル・構造化データ・画像・スタイルスケープをまとめて閲覧、編集、共有することを想定したツール。<br>
+				見出し・変数名・値・リスト項目をクリックしてそのまま編集し、htmlコピー、一括ダウンロード、ローカルファイルを更新などが可能。<br>
+				一部の変数は、あえてページ内で使用しており、即時反映される。<br>
+                                <br>
+                                <dl class="manual_dl">
+                                        <dt>ソースに保存</dt><dd>ダウンロード後にブラウザで開いているフォルダを選択し、 index.html と style.css を直接上書きします。
+                                                <span style="color:var(--GR)">Safari / Firefox は非対応のため Chrome / Edge で開いてください。<br>
+                                                        Brave は brave://flags/#file-system-access-api を Enabled にして再起動すると使えます</span></dd>
+                                        <dt>HTMLをコピー</dt><dd>閲覧用の単一HTML（CSS込み・JSなし）をクリップボードへコピーします</dd>
+                                        <dt>ZIPをダウンロード</dt><dd>この編集ツール一式（HTML/CSS/JS/README）を取得します</dd>
+                                </dl>
+                                <br>
+				リロードすると初期値に戻ります。ローカルストレージ保存は実装予定。
+			</div>
+		</div>
+	</section>
+
+	<main class="">
+		<section class="variable">
+			<h2>サイズ・余白トークン</h2>
+			<div class="variable_item is_full">
+				<div class="variable_label child_inline"><h3>コンテンツ最大幅 : </h3><code>--wid : </code><code>1080px</code></div>
+				<span class="swatch is_size" style="max-width: 100%;width: 100%; height: var(--spaceXL)"></span>
+			</div>
+			<ul class="variable_grid  cards sm:col2 lg:col3">
+				<li class="variable_item"><div class="variable_label"><h3>上下の基本余白(大)</h3><code>--MY</code><code>6rem</code></div><div class="swatch is_size" style="width: var(--MY)"></div></li>
+				<li class="variable_item"><div class="variable_label"><h3>左右の基本余白</h3><code>--PX</code><code>1rem</code></div><div class="swatch is_size" style="width: var(--PX)"></div></li>
+				<li class="variable_item"><div class="variable_label"><h3>--PXの2倍</h3><code>--PX2</code><code>calc(var(--PX) * 2)</code></div><div class="swatch is_size" style="width: var(--PX2)"></div></li>
+				<li class="variable_item"><div class="variable_label"><h3>要素同士の間隔</h3><code>--gap</code><code>1rem</code></div><div class="swatch is_size" style="width: var(--gap)"></div></li>
+				<li class="variable_item"><div class="variable_label"><h3>--gapの1/2</h3><code>--gapH</code><code>calc(var(--gap)/2)</code></div><div class="swatch is_size" style="width: var(--gapH)"></div></li>
+				<li class="variable_item"><div class="variable_label"><h3>余白(最小)</h3><code>--spaceXS</code><code>0.25rem</code></div><div class="swatch is_size" style="width: var(--spaceXS)"></div></li>
+				<li class="variable_item"><div class="variable_label"><h3>余白(小)</h3><code>--spaceS</code><code>0.5rem</code></div><div class="swatch is_size" style="width: var(--spaceS)"></div></li>
+				<li class="variable_item"><div class="variable_label"><h3>余白(中)</h3><code>--spaceM</code><code>1rem</code></div><div class="swatch is_size" style="width: var(--spaceM)"></div></li>
+				<li class="variable_item"><div class="variable_label"><h3>余白(大)</h3><code>--spaceL</code><code>1.5rem</code></div><div class="swatch is_size" style="width: var(--spaceL)"></div></li>
+				<li class="variable_item"><div class="variable_label"><h3>余白(特大)</h3><code>--spaceXL</code><code>3rem</code></div><div class="swatch is_size" style="width: var(--spaceXL)"></div></li>
+				<li class="variable_item"><div class="variable_label"><h3>余白(2倍)</h3><code>--spaceXL</code><code>6rem</code></div><div class="swatch is_size" style="width: var(--spaceXL)"></div></li>
+				<li class="variable_item is_add"><button type="button" class="add_btn" data-action="add-variable" data-kind="size"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm48-88a8,8,0,0,1-8,8H136v32a8,8,0,0,1-16,0V136H88a8,8,0,0,1,0-16h32V88a8,8,0,0,1,16,0v32h32A8,8,0,0,1,176,128Z"></path></svg>追加</button></li>
+                        </ul>
+		</section>
+
+		<section class="variable_group BorderT">
+			<h2>カラースキーマ</h2>
+			<ul class="variable_grid cards sm:col2 lg:col3">
+				<li class="variable_item">
+                                        <span class="variable_label">
+                                                <h3>メインカラー</h3>
+                                                <code>--MC</code>
+                                                <code>oklch(80% 0.04 200)</code>
+                                        </span>
+                                        <span class="swatch is_color" style="background: var(--MC)"></span>
+                                </li>
+				<li class="variable_item"><div class="variable_label"><h3>セカンダリカラー</h3><code>--SC</code><code>oklch(50% 0.04 200)</code></div><div class="swatch is_color" style="background: var(--SC)"></div></li>
+				<li class="variable_item"><div class="variable_label"><h3>アクセントカラー</h3><code>--AC</code><code> oklch(70% 0.15 80)</code></div><div class="swatch is_color" style="background: var(--AC)"></div></li>
+				<li class="variable_item"><div class="variable_label"><h3>ベースカラー</h3><code>--BC</code><code>oklch(99% 0.01 60)</code></div><div class="swatch is_color" style="background: var(--BC)"></div></li>
+				<li class="variable_item"><div class="variable_label"><h3>テキストカラー</h3><code>--TC</code><code>oklch(20% 0.00 270)</code></div><div class="swatch is_color" style="background: var(--TC)"></div></li>
+				<li class="variable_item"><div class="variable_label"><h3>グレー</h3><code>--GR</code><code>oklch(73% 0.00 270)</code></div><div class="swatch is_color" style="background: var(--GR)"></div></li>
+				<li class="variable_item"><div class="variable_label"><h3>ブラック</h3><code>--BK</code><code>oklch(0% 0.00 60)</code></div><div class="swatch is_color" style="background: var(--BK)"></div></li>
+				<li class="variable_item"><div class="variable_label"><h3>ホワイト</h3><code>--WH</code><code>oklch(100% 0.00 60)</code></div><div class="swatch is_color" style="background: var(--WH)"></div></li>
+				<li class="variable_item"><div class="variable_label"><h3>ワインレッド</h3><code>--wine</code><code>oklch(0.3 0.4 50)</code></div><div class="swatch is_color" style="background: var(--wine)"></div></li>
+				<li class="variable_item"><div class="variable_label"><h3>ブラウン</h3><code>--brown</code><code>oklch(0.65 0.4 105)</code></div><div class="swatch is_color" style="background: var(--brown)"></div></li>
+				<li class="variable_item"><div class="variable_label"><h3>フォレストグリーン</h3><code>--forest</code><code>oklch(0.3 0.4 150)</code></div><div class="swatch is_color" style="background: var(--forest)"></div></li>
+				<li class="variable_item"><div class="variable_label"><h3>プライマリー ≒ MC</h3><code>--primary</code><code>var(--MC)</code></div><div class="swatch is_color" style="background: var(--primary)"></div></li>
+				<li class="variable_item"><div class="variable_label"><h3>セカンダリー ≒ SC</h3><code>--secondary</code><code>var(--SC)</code></div><div class="swatch is_color" style="background: var(--secondary)"></div></li>
+				<li class="variable_item"><div class="variable_label"><h3>アクセント ≒ AC</h3><code>--accent</code><code>var(--AC)</code></div><div class="swatch is_color" style="background: var(--accent)"></div></li>
+				<li class="variable_item"><div class="variable_label"><h3>バックグラウンド ≒ BC</h3><code>--background</code><code>var(--BC)</code></div><div class="swatch is_color" style="background: var(--background)"></div></li>
+				<li class="variable_item"><div class="variable_label"><h3>フォアグラウンド ≒ TC</h3><code>--foreground</code><code>var(--TC)</code></div><div class="swatch is_color" style="background: var(--foreground)"></div></li>
+				<li class="variable_item"><div class="variable_label"><h3>ミューテッド ≒ GR</h3><code>--muted</code><code>var(--GR)</code></div><div class="swatch is_color" style="background: var(--muted)"></div></li>
+				<li class="variable_item"><div class="variable_label"><h3>ボーダー ≒ TC</h3><code>--border</code><code>var(--TC)</code></div><div class="swatch is_color" style="background: var(--border)"></div></li>
+				<li class="variable_item is_add"><button type="button" class="add_btn" data-action="add-variable" data-kind="color"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm48-88a8,8,0,0,1-8,8H136v32a8,8,0,0,1-16,0V136H88a8,8,0,0,1,0-16h32V88a8,8,0,0,1,16,0v32h32A8,8,0,0,1,176,128Z"></path></svg>追加</button></li>
+			</ul>
+		</section>
+
+		<section class="sections BorderT ">
+			<h2 class="inline-block">セクション</h2><span class="text-GR mb-4">/scroll-capture スキルでポートフォリオトップページのスクショをじっくり確認させて客観的な内容を読み取らせた結果です。(誤解だらけ)</span>
+			<ul class="sections_grid cards md:col2">
+				<li class="sections_item BorderXY"><h3 class="sections_title">Hero（MindMap FV）</h3><div class="sections_desc">・背景はCoding/Design/Frontendの3本の動画をcontrast-75%でマスク合成し常時ループ再生<br>・「Coding」「Design」「Application」のラベル枠がそれぞれ固有色（wine/brown/forest）のグラデーション窓になっており、内側に動画の一部がのぞく<br>・数字（3.5、2025/05）だけ太字イタリックで強調された装飾フォントの経歴コピー</div></li>
+				<li class="sections_item BorderXY"><h3 class="sections_title">Experience and Dependencies</h3><div class="sections_desc">・横方向パララックス（ScrollXSection）で縦スクロールに応じ、ツール名の文字列群（Cursor、Claude Code、TailwindCSS、WebGL、Codex等）が異なる速度で左右にずれながら流れる<br>・前セクションのColoring/Application/Designラベル枠が画面内に残り、テキストと重なって透過して見える<br>・画面下端にグレー半透明の帯で技術スタック名が固定表示され続ける<br>・「Details」ボタンで全画面ダイアログが開き、経験年数・使用ツール一覧がカード3列のdl形式で表示される</div></li>
+				<li class="sections_item BorderXY"><h3 class="sections_title">Vibe or Vault Driven</h3><div class="sections_desc">・白背景のまま「Vibe/Design」と「Vault/Driven」を対角線上に配置し、その間に極薄グレーの巨大な「or」の文字を透かしのように重ねる<br>・右側にAI活用の説明文と、クリックで開閉する「Thinking...」トグル欄（考察テキスト）がある</div></li>
+				<li class="sections_item BorderXY"><h3 class="sections_title">Bunmyaku Teaser</h3><div class="sections_desc">・紺色背景に切り替わり、剣と盾を組み合わせた大きな線画モチーフ（SVG）が中央に浮かぶ<br>・背景全面に星空のような細かいドットが散っている<br>・スクロールに応じて剣のモチーフが上方向へスライドしていく</div></li>
+				<li class="sections_item BorderXY"><h3 class="sections_title">Repulsion Lists</h3><div class="sections_desc">・白背景に戻り、直前セクションの剣モチーフの残像が薄く重なりながらフェードアウトする<br>・個人制作のツール名カード群（Random Generator、Shuffle Divide、Glitch、Agent Driven CMS等）が敷き詰められ、カーソルに反応して反発移動する物理演算アニメーションになっている</div></li>
+				<li class="sections_item BorderXY"><h3 class="sections_title">Coding</h3><div class="sections_desc">・背景が赤に切り替わり、中心から放射状に広がる細い光線のアニメーション背景になる（中心に明滅するグローの円）<br>・巨大な半透明の「Coding」の文字が透かしとして常に背面に表示される<br>・制作フロー（HTML作成→テーマ構築→管理画面設計→スキル作成）が、曲線と丸ポイントで繋がれたノードグラフ状のカードで表現される<br>・過去の制作サイトのプレビュー画像カードがPage/Repoリンク付きで線に沿って次々に現れる</div></li>
+				<li class="sections_item BorderXY"><h3 class="sections_title">Design</h3><div class="sections_desc">・背景が黄土色の市松模様になり、スクロールに応じて正方形の並びから45度回転したひし形（×柄）へと徐々に回転していく<br>・巨大な半透明の「Design」の文字が透かしとして表示される<br>・実績テキストの一部（Photoshop、250案件など）が黒背景に白文字のハイライト帯で強調される<br>・「External Link」「GPT Imageレポート」等、黒背景のボタン/リンクが並ぶ</div></li>
+				<li class="sections_item BorderXY"><h3 class="sections_title">Frontend</h3><div class="sections_desc">・背景が緑になり、格子状のワイヤーフレームと色収差的ににじんだ抽象グラフィックが斜めに重なる<br>・巨大な半透明の「Application」の文字が透かしとして表示される<br>・開発ツール一覧が下線付きリンクのリストとして縦に並ぶ</div></li>
+				<li class="sections_item BorderXY"><h3 class="sections_title">Footer</h3><div class="sections_desc">・背景色が反転して黒基調になり、左下に山並みのアウトラインSVG（fff2.svg）が敷かれる<br>・Name/Hobby/Specialtyのプロフィール定義リストと、個人制作物・外部リポジトリへのリンク一覧が中央揃えで並ぶ</div></li>
+				<li class="sections_item BorderXY is_add"><button type="button" class="add_btn" data-action="add-section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm48-88a8,8,0,0,1-8,8H136v32a8,8,0,0,1-16,0V136H88a8,8,0,0,1,0-16h32V88a8,8,0,0,1,16,0v32h32A8,8,0,0,1,176,128Z"></path></svg>追加</button></li>
+			</ul>
+		</section>
+
+		<section class="adjective BorderT">
+			<h2>テーマ・イメージ・キーワード</h2>
+			<ul class="adjective_ul">
+				<li class="adjective_item">Experimental / 実験的</li>
+				<li class="adjective_item">Associative / 連想的</li>
+				<li class="adjective_item">Minimal / ミニマル</li>
+				<li class="adjective_item">Monochrome / モノクローム</li>
+				<li class="adjective_item">Analytical / 分析的</li>
+				<li class="adjective_item">Introspective / 内省的</li>
+				<li class="adjective_item">Layered / 重層的</li>
+				<li class="adjective_item">Fluid / 流動的</li>
+				<li class="adjective_item">Technical / テクニカル</li>
+				<li class="adjective_item">Personal / パーソナル</li>
+				<li class="adjective_item is_add"><button type="button" class="add_btn" data-action="add-adjective"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm48-88a8,8,0,0,1-8,8H136v32a8,8,0,0,1-16,0V136H88a8,8,0,0,1,0-16h32V88a8,8,0,0,1,16,0v32h32A8,8,0,0,1,176,128Z"></path></svg>追加</button></li>
+			</ul>
+		</section>
+
+		<section class="design BorderT">
+			<h2>意思決定・設計判断・ガイドライン</h2>
+			<dl class="design_dl cards col2">
+                                <dt class="design_dt">snake_caseのCSS設計、命名規則（簡易BEM）</dt><dd class="design_dd">ハイフンx2のアンスコx2の代わりにアンダースコア1つ。子要素は親ブロック名を引き継ぐ（header_actions, sections_grid）。swatchなどブロック名ではない一単語クラスはある。（孤立してるので弊害なし）</dd>
+				<dt class="design_dt">CSSクラス略語ルール</dt><dd class="design_dd">BEMブロック名では不可。誰でも理解できる略語だけ許可。design_noteをdn_などにしない</dd>
+				<dt class="design_dt">BEMブロック名は一単語</dt><dd class="design_dd">header_bar ❌ header ○, var_group ❌ variable ○</dd>
+				<dt class="design_dt">別パターンのスタイル上書き</dt><dd class="design_dd">共通クラス+モディファイア（例：swatch + is_color / is_size）</dd>
+				<dt class="design_dt">aspect-ratioの活用</dt><dd class="design_dd">width=heightならaspect-ratio:1、インラインの時widthだけで済む</dd>
+				<dt class="design_dt">BEMとユーティリティ</dt><dd class="design_dd">.BorderTなどユーザーのテンプレートクラス、使い回すスタイルはユーティリティクラスとして使う。BEM風セマンティッククラスは印としてスタイルがなくても場合によっては書く。複雑な構造なら必要な時に追加する</dd>
+				<dt class="design_dt">BEM風クラスの完全適用</dt><dd class="design_dd">クラス+タグセレクタ指定（li, h3等）は基本禁止、BEM風にしてる意味がない。下記ケースで:whereを使う例外あり。</dd>
+				<dt class="design_dt">BEM風クラス子要素の:where()</dt><dd class="design_dd">シングルクラス内で`:where`を使い、BEM風クラスの数を増やさず、且つセレクタを複雑にしないまま詳細度を保つ。ユーザーが編集しづらくなる場合BEMクラスを省略する</dd>
+				<dt class="design_dt">ブロック名は略語を使わず一単語で最適な名前を考える</dt><dd class="design_dd">BEMのトップレベル（ブロック）名は略語ではなく意味の通る1語にする。</dd>
+				<dt class="design_dt">編集可能コンテンツのセレクタ指定。.editable 汎用jsフック</dt><dd class="design_dd">JSファイル上の全てのセレクタをエディタブルで済ませるとHTMLが冗長になるため汎用性のために追加。</dd>
+				<dt class="design_dt">マニュアルはリストではなくテキストブロック</dt><dd class="design_dd">何の説明もなければ、改行のためにPタグやULリストを選択しない。BRタグ優先。</dd>
+				<dt class="design_dt">規則や制約のドキュメントに詳細な経緯や具体例を文章で書かない。</dt><dd class="design_dd">後から読むエージェントに伝えても意味がない。論理的な短い言葉で書く。難解なら、例を構造化して書く</dd>
+                                <div class="design_add"><button type="button" class="add_btn" data-action="add-design"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm48-88a8,8,0,0,1-8,8H136v32a8,8,0,0,1-16,0V136H88a8,8,0,0,1,0-16h32V88a8,8,0,0,1,16,0v32h32A8,8,0,0,1,176,128Z"></path></svg>追加</button></div>
+                        </dl>
+		</section>
+	</main>
+
+	<footer class="footer ">
+		<p>2026 - yuremono</p>
+	</footer>
+
+	<script src="./script.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body></html>

@@ -185,33 +185,69 @@ a {
     color: inherit;
     display: inline-block;
 }
+
+svg {display: inline-block;}
+b,strong{font-weight: 500;}
+
+
 h1,.h1FZ {font-size: var(--h1FZ);}
 h2,.h2FZ {font-size: var(--h2FZ);}
 h3,.h3FZ {font-size: var(--h3FZ);}
+.largeFZ {font-size: var(--largeFZ);}
 h4,h5,h6 {font-size: inherit;}
-h1,h2,h3,h4,h5,h6 {
+h1,h2,h3,h4,h5,h6,.largeFZ {
         font-family: var(--HFF);
         font-weight: var(--HFW);
         line-height: var(--HLH);
         letter-spacing: var(--HLS);
 }
 
-.BorderT{border-top   : var(--line);}
-.BorderB{border-bottom: var(--line);}
-.BorderL{border-left  : var(--line);}
-.BorderR{border-right : var(--line);}
-.BorderY{border-block : var(--line);}
-.BorderX{border-inline: var(--line);} 
-.BorderXY{border: var(--line);} 
+.wid {width: var(--wid);}
+.PX {padding-inline: var(--PX);}
+.PY {padding-block: var(--PY);}
+.PX2 {padding-inline: var(--PX2);}
+.MY {margin-block: var(--MY);}
+.gap{gap: var(--gap);}
+.gapH{gap: var(--gapH);}
 
-.wid {// --wid
-	width: var(--wid);
+
+:where(.BorderT) {border-top   : var(--line);}
+:where(.BorderB) {border-bottom: var(--line);}
+:where(.BorderL) {border-left  : var(--line);}
+:where(.BorderR) {border-right : var(--line);}
+:where(.BorderY) {border-block : var(--line);}
+:where(.BorderX) {border-inline: var(--line);} 
+:where(.BorderXY) {border: var(--line);} 
+:where(.OutlineXY) {outline: var(--line);outline-offset: 2px;} 
+:where(.BorderXY2) {border: var(--line2);} 
+:where(.BorderXY3) {border: var(--line3);} 
+.TS {text-shadow: var(--TS);}
+.DS {filter: drop-shadow(var(--DS));}
+.BS {box-shadow: var(--BS);}
+.WTS {-webkit-text-stroke: var(--WTS);paint-order: stroke;}
+.WTS svg{
+        stroke:var(--tsc);
+  stroke-width:var(--tsw);
+  paint-order:stroke;
 }
-.PX {// --PX
-	padding-inline: var(--PX);
+.BGgrad {background: var(--BGgrad);}
+.TS2 {
+        --TS2:1px 1px var(--BK);
+        text-shadow: var(--TS2);
+
 }
-.MY {// --MY
-	margin-block: var(--MY);
+.DS2 {
+        --DS2: drop-shadow(1px 1px var(--BK)) drop-shadow(-1px -1px var(--BK)) drop-shadow(1px -1px var(--BK)) drop-shadow(1px -1px var(--BK))  ;
+        filter: drop-shadow(var(--DS2));
+        filter: drop-shadow(1px 1px var(--BK30)) drop-shadow(-1px -1px var(--BK30)) drop-shadow(1px -1px var(--BK30)) drop-shadow(1px -1px var(--BK30))  ;
 }
 
+.BS2 {box-shadow: var(--BS2);}
+.WTS2 {-webkit-text-stroke: var(--ST2);paint-order: stroke;}
+.BGgrad2 {background: var(--BGgrad2);}
+.TS3 {text-shadow: var(--TS3);}
+.DS3 {filter: drop-shadow(var(--DS3));}
+.BS3 {box-shadow: var(--BS3);}
+.WTS3 {-webkit-text-stroke: var(--ST3);paint-order: stroke;}
+.BGgrad3 {background: var(--BGgrad3);}
 

@@ -1,0 +1,612 @@
+
+
+   :root {//font
+        --Ser: "Noto Serif JP", serif;
+        --San:
+                -apple-system,
+                /* iOS/macOS */
+                BlinkMacSystemFont,
+                /* macOS Safari/Chrome */
+                "Hiragino Sans", "Hiragino Kaku Gothic ProN",
+                /* macOS日本語 */
+                "Yu Gothic Medium", "Yu Gothic", "Meiryo",
+                /* Windows */
+                "Roboto", "Noto Sans CJK JP",
+                /* Android */
+                sans-serif;
+        --Ship: "Shippori Mincho","Noto Serif JP", serif;
+        --Zen: "Zen Kaku Gothic New",var(--San), sans-serif;
+        --Jost: "Jost",var(--San), sans-serif;
+        --Via: "Viaoda Libre",var(--San), sans-serif;
+        --FF: var(--San) ,sans-serif;
+        --Eng: var(--Jost);
+}
+:root {//color
+        --UN: unset;
+        --IN: inherit;
+        --CC: currentColor;
+        --tr: transparent;
+
+        /*  ユーザーの指示がなければ編集禁止*/
+        color-scheme: light;
+        --TR: transparent; 
+	--MC: oklch(80% 0.04 200);
+	--SC: oklch(50% 0.04 200);
+	--AC: oklch(70% 0.15 80);
+        --BC: oklch(99% 0.01 60); 
+
+        --TC: oklch(20% 0.00 270); 
+        --GR: oklch(73% 0.00 270); 
+        --BK: oklch(0% 0.00 60);
+        --WH: oklch(100% 0.00 60);
+
+        --tsbk: .25rem .25rem var(--BK);
+}
+
+:root {//color Tailwind culture & semantic color name  コメントはpencil variebles に同期しない
+        --second: var(--SC);
+        --third: oklch(92% 0.1 169.85);
+        --fourth: oklch(97% 0.2 109.29);
+        // --fifth: var(--SC);
+
+        --primary: var(--MC);
+        --secondary: var(--SC);
+        --accent: var(--AC);
+        --background: var(--BC);
+        --foreground: var(--TC);
+        --surface: var(--TC);
+        --muted: var(--GR);
+        --neutral: var(--GR);
+        --border: var(--TC);
+
+        // --destructive: var(--AC);
+        // --ring: var(--TC);
+        // --card: var(--wc);
+        // --popover: var(--BC);
+        // --surface: var(--BC);//（カード・シートの背景）
+        // --error: var(--AC);
+        // --success: var(--MC);
+        // --warning: var(--AC);
+        // --error: var(--AC);
+        // --info: var(--SC);//（ステータス系）
+        // --neutral: var(--GR);//（グレー系）
+}
+.dark {
+	--background: var(--TC);
+	--foreground: var(--WH);
+	// --border: #fff;
+        // --BK: #fff;
+        // --TC: #fff;
+        // --WH: #fff;
+}
+
+:root {// color opacity
+        --MC05: color-mix(in srgb, transparent, var(--MC) 05%);
+
+        @for $i from 1 through 9 {
+                --MC#{$i}0: color-mix(in srgb, transparent, var(--MC) #{$i}0%);
+                --SC#{$i}0: color-mix(in srgb, transparent, var(--SC) #{$i}0%);
+                --AC#{$i}0: color-mix(in srgb, transparent, var(--AC) #{$i}0%);
+                --BC#{$i}0: color-mix(in srgb, transparent, var(--BC) #{$i}0%);
+                --TC#{$i}0: color-mix(in srgb, transparent, var(--TC) #{$i}0%);
+                --GR#{$i}0: color-mix(in srgb, transparent, var(--GR) #{$i}0%);
+                --WH#{$i}0: color-mix(in srgb, transparent, var(--WH) #{$i}0%);
+                --BK#{$i}0: color-mix(in srgb, transparent, var(--BK) #{$i}0%);
+        }
+}
+
+:root {//intoパディングで子要素サイズ、レフトで位置指定 out基本幅→画面幅に
+        --imgW: calc(50% - var(--gap)/2);
+        --wid: 1080px;
+        --MY: 120px;
+        --MY25: calc(var(--MY)/4);
+        --MY5: calc(var(--MY)/2);
+        --MY75: calc(var(--MY)/4*3);
+        --15MY: calc(var(--MY)*1.5);
+        --2MY: calc(var(--MY)*2.0);
+        --25MY: calc(var(--MY)*2.5);
+        --3MY: calc(var(--MY)*3.0);
+        --4MY: calc(var(--MY)*4.0);
+}
+:root {//intoパディングで子要素サイズ、レフトで位置指定 out基本幅→画面幅に
+
+        --into: calc(50vw - clamp(0px, 50vw - var(--PX), (var(--wid) / 2)));
+        // --in1800: calc(50vw - clamp(0px, 50vw - var(--PX), 900px));
+        // --in660: calc(50vw - clamp(0px, 50vw - var(--PX), 330px));
+        --out: calc(50% - 50vw);
+}
+
+:root {
+        --LS: 0.025em;
+        --LH: 1.5;
+        --FW: 300;
+        --FZ: 100%;
+        @media (max-width: 767px){
+                --FZ: 87.5%;
+        }
+        --HFF: var(--Eng);
+        --HFW: 500;
+        --HLH: 1.375;
+        --HLS: 0.00em;
+
+        --h1FZ: clamp(20px, 2.2vw, 24px);
+        --h2FZ: clamp(16px, 2vw, 20px);
+        --h3FZ: 1em;
+}
+
+:root {//space 余白設定
+        --MY: 6rem;
+        --PX: 1rem;
+        --PX2: calc(var(--PX) * 2);
+        --gap: 1rem;
+        --gapN: calc(var(--gap)*-1);
+        --gapH: calc(var(--gap)/2);
+        @media (max-width: 1080px){
+                --gap: 1rem;
+                --PX: 1rem;
+        }
+        @media (max-width: 767px){
+                --MY: 4rem;
+        }
+}
+:root {//space scale このページ用の余白トークン
+        --spaceXS: 0.25rem;
+        --spaceS: 0.5rem;
+        --spaceM: 1rem;
+        --spaceL: 1.5rem;
+        --spaceXL: 3rem;
+        --space2X: 6rem;
+}
+:root{//ボーダー シャドウ デコレーション等
+        --trans: 0.4s;
+        --bds: solid;
+        --bdw: 1px;
+        --bdc: var(--TC30);  
+        --line:var(--bdw) var(--bds) var(--bdc); 
+        --stw: 4px;
+    
+        --rad:0px;
+        --rad2:calc(var(--rad)*2 );
+        @media (max-width: 640px){
+            // --rad:10px;
+        }
+        --radH:calc(var(--rad)/2 );
+        --sheetR:var(--rad);
+        --sheetBG:var(--BC);
+        --sheetP:var(--gap);
+        --boardR:var(--rad);
+        --lineClamp:2;
+}
+:root{
+        interpolate-size: allow-keywords;
+}
+html {
+        font-size: var(--FZ);
+        overflow-x: clip;
+        font-family: var(--FF);
+        font-weight: var(--FW);
+        line-height: var(--LH);
+        letter-spacing: var(--LS);
+        color: var(--foreground);
+        font-style: normal;
+        background-color: var(--background);
+} 
+.Ser {font-family: var(--Ser);}
+.San {font-family: var(--San);}
+.Eng {font-family: var(--Eng);}
+span {display: inline-block;}
+svg {display: inline-block;}
+b,strong{font-weight: 500;}
+a {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+}
+
+svg {display: inline-block;fill: currentColor;}
+b,strong{font-weight: 500;}
+
+
+h1,.h1FZ {font-size: var(--h1FZ);}
+h2,.h2FZ {font-size: var(--h2FZ);}
+h3,.h3FZ {font-size: var(--h3FZ);}
+.largeFZ {font-size: var(--largeFZ);}
+h4,h5,h6 {font-size: inherit;}
+h1,h2,h3,h4,h5,h6,.largeFZ {
+        font-family: var(--HFF);
+        font-weight: var(--HFW);
+        line-height: var(--HLH);
+        letter-spacing: var(--HLS);
+}
+
+.wid {width: var(--wid);}
+.PX {padding-inline: var(--PX);}
+.PY {padding-block: var(--PY);}
+.PX2 {padding-inline: var(--PX2);}
+.MY {margin-block: var(--MY);}
+.gap{gap: var(--gap);}
+.gapH{gap: var(--gapH);}
+
+
+:where(.BorderT) {border-top   : var(--line);}
+:where(.BorderB) {border-bottom: var(--line);}
+:where(.BorderL) {border-left  : var(--line);}
+:where(.BorderR) {border-right : var(--line);}
+:where(.BorderY) {border-block : var(--line);}
+:where(.BorderX) {border-inline: var(--line);} 
+:where(.BorderXY) {border: var(--line);} 
+:where(.OutlineXY) {outline: var(--line);outline-offset: 2px;} 
+:where(.BorderXY2) {border: var(--line2);} 
+:where(.BorderXY3) {border: var(--line3);} 
+.TS {text-shadow: var(--TS);}
+.DS {filter: drop-shadow(var(--DS));}
+.BS {box-shadow: var(--BS);}
+.WTS {-webkit-text-stroke: var(--WTS);paint-order: stroke;}
+.WTS svg{
+        stroke:var(--tsc);
+  stroke-width:var(--tsw);
+  paint-order:stroke;
+}
+.BGgrad {background: var(--BGgrad);}
+.TS2 {
+        --TS2:1px 1px var(--BK);
+        text-shadow: var(--TS2);
+
+}
+.DS2 {
+        --DS2: drop-shadow(1px 1px var(--BK)) drop-shadow(-1px -1px var(--BK)) drop-shadow(1px -1px var(--BK)) drop-shadow(1px -1px var(--BK))  ;
+        filter: drop-shadow(var(--DS2));
+        filter: drop-shadow(1px 1px var(--BK30)) drop-shadow(-1px -1px var(--BK30)) drop-shadow(1px -1px var(--BK30)) drop-shadow(1px -1px var(--BK30))  ;
+}
+
+.BS2 {box-shadow: var(--BS2);}
+.WTS2 {-webkit-text-stroke: var(--ST2);paint-order: stroke;}
+.BGgrad2 {background: var(--BGgrad2);}
+.TS3 {text-shadow: var(--TS3);}
+.DS3 {filter: drop-shadow(var(--DS3));}
+.BS3 {box-shadow: var(--BS3);}
+.WTS3 {-webkit-text-stroke: var(--ST3);paint-order: stroke;}
+.BGgrad3 {background: var(--BGgrad3);}
+
+
+
+:root {
+	--wine: oklch(0.3 0.4 50);
+	--brown: oklch(0.65 0.4 105);
+	--forest: oklch(0.3 0.4 150);
+}
+
+/* 編集可能要素の表示。contenteditableはscript.jsが付与し書き出し時に除去する */
+[contenteditable] {
+	&:hover { outline: 1px dashed var(--GR); outline-offset: 0px; }
+	&:focus-visible { outline: 2px solid var(--AC); outline-offset: 0px; }
+}
+
+/* layout — 装飾(色・フォント)は使わない */
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; }
+ul, ol, dl, dd, p { margin: 0; padding: 0; }
+
+main { 
+        display: flex; flex-direction: column; gap: var(--spaceL); max-width: 100%;
+        padding-inline: var(--into)
+}
+code {display: block;font-size: 1rem;font-family: inherit;}
+h2 { 
+        text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 0.375em;
+        text-decoration-color: var(--MC);
+        margin-block: 1em;
+}
+h3 { 
+        text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 0.25em;
+        text-decoration-color: var(--SC);
+        margin-block: 0 0em;
+}
+button{
+        transition: var(--trans);
+        &:hover {
+                filter: invert(1);
+        }
+}
+
+/* セクション間の区切り。セマンティッククラスに直付けせず全セクション間で使い回す */
+.divider {
+	border-top: var(--line);
+}
+.header {
+	position: sticky;
+	top: 0;
+	display: flex;flex-wrap: wrap;
+        justify-content: flex-end;
+	// gap: var(--spaceXS) var(--spaceM);
+	padding-block: var(--spaceM);
+	padding-inline: var(--into);
+        border-bottom: var(--line);
+        backdrop-filter: blur(10px);
+        rule: 1px dotted var(--GR);
+        gap: 3px;
+        z-index: 100;
+}
+.header_logo { margin: unset;margin-right: auto; }
+.header_actions {
+         display: inline-flex; flex-wrap:wrap;  margin-left: auto;
+         justify-content: end;
+         border-radius: var(--spaceL);
+         overflow: clip;
+}
+.header_btn  {
+        display: inline-flex;
+        align-items: center;
+        border: unset;
+        padding: var(--spaceS);
+        cursor: pointer;
+}
+.ml-auto{
+        margin-left: auto;
+}
+.mt-0 {margin-top: 0;}
+/* manual: 開閉はトップレイヤーを使わずopacity/visibility/pointer-eventsのトグルで行う。外側クリックで閉じる */
+.manual {
+	position: fixed;
+	inset: 0;
+	z-index: 1;
+	display: grid;
+	place-items: center;
+	backdrop-filter: blur(10px);/* ヘッダーと同じ */
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+	transition: var(--trans);
+        line-height: 1.75;
+	&.is_open {
+		opacity: 1;
+		visibility: visible;
+		pointer-events: auto;
+	}
+        &_inner {
+                position: relative;
+                width: var(--wid);
+                max-width: calc(100% - var(--PX2));
+                max-height: calc(100svh - var(--MY)*2);
+                padding: var(--PX);
+                border: var(--line);
+                background: var(--BC);
+        }
+        &_dl {
+                display: grid;
+                grid-template-columns: 10rem 1fr;
+                gap: var(--gap);
+                rule: 5px dotted var(--GR); /* 行・列の罫線 一括指定 */
+                rule-width: 4px;
+                rule-style: dotted;
+                rule-color: var(--GR);
+                rule-break: intersection;
+                rule-inset: var(--spaceXS);
+                // column-rule: 1px solid var(--color_primary);
+                >:where(*){
+                        padding: var(--spaceS);
+                }
+                :where(dt){
+                        font-weight: var(--HFW);
+                }
+        }
+        &_close {
+                position: absolute;
+                top: var(--PX);
+                right: var(--PX);
+                line-height: 1;
+                display: flex;align-items: center;
+        }
+}
+.footer {
+	display: flex;flex-wrap: wrap;
+	align-items: center;
+	gap: var(--spaceXS) var(--spaceM);
+	padding-block: var(--spaceM);
+	padding-inline: var(--into);
+        border-top: var(--line);
+        margin-top: var(--MY);
+}
+
+/* var_group: 余白/色変数の一覧。swatchは共通クラス＋モディファイア（is_size/is_color）で出し分け */
+
+.variable_grid {
+	// display: grid;
+	// grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+	// gap: var(--spaceM);
+        margin-top: var(--spaceM);
+}
+:root {
+        --swatch: 7.5rem;
+}
+.variable_item {
+        border: var(--line);
+	display: grid;
+	grid-template-columns: 1fr var(--swatch);
+        min-height: var(--swatch);
+        
+	gap: 2px;
+        
+        rule: 2px dotted var(--GR); /* 行・列の罫線 一括指定 */
+        // row-rule-width: 1px;
+        // row-rule-style: dashed, solid;
+        // row-rule-color: var(--color_primary-pale);
+        // row-rule-break: intersection;
+        // row-rule-inset: var(--inset_offset);
+        // column-rule: 1px solid var(--color_primary);
+        &.is_full {
+                grid-template-columns: unset;
+                min-height: unset;
+                rule: unset;
+        }
+        &.is_add {
+                grid-template-columns: unset;
+                border-style: dashed;
+                place-items: center;
+                rule: unset;
+        }
+}
+/* add_btn: 各ブロック共通の「追加」トリガー */
+.add_btn {
+        width: 100%;height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--spaceXS);
+        border: none;
+        // background: none;
+        font: inherit;
+        color: var(--GR);
+        cursor: pointer;
+}
+.variable_label {
+        // padding: var(--spaceXS);
+        display: grid;
+        >:where(*){
+                padding: var(--spaceXS) var(--spaceS);
+                align-content: center;
+        }
+        >:where(:first-child,h3){
+                padding-block: var(--spaceS);
+        }
+}
+.variable_title {
+        padding-bottom: var(--spaceXS);
+        border-bottom: var(--line);
+}
+.child_inline {
+        display: flex;
+
+}
+// .variable_label {
+
+// 	gap: 0.125rem;
+// }
+.swatch {
+	display: inline-block;
+	flex-shrink: 0;
+	aspect-ratio: 1;
+	width: var(--swatch);
+        max-width: var(--swatch);
+        align-self: center;
+	justify-self: center;
+        &.is_size { background: var(--GR); }
+        &.is_full { width: 100%; }
+}
+
+.cards{
+        --col:1;
+        display: grid;
+        grid-template-columns: repeat(var(--col),1fr);
+        gap: var(--gap);
+}
+.col2{--col: 2;} 
+.col3{--col: 3;} 
+@media (min-width: 640px) {
+        .sm\:col2{--col: 2;} 
+        .sm\:col3{--col: 3;} 
+}
+@media (min-width: 768px) {
+        .md\:col2{--col: 2;} 
+        .md\:col3{--col: 3;} 
+}
+@media (min-width: 1024px) {
+        .lg\:col2{--col: 2;} 
+        .lg\:col3{--col: 3;} 
+}
+.sections{
+
+        &_grid {
+                // display: grid;
+                // grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
+                counter-reset: section;   
+        }
+        &_item {
+                // min-width: 0;
+                list-style: none;
+                counter-increment: section;
+                >:where(*){
+                        padding: var(--spaceS) var(--spaceM);
+                        align-content: center;
+                }
+                >:where(:first-child,h3){
+                        padding-block: var(--spaceM);
+                        border-bottom: var(--line);
+                }
+                &.is_add {
+                        border-style: dashed;
+                        display: grid;
+                        place-items: center;
+                        
+                        min-height: 5rem;
+                        >:where(:first-child,h3){
+                                border-bottom: unset;
+                        }
+
+                }
+        }
+        &_title::before { content: counter(section) ". "; }
+}
+.text-GR {color: var(--GR);}
+.inline-block {display: inline-block;}
+.mb-4 {margin-bottom: 1rem;}
+
+
+
+
+.adjective_ul {
+	list-style: none;
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--spaceM);
+}
+.adjective_item {
+	border: var(--line);
+	padding: var(--spaceS) var(--spaceS);
+	&.is_add {
+		border-style: dashed;
+		display: flex;
+		align-items: center;
+                padding: unset;
+
+	}
+}
+
+.design {
+        &_dl {
+                --afterFZ: var(--spaceL);
+                // display: grid;
+                // grid-template-columns: 1fr 1fr;
+                gap: var(--spaceM) var(--spaceL);
+        }
+        &_dd ,
+        &_dt {
+                min-width: 0;
+                position: relative;
+                flex: 1;
+                display: flex;
+                align-items: center;
+                border: var(--line);
+                background: var(--TC10);
+                padding: var(--spaceM) ;
+        }
+        &_dt::after {
+                // <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg>
+                // url('data:image/svg+xml;utf8, を追加して # を %23 に置き換え
+                content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="%23000000" viewBox="0 0 256 256"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg>');
+                position: absolute;
+                top: 50%;
+                left: 100%;
+                width: var(--afterFZ);
+                height: var(--afterFZ);
+                transform: translate(0%, -50%);
+        }
+        &_add {
+                grid-column: 1 / -1;
+                border: var(--line);
+                border-style: dashed;
+                display: grid;
+                place-items: center;
+                min-height: 5rem;
+        }
+}

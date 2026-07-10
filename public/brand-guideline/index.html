@@ -23,16 +23,24 @@
 			<button type="button" class="manual_close" data-action="toggle-manual" aria-label="閉じる">とじる<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#000000" viewBox="0 0 256 256"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg></button>
 			<h2 class="mt-0">Brand Guideline マニュアル</h2>
 			<div class="manual_text">
-                                将来的に、CSSスタイル・構造化データ・画像・スタイルスケープをまとめて閲覧、編集、共有することを想定したツール。<br>
-				見出し・変数名・値・リスト項目をクリックしてそのまま編集し、htmlコピー、一括ダウンロード、ローカルファイルを更新などが可能。<br>
-				一部の変数は、あえてページ内で使用しており、即時反映される。<br>
+                                CSSスタイル・構造化データ・画像・スタイルスケープをまとめて閲覧、編集、共有することを想定したツールです。<br>
+				見出し・変数名・値・リスト項目をクリックしてそのまま編集し、htmlコピー、一括ダウンロード、ローカルファイルを更新などが可能です。<br>
+				一部の変数は、あえてページ内で使用しており、即時反映されます。<br>
+                                <br>
+                                各ボタンは index.html を file:// で直接（ダブルクリックなどで）開いていると動作しません。<br>
+                                ターミナルで下記コマンドを実行してください。1行目でダウンロードしたフォルダへ移動し、2行目でローカルサーバーを起動します。<br>
+                                ※Downloadsフォルダに保存された場合<br>
+                                <code class="manual_code">cd ~/Downloads/brand-guideline <br>
+                                        python3 -m http.server 5173</code><br>
+                                実行後、ブラウザで http://localhost:5173/index.html を開いてください。
+                                <br>
                                 <br>
                                 <dl class="manual_dl">
-                                        <dt>ソースに保存</dt><dd>ダウンロード後にブラウザで開いているフォルダを選択し、 index.html と style.css を直接上書きします。
-                                                <span style="color:var(--GR)">Safari / Firefox は非対応のため Chrome / Edge で開いてください。<br>
-                                                        Brave は brave://flags/#file-system-access-api を Enabled にして再起動すると使えます</span></dd>
                                         <dt>HTMLをコピー</dt><dd>閲覧用の単一HTML（CSS込み・JSなし）をクリップボードへコピーします</dd>
-                                        <dt>ZIPをダウンロード</dt><dd>この編集ツール一式（HTML/CSS/JS/README）を取得します</dd>
+                                        <dt>ZIPをダウンロード</dt><dd>この編集ツール一式（HTML/CSS/JS/README）をダウンロードします</dd>
+                                        <dt>ソースに保存</dt><dd>フォルダ選択ダイアログが開きます。ダウンロードしたフォルダ（brand-guideline）を選択すると、フォルダ内の index.html と style.css が現在の編集内容でそのまま上書きされます。以後は同じフォルダを選び直す必要はなく、保存のたびに直接上書きされます。
+                                                <span style="color:var(--GR)">Safari / Firefox は非対応です。Chrome / Edge で開いてください。Brave は brave://flags/#file-system-access-api を Enabled にして再起動すると使えます。</span>
+                                                </dd>
                                 </dl>
                                 <br>
 				リロードすると初期値に戻ります。ローカルストレージ保存は実装予定。
@@ -96,7 +104,7 @@
 		</section>
 
 		<section class="sections BorderT ">
-			<h2 class="inline-block">セクション</h2><span class="text-GR mb-4">/scroll-capture スキルでポートフォリオトップページのスクショをじっくり確認させて客観的な内容を読み取らせた結果です。(誤解だらけ)</span>
+			<h2 class="inline-block">セクション</h2><span class="text-GR mb-4"></span>
 			<ul class="sections_grid cards md:col2">
 				<li class="sections_item BorderXY"><h3 class="sections_title">Hero（MindMap FV）</h3><div class="sections_desc">・背景はCoding/Design/Frontendの3本の動画をcontrast-75%でマスク合成し常時ループ再生<br>・「Coding」「Design」「Application」のラベル枠がそれぞれ固有色（wine/brown/forest）のグラデーション窓になっており、内側に動画の一部がのぞく<br>・数字（3.5、2025/05）だけ太字イタリックで強調された装飾フォントの経歴コピー</div></li>
 				<li class="sections_item BorderXY"><h3 class="sections_title">Experience and Dependencies</h3><div class="sections_desc">・横方向パララックス（ScrollXSection）で縦スクロールに応じ、ツール名の文字列群（Cursor、Claude Code、TailwindCSS、WebGL、Codex等）が異なる速度で左右にずれながら流れる<br>・前セクションのColoring/Application/Designラベル枠が画面内に残り、テキストと重なって透過して見える<br>・画面下端にグレー半透明の帯で技術スタック名が固定表示され続ける<br>・「Details」ボタンで全画面ダイアログが開き、経験年数・使用ツール一覧がカード3列のdl形式で表示される</div></li>

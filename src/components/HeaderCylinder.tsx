@@ -195,7 +195,7 @@ function HeaderCylinderNav({ onNavigate }: HeaderCylinderNavProps) {
 	const pagesPopoverId = `${idPrefix}-pages`;
 
 	return (
-		<ul className="NavUl max-w-none !w-[115%]">
+		<ul className="NavUl max-w-none !w-[130%]">
 			<li className="NavLi">
 				<Link to="/" onClick={onNavigate}>
 					HOME
@@ -439,9 +439,10 @@ function HeaderCylinderNav({ onNavigate }: HeaderCylinderNavProps) {
 				</ul>
 			</li>
 			<li className="NavLi ">
-				<Link to="/brand-guideline/index.html" onClick={onNavigate}>
-					BrandGuideline
-				</Link>
+				<a href="/brand-guideline/index.html" target="self" onClick={onNavigate}>
+                                        BrandGuideline
+                                        <ArrowSquareOutIcon className="ml-1 align-sub" size={16} />
+				</a>
 			</li>
 		</ul>
 	);

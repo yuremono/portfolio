@@ -153,7 +153,7 @@ function Top() {
 							<br />
 							<b>AI-driven</b> development since <strong>2025/05</strong>
 							<br />
-                                                        <b className="lsMinus">Yuremono</b>&nbsp;=&nbsp;Modulation&nbsp;<b className="lsMinus ml-2"> effectors</b>
+                                                        <b className="lsMinus">Yuremono</b>&nbsp;=&nbsp;Modulation&nbsp;<b className="lsMinus "> effectors</b>
 						</h1>
 					</section>
 					<ScrollXSection className=" relative mt-0 backdrop-blur-sm">

@@ -3161,7 +3161,7 @@ main {
   --navClosedY: -250%;
 }
 .Header.HeaderCylinder .HeaderNav ul:has(li:nth-of-type(5):last-of-type) li:nth-of-type(1) {
-  --navX: 0.4;
+  --navX: 0.46;
   --navClosedY: 200%;
 }
 .Header.HeaderCylinder .HeaderNav ul:has(li:nth-of-type(5):last-of-type) li:nth-of-type(2) {
@@ -3177,7 +3177,7 @@ main {
   --navClosedY: -100%;
 }
 .Header.HeaderCylinder .HeaderNav ul:has(li:nth-of-type(5):last-of-type) li:nth-of-type(5) {
-  --navX: 0.4;
+  --navX: 0.46;
   --navClosedY: -200%;
 }
 .Header.HeaderCylinder .HeaderNav ul:has(li:nth-of-type(4):last-of-type) li:nth-of-type(1) {

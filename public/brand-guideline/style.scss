@@ -190,7 +190,16 @@ html {
         color: var(--foreground);
         font-style: normal;
         background-color: var(--background);
+        &:has(.manual.is_open){overflow: hidden;}
 } 
+body{
+        animation: fadeIn 0.6s;
+
+}
+@keyframes fadeIn {
+        0% {opacity: 0;}
+        100% {opacity: 1;}
+}
 .Ser {font-family: var(--Ser);}
 .San {font-family: var(--San);}
 .Eng {font-family: var(--Eng);}
@@ -303,6 +312,7 @@ h3 {
         margin-block: 0 0em;
 }
 button{
+        background-color: var(--GR30);
         transition: var(--trans);
         &:hover {
                 filter: invert(1);
@@ -371,6 +381,7 @@ button{
                 padding: var(--PX);
                 border: var(--line);
                 background: var(--BC);
+                overflow-y: auto;
         }
         &_dl {
                 display: grid;
@@ -391,11 +402,21 @@ button{
                 }
         }
         &_close {
+                border: var(--line);
                 position: absolute;
                 top: var(--PX);
                 right: var(--PX);
                 line-height: 1;
                 display: flex;align-items: center;
+        }
+        &_code {
+                display: inline-block;
+                margin-block: var(--spaceXS);
+                padding: var(--spaceS) var(--spaceM);
+                margin-block: var(--spaceS);
+                font-family: monospace;
+                background: var(--GR10);
+                border: var(--line);
         }
 }
 .footer {

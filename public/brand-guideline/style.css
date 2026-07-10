@@ -239,7 +239,32 @@ html {
   font-style: normal;
   background-color: var(--background);
 }
+html:has(.manual.is_open) {
+  overflow: hidden;
+}
 
+body {
+  -webkit-animation: fadeIn 0.6s;
+          animation: fadeIn 0.6s;
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .Ser {
   font-family: var(--Ser);
 }
@@ -521,6 +546,7 @@ h3 {
 }
 
 button {
+  background-color: var(--GR30);
   -webkit-transition: var(--trans);
   transition: var(--trans);
 }
@@ -621,6 +647,7 @@ button:hover {
   padding: var(--PX);
   border: var(--line);
   background: var(--BC);
+  overflow-y: auto;
 }
 .manual_dl {
   display: grid;
@@ -640,6 +667,7 @@ button:hover {
   font-weight: var(--HFW);
 }
 .manual_close {
+  border: var(--line);
   position: absolute;
   top: var(--PX);
   right: var(--PX);
@@ -650,6 +678,15 @@ button:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+.manual_code {
+  display: inline-block;
+  margin-block: var(--spaceXS);
+  padding: var(--spaceS) var(--spaceM);
+  margin-block: var(--spaceS);
+  font-family: monospace;
+  background: var(--GR10);
+  border: var(--line);
 }
 
 .footer {

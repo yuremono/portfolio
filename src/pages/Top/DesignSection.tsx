@@ -77,7 +77,7 @@ export function DesignSection({ className }: DesignSectionProps) {
 						</div>
 						<div className="mt-4 flex justify-end gap flex-wrap JsChL">
 							<a
-								href="/activity#panel-0425"
+								href="/activity#panel-0429"
 								className=" md:text-xl hover:invert "
 							>
 								GPT Image レポート

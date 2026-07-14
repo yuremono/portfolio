@@ -29,7 +29,7 @@ html{
 .ScrollSmooth{scroll-behavior: smooth;}
 .ScrollAuto{scroll-behavior: auto;}
 html:not(:has(.HeaderCylinder)) :where(:target,[id]){//アンカーリンク用 ヘッダー幅を確保
-	scroll-margin-top: calc(var(--head) * 1.5);
+	scroll-margin-top: calc(var(--head) * 1.0);
 }
 :where(.PageRoot),
 :where(#root)>div {//index.scss tailwind overwrite
@@ -45,7 +45,7 @@ html:not(:has(.HeaderCylinder)) :where(:target,[id]){//アンカーリンク用 
 }
 :root{
         --pageTR: 0.5s;
-        --initial-loading-min: 1000ms;
+        --initial-loading-min: 600ms;
 }
 
 // :where(*) {//FireFox

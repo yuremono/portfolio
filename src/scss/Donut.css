@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;800&display=swap");
 html.Donuts {
   --wid: 85%;
   --logoW: calc(100% - var(--wid));

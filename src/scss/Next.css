@@ -1,5 +1,4 @@
 @charset "UTF-8";
-@import url("https://fonts.googleapis.com/css2?family=Jost:wght@100..900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap");
 /* --------------------------------------------------------------------------
  * ScrollX ラッパー（Next ページ専用）
  * 他セクションは --wid だが、ここは常に「1 枚＝画面」とみなす（各 100vw × 100lvh）。

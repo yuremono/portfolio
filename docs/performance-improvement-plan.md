@@ -205,6 +205,17 @@ three.js 系は `HeaderCylinder` 等の 3D 表現で使用。
 1〜3 だけでも転送量が 7.8 MB → 2 MB 弱になり、リピート訪問はほぼキャッシュ配信に
 なる。4 は演出方針の判断が必要なので、実施前に選択肢 A/B/C のどれを取るか決めること。
 
+## 実施結果（2026-07-14）
+
+| 項目 | 結果 |
+|---|---|
+| 1. Cache-Control | **実施済み**。`scripts/deploy-aws.sh` を4段階 sync に変更（assets=1年 immutable / video・images=30日 / HTML等=no-cache）。次回 `deploy:aws:frontend` から有効 |
+| 2. FV 動画 | **見送り（削減不可能と判定）**。HEVC crf23 で frontend 6.9→12.6MB と逆に増加、AV1 crf36 でも同サイズ（SSIM 0.94 で既に劣化域）、VP9(WebM) も 11.9MB に増加（SSIM 0.917 と3コーデック中最低）。iPhone 非対応コーデックは `<source>` フォールバックで H.264 と出し分ける前提だったため互換性は問題でなく、純粋にサイズが減らないため見送り。ノイズ成分の多い映像のため HandBrake 出力が既に圧縮限界。品質を落とさない削減手段は存在しない。Cache-Control 30日により再訪問時の再取得は解消 |
+| 3. Google Fonts | **実施済み**。3系統の読み込みを `index.html` の `<link>` 1本に統合（Jost / Noto Serif JP / Shippori Mincho 400-800 / Viaoda Libre / Zen Kaku Gothic New）。`_01variables.scss` `Next.scss` `Donut.scss` と対応するコンパイル済み CSS から `@import url(...)` を削除 |
+| 4. 初回ローディング | **600ms に戻して据え置き**。600ms  |
+| 5. three / maskMosaique | **一部実施**。`HeaderCylinder` 内の `ModulationCylinderLogo`（three + R3F 約680KB）のマウントを requestIdleCallback 後（Safari は 300ms 後）に遅延。フォールバック表示は既存の `LogoLoading` を使用するため見た目は従来の読み込み中と同じ。maskMosaique 名のチャンクは実体が React 本体を含むアプリコアのため遅延不可 |
+| 6. 未使用 CSS | **保留**（ユーザー判断） |
+
 ## 検証方法
 
 - 各施策の適用後に `npx lighthouse https://portfolio.yuremono.com/ --preset=desktop --only-categories=performance` で before/after を比較する（PSI の無料枠が回復していれば PSI でも可）

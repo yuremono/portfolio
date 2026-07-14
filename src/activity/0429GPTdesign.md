@@ -1,5 +1,5 @@
 ---
-id: 0425
+id: 0429
 label: GPT Design > LP 
 category: ページ
 title: CodexでGPT Design > LP 

@@ -38,7 +38,20 @@ deploy_frontend() {
 	npx vite build --base=/
 
 	echo "== フロントエンド: S3同期 =="
-	aws s3 sync dist/ "s3://${S3_BUCKET}/" --delete
+	# ハッシュ付きアセットは immutable、メディアは30日、それ以外(HTML等)は no-cache
+	aws s3 sync dist/assets/ "s3://${S3_BUCKET}/assets/" --delete \
+		--cache-control "public,max-age=31536000,immutable"
+	if [[ -d dist/video ]]; then
+		aws s3 sync dist/video/ "s3://${S3_BUCKET}/video/" --delete \
+			--cache-control "public,max-age=2592000"
+	fi
+	if [[ -d dist/images ]]; then
+		aws s3 sync dist/images/ "s3://${S3_BUCKET}/images/" --delete \
+			--cache-control "public,max-age=2592000"
+	fi
+	aws s3 sync dist/ "s3://${S3_BUCKET}/" --delete \
+		--exclude "assets/*" --exclude "video/*" --exclude "images/*" \
+		--cache-control "no-cache"
 
 	echo "== フロントエンド: CloudFrontキャッシュ無効化 =="
 	aws cloudfront create-invalidation --distribution-id "$CLOUDFRONT_DIST_ID" --paths "/*"

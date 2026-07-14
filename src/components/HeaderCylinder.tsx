@@ -97,7 +97,20 @@ function positionDropPopover(popover: HTMLUListElement, source: HTMLElement) {
 export default function HeaderCylinder({ className }: HeaderCylinderProps) {
 	const [open, setOpen] = useState(false);
 	const [logoReady, setLogoReady] = useState(false);
+	const [logoMountReady, setLogoMountReady] = useState(false);
 	const navRef = useRef<HTMLElement>(null);
+
+	useEffect(() => {// three を含む Logo チャンクの取得・評価を初期描画後（アイドル時）に回す
+		if (typeof window.requestIdleCallback === "function") {
+			const idleId = window.requestIdleCallback(
+				() => setLogoMountReady(true),
+				{ timeout: 1500 },
+			);
+			return () => window.cancelIdleCallback(idleId);
+		}
+		const timeoutId = window.setTimeout(() => setLogoMountReady(true), 300);
+		return () => window.clearTimeout(timeoutId);
+	}, []);
 
 	const hideOpenDropPopovers = useCallback(() => {
 		const root = navRef.current;
@@ -155,13 +168,17 @@ export default function HeaderCylinder({ className }: HeaderCylinderProps) {
 					aria-label={open ? "Close menu" : "Open menu"}
 					onClick={toggleOpen}
 				>
-					<Suspense fallback={<span className="LogoLoading" />}>
-						<ModulationCylinderLogo
-							interactive={false}
-							autoSpin
-							onReadyChange={setLogoReady}
-						/>
-                                        </Suspense>
+					{logoMountReady ? (
+						<Suspense fallback={<span className="LogoLoading" />}>
+							<ModulationCylinderLogo
+								interactive={false}
+								autoSpin
+								onReadyChange={setLogoReady}
+							/>
+						</Suspense>
+					) : (
+						<span className="LogoLoading" />
+					)}
                                         <span className="HeaderAnotation WTS text-[--BC] ">
                                                 <span>Tap or Click</span>
                                                 <span>Open Menu</span>

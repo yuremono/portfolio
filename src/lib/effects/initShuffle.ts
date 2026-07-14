@@ -125,7 +125,7 @@ export function initShuffle(root: Document | Element): RuntimeDisconnect {
 		trackTimeout(performShuffle, 100);
 	};
 
-	if (!prefersReducedMotion()) {
+	const initShuffleElements = () => {
 		const shuffleElements = Array.from(
 			root.querySelectorAll<ShuffleElement>(".shuffle"),
 		);
@@ -165,10 +165,22 @@ export function initShuffle(root: Document | Element): RuntimeDisconnect {
 		});
 
 		if (observer) cleanups.push(() => observer.disconnect());
+	};
+
+	let disposed = false;
+	if (!prefersReducedMotion()) {
+		const rafId = window.requestAnimationFrame(() => {// 初回レイアウトでフォント要求を発火させてから、フォント確定後に採寸・初期化する（スワップ前の寸法で width/height を固定すると崩れるため）
+			void document.fonts.ready.then(() => {
+				if (disposed) return;
+				initShuffleElements();
+			});
+		});
+		cleanups.push(() => window.cancelAnimationFrame(rafId));
 	}
 
 	return {
 		disconnect: () => {
+			disposed = true;
 			cleanups.forEach((cleanup) => cleanup());
 			cleanups.length = 0;
 			clearTimeouts(timeouts);

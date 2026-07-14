@@ -190,6 +190,7 @@ html {
         color: var(--foreground);
         font-style: normal;
         background-color: var(--background);
+        scrollbar-gutter: stable;
         &:has(.manual.is_open){overflow: hidden;}
 } 
 body{
@@ -291,10 +292,23 @@ h1,h2,h3,h4,h5,h6,.largeFZ {
 	&:focus-visible { outline: 2px solid var(--AC); outline-offset: 0px; }
 }
 
-/* layout — 装飾(色・フォント)は使わない */
+
 *, *::before, *::after { box-sizing: border-box; }
 body { margin: 0; }
 ul, ol, dl, dd, p { margin: 0; padding: 0; }
+
+:where(*)::-webkit-scrollbar {
+	width: 0.375rem;
+	height: 0.25rem;
+	background-color: transparent;
+}
+:where(*)::-webkit-scrollbar-track {
+	background-color: transparent;
+}
+:where(*)::-webkit-scrollbar-thumb {
+	border-radius: var(--rad);
+	background-color: color-mix(in srgb, transparent, var(--foreground) 30%);
+}
 
 main { 
         display: flex; flex-direction: column; gap: var(--spaceL); max-width: 100%;
@@ -403,9 +417,9 @@ button{
         }
         &_close {
                 border: var(--line);
-                position: absolute;
-                top: var(--PX);
-                right: var(--PX);
+                position: fixed;
+                top: calc(var(--MY) + var(--PX) );
+                right: calc(var(--into) + var(--PX2) );
                 line-height: 1;
                 display: flex;align-items: center;
         }

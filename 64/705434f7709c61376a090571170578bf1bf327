@@ -1,0 +1,52 @@
+docs/performance-improvement-plan.md
+  s_1408cfdd77abd4::t_557ddef111f19d 208-212,214,216-218
+  s_1408cfdd77abd4::t_ca706700b18cf2 213
+  h_53dad1e32c3c71 215
+src/scss/Donut.scss
+  s_1408cfdd77abd4::t_e0206ac717dd06 1
+index.html
+  s_1408cfdd77abd4::t_ab2822449e0c2c 11
+src/scss/Next.scss
+  s_1408cfdd77abd4::t_7daaf1d43e10e0 1
+src/index.scss
+  h_53dad1e32c3c71 32,48
+scripts/deploy-aws.sh
+  s_1408cfdd77abd4::t_448b148f8b2228 41-54
+src/components/HeaderCylinder.tsx
+  s_1408cfdd77abd4::t_2f7565e6ac876c 100,103-113
+  s_1408cfdd77abd4::t_37664c7d590f3f 171-181
+  s_1408cfdd77abd4::t_a3435e31992b5f 114
+src/scss/_01variables.scss
+  s_1408cfdd77abd4::t_63277ee1d55fec 5
+src/scss/_10UNIT.scss
+  h_53dad1e32c3c71 1036-1038
+src/pages/Top/DesignSection.tsx
+  h_53dad1e32c3c71 80
+src/scss/ShuffleDivide.scss
+  h_53dad1e32c3c71 19,47-48
+src/activity/0429GPTdesign.md
+  h_53dad1e32c3c71 2
+src/lib/effects/initShuffle.ts
+  s_1408cfdd77abd4::t_d7fcfe363102f9 128,168-178,183
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.13",
+  "base_commit_sha": "64705434f7709c61376a090571170578bf1bf327",
+  "prompts": {},
+  "humans": {
+    "h_53dad1e32c3c71": {
+      "author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_1408cfdd77abd4": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "ee7be372-854b-4a02-a84c-e14d369af66e",
+        "model": "claude-fable-5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  }
+}

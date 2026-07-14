@@ -1,0 +1,26 @@
+docs/performance-improvement-plan.md
+  s_1408cfdd77abd4::t_3f92e124234f02 1-212
+public/brand-guideline/style.scss
+  h_53dad1e32c3c71 193,295,300-312,420-422
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.13",
+  "base_commit_sha": "8395564257aad428d61e7ca882e685c17ea52b9d",
+  "prompts": {},
+  "humans": {
+    "h_53dad1e32c3c71": {
+      "author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_1408cfdd77abd4": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "ee7be372-854b-4a02-a84c-e14d369af66e",
+        "model": "claude-fable-5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  }
+}

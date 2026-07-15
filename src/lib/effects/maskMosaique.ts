@@ -48,6 +48,12 @@ export interface PageTransitionMosaiqueLabel {
 	fontWeight?: string;
 	lineHeight?: number;
 	text: string;
+	/** JsLetter と同じ「--first-delay + index * --letter-delay」で計算した、空白以外の文字ごとの出現時刻(ms)。未指定なら全文字を即時描画する。 */
+	charAppearAtMs?: number[];
+	/** charAppearAtMs の基準となる performance.now() 値。描画側はこの時刻からの経過で出現済み文字を判定する。 */
+	appearBaseTimeMs?: number;
+	/** 描画側が更新する「現在表示中の文字数」。フレーム落ち時に複数文字が一斉出現しないよう、1回の描画で最大1文字ずつしか増えない。 */
+	visibleCharCount?: number;
 }
 
 const RESIZE_DEBOUNCE_MS = 200; // 画面サイズ変更後、モザイクの位置と分割数を再計算するまでの待ち時間。
@@ -307,8 +313,49 @@ export function drawPageTransitionLabel(
 	ctx.clip();
 	ctx.fillStyle = label.color ?? "#ffffff";
 	ctx.font = `${fontStyle} ${fontWeight} ${fontSize}px ${fontFamily}`;
-	ctx.textAlign = "center";
 	ctx.textBaseline = "middle";
+
+	if (label.charAppearAtMs && label.charAppearAtMs.length > 0) {// JsLetter と同じ遅延式で、経過時間内に出現済みの文字だけを元の位置に描く
+		const appearAtList = label.charAppearAtMs;
+		const elapsedMs =
+			performance.now() - (label.appearBaseTimeMs ?? Number.NEGATIVE_INFINITY);
+		let eligibleCount = 0;
+		while (
+			eligibleCount < appearAtList.length &&
+			elapsedMs >= appearAtList[eligibleCount]
+		) {
+			eligibleCount += 1;
+		}
+		// フレーム落ちで予定時刻を複数まとめて跨いでも、1回の描画で増えるのは最大1文字（キュー型）
+		const visibleCount = Math.min(
+			eligibleCount,
+			(label.visibleCharCount ?? 0) + 1,
+		);
+		label.visibleCharCount = Math.max(label.visibleCharCount ?? 0, visibleCount);
+
+		let charIndex = 0;
+		ctx.textAlign = "left";
+		lines.forEach((line, index) => {
+			const y = firstLineY + index * lineHeight;
+			const chars = Array.from(line);
+			const widths = chars.map((ch) => ctx.measureText(ch).width);
+			let x =
+				ctx.canvas.width / 2 - widths.reduce((sum, w) => sum + w, 0) / 2;
+			chars.forEach((ch, i) => {
+				const hasDelay = ch.trim() !== "";
+				const isVisible = hasDelay ? charIndex < visibleCount : true;
+				if (hasDelay) charIndex += 1;
+				if (isVisible) {
+					ctx.fillText(ch, x, y);
+				}
+				x += widths[i];
+			});
+		});
+		ctx.restore();
+		return;
+	}
+
+	ctx.textAlign = "center";
 	lines.forEach((line, index) => {
 		ctx.fillText(
 			line,

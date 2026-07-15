@@ -151,7 +151,7 @@ function Top() {
 						<h1 className="JsLetter IsDeco text-xl font-normal budoux mmPin  static   leading-[2em] left-1/2 top-1/2 z-10 text-left px-[--PX2] md:p-4 bg-background/50 ">
 							<strong>3.5</strong> years as a <b>Web</b> Designer & <b>Coder</b>
 							<br />
-							<b>AI-driven</b> development since <strong>2025/05</strong>
+							<b>AI-driven</b> development since <strong>2025.05</strong>
 							<br />
                                                         <b className="lsMinus">Yuremono</b>&nbsp;=&nbsp;Modulation&nbsp;<b className="lsMinus "> effectors</b>
 						</h1>
@@ -163,13 +163,13 @@ function Top() {
 									className="mm1-3 text-[--GR] font-light text-left tracking-[-0.025em]"
 									style={{ fontSize: "3em" }}
 								>
-									Experience and
+									Experience 
 									<br />
-									Dependencies
+									and Tools
 								</h2>
 								<div className="text-base mmPin mmStatic max-w-[calc(var(--wid)/2)]  experience_tx text-left San font-light   leading-[2em] static lg:absolute left-1/2 top-[--MY] z-10 p-4 bg-background/50">
 									<h3 className="text-GR text-[1.25em] inline-block mr-4">
-										経験と依存性
+										経験と使用ツール
 									</h3>
 									<button
 										type="button"
@@ -249,8 +249,8 @@ function Top() {
 							{experienceDialogMounted ? <DialogFull
 								id="experience-dialog"
 								open={experienceDialogOpen}
-								dialogAriaLabel="Experience and Dependencies"
-								closeAriaLabel="Experience and Dependenciesを閉じる"
+								dialogAriaLabel="Experience and Tools"
+								closeAriaLabel="Experience and Toolsを閉じる"
 								onOpenChange={(open) => {
 									setActiveDialogId(
 										open ? EXPERIENCE_DIALOG_KEY : null,
@@ -263,16 +263,16 @@ function Top() {
 											Details
 										</p>
 										<h2 className="font-medium text-GR">
-											Experience and Dependencies
+											Experience and Tools
 										</h2>
 										<p className="mt-2 leading-[--LH]">
-											経験とAI依存の詳細。
+											職種経験と使用ツールの詳細。
 										</p>
 									</div>
 								</header>
 								<section
 									className="mt-8"
-									aria-label="Experience and Dependencies "
+									aria-label="Experience and Tools "
 								>
 									<Cards className="col3 [--gap:1rem] ">
 										<CardsItem className="space-y-4">
@@ -410,6 +410,17 @@ function Top() {
 																rel="noopener noreferrer"
 															>
 																wp-izakaya
+																<ArrowSquareOutIcon
+																	size={16}
+																/>
+															</a>
+															<a
+																href="http://yuremono.com/sansuien"
+																className=" align-top leading-[1.8] ml-2"
+																target="_blank"
+																rel="noopener noreferrer"
+															>
+																wp-sansuien
 																<ArrowSquareOutIcon
 																	size={16}
 																/>

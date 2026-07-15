@@ -28,7 +28,7 @@
   }
 }
 :root {
-  --Ser: "Noto Serif JP", serif;
+  --Ser: "Shippori Mincho", serif;
   --San:
           -apple-system,
           /* iOS/macOS */
@@ -41,7 +41,7 @@
           "Roboto", "Noto Sans CJK JP",
           /* Android */
           sans-serif;
-  --Ship: "Shippori Mincho","Noto Serif JP", serif;
+  --Ship: "Shippori Mincho", serif;
   --Zen: "Zen Kaku Gothic New",var(--San), sans-serif;
   --Jost: "Jost",var(--San), sans-serif;
   --Via: "Viaoda Libre",var(--San), sans-serif;

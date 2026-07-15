@@ -8,7 +8,11 @@
     <!-- Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@100..900&family=Noto+Serif+JP:wght@200..900&family=Shippori+Mincho:wght@400;500;600;700;800&family=Viaoda+Libre&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" />
+    <!-- ローディング用 Jost先読み -->
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/jost/v20/92zatBhPNqw73oTd4jQmfxI.woff2" />
+    <!-- フォント非ブロッキング読み込み（media=print → onload で有効化）。-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@100..900&family=Shippori+Mincho:wght@400;500;600;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@100..900&family=Shippori+Mincho:wght@400;500;600;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" /></noscript>
 
     <!-- SEO -->
     <meta name="description" content="Web制作とAI駆動開発のポートフォリオ。ヴィジュアル表現とコンテキストエンジニアリングに注力。制作物・デモを公開しています。yuremono works。" />
@@ -68,6 +72,29 @@
   </head>
   <body>
     <div id="root"></div>
+<!-- ファーストペイント: JS 到着前に背景を描画。FCP 対策 SVG, InitialLoadingOverlay がキャンバス描画直後に除去 -->
+<div id="InitialLoadingBoot" aria-hidden="true"
+     style="position: fixed; inset: 0; z-index: 10000; ">
+        <svg width="100%" height="100%" preserveAspectRatio="none" focusable="false" aria-hidden="true">
+                <rect width="100%" height="100%" fill="oklch(75% 0 270)" />
+        </svg>
+</div>
+<script>
+        (function () {
+                var boot = document.getElementById("InitialLoadingBoot");
+                if (!boot) return;
+                try {
+                        if (window.sessionStorage.getItem("InitialLoadingViewed") === "1") {
+                                boot.remove();
+                                return;
+                        }
+                } catch (e) { }
+                window.setTimeout(function () {
+                        var el = document.getElementById("InitialLoadingBoot");
+                        if (el) el.remove();
+                }, 12000);
+        })();
+</script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

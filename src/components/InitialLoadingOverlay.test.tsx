@@ -99,8 +99,8 @@ describe("InitialLoadingOverlay", () => {
 			false,
 		);
 
-		act(() => {
-			vi.advanceTimersByTime(1000);
+		act(() => {// reveal は「最低表示時間(1000ms)」と「文字送り完了(--first-delay + 12文字 × --letter-delay = 1250ms)」の遅い方の後に始まる
+			vi.advanceTimersByTime(1300);
 		});
 		expect(playPageTransitionMosaiqueMock).toHaveBeenCalledWith(
 			expect.objectContaining({ className: "InitialLoadingCanvas" }),

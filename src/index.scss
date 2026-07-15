@@ -98,7 +98,7 @@ html.PageTransitionScrollInstant {
 .PageTransitionOverlay {
 	position: fixed;
 	inset: 0;
-	z-index: 2147483647;
+	z-index: 10000;
 }
 
 body.SiteTransitionPending #root > :not(.InitialLoading) {
@@ -124,8 +124,11 @@ body.SiteTransitionPending #root > .InitialLoading {
         //overwrite
 	--initial-loading-font-size: calc(var(--mmFZ)*3);
 	--initial-loading-text: var(--background);
+	// キャンバスラベルの文字送りだけ遅くする
+        --first-delay: 0s;
+	--letter-delay: 0.1s;
 
-	--page-rect-bg: var(--MC);
+	--page-rect-bg: var(--GR);
 	--page-rect-size: 0.01;
 	visibility: visible;
 	pointer-events: auto;
@@ -138,7 +141,7 @@ body.SiteTransitionPending #root > .InitialLoading {
 
 .InitialLoadingLayer {
 	background-color: transparent;
-	z-index: 2147483647;
+	z-index: 100000;
 }
 
 .InitialLoadingCanvas {

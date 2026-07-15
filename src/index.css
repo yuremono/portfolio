@@ -145,7 +145,9 @@ body.SiteTransitionPending #root > .InitialLoading {
   --initial-loading-line-height: 1;
   --initial-loading-font-size: calc(var(--mmFZ)*3);
   --initial-loading-text: var(--background);
-  --page-rect-bg: var(--MC);
+  --first-delay: 0s;
+  --letter-delay: 0.1s;
+  --page-rect-bg: var(--GR);
   --page-rect-size: 0.01;
   visibility: visible;
   pointer-events: auto;

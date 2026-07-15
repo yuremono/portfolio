@@ -291,7 +291,7 @@
         place-content: center;
         position: fixed;
         top: 50%;
-        z-index: 1000000;
+        z-index: 10000;
         @apply  w-[calc(var(--logoW)/3*2)] lg:w-[var(--logoW)] top-0 right-0 pointer-events-auto h-auto  p-0 border-0 lg:top-1/2 lg:translate-y-[-52.5%]  aspect-square lg:aspect-[1/2] [border-radius:0_0_0_calc(var(--head)/2)] lg:[border-radius:999px_0_0_999px];
         background: var(--BC);
         // overflow: clip;

@@ -5,7 +5,7 @@
 // Webフォントは index.html の <link> で一括読み込みする（CSS内 @import はレンダーブロッキングの直列チェーンになるため使わない）
 
 :root {//font
-        --Ser: "Noto Serif JP", serif;
+        --Ser: "Shippori Mincho", serif;
 
            // "Noto Sans JP",
            // "メイリオ", Meiryo,
@@ -21,7 +21,7 @@
                 "Roboto", "Noto Sans CJK JP",
                 /* Android */
                 sans-serif;
-        --Ship: "Shippori Mincho","Noto Serif JP", serif;
+        --Ship: "Shippori Mincho", serif;
         --Zen: "Zen Kaku Gothic New",var(--San), sans-serif;
         --Jost: "Jost",var(--San), sans-serif;
         --Via: "Viaoda Libre",var(--San), sans-serif;

@@ -100,16 +100,54 @@ export default function HeaderCylinder({ className }: HeaderCylinderProps) {
 	const [logoMountReady, setLogoMountReady] = useState(false);
 	const navRef = useRef<HTMLElement>(null);
 
-	useEffect(() => {// three を含む Logo チャンクの取得・評価を初期描画後（アイドル時）に回す
-		if (typeof window.requestIdleCallback === "function") {
-			const idleId = window.requestIdleCallback(
-				() => setLogoMountReady(true),
-				{ timeout: 1500 },
-			);
-			return () => window.cancelIdleCallback(idleId);
+	useEffect(() => {// three を含む Logo チャンクは初回ローディング演出の完了後に読み込む（演出中のフレーム落ち防止）
+		let idleId: number | null = null;
+		let timeoutId: number | null = null;
+		let observer: MutationObserver | null = null;
+		let scheduled = false;
+
+		const scheduleMount = () => {
+			if (scheduled) return;
+			scheduled = true;
+			observer?.disconnect();
+			observer = null;
+			if (timeoutId != null) {
+				window.clearTimeout(timeoutId);
+				timeoutId = null;
+			}
+			if (typeof window.requestIdleCallback === "function") {
+				idleId = window.requestIdleCallback(() => setLogoMountReady(true), {
+					timeout: 1500,
+				});
+				return;
+			}
+			timeoutId = window.setTimeout(() => setLogoMountReady(true), 300);
+		};
+
+		const pendingOverlay = document.querySelector(
+			".InitialLoading:not(.InitialLoadingDone)",
+		);
+		if (!pendingOverlay) {
+			scheduleMount();
+		} else {
+			observer = new MutationObserver(() => {
+				if (pendingOverlay.classList.contains("InitialLoadingDone")) {
+					scheduleMount();
+				}
+			});
+			observer.observe(pendingOverlay, {
+				attributes: true,
+				attributeFilter: ["class"],
+			});
+			// 演出が万一完了しない場合の保険
+			timeoutId = window.setTimeout(scheduleMount, 10000);
 		}
-		const timeoutId = window.setTimeout(() => setLogoMountReady(true), 300);
-		return () => window.clearTimeout(timeoutId);
+
+		return () => {
+			observer?.disconnect();
+			if (idleId != null) window.cancelIdleCallback(idleId);
+			if (timeoutId != null) window.clearTimeout(timeoutId);
+		};
 	}, []);
 
 	const hideOpenDropPopovers = useCallback(() => {

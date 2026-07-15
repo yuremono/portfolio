@@ -1,5 +1,5 @@
 // import type { CSSProperties } from "react";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { Panel, PanelItem } from "../components/Panel";
 import { Toggle, ToggleSummary, ToggleBody } from "../components/Toggle";
 import { Image } from "../components/Image";
@@ -13,10 +13,22 @@ import { useClientRuntime } from "../hooks/useClientRuntime";
 import { useHtmlRootClass } from "../hooks/useHtmlRootClass";
 import { getAssetPath } from "../lib/assetPath";
 
+const VIAODA_FONT_LINK_ID = "ViaodaLibreFontCss";
+
 function Preview() {
 	const pageRootRef = useRef<HTMLDivElement>(null);
 	useClientRuntime({ rootRef: pageRootRef });
 	useHtmlRootClass();
+
+	useEffect(() => {// Viaoda Libre はこのページ専用のため、グローバルの初期ロードから外してここで読み込む
+		if (document.getElementById(VIAODA_FONT_LINK_ID)) return;
+		const link = document.createElement("link");
+		link.id = VIAODA_FONT_LINK_ID;
+		link.rel = "stylesheet";
+		link.href =
+			"https://fonts.googleapis.com/css2?family=Viaoda+Libre&display=swap";
+		document.head.appendChild(link);
+	}, []);
 
 	return (
 		<PageRoot ref={pageRootRef} className="[--Eng:--Via] [--HFF:--Via]">

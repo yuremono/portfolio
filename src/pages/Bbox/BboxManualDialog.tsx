@@ -2,9 +2,18 @@ import { useState } from "react";
 import { QuestionIcon } from "@phosphor-icons/react";
 import { DialogBase } from "../../components/DialogBase";
 
+interface BboxManualDialogProps {
+	/** マウント時にマニュアルを開いた状態で表示する（セッション初回アクセス時の自動表示用） */
+	initialOpen?: boolean;
+	className?: string;
+}
+
 /** 公開向けの簡易マニュアル。ツールバー「一括生成」の直前から全画面モーダルで表示する */
-export default function BboxManualDialog() {
-	const [open, setOpen] = useState(false);
+export default function BboxManualDialog({
+	initialOpen = false,
+	className,
+}: BboxManualDialogProps) {
+	const [open, setOpen] = useState(initialOpen);
 
 	return (
 		<>
@@ -14,7 +23,7 @@ export default function BboxManualDialog() {
 				aria-haspopup="dialog"
 				aria-expanded={open}
 				aria-controls="bbox-public-manual-dialog"
-				className="San inline-flex items-center gapH whitespace-nowrap rounded BorderXY px-2 py-[5px] text-xs text-accent transition-colors hover:border-accent hover:bg-accent/5"
+				className={`San inline-flex items-center gapH whitespace-nowrap rounded BorderXY px-2 py-[5px] text-xs text-accent transition-colors hover:border-accent hover:bg-accent/5 ${className ?? ""}`}
 				onClick={() => {
 					setOpen(true);
 				}}

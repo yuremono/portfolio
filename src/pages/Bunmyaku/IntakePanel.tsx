@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useSessionInitialOpen } from "../../hooks/useSessionInitialOpen";
+import BunmyakuManualDialog from "./BunmyakuManualDialog";
 import { outputQuestionSections, type IntakePanelProps, type OutputType, type QuestionCard } from "./data";
 import { FutureNotice } from "./FutureNotice";
 
@@ -53,6 +55,7 @@ const outputTypeJaLabels = {
 const hiddenOutputTypes: OutputType[] = ["PROMPT", "PROMPT_FOR_SKILL"];
 
 export function IntakePanel({ state, className }: IntakePanelProps) {
+	const manualInitialOpen = useSessionInitialOpen("bunmyaku_manual_auto_open");
 	const [openFreeTextIds, setOpenFreeTextIds] = useState<Set<string>>(() => new Set());
 	const questionGroups = getQuestionGroups(state.outputType, state.visibleQuestions);
 	const visibleOutputOptions = state.outputOptions.filter(
@@ -92,6 +95,7 @@ export function IntakePanel({ state, className }: IntakePanelProps) {
 							</h1> */}
 						</div>
 						<div data-l="HeaderActions" className="flex flex-wrap gap-2">
+							<BunmyakuManualDialog initialOpen={manualInitialOpen} />
 							<button
 								aria-pressed={state.showUnansweredAnswers}
 								className={[

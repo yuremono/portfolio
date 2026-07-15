@@ -91,6 +91,10 @@ document.addEventListener("DOMContentLoaded", () => {// 初期化
 	document.addEventListener("keydown", (e) => {
 		if (e.key === "Escape") toggleManual(false);
 	});
+	if (!sessionStorage.getItem("brand_guideline_manual_auto_open")) {// セッション初回アクセス時のみマニュアルを開いた状態で表示する
+		sessionStorage.setItem("brand_guideline_manual_auto_open", "1");
+		toggleManual(true);
+	}
 
 	document.querySelector('[data-action="save-source"]').addEventListener("click", async (e) => {// File System Access APIでソースを直接上書き（Chrome/Edge）
 		const btn = e.currentTarget;

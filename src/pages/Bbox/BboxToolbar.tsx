@@ -2,6 +2,7 @@ import type { ChangeEvent, RefObject } from "react";
 import BboxManualDialog from "./BboxManualDialog";
 import type { MutableState } from "./bboxPageModel";
 import { Link } from "react-router-dom";
+import { useSessionInitialOpen } from "../../hooks/useSessionInitialOpen";
 
 
 export interface BboxToolbarProps {
@@ -37,6 +38,8 @@ export default function BboxToolbar({
 	onLocalBatchExport,
 	localBatchExportActive,
 }: BboxToolbarProps) {
+	const manualInitialOpen = useSessionInitialOpen("bbox_manual_auto_open");
+
 	return (
 		<header
 			data-l="EditorToolbar"
@@ -238,7 +241,7 @@ export default function BboxToolbar({
 				data-l="ToolbarEnd"
 				className="ml-auto flex flex-wrap items-center gap-1"
 			>
-				<BboxManualDialog  />
+				<BboxManualDialog initialOpen={manualInitialOpen} />
 				<button
 					type="button"
 					title={

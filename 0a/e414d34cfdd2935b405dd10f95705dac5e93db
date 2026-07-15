@@ -1,0 +1,40 @@
+src/pages/Bbox/BboxToolbar.tsx
+  s_c50bb21403dae0::t_6c0a7578d71ba3 41-42
+  s_c50bb21403dae0::t_598624f6ac4e41 244
+  s_c50bb21403dae0::t_15c721e01ea755 5
+src/pages/Bbox/BboxManualDialog.tsx
+  s_c50bb21403dae0::t_e371327bfef567 26
+  s_c50bb21403dae0::t_c018ba0f2cd1b7 5-10,12-16
+public/brand-guideline/script.js
+  s_c50bb21403dae0::t_fcf2d4e9a62c89 94-97
+src/pages/Bunmyaku/BunmyakuManualDialog.tsx
+  s_c50bb21403dae0::t_191eec84e0ef5f 26
+  s_c50bb21403dae0::t_550376096ceb6b 1-25,27-137
+src/hooks/useSessionInitialOpen.ts
+  s_c50bb21403dae0::t_523329ecb898f2 1-25
+src/pages/Bunmyaku/IntakePanel.tsx
+  s_c50bb21403dae0::t_8638656d736409 2-3
+  s_c50bb21403dae0::t_1c9b5fbd76f34f 58
+  s_c50bb21403dae0::t_a7d585c2abb621 98
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.14",
+  "base_commit_sha": "0ae414d34cfdd2935b405dd10f95705dac5e93db",
+  "prompts": {},
+  "humans": {
+    "h_53dad1e32c3c71": {
+      "author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_c50bb21403dae0": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5b7bde00-712f-4d77-a200-0e952a9be597",
+        "model": "claude-fable-5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  }
+}

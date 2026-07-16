@@ -1,0 +1,27 @@
+src/styles/migration-plan.md
+  s_4f6156172144a6::t_bad25bf9fb3a11 322-376
+src/styles/AGENTS.md
+  s_4f6156172144a6::t_f96e0a5ce7878d 19-27,29
+  s_4f6156172144a6::t_cf1f958a884b21 30-32
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.14",
+  "base_commit_sha": "df9cfcca59ffa5b2759cf6d971efc5d4a8ae545e",
+  "prompts": {},
+  "humans": {
+    "h_53dad1e32c3c71": {
+      "author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_4f6156172144a6": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b1533389-5de9-4068-ac80-3e10015ba6ef",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  }
+}

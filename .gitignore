@@ -14,6 +14,10 @@ js/
 LOCAL.html
 public/images/oasiz
 DESIGN.md
+/src/scss/
+/src/scss/*
+/src/index.scss
+/src/index.css
 
 # skills は基本 push しない
 .claude/skills

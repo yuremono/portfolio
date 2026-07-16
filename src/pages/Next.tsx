@@ -28,7 +28,7 @@ import { ScrollXSection } from "../components/ScrollXSection";
 import { useClientRuntime } from "../hooks/useClientRuntime";
 import { useHtmlRootClass } from "../hooks/useHtmlRootClass";
 import { usePage } from "../hooks/usePage";
-import "../scss/Next.scss";
+// import "../scss/Next.scss"; // ScrollX として project レイヤーに常時読込済み
 
 /** `activeDialogId` が指すフルスクリーンダイアログ（DOM の `id` とは別） */
 const EXPERIENCE_DIALOG_KEY = "experience";

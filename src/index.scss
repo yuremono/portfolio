@@ -238,40 +238,6 @@ h1,h2,h3,h4,h5,h6,.largeFZ {
 .WTS3 {-webkit-text-stroke: var(--ST3);paint-order: stroke;}
 .BGgrad3 {background: var(--BGgrad3);}
 
-
-.UL {
-        @apply text-center [width:--wid];
-        li{
-                @apply inline-block p-[--PX] align-top;
-                box-shadow: inset -1px -1px  #000, -1px -1px #000;
-                // box-shadow: inset 0 0 1px #000, -1px -1px #000;
-        }
-        h3{
-                @apply [font-size:--h2FZ] leading-none;
-        }
-        details{
-                @apply w-auto inline-block ;
-                transition: var(--trans);
-                *{
-                        @apply text-left;
-                }
-                &[open] {
-                        @apply w-[calc(var(--wid)-12rem)];
-                }
-                &[open]:last-of-type ,
-                &[open]:first-of-type {
-                        @apply w-[calc(var(--wid)-6rem)];
-                }
-                &[open]+details:not([open]) {
-                        @apply w-[6rem];
-                }
-                &:has(+details[open]):not([open])  {
-                        @apply w-[6rem];
-                }
-        }
-}
-
-
 dialog{
         top: 0;
         opacity: 0;

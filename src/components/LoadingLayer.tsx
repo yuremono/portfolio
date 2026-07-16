@@ -25,7 +25,7 @@ function LoadingLayerContent({
 		<div
 			data-l="LoadingLayer"
 			aria-hidden="true"
-			className={`Eng fixed inset-0 z-[1000] bg-[var(--WH)] text-[var(--BK70)] transition-opacity duration-[1500ms] ease-out ${
+			className={`Eng fixed inset-0 z-[1000]  text-[var(--BK70)] transition-opacity duration-[1500ms] ease-out ${
 				active ? "pointer-events-auto" : "pointer-events-none"
 			} ${className}`}
 			style={{ opacity }}

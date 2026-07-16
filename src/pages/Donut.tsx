@@ -9,7 +9,7 @@ import { useHtmlRootClass } from "../hooks/useHtmlRootClass";
 
 import RingScrollShowcase from "./Donut/RingScrollShowcase";
 
-import "../scss/Donut.scss";
+import "../styles/object/project/_donut.scss";
 
 export default function Donut() {
 	const pageRootRef = useRef<HTMLDivElement>(null);

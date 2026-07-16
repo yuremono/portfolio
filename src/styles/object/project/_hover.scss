@@ -1,0 +1,159 @@
+@use "../../config" as *;
+%r-grow {
+        background-image: linear-gradient(currentColor, currentColor);
+        transition: var(--btnTR);
+        background-repeat: no-repeat;
+        background-position-y: 100%;
+        background-position-x: -105%;
+        background-size: 200% 1px;
+
+        //     animation: rightgrow2 var(--btnTR) forwards;
+        &:hover {
+                animation: rightgrow var(--btnTR);
+                background-position-x: 50%;
+        }
+
+        @keyframes rightgrow {
+                0% {
+                        background-position-x: 200%;
+                }
+
+                100% {
+                        background-position-x: 50%;
+                }
+        }
+
+        // @keyframes rightgrow2 {
+        //     0% {
+        //         background-position-x: 50%;
+        //     }
+        //     100% {
+        //         background-position-x: -105%;
+        //     }
+        // }
+}
+
+// button,
+// a {
+//         transition: var(--btnTR);
+//         font-size: inherit;
+
+//         &:where(:not([class], .h a, [href*=tel], .__tel)):hover {
+//                 opacity: .7;
+//         }
+
+//         &:hover,
+//         &:hover * {
+//                 transition-delay: 0s !important;
+//         }
+
+//         &:is(.itext, .sns_slide ul a) {
+//                 max-width: 100%;
+
+//                 &:hover {
+//                         opacity: .7;
+//                 }
+//         }
+
+//         &:is(.HeaderLogo a, .f_logolink, .itext, .sns_slide ul a) {
+//                 &:hover {
+//                         opacity: .7;
+//                 }
+//         }
+
+//         &:is(.sns_slide a, .__layer .box a) {
+//                 overflow: hidden;
+
+//                 figure {
+//                         overflow: hidden;
+//                 }
+
+//                 // img{transition: .4s;will-change: scale;}
+//                 &:hover {
+//                         scale: 1.02;
+//                         opacity: 1;
+//                 }
+//         }
+
+//         &:not([class*=_logo], [class*=slick] button) {
+//                 // border-radius: 4px;
+//                 outline-style: var(--decoS);
+//                 outline-color: var(--MC10);
+//                 outline-width: 0px;
+
+//                 &:focus {
+//                         outline-width: 1px;
+//                 }
+//         }
+// }
+
+.f_link,
+.pan1 a,
+.HeaderNav a:not(:has(>span)),
+.banner a ,
+// ,a.textlink:not([href*=tel],.__tel,span,.__grad)
+// ,.HeaderNav a:not(.drop a,.nopointer,:has(>span),:is(.logo *))
+.nav a:not(.drop ul li a),
+.f_nav ul a // ,.f_nav-column a
+,
+.blog_text h3 span
+        {
+        // ホバー下線
+        @extend %r-grow;
+        // @extend %b-grow;
+        background-position-x: -105%;
+        background-size: 200% var(--bdw);
+        // color: var(--tx);
+        background-image: linear-gradient(var(--CC), var(--CC));
+        // background-image: linear-gradient(var(--AC),var(--AC));
+        // animation: none!important;
+        // animation-duration: .4s;
+        // @media (max-width: 834px){
+        // // @include menu{
+        //     background-position-x: 0%;
+        //     animation: rightgrow var(--btnTR);
+        // }
+}
+.HeaderCylinder .HeaderNav a{
+        background-image: unset;
+        transition: 0s;
+}
+
+.nav a:not(.drop ul li a) {
+        //下線border類似
+        background-image: linear-gradient(var(--dropbtnBF), var(--dropbtnBF));
+        // @include menu{
+        background-position-x: 0%;
+        animation: rightgrow var(--btnTR);
+        // }
+}
+
+.f_btn // ,.HeaderNav .drop ul li
+// ,.drop ul li a
+// ,.btn:not([href*=tel], .__tel, span, .__grad)
+// ,.H-layer .veil
+
+// ,.btn
+// ,.h_contact
+// ,.Links .box
+// ,.layer article a div
+// ,.card2 .box:has(a)
+        {
+        //ホバーbgスライド
+        @extend %r-grow;
+        background-image: linear-gradient(to right, var(--WH), var(--WH));
+
+        // background-image: linear-gradient( 30deg,var(--tr) 25%,var(--BK) 25.1%,var(--BK) 74.9%,var(--tr) 75%);
+        // border-color: var(--btnBG);
+        background-position-x: -103%;
+        background-size: 300% 100%;
+
+        // animation: rightgrow2 var(--btnTR) forwards;
+        &:active {
+                background-position-x: 0%;
+        }
+
+        &.__wh {
+                background-image: linear-gradient(var(--MC), var(--MC));
+        }
+}

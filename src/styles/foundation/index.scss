@@ -1,0 +1,9 @@
+@use "sass:meta";
+@use "tailwind-base";
+
+// reset → base の順序依存はここで担保する
+@layer foundation {
+	@include meta.load-css("custom-property");
+	@include meta.load-css("reset");
+	@include meta.load-css("base");
+}

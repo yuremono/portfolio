@@ -1,0 +1,7 @@
+@layer tw-preflight, foundation, layout, component, project, utility;
+
+// プリフライトを最下位レイヤーに入れる。tw-preflight は Tailwind の予約名
+// （base/components/utilities）ではないため横取りされず、ネイティブレイヤーとして残る
+@layer tw-preflight {
+	@tailwind base;
+}

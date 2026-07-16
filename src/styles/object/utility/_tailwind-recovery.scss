@@ -1,0 +1,12 @@
+@use "../../config" as *;
+//tailwind recovery md: 等bpプレフィックスを使用
+@layer base{
+        .inline-size {container-type: inline-size;}
+        .rtl {direction: rtl;}
+        .ltr {direction: ltr;}
+        .text-align-last-justify{text-align-last: justify;}
+        .translateYH{translate: 0 -50%;}
+        .translateXH{translate: -50% 0;}
+        .translateXYH{translate: -50% -50%;}
+        .corner-bevel{corner-shape: bevel;}
+}

@@ -1,0 +1,52 @@
+// @use "../../config" as *;
+//Generator Page Controller
+div.tp-rotv {
+        // 変数は呼び出し元コンテナ（Rects.tsx）の arbitrary クラスで指定する。
+        // ここに直接宣言すると継承より優先され、TSX側の指定が効かなくなるので書かない
+        // Random Rects 等で実際に効く色は --tp-base-background-color（--MC に一旦統一）
+        font-size: inherit;
+        /* --tp-base-background-color: var(--GR); */
+        /* --tp-base-shadow-color: var(--AC); */
+        /* --tp-button-background-color: var(--SC); */
+        /* --tp-button-background-color-hover: var(--AC); */
+        /* --tp-button-background-color-focus: var(--AC); */
+        /* --tp-button-background-color-active: var(--AC); */
+        /* --tp-button-foreground-color: var(--AC); */
+        /* --tp-container-background-color: var(--AC); */
+        /* --tp-container-foreground-color: var(--AC); */
+        /* --tp-container-background-color-hover: var(--AC); */
+        /* --tp-container-background-color-focus: var(--AC); */
+        /* --tp-container-background-color-active: var(--AC); */
+        /* --tp-input-background-color: var(--AC); */
+        --tp-input-foreground-color: var(--TC);
+        /* --tp-input-background-color-hover: var(--AC); */
+        /* --tp-input-background-color-focus: var(--AC); */
+        /* --tp-input-background-color-active: var(--AC); */
+        /* --tp-label-foreground-color: var(--AC); */
+        /* モニター・区切りブレード未使用時（値は --AC 想定で保持） */
+        /* --tp-monitor-background-color: var(--AC); */
+        /* --tp-monitor-foreground-color: var(--AC); */
+        /* --tp-groove-foreground-color: var(--AC); */
+
+}
+
+.tp-fldv-expanded .tp-lblv_l {
+        text-align: right;
+}
+
+div.tp-lblv_v {
+        flex: unset;
+        width: unset;
+}
+
+/* plugin-essentials の radiogrid は幅が無いとGridが描画されない（上の unset を打ち消す） */
+div.tp-lblv_v:has(.tp-radgridv) {
+        width: var(--bld-vw);
+        min-width: var(--bld-vw);
+        flex: 0 0 auto;
+        align-self: flex-start;
+}
+
+.tp-rotv_b {
+        min-width: 25.5em;
+}

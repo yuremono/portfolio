@@ -8,7 +8,7 @@ import Header from "../components/Header";
 import { Footer } from "../components/Footer";
 import { PageRoot } from "../components/PageRoot";
 
-import "../scss/glitch.scss";
+import "../styles/object/project/_glitch.scss";
 
 const images = {
 	over: getAssetPath("/images/common/glitch-bg00.png"),

@@ -1,0 +1,8 @@
+@use "sass:meta";
+
+@layer component {
+	@include meta.load-css("btn");
+	@include meta.load-css("desc-list");
+	@include meta.load-css("intersection");
+	@include meta.load-css("unit");
+}

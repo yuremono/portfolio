@@ -1,0 +1,16 @@
+// @use "../../config" as *;
+.Ser {font-family: var(--Ser);}
+.San {font-family: var(--San);}
+.Eng {
+        font-family: var(--Eng);
+}
+.sub {//タイトルタグ内の小さい文字
+	font-size: 0.875rem;
+	color: var(--GR);
+        font-weight: 500;
+        font-family: var(--Eng);
+        line-height: var(--LH);
+        &.block{
+                margin-bottom: .5rem;
+        }
+}

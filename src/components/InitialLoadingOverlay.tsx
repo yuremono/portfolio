@@ -23,7 +23,7 @@ function removeBootElement() {
 /** TOP `.MindMap .about_p` と同じ文言に手動で揃える。 */
 export const INITIAL_LOADING_LABEL_TEXT = "yuremono\nworks";
 
-// デバッグ時は true にすると、sessionStorage を無視してリロードごとに表示します。
+// デバッグ用：sessionStorage 無視してリロードごとに表示。
 const InitialLoadingAlwaysShow = false;
 
 interface InitialLoadingOverlayProps {
@@ -272,8 +272,8 @@ export function InitialLoadingOverlay({
 		>
 			<LoadingLayer
 				active={active}
-				className="InitialLoadingLayer"
-				opacity={active ? 1 : 0}
+				className="InitialLoadingLayer "
+				opacity={active ? 1 : 1}
 			>
 				<p
 					ref={textStyleRef}

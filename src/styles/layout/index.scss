@@ -1,0 +1,57 @@
+// @use "sass:meta";
+// @use "../../config" as *;
+
+
+@layer layout {
+	.into {// --into
+		padding-inline: var(--into);
+	}
+
+	.intoL {// --into
+		padding-left: var(--into);
+
+	}
+
+	.intoR {// --into
+		padding-right: var(--into);
+	}
+
+	.out {// --out
+		margin-inline: var(--out);
+		max-width: unset;
+		width: unset;
+	}
+
+	.outR {
+		margin-right: var(--out);
+		max-width: unset;
+	}
+
+	.outL {
+		margin-left: var(--out);
+		max-width: unset;
+	}
+	main {// --PX
+		padding-inline: var(--PX);
+
+	}
+
+	main>* {
+
+		// --wid, --MY
+		//ページ内コンテンツ div の初期設定_
+		width: var(--wid);
+		max-width: 100%;
+		margin-inline: auto;
+		position: relative;
+
+		+* {
+			margin-top: var(--MY);
+		}
+
+		&:is(script, input[type="hidden"]) {
+			margin-top: unset;
+		}
+	}
+
+}

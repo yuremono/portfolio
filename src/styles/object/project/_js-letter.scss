@@ -1,0 +1,143 @@
+@use "../../config" as *;
+
+// const INLINE_TEXT_TAGS = new Set([//JsLetter内使用許可タグ
+// 	"SPAN","STRONG","EM","B","I","MARK","SMALL",
+// ]);
+.JsLetter {
+
+        //spanWrap.ts
+        span {
+                display: inline-block;
+                opacity: 0;
+                rotate: none;
+                transition: 0s;
+                width: 0;
+                padding: 0;
+        }
+
+        &.show span {
+                opacity: 1;
+                width: auto;
+        }
+
+        &.IsDeco {
+                line-height: 1.375;
+                font-style: italic;
+                background: linear-gradient(120deg, var(--navy), var(--wine), var(--brown), var(--forest)) repeat 0 0/100vw 35vh;
+                background-clip: text;
+                color: transparent;
+                animation: gradientMove 20s linear infinite;
+
+                >:not(span) {
+                        display: inline-flex;
+                        width: unset;
+                        font-family: var(--Ship);
+                        padding-right: 0.125rem;
+                        -webkit-text-stroke: 2px var(--TC);
+                        paint-order: stroke;
+
+                }
+
+                &:not(.show)>:not(span) {
+                        font-size: 0 !important;
+                }
+
+                @keyframes gradientMove {
+                        0% {
+                                background-position: 50% 0;
+                        }
+
+                        50% {
+                                background-position: 100% 0;
+                        }
+
+                        100% {
+                                background-position: 50% 0;
+                        }
+                }
+
+                >span>span {
+                        color: var(--GR50);
+                }
+
+                >b {
+                        font-size: 1.5em;
+
+                        @media (min-width: 768px) {
+                                font-size: 1.75em;
+                        }
+                }
+
+                >strong {
+                        font-size: 2em;
+
+                        @media (min-width: 768px) {
+                                font-size: 2.5em;
+                        }
+                }
+
+                .lsMinus {
+                        letter-spacing: -0.1em;
+                        color: var(--GR80);
+                        -webkit-text-stroke: 1px var(--TR);
+                }
+        }
+
+        &.IsDeco2 {
+                line-height: 1.375;
+
+                >*>* {
+                        padding-inline: 0;
+                }
+
+                >:not(span) {
+                        display: inline-flex;
+                        font-family: var(--Ship);
+                        font-style: italic;
+                        // padding-inline: 0.125rem 0.375rem;
+                        padding-bottom: 0.125rem;
+                        margin-right: 0.125rem;
+                        line-height: 1.25;
+                        // background-clip: text;
+                        color: var(--background);
+                        background-color: #fff;
+
+                        // -webkit-text-stroke: 2px var(--WH);
+                        // paint-order:stroke;
+                        >span {
+                                color: var(--deco);
+                        }
+                }
+
+                &.show>* {
+                        >span:first-of-type {
+                                padding-left: 0.125em;
+                        }
+
+                        >span:last-of-type {
+                                padding-right: 0.375em;
+                        }
+                }
+
+
+                >b {
+                        font-size: 1.5em;
+
+                        @media (min-width: 768px) {
+                                font-size: 1.75em;
+                        }
+                }
+
+                >strong {
+                        font-size: 2em;
+
+                        @media (min-width: 768px) {
+                                font-size: 2.5em;
+                        }
+                }
+
+                .lsMinus {
+                        letter-spacing: -0.1em;
+                }
+        }
+}

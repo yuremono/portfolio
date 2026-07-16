@@ -1,0 +1,41 @@
+// @use "../../config" as *;
+.imgContain img{object-fit: contain;}
+.imgCover img{object-fit: cover;}
+/* SVG を img で表示するセクション用（object-fit: cover を上書き） */
+// .useSvgIcons img[src$=".svg"],
+// .useSvgIcons img[src^="data:image/svg"]{object-fit: contain;}
+
+.img16-9 :is(img,svg,video){aspect-ratio: 16/9;}
+.img5-7 :is(img,svg,video){aspect-ratio: 5/7;}
+.img9-5 :is(img,svg,video){aspect-ratio: 9/5;}
+.img8-5 :is(img,svg,video){aspect-ratio: 8/5;}
+.img7-5 :is(img,svg,video){aspect-ratio: 7/5;}
+.img6-5 :is(img,svg,video){aspect-ratio: 6/5;}
+.img4-5 :is(img,svg,video){aspect-ratio: 4/5;}
+.img3-5 :is(img,svg,video){aspect-ratio: 3/5;}
+.img2-5 :is(img,svg,video){aspect-ratio: 2/5;}
+.img1-5 :is(img,svg,video){aspect-ratio: 1/5;}
+.img9-4 :is(img,svg,video){aspect-ratio: 9/4;}
+.img7-4 :is(img,svg,video){aspect-ratio: 7/4;}
+.img5-4 :is(img,svg,video){aspect-ratio: 5/4;}
+.img3-4 :is(img,svg,video){aspect-ratio: 3/4;}
+.img1-4 :is(img,svg,video){aspect-ratio: 1/4;}
+.img7-3 :is(img,svg,video){aspect-ratio: 7/3;}
+.img5-3 :is(img,svg,video){aspect-ratio: 5/3;}
+.img4-3 :is(img,svg,video){aspect-ratio: 4/3;}
+.img2-3 :is(img,svg,video){aspect-ratio: 2/3;}
+.img1-3 :is(img,svg,video){aspect-ratio: 1/3;}
+.img7-2 :is(img,svg,video){aspect-ratio: 7/2;}
+.img5-2 :is(img,svg,video){aspect-ratio: 5/2;}
+.img3-2 :is(img,svg,video){aspect-ratio: 3/2;}
+.img1-2 :is(img,svg,video){aspect-ratio: 1/2;}
+.img6-1 :is(img,svg,video){aspect-ratio: 6/1;}
+.img5-1 :is(img,svg,video){aspect-ratio: 5/1;}
+.img4-1 :is(img,svg,video){aspect-ratio: 4/1;}
+.img3-1 :is(img,svg,video){aspect-ratio: 3/1;}
+.img2-1 :is(img,svg,video){aspect-ratio: 2/1;}
+.img1-1 :is(img,svg,video){aspect-ratio: 1/1;}
+
+
+.ScrollSmooth{scroll-behavior: smooth;}
+.ScrollAuto{scroll-behavior: auto;}

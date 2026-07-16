@@ -1,0 +1,13 @@
+@use "sass:meta";
+
+// Tailwind の @layer base{} ディレクティブを内包するパーシャル（md: 等の bp プレフィックス用）。
+// ネイティブ @layer にネストすると内容が消失する（Phase 0 スパイクで確認済み）ため、
+// トップレベルで読み込む。中身は @tailwind base の位置へホイストされ tw-preflight レイヤーに入る。
+@use "tailwind-recovery";
+
+@layer utility {
+	@include meta.load-css("decoration");
+	@include meta.load-css("display");
+	@include meta.load-css("spacing");
+	@include meta.load-css("typography");
+}

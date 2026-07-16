@@ -566,6 +566,7 @@ const VideoRingOverlay = forwardRef<VideoRingOverlayHandle, VideoRingOverlayProp
 					text={loadingTextVisible ? `${displayLoadPercent}%` : null}
 					textOpacity={loadingOverlayOpacity}
 					textShiftVw={loadingTextShift}
+					className="bg-[var(--WH)]"
 				/>
 				{canRenderMedia ? (
 					<div

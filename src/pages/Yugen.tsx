@@ -9,7 +9,7 @@ import { useClientRuntime } from "../hooks/useClientRuntime";
 import { useHtmlRootClass } from "../hooks/useHtmlRootClass";
 import { getAssetPath } from "../lib/assetPath";
 
-import "../scss/glitch.scss";
+import "../styles/object/project/_glitch.scss";
 
 const images = {
 	heroA: getAssetPath("/images/yugen/bg/b1.png"),

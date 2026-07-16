@@ -34,7 +34,7 @@ import { ScrollXSection } from "../components/ScrollXSection";
 import { useClientRuntime } from "../hooks/useClientRuntime";
 import { useHtmlRootClass } from "../hooks/useHtmlRootClass";
 import { usePage } from "../hooks/usePage";
-import "../scss/Next.scss";
+// import "../scss/Next.scss"; // ScrollX として project レイヤーに常時読込済み
 // import { SpriteAnimator } from "@react-three/drei";
 
 /** `activeDialogId` が指すフルスクリーンダイアログ（DOM の `id` とは別） */
@@ -148,7 +148,7 @@ function Top() {
 							works
 						</p>
 						{/* <h1 className="JsLetter IsDeco text-lg font-normal budoux mmPin  static  lg:absolute lg:translateYH leading-[2em] left-1/2 top-1/2 z-10 text-left px-[--PX2] md:p-4 bg-background/50 "> */}
-						<h1 className="JsLetter IsDeco text-xl font-normal budoux mmPin  static   leading-[2em] left-1/2 top-1/2 z-10 text-left px-[--PX2] md:p-4 bg-background/50 ">
+						<h1 className="JsLetter IsDeco text-xl font-normal budoux mmPin  static   leading-[2em] left-1/2 top-1/2 z-10 text-left px-[--PX2] md:p-4 ">
 							<strong>3.5</strong> years as a <b>Web</b> Designer & <b>Coder</b>
 							<br />
 							<b>AI-driven</b> development since <strong>2025.05</strong>

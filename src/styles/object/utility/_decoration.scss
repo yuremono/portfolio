@@ -1,0 +1,91 @@
+// @use "../../config" as *;
+.BabelRightDown{
+        border-radius: var(--rad) 0 var(--rad) 0;
+        corner-shape: bevel;
+}
+.BabelLeft{
+        border-radius: var(--rad) 0 0 var(--rad) ;
+        corner-shape: bevel;
+}
+
+.BorderT {border-top   : var(--line);}
+.BorderB {border-bottom: var(--line);}
+.BorderL {border-left  : var(--line);}
+.BorderR {border-right : var(--line);}
+.BorderY {border-block : var(--line);}
+.BorderX {border-inline: var(--line);}
+.BorderXY {border: var(--line);}
+.OutlineXY {outline: var(--line);outline-offset: 2px;}
+.BorderXY2 {border: var(--line2);}
+.BorderXY3 {border: var(--line3);}
+.TS {text-shadow: var(--TS);}
+.DS {filter: drop-shadow(var(--DS));}
+.BS {box-shadow: var(--BS);}
+.WTS {-webkit-text-stroke: var(--WTS);paint-order: stroke;}
+.WTS svg{
+        stroke:var(--tsc);
+  stroke-width:var(--tsw);
+  paint-order:stroke;
+}
+.BGgrad {background: var(--BGgrad);}
+.TS2 {
+        --TS2:1px 1px var(--BK);
+        text-shadow: var(--TS2);
+
+}
+.DS2 {
+        --DS2: drop-shadow(1px 1px var(--BK)) drop-shadow(-1px -1px var(--BK)) drop-shadow(1px -1px var(--BK)) drop-shadow(1px -1px var(--BK))  ;
+        filter: drop-shadow(var(--DS2));
+        filter: drop-shadow(1px 1px var(--BK30)) drop-shadow(-1px -1px var(--BK30)) drop-shadow(1px -1px var(--BK30)) drop-shadow(1px -1px var(--BK30))  ;
+}
+
+.BS2 {box-shadow: var(--BS2);}
+.WTS2 {-webkit-text-stroke: var(--ST2);paint-order: stroke;}
+.BGgrad2 {background: var(--BGgrad2);}
+.TS3 {text-shadow: var(--TS3);}
+.DS3 {filter: drop-shadow(var(--DS3));}
+.BS3 {box-shadow: var(--BS3);}
+.WTS3 {-webkit-text-stroke: var(--ST3);paint-order: stroke;}
+.BGgrad3 {background: var(--BGgrad3);}
+
+// .bxshwh{box-shadow: var(--bxshwh);}
+.bxshbk{box-shadow: var(--bxshbk);}
+// .bxshmc{box-shadow: var(--bxshmc);}
+// .bxshsc{box-shadow: var(--bxshsc);}
+// .bxshac{box-shadow: var(--bxshac);}
+// .bxshtx{box-shadow: var(--bxshtx);}
+// .bxshgr{box-shadow: var(--bxshgr);}
+
+.txshwh{text-shadow: var(--txshwh);}
+.txshbk{text-shadow: var(--txshbk);}
+.txshmc{text-shadow: var(--txshmc);}
+.txshsc{text-shadow: var(--txshsc);}
+.txshtx{text-shadow: var(--txshtx);}
+// .txshbc{text-shadow: var(--txshbc);}
+
+.txstwh{-webkit-text-stroke: var(--stw) var(--WH);paint-order: stroke;}
+.txstbk{-webkit-text-stroke: var(--stw) var(--BK);paint-order: stroke;}
+// .txstmc{-webkit-text-stroke: var(--stw) var(--mc);paint-order: stroke;}
+.txstsc{-webkit-text-stroke: var(--stw) var(--SC);paint-order: stroke;}
+// .txstbc{-webkit-text-stroke: var(--stw) var(--BC);paint-order: stroke;}
+
+// .pxtsmc{text-shadow: var(--pxtsmc);}
+// .pxtssc{text-shadow: var(--pxtssc);}
+// .pxtsac{text-shadow: var(--pxtsac);}
+.pxtswh{text-shadow: var(--pxtswh);}
+// .pxtsbk{text-shadow: var(--pxtsbk);}
+// .pxtsgr{text-shadow: var(--pxtsgr);}
+// .pxtsbc{text-shadow: var(--pxtsbc);}
+
+.dswh{filter: var(--dswh);}
+.dsbk{filter: var(--dsbk);}
+.dsmc{filter: var(--dsmc);}
+.dsbc{filter: var(--dsbc);}
+// .dstx{filter: var(--dstx);}
+.dsgr{filter: var(--dsgr);}
+
+.pxdswh{filter: var(--pxdswh);}
+.pxdsbk{filter: var(--pxdsbk);}
+.pxdsmc{filter: var(--pxdsmc);}
+// .pxdstx{filter: var(--pxdstx);}
+// .pxdsbc{filter: var(--pxdsbc);}

@@ -1,0 +1,39 @@
+@use "../../config" as *;
+@property --dot-spacing {
+        syntax: "<length>";
+        inherits: false;
+        initial-value: 20px;
+}
+
+@property --dot-fade-offset {
+        syntax: "<percentage>";
+        inherits: false;
+        initial-value: 0%;
+}
+
+@property --dot-color {
+        syntax: "<color>";
+        inherits: false;
+        initial-value: #fc466b;
+}
+
+.houdini-polka-card {
+        cursor: pointer;
+        animation: houdini-polka-pulse 2s ease-out infinite alternate paused;
+
+        &:hover,
+        &:focus-visible {
+                animation-play-state: running;
+        }
+}
+
+@keyframes houdini-polka-pulse {
+        from {
+                --dot-fade-offset: 0%;
+                --dot-color: #fc466b;
+        }
+        to {
+                --dot-fade-offset: 100%;
+                --dot-color: #3f5efb;
+        }
+}

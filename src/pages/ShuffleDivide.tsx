@@ -16,7 +16,7 @@ import { initShuffle } from "../lib/effects/initShuffle";
 
 import { getAssetPath } from "../lib/assetPath";
 
-import "../scss/ShuffleDivide.scss";
+import "../styles/object/project/_shuffle-divide.scss";
 
 const heroImages = [
 	{

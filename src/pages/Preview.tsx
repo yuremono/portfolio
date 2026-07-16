@@ -46,7 +46,7 @@ function Preview() {
 						layout={{ fit: "cover", align: [0.5, 0.5] }}
 						renderConfig={{ autoResize: true }}
 					/>
-					<p className="StickyStep StickScr [--step:5em] h2FZ Eng ">
+					<p className="StickyStep StickScr [--step:5em] h2FZ Eng w-fit">
 						<span>This</span>
 						<span>Is</span>
 						<span>Lottie</span>

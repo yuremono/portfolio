@@ -1,0 +1,112 @@
+// @use "../../config" as *;
+:root{
+
+	--pageTR: 0.5s;
+	--initial-loading-min: 600ms;
+}
+
+html.PageTransitionScrollSmooth {
+	scroll-behavior: smooth;
+}
+
+html.PageTransitionScrollInstant {
+	scroll-behavior: auto !important;
+}
+
+.PageTransition {
+	/* InitialLoading と同じトークンで canvas ラベルを揃える */
+	--initial-loading-font-style: normal;
+	--initial-loading-font-weight: 300;
+	--initial-loading-line-height: 1;
+	--initial-loading-font-size: calc(var(--mmFZ) * 3);
+	--initial-loading-text: var(--WH);
+	--page-rect-bg: var(--MC);
+	--page-rect-size: 0.01;
+	position: relative;
+	isolation: isolate;
+	min-height: 100lvh;
+	background-color: var(--background);
+}
+
+.PageTransitionRunning {
+	min-height: 100lvh;
+}
+
+.PageTransitionOverlay {
+	position: fixed;
+	inset: 0;
+	z-index: 10000;
+}
+
+// 初期状態からページ本体を表示する（キャンバス準備前の非表示化を無効化）
+// body.SiteTransitionPending #root > :not(.InitialLoading) {
+// 	visibility: hidden;
+// }
+
+body.SiteTransitionPending #root > .InitialLoading {
+	display: block !important;
+	visibility: visible;
+}
+
+.PageTransitionCanvas {
+	display: block;
+	width: 100vw;
+	height: 100lvh;
+	pointer-events: none;
+}
+
+.InitialLoading {
+        --initial-loading-font-style: normal;
+	--initial-loading-font-weight: 300;
+	--initial-loading-line-height: 1;
+        //overwrite
+	--initial-loading-font-size: calc(var(--mmFZ)*3);
+	--initial-loading-text: var(--background);
+	// キャンバスラベルの文字送りだけ遅くする
+        --first-delay: 0s;
+	--letter-delay: 0.1s;
+
+	--page-rect-bg: var(--GR);
+	--page-rect-size: 0.01;
+	visibility: visible;
+	pointer-events: auto;
+}
+
+.InitialLoadingDone {
+	visibility: hidden;
+	pointer-events: none;
+}
+
+.InitialLoadingLayer {
+	background-color: transparent;
+	z-index: 100000;
+}
+
+.InitialLoadingCanvas {
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+	display: block;
+	width: 100vw;
+	height: 100lvh;
+	pointer-events: none;
+}
+
+.InitialLoadingTextProbe {
+	position: fixed;
+	left: -100vw;
+	top: -100vh;
+	z-index: -1;
+	visibility: hidden;
+	width: calc(var(--wid) / 2);
+	padding: 1rem 1.5rem;
+	background-color: var(--background);
+	color: var(--initial-loading-text);
+	font-family: var(--Eng);
+	font-size: var(--initial-loading-font-size);
+	font-style: var(--initial-loading-font-style);
+	font-weight: var(--initial-loading-font-weight);
+	line-height: var(--initial-loading-line-height);
+	text-align: center;
+	pointer-events: none;
+}

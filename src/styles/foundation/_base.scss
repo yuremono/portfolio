@@ -1,0 +1,97 @@
+// @use "../../config" as *;
+html{
+    font-size: 100% ;
+    text-size-adjust: none;
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    scrollbar-gutter: stable;
+    &:has(.h.active, .policy-wrap.active, .modal.active) {
+        overflow: hidden;
+    }
+}
+html{
+        font-size: var(--FZ);
+        scroll-behavior: auto!important;
+}
+html:not(:has(.HeaderCylinder)) :where(:target,[id]){//アンカーリンク用 ヘッダー幅を確保
+	scroll-margin-top: calc(var(--head) * 1.0);
+}
+
+
+:where(.PageRoot),
+:where(#root)>div {//index.scss tailwind overwrite
+	overflow-x: clip;
+	font-family: var(--FF);
+	font-weight: var(--FW);
+	line-height: var(--LH);
+	letter-spacing: var(--LS);
+	color: var(--foreground);
+	font-style: normal;
+	background-color: var(--background);
+        transition: 0;
+}
+
+span {display: inline-block;}
+small{font-size: 62.5%;}
+
+:where(*){
+        max-width: 100%;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+}
+img, video {
+        object-fit: cover;
+}
+svg {display: inline-block;}
+b,strong{font-weight: 500;}
+
+h1,.h1FZ {font-size: var(--h1FZ);}
+h2,.h2FZ {font-size: var(--h2FZ);}
+h3,.h3FZ {font-size: var(--h3FZ);}
+.largeFZ {font-size: var(--largeFZ);}
+h4,h5,h6 {font-size: inherit;}
+h1,h2,h3,h4,h5,h6,.largeFZ {
+        font-family: var(--HFF);
+        font-weight: var(--HFW);
+        line-height: var(--HLH);
+        letter-spacing: var(--HLS);
+}
+
+:where(*)::-webkit-scrollbar {
+	width: 0.375rem;
+	height: 0.25rem;
+	background-color: transparent;
+}
+
+:where(*)::-webkit-scrollbar-track {
+	background-color: transparent;
+}
+
+:where(*)::-webkit-scrollbar-thumb {
+	border-radius: var(--rad);
+	background-color: color-mix(in srgb, transparent, var(--foreground) 30%);
+}
+
+dialog{
+        top: 0;
+        opacity: 0;
+        pointer-events: none;
+        &:not(.BBox *){
+                display: block;
+        }
+
+        transition: 0s;
+        &[open]{
+                transition: var(--trans);
+                opacity: 1;
+                pointer-events: auto;
+        }
+}
+
+// :where(*) {//FireFox
+// 	scrollbar-color: color-mix(in srgb, transparent, var(--foreground) 20%) transparent;
+// 	scrollbar-width: thin;
+// }

@@ -510,7 +510,7 @@ function Rects() {
 					<div className="HeaderItems fix-tab pointer-events-auto max-w-[65%]">
 						<div
 							ref={tweakpaneContainerRef}
-							className=" max-md:text-xs  [&_.tp-dfwv]:max-w-full max-h-[100lvh] overflow-y-auto"
+							className=" max-md:text-xs  [&_.tp-dfwv]:max-w-full max-h-[100lvh] overflow-y-auto [--tp-base-border-radius:6px] [--tp-base-font-family:system-ui] [--tp-base-shadow-color:var(--BK20)] [--tp-base-background-color:var(--WH80)] [--tp-container-foreground-color:var(--TC)] [--tp-label-foreground-color:var(--TC)] [--tp-button-foreground-color:var(--WH)] [--tp-container-unit-size:2em] [--tp-input-foreground-color:var(--TC)]"
 						/>
 					</div>
 				</div>

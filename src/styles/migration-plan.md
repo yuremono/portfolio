@@ -319,3 +319,58 @@ Phase 0〜3 はブラウザでの見た目確認を行わず、ビルド出力 C
 - `object/component/_unit.scss` の `:where(:nth-child(N))` 系24件と `&:where(.Panel .IsRev *)` は
   目的が不明瞭なため保持したまま。意図が判明すれば解除の要否を再判定できる
 - !important の新規反転リスク2箇所（`_page-transition.scss`）は実害未確認だが要注意事項として記録
+
+## 11. Phase 4 本採用後の実地検証（プリフライトのレイヤー化不可判明 → tw-preflight 方式へ再設計）
+
+Phase 4（エントリ一本化・トグル撤去）実施後、ブラウザでの実地検証中に
+「独自クラスのみレイヤー化し、プリフライトは非レイヤーのまま」という §2 の当初設計に
+重大な欠陥が判明した。プリフライト（`ul{margin:0}` 等）が非レイヤーである限り、
+レイヤー内の独自クラスは詳細度に関わらず必ず負けるため、独自クラスで
+margin/padding 等を指定できなくなる。
+
+検証の結果、Tailwind v3 が横取りする予約名は `base`/`components`/`utilities` の3つのみで、
+それ以外の名前（`tw-preflight`）でプリフライトを包めば横取りされずネイティブレイヤーとして
+残ることを `/tmp/twspike/` でのスパイクテストで確認。プリフライトを含む全独自レイヤーを
+`tw-preflight, foundation, layout, component, project, utility` の順で並べる方式に再設計した
+（詳細は [css-architecture.md](css-architecture.md) の「Tailwind CSS v3 との併用」節）。
+`src/styles/foundation/_tailwind-base.scss` と `foundation/index.scss` を書き換えて実装済み。
+`AGENTS.md`（本ディレクトリ）のレイヤー順記載もこの方式に同期済み。
+
+### 発見・修正した実地不具合
+
+- **InitialLoadingBoot SVG の表示崩れ**: 動的 `import()` によるCSS読み込み遅延と、
+  React マウント処理（canvas 描画・boot 要素除去）のタイミング競合（FOUC）が原因。
+  Phase 4 の静的 import 一本化で解消
+- **ページトランジション時の白画面**: `src/components/LoadingLayer.tsx` にハードコードされていた
+  `bg-[var(--WH)]` が、レイヤー化後は非レイヤーの Tailwind ユーティリティとして
+  `_page-transition.scss`（project 層）側の `visibility: hidden` 解除だけでは消えなくなっていた。
+  `LoadingLayer.tsx` からは `bg-[var(--WH)]` を削除し、本来この背景色が必要な
+  `src/pages/Donut/VideoRingOverlay.tsx` 側の `<LoadingLayer>` 呼び出しにのみ付与する形で解決
+- **tweakpane の変数上書き不可**: tweakpane が自身の `<style>` タグを非レイヤーで注入するため、
+  project 層からの変数上書きが常に負ける。呼び出し元コンテナ（`Rects.tsx`）に
+  tweakpane 公式フック名（`--tp-base-background-color` 等）の Tailwind arbitrary クラスを
+  付与する方式で解決。`_tweakpane.scss` 側の変数直接宣言は削除しコメントで理由を明記
+
+### TSX ハードコード Tailwind × CSS 上書きの反転パターン（要継続監視）
+
+レイヤー化により、「TSX にハードコードされた Tailwind ユーティリティクラスを、
+project/component 層の独自クラスで上書きする」という書き方は、非レイヤーの Tailwind が
+常に勝つため機能しなくなる。上記の LoadingLayer の白背景がこの実例。
+
+再発防止のため、`src/styles/object/project/*.scss` と `component/*.scss` の
+`background-color`/`color`/`border-color` 宣言と、対応する TSX 側のハードコードクラスを
+横断的に洗い出した。
+
+- **衝突なしと確認済み**: `VideoRingOverlay.tsx`（修正済み移設先）、`Next.tsx` の
+  フォーム input/textarea、`Glitch.tsx`、`FAQSection.tsx`/`IntroSection.tsx`（CustomClass 不使用の
+  単体デモ）、`.btn`/`.textlink`/`.MindMapBtn`（該当ハードコードなし、または既に `!important` 対策済み）、
+  `Header.tsx`/`HeaderCylinder.tsx`（ハードコード色クラスなし。`Next.tsx` 内の
+  `.HeaderPagetop`/`.ThemeToggle` への `text-WH` 付与も CSS 側は子要素 `a`/`svg` 対象のため非衝突）
+- **反転が実際に起きているが実害未確認**: `Top.tsx` の `.JsLetter.IsDeco`（グラデーション文字演出）に
+  `bg-background/50` が併記されている。`.IsDeco` は `background` ショートハンドで
+  `background-color: transparent` を暗黙に含むが、非レイヤーの `bg-background/50` がこの
+  サブプロパティを上書きしてしまう。ただし `background-image`（グラデーション）自体は不透明で
+  全面を覆うため、視覚的破綻は起きていない可能性が高い。ブラウザでの目視確認が必要
+- **未着手**: `ShuffleDivide.tsx`（`text-[--TC]` という構文が正しくコンパイルされているか要確認）、
+  `Bbox/*`, `Bunmyaku/*`, `Aozora.tsx` 等（`styles/object` 配下の13ファイル以外に専用CSSを
+  持つ可能性が高く、別途調査が必要）

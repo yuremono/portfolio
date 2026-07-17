@@ -1,0 +1,33 @@
+src/styles/css-architecture.md
+  s_9ba77f7b92a1d2::t_72620bcbab6a51 14-17,23-24,26
+  s_9ba77f7b92a1d2::t_25aee4aa17c00f 62
+  s_9ba77f7b92a1d2::t_1999bb0d9cb658 74-75,82-84,86-87
+  s_9ba77f7b92a1d2::t_195db48ed15bd8 35-36
+  s_9ba77f7b92a1d2::t_befbc7ea108746 40-45
+  s_9ba77f7b92a1d2::t_814ddf09c71755 21-22,25,27-28,50-53,66-67,80-81
+  s_9ba77f7b92a1d2::t_b16d3d674490b0 11-13
+  s_9ba77f7b92a1d2::t_37e2cebc2035bc 20
+  s_9ba77f7b92a1d2::t_23f72be0453373 61
+  s_9ba77f7b92a1d2::t_b367767e3a39bb 10,57
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.14",
+  "base_commit_sha": "fc759c4f166f051ba671c0dae5dae45bd342039c",
+  "prompts": {},
+  "humans": {
+    "h_53dad1e32c3c71": {
+      "author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_9ba77f7b92a1d2": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7ae3b563-ef79-471a-92f1-6cd087ef00f5",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  }
+}

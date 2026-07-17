@@ -33,59 +33,6 @@
         // }
 }
 
-// button,
-// a {
-//         transition: var(--btnTR);
-//         font-size: inherit;
-
-//         &:where(:not([class], .h a, [href*=tel], .__tel)):hover {
-//                 opacity: .7;
-//         }
-
-//         &:hover,
-//         &:hover * {
-//                 transition-delay: 0s !important;
-//         }
-
-//         &:is(.itext, .sns_slide ul a) {
-//                 max-width: 100%;
-
-//                 &:hover {
-//                         opacity: .7;
-//                 }
-//         }
-
-//         &:is(.HeaderLogo a, .f_logolink, .itext, .sns_slide ul a) {
-//                 &:hover {
-//                         opacity: .7;
-//                 }
-//         }
-
-//         &:is(.sns_slide a, .__layer .box a) {
-//                 overflow: hidden;
-
-//                 figure {
-//                         overflow: hidden;
-//                 }
-
-//                 // img{transition: .4s;will-change: scale;}
-//                 &:hover {
-//                         scale: 1.02;
-//                         opacity: 1;
-//                 }
-//         }
-
-//         &:not([class*=_logo], [class*=slick] button) {
-//                 // border-radius: 4px;
-//                 outline-style: var(--decoS);
-//                 outline-color: var(--MC10);
-//                 outline-width: 0px;
-
-//                 &:focus {
-//                         outline-width: 1px;
-//                 }
-//         }
-// }
 
 .f_link,
 .pan1 a,

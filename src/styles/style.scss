@@ -10,7 +10,5 @@
 @tailwind components;
 @tailwind utilities;
 
-// tweakpane の変数上書きは Rects.tsx のコンテナに arbitrary クラスで指定。
-// 構造系の上書きは object/project/_tweakpane.scss（tweakpane 自身の注入 <style> は非レイヤーのため、
-// 競合する場合はここに非レイヤーで書く）
+
 

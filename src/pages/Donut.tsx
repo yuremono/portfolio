@@ -9,12 +9,12 @@ import { useHtmlRootClass } from "../hooks/useHtmlRootClass";
 
 import RingScrollShowcase from "./Donut/RingScrollShowcase";
 
-import "../styles/object/project/_donut.scss";
-
 export default function Donut() {
 	const pageRootRef = useRef<HTMLDivElement>(null);
 	useClientRuntime({ rootRef: pageRootRef });
-	useHtmlRootClass("Donuts");
+	useHtmlRootClass(
+		"Donuts [--wid:85%] [--logoW:calc(100%_-_var(--wid))] [--Eng:var(--Ship)] [&_::-webkit-scrollbar]:bg-transparent [&_::-webkit-scrollbar]:w-0 [&_::-webkit-scrollbar]:h-0",
+	);
 
 	return (
 		<PageRoot ref={pageRootRef}>

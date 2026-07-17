@@ -68,7 +68,7 @@ IDEの表示順＝読み込み順を、番号なしで維持する。
 ```
 styles/
 ├─ config/          … index.scss（$変数・mixin。非出力のみ）
-├─ foundation/       … _tailwind-base.scss, _custom-property.scss, _reset.scss, _base.scss, index.scss
+├─ foundation/       … 
 ├─ layout/          … _main.scss, _inner.scss, index.scss
 ├─ object/
 │   ├─ component/   … _unit.scss, _desc-list.scss, _intersection.scss, _btn.scss, _accordion.scss ほか

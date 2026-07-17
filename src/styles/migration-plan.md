@@ -134,7 +134,7 @@ Phase 1 は「移動のみ・編集なし」。1 ファイル内に複数層が�
 | 現行 | 移行先 | 備考 |
 |---|---|---|
 | `_mixin.scss` | `config/` | 非出力なら合流。出力を含むなら該当層へ分離 |
-| `_01variables.scss` | `foundation/_custom-property.scss` | `:root` の oklch 変数群。変数名不変 |
+| `_01variables.scss` | `foundation/_root.scss` | `:root` の oklch 変数群。変数名不変 |
 | `_02base.scss` | `foundation/_base.scss` | 要素セレクタの本籍 |
 | `index.scss` の `@tailwind base` | `foundation/`（先頭パーシャル。レイヤー順宣言もここ） | §2 参照 |
 | `index.scss` の見出し・`html`・スクロールバー等の要素セレクタ | `foundation/_base.scss` | `.h1FZ` 等クラス形は utility へ（Phase 2 以降） |
@@ -200,7 +200,7 @@ if (import.meta.env.VITE_STYLE_NEXT === "1") {
 
 ### Phase 1: 構造移行（移動のみ・非レイヤー・名前不変）
 - [ ] config（_mixin 合流）
-- [ ] foundation（tailwind-base / custom-property / base）移設
+- [ ] foundation移設
 - [ ] object/component（UNIT, DescList ほか）移設
 - [ ] object/project（header, headerCylinder, intersection, hover, index.scss の固有実装群）移設
 - [ ] object/utility（20utility, 変数直結クラス, shadow）移設 + `style.scss` 末尾に `@tailwind components/utilities`

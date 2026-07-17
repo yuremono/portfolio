@@ -2,20 +2,12 @@
 
 
 
-// .Jsletter{//文字分割用
-//     @for $i from 1 through 60 {
-// 		&.show >*>*:nth-child(#{$i}){
-//             transition-delay: #{$i*0.05 + 0.05}s;
-//         }
-// 	}
-// }
+
 :root {
         --first-delay: 0.8s;
         --letter-delay: 0.0375s;
         --phrase-delay: 0.15s;
 }
-// .JsLetter index.scss移動
-
 
 [class*=Js],
 [class*=JsCh]>* {

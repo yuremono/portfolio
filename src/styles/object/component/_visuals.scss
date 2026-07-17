@@ -1,0 +1,476 @@
+
+@use "../../config" as *;
+
+// **********Stick*************--gap --few
+.Stick {
+        // --item = stiky item width , --shift = overlapping width　, --shift must be less than --item.
+        // --item: 50%;
+        // --scr: calc(100% - var(--item) + var(--shift));
+        // --Nshift: calc(var(--shift)*-1);
+
+
+        --Nshift: 0;
+        --scr: 50%;
+        // --shift: calc(100% - var(--item) + var(--scr));
+        --shift: 12.5%;
+
+        @media (min-width: 768px) {}
+
+
+
+
+
+        .StickItem {
+                @apply align-top text-center sticky top-0;
+
+                img {
+                        @apply w-full;
+                }
+        }
+
+        .StickScr {
+                @apply relative z-[1] mt-0 mr-0;
+        }
+
+        &.IsColumn {
+                @apply block;
+
+                >* {
+                        @apply flex-initial w-full mx-auto;
+                }
+        }
+
+        &.IsRev .StickScr {
+                @apply ml-0;
+        }
+
+        //  breakpoint 以上 : 重なり・並び替えをまとめて適用
+        @media (min-width: 1280px) {
+                @apply flex items-start [--Nshift:calc(var(--shift)*-1)];
+
+                .StickItem {
+                        @apply flex-1;
+                }
+
+                .StickScr {
+                        @apply w-[--scr] ml-[--Nshift];
+                }
+
+                &.IsRev .StickScr {
+                        @apply mr-[--Nshift];
+                }
+
+                &.IsRev .StickItem {
+                        @apply order-1;
+                }
+        }
+
+        &.bp-lg {
+                @media (min-width: 1024px) {
+                        @apply flex items-start [--Nshift:calc(var(--shift)*-1)];
+
+                        .StickItem {
+                                @apply flex-1;
+                        }
+
+                        .StickScr {
+                                @apply w-[--scr] ml-[--Nshift];
+                        }
+
+                        &.IsRev .StickScr {
+                                @apply mr-[--Nshift];
+                        }
+
+                        &.IsRev .StickItem {
+                                @apply order-1;
+                        }
+                }
+        }
+
+        &.bp-md {
+                @media (min-width: 768px) {
+                        @apply flex items-start [--Nshift:calc(var(--shift)*-1)];
+
+                        .StickItem {
+                                @apply flex-1;
+                        }
+
+                        .StickScr {
+                                @apply w-[--scr] ml-[--Nshift];
+                        }
+
+                        &.IsRev .StickScr {
+                                @apply mr-[--Nshift];
+                        }
+
+                        &.IsRev .StickItem {
+                                @apply order-1;
+                        }
+                }
+        }
+
+        &.bp-sm {
+                @media (min-width: 640px) {
+                        @apply flex items-start [--Nshift:calc(var(--shift)*-1)];
+
+                        .StickItem {
+                                @apply flex-1;
+                        }
+
+                        .StickScr {
+                                @apply w-[--scr] ml-[--Nshift];
+                        }
+
+                        &.IsRev .StickScr {
+                                @apply mr-[--Nshift];
+                        }
+
+                        &.IsRev .StickItem {
+                                @apply order-1;
+                        }
+                }
+        }
+
+        &.IsColumn {
+                @apply flex-col;
+
+                >* {
+                        @apply flex-initial w-full mx-auto;
+                }
+        }
+
+}
+
+
+// **********PathDraw*************--gap --few
+/* スクロール連動のラッパー（複数配置可） */
+.PathDraw {
+        --PDS: 0.5;
+        --PES: 0.55;
+        --PVM: 0.5;
+        --stw: 1;
+        --stc: var(--CC);
+        @apply min-h-[55vh];
+
+        svg {
+                @apply block;
+        }
+
+        path {
+                @apply fill-none;
+                stroke: var(--stc);
+                stroke-width: var(--stw);
+                stroke-linecap: round;
+                stroke-linejoin: round;
+        }
+}
+
+/* BorderDraw: --PVM=中央Y比、--PDS=要素中心が「中央+帯」から「中央」へ動く区間(vh比)で線が引き切れる */
+.BorderDraw {
+        --PDS: 0.2;
+        --PVM: 0.345;
+        --stw: 1px;
+        --stc: var(--CC);
+        @apply relative;
+
+        >.BorderDrawSvg {
+                @apply block pointer-events-none overflow-visible absolute left-0 bottom-0 w-full h-[--stw];
+        }
+
+        >.BorderDrawSvg path {
+                stroke: var(--stc);
+                stroke-width: var(--stw);
+                stroke-linecap: buttom;
+        }
+
+        /* IsDown: 先端を載せる基準線は --PVM（0.5=画面縦中央）。--PDS/--PES は縦ロジックでは未使用 */
+        &.IsDown {
+                --PVM: 0.5;
+        }
+
+        &.IsDown>.BorderDrawSvg {
+                @apply absolute left-0 top-0 w-[--stw] h-full;
+
+                &.Right {
+                        @apply left-auto right-0;
+                }
+        }
+
+}
+
+.RgbShift {
+        --stw: 20;
+        --stc: var(--CC);
+        --RgbShiftRX: -10px;
+        --RgbShiftRY: -5px;
+        --RgbShiftBX: 10px;
+        --RgbShiftBY: 5px;
+        --delay: 0ms;
+        --beat: 6s;
+
+        --shift: .5em;
+        --xl: var(--shift);
+        --x0: 0px;
+        --xs: calc(var(--xl)*0.5);
+        --yl: 0px;
+        --y0: 0px;
+        --ys: calc(var(--yl)*0.5);
+
+        svg {
+                @apply block;
+        }
+
+        path {
+                @apply fill-none;
+                stroke: var(--stc);
+                stroke-width: var(--stw);
+                stroke-linecap: round;
+                stroke-linejoin: round;
+        }
+
+        .RgbShiftStack {
+                @apply grid isolate;
+        }
+
+        .RgbShiftLayer {
+                @apply mix-blend-screen will-change-transform [grid-area:1/1];
+                animation-delay: var(--delay);
+        }
+
+        .RgbShiftR {
+                @apply pointer-events-none [transform:translate(var(--RgbShiftRX)_var(--RgbShiftRY))];
+                --xl: calc(var(--shift)*-1);
+                --x0: 0px;
+                --xs: calc(var(--xl)*0.5);
+                --yl: 0px;
+                --y0: 0px;
+                --ys: calc(var(--yl)*0.5);
+
+                &:is(.IsBeat *) {
+                        transform: unset;
+                        animation: RgbShift var(--beat) var(--delay) infinite;
+                }
+
+                &:is(.IsBeatY *) {
+                        transform: unset;
+                        animation: RgbShiftY var(--beat) var(--delay) infinite;
+                }
+        }
+
+        .RgbShiftG {
+                @apply pointer-events-none [transform:translate(0_0)];
+        }
+
+        .RgbShiftB {
+                @apply pointer-events-auto [transform:translate(var(--RgbShiftBX)_var(--RgbShiftBY))];
+
+                &:is(.IsBeat *) {
+                        transform: unset;
+                        animation: RgbShift 3s infinite;
+                }
+
+                &:is(.IsBeatY *) {
+                        transform: unset;
+                        animation: RgbShiftY 3s infinite;
+                }
+        }
+
+        @keyframes RgbShift {
+                1% {
+                        transform: translate(var(--xl), var(--yl))
+                }
+
+                2% {
+                        transform: translate(var(--x0), var(--y0))
+                }
+
+                5% {
+                        transform: translate(var(--xs), var(--ys))
+                }
+
+                100% {
+                        transform: translate(0px, 0px)
+                }
+        }
+
+        @keyframes RgbShiftY {
+                1% {
+                        transform: translate(var(--yl), var(--xl))
+                }
+
+                2% {
+                        transform: translate(var(--y0), var(--x0))
+                }
+
+                5% {
+                        transform: translate(var(--ys), var(--xs))
+                }
+
+                100% {
+                        transform: translate(0px, 0px)
+                }
+        }
+}
+
+.MaskMosaique {
+        // canvasに描くモザイクの色。
+        --mosaique-color: var(--MC);
+        // 対象要素の幅・高さに対する分割係数。大きいほど細かいマスになる。
+        --mosaique-size-factor: 0.02;
+        // 全マスが消え始めるまでの時間幅。大きいほどゆっくり現れる。
+        --mosaique-stagger: 800;
+        @apply relative isolate overflow-hidden;
+
+        >.MaskMosaiqueCanvas {
+                @apply pointer-events-none absolute inset-0;
+        }
+}
+
+.LottieScroll {
+        //animation demo用
+        --canvasH: 100lvh;
+
+        canvas {
+                @apply min-h-[--canvasH];
+        }
+
+        &.IsDemo {
+                animation: IsDemo 6s linear forwards;
+
+                @keyframes IsDemo {
+                        0% {
+                                filter: brightness(105%);
+                        }
+
+                        100% {
+                                filter: brightness(150%);
+                        }
+                }
+        }
+}
+
+.StickyStep {
+        // モバイル (max-md 相当): --top/padding-bottom/内側の margin を狭く
+        --top: calc(100vh - var(--head)*3);
+        --step: 4em;
+        @apply md:[--top:calc(100vh-2.5em)];
+
+        @apply w-fit max-w-full mx-auto flex items-start py-[1em] pb-[4em];
+
+        >* {
+                @apply sticky top-[--top] mx-[.125em] md:mx-[0.5em];
+
+                @for $i from 2 through 9 {
+                        &:nth-child(#{$i}) {
+                                margin-top: calc(var(--step) * #{$i - 1});
+                        }
+                }
+        }
+
+}
+
+
+
+.RandomRects {
+        @apply relative;
+
+        .item {
+                @apply absolute [transform:translate(-50%_-50%)];
+        }
+}
+
+.GeneratedShapes {
+
+        >:not(g),
+        >g>*:not(line) {
+                @apply [transform-box:fill-box] origin-center;
+                rotate: var(--GSR);
+        }
+}
+
+
+:is(.BarBFAF, .BarBF, .BarAF) {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: .5rem;
+
+        @media (max-width: 640px) {}
+
+        &:before,
+        &:after {
+                content: "";
+                height: var(--bdw);
+                flex: 1;
+                background-color: var(--CC);
+        }
+}
+
+:is(.BarBF):after {
+        display: none;
+}
+
+:is(.BarAF):before {
+        display: none;
+}
+
+.NodeStack {
+        --pathTrans: 3s;
+        --pathC: var(--WH50);
+        --fillC: var(--WH50);
+        --strokeC: var(--WH50);
+
+        .Cards .item:nth-of-type(even) {
+                margin-left: auto;
+        }
+
+        .item:has(img) img {
+                opacity: 0.7;
+                transition: var(--trans);
+        }
+
+        .item:has(img):has(a:hover) img {
+                opacity: 1;
+        }
+
+        .item:has(img) a {
+                opacity: 1;
+                filter: drop-shadow(1px 1px var(--BK30)) drop-shadow(-1px -1px var(--BK30)) drop-shadow(1px -1px var(--BK30)) drop-shadow(-1px 1px var(--BK30));
+                @apply py-2 px-4;
+
+        }
+
+        .item {
+                position: relative;
+        }
+
+        .item:before {
+                content: '';
+                background: var(--background);
+                position: absolute;
+                inset: 0;
+                display: block;
+                z-index: 10;
+                opacity: 0.1;
+                pointer-events: none;
+                mix-blend-mode: hue;
+                will-change: opacity;
+        }
+
+        .item:has(a:hover):before {
+                opacity: 1;
+        }
+}
+// ********** ホバー波形プレビュー (.WaveHover) **********
+// WaveHoverBody / WaveHoverCanvas は WaveHover.tsx が出力
+.WaveHover {
+        @apply relative isolate;
+
+        >.WaveHoverCanvas {
+                @apply pointer-events-none fixed left-0 top-[--head] z-[3] block bg-transparent opacity-0 transition-opacity duration-200;
+        }
+
+        &:has(a:hover)>.WaveHoverCanvas {
+                @apply opacity-100;
+        }
+}

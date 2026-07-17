@@ -1,14 +1,5 @@
 @use "../../config" as *;
-
-
-
-.Header {
-        //ヘッダー変形class、固有style 
-
-
-
-
-
+.Header { //ヘッダー変形class、固有style 
         .imgBtn img {
                 display: block;
         }
@@ -1449,7 +1440,6 @@
                         filter: grayscale(50%);
                         border-radius: 0 999px 999px 0;
                         overflow: hidden;
-                        border: 10px solid var(--TR);
                         border-left: 0;
                         aspect-ratio: 1/2;
                         transform-origin: 0 0%;
@@ -1547,9 +1537,7 @@
 
 }
 
-.Header {
-
-        //基本設定
+.Header {//基本設定
         a {
                 text-decoration: none;
         }
@@ -1560,8 +1548,6 @@
         width: 100%;
         margin-inline: auto;
         z-index: 1000;
-
-        // min-height: var(--head);
         &Inner {
                 background-color: var(--innerBG);
                 background-image: var(--innerBGI);
@@ -1571,7 +1557,6 @@
                 flex-direction: row;
                 align-items: center;
                 justify-content: flex-end;
-                gap: 8px;
                 padding-block: var(--innerPY);
                 padding-inline: var(--innerPX);
                 gap: var(--innerG);
@@ -2055,8 +2040,6 @@
         }
 
         font-size: var(--navFZ);
-        // line-height: var(--navLH);
-        // color: var(--navC);
         font-weight: var(--navFW);
         --aPY:var(--UN);
         --aPX:var(--UN);
@@ -2161,7 +2144,7 @@
         }
 
         .DropUl {
-                transition: var(--trans) allow-discrete;
+                // transition: var(--trans) allow-discrete;
                 transition:
                         opacity var(--trans),
                         scale var(--trans),
@@ -2239,12 +2222,6 @@
         border-radius: 4px;
         border: var(--line);
 }
-
-// .Header:has(li.NavDrop:hover){
-//         mix-blend-mode: unset;
-//         color: var(--TC);
-// }
-
 .DropIcon {
         // 矢印アイコン（React コンポーネント）
         display: inline-block;
@@ -2415,18 +2392,13 @@
                         rotate: 45deg;
                 }
         }
-
-
-
         &:focus {
                 outline-color: transparent;
         }
-
         &:active {
                 scale: 1.12;
 
         }
-
 }
 
 
@@ -2586,31 +2558,12 @@
                         padding-right: var(--h);
                 }
 
-                // &::after {
-                //         content: "";
-                //         display: block;
-                //         width: 10px;
-                //         height: 10px;
-                //         background-color: currentColor;
-                //         position: absolute;
-                //         top: 100%;
-                //         left: 50%;
-                //         translate: -50%;
-                //         clip-path: polygon(0 0, 100% 0, 50% 80%);
-
-                //         @include menu {}
-
-                //         display: none;
-                // }
-
-
         }
 
         .DropUl {
                 width: 100%;
                 overflow: hidden;
                 padding-left: 1em;
-
         }
 
         .DropLi {
@@ -2646,47 +2599,6 @@
                 display: none;
         }
 
-        //svg chevronIconに変更のため一時コメント
-        // .DropBtn {
-        //         position: absolute;
-        //         right: 0;
-        //         top: 0;
-        //         background-color: var(--dropbtnBG);
-        //         width: var(--dropbtnH);
-        //         height: var(--dropbtnH);
-        //         display: grid;
-        //         place-items: center;
-        //         align-self: center;
-
-        //         &:after,
-        //         &:before {
-        //                 content: "";
-        //                 display: block;
-        //                 grid-area: 1/1;
-        //                 width: 33%;
-        //                 height: 2px;
-        //                 background-color: var(--dropbtnBF);
-        //                 transition: 0.4s;
-        //         }
-
-        //         &:after {
-        //                 rotate: 90deg;
-        //         }
-
-        //         &:focus {
-        //                 outline-color: transparent;
-        //         }
-
-        //         &:active {
-        //                 scale: 1.05;
-        //         }
-
-        //         &.active {
-        //                 &:after {
-        //                         rotate: 360deg;
-        //                 }
-        //         }
-        // }
 
 }
 
@@ -2771,29 +2683,5 @@
         }
 }
 
-.bfChevron a:before {
-        content: "\f105";
-        font-family: var(--icon);
-        font-weight: var(--btnAFFW);
-        color: var(--SC);
-        font-size: .75em;
-        margin-right: .25em;
-}
 
-.HeaderItems>div {
-        scrollbar-gutter: stable;
-}
 
-.HeaderItems>div::-webkit-scrollbar {
-        background-color: transparent;
-        width: o;
-        height: 0;
-}
-
-.HeaderItems>div:has(.tp-cntv.tp-rotv-expanded) {
-        opacity: 0.5;
-}
-
-.HeaderItems>div:has(.tp-cntv.tp-rotv-expanded):hover {
-        opacity: 1;
-}

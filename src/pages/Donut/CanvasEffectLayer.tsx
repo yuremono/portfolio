@@ -437,7 +437,7 @@ function bindHost(host: HTMLElement): void {
 			? existingCanvas
 			: document.createElement("canvas");
 	if (!existingCanvas) {
-		canvas.className = CANVAS_CLASS;
+		canvas.className = `${CANVAS_CLASS} absolute pointer-events-none max-w-none z-[-1]`;
 		canvas.setAttribute("aria-hidden", "true");
 		host.prepend(canvas);
 	}

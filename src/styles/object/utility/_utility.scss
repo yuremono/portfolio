@@ -1,4 +1,49 @@
 // @use "../../config" as *;
+.ScrollSmooth{scroll-behavior: smooth;}
+.ScrollAuto{scroll-behavior: auto;}
+// ***************font***************
+.Ser {font-family: var(--Ser);}
+.San {font-family: var(--San);}
+.Eng {
+        font-family: var(--Eng);
+}
+.sub {//タイトルタグ内の小さい文字
+	font-size: 0.875rem;
+	color: var(--GR);
+        font-weight: 500;
+        font-family: var(--Eng);
+        line-height: var(--LH);
+        &.block{
+                margin-bottom: .5rem;
+        }
+}
+// **********size**************
+.wid {width: var(--wid);}
+.PX {padding-inline: var(--PX);}
+.PY {padding-block: var(--PY);}
+.PX2 {padding-inline: var(--PX2);}
+.MY {margin-block: var(--MY);}
+.gap{gap: var(--gap);}
+.gapH{gap: var(--gapH);}
+.in1800{        padding-inline: var(--in1800);    }
+.in1740{        padding-inline: var(--in1740);    }
+.in1680{        padding-inline: var(--in1680);    }
+.in1620{        padding-inline: var(--in1620);    }
+.in1560{        padding-inline: var(--in1560);    }
+.in1500{        padding-inline: var(--in1500);    }
+.in1440{        padding-inline: var(--in1440);    }
+.in1380{        padding-inline: var(--in1380);    }
+.in1320{        padding-inline: var(--in1320);    }
+.in1200{        padding-inline: var(--in1200);    }
+.in1080{        padding-inline: var(--in1080);    }
+.in1000{        padding-inline: var(--in1000);    }
+.in960 {        padding-inline: var(--in960 );    }
+.in840 {        padding-inline: var(--in840 );    }
+.in800 {        padding-inline: var(--in800 );    }
+.in720 {        padding-inline: var(--in720 );    }
+.in660 {        padding-inline: var(--in660 );    }
+.in600 {        padding-inline: var(--in600 );    }
+// **********img************
 .imgContain img{object-fit: contain;}
 .imgCover img{object-fit: cover;}
 /* SVG を img で表示するセクション用（object-fit: cover を上書き） */
@@ -37,5 +82,4 @@
 .img1-1 :is(img,svg,video){aspect-ratio: 1/1;}
 
 
-.ScrollSmooth{scroll-behavior: smooth;}
-.ScrollAuto{scroll-behavior: auto;}
+

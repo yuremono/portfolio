@@ -16,20 +16,17 @@
 
 ## CSS設計ルール（詳細は [css-architecture.md](css-architecture.md)）
 
-- Tailwind シングルクラスは独自クラスに常に勝つ（`@layer` で保証）
-- クラスはPascalCaseのCustomClass、モディファイアはPascalCaseの`Is*`
+- 全てのクラスは再利用を想定し、FLOCSSの`project`の概念、上書きルールは適応しない
+- 独自クラスは全て`@layer`で囲まれTailwindで上書きされる 
+- 独自クラスは基本PascalCase、モディファイアはPascalCaseの`Is*`
 - `Is*`は所有ブロック末尾の`&:where(.IsXxx)`のみ、単独禁止、子要素に付けない
 - 状態クラス（`.show`等）も単独禁止、所有コンポーネントのファイル内に書く
-- 要素セレクタはfoundation/_base.scssのみ
 - 置き場所：config=非出力/tw-preflight=`@tailwind base`/
-foundation=`:root`変数・リセット・base/layout=枠のみ/component=再利用パターン/
-project=ページ固有・componentの上書き/utility=最後（この並び＝レイヤー順）
-- 上書きは project から component への一方通行のみ。component 同士・layout からの上書き禁止
-- ブロック内の記述順：ベース → エレメント → モディファイア → 状態
-- 同じパターンを2回使ったら構造または機能でクラス名を作り component へ昇格（セマンティック名は保持）
+foundation=`:root`変数・リセット・base/layout=枠のみ/component/
+project/utility
 - パーシャルは冒頭に未使用でも `@use "../../config" as *;`を書く
 - 新しいディレクトリ・層を作らない、style.scss は触らない
-
+- 主要クラスに付随するクラスをまとめたパーシャルファイルはクラス名と同じファイル名にする(PascalCaseなのにkebab-caseにしない)
 
 ## ビルド
 

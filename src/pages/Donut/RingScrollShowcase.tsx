@@ -75,8 +75,8 @@ export const DEFAULT_SHOWCASE_SECTIONS = [
 		media: { src: getAssetPath("video/001.mp4"), kind: "video" },
 		contentHtml: `
                 <h2 class="text-[19cqw] leading-none">
-                        <span class="CanvasEffect text-[16cqw] tracking-[-0.13em] ">Read the outline</span>
-                        <span class="CanvasEffect ">輪郭を読む</span>
+                        <span class="CanvasEffect relative inline-block overflow-visible text-BK/70 leading-none text-[16cqw] tracking-[-0.13em] ">Read the outline</span>
+                        <span class="CanvasEffect relative inline-block overflow-visible text-BK/70 leading-none">輪郭を読む</span>
                 </h2>
                 <p class="mt-8 TXST">5番目以降のセクションが存在する場合はイージング付きで入れ替えてループ位置を変更する。 </p>`.trim(),
 	},
@@ -86,8 +86,8 @@ export const DEFAULT_SHOWCASE_SECTIONS = [
 		media: { src: getAssetPath("video/002.mp4"), kind: "video" },
 		contentHtml: `
                 <h2 class="text-[16cqw] leading-none hue-rotate-[20deg]">
-                        <span class="CanvasEffect tracking-[-0.08em] pb-[0.25em]">Shift the phase</span>
-                        <span class="CanvasEffect">位相をずらす</span>
+                        <span class="CanvasEffect relative inline-block overflow-visible text-BK/70 leading-none tracking-[-0.08em] pb-[0.25em]">Shift the phase</span>
+                        <span class="CanvasEffect relative inline-block overflow-visible text-BK/70 leading-none">位相をずらす</span>
                 </h2>
                 <p class="mt-8 TXST">エージェントの謎の文章をそのまま残して使っている。</p>`.trim(),
 	},
@@ -97,8 +97,8 @@ export const DEFAULT_SHOWCASE_SECTIONS = [
 		media: { src: getAssetPath("video/003.mp4"), kind: "video" },
 		contentHtml: `
                <h2 class="text-[19cqw] leading-none hue-rotate-180">
-                        <span class="CanvasEffect text-[13cqw] tracking-[-0.15em] pb-[0.25em]">Layer the membrane</span>
-                        <span class="CanvasEffect">膜を重ねる</span>
+                        <span class="CanvasEffect relative inline-block overflow-visible text-BK/70 leading-none text-[13cqw] tracking-[-0.15em] pb-[0.25em]">Layer the membrane</span>
+                        <span class="CanvasEffect relative inline-block overflow-visible text-BK/70 leading-none">膜を重ねる</span>
                 </h2>
                 <p class="mt-8 TXST">1 画面ぶん下へ進むと、2 番の面が前に出る。縦スクロールはそのまま 90 度の移動になる。</p>`.trim(),
 	},
@@ -108,8 +108,8 @@ export const DEFAULT_SHOWCASE_SECTIONS = [
 		media: { src: getAssetPath("video/004.mp4"), kind: "video" },
 		contentHtml: `
                 <h2 class="text-[19cqw] leading-none hue-rotate-[340deg]">
-                        <span class="CanvasEffect tracking-[-0.125em] ">Back to route</span>
-                        <span class="CanvasEffect">旅路へ戻る</span>
+                        <span class="CanvasEffect relative inline-block overflow-visible text-BK/70 leading-none tracking-[-0.125em] ">Back to route</span>
+                        <span class="CanvasEffect relative inline-block overflow-visible text-BK/70 leading-none">旅路へ戻る</span>
                 </h2>
                 <p class="mt-8 TXST">4 番の面まで来たら、次の 90 度で 1 番に戻る。内容は普通の縦長サイトで、位相だけが回る。</p>
                 `.trim(),

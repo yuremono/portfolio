@@ -1,7 +1,5 @@
 @use "../../config" as *;
 
-// @layer base{
-
 .Header.HeaderCylinder {
         --logoW:7.5rem;
         --BC: oklch(99% 0.005 60);
@@ -474,4 +472,3 @@
                 text-decoration: underline;
         }
 }
-// }

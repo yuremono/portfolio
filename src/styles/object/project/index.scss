@@ -1,17 +1,12 @@
 @use "sass:meta";
 
-// @use "header-cylinder";
-// @use "mind-map";
-
-
 @layer project {
-	@include meta.load-css("js-letter");
-	@include meta.load-css("mind-map");
-	@include meta.load-css("header");
-	@include meta.load-css("header-cylinder");
+	@include meta.load-css("JsLetter");
+	@include meta.load-css("MindMap");
+	@include meta.load-css("Header");
+	@include meta.load-css("HeaderCylinder");
 	@include meta.load-css("houdini-polka-card");
 	@include meta.load-css("hover");
-	@include meta.load-css("page-transition");
-	@include meta.load-css("ScrollX");
+	@include meta.load-css("PageTransition");
 	@include meta.load-css("tweakpane");
 }

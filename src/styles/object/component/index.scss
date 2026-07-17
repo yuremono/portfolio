@@ -2,7 +2,8 @@
 
 @layer component {
 	@include meta.load-css("btn");
-	@include meta.load-css("desc-list");
+	@include meta.load-css("DeskList");
 	@include meta.load-css("intersection");
-	@include meta.load-css("unit");
+	@include meta.load-css("structure");
+	@include meta.load-css("visuals");
 }

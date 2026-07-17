@@ -7,7 +7,5 @@
 
 @layer utility {
 	@include meta.load-css("decoration");
-	@include meta.load-css("display");
-	@include meta.load-css("spacing");
-	@include meta.load-css("typography");
+	@include meta.load-css("utility");
 }

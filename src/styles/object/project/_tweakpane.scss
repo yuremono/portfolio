@@ -50,3 +50,17 @@ div.tp-lblv_v:has(.tp-radgridv) {
 .tp-rotv_b {
         min-width: 25.5em;
 }
+.HeaderItems>div {
+        scrollbar-gutter: stable;
+}
+.HeaderItems>div::-webkit-scrollbar {
+        background-color: transparent;
+        width: o;
+        height: 0;
+}
+.HeaderItems>div:has(.tp-cntv.tp-rotv-expanded) {
+        opacity: 0.5;
+}
+.HeaderItems>div:has(.tp-cntv.tp-rotv-expanded):hover {
+        opacity: 1;
+}

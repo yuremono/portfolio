@@ -75,7 +75,7 @@ IDEの表示順=読み込み順を、番号なしで維持する。
 @layer project      { /* 再利用パターン（component とはレイヤー順のみが異なる） */ }
 @layer utility      { /* 独自レイヤーの最後・独自クラス同士では常に勝つ */ }
 /* @tailwind components; @tailwind utilities;（非レイヤー・最後） */
-```
+``` 
 
 - `foundation/index.scss` に `tw-preflight` → `foundation` → `layout` → `component` → `project` → `utility`
 の順でレイヤー宣言があり、`tw-preflight` が最初に読み込まれる

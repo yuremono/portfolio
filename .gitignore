@@ -128,6 +128,9 @@ coverage/
 
 # 実在サイトから抽出した学習用素材(公開ページでは未使用)
 /public/extracted/kawamura-zeiri-com/
+/public/Broadsheet/
+/public/nagi/
+/Broadsheet.zip
 
 # AWSリソース識別子(アカウントID・ARN等)を定義するデプロイ用環境変数(公開しない)
 /scripts/deploy-aws.env

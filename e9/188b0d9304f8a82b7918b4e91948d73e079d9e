@@ -1,0 +1,26 @@
+.gitignore
+  s_e3b54731bb8c2b::t_e95bfe93fe16a2 133
+  h_53dad1e32c3c71 132
+  s_e3b54731bb8c2b::t_171bd67d58fee9 131
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.24",
+  "base_commit_sha": "e9188b0d9304f8a82b7918b4e91948d73e079d9e",
+  "prompts": {},
+  "humans": {
+    "h_53dad1e32c3c71": {
+      "author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_e3b54731bb8c2b": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a039c8-8562-7a51-9e54-bc0e9956bb53",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "yuremono <5alviaofficinali50@gmail.com>"
+    }
+  }
+}

@@ -230,6 +230,6 @@ export { {SkillName}, {SkillName}Item };
 
  ## クラス定義ファイル
 
- `src/scss/_10UNIT.scss`
+ `src/styles/object/component/_structure.scss`
 
 

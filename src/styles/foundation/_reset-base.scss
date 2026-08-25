@@ -53,13 +53,13 @@ html:not(:has(.HeaderCylinder)) :where(:target,[id]){//アンカーリンク用 
 	color: var(--foreground);
 	font-style: normal;
 	background-color: var(--background);
-        transition: 0;
+        transition: 0s;
 }
 
 span {display: inline-block;}
 small{font-size: 62.5%;}
 
-:where(*){
+:where(div){
         max-width: 100%;
 }
 a {

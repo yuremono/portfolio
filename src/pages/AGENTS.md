@@ -9,8 +9,8 @@
 
 ## 変数についてのルール
 - scssファイルを直接編集しない。変数は`PageRoot`に任意クラスで定義する
-- 基本は`/src/scss/_01variables.scssで`定義された変数のみを使う。
-- 変数をそのまま使用するクラスが`/src/index.scss`に書かれているので優先的に使う(`wid PX BorderXY BGgrad`等)
+- 基本は`/src/styles/foundation/_root.scss`で定義された変数のみを使う。
+- 変数をそのまま使用するクラスが`/src/styles/object/utility/`にあるので優先的に使う(`wid PX BorderXY BGgrad`等)
 - レイアウトやセクションに関わる変数は構造名1単語+プロパティの頭文字1~2文字で定義する。例:`--heroH:calc(100lvh - var(--head))`
 - 特殊なレイアウトを除き、1ページで新規変数が3つ以上必要だと考えたのなら、構造が間違っている。ユーザーに相談しなければいけない。
 - font-family: 上書きする場合フォールバックを書かない。使える前提を整えてから定義する。
@@ -48,17 +48,22 @@
 - 小数値は `12.5``1.25` `0.125` 刻み以外禁止。`letter-spacing` のみ `0.0125` 刻みを許可。
 - 整数値は`2,3,5`以外の素数は使用禁止。
 - oklchは桁数のみ制限する。例: `oklch(0.50 0.12 265)`
--  `clamp()` / `calc()` は小さい要素に直書きせず `const rootClasses` または<PageRoot className="...">に `[--name:...]` で定義して使う。微妙に違う似た値を量産しない。
+-  `clamp()` / `calc()` は小さい要素に直書きせず `<PageRoot className="...">` に `[--name:...]` で定義して使う。微妙に違う似た値を量産しない。
 -  テキストサイズは `--FZ`, `--h1FZ`, `--h2FZ`, `--h3FZ` , `--largeFZ` とtext-xsのみ使用する。増やしたくなったらまず二つの数値を丸める
 -  ページ内で使うフォントファミリは通常 2 種、多くても 3 種まで。
 -  `text-[] tracking-[] leading-[]` などフォント関連の任意値は変数以外使用禁止。
+-  `font-bold` `leading-relaxed` `tracking-wide` 等の**既定ユーティリティも使用禁止**。太さ・行間・字間は base の変数（`--FW --LH --LS`、見出しは `--HFW --HLH --HLS`）が設定済み。強調は `<b>`/`<strong>`（500 設定済み）を使う
+-  heading の見た目は base 指定に任せる。ページ側で h タグを再スタイルしない
+- 指示がない限り opacity・フォントサイズに 0.96 倍等の微差をつけない
+- `vh` は使わず `svh` / `lvh` に統一（例: `min-h-[100svh]`）
+- transition は既存変数以外禁止。duration・easing を直書きしない
 
 ### 影・装飾
 - 既存クラス`.TS .DS .BS .WTS .BGgrad .Border{方向} `が設定済み。変数を上書きして使用する。派生を **ページ内で 3 パターンまで** 許容。それ以上は追加はユーザーの許可を得なければならない。
 - 上記により`border-``text-shadow-`, `drop-shadow-`, `box-shadow-`, `text-stroke-` ,`ｂｇグラデーション` のtailwindは使用禁止。
 
 ## 依存の取り回し
--  外部スタイルシートとフォントを `useEffect` で動的注入しない。HTML `<head>` か `@import` / `@font-face`。
+-  外部スタイルシートとフォントを `useEffect` で動的注入しない。Web フォントは `index.html` の `<link>` で一括読み込みする（CSS 内 `@import` はレンダーブロッキングになるため使わない。自己ホストのフォントのみ `@font-face` 可）。
 -  フォントファミリを JS の `CSSProperties` 定数で保持しない。
 -  スタイルトークン（色・影・グラデーション・フォントファミリ・サイズ値）を JS 側の定数・`CSSProperties` オブジェクトで保持しない。CSS 変数として宣言し Tailwind arbitrary で参照する。
 
@@ -76,3 +81,17 @@
   - モジュールトップレベルの宣言
   - ファイル冒頭の定数ブロック
   - `PageRoot` 内の各 `<section>` とその中のまとまった意味を持つグループ
+
+## プロトタイプ・テストページ作成ルール
+
+詳細手順はスキル `proto-page` を参照。要点:
+
+- ページは新規作成せず、`App.tsx` でコメントアウト中の `Test*` から最も中身が少ないものを再利用する。ルートのコメントを解除し、URL をその時点でユーザーに報告する
+- グローバルスタイル前提（`src/styles/layout/index.scss`）を必ず踏まえる:
+  - `main` に `padding-inline: var(--PX)` 済み → main 直下に `px-*` を付けない
+  - `main>*` に `width: var(--wid)` `max-width: 100%` `margin-inline: auto` `position: relative` 済み → main 直下に `w-* max-w-* mx-auto relative` を付けない。特に `max-w-[--wid]` は `max-width:100%` を潰して狭い画面ではみ出すため禁止
+  - `main>*+*` に `margin-top: var(--MY)` 済み → 背景レイヤー直後のコンテンツブロックには `mt-0`
+- 縦paddingは `main` に `py-[--head]` で付け、main 直下では重複させない
+- テキスト主体＋背景装飾の2層構成では、背景ラッパーを `absolute inset-0 w-full` にしてテキストの高さに追従させ、その中身（グループ）は自然な縦積みにする
+- ジェネレーター（`/rects` 等）の出力は静的に貼り付ける。動的生成・配列ループ・`style={{}}` に書き換えない。画像パスは要素ごとに `getAssetPath()` 直書きで、個別編集できる状態を保つ
+- ジェネレーター UI の操作が必要な場面でスムーズにできない場合は、代替実装せずその時点で停止しユーザーに依頼する

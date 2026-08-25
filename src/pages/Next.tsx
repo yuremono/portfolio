@@ -156,7 +156,7 @@ function Next() {
 									<span className="budoux">
 										個人制作ページ、ツールをまとめています。
 										<br />
-										これまではNextJS
+										これまではNext.js
 										CMS、AIチャット共有拡張機能、
 										<br />
 										AI前提のweb開発を行なってきました。
@@ -221,7 +221,7 @@ function Next() {
 								Pencil.dev
 							</p>
 							<p className=" mmPin bg-GR/70 text-xs md:text-xl  absolute z-10  text-[--WH] min-h-[2.5rem] content-center left-0 bottom-0 w-full text-align-last-justify px-2 md:px-16">
-								Typescript PhotoShop Figma Three.js Supabase
+								Typescript Photoshop Figma Three.js Supabase
 								GSAP
 							</p>
 						</div>
@@ -363,7 +363,7 @@ function Next() {
 													</dd>
 													<dt>Python</dt>
 													<dd>AI 6 Month</dd>
-													<dt>React/Next.Js/Vite</dt>
+													<dt>React/Next.js/Vite</dt>
 													<dd>
 														<span className="px-2 bg-AC/30 font-medium">
 															AI 1 Year
@@ -400,7 +400,7 @@ function Next() {
 											<div className="DescList  [--dtW:50%] [--PY:0.25em] [--PX:0.25em]  mt-4 IsDdright">
 												<dl className="items-center">
 													<dt className="">
-														PhotoShop
+														Photoshop
 													</dt>
 													<dd>
 														<span className="">
@@ -728,7 +728,7 @@ function Next() {
 							</div>
 						</div>
 						<p className="bg-GR/70 text-xs md:text-xl absolute z-10  font-thin Eng text-[--WH] min-h-[2.5rem] content-center left-0 bottom-0 w-full text-align-last-justify px-2 md:px-16">
-							Typescript PhotoShop Figma Three.js Supabase GSAP
+							Typescript Photoshop Figma Three.js Supabase GSAP
 						</p>
 					</section>
 				</ScrollXSection>

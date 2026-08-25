@@ -262,7 +262,7 @@ function Preview() {
 
 				{/* FAQ - Toggle IsQa */}
 				<section className="Stick out [--scr:100%] [--shift:100%] ">
-					<div className="StickItem Cards col2 xl:[--gap:50%] top-[--head]">
+					<div className="StickItem Cards col2 xl:[--gap:50%] flex-nowrap top-[--head]">
 						<Image
 							className="item md:pl-[--PX]"
 							image={getAssetPath("/images/picsum/018.jpg")}

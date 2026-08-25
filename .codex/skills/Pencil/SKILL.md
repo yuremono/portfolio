@@ -18,7 +18,7 @@ pencil MCPツールを使用して、.penファイルを作成するためのワ
 
 ## 注意事項（必読）
 
-**`/src/scss/_01variables.scss`の変数`--{variables} ` = pencil variables `${variables} ` である**
+**`/src/styles/foundation/_root.scss`の変数`--{variables} ` = pencil variables `${variables} ` である**
 
 - **IDはCustomClass名と同じ**: ImgText, Cards, Toggle 等
 - **コンポーネントはファイル間参照不可**: 使用している.penファイルがあればコピーする

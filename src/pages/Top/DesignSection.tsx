@@ -36,7 +36,7 @@ export function DesignSection({ className }: DesignSectionProps) {
 				<div className="[--LS:0.1em]   ">
 					<h2 className=" h2FZ JsRight  font-normal">## Design</h2>
 					<div className="BudouxScroll mx-auto my-[3rem] md:text-xl">
-						### PhotoShop デザイン抜粋
+						### Photoshop デザイン抜粋
 						<br />
 						<br />
 						実務で作成したデザインのjpg書き出しをまとめています。
@@ -49,7 +49,7 @@ export function DesignSection({ className }: DesignSectionProps) {
 								target="_blank"
 								rel="noopener noreferrer"
 							>
-								Extarnal Link
+								External Link
 								<CaretRightIcon className=" align-bottom ml-1" />
 							</a>
 						</div>

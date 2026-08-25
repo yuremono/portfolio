@@ -193,8 +193,8 @@ CSS処理で必ず作るもの:
 実装先を確認するコマンド:
 
 ```bash
-rtk rg --files src/pages src/components src/scss
-rtk rg -n "INSERT_ANCHOR|ExistingSection|main|section|ComponentName|ClassName" src/pages/PageName.tsx src/components src/scss CLASS.md STYLE.md
+rtk rg --files src/pages src/components src/styles
+rtk rg -n "INSERT_ANCHOR|ExistingSection|main|section|ComponentName|ClassName" src/pages/PageName.tsx src/components src/styles CLASS.md STYLE.md
 rtk sed -n '1,220p' src/pages/PageName.tsx
 ```
 

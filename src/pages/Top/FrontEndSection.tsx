@@ -48,7 +48,7 @@ export function FrontEndSection({ className }: FrontEndSectionProps) {
 							target="_blank"
 							rel="noopener noreferrer"
 						>
-							Next.Js でCMS
+							Next.js でCMS
 							<ArrowSquareOutIcon className=" align-middle ml-1 mb-1" />
 						</a>
 						を開発しました。
@@ -92,10 +92,7 @@ export function FrontEndSection({ className }: FrontEndSectionProps) {
 						<a href="/rects" className="italic hover:text-AC ">
 							図形をもとにインラインSVGを作成するツール
 						</a>
-						<a
-							href="/bunmyaku"
-							className="italic hover:text-AC "
-						>
+						<a href="/bunmyaku" className="italic hover:text-AC ">
 							エージェント用ドキュメント作成ツール
 						</a>
 						<a

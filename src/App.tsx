@@ -22,7 +22,7 @@ const GridCarousel = lazy(() => import("./pages/GridCarousel"));
 const Bbox = lazy(() => import("./pages/Bbox"));
 // const Test26 = lazy(() => import("./pages/Test26"));
 // const ZzzScratch = lazy(() => import("./pages/ZzzScratch"));
-// const Test9 = lazy(() => import("./pages/Test9"));
+const Test9 = lazy(() => import("./pages/Test9"));
 // const LingoChat = lazy(() => import("./pages/LingoChat"));
 // const Yugen = lazy(() => import("./pages/Yugen"));
 // const Test5 = lazy(() => import("./pages/Test5"));
@@ -48,7 +48,7 @@ const routes: PageTransitionRoute[] = [
 	{ path: "/bbox", element: <Bbox />, transitionTitle: "Bbox" },
 	// { path: "/Test26", element: <Test26 />, transitionTitle: "Test26" },
 	// {path: "/ZzzScratch",element: <ZzzScratch />,transitionTitle: "ZzzScratch",},
-	// { path: "/Test9", element: <Test9 />, transitionTitle: "Test9" },
+	{ path: "/Test9", element: <Test9 />, transitionTitle: "Test9" },
 	// {path: "/lingochat",element: <LingoChat />,transitionTitle: "LingoChat",},
 	// { path: "/yugen", element: <Yugen />, transitionTitle: "Yugen" },
 	// { path: "/test5", element: <Test5 />, transitionTitle: "Test5" },

@@ -232,10 +232,10 @@ Tailwindのarbitrary value構文を使用：
 | バックエンドのコード(`rag-backend/app/*.py`) | `npm run deploy:aws:backend`                                              | Docker build→ECR push→App Runner deploy。OrbStackの起動は自動、終了確認後は手動で閉じる       |
 | RAGデータ(`~/rag-data/...`の内容)        | 事前に `rag-backend/build/build_db.py` でDB再構築 → `npm run deploy:aws:backend` | DBはコンテナに焼き込み式のため、コード変更と同じ手順が必要                                            |
 | 両方まとめて                             | `npm run deploy:aws:all`                                                  | frontend→backendの順で実行                                                     |
-| 環境変数のみ(レート制限値・CORS許可先など)           | `aws apprunner update-service` を直接実行                                      | Dockerビルド不要。詳細は [portfolio-rag-progress.md](portfolio-rag-progress.md) 参照 |
+| 環境変数のみ(レート制限値・CORS許可先など)           | `aws apprunner update-service` を直接実行                                      | Dockerビルド不要。詳細は [portfolio-rag-progress.md](docs/portfolio-rag-progress.md) 参照 |
 
 
-AWSリソースの詳細構成・トラブルシューティングは [portfolio-rag-progress.md](portfolio-rag-progress.md) を参照(このファイルは実パス・AWSアカウントID等を含むため`.gitignore`対象で、リポジトリには含まれない)。
+AWSリソースの詳細構成・トラブルシューティングは [portfolio-rag-progress.md](docs/portfolio-rag-progress.md) を参照(このファイルは実パス・AWSアカウントID等を含むため`.gitignore`対象で、リポジトリには含まれない)。
 
 ### RAGチャットのコンテキスト構造
 

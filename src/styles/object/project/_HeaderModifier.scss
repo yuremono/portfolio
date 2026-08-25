@@ -949,329 +949,330 @@
         //         }
         // }
 
-        // &.LinkShadow {
-        //         a:not(.DropUl *) {
-        //                 filter: var(--dswh) var(--dswh) var(--dswh);
-        //         }
-        // }
-
-        // &.Triangle {
-
-        //         svg path {
-        //                 fill: white;
-        //                 stroke: var(--BK70);
-        //                 stroke-width: 2em;
-        //         }
-
-        //         .NavLi {
-        //                 font-size: 1.25rem;
-        //         }
-
-        //         button:not(.HeaderLogo) ,
-        //         a:not(.HeaderLogo) {
-        //                 color: var(--WH);
-        //                 -webkit-text-stroke: .125em var(--BK70);
-        //                 paint-order: stroke;
-        //         }
-
-        //         button:not(.DropUl *):hover ,
-        //         a:not(.DropUl *):hover {
-        //                 color: var(--AC);
-        //         }
-
-        //         @apply h-full pointer-events-none;
-
-        //         .HeaderInner {
-        //                 @apply px-0 flex-col items-end justify-between h-full;
-
-        //                 >* {
-        //                         pointer-events: auto;
-        //                 }
-
-        //         }
-
-        //         .HeaderLogo {
-        //                 @apply absolute w-[var(--logoW)] top-1/2 left-0 translate-y-[-50%] pointer-events-auto h-auto;
-        //                 background: url(/images/clip01.png) repeat center/20vw;
-        //                 filter: grayscale(50%);
-        //                 border-radius: 0 999px 999px 0;
-        //                 overflow: hidden;
-        //                 border: 10px solid var(--TR);
-        //                 border-left: 0;
-        //                 aspect-ratio: 1/2;
-        //                 transform-origin: 0 0%;
-        //                 transition: var(--trans);
-
-        //                 &:hover {
-        //                         scale: 1.06;
-        //                 }
-
-        //                 a {
-        //                         font-size: 2vw;
-        //                         line-height: 1;
-        //                         padding-left: 0.5em;
-        //                         display: block;
-        //                         height: 100%;
-        //                         align-content: center;
-        //                         background-color: var(--WH);
-
-        //                         >span {
-        //                                 font-weight: 700;
-        //                                 -webkit-text-stroke: .025em var(--BK50);
-        //                                 paint-order: stroke;
-        //                                 background: url(/images/clip01.png) repeat 70% 50%/10vw;
-        //                                 background-color: var(--WH);
-        //                                 background-clip: text;
-        //                                 color: var(--TR);
-        //                         }
-        //                 }
-        //         }
-
-        //         .HeaderMenu {
-        //                 @apply top-2 right-2;
-        //         }
-
-        //         .HeaderNav {
-        //                 @apply h-[--head];
-        //         }
-
-        //         .HeaderUl {
-        //                 @apply flex flex-wrap items-center justify-center gap-1 p-2;
-        //         }
-
-        //         .HeaderItems {
-        //                 @apply flex flex-col items-end text-right p-2 gap-0;
-
-        //                 @include menu {
-        //                         order: 3;
-        //                 }
-        //         }
-
-        //         .HeaderItems>a {
-        //                 @apply px-[--headG];
-        //         }
-
-        //         .DropIcon {
-        //                 @apply ml-1;
-        //         }
-
-        //         .NavInner ul a {
-        //                 display: block;
-        //                 text-align: right;
-
-        //         }
-
-        //         .HeaderNavMobile .NavInner .DropBtn {
-        //                 display: none;
-        //         }
-        // }
-
-        // &.NavCircleLeft {
-        //         svg path {
-        //                 fill: white;
-        //                 stroke: var(--BK70);
-        //                 stroke-width: 2em;
-        //         }
-
-        //         li {
-        //                 font-size: 1.25rem;
-        //         }
-
-        //         a:not(.HeaderLogo) {
-        //                 color: var(--WH);
-        //                 -webkit-text-stroke: .125em var(--BK70);
-        //                 paint-order: stroke;
-        //         }
-
-        //         a:not(.DropUl *):hover {
-        //                 color: var(--AC);
-        //         }
-
-        //         @apply h-full pointer-events-none;
-
-        //         .HeaderInner {
-        //                 @apply px-0 flex-col items-end justify-between h-full;
-
-        //                 >* {
-        //                         pointer-events: auto;
-        //                 }
-
-        //         }
-
-        //         .HeaderNav {
-        //                 @apply absolute top-1/2 left-0 translate-y-[-50%] pointer-events-auto z-[100] w-[--logoW] aspect-[1/2];
-
-        //                 ul {
-        //                         @apply grid;
-        //                 }
-
-        //                 li {
-        //                         @apply py-0 content-center h-[unset];
-        //                         background: linear-gradient(var(--TC), var(--TC)) no-repeat center/100% 1px;
-        //                         background-color: var(--GR10);
-        //                 }
-
-        //                 ul:has(li:nth-of-type(6):last-of-type) {
-
-        //                         li:nth-of-type(1),
-        //                         li:nth-of-type(6) {
-        //                                 transform: translateX(44%);
-        //                         }
-
-        //                         li:nth-of-type(2),
-        //                         li:nth-of-type(5) {
-        //                                 transform: translateX(83%);
-        //                         }
-
-        //                         li:nth-of-type(3),
-        //                         li:nth-of-type(4) {
-        //                                 transform: translateX(98%);
-        //                         }
-        //                 }
-
-        //                 ul:has(li:nth-of-type(5):last-of-type) {
-
-        //                         li:nth-of-type(1),
-        //                         li:nth-of-type(5) {
-        //                                 transform: translateX(49%);
-        //                         }
-
-        //                         li:nth-of-type(2),
-        //                         li:nth-of-type(4) {
-        //                                 transform: translateX(89%);
-        //                         }
-
-        //                         li:nth-of-type(3) {
-        //                                 transform: translateX(100%);
-        //                         }
-        //                 }
-
-        //                 ul:has(li:nth-of-type(4):last-of-type) {
-
-        //                         li:nth-of-type(1),
-        //                         li:nth-of-type(4) {
-        //                                 transform: translateX(58%);
-        //                         }
-
-        //                         li:nth-of-type(2),
-        //                         li:nth-of-type(3) {
-        //                                 transform: translateX(95.5%);
-        //                         }
-        //                 }
-
-        //                 ul:has(li:nth-of-type(3):last-of-type) {
-
-        //                         li:nth-of-type(1),
-        //                         li:nth-of-type(3) {
-        //                                 transform: translateX(68%);
-        //                         }
-
-        //                         li:nth-of-type(2) {
-        //                                 transform: translateX(100%);
-        //                         }
-        //                 }
-
-        //                 ul:has(li:nth-of-type(2):last-of-type) {
-
-        //                         li:nth-of-type(1),
-        //                         li:nth-of-type(2) {
-        //                                 transform: translateX(83%);
-        //                         }
-        //                 }
-
-        //                 ul:has(li:nth-of-type(1):last-of-type) {
-        //                         li:nth-of-type(1) {
-        //                                 transform: translateX(100%);
-        //                         }
-        //                 }
-        //         }
-
-        //         .HeaderLogo {
-        //                 @apply absolute w-[var(--logoW)] top-1/2 left-0 translate-y-[-50%] pointer-events-auto h-auto z-[1000];
-        //                 border-radius: 0 999px 999px 0;
-        //                 overflow: hidden;
-        //                 border-left: 0;
-        //                 aspect-ratio: 1/2;
-        //                 transform-origin: 0 0%;
-        //                 transition: var(--trans);
-
-        //                 // &:hover{
-        //                 //         scale: 1.06;
-        //                 // }
-        //                 a {
-        //                         font-size: 2vw;
-        //                         line-height: 1;
-        //                         padding-left: 0.5em;
-        //                         display: block;
-        //                         height: 100%;
-        //                         align-content: center;
-
-        //                         >span {
-        //                                 font-weight: 700;
-        //                                 -webkit-text-stroke: .025em var(--BK50);
-        //                                 paint-order: stroke;
-        //                                 background: url(/images/clip01.png) repeat 70% 50%/10vw;
-        //                                 background-color: var(--WH);
-        //                                 background-clip: text;
-        //                                 color: var(--TR);
-        //                         }
-        //                 }
-
-        //                 &:has(.LogoCylinder) {
-        //                         filter: none;
-        //                         overflow: hidden;
-        //                 }
-
-        //                 a.LogoObject {
-        //                         width: 100%;
-        //                         padding-left: 0;
-        //                         background: var(--TR);
-        //                         color: var(--TC);
-        //                 }
-
-        //                 .LogoCylinder {
-        //                         width: var(--logoW);
-        //                         height: calc(var(--logoW) * 2);
-        //                         display: block;
-        //                 }
-
-        //                 .LogoLoading {
-        //                         width: var(--logoW);
-        //                         height: calc(var(--logoW) * 2);
-        //                         border-radius: inherit;
-        //                 }
-        //         }
-
-        //         .HeaderMenu {
-        //                 @apply top-2 right-2;
-        //         }
-
-        //         .HeaderItems {
-        //                 @apply flex flex-col items-end text-right p-2 gap-0;
-
-        //                 @include menu {
-        //                         order: 3;
-        //                 }
-        //         }
-
-        //         .HeaderItems>a {
-        //                 @apply px-[--headG];
-        //         }
-
-        //         .DropIcon {
-        //                 @apply ml-1;
-        //         }
-
-        //         .NavInner ul a {
-        //                 display: block;
-        //                 text-align: right;
-
-        //         }
-
-        //         .HeaderNavMobile .NavInner .DropBtn {
-        //                 display: none;
-        //         }
-        // }
+        &.LinkShadow {
+                button:not(.DropUl *) ,
+                a:not(.DropUl *) {
+                        filter: var(--DS) var(--DS) var(--DS);
+                }
+        }
+
+        &.Triangle {
+
+                svg path {
+                        fill: white;
+                        stroke: var(--BK70);
+                        stroke-width: 2em;
+                }
+
+                .NavLi {
+                        font-size: 1.25rem;
+                }
+
+                button:not(.HeaderLogo) ,
+                a:not(.HeaderLogo) {
+                        color: var(--WH);
+                        -webkit-text-stroke: .125em var(--BK70);
+                        paint-order: stroke;
+                }
+
+                button:not(.DropUl *):hover ,
+                a:not(.DropUl *):hover {
+                        color: var(--AC);
+                }
+
+                @apply h-full pointer-events-none;
+
+                .HeaderInner {
+                        @apply px-0 flex-col items-end justify-between h-full;
+
+                        >* {
+                                pointer-events: auto;
+                        }
+
+                }
+
+                .HeaderLogo {
+                        @apply absolute w-[var(--logoW)] top-1/2 left-0 translate-y-[-50%] pointer-events-auto h-auto;
+                        background: url(/images/clip01.png) repeat center/20vw;
+                        filter: grayscale(50%);
+                        border-radius: 0 999px 999px 0;
+                        overflow: hidden;
+                        border: 10px solid var(--TR);
+                        border-left: 0;
+                        aspect-ratio: 1/2;
+                        transform-origin: 0 0%;
+                        transition: var(--trans);
+
+                        &:hover {
+                                scale: 1.06;
+                        }
+
+                        a {
+                                font-size: 2vw;
+                                line-height: 1;
+                                padding-left: 0.5em;
+                                display: block;
+                                height: 100%;
+                                align-content: center;
+                                background-color: var(--WH);
+
+                                >span {
+                                        font-weight: 700;
+                                        -webkit-text-stroke: .025em var(--BK50);
+                                        paint-order: stroke;
+                                        background: url(/images/clip01.png) repeat 70% 50%/10vw;
+                                        background-color: var(--WH);
+                                        background-clip: text;
+                                        color: var(--TR);
+                                }
+                        }
+                }
+
+                .HeaderMenu {
+                        @apply top-2 right-2;
+                }
+
+                .HeaderNav {
+                        @apply h-[--head];
+                }
+
+                .HeaderUl {
+                        @apply flex flex-wrap items-center justify-center gap-1 p-2;
+                }
+
+                .HeaderItems {
+                        @apply flex flex-col items-end text-right p-2 gap-0;
+
+                        @include menu {
+                                order: 3;
+                        }
+                }
+
+                .HeaderItems>a {
+                        @apply px-[--headG];
+                }
+
+                .DropIcon {
+                        @apply ml-1;
+                }
+
+                .NavInner ul a {
+                        display: block;
+                        text-align: right;
+
+                }
+
+                .HeaderNavMobile .NavInner .DropBtn {
+                        display: none;
+                }
+        }
+
+        &.NavCircleLeft {
+                svg path {
+                        fill: white;
+                        stroke: var(--BK70);
+                        stroke-width: 2em;
+                }
+
+                li {
+                        font-size: 1.25rem;
+                }
+
+                a:not(.HeaderLogo) {
+                        color: var(--WH);
+                        -webkit-text-stroke: .125em var(--BK70);
+                        paint-order: stroke;
+                }
+
+                a:not(.DropUl *):hover {
+                        color: var(--AC);
+                }
+
+                @apply h-full pointer-events-none;
+
+                .HeaderInner {
+                        @apply px-0 flex-col items-end justify-between h-full;
+
+                        >* {
+                                pointer-events: auto;
+                        }
+
+                }
+
+                .HeaderNav {
+                        @apply absolute top-1/2 left-0 translate-y-[-50%] pointer-events-auto z-[100] w-[--logoW] aspect-[1/2];
+
+                        ul {
+                                @apply grid;
+                        }
+
+                        li {
+                                @apply py-0 content-center h-[unset];
+                                background: linear-gradient(var(--TC), var(--TC)) no-repeat center/100% 1px;
+                                background-color: var(--GR10);
+                        }
+
+                        ul:has(li:nth-of-type(6):last-of-type) {
+
+                                li:nth-of-type(1),
+                                li:nth-of-type(6) {
+                                        transform: translateX(44%);
+                                }
+
+                                li:nth-of-type(2),
+                                li:nth-of-type(5) {
+                                        transform: translateX(83%);
+                                }
+
+                                li:nth-of-type(3),
+                                li:nth-of-type(4) {
+                                        transform: translateX(98%);
+                                }
+                        }
+
+                        ul:has(li:nth-of-type(5):last-of-type) {
+
+                                li:nth-of-type(1),
+                                li:nth-of-type(5) {
+                                        transform: translateX(49%);
+                                }
+
+                                li:nth-of-type(2),
+                                li:nth-of-type(4) {
+                                        transform: translateX(89%);
+                                }
+
+                                li:nth-of-type(3) {
+                                        transform: translateX(100%);
+                                }
+                        }
+
+                        ul:has(li:nth-of-type(4):last-of-type) {
+
+                                li:nth-of-type(1),
+                                li:nth-of-type(4) {
+                                        transform: translateX(58%);
+                                }
+
+                                li:nth-of-type(2),
+                                li:nth-of-type(3) {
+                                        transform: translateX(95.5%);
+                                }
+                        }
+
+                        ul:has(li:nth-of-type(3):last-of-type) {
+
+                                li:nth-of-type(1),
+                                li:nth-of-type(3) {
+                                        transform: translateX(68%);
+                                }
+
+                                li:nth-of-type(2) {
+                                        transform: translateX(100%);
+                                }
+                        }
+
+                        ul:has(li:nth-of-type(2):last-of-type) {
+
+                                li:nth-of-type(1),
+                                li:nth-of-type(2) {
+                                        transform: translateX(83%);
+                                }
+                        }
+
+                        ul:has(li:nth-of-type(1):last-of-type) {
+                                li:nth-of-type(1) {
+                                        transform: translateX(100%);
+                                }
+                        }
+                }
+
+                .HeaderLogo {
+                        @apply absolute w-[var(--logoW)] top-1/2 left-0 translate-y-[-50%] pointer-events-auto h-auto z-[1000];
+                        border-radius: 0 999px 999px 0;
+                        overflow: hidden;
+                        border-left: 0;
+                        aspect-ratio: 1/2;
+                        transform-origin: 0 0%;
+                        transition: var(--trans);
+
+                        // &:hover{
+                        //         scale: 1.06;
+                        // }
+                        a {
+                                font-size: 2vw;
+                                line-height: 1;
+                                padding-left: 0.5em;
+                                display: block;
+                                height: 100%;
+                                align-content: center;
+
+                                >span {
+                                        font-weight: 700;
+                                        -webkit-text-stroke: .025em var(--BK50);
+                                        paint-order: stroke;
+                                        background: url(/images/clip01.png) repeat 70% 50%/10vw;
+                                        background-color: var(--WH);
+                                        background-clip: text;
+                                        color: var(--TR);
+                                }
+                        }
+
+                        &:has(.LogoCylinder) {
+                                filter: none;
+                                overflow: hidden;
+                        }
+
+                        a.LogoObject {
+                                width: 100%;
+                                padding-left: 0;
+                                background: var(--TR);
+                                color: var(--TC);
+                        }
+
+                        .LogoCylinder {
+                                width: var(--logoW);
+                                height: calc(var(--logoW) * 2);
+                                display: block;
+                        }
+
+                        .LogoLoading {
+                                width: var(--logoW);
+                                height: calc(var(--logoW) * 2);
+                                border-radius: inherit;
+                        }
+                }
+
+                .HeaderMenu {
+                        @apply top-2 right-2;
+                }
+
+                .HeaderItems {
+                        @apply flex flex-col items-end text-right p-2 gap-0;
+
+                        @include menu {
+                                order: 3;
+                        }
+                }
+
+                .HeaderItems>a {
+                        @apply px-[--headG];
+                }
+
+                .DropIcon {
+                        @apply ml-1;
+                }
+
+                .NavInner ul a {
+                        display: block;
+                        text-align: right;
+
+                }
+
+                .HeaderNavMobile .NavInner .DropBtn {
+                        display: none;
+                }
+        }
 
         @keyframes header_anotation_toggle {
                 0%, 49.999% {

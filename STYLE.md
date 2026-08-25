@@ -63,7 +63,7 @@ main>* {
 - 変数が未設定の場合、フォールバック値が適用されるため「変数が定義されていない」という問題がわかりにくくなる
 - 記述量が増え、可読性が低下する
 
-そのため、**すべての変数は必ず `_01variables.scss`またはクラス内で定義することを前提**とし、フォールバック値は省略する。
+そのため、**すべての変数は必ず `src/styles/foundation/_root.scss`またはクラス内で定義することを前提**とし、フォールバック値は省略する。
 
 ---
 
@@ -174,16 +174,16 @@ Tailwind の arbitrary value 構文を使用し、CSS 変数を直接使用す�
 
 ---
 
-## _20utility.scss（@layer globals）
+## _utility.scss（@layer utility）
 
-CustomClass の Util クラスを `@layer globals` で設定する。class コンテナにクラスを付与し、子（`img` タグ等）のプロパティを一括指定する。
+CustomClass の Util クラスを `src/styles/object/utility/_utility.scss`（`@layer utility`）で設定する。class コンテナにクラスを付与し、子（`img` タグ等）のプロパティを一括指定する。
 
-**参照の正**: 本リポジトリではビルドに取り込まれる **`src/scss/` 配下**を見る。プロジェクト直下の **`scss/` は参照用**（別系統のソース・複製）であり、ファイル名や分割は一致しない場合がある。
+**参照の正**: 本リポジトリではビルドに取り込まれる **`src/styles/` 配下**を見る。**`src/scss/` は移行前の凍結ソース（参照用）**であり、ファイル名や分割は一致しない場合がある。
 
 ```scss
-@layer globals {
-        .img16-9 :is(img,video){aspect-ratio: 16/9;}
-        .img3-2 :is(img,video){aspect-ratio: 3/2;}
+@layer utility {
+        .img16-9 :is(img,svg,video){aspect-ratio: 16/9;}
+        .img3-2 :is(img,svg,video){aspect-ratio: 3/2;}
         ...
 }
 ```

@@ -93,7 +93,7 @@ http://localhost:5173/index.html
 - まずは色変数・新規フォント指定セレクタを使わない。レイアウトに必要な最小限のCSS（sticky、flex-wrap相当、ブレイクポイント切替、dl/olの見やすさ用grid）のみ
 
 ## 既知の差異・注意点
-- 表示する変数値（main内の変数リストの初期値）の正はこのディレクトリの`style.css`。`src/scss/_01variables.scss`や`TWonly/variables.scss`とは同期しない（独立運用）
+- 表示する変数値（main内の変数リストの初期値）の正はこのディレクトリの`style.css`。`src/styles/foundation/_root.scss`や`TWonly/variables.scss`とは同期しない（独立運用）
 - `--wine` `--brown` `--forest`もstyle.cssに定義済み
 - 変数は全網羅ではなく主要トークンのみ抜粋
   - 余白：`--wid` `--MY` `--PX` `--PX2` `--gap` `--gapH` `--spaceXS` `--spaceS` `--spaceM` `--spaceL` `--spaceXL`

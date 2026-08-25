@@ -40,11 +40,11 @@ GitHub Pagesは移行前の状態のまま凍結して保持する方針(誤っ�
 | `npm run deploy:aws:frontend`              | S3 sync + CloudFront invalidation                               | フロントのコード/CSS(現行本番)                                                          |
 | `npm run deploy:aws:backend`               | Docker build → ECR push → App Runner deploy(OrbStack自動起動、終了は手動) | `rag-backend/app/*.py`、または`build_db.py`でDB再構築した後                            |
 | `npm run deploy:aws:all`                   | 上記frontend→backendを連続実行                                         | 両方を変更したとき                                                                   |
-| (npmスクリプト無し)`aws apprunner update-service` | 環境変数のみ更新、Dockerビルド不要                                            | レート制限値・CORS許可先(ALLOWED_ORIGIN)等のみ変更したとき。コマンド例は`portfolio-rag-progress.md`参照 |
+| (npmスクリプト無し)`aws apprunner update-service` | 環境変数のみ更新、Dockerビルド不要                                            | レート制限値・CORS許可先(ALLOWED_ORIGIN)等のみ変更したとき。コマンド例は`docs/portfolio-rag-progress.md`参照 |
 
 
 RAGデータ(`~/rag-data/portfolio-rag/entries/`)を更新した場合は、`deploy:aws:backend`の前に
-`rag-backend/build/build_db.py`でDB再構築が必要(詳細は`portfolio-rag-progress.md`)。
+`rag-backend/build/build_db.py`でDB再構築が必要(詳細は`docs/portfolio-rag-progress.md`)。
 
 `deploy:aws:*` 系は、AWSリソース識別子(S3バケット名・ARN等)を定義した
 `scripts/deploy-aws.env`(git管理外)が存在する前提で動く(無ければエラー終了)。
@@ -85,7 +85,7 @@ RAGデータ(`~/rag-data/portfolio-rag/entries/`)を更新した場合は、`dep
 - 初めて編集するファイルは、編集前に必ず内容を確認する。
 - `.gitignore` に含まれるファイルを強制 push しない。publicで必要な場合は報告する
 - 現環境ではcalc関数以外では [var(--{name})] ではなく [--{name}] を使用する。例: p-[--PX]
-- 全ての色は`/src/t/_01variables.y`の`oklch`で書かれた既存変数を使用する。透明度は`{name}/50`,WH50などで指定。
+- 全ての色は`/src/styles/foundation/_root.scss`の`oklch`で書かれた既存変数を使用する。透明度は`{name}/50`,WH50などで指定。
 例: `bg-MC`, `text-AC`,  `bg-background` 、透明度付きカラー指定: `MC/50` 
 - 変数をそのまま使用するクラスが`/src/styles/object`にあるので優先的に使う(`wid PX BorderXY BGgrad`等)
 - 確実に必要な場合以外、`overflow` プロパティを指定しない。`hidden` が必要に見える場合も、まず  `overflow-clip` / `overflow-x-clip` / `overflow-y-clip` を優先する。
@@ -122,7 +122,7 @@ OrbStackは`deploy:aws:backend`実行時に自動起動されるので、完了�
 | プロンプトインジェクションの一次フィルタパターンを直す                   | `rag-backend/app/injection.py` |
 
 
-詳細な運用手順・AWSリソースの実値は `portfolio-rag-progress.md` を参照
+詳細な運用手順・AWSリソースの実値は `docs/portfolio-rag-progress.md` を参照
 
 ## 禁止事項
 

@@ -98,7 +98,7 @@ function ShuffleDivide() {
 	return (
 		<PageRoot ref={pageRootRef}>
 			{" "}
-			<Header className=" " />{" "}
+			<Header className="LinkShadow " />{" "}
 			<main
 				className="ShuffleDivide [--h1FZ:clamp(32px,6.4vw,96px)]"
 				aria-label="Shuffle Divide  page"

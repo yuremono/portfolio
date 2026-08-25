@@ -28,7 +28,7 @@ const Image = ({
 	image,
 	style,
 	className = "",
-	figureClassName = "",
+	figureClassName = "w-full h-full",
 	imgClassName = "",
 	alt = "",
 }: ImageProps) => {
@@ -39,7 +39,7 @@ const Image = ({
 			: [image]
 	const figureCls = [className, figureClassName].filter(Boolean).join(" ")
 	return (
-		<figure className={figureCls} style={style}>
+		<figure className={` ${figureCls}`} style={style}>
 			{srcs.map((src) => (
 				<img
 					key={src}

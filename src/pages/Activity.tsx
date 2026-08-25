@@ -131,7 +131,7 @@ function Activity() {
 				className="min-h-screen pt-[--head] pb-[--MY] [--itemH:calc(100lvh-var(--head)-var(--PX))]"
 			>
 				<section className="out Stick bp-lg  [--scr:100%] [--shift:100%] PX  [--wid:clamp(36em,50%,720px)] ">
-					<div className="StickItem Cards col2 static lg:sticky lg:[--gap:--wid] top-[--head] text-left lg:text-right lg:min-h-[--itemH]">
+					<div className="StickItem Cards col2 flex-nowrap static lg:sticky lg:[--gap:--wid] top-[--head] text-left lg:text-right lg:min-h-[--itemH]">
 						<div
 							className="item p-[--PX] bg-[--WH] BorderXY rounded-[--btnRad] content-center"
 							aria-label="記事の切り替え"
@@ -169,7 +169,7 @@ function Activity() {
 							</nav>
 						</div>
 						<Image
-							figureClassName="item gap-2 content-center lg:max-h-[--itemH] overflow-hidden"
+							figureClassName=" item gap-2 content-center lg:max-h-[--itemH] overflow-hidden"
 							imgClassName="max-h-full object-contain"
 							image={currentImageSrcs}
 							alt=""

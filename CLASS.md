@@ -27,7 +27,7 @@ class毎に定義されている。
 
 **Intersection class**（`Js*` 形式）：
 
-`src/scss/_08intersection.scss`で定義。
+`src/styles/object/component/_intersection.scss`で定義。
 
 | class | 効果 |
 |---|---|

@@ -6,6 +6,10 @@ PROTECTED = [
     "config/production.yml"
 ]
 
+CUSTOM_MESSAGES = {
+    "public/nagi/styles/style.css": "style.cssを直接編集しない。stylesディレクトリのscssを編集しwatch or build する",
+}
+
 payload = json.load(sys.stdin)
 tool_input = payload.get("tool_input", {})
 path = tool_input.get("file_path", "")
@@ -15,6 +19,11 @@ path = tool_input.get("file_path", "")
 # 編集した際にproject_rootがずれてパス比較が常に不一致になり、フックが機能しない)。
 project_root = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".."))
 abs_path = os.path.abspath(path)
+
+for rel_path, message in CUSTOM_MESSAGES.items():
+    if abs_path == os.path.join(project_root, rel_path):
+        print(message)
+        sys.exit(2)
 
 protected_abs = [os.path.join(project_root, p) for p in PROTECTED]
 

@@ -26,6 +26,15 @@
 
 .Js {
 
+        &Particle {
+                --particle-dulation: 2s;
+                --particle-size: 4px; 
+                --particle-spread: 125%; 
+                opacity: 0;
+                &.show {
+                        opacity: 1;
+                }
+        }
         &Sheer {
                 filter: blur(var(--jsBlur));
                 opacity: 0.5;

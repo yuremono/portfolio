@@ -54,7 +54,7 @@ function Top() {
 			className="[--innerPX:--PX] [--Eng:--Jost] [--San:--Zen] [--h3FZ:1.5em] [--dropBG:--WH] [--dropC:--TC] [--WTS:var(--tsw)_var(--TC30)] "
 		>
 			<HeaderCylinder className=" " />
-			<RagChat className=""/>
+			<RagChat className="" />
 			{/* <Header className="NoLogo TopHidden mix-blend-difference text-WH" /> */}
 			{/* <div className="HeaderPagetop mix-blend-difference text-WH  ">
 				<a href="#">
@@ -74,8 +74,8 @@ function Top() {
 				)}
 			</button> */}
 
-                        <main className=" min-h-[100lvh] ">
-                                {/* MindMapMask FV */}
+			<main className=" min-h-[100lvh] ">
+				{/* MindMapMask FV */}
 				<div className="MindMapMask out fixed   mt-0 top-0 left-0 h-[100lvh] w-full contrast-75">
 					<video
 						className="MindMapVideo h-full w-full object-cover Video1"
@@ -104,8 +104,8 @@ function Top() {
 						preload="none"
 						aria-hidden="true"
 					/>
-                                </div>
-                                {/* Anchor */}
+				</div>
+				{/* Anchor */}
 				<div className="mt-0 out MindMap IsLayer  text-center  font-thin z-[0] text-WH">
 					<a
 						href="#coding"
@@ -135,7 +135,7 @@ function Top() {
 						Application
 					</a>
 				</div>
-                                {/* ScrollXSection BunmyakuTeaserSection RepulsionLists*/}
+				{/* ScrollXSection BunmyakuTeaserSection RepulsionLists*/}
 				<div className="SwapTarget out mt-0 relative isolate ">
 					<section className=" MindMap   text-center   font-thin     ">
 						{/* InitialLoadingOverlay の INITIAL_LOADING_LABEL_TEXT と文言を同期 */}
@@ -147,14 +147,22 @@ function Top() {
 							<br />
 							works
 						</p>
-						{/* <h1 className="JsLetter IsDeco text-lg font-normal budoux mmPin  static  lg:absolute lg:translateYH leading-[2em] left-1/2 top-1/2 z-10 text-left px-[--PX2] md:p-4 bg-background/50 "> */}
 						<h1 className="JsLetter IsDeco text-xl font-normal budoux mmPin  static   leading-[2em] left-1/2 top-1/2 z-10 text-left px-[--PX2] md:p-4 ">
-							<strong>3.5</strong> years as a <b>Web</b> Designer & <b>Coder</b>
+                                                        <strong>Web</strong>デザイナー兼コーダー <b>3.5年</b> 累計約 <strong>300案件</strong>
 							<br />
-							<b>AI-driven</b> development since <strong>2025.05</strong>
+							自社CMSマークアップ・<b>SCSS </b>・<b>JavaScript </b> コーディング
+                                                        <br />
+                                                        現在は <b>WordPress</b>・<strong>React</strong>・<b>AI駆動開発 </b>へ領域を広げています。
+                                                </h1>
+                                                {/* <strong>3.5</strong> years as a <b>Web</b> Designer
+							& <b>Coder</b>
 							<br />
-                                                        <b className="lsMinus">Yuremono</b>&nbsp;=&nbsp;Modulation&nbsp;<b className="lsMinus "> effectors</b>
-						</h1>
+							<b>AI-driven</b> development since{" "}
+							<strong>2025.05</strong>
+							<br />
+							<b className="lsMinus">Yuremono</b>
+							&nbsp;=&nbsp;Modulation
+                                                        <b className="lsMinus "> effectors</b> */}
 					</section>
 					<ScrollXSection className=" relative mt-0 backdrop-blur-sm">
 						<div className="DialogWrapper">
@@ -163,7 +171,7 @@ function Top() {
 									className="mm1-3 text-[--GR] font-light text-left tracking-[-0.025em]"
 									style={{ fontSize: "3em" }}
 								>
-									Experience 
+									Experience
 									<br />
 									and Tools
 								</h2>
@@ -198,7 +206,7 @@ function Top() {
 										<span className="budoux">
 											個人制作ページ、ツールをまとめています。
 											<br />
-											これまではNextJS
+											これまではNext.js
 											CMS、AIチャット共有拡張機能、
 											<br />
 											AI前提のweb開発を行なってきました。
@@ -242,475 +250,497 @@ function Top() {
 									Pencil.dev
 								</p> */}
 								<p className=" mmPin bg-GR/70 text-xs md:text-xl  absolute z-10  text-[--WH] min-h-[2.5rem] content-center left-0 bottom-0 w-full text-align-last-justify px-2 md:px-16">
-									Typescript PhotoShop Figma Three.js Supabase
+									Typescript Photoshop Figma Three.js Supabase
 									GSAP
 								</p>
 							</div>
-							{experienceDialogMounted ? <DialogFull
-								id="experience-dialog"
-								open={experienceDialogOpen}
-								dialogAriaLabel="Experience and Tools"
-								closeAriaLabel="Experience and Toolsを閉じる"
-								onOpenChange={(open) => {
-									setActiveDialogId(
-										open ? EXPERIENCE_DIALOG_KEY : null,
-									);
-								}}
-							>
-								<header className="flex items-start justify-between gap BorderB pb-4">
-									<div>
-										<p className=" text-sm  font-bold text-AC">
-											Details
-										</p>
-										<h2 className="font-medium text-GR">
-											Experience and Tools
-										</h2>
-										<p className="mt-2 leading-[--LH]">
-											職種経験と使用ツールの詳細。
-										</p>
-									</div>
-								</header>
-								<section
-									className="mt-8"
-									aria-label="Experience and Tools "
+							{experienceDialogMounted ? (
+								<DialogFull
+									id="experience-dialog"
+									open={experienceDialogOpen}
+									dialogAriaLabel="Experience and Tools"
+									closeAriaLabel="Experience and Toolsを閉じる"
+									onOpenChange={(open) => {
+										setActiveDialogId(
+											open ? EXPERIENCE_DIALOG_KEY : null,
+										);
+									}}
 								>
-									<Cards className="col3 [--gap:1rem] ">
-										<CardsItem className="space-y-4">
-											<article className="BorderXY  px-4 py-5 text-xs bg-AC/10">
-												<h3 className="text-[1rem] BorderB pb-4 flex items-baseline justify-between gap-4 ">
-													職種・スキル概要
-													<span className="text-GR   tracking-[0.1em] ">
-														4 lists
-													</span>
-												</h3>
-												<div className="DescList  [--dtW:50%] [--PY:0.25em] [--PX:0.25em]  mt-4 IsDdright ">
-													<dl className="items-center">
-														<dt className="">
-															Web デザイナー
-														</dt>
-														<dd>
-															<span className="px-2 bg-WH font-medium">
-																3.5 Year
-															</span>
-														</dd>
-														<dt className="">
-															Web コーダー
-														</dt>
-														<dd>
-															<span className="px-2 bg-WH font-medium">
-																3.5 Year
-															</span>
-														</dd>
-														<dt className="">
-															フロントエンドエンジニア
-														</dt>
-														<dd>
-															<span className="px-2 bg-WH font-medium">
-																実務未経験
-															</span>
-														</dd>
-														<dt className="">
-															AI駆動開発
-														</dt>
-														<dd>
-															<span className="px-2 bg-WH font-medium">
-																Since 2025/05
-															</span>
-														</dd>
-													</dl>
-												</div>
-											</article>
-											<article className="BorderXY  px-4 py-5 text-xs bg-WH/70">
-												<h3 className="text-[1rem] BorderB pb-4 flex items-baseline justify-between gap-4 ">
-													エージェント / web
-													<span className="text-GR   tracking-[0.1em] ">
-														4 lists
-													</span>
-												</h3>
-												<div className="DescList  [--dtW:50%] [--PY:0.25em] [--PX:0.25em]  mt-4 IsDdright">
-													<dl className="items-center">
-														<dt className="">
-															Cursor
-														</dt>
-														<dd>
-															<span className="px-2 bg-AC/30 font-medium">
-                                                                                                                        Since 2025/05
-															</span>
-														</dd>
-														<dt className="[--dtW:100%]">
-															Claude Code / GLM, OpenRouter
-														</dt>
-														<dd className="[--ddW:100%]">
-                                                                                                                        <span className="">
-                                                                                                                         2026/06~ / 2026/01~
-															</span>
-														</dd>
-														<dt className="">
-															Codex
-														</dt>
-														<dd>
-															<span className="px-2 bg-AC/30 font-medium">
-                                                                                                                        2026/04~
-															</span>
-														</dd>
-														<dt className="">
-															Gemini / NanoBanana
-														</dt>
-														<dd>
-                                                                                                                        2025~
-														</dd>
-													</dl>
-												</div>
-											</article>
-											<article className="BorderXY  px-4 py-5 text-xs bg-WH/70">
-												<h3 className="text-[1rem] BorderB pb-4 flex items-baseline justify-between gap-4 ">
-													言語 + ライブラリ
-													<span className="text-GR   tracking-[0.1em] ">
-														5 lists
-													</span>
-												</h3>
-												<div className="DescList  [--dtW:50%] [--PY:0.25em] [--PX:0.25em]  mt-4 IsDdright">
-													<dl className="items-center">
-														<dt className="[--dtW:100%]">
-															WEB
-															SCSS+JavaScript+HTML
-														</dt>
-														<dd className="[--ddW:100%]">
-															<span className="px-2 bg-AC/30 font-medium">
-																4 Years
-															</span>
-														</dd>
-														<dt>TypeScript</dt>
-														<dd>
-															<span className="px-2 bg-AC/30 font-medium">
-																AI 1 Year
-															</span>
-														</dd>
-														<dt>Python</dt>
-														<dd>AI 6 Month</dd>
-														<dt>
-															React/Next.Js/Vite
-														</dt>
-														<dd>
-															<span className="px-2 bg-AC/30 font-medium">
-																AI 1 Year
-															</span>
-														</dd>
-														<dt>
-															vue/astro/svelte
-														</dt>
-														<dd>Sometimes...</dd>
-														<dt>WordPress</dt>
-                                                                                                                <dd className="[--ddW:100%]">
-                                                                                                                        ポートフォリオトップページ、自作案件をテーマ化
-															<a
-																href="http://yuremono.com/izakaya"
-																className=" align-top leading-[1.8]"
-																target="_blank"
-																rel="noopener noreferrer"
-															>
-																wp-izakaya
-																<ArrowSquareOutIcon
-																	size={16}
-																/>
-															</a>
-															<a
-																href="http://yuremono.com/sansuien"
-																className=" align-top leading-[1.8] ml-2"
-																target="_blank"
-																rel="noopener noreferrer"
-															>
-																wp-sansuien
-																<ArrowSquareOutIcon
-																	size={16}
-																/>
-															</a>
-														</dd>
-													</dl>
-												</div>
-											</article>
-										</CardsItem>
-										<CardsItem className="space-y-4">
-											<article className="BorderXY  px-4 py-5 text-xs bg-WH/70">
-												<h3 className="text-[1rem] BorderB pb-4 flex items-baseline justify-between gap-4 ">
-													デザインツール
-													<span className="text-GR   tracking-[0.1em] ">
-														7 lists
-													</span>
-												</h3>
-												<div className="DescList  [--dtW:50%] [--PY:0.25em] [--PX:0.25em]  mt-4 IsDdright">
-													<dl className="items-center">
-														<dt className="">
-															PhotoShop
-														</dt>
-														<dd>
-															<span className="">
-																4 Year
-															</span>
-														</dd>
-														<dt className="">
-															Illustrator
-														</dt>
-														<dd>
-															<span className="">
-																4 Year
-															</span>
-														</dd>
-														<dt className="[--dtW:100%] ">
-															Figma
-														</dt>
-														<dd className="[--ddW:100%] ">
-															HtmlToFigmaなど補助利用、MCP試用
-														</dd>
-														<dt className="">
-															Pencil.dev
-														</dt>
-														<dd>
-															<span className="">
-																試作、スキル作成
-															</span>
-														</dd>
-														<dt className="">
-															Stitch
-														</dt>
-														<dd>
-															<span className="">
-                                                                                                                        試用
-															</span>
-														</dd>
-														<dt className="[--dtW:100%] ">
-															GPT Image-2.0
-														</dt>
-														<dd className="[--ddW:100%]">
-															<span className="px-2 bg-AC/30 font-medium">
-																LPデザイン・アセット作成の実運用を研究
-															</span>
-														</dd>
-														<dt className="">
-															Claude Design
-														</dt>
-														<dd>
-															<span className="">
+									<header className="flex items-start justify-between gap BorderB pb-4">
+										<div>
+											<p className=" text-sm  font-bold text-AC">
+												Details
+											</p>
+											<h2 className="font-medium text-GR">
+												Experience and Tools
+											</h2>
+											<p className="mt-2 leading-[--LH]">
+												職種経験と使用ツールの詳細。
+											</p>
+										</div>
+									</header>
+									<section
+										className="mt-8"
+										aria-label="Experience and Tools "
+									>
+										<Cards className="col3 [--gap:1rem] ">
+											<CardsItem className="space-y-4">
+												<article className="BorderXY  px-4 py-5 text-xs bg-AC/10">
+													<h3 className="text-[1rem] BorderB pb-4 flex items-baseline justify-between gap-4 ">
+														職種・スキル概要
+														<span className="text-GR   tracking-[0.1em] ">
+															4 lists
+														</span>
+													</h3>
+													<div className="DescList  [--dtW:50%] [--PY:0.25em] [--PX:0.25em]  mt-4 IsDdright ">
+														<dl className="items-center">
+															<dt className="">
+																Web デザイナー
+															</dt>
+															<dd>
+																<span className="px-2 bg-WH font-medium">
+																	3.5 Year
+																</span>
+															</dd>
+															<dt className="">
+																Web コーダー
+															</dt>
+															<dd>
+																<span className="px-2 bg-WH font-medium">
+																	3.5 Year
+																</span>
+															</dd>
+															<dt className="">
+																フロントエンドエンジニア
+															</dt>
+															<dd>
+																<span className="px-2 bg-WH font-medium">
+																	実務未経験
+																</span>
+															</dd>
+															<dt className="">
+																AI駆動開発
+															</dt>
+															<dd>
+																<span className="px-2 bg-WH font-medium">
+																	Since
+																	2025/05
+																</span>
+															</dd>
+														</dl>
+													</div>
+												</article>
+												<article className="BorderXY  px-4 py-5 text-xs bg-WH/70">
+													<h3 className="text-[1rem] BorderB pb-4 flex items-baseline justify-between gap-4 ">
+														エージェント / web
+														<span className="text-GR   tracking-[0.1em] ">
+															4 lists
+														</span>
+													</h3>
+													<div className="DescList  [--dtW:50%] [--PY:0.25em] [--PX:0.25em]  mt-4 IsDdright">
+														<dl className="items-center">
+															<dt className="">
+																Cursor
+															</dt>
+															<dd>
+																<span className="px-2 bg-AC/30 font-medium">
+																	Since
+																	2025/05
+																</span>
+															</dd>
+															<dt className="[--dtW:100%]">
+																Claude Code /
+																GLM, OpenRouter
+															</dt>
+															<dd className="[--ddW:100%]">
+																<span className="">
+																	2026/06~ /
+																	2026/01~
+																</span>
+															</dd>
+															<dt className="">
+																Codex
+															</dt>
+															<dd>
+																<span className="px-2 bg-AC/30 font-medium">
+																	2026/04~
+																</span>
+															</dd>
+															<dt className="">
+																Gemini /
+																NanoBanana
+															</dt>
+															<dd>2025~</dd>
+														</dl>
+													</div>
+												</article>
+												<article className="BorderXY  px-4 py-5 text-xs bg-WH/70">
+													<h3 className="text-[1rem] BorderB pb-4 flex items-baseline justify-between gap-4 ">
+														言語 + ライブラリ
+														<span className="text-GR   tracking-[0.1em] ">
+															5 lists
+														</span>
+													</h3>
+													<div className="DescList  [--dtW:50%] [--PY:0.25em] [--PX:0.25em]  mt-4 IsDdright">
+														<dl className="items-center">
+															<dt className="[--dtW:100%]">
+																WEB
+																SCSS+JavaScript+HTML
+															</dt>
+															<dd className="[--ddW:100%]">
+																<span className="px-2 bg-AC/30 font-medium">
+																	4 Years
+																</span>
+															</dd>
+															<dt>TypeScript</dt>
+															<dd>
+																<span className="px-2 bg-AC/30 font-medium">
+																	AI 1 Year
+																</span>
+															</dd>
+															<dt>Python</dt>
+															<dd>AI 6 Month</dd>
+															<dt>
+																React/Next.js/Vite
+															</dt>
+															<dd>
+																<span className="px-2 bg-AC/30 font-medium">
+																	AI 1 Year
+																</span>
+															</dd>
+															<dt>
+																vue/astro/svelte
+															</dt>
+															<dd>
+																Sometimes...
+															</dd>
+															<dt>WordPress</dt>
+															<dd className="[--ddW:100%]">
+																ポートフォリオトップページ、自作案件をテーマ化
+																<a
+																	href="https://yuremono.com/izakaya"
+																	className=" align-top leading-[1.8]"
+																	target="_blank"
+																	rel="noopener noreferrer"
+																>
+																	wp-izakaya
+																	<ArrowSquareOutIcon
+																		size={
+																			16
+																		}
+																	/>
+																</a>
+																<a
+																	href="https://yuremono.com/sansuien"
+																	className=" align-top leading-[1.8] ml-2"
+																	target="_blank"
+																	rel="noopener noreferrer"
+																>
+																	wp-sansuien
+																	<ArrowSquareOutIcon
+																		size={
+																			16
+																		}
+																	/>
+																</a>
+															</dd>
+														</dl>
+													</div>
+												</article>
+											</CardsItem>
+											<CardsItem className="space-y-4">
+												<article className="BorderXY  px-4 py-5 text-xs bg-WH/70">
+													<h3 className="text-[1rem] BorderB pb-4 flex items-baseline justify-between gap-4 ">
+														デザインツール
+														<span className="text-GR   tracking-[0.1em] ">
+															7 lists
+														</span>
+													</h3>
+													<div className="DescList  [--dtW:50%] [--PY:0.25em] [--PX:0.25em]  mt-4 IsDdright">
+														<dl className="items-center">
+															<dt className="">
+																Photoshop
+															</dt>
+															<dd>
+																<span className="">
+																	4 Year
+																</span>
+															</dd>
+															<dt className="">
+																Illustrator
+															</dt>
+															<dd>
+																<span className="">
+																	4 Year
+																</span>
+															</dd>
+															<dt className="[--dtW:100%] ">
+																Figma
+															</dt>
+															<dd className="[--ddW:100%] ">
+																HtmlToFigmaなど補助利用、MCP試用
+															</dd>
+															<dt className="">
+																Pencil.dev
+															</dt>
+															<dd>
+																<span className="">
+																	試作、スキル作成
+																</span>
+															</dd>
+															<dt className="">
+																Stitch
+															</dt>
+															<dd>
+																<span className="">
+																	試用
+																</span>
+															</dd>
+															<dt className="[--dtW:100%] ">
+																GPT Image-2.0
+															</dt>
+															<dd className="[--ddW:100%]">
+																<span className="px-2 bg-AC/30 font-medium">
+																	LPデザイン・アセット作成の実運用を研究
+																</span>
+															</dd>
+															<dt className="">
+																Claude Design
+															</dt>
+															<dd>
+																<span className="">
+																	試用
+																</span>
+															</dd>
+														</dl>
+													</div>
+												</article>
+												<article className="BorderXY  px-4 py-5 text-xs bg-WH/70">
+													<h3 className="text-[1rem] BorderB pb-4 flex items-baseline justify-between gap-4 ">
+														環境
+														<span className="text-GR   tracking-[0.1em] ">
+															4 lists
+														</span>
+													</h3>
+													<div className="DescList  [--dtW:40%] [--PY:0.25em] [--PX:0.25em]  mt-4 IsDdright">
+														<dl className="items-center">
+															<dt className="">
+																MacOS
+															</dt>
+															<dd>
+																<span className="px-2 bg-AC/30 font-medium">
+																	4 年
+																</span>
+															</dd>
+															<dt className="">
+																Windows
+															</dt>
+															<dd>
+																<span className="">
+																	社内利用 3.5
+																	年
+																</span>
+															</dd>
+															<dt className="[--dtW:100%] ">
+																情報収集
+															</dt>
+															<dd className="[--ddW:100%]">
+																<span className="px-2 bg-AC/30 font-medium">
+																	主にX,Zenn,+webAI
+																	ディスカバー
+																</span>
+															</dd>
+															<dt className="[--dtW:100%] ">
+																制作環境
+															</dt>
+															<dd className="[--ddW:100%]">
+																<span className="px-2 bg-AC/30 font-medium">
+																	task系,memory系,実装系スキルを作成
+																</span>
+															</dd>
+														</dl>
+													</div>
+												</article>
+												<article className="BorderXY  px-4 py-5 text-xs bg-WH/70">
+													<h3 className="text-[1rem] BorderB pb-4 flex items-baseline justify-between gap-4 ">
+														インフラ / データベース
+														<span className="text-GR   tracking-[0.1em] ">
+															5 lists
+														</span>
+													</h3>
+													<div className="DescList  [--dtW:50%] [--PY:0.25em] [--PX:0.25em]  mt-4 IsDdright">
+														<dl className="items-center">
+															<dt className="">
+																Vercel
+															</dt>
+															<dd>
+																<span className="px-2 bg-AC/30 font-medium">
+																	2025/05~
+																</span>
+															</dd>
+															<dt className="">
+																Supabase
+															</dt>
+															<dd>
+																<span className="">
+																	2025/05~
+																</span>
+															</dd>
+															<dt className="">
+																Github
+															</dt>
+															<dd>2025/05~</dd>
+															<dt className="">
+																Xserver+MySQL
+															</dt>
+															<dd>
+																<span className="">
+																	実務 4 Year
+																</span>
+															</dd>
+															<dt className="">
+																AWS S3 +
+																Cloudfront
+															</dt>
+															<dd>
+																<span className="">
+																	2026/07~
+																</span>
+															</dd>
+														</dl>
+													</div>
+												</article>
+											</CardsItem>
+											<CardsItem>
+												<article className="BorderXY  px-4 py-5 text-xs bg-WH/70">
+													<h3 className="text-[1rem] BorderB pb-4 flex items-baseline justify-between gap-4 ">
+														その他技術・利用履歴
+													</h3>
+													<div className="DescList  [--dtW:50%] [--PY:0.25em] [--PX:0.25em]  mt-4 IsDdright">
+														<dl className="items-center">
+															<dt className="">
+																Tailwind CSS
+															</dt>
+															<dd>
+																<span className="px-2 bg-AC/30 font-medium">
+																	2025/05~
+																</span>
+															</dd>
+															<dt className="">
+																canvas API
+															</dt>
+															<dd>
+																<span className="px-2 bg-AC/30 font-medium">
+																	実務でも使用
+																</span>
+															</dd>
+															<dt className="">
+																Three.js
+															</dt>
+															<dd>数回使用</dd>
+															<dt className="[--dtW:100%] ">
+																D3.js
+															</dt>
+															<dd className="[--ddW:100%] ">
+																トップページ揺れる文字で使用
+															</dd>
+															<dt className="">
+																GSAP
+															</dt>
+															<dd>3.5 Year</dd>
+															<dt className="">
+																VScode/Chrome
+																Extentions
+															</dt>
+															<dd>1~2回作成</dd>
+															<dt className="">
+																NanoBanana
+															</dt>
+															<dd>
+																スキルで利用
+															</dd>
+															<dt className="">
+																Quiver.ai/arrow-1
+															</dt>
+															<dd className="[--ddW:100%]">
+																BYOS
+																demoのsvg生成で使用、注目
+															</dd>
+															<dt className="[--dtW:100%] ">
+																Recraft
+															</dt>
+															<dd className="[--ddW:100%]">
+																<span className="">
+																	高度な画像、SVG生成で注目...
+																</span>
+															</dd>
+															<dt className="">
+																LottieAnimation
+															</dt>
+															<dd>
+																webツール試用
+															</dd>
+															<dt className="">
+																memsearch
+															</dt>
+															<dd>
+																claude/codexで常用
+															</dd>
+															<dt className="">
+																superpowers/oh-my-claudecode
+															</dt>
+															<dd className="">
+																<span>
+																	試用
+																</span>
+															</dd>
+															<dt className="">
+																tweekpane
+															</dt>
+															<dd className="">
+																`/Generator`で使用
+															</dd>
+															<dt className="">
+																Z.ai Coding Plan
+															</dt>
+															<dd className="">
+																Claude
+																Codeで使用
+															</dd>
+															<dt className="">
+																Open Router
+															</dt>
+															<dd className="">
+																Claude
+																Codeで使用
+															</dd>
+															<dt className="">
+																Fal AI
+															</dt>
+															<dd className="">
+																動画生成で使用
+															</dd>
+															<dt className="">
+																OpenClaw /
+																hermes
+															</dt>
+															<dd className="">
 																試用
-															</span>
-														</dd>
-													</dl>
-												</div>
-											</article>
-											<article className="BorderXY  px-4 py-5 text-xs bg-WH/70">
-												<h3 className="text-[1rem] BorderB pb-4 flex items-baseline justify-between gap-4 ">
-													環境
-													<span className="text-GR   tracking-[0.1em] ">
-														4 lists
-													</span>
-												</h3>
-												<div className="DescList  [--dtW:40%] [--PY:0.25em] [--PX:0.25em]  mt-4 IsDdright">
-													<dl className="items-center">
-														<dt className="">
-															MacOS
-														</dt>
-														<dd>
-															<span className="px-2 bg-AC/30 font-medium">
-																4 年
-															</span>
-														</dd>
-														<dt className="">
-															Windows
-														</dt>
-														<dd>
-															<span className="">
-																社内利用 3.5 年
-															</span>
-														</dd>
-														<dt className="[--dtW:100%] ">
-															情報収集
-														</dt>
-														<dd className="[--ddW:100%]">
-															<span className="px-2 bg-AC/30 font-medium">
-																主にX,Zenn,+webAI
-																ディスカバー
-															</span>
-														</dd>
-														<dt className="[--dtW:100%] ">
-															制作環境
-														</dt>
-														<dd className="[--ddW:100%]">
-															<span className="px-2 bg-AC/30 font-medium">
-																task系,memory系,実装系スキルを作成
-															</span>
-														</dd>
-													</dl>
-												</div>
-											</article>
-											<article className="BorderXY  px-4 py-5 text-xs bg-WH/70">
-												<h3 className="text-[1rem] BorderB pb-4 flex items-baseline justify-between gap-4 ">
-													インフラ / データベース
-													<span className="text-GR   tracking-[0.1em] ">
-														5 lists
-													</span>
-												</h3>
-												<div className="DescList  [--dtW:50%] [--PY:0.25em] [--PX:0.25em]  mt-4 IsDdright">
-													<dl className="items-center">
-														<dt className="">
-															Vercel
-														</dt>
-														<dd>
-															<span className="px-2 bg-AC/30 font-medium">
-                                                                                                                        2025/05~
-															</span>
-														</dd>
-														<dt className="">
-															Supabase
-														</dt>
-														<dd>
-															<span className="">
-                                                                                                                        2025/05~
-															</span>
-														</dd>
-														<dt className="">
-															Github
-														</dt>
-														<dd>2025/05~</dd>
-														<dt className="">
-															Xserver+MySQL
-														</dt>
-														<dd>
-															<span className="">
-																実務 4 Year
-															</span>
-														</dd>
-														<dt className="">
-															AWS S3 + Cloudfront
-														</dt>
-														<dd>
-															<span className="">
-																2026/07~
-															</span>
-														</dd>
-													</dl>
-												</div>
-											</article>
-										</CardsItem>
-										<CardsItem>
-											<article className="BorderXY  px-4 py-5 text-xs bg-WH/70">
-												<h3 className="text-[1rem] BorderB pb-4 flex items-baseline justify-between gap-4 ">
-													その他技術・利用履歴
-												</h3>
-												<div className="DescList  [--dtW:50%] [--PY:0.25em] [--PX:0.25em]  mt-4 IsDdright">
-													<dl className="items-center">
-														<dt className="">
-															Tailwind CSS
-														</dt>
-														<dd>
-															<span className="px-2 bg-AC/30 font-medium">
-                                                                                                                        2025/05~
-															</span>
-														</dd>
-														<dt className="">
-															canvas API
-														</dt>
-														<dd>
-															<span className="px-2 bg-AC/30 font-medium">
-																実務でも使用
-															</span>
-														</dd>
-														<dt className="">
-															Three.js
-														</dt>
-														<dd>数回使用</dd>
-														<dt className="[--dtW:100%] ">
-															D3.js
-														</dt>
-														<dd className="[--ddW:100%] ">トップページ揺れる文字で使用</dd>
-														<dt className="">
-															GSAP
-														</dt>
-														<dd>3.5 Year</dd>
-														<dt className="">
-															VScode/Chrome
-															Extentions
-														</dt>
-														<dd>1~2回作成</dd>
-														<dt className="">
-															NanoBanana
-														</dt>
-														<dd>
-															スキルで利用
-														</dd>
-														<dt className="">
-															Quiver.ai/arrow-1
-														</dt>
-														<dd className="[--ddW:100%]">
-															BYOS
-															demoのsvg生成で使用、注目
-														</dd>
-														<dt className="[--dtW:100%] ">
-															Recraft
-														</dt>
-														<dd className="[--ddW:100%]">
-															<span className="">
-																高度な画像、SVG生成で注目...
-															</span>
-														</dd>
-														<dt className="">
-															LottieAnimation
-														</dt>
-														<dd>webツール試用</dd>
-														<dt className="">
-															memsearch
-														</dt>
-														<dd>
-															claude/codexで常用
-														</dd>
-														<dt className="">
-															superpowers/oh-my-claudecode
-														</dt>
-														<dd className="">
-															<span>試用</span>
-														</dd>
-														<dt className="">
-															tweekpane
-														</dt>
-														<dd className="">
-															`/Generator`で使用
-														</dd>
-														<dt className="">
-															Z.ai Coding Plan
-														</dt>
-														<dd className="">
-															Claude Codeで使用
-														</dd>
-														<dt className="">
-															Open Router
-														</dt>
-														<dd className="">
-                                                                                                                Claude Codeで使用
-														</dd>
-														<dt className="">
-															Fal AI
-														</dt>
-														<dd className="">
-															動画生成で使用
-														</dd>
-														<dt className="">
-															OpenClaw / hermes
-														</dt>
-														<dd className="">
-															試用
-														</dd>
-														<dt className="">
-															tailscale
-														</dt>
-														<dd className="">
-															スマホターミナル操作試用
-														</dd>
-													</dl>
-												</div>
-											</article>
-										</CardsItem>
-									</Cards>
-								</section>
-							</DialogFull> : null}
+															</dd>
+															<dt className="">
+																tailscale
+															</dt>
+															<dd className="">
+																スマホターミナル操作試用
+															</dd>
+														</dl>
+													</div>
+												</article>
+											</CardsItem>
+										</Cards>
+									</section>
+								</DialogFull>
+							) : null}
 						</div>
 						<section className="MMBhide Cards col2 relative items-center into [--gap:0px]">
 							<div className="item PX">
@@ -787,7 +817,7 @@ function Top() {
 								</div>
 							</div>
 							<p className="bg-GR/70 text-xs md:text-xl absolute z-10  font-thin Eng text-[--WH] min-h-[2.5rem] content-center left-0 bottom-0 w-full text-align-last-justify px-2 md:px-16">
-								Typescript PhotoShop Figma Three.js Supabase
+								Typescript Photoshop Figma Three.js Supabase
 								GSAP
 							</p>
 						</section>
@@ -798,11 +828,11 @@ function Top() {
 					<div className="MMBhide repulsion-lists-module  mt-[-25lvh] z-10">
 						<RepulsionLists className="out px-[calc(var(--into)/3*2)] mt-[--MY] Eng font-light " />
 					</div>
-                                </div>
-                                {/* coding */}
+				</div>
+				{/* coding */}
 				<section
 					id="coding"
-					className="AnchorTarget out mt-0 relative isolate  text-WH  [--deco:--wine]"
+					className="AnchorTarget out  relative isolate  text-WH  [--deco:--wine]"
 				>
 					<div className=" MindMap   text-center   font-thin    ">
 						<h2 className="JsLetter IsDeco2 text-xl font-normal budoux mmPin  static   leading-[2em] left-1/2 top-1/2 z-10 text-left px-[--PX2] md:p-4 ">
@@ -824,11 +854,11 @@ function Top() {
 						</h2>
 					</div>
 					<CodingSection className="out py-[--MY] relative mt-0  backdrop-blur-sm    grid " />
-                                </section>
-                                {/* design */}
+				</section>
+				{/* design */}
 				<section
 					id="design"
-					className="AnchorTarget  out mt-0 relative isolate  text-WH  [--deco:--brown]"
+					className="AnchorTarget  out  relative isolate  text-WH  [--deco:--brown]"
 				>
 					<div className=" MindMap   text-center   font-thin     ">
 						<h2 className="JsLetter IsDeco2 text-xl font-normal budoux mmPin  static   leading-[2em] left-1/2 top-1/2 z-10 text-left px-[--PX2] md:p-4 ">
@@ -844,11 +874,11 @@ function Top() {
 						</h2>
 					</div>
 					<DesignSection className="out py-[--MY] relative mt-0  backdrop-blur-sm    grid " />
-                                </section>
-                                {/* frontend */}
+				</section>
+				{/* frontend */}
 				<section
 					id="frontend"
-					className="AnchorTarget out mt-0 relative isolate  text-WH  [--deco:--forest]"
+					className="AnchorTarget out  relative isolate  text-WH  [--deco:--forest]"
 				>
 					<div className=" MindMap   text-center   font-thin     ">
 						<h2 className="JsLetter IsDeco2 text-xl font-normal budoux mmPin  static   leading-[2em] left-1/2 top-1/2 z-10 text-left px-[--PX2] md:p-4 ">

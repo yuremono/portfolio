@@ -21,8 +21,8 @@ export function Footer({ className }: FooterProps) {
 			<div className="DescList  IsCenter     ">
 				<div>
 					<dl>
-						<dt>Name</dt>
-						<dd>Yano Seiji</dd>
+						{/* <dt>Name</dt>
+						<dd>Yano Seiji</dd> */}
 						<dt>Hobby</dt>
 						<dd>
 							Manga I love

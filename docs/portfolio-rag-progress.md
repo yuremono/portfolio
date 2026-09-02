@@ -70,11 +70,11 @@
 
 | 用途 | パス | Git |
 |---|---|---|
-| フロントエンド(このリポジトリ) | `/Users/yanoseiji/projects/0413portfolio` | GitHub Pagesへ公開中の本体。リモート `git@github.com:yuremono/portfolio.git` |
-| バックエンド | `/Users/yanoseiji/projects/0413portfolio/rag-backend/` | **`0413portfolio`直下に移動済み(2026-07-03)。別Gitリポジトリのまま、`.gitignore`で追跡除外・push禁止方針を継続** |
-| RAGソースデータ(個人の考え・Q&A・成果物のMarkdown) | `/Users/yanoseiji/rag-data/portfolio-rag/entries/` | **Gitリポジトリではない、ただのディレクトリ**(意図的。個人情報を公開リポジトリ履歴に残さないため) |
-| ビルド済みDB | `/Users/yanoseiji/rag-data/portfolio-rag/build/portfolio.db` | 同上、Git管理外 |
-| チャットUIの参考実装(読み取り専用、流用元) | `/Users/yanoseiji/Desktop/0406agent-driven-CMS/app/components/DevEditorOverlay.jsx` | 別プロジェクト、編集しない |
+| フロントエンド(このリポジトリ) | `~/projects/0413portfolio` | GitHub Pagesへ公開中の本体。リモート `git@github.com:yuremono/portfolio.git` |
+| バックエンド | `~/projects/0413portfolio/rag-backend/` | **`0413portfolio`直下に移動済み(2026-07-03)。別Gitリポジトリのまま、`.gitignore`で追跡除外・push禁止方針を継続** |
+| RAGソースデータ(個人の考え・Q&A・成果物のMarkdown) | `~/rag-data/portfolio-rag/entries/` | **Gitリポジトリではない、ただのディレクトリ**(意図的。個人情報を公開リポジトリ履歴に残さないため) |
+| ビルド済みDB | `~/rag-data/portfolio-rag/build/portfolio.db` | 同上、Git管理外 |
+| チャットUIの参考実装(読み取り専用、流用元) | `~/Desktop/0406agent-driven-CMS/app/components/DevEditorOverlay.jsx` | 別プロジェクト、編集しない |
 
 ### フロントエンドの主要ファイル
 - `src/components/RagChat.tsx` — メッセージ一覧・入力欄・送信処理。`${import.meta.env.VITE_RAG_API_URL}/ask` を叩く
@@ -145,7 +145,7 @@
 | 許可するフロントのオリジンを追加/変更したい | App Runnerの環境変数 `ALLOWED_ORIGIN`(カンマ区切り) | `aws apprunner update-service` で変更、§7参照 |
 | プロンプトインジェクション対策を強化したい | `rag-backend/app/injection.py`(検知パターン)、`app/bedrock.py`(システムプロンプト文面、§9参照) | |
 | 特定質問でライブ情報取得を強制したい | `rag-backend/app/tools.py` の `LIVE_INFO_RULES`(トリガーワード↔URL) | AIの判断に頼らない確定ルール方式(§9参照) |
-| チャットUIの見た目・挙動を変えたい | `src/components/RagChat.tsx`(メッセージ/入力欄)、`RagChatLauncher.tsx`(ボタン位置・パネル開閉) | 参考実装: `/Users/yanoseiji/Desktop/0406agent-driven-CMS/app/components/DevEditorOverlay.jsx` |
+| チャットUIの見た目・挙動を変えたい | `src/components/RagChat.tsx`(メッセージ/入力欄)、`RagChatLauncher.tsx`(ボタン位置・パネル開閉) | 参考実装: `~/Desktop/0406agent-driven-CMS/app/components/DevEditorOverlay.jsx` |
 | ヘッダーのボタンサイズ・配置を変えたい | `src/scss/_03header.scss` の `.RagChatLauncher` ブロック | `var(--head)` を流用している。新しい変数を作らない |
 | 生成モデルを変更したい | `rag-backend/app/config.py` の `GENERATE_MODEL_ID` | **IAMポリシー(`portfolio-rag-apprunner-instance`ロール)のResource ARNも要更新の可能性が高い**(§6参照) |
 | 埋め込みモデルを変更したい | `config.py` の `EMBED_MODEL_ID` / `EMBED_DIM` | 変更したら `build_db.py` を再実行してDBを作り直す必要がある(次元数が変わるため) |
